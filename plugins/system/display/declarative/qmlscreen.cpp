@@ -25,6 +25,7 @@
 
 #include <QTimer>
 #include <sys/socket.h>
+#include <QProcess>
 
 Q_DECLARE_METATYPE(KScreen::OutputPtr)
 
@@ -33,6 +34,7 @@ QMLScreen::QMLScreen(QQuickItem *parent) :
 {
     connect(this, &QMLScreen::widthChanged, this, &QMLScreen::viewSizeChanged);
     connect(this, &QMLScreen::heightChanged, this, &QMLScreen::viewSizeChanged);
+    setX100GPU();
 }
 
 QMLScreen::~QMLScreen()
@@ -232,14 +234,14 @@ void QMLScreen::setScreenPos(QMLOutput *output, bool isReleased)
 {
     QPointF posBefore = output->position();
     // 镜像模式下跳过屏幕旋转处理
-    if (this->primaryOutput() && this->primaryOutput()->isCloneMode()) {
+    if (output->isCloneMode()) {
         return;
     }
 
-    int x1 = 0, y1 = 0;
-    int width1 = 0, height1 = 0;
-    int x2 = 0, y2 = 0;
-    int width2 = 0, height2 = 0;
+    float x1 = 0, y1 = 0;
+    float width1 = 0, height1 = 0;
+    float x2 = 0, y2 = 0;
+    float width2 = 0, height2 = 0;
 
     x1 = output->x();
     y1 = output->y();
@@ -299,6 +301,39 @@ void QMLScreen::setScreenPos(QMLOutput *output, bool isReleased)
             } else if ((y1 < y2  + height2) && (y1 + height1 > y2 + height2)) {
                 output->setY(y2 + height2);
             }
+        }
+    }
+
+    if (mIsX100) {
+        // PX100需求
+        x1 = output->x();
+        y1 = output->y();
+        width1 = output->width();
+        height1 = output->height();
+
+        Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
+            if (qmlOutput->output()->isConnected()) {
+                connectedScreen++;
+            }
+            if (qmlOutput != output && qmlOutput->output()->isConnected()) {
+                other = qmlOutput;
+                x2 = other->x();
+                y2 = other->y();
+                width2 = other->width();
+                height2 = other->height();
+            }
+        }
+
+
+        // 对上下左右四种情况进行处理
+        if (qFuzzyCompare(x1 + width1, x2) && !qFuzzyCompare(y1, y2)) {
+            other->setY(y1);
+        } else if (qFuzzyCompare(x2 + width2, x1) && !qFuzzyCompare(y1, y2)) {
+            output->setY(y2);
+        } else if (qFuzzyCompare(y1 + height1, y2) && !qFuzzyCompare(x1, x2)) {
+           other->setX(x1);
+        }  else if (qFuzzyCompare(y2 + height2, y1) && !qFuzzyCompare(x1, x2)) {
+           output->setX(x2);
         }
     }
 
@@ -469,6 +504,15 @@ void QMLScreen::setOutputScale(float scale)
         return;
     m_outputScale = scale;
     emit outputScaleChanged();
+}
+
+void QMLScreen::setX100GPU()
+{
+    QProcess *gpuPro = new QProcess();
+    gpuPro->start("lspci");
+    gpuPro->waitForFinished();
+    QString output = gpuPro->readAll();
+    mIsX100 = output.contains("X100");
 }
 
 // 画坐标

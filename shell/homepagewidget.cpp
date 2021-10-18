@@ -30,6 +30,7 @@
 
 #include <QSvgRenderer>
 #include "mainwindow.h"
+#include "mhomedelegate.h"
 #include "utils/keyvalueconverter.h"
 #include "component/clicklabel.h"
 #include "utils/functionselect.h"
@@ -47,6 +48,7 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
 
     // 初始化首页
     initUI();
+    setMagins();
 }
 
 HomePageWidget::~HomePageWidget()
@@ -55,7 +57,7 @@ HomePageWidget::~HomePageWidget()
     ui = nullptr;
 }
 
-void HomePageWidget::initUI(){
+void HomePageWidget::initUI() {
     ui->listWidget->setResizeMode(QListView::Adjust);
     ui->listWidget->setViewMode(QListView::IconMode);
     ui->listWidget->setMovement(QListView::Static);
@@ -63,7 +65,6 @@ void HomePageWidget::initUI(){
 
     ui->listWidget->setFocusPolicy(Qt::NoFocus);
     ui->listWidget->setSelectionMode(QAbstractItemView::NoSelection);
-
 
     mModuleMap = Utils::getModuleHideStatus();
 
@@ -74,6 +75,7 @@ void HomePageWidget::initUI(){
     FunctionSelect::initValue();
 
     QSignalMapper * moduleSignalMapper = new QSignalMapper(this);
+
 
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++) {
         //获取插件QMap
@@ -231,6 +233,8 @@ void HomePageWidget::initUI(){
             }
         });
 
+        mHomeDelegate *delegate  = new mHomeDelegate;
+       ui->listWidget->setItemDelegate(delegate);
 
         QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
         item->setSizeHint(QSize(360, 100));
@@ -299,6 +303,13 @@ QPixmap HomePageWidget::drawSymbolicColoredPixmap(const QPixmap &source, COLOR c
         }
     }
     return QPixmap::fromImage(img);
+}
+
+void HomePageWidget::setMagins()
+{
+    int screenWidth= Utils::sizeOnCursor().width();
+    int marginLR = (screenWidth > 1440) ? 260 : 169;
+    ui->homepageLayout->setContentsMargins(marginLR, 0, 0, 0);
 }
 
 /*

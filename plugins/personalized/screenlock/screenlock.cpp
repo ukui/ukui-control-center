@@ -28,6 +28,8 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <sys/stat.h>
+#include <QFuture>
+#include <QtConcurrent>
 
 #define BGPATH                  "/usr/share/backgrounds/"
 #define SCREENLOCK_BG_SCHEMA    "org.ukui.screensaver"
@@ -110,7 +112,7 @@ void Screenlock::initSearchText() {
     ui->activepicLabel->setText(tr("Lock screen when screensaver boot"));
     //~ contents_path /screenlock/Browser local wp
     ui->browserLocalwpBtn->setText(tr("Browser local wp"));
-    //~ contents_path /screenlock/Browser online wp
+    //~ contents_path /screenlock/Browser local wp
     ui->browserOnlinewpBtn->setText(tr("Browser online wp"));
 }
 
@@ -388,19 +390,25 @@ bool Screenlock::getLockStatus()
 
 void Screenlock::connectToServer()
 {
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid())
-    {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+    });
 }
 
 void Screenlock::keyChangedSlot(const QString &key)
@@ -428,9 +436,46 @@ void Screenlock::keyChangedSlot(const QString &key)
 
 void Screenlock::setScreenLockBgSlot()
 {
+
+
     QStringList filters;
     filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)")<<tr("allFiles(*.*)");
     QFileDialog fd(pluginWidget);
+
+    QList<QUrl> usb_list = fd.sidebarUrls();
+    int sidebarNum = 8;// 最大添加U盘数，可以自己定义
+    QString home_path = QDir::homePath().section("/", -1, -1);
+    QString mnt = "/media/" + home_path + "/";
+    QDir mntDir(mnt);
+    mntDir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
+    QFileInfoList file_list = mntDir.entryInfoList();
+    QList<QUrl> mntUrlList;
+    for (int i = 0; i < sidebarNum && i < file_list.size(); ++i) {
+        QFileInfo fi = file_list.at(i);
+        mntUrlList << QUrl("file://" + fi.filePath());
+    }
+
+    QFileSystemWatcher m_fileSystemWatcher(&fd);
+    m_fileSystemWatcher.addPath("/media/" + home_path + "/");
+    connect(&m_fileSystemWatcher, &QFileSystemWatcher::directoryChanged, &fd,
+            [=, &sidebarNum, &mntUrlList, &usb_list, &fd](const QString path) {
+        QDir m_wmntDir(path);
+        m_wmntDir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
+        QFileInfoList m_wfilist = m_wmntDir.entryInfoList();
+        mntUrlList.clear();
+        for (int i = 0; i < sidebarNum && i < m_wfilist.size(); ++i) {
+            QFileInfo m_fi = m_wfilist.at(i);
+            mntUrlList << QUrl("file://" + m_fi.filePath());
+        }
+        fd.setSidebarUrls(usb_list + mntUrlList);
+        fd.update();
+    });
+
+    connect(&fd, &QFileDialog::finished, &fd, [=, &usb_list, &fd]() {
+        fd.setSidebarUrls(usb_list);
+    });
+
+
     fd.setDirectory(QString(const_cast<char *>(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES))));
     fd.setAcceptMode(QFileDialog::AcceptOpen);
     fd.setViewMode(QFileDialog::List);
@@ -442,6 +487,8 @@ void Screenlock::setScreenLockBgSlot()
     fd.setLabelText(QFileDialog::FileName, tr("FileName: "));
     fd.setLabelText(QFileDialog::FileType, tr("FileType: "));
     fd.setLabelText(QFileDialog::Reject, tr("Cancel"));
+
+    fd.setSidebarUrls(usb_list + mntUrlList);
 
     if (fd.exec() != QDialog::Accepted)
         return;

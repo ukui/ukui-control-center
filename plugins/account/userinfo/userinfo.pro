@@ -23,14 +23,18 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
+		 /usr/include/opencv4
 
-LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam
+LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam -lkysec   -lpwquality
+DEFINES += ENABLEPQ
+DEFINES += WITHKYSEC
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0 \
+		 opencv4 \
                  gsettings-qt
 
 
@@ -60,7 +64,8 @@ SOURCES += \
     biometricproxy.cpp \
     biometricenroll.cpp \
     biometricmoreinfo.cpp \
-    servicemanager.cpp
+    servicemanager.cpp \
+    giodbus.cpp
 
 HEADERS += \
     changegroupdialog.h \
@@ -87,7 +92,8 @@ HEADERS += \
     biometricproxy.h \
     biometricenroll.h \
     biometricmoreinfo.h \
-    servicemanager.h 
+    servicemanager.h \
+    giodbus.h
 
 FORMS += \
     changegroupdialog.ui \

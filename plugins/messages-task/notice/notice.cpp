@@ -134,9 +134,9 @@ const QString Notice::name() const
 
 void Notice::initSearchText()
 {
-    // ~ contents_path /notice/Set notice type of operation center
+    //~ contents_path /notice/Get notifications from the app
+    ui->label_3->setText(tr("Get notifications from the app"));
     ui->noticeLabel->setText(tr("Set notice type of operation center"));
-    // ~ contents_path /notice/Notice Origin
     ui->title2Label->setText(tr("Notice Origin"));
 }
 

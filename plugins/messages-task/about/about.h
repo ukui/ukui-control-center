@@ -65,6 +65,9 @@ private:
     void setupVersionCompenent();
     void setupSerialComponent();
     bool QLabelSetText(QLabel *label, QString string);
+    void showExtend(QString dateres);
+    char *ntpdate();
+    int getMonth(QString month);
 
     qlonglong calculateTotalRam();
 
@@ -95,6 +98,7 @@ private slots:
     void runActiveWindow();
     void showPdf();
     void activeSlot(int activeSignal);
+    void ChangedSlot();
 };
 
 #endif // ABOUT_H

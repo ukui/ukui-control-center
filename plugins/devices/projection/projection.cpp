@@ -1,4 +1,4 @@
-﻿ /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+﻿/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -47,7 +47,6 @@ enum {
 Projection::Projection()
 {
     pluginName = tr("Projection");
-    //~ contents_path /bluetooth/Bluetooth
     pluginType = DEVICES;
     ui = new Ui::Projection;
     pluginWidget = new QWidget;
@@ -56,14 +55,14 @@ Projection::Projection()
     ui->setupUi(pluginWidget);
     projectionBtn = new SwitchButton(pluginWidget);
 
-//   ui->pinframe->hide();
+    //   ui->pinframe->hide();
     init_button_status(get_process_status());
-//    qDebug()<<"---- Projection contructed, then subscribe slot func ";
+    //    qDebug()<<"---- Projection contructed, then subscribe slot func ";
     connect(projectionBtn, SIGNAL(checkedChanged(bool)), this, SLOT(projectionButtonClickSlots(bool)));
     // m_pin = new QLabel(pluginWidget);
     // ui->label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     ui->label->setStyleSheet("QLabel{color: palette(windowText);}");
-    //~ contents_path /bluetooth/Open Bluetooth
+    //~ contents_path /projection/Open Projection
     ui->titleLabel->setText(tr("Open Projection"));
     ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 
@@ -78,9 +77,9 @@ Projection::Projection()
     qDebug()<<bo<<"bo";
     if (!bo) {
         QDBusInterface *hostInterface = new QDBusInterface("org.freedesktop.hostname1",
-                                                          "/org/freedesktop/hostname1",
-                                                          "org.freedesktop.hostname1",
-                                                          QDBusConnection::systemBus());
+                                                           "/org/freedesktop/hostname1",
+                                                           "org.freedesktop.hostname1",
+                                                           QDBusConnection::systemBus());
         hostName = hostInterface->property("Hostname").value<QString>();
         setting->setValue("host",hostName);
         setting->sync();
@@ -172,18 +171,17 @@ void Projection::catchsignal()
             connect(m_pServiceInterface,SIGNAL(PinCode(QString, QString)),this,SLOT(projectionPinSlots(QString,QString)));
             return;
         }else {
-            qDebug()<<"失败";
             delete m_pServiceInterface;
             delaymsec(1000);
         }
     }
-\
+    \
 }
 void Projection::delaymsec(int msec)
 {
     QTime dieTime = QTime::currentTime().addMSecs(msec);
     while( QTime::currentTime() < dieTime )
-    QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
 Projection::~Projection()
@@ -219,7 +217,7 @@ int Projection::get_process_status(void)
 
 void Projection::init_button_status(int status)
 {
-//    qDebug()<<"---- button init status "<<status;
+    //    qDebug()<<"---- button init status "<<status;
     if (status == PROJECTION_RUNNING) {
         projectionBtn->setChecked(true);
     }
@@ -231,6 +229,7 @@ void Projection::init_button_status(int status)
 QWidget *Projection::get_plugin_ui(){
     int res;
     int projectionstatus;
+
 
     res = get_process_status();
 
@@ -251,7 +250,6 @@ QWidget *Projection::get_plugin_ui(){
     ui->label_3->hide();
     ui->widget_2->show();
     ui->label_setsize->setText("");
-
     //First, we check whether service process is running
     if (NO_SERVICE == projectionstatus) {
         ui->label_2->setText(tr("Service exception,please restart the system"));
@@ -279,6 +277,7 @@ QWidget *Projection::get_plugin_ui(){
             ui->widget_2->hide();
             ui->projectionNameWidget->setEnabled(true);
             projectionBtn->setEnabled(true);
+            ui->label_setsize->setText(tr("After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details"));
         }
         else
         {
@@ -323,15 +322,33 @@ void Projection::projectionPinSlots(QString type, QString pin) {
 
 void Projection::projectionButtonClickSlots(bool status) {
 
-    if (status){        
+    QDBusInterface interface( "org.freedesktop.Notifications",
+                              "/org/freedesktop/Notifications",
+                              "org.freedesktop.Notifications",
+                              QDBusConnection::sessionBus());
+    QString appname = tr("projection");
+    quint32 notify_id = 0;
+    QString app_icon = "kylin-miracast";
+    QString tilte = tr("Projection is ")+  QString(status?tr("on"):tr("off"));
+    QString body = status?tr("Please enable or refresh the scan at the projection device"):tr("You need to turn on the projection again");
+    qint32 timeout = 5000;
+    QStringList arry1;
+    QVariantMap arry2;
+
+    if (status){
         QDBusMessage result = m_pServiceInterface->call("Start",ui->projectionName->text(),"");
         QList<QVariant> outArgs = result.arguments();
         int res = outArgs.at(0).value<int>();
-        qDebug() << "Execute Start method call result -->" << res;
         if(res)
-           ui->label_3->setText(tr("Failed to execute. Please reopen the page later"));
+        {
+            ui->label_3->setText(tr("Failed to execute. Please reopen the page later"));
+        }else
+        {
+            interface.call(QLatin1String("Notify"),appname,notify_id,app_icon,tilte,body,arry1,arry2,timeout);
+        }
     } else {
         m_pServiceInterface->call("Stop");
+        interface.call(QLatin1String("Notify"),appname,notify_id,app_icon,tilte,body,arry1,arry2,timeout);
     }
 }
 
@@ -346,7 +363,6 @@ void Projection::initComponent(){
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    //~ contents_path /bluetooth/Add Bluetooths
     QLabel * textLabel = new QLabel(tr("Add Bluetooths"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);

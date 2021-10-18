@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>915</height>
+    <height>1058</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -45,7 +45,7 @@
     <number>32</number>
    </property>
    <property name="bottomMargin">
-    <number>40</number>
+    <number>214</number>
    </property>
    <item>
     <widget class="TitleLabel" name="titleLabel">
@@ -123,13 +123,13 @@
      <property name="minimumSize">
       <size>
        <width>550</width>
-       <height>492</height>
+       <height>508</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>492</height>
+       <height>508</height>
       </size>
      </property>
      <property name="frameShape">
@@ -201,7 +201,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <property name="spacing">
-              <number>0</number>
+              <number>8</number>
              </property>
              <property name="leftMargin">
               <number>16</number>
@@ -210,7 +210,7 @@
               <number>16</number>
              </property>
              <item>
-              <widget class="QLabel" name="programLabel">
+              <widget class="FixLabel" name="programLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -219,13 +219,13 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
+                 <width>210</width>
                  <height>36</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>198</width>
+                 <width>210</width>
                  <height>36</height>
                 </size>
                </property>
@@ -275,13 +275,13 @@
           <property name="minimumSize">
            <size>
             <width>550</width>
-            <height>306</height>
+            <height>374</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>960</width>
-            <height>306</height>
+            <height>374</height>
            </size>
           </property>
           <property name="frameShape">
@@ -311,83 +311,6 @@
              <property name="spacing">
               <number>2</number>
              </property>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QFrame" name="showTimeFrame">
-          <property name="minimumSize">
-           <size>
-            <width>550</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>960</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::Box</enum>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_9">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <layout class="QHBoxLayout" name="showTimeLayout">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>16</number>
-             </property>
-             <property name="rightMargin">
-              <number>16</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="showTimeLabel">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>196</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>196</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
             </layout>
            </item>
           </layout>
@@ -438,7 +361,7 @@
            <item>
             <layout class="QHBoxLayout" name="lockhorizontalLayout">
              <property name="spacing">
-              <number>10</number>
+              <number>0</number>
              </property>
              <property name="leftMargin">
               <number>16</number>
@@ -594,7 +517,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>90</height>
+       <height>20</height>
       </size>
      </property>
     </spacer>
@@ -613,6 +536,11 @@
    <extends>QWidget</extends>
    <header>screensaver.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>Label/fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

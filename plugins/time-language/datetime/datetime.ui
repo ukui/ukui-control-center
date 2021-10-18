@@ -171,15 +171,15 @@
      <widget class="QPushButton" name="chgzonebtn">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>240</x>
         <y>100</y>
-        <width>188</width>
+        <width>208</width>
         <height>36</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>120</width>
+        <width>208</width>
         <height>36</height>
        </size>
       </property>
@@ -190,7 +190,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Change time zone</string>
+       <string>Change timezone</string>
       </property>
      </widget>
      <widget class="QPushButton" name="chgtimebtn">
@@ -198,13 +198,13 @@
        <rect>
         <x>16</x>
         <y>100</y>
-        <width>188</width>
+        <width>208</width>
         <height>36</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>120</width>
+        <width>208</width>
         <height>36</height>
        </size>
       </property>

@@ -27,6 +27,8 @@
 #include <QMouseEvent>
 #include <QSettings>
 
+#include <QDBusObjectPath>
+
 #include "shell/interface.h"
 
 #include "qtdbus/systemdbusdispatcher.h"
@@ -45,6 +47,8 @@
 #include "biometricproxy.h"
 #include "biometricenroll.h"
 #include "biometricmoreinfo.h"
+
+#include "pwdchangethread.h"
 
 #ifdef ENABLEPQ
 extern "C" {
@@ -151,6 +155,7 @@ public:
     bool getBioStatus();
     void biometricShowMoreInfoDialog();
     bool isShowBiometric();
+    void setBioVisible(bool visible);
 
     QStringList getLoginedUsers();
     void _acquireAllUsersInfo();
@@ -165,7 +170,6 @@ public:
 
     void showCreateUserDialog();
     void createUser(QString username, QString pwd, QString pin, int atype);
-    void createUserDone(QString objpath);
 
     void showDeleteUserDialog(QString username);
     void deleteUser(bool removefile, QString username);
@@ -210,14 +214,21 @@ private:
     QWidget * pluginWidget;
     HoverWidget *addWgt;
 
+    PwdChangeThread * pcgThread;
+
+    QGSettings * pSetting;
+
     //增加生物密码
     HoverWidget *addBioFeatureWidget;
+    QLabel      *bioTextLabel;
     BiometricProxy      *proxy;
     DeviceMap           deviceMap;
     DeviceInfoPtr       currentDevice;
     BiometricProxy      *m_biometricProxy;
     QDBusInterface      *serviceInterface;
     QFileSystemWatcher  *mBiometricWatcher;
+    bool		isShowDialog = false;
+    bool		isShowEnrollDialog = false;
 
     SwitchButton * nopwdSwitchBtn;
     SwitchButton * autoLoginSwitchBtn;
@@ -269,6 +280,8 @@ private:
     bool isOpenAutoLogin(const QString &userName);
     void initUserPropertyConnection(const QStringList &objPath);
 
+    bool QLabelSetText(QLabel *label, QString string);
+
 private slots:
     void delete_user_slot(bool removefile, QString username);
     void propertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
@@ -285,6 +298,8 @@ private slots:
      * @param deviceNum 插拔动作后该驱动拥有的设备数量
      */
     void onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum);
+    void onFeatureChanged(int drvid,int uid,int cType);
+    void createUserDone(QDBusObjectPath op);
 
 };
 

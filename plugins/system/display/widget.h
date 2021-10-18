@@ -64,11 +64,9 @@ public:
     void setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFrameFlag = false);
     KScreen::ConfigPtr currentConfig() const;
 
-    void slotFocusedOutputChangedNoParam();
     void initConnection();
     QString getScreenName(QString name = "");
     void initTemptSlider();
-    void writeScreenXml();
 
     bool writeFile(const QString &filePath);
     void writeGlobal(const KScreen::OutputPtr &output);
@@ -89,6 +87,7 @@ public:
     QList<ScreenConfig> getPreScreenCfg();
     void setPreScreenCfg(KScreen::OutputList screens);
 
+    void changescale();
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
@@ -174,15 +173,8 @@ private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
 
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    KScreen::ConfigPtr mConfig;
-    KScreen::ConfigPtr mPrevConfig;
-    KScreen::OutputPtr res;                       // 这是outPutptr结果
-#else
     KScreen::ConfigPtr mConfig = nullptr;
     KScreen::ConfigPtr mPrevConfig = nullptr;
-    KScreen::OutputPtr res = nullptr;
-#endif
 
     ControlPanel *mControlPanel = nullptr;
 
@@ -216,6 +208,9 @@ private:
     QHash<QString, QVariant> mNightConfig;
 
     double mScreenScale = 1.0;
+    double scaleres = 1.0;
+
+    QSize mScaleSizeRes = QSize();
 
     bool mIsNightMode = false;
     bool mRedshiftIsValid = false;
@@ -229,6 +224,12 @@ private:
     bool mIsBattery = false;
     bool mIsScreenAdd = false;
     bool mIsRestore = false;
+
+    bool mIsSCaleRes = false;
+    bool mIsChange = false;
+
+    QString firstAddOutputName;
+
 
     QShortcut *mApplyShortcut;
     QVector<BrightnessFrame*> BrightnessFrameV;

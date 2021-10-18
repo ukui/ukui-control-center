@@ -47,6 +47,8 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *);
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     Ui::DelUserDialog *ui;

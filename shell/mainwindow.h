@@ -32,6 +32,7 @@
 #include <QVariantMap>
 #include <QGSettings/QGSettings>
 #include <QHBoxLayout>
+#include <QToolButton>
 
 #include "interface.h"
 #include "homepagewidget.h"
@@ -71,7 +72,7 @@ private:
 
 private:
     HomePageWidget * homepageWidget;
-    ModulePageWidget * modulepageWidget;
+    ModulePageWidget * modulepageWidget = nullptr;
 
     QButtonGroup * leftBtnGroup;
     QButtonGroup * leftMicBtnGroup; //
@@ -84,7 +85,7 @@ private:
     SearchWidget      * m_searchWidget;
 
     QPushButton *backBtn;
-    QPushButton *mOptionBtn;
+    QToolButton *mOptionBtn;
     QPushButton *minBtn;
     QPushButton *maxBtn;
     QPushButton *closeBtn;
@@ -110,7 +111,7 @@ private:
     void initLeftsideBar();
     QPushButton * buildLeftsideBtn(QString bname, QString tipName);
     bool isExitsCloudAccount();
-
+    bool isExitsPower();
     bool dblOnEdge(QMouseEvent *event);
     void initStyleSheet();
     void changeSearchSlot();
@@ -120,7 +121,7 @@ public slots:
     void sltMessageReceived(const QString &msg);
     void switchPage(QString moduleName, QString jumpMoudle);
     void animationFinishedSlot();
-    void showUkccAboutSlot();
+    void initUkccAbout();
     void onF1ButtonClicked();
 
 Q_SIGNALS:

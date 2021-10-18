@@ -88,7 +88,6 @@ QWidget *Touchpad::get_plugin_ui(){
         initWaylandDbus();
         isWaylandPlatform();
         setupComponent();
-
         ui->scrollingTypeComBox->setView(new QListView());
         const QByteArray id(TOUCHPAD_SCHEMA);
 
@@ -105,6 +104,7 @@ QWidget *Touchpad::get_plugin_ui(){
                 ui->enableFrame->hide();
                 ui->scrollingFrame->hide();
                 ui->typingFrame->hide();
+                ui->touchapdDisableFrame->hide();
             }
         }
     }

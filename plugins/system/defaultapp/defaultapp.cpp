@@ -62,10 +62,12 @@ QWidget *DefaultApp::get_plugin_ui() {
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
 
+        mDefaultString = tr("No program available");
         ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
         initUI();
         initSlots();
         connectToServer();
+
 #ifdef __sw_64__
         ui->ResetBtn->show();
 #else
@@ -96,237 +98,26 @@ void DefaultApp::initSlots() {
 
 void DefaultApp::initUI() {
 
-    QTime timedebuge;//声明一个时钟对象
-    timedebuge.start();//开始计时
+    // 若默认应用被卸载，系统会自动设置某个其它应用为默认应用，若不存在其它应用，则显示"无可用程序"
+
     // BROWSER
-    {
-        QString currentbrowser(getDefaultAppId(BROWSERTYPE)); //获取当前
-        QByteArray ba = QString(DESKTOPPATH + currentbrowser).toUtf8();
-        GDesktopAppInfo * browserinfo = g_desktop_app_info_new_from_filename(ba.constData());
-        QString appname = g_app_info_get_name(G_APP_INFO(browserinfo));
-        const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(browserinfo)));
-        QIcon appicon;
-        appicon = QIcon::fromTheme(QString(iconname));
-        ui->browserComBoBox->addItem(appicon, appname, currentbrowser);
-        ui->browserComBoBox->setCurrentText(appname);
-    }
-
-    QString currentbrowser(getDefaultAppId(BROWSERTYPE)); //获取当前
-    QVector<AppList> list = getAppIdList(BROWSERTYPE); //获取可选列表
-    if (!list.isEmpty()) {
-        for (int i = 0; i < list.size(); i++) {
-            QString single(list[i].strAppid);
-            QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
-            GDesktopAppInfo * browserinfo = g_desktop_app_info_new_from_filename(ba.constData());
-            QString appname = g_app_info_get_name(G_APP_INFO(browserinfo));
-            const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(browserinfo)));
-            QIcon appicon;
-            appicon = QIcon::fromTheme(QString(iconname));
-            browserList << appname;
-            if (currentbrowser == single) {
-                continue;
-            }
-
-            ui->browserComBoBox->addItem(appicon, appname, single);
-        }
-    }
-
-    qDebug() <<"browser耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-    qDebug() << "BROWSER 主线程" << QThread::currentThreadId() << QThread::currentThread();
+    initDefaultAppInfo(BROWSERTYPE,ui->browserComBoBox);
 
     // IMAGE
-    {
-        QString currentimage(getDefaultAppId(IMAGETYPE));
-        QByteArray ba = QString(DESKTOPPATH + currentimage).toUtf8();
-        GDesktopAppInfo * imageinfo = g_desktop_app_info_new_from_filename(ba.constData());
-        QString appname = g_app_info_get_name(G_APP_INFO(imageinfo));
-        const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(imageinfo)));
-        QIcon appicon;
-        appicon = QIcon::fromTheme(QString(iconname));
-        ui->imageComBoBox->addItem(appicon, appname, currentimage);
-        ui->imageComBoBox->setCurrentText(appname);
-    }
-
-    QFuture<void> imagefuture = QtConcurrent::run([=]() {
-        QTime timedebuge;//声明一个时钟对象
-        timedebuge.start();//开始计时
-        QString currentimage(getDefaultAppId(IMAGETYPE));
-        QVector<AppList> imagelist = getAppIdList(IMAGETYPE);
-        if (!imagelist.isEmpty()) {
-            for (int i = 0; i < imagelist.size(); i++) {
-                QString single(imagelist[i].strAppid);
-                QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
-                GDesktopAppInfo * imageinfo = g_desktop_app_info_new_from_filename(ba.constData());
-                QString appname = g_app_info_get_name(G_APP_INFO(imageinfo));
-                const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(imageinfo)));
-                QIcon appicon;
-                appicon = QIcon::fromTheme(QString(iconname));
-                if (currentimage == single) {
-                    continue;
-                }
-                if(!browserList.contains(appname)) {
-                    ui->imageComBoBox->addItem(appicon, appname, single);
-                }
-            }
-        }
-        qDebug() <<"IMAGE耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "IMAGE线程" << QThread::currentThreadId() << QThread::currentThread();
-    });
+    initDefaultAppInfo(IMAGETYPE,ui->imageComBoBox);
 
     // MAIL
-    {
-        QString currentmail(getDefaultAppId(MAILTYPE));
-        QByteArray ba = QString(DESKTOPPATH + currentmail).toUtf8();
-        GDesktopAppInfo * mailinfo = g_desktop_app_info_new_from_filename(ba.constData());
-        QString appname = g_app_info_get_name(G_APP_INFO(mailinfo));
-        const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(mailinfo)));
-        QIcon appicon;
-        appicon = QIcon::fromTheme(QString(iconname));
-        ui->mailComBoBox->addItem(appicon, appname, currentmail);
-        ui->mailComBoBox->setCurrentText(appname);
-    }
-
-    QFuture<void> mailfuture = QtConcurrent::run([=]() {
-        QTime timedebuge;//声明一个时钟对象
-        timedebuge.start();//开始计时
-        QString currentmail(getDefaultAppId(MAILTYPE));
-        QVector<AppList> maillist = getAppIdList(MAILTYPE);
-        if (!maillist.isEmpty()) {
-            for (int i = 0; i < maillist.size(); i++) {
-                QString single(maillist[i].strAppid);
-                QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
-                GDesktopAppInfo * mailinfo = g_desktop_app_info_new_from_filename(ba.constData());
-                QString appname = g_app_info_get_name(G_APP_INFO(mailinfo));
-                const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(mailinfo)));
-                QIcon appicon;
-                appicon = QIcon::fromTheme(QString(iconname));
-                if (currentmail == single) {
-                    continue;
-                }
-                ui->mailComBoBox->addItem(appicon, appname, single);
-            }
-        }
-        qDebug() <<"MAIL耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "MAIL线程" << QThread::currentThreadId() << QThread::currentThread();
-    });
+    initDefaultAppInfo(MAILTYPE,ui->mailComBoBox);
 
     // AUDIO
-    {
-        QString currentaudio(getDefaultAppId(AUDIOTYPE));
-        QByteArray ba = QString(DESKTOPPATH + currentaudio).toUtf8();
-        GDesktopAppInfo * audioinfo = g_desktop_app_info_new_from_filename(ba.constData());
-        QString appname = g_app_info_get_name(G_APP_INFO(audioinfo));
-        const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(audioinfo)));
-        QIcon appicon;
-        appicon = QIcon::fromTheme(QString(iconname));
-        ui->audioComBoBox->addItem(appicon, appname, currentaudio);
-        ui->audioComBoBox->setCurrentText(appname);
-    }
-
-    QFuture<void> audiofuture = QtConcurrent::run([=]() {
-        QTime timedebuge;//声明一个时钟对象
-        timedebuge.start();//开始计时
-        QString currentaudio(getDefaultAppId(AUDIOTYPE));
-        QVector<AppList> audiolist = getAppIdList(AUDIOTYPE);
-        if (!audiolist.isEmpty()) {
-            for (int i = 0; i < audiolist.size(); i++) {
-                QString single(audiolist[i].strAppid);
-                QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
-                GDesktopAppInfo * audioinfo = g_desktop_app_info_new_from_filename(ba.constData());
-                QString appname = g_app_info_get_name(G_APP_INFO(audioinfo));
-                const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(audioinfo)));
-                QIcon appicon;
-                appicon = QIcon::fromTheme(QString(iconname));
-                if (currentaudio == single) {
-                    continue;
-                }
-                ui->audioComBoBox->addItem(appicon, appname, single);
-            }
-        }
-        qDebug() <<"AUDIO耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "AUDIO线程" << QThread::currentThreadId() << QThread::currentThread();
-    });
+    initDefaultAppInfo(AUDIOTYPE,ui->audioComBoBox);
 
     // VIDEO
-    {
-        QString currentvideo(getDefaultAppId(VIDEOTYPE));
-        QByteArray ba = QString(DESKTOPPATH + currentvideo).toUtf8();
-        GDesktopAppInfo * videoinfo = g_desktop_app_info_new_from_filename(ba.constData());
-        QString appname = g_app_info_get_name(G_APP_INFO(videoinfo));
-        const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(videoinfo)));
-        QIcon appicon;
-        appicon = QIcon::fromTheme(QString(iconname));
-        ui->videoComBoBox->addItem(appicon, appname, currentvideo);
-        ui->videoComBoBox->setCurrentText(appname);
-    }
-
-    QFuture<void> videofuture = QtConcurrent::run([=]() {
-        QTime timedebuge;//声明一个时钟对象
-        timedebuge.start();//开始计时
-        QString currentvideo(getDefaultAppId(VIDEOTYPE));
-        QVector<AppList> videolist = getAppIdList(VIDEOTYPE);
-        if (!videolist.isEmpty()) {
-            for (int i = 0; i < videolist.size(); i++) {
-                QString single(videolist[i].strAppid);
-                QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
-                GDesktopAppInfo * videoinfo = g_desktop_app_info_new_from_filename(ba.constData());
-                QString appname = g_app_info_get_name(G_APP_INFO(videoinfo));
-                const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(videoinfo)));
-                QIcon appicon;
-                appicon = QIcon::fromTheme(QString(iconname));
-                if (currentvideo == single) {
-                    continue;
-                }
-                ui->videoComBoBox->addItem(appicon, appname, single);
-            }
-        }
-        qDebug() <<"VIDEO耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "VIDEO线程" << QThread::currentThreadId() << QThread::currentThread();
-    });
+    initDefaultAppInfo(VIDEOTYPE,ui->videoComBoBox);
 
     // TEXT
-    {
-        QString currenttext(getDefaultAppId(TEXTTYPE));
-        QByteArray ba = QString(DESKTOPPATH + currenttext).toUtf8();
-        GDesktopAppInfo * textinfo = g_desktop_app_info_new_from_filename(ba.constData());
-        QString appname = g_app_info_get_name(G_APP_INFO(textinfo));
-        const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(textinfo)));
-        QIcon appicon;
-        appicon = QIcon::fromTheme(QString(iconname));
-        ui->textComBoBox->addItem(appicon, appname, currenttext);
-        ui->textComBoBox->setCurrentText(appname);
-    }
+    initDefaultAppInfo(TEXTTYPE,ui->textComBoBox);
 
-    QFuture<void> textfuture = QtConcurrent::run([=]() {
-        QTime timedebuge;//声明一个时钟对象
-        timedebuge.start();//开始计时
-        QString currenttext(getDefaultAppId(TEXTTYPE));
-        QVector<AppList> textlist = getAppIdList(TEXTTYPE);
-        if (!textlist.isEmpty()) {
-            for (int i = 0; i < textlist.size(); i++) {
-                QString single(textlist[i].strAppid);
-                QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
-                GDesktopAppInfo * textinfo = g_desktop_app_info_new_from_filename(ba.constData());
-                QString appname = g_app_info_get_name(G_APP_INFO(textinfo));
-                const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(textinfo)));
-                QIcon appicon;
-                appicon = QIcon::fromTheme(QString(iconname));
-                if (currenttext == single) {
-                    continue;
-                }
-                ui->textComBoBox->addItem(appicon, appname, single);
-            }
-        }
-        qDebug() <<"TEXT耗时："<<timedebuge.elapsed()<<"ms";//输出计时
-        qDebug() << "TEXT线程" << QThread::currentThreadId() << QThread::currentThread();
-    });
-
-    imagefuture.waitForFinished();
-    mailfuture.waitForFinished();
-    audiofuture.waitForFinished();
-    videofuture.waitForFinished();
-    textfuture.waitForFinished();
-    qDebug()<<"initUI耗时："<<timedebuge.elapsed()<<"ms";//输出计时
 }
 
 void DefaultApp::initSearchText() {
@@ -344,22 +135,86 @@ void DefaultApp::initSearchText() {
     ui->textLabel->setText(tr("Text Editor"));
 }
 
+void DefaultApp::initDefaultAppInfo(const char *type, QComboBox *combox)
+{
+    QString currentapp(getDefaultAppId(type));
+    QByteArray ba = QString(DESKTOPPATH + currentapp).toUtf8();
+    GDesktopAppInfo * textinfo = g_desktop_app_info_new_from_filename(ba.constData());
+    QString appname = g_app_info_get_name(G_APP_INFO(textinfo));
+    const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(textinfo)));
+    QIcon appicon;
+    appicon = QIcon::fromTheme(QString(QLatin1String(iconname)),
+                               QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(iconname))
+                                             +".png")));
+    if (!appname.isNull()) {
+        combox->addItem(appicon, appname, currentapp);
+
+        // 将当前默认应用信息写入~/.config/mimeapps.list
+        int i = combox->currentIndex();
+    //    combox->setCurrentText(appname);
+        if (!strcmp(type , BROWSERTYPE)) {
+            browserComBoBox_changed_cb(i);
+        } else if (!strcmp(type , IMAGETYPE)) {
+            imageComBoBox_changed_cb(i);
+        } else if (!strcmp(type , MAILTYPE)) {
+            mailComBoBox_changed_cb(i);
+        } else if (!strcmp(type , AUDIOTYPE)) {
+            audioComBoBox_changed_cb(i);
+        } else if (!strcmp(type , VIDEOTYPE)) {
+            videoComBoBox_changed_cb(i);
+        } else if (!strcmp(type , TEXTTYPE)) {
+            textComBoBox_changed_cb(i);
+        }
+    } else {
+        combox->addItem(mDefaultString);
+        combox->setCurrentText(mDefaultString);
+    }
+
+    // 将可用程序加入列表
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        QString current(getDefaultAppId(type));
+        QVector<AppList> list = getAppIdList(type);
+        if (!list.isEmpty()) {
+            for (int i = 0; i < list.size(); i++) {
+                QString single(list[i].strAppid);
+                QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
+                GDesktopAppInfo * info = g_desktop_app_info_new_from_filename(ba.constData());
+                QString appname = g_app_info_get_name(G_APP_INFO(info));
+                const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(info)));
+                QIcon appicon;
+                appicon = QIcon::fromTheme(QString(QLatin1String(iconname)),
+                                           QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(iconname))
+                                                         +".png")));
+                if (current == single) {
+                    continue;
+                }
+                combox->addItem(appicon, appname, single);
+            }
+        }
+        qDebug()<<type<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+    });
+
+}
+
 void DefaultApp::browserComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = ui->browserComBoBox->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
+        qDebug()<<"browserComBoBox_changed_cb："<<timedebuge.elapsed()<<"ms" << appid;
         setWebBrowsersDefaultProgram(ba.data());
-        qDebug()<<"browserComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+
     });
-    future.waitForFinished();
+
 }
 
 void DefaultApp::mailComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = ui->mailComBoBox->itemData(index).toString();
@@ -367,12 +222,12 @@ void DefaultApp::mailComBoBox_changed_cb(int index) {
         setMailReadersDefaultProgram(ba.data());
         qDebug()<<"mailComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
+
 }
 
 void DefaultApp::imageComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = ui->imageComBoBox->itemData(index).toString();
@@ -380,12 +235,12 @@ void DefaultApp::imageComBoBox_changed_cb(int index) {
         setImageViewersDefaultProgram(ba.data());
         qDebug()<<"imageComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
+
 }
 
 void DefaultApp::audioComBoBox_changed_cb(int  index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = ui->audioComBoBox->itemData(index).toString();
@@ -393,33 +248,32 @@ void DefaultApp::audioComBoBox_changed_cb(int  index) {
         setAudioPlayersDefaultProgram(ba.data());
         qDebug()<<"audioComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
+
 }
 
 void DefaultApp::videoComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = ui->videoComBoBox->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
         setVideoPlayersDefaultProgram(ba.data());
-        qDebug()<<"videoComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
+
 }
 
 void DefaultApp::textComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = ui->textComBoBox->itemData(index).toString();
         QByteArray ba = appid.toUtf8(); // QString to char *
         setTextEditorsDefautlProgram(ba.data());
-        qDebug()<<"textComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
+
     });
-    future.waitForFinished();
+
 }
 
 void DefaultApp::resetDefaultApp() {
@@ -487,6 +341,7 @@ QVector<Appinfo> DefaultApp::_getAppList(const char *contentType) {
 }
 
 bool DefaultApp::setWebBrowsersDefaultProgram(char * appid) {
+    qDebug() << __func__ << __LINE__;
     const char * content_type = "x-scheme-handler/http";
     QVector<Appinfo> appinfo = _getAppList(content_type);
     bool judge = false;
@@ -506,6 +361,7 @@ bool DefaultApp::setWebBrowsersDefaultProgram(char * appid) {
             }
         }
     }
+    qDebug() << __func__ << __LINE__;
     return judge;
 }
 
@@ -692,19 +548,27 @@ bool DefaultApp::setTextEditorsDefautlProgram(char *appid) {
 }
 
 void DefaultApp::connectToServer(){
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid())
-    {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+
+    });
+
 }
 
 void DefaultApp::keyChangedSlot(const QString &key) {

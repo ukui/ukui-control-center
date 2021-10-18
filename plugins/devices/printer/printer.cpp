@@ -158,97 +158,97 @@ void Printer::initComponent()
     mTimer->start(1000);
 }
 
-void Printer::refreshPrinterDevSlot()
-{
-    QStringList printer = QPrinterInfo::availablePrinterNames();
+    void Printer::refreshPrinterDevSlot()
+    {
+        QStringList printer = QPrinterInfo::availablePrinterNames();
 
-    for (int num = 0; num < printer.count(); num++) {
-        QStringList env = QProcess::systemEnvironment();
+        for (int num = 0; num < printer.count(); num++) {
+            QStringList env = QProcess::systemEnvironment();
 
-        env << "LANG=en_US.UTF-8";
+            env << "LANG=en_US.UTF-8";
 
-        QProcess *process = new QProcess;
-        process->setEnvironment(env);
-        process->start("lpstat -p "+printer.at(num));
-        process->waitForFinished();
+            QProcess *process = new QProcess;
+            process->setEnvironment(env);
+            process->start("lpstat -p "+printer.at(num));
+            process->waitForFinished();
 
-        QString ba = process->readAllStandardOutput();
-        delete process;
-        QString printer_stat = QString(ba.data());
+            QString ba = process->readAllStandardOutput();
+            delete process;
+            QString printer_stat = QString(ba.data());
 
 
 
-        // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
-        bool flag = printer_stat.contains("disable", Qt::CaseSensitive)
-                    || printer_stat.contains("Unplugged or turned off", Qt::CaseSensitive);
-//        bool flag = false;
+            // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
+            bool flag = printer_stat.contains("disable", Qt::CaseSensitive)
+                        || printer_stat.contains("Unplugged or turned off", Qt::CaseSensitive);
+    //        bool flag = false;
 
-        bool flag1 = true;
+            bool flag1 = true;
 
-        // 遍历窗口列表，判断列表中是否已经存在该打印机，若存在，便判断该打印机是否可用，不可用则从列表中删除该打印机窗口
-        for (int j = 0; j < ui->listWidget->count(); j++) {
-            QString itemData = ui->listWidget->item(j)->data(Qt::UserRole).toString();
-            if (!itemData.compare(printer.at(num))) {
-                if (flag) {
-                    ui->listWidget->takeItem(j);
+            // 遍历窗口列表，判断列表中是否已经存在该打印机，若存在，便判断该打印机是否可用，不可用则从列表中删除该打印机窗口
+            for (int j = 0; j < ui->listWidget->count(); j++) {
+                QString itemData = ui->listWidget->item(j)->data(Qt::UserRole).toString();
+                if (!itemData.compare(printer.at(num))) {
+                    if (flag) {
+                        ui->listWidget->takeItem(j);
+                        flag1 = false;
+                        break;
+                    }
                     flag1 = false;
                     break;
                 }
-                flag1 = false;
-                break;
+            }
+
+            //
+            if (!flag && flag1) {
+                HoverBtn *printerItem = new HoverBtn(printer.at(num), pluginWidget);
+                printerItem->installEventFilter(this);
+                connect(printerItem,&HoverBtn::resize,[=](){
+                    setLabelText(printerItem->mPitLabel,printer.at(num));
+                });
+
+                QIcon printerIcon = QIcon::fromTheme("printer");
+                printerItem->mPitIcon->setPixmap(printerIcon.pixmap(printerIcon.actualSize(QSize(24, 24))));
+                QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
+                item->setData(Qt::UserRole, printer.at(num));
+
+                item->setSizeHint(QSize(QSizePolicy::Expanding, 50));
+                ui->listWidget->setItemWidget(item, printerItem);
             }
         }
+    }
 
-        //
-        if (!flag && flag1) {
-            HoverBtn *printerItem = new HoverBtn(printer.at(num), pluginWidget);
-            printerItem->installEventFilter(this);
-            connect(printerItem,&HoverBtn::resize,[=](){
-                setLabelText(printerItem->mPitLabel,printer.at(num));
-            });
+    void Printer::runExternalApp()
+    {
+        QString cmd = "system-config-printer";
 
-            QIcon printerIcon = QIcon::fromTheme("printer");
-            printerItem->mPitIcon->setPixmap(printerIcon.pixmap(printerIcon.actualSize(QSize(24, 24))));
-            QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
-            item->setData(Qt::UserRole, printer.at(num));
+        QProcess process(this);
+        process.startDetached(cmd);
+    }
 
-            item->setSizeHint(QSize(QSizePolicy::Expanding, 50));
-            ui->listWidget->setItemWidget(item, printerItem);
+    void Printer::setLabelText(QLabel *label, QString text)
+    {
+        QFontMetrics  fontMetrics(label->font());
+        int fontSize = fontMetrics.width(text);
+        if (fontSize > label->width()) {
+            label->setText(fontMetrics.elidedText(text, Qt::ElideRight, label->width()));
+            label->setToolTip(text);
+        } else {
+            label->setText(text);
+            label->setToolTip("");
         }
     }
-}
-
-void Printer::runExternalApp()
-{
-    QString cmd = "system-config-printer";
-
-    QProcess process(this);
-    process.startDetached(cmd);
-}
-
-void Printer::setLabelText(QLabel *label, QString text)
-{
-    QFontMetrics  fontMetrics(label->font());
-    int fontSize = fontMetrics.width(text);
-    if (fontSize > label->width()) {
-        label->setText(fontMetrics.elidedText(text, Qt::ElideRight, label->width()));
-        label->setToolTip(text);
-    } else {
-        label->setText(text);
-        label->setToolTip("");
-    }
-}
-bool Printer::eventFilter(QObject *obj, QEvent *event)
-{
-    QString strObjName(obj->metaObject()->className());
-    if (strObjName == "HoverBtn") {
-        if (event->type() == QEvent::Resize) {
-            HoverBtn *mBtn = static_cast<HoverBtn *>(obj);
-            if (mBtn) {
-                mBtn->mPitLabel->setFixedWidth(mBtn->width() - 50);
-                emit mBtn->resize();
+    bool Printer::eventFilter(QObject *obj, QEvent *event)
+    {
+        QString strObjName(obj->metaObject()->className());
+        if (strObjName == "HoverBtn") {
+            if (event->type() == QEvent::Resize) {
+                HoverBtn *mBtn = static_cast<HoverBtn *>(obj);
+                if (mBtn) {
+                    mBtn->mPitLabel->setFixedWidth(mBtn->width() - 50);
+                    emit mBtn->resize();
+                }
             }
+            return false;
         }
-        return false;
     }
-}

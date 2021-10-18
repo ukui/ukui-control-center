@@ -19,4 +19,3 @@ void MyQRadioButton::enterEvent(QEvent *event)
 
     QRadioButton::leaveEvent(event);
 }
-

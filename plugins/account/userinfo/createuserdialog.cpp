@@ -23,6 +23,7 @@
 
 #include "passwdcheckutil.h"
 
+#include <QLabel>
 #include <QDebug>
 #include <QDir>
 
@@ -117,9 +118,6 @@ void CreateUserDialog::setupComonpent(){
     ui->pwdLineEdit->setPlaceholderText(tr("Password"));
     ui->pwdsureLineEdit->setPlaceholderText(tr("Password Identify"));
 
-
-    ui->pwdTypeComBox->addItem(tr("General Password"));
-
     // 给radiobtn设置id，id即accoutnType，方便直接返回id值
     ui->buttonGroup->setId(ui->standardRadioBtn, 0);
     ui->buttonGroup->setId(ui->adminRadioBtn, 1);
@@ -142,6 +140,9 @@ void CreateUserDialog::setupConnect(){
 
     connect(ui->usernameLineEdit, &QLineEdit::textChanged, [=](QString text){
         nameLegalityCheck(text);
+
+        /* 用户名更新后需要确认密码是否还包含用户名 */
+        pwdLegalityCheck(ui->pwdLineEdit->text());
     });
 
     connect(ui->pwdLineEdit, &QLineEdit::textChanged, [=](QString text){
@@ -157,7 +158,16 @@ void CreateUserDialog::setupConnect(){
 
         ui->tipLabel->setText(pwdSureTip);
         if (pwdSureTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdTip);
+            if (!pwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, pwdTip)){
+                    ui->tipLabel->setToolTip(pwdTip);
+                }
+            } else if (!nameTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, nameTip)){
+                    ui->tipLabel->setToolTip(nameTip);
+                }
+            }
+//            pwdTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdTip);
         }
 
         refreshConfirmBtnStatus();
@@ -174,13 +184,9 @@ void CreateUserDialog::setupConnect(){
         QString uName, pwd, pin;
 
         uName = ui->usernameLineEdit->text();
-        if (ui->pwdTypeComBox->currentIndex() == 0){
-            pwd = ui->pwdLineEdit->text();
-            pin = "";
-        } else {
-            pwd = "";
-            pin = ui->pwdLineEdit->text();
-        }
+        pwd = ui->pwdLineEdit->text();
+        pin = "";
+
         emit newUserWillCreate(uName, pwd, pin, ui->buttonGroup->checkedId());
 
     });
@@ -292,15 +298,28 @@ void CreateUserDialog::pwdLegalityCheck(QString pwd){
         }
     }
 
-    ui->tipLabel->setText(pwdTip);
+    if (QLabelSetText(ui->tipLabel, pwdTip))
+        ui->tipLabel->setToolTip(pwdTip);
     if (pwdTip.isEmpty()){
-        pwdSureTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdSureTip);
+        if (!pwdSureTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, pwdSureTip)){
+                ui->tipLabel->setToolTip(pwdSureTip);
+            }
+
+        } else if (!nameTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, nameTip)){
+                ui->tipLabel->setToolTip(nameTip);
+            }
+        }
+//        pwdSureTip.isEmpty() ? ui->tipLabel->setText(nameTip) : ui->tipLabel->setText(pwdSureTip);
     }
 
     refreshConfirmBtnStatus();
 }
 
 bool CreateUserDialog::checkCharLegitimacy(QString password){
+    if (password.contains("'"))
+        return false;
     //密码不能包含非标准字符
     foreach (QChar ch, password){
         if (int(ch.toLatin1() <= 0 || int(ch.toLatin1()) > 127)){
@@ -442,4 +461,18 @@ void CreateUserDialog::nameLegalityCheck(QString username){
     }
 
     refreshConfirmBtnStatus();
+}
+
+bool CreateUserDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+    QString str = string;
+    if (fontSize > (label->width()-5)) {
+        str = fontMetrics.elidedText(string, Qt::ElideRight, label->width()-10);
+        is_over_length = true;
+    }
+    label->setText(str);
+    return is_over_length;
 }

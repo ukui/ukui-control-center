@@ -39,6 +39,7 @@
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 #include "Uslider/uslider.h"
+#include "presslabel.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -103,10 +104,11 @@ public:
     int get_plugin_type() Q_DECL_OVERRIDE;
     QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
+    void plugin_leave()Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
 
 public:
-    void initTitleLabel();
+    void initPreviewLabel();
     void initSearchText();
     void initComponent();
     void initPreviewWidget();
@@ -135,6 +137,7 @@ public:
     void initPictureSwitchFrame();
     void initShowTextFrame();
     void initShowTextSetFrame();
+    void initShowtimeFrame();
     void setSourcePathText();
 private:
     int convertToLocktime(const int value);
@@ -156,9 +159,6 @@ private:
 
     GSettings  * screensaver_settings;
     QGSettings * qScreensaverDefaultSetting;
-    GSettings  * session_settings;
-    QGSettings * screenlock_settings = nullptr;
-    QGSettings * qSessionSetting = nullptr;
     QGSettings * qScreenSaverSetting = nullptr;
     QGSettings * qBgSetting = nullptr;
 
@@ -167,8 +167,9 @@ private:
     QString      pluginName;
     QString      screensaver_bin;
 
-    QStringList  killList;
-    QStringList  runStringList;
+    QStringList killList;
+    QStringList runStringList;
+    QStringList mScreenSaverKeies;
 
     Uslider    * uslider;
 
@@ -179,6 +180,7 @@ private:
     QTextEdit *inputText;
     PreviewWindow *previewWind;
     QString sourcePathText;
+    PressLabel *previewLabel = nullptr;
 
 private slots:
     void themesComboxChanged(int index);

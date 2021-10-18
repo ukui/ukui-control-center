@@ -186,7 +186,6 @@ void SwitchButton::mousePressEvent(QMouseEvent *event){
 
     if (!disabled){
         checked = !checked;
-        Q_EMIT checkedChanged(checked);
 
         step = width() / 40;
 
@@ -200,6 +199,7 @@ void SwitchButton::mousePressEvent(QMouseEvent *event){
             endX = 0;
         }
         timer->start();
+        Q_EMIT checkedChanged(checked);
     }
     else {
         endX = 0;

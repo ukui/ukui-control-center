@@ -42,7 +42,9 @@
 #include <QMenu>
 #include <QShortcut>
 #include <QMouseEvent>
+#include <KWindowSystem>
 
+#define STYLE_FONT_SCHEMA  "org.ukui.style"
 
 #ifdef WITHKYSEC
 #include <kysec/libkysec.h>
@@ -72,8 +74,6 @@ MainWindow::MainWindow(QWidget *parent) :
     m_searchWidget(nullptr)
 {
     mate_mixer_init();
-    this->setMinimumSize(978, 630);
-    //logoLabel  = new QLabel(tr("Settings"), this);
     qApp->installEventFilter(this);
     initUI();
 }
@@ -205,7 +205,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
                 m_animation->stop();
                 m_animation->setStartValue(QRect((m_searchWidget->width()-(m_queryIcon->width()+m_queryText->width()+10))/2,0,
                                                  m_queryIcon->width()+m_queryText->width()+30,(m_searchWidget->height()+32)/2));
-                m_animation->setEndValue(QRect(0, 0, m_queryIcon->width() + 5,(m_searchWidget->height()+32)/2));
+                m_animation->setEndValue(QRect(8, 0, m_queryIcon->width() + 5,(m_searchWidget->height()+32)/2));
                 m_animation->setEasingCurve(QEasingCurve::OutQuad);
                 m_animation->start();
                 m_searchWidget->setTextMargins(30, 1, 0, 1);
@@ -231,12 +231,16 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
 }
 
 void MainWindow::initUI() {
+    QRect screenSize = Utils::sizeOnCursor();
+    if (screenSize.width() <= 1440) {
+        this->setMinimumSize(978, 630);
+    } else {
+        this->setMinimumSize(1160, 720);
+    }
     ui->setupUi(this);
     ui->centralWidget->setStyleSheet("QWidget#centralWidget{background: palette(base); border-radius: 6px;}");
 
     m_ModuleMap = Utils::getModuleHideStatus();
-
-    //this->installEventFilter(this);
 
     const QByteArray id("org.ukui.style");
     m_fontSetting = new QGSettings(id, QByteArray(), this);
@@ -281,7 +285,6 @@ void MainWindow::initUI() {
     //加载插件
     loadPlugins();
 
-    connect(mOptionBtn, SIGNAL(clicked()), this, SLOT(showUkccAboutSlot()));
     connect(minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
     connect(maxBtn, &QPushButton::clicked, this, [=] {
         if (isMaximized()) {
@@ -294,10 +297,11 @@ void MainWindow::initUI() {
     });
     connect(closeBtn, &QPushButton::clicked, this, [=] {
         close();
+        exit(0);
     });
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
-
+        ui->centralWidget->setVisible(false);    //避免出现明显的卡顿现象，在选择进入屏保界面之后这个问题比较明显，这种做法只是优化
         if (index){ //首页部分组件样式
             titleLabel->setHidden(true);
             mTitleIcon->setHidden(true);
@@ -313,10 +317,13 @@ void MainWindow::initUI() {
             mTitleIcon->setVisible(true);
             //左上角显示字符/返回按钮
             backBtn->setHidden(true);
-
+            if (modulepageWidget) {
+                modulepageWidget->pluginLeave();
+            }
             //中部内容区域
             ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background:  palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
         }
+        ui->centralWidget->setVisible(true);
     });
 
     //加载左侧边栏一级菜单
@@ -395,7 +402,7 @@ void MainWindow::initTileBar() {
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::switchPage);
 
     backBtn     = new QPushButton(this);
-    mOptionBtn  = new QPushButton(this);
+    mOptionBtn  = new QToolButton(this);
     minBtn      = new QPushButton(this);
     maxBtn      = new QPushButton(this);
     closeBtn    = new QPushButton(this);
@@ -436,6 +443,8 @@ void MainWindow::initTileBar() {
     titleLayout->addWidget(maxBtn);
     titleLayout->addSpacing(4);
     titleLayout->addWidget(closeBtn);
+
+    initUkccAbout();
 }
 void MainWindow::animationFinishedSlot()
 {
@@ -466,9 +475,13 @@ void MainWindow::onF1ButtonClicked() {
     p.waitForFinished(-1);
 }
 
-void MainWindow::showUkccAboutSlot() {
+void MainWindow::initUkccAbout() {
+
+    mOptionBtn->setStyleSheet("background-color: palette(base);");
+    mOptionBtn->setPopupMode(QToolButton::InstantPopup);
     QMenu* ukccMain = new QMenu(this);
     ukccMain->setObjectName("mainMenu");
+    mOptionBtn->setMenu(ukccMain);
 
     QAction* ukccHelp = new QAction(tr("Help"),this);
     ukccMain->addAction(ukccHelp);
@@ -476,7 +489,6 @@ void MainWindow::showUkccAboutSlot() {
     ukccMain->addAction(ukccAbout);
     QAction* ukccExit = new QAction(tr("Exit"),this);
     ukccMain->addAction(ukccExit);
-    QPoint pt= QPoint(mOptionBtn->x() + 10, mOptionBtn->y()+mOptionBtn->height());
 
     connect(ukccExit, SIGNAL(triggered()), this, SLOT(close()));
 
@@ -489,8 +501,6 @@ void MainWindow::showUkccAboutSlot() {
         QProcess process(this);
         process.startDetached("kylin-user-guide -A ukui-control-center");
     });
-
-    ukccMain->exec(this->mapToGlobal(pt));
 }
 void MainWindow::setBtnLayout(QPushButton * &pBtn) {
     QLabel * imgLabel = new QLabel(pBtn);
@@ -532,7 +542,7 @@ void MainWindow::loadPlugins(){
         //三权分立开启
 #ifdef WITHKYSEC
         if (!kysec_is_disabled() && kysec_get_3adm_status() && (getuid() || geteuid())){
-            //时间和日期 | 用户账户 | 电源管理 |网络连接 |网络代理
+            //时间和日期 | 用户帐户 | 电源管理 |网络连接 |网络代理
             if (fileName.contains("datetime") || fileName.contains("userinfo") || fileName.contains("power") || \
                     fileName.contains("netconnect") || fileName.contains("proxy") || fileName.contains("update") || \
                     fileName.contains("upgrade") || fileName.contains("backup"))
@@ -544,8 +554,9 @@ void MainWindow::loadPlugins(){
                 || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
-                || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
-                || ("libupdate.so" == fileName && !Utils::isCommunity())) {
+                || ("libpower.so" == fileName && !isExitsPower())
+                || ("libupdate.so" == fileName && !Utils::isCommunity())
+                || ("libtouchpad.so" == fileName && !isfindSynaptics())) {
             continue;
         }
 
@@ -706,7 +717,33 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     iconBtn->setIcon(pix);
 
     QLabel * textLabel = new QLabel(leftsidebarBtn);
-    textLabel->setText(tipName);
+    textLabel->setFixedWidth(leftsidebarBtn->width()-40);
+    QFontMetrics  fontMetrics(textLabel->font());
+    int fontSize = fontMetrics.width(tipName);
+    if (fontSize > textLabel->width()) {
+        textLabel->setText(fontMetrics.elidedText(tipName, Qt::ElideRight, textLabel->width()));
+    } else {
+        textLabel->setText(tipName);
+    }
+    const QByteArray styleID(STYLE_FONT_SCHEMA);
+    QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
+    connect(stylesettings,&QGSettings::changed,[=](QString key)
+    {
+        if("systemFont" == key || "systemFontSize" == key)
+        {
+            QFontMetrics  fontMetrics_1(textLabel->font());
+            int fontSize_1 = fontMetrics_1.width(tipName);
+
+            if (fontSize_1 > textLabel->width()) {
+                qDebug()<<textLabel->width();
+                textLabel->setText(fontMetrics_1.elidedText(tipName, Qt::ElideRight, textLabel->width()));
+            } else {
+                textLabel->setText(tipName);
+            }
+        }
+    });
+
+
     QSizePolicy textLabelPolicy = textLabel->sizePolicy();
     textLabelPolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     textLabelPolicy.setVerticalPolicy(QSizePolicy::Fixed);
@@ -745,6 +782,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     });
 
     QHBoxLayout * btnHorLayout = new QHBoxLayout();
+    btnHorLayout->setContentsMargins(8, 0, 0, 0);
     btnHorLayout->addWidget(iconBtn, Qt::AlignCenter);
     btnHorLayout->addWidget(textLabel);
     btnHorLayout->addStretch();
@@ -770,6 +808,19 @@ bool MainWindow::isExitsCloudAccount() {
         }
     }
     return false;
+}
+
+bool MainWindow::isExitsPower()
+{
+    QProcess *process = new QProcess;
+    process->start("dpkg -l ukui-power-manager");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
+
+    return mOutput.contains("ii", Qt::CaseSensitive) ? true : false;
 }
 
 bool MainWindow::dblOnEdge(QMouseEvent *event) {
@@ -802,7 +853,7 @@ void MainWindow::initStyleSheet() {
 
     mOptionBtn->setProperty("useIconHighlightEffect", 0x2);
     mOptionBtn->setProperty("isWindowButton", 0x01);
-    mOptionBtn->setFlat(true);
+
 
     minBtn->setProperty("useIconHighlightEffect", 0x2);
     minBtn->setProperty("isWindowButton", 0x01);
@@ -845,7 +896,8 @@ bool MainWindow::isExitBluetooth() {
     if (QGSettings::isSchemaInstalled(bluetoothId)) {
         QGSettings bluetoothGSetting(bluetoothId);
         isAddress = bluetoothGSetting.get("adapter-address").toString().isEmpty() ? false : true;
-    }
+    } else
+        isAddress = false;
 
     return isDevice && isAddress;
 }
@@ -874,9 +926,14 @@ void MainWindow::functionBtnClicked(QObject *plugin) {
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
-    this->hide();
+
+//    if (!this->isActiveWindow()) {
+//        this->hide();
+//        this->show();
+//        showNormal();
+//    }
+    KWindowSystem::forceActiveWindow(this->winId());
     this->show();
-    showNormal();
     bootOptionsFilter(msg);
 
     //Qt::WindowFlags flags = windowFlags();
@@ -899,7 +956,7 @@ void MainWindow::switchPage(QString moduleName, QString jumpMoudle) {
             }
         }
     }
-    QMessageBox::information(this, tr("Warnning"), tr("This function has been controlled"));
+    QMessageBox::information(this, tr("Warning"), tr("This function has been controlled"));
     return;
 }
 

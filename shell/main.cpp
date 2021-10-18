@@ -33,6 +33,7 @@
 #include <KWindowEffects>
 
 #include <stdlib.h>
+#include <signal.h>
 
 #ifdef KYDEBUG
 #include <ukui-log4qt.h>
@@ -45,9 +46,18 @@
 
 const QString KLong = "Loongson";
 
+MainWindow *mainWindow = nullptr;
+
+void sigExit(int signalNum)
+{
+    if (mainWindow != nullptr) {
+        mainWindow->close();
+    }
+}
+
 int main(int argc, char *argv[])
 {
-
+    signal(SIGINT,sigExit);
 #ifdef KYDEBUG
 #ifndef __sw_64__
     initUkuiLog4qt("ukui-control-center");
@@ -86,6 +96,7 @@ int main(int argc, char *argv[])
         parser.process(a);
 
         MainWindow w;
+        mainWindow = &w;
         Utils::centerToScreen(&w);
 
         w.setAttribute(Qt::WA_TranslucentBackground);

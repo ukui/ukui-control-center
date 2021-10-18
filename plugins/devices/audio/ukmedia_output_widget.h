@@ -85,8 +85,6 @@ class UkmediaOutputWidget : public QWidget
 public:
     explicit UkmediaOutputWidget(QWidget *parent = nullptr);
     ~UkmediaOutputWidget();
-    void outputWidgetAddPort();
-    void outputWidgetRemovePort();
     friend class UkmediaMainWidget;
 Q_SIGNALS:
 
@@ -97,14 +95,8 @@ private:
     QFrame *m_pOutputDeviceWidget;
     QFrame *m_pMasterVolumeWidget;
     QFrame *m_pChannelBalanceWidget;
-    QFrame * m_pOutputPortWidget;
-    QFrame *m_pProfileWidget;
-    QFrame *m_pselectWidget;
     QListWidget *m_pOutputListWidget;
 
-    QLabel *m_pSelectDeviceLabel;
-    QLabel *m_pProfileLabel;
-    QLabel *m_pOutputPortLabel;
     TitleLabel *m_pOutputLabel;
     QLabel *m_pOutputDeviceLabel;
     QLabel *m_pOpVolumeLabel;
@@ -113,10 +105,6 @@ private:
     QLabel *m_pLeftBalanceLabel;
     QLabel *m_pRightBalanceLabel;
 
-    QComboBox *m_pSelectCombobox;
-    QComboBox *m_pProfileCombobox;
-    QComboBox *m_pOutputPortCombobox;
-    QComboBox *m_pOutputDeviceCombobox;
     UkuiButtonDrawSvg *m_pOutputIconBtn;
     AudioSlider *m_pOpVolumeSlider;
     UkmediaVolumeSlider *m_pOpBalanceSlider;

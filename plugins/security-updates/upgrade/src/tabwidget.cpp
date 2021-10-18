@@ -36,6 +36,19 @@ void TabWid::initDbus()
     connect(isAutoBackupSBtn,&SwitchButton::checkedChanged,this,&TabWid::isAutoBackupChanged);
     connect(isAutoUpgradeSBtn, &SwitchButton::checkedChanged, this, &TabWid::isAutoUpgradeChanged);
     connect(updateSource,&UpdateSource::getReplyFalseSignal,this,&TabWid::getReplyFalseSlot);
+    connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
+    connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
+    //connect(DownloadHValue,static_cast<void (QComboBox::*)(QString)>(&QComboBox:: currentIndexChanged),this,&TabWid::DownloadLimitValueChanged);
+    //initialize download limit switch button
+    DownloadHBtn->setChecked(false);
+    //set download limit range
+//    DownloadHValue->setRange(325,32500);
+//    DownloadHValue->setSingleStep(325);
+//    DownloadHValue->setValue(325);
+//    DownloadHValue->setFocusPolicy(Qt::NoFocus);
+    QStringList strList;
+    strList<<"50"<<"100"<<"200"<<"300"<<"600";
+    DownloadHValue->addItems(strList);
     //    bacupInit();//初始化备份
     isAutoBackupSBtn->setChecked(true);
     checkUpdateBtn->stop();
@@ -84,7 +97,7 @@ void TabWid::getAutoUpgradeStatus()
         isAutoUpgrade = true;
         /*如果自动更新在备份中，那就直接绑定备份还原信号即可*/
         isAllUpgrade = true;
-        bool ret = autoUpdateLoadUpgradeList(true  );
+        bool ret = autoUpdateLoadUpgradeList(true);
         if (ret) {
             bacupInit(true);
             backup->creatInterface();
@@ -111,7 +124,9 @@ void TabWid::getAutoUpgradeStatus()
         isAllUpgrade = true;
         checkUpdateBtn->hide();
         checkUpdateBtn->setText(tr("UpdateAll"));
-        autoUpdateLoadUpgradeList(false);
+        bool ret = autoUpdateLoadUpgradeList(false);
+        if (!ret)
+            updateMutual->disconnectDbusSignal();
     } else if (!ret.compare("idle")) {
         /*如果没有进行自动更新，那就不需要操作 */
         checkUpdateBtn->setEnabled(true);
@@ -167,15 +182,16 @@ bool TabWid::autoUpdateLoadUpgradeList(bool isBackUp)
     }
 }
 
+
 void TabWid::unableToConnectSource()
 {
     qDebug() << "源管理器信号是否连接成功：" << isConnectSourceSignal;
     if(isConnectSourceSignal == false)
     {
-        disconnectSource();
+        disconnectSource(true);
     }
 }
-void TabWid::disconnectSource()
+void TabWid::disconnectSource(bool isTimeOut)
 {
     disconnect(updateSource->serviceInterface,SIGNAL(updateTemplateStatus(QString)),this,SLOT(slotUpdateTemplate(QString)));
     disconnect(updateSource->serviceInterface,SIGNAL(updateCacheStatus(QVariantList)),this,SLOT(slotUpdateCache(QVariantList)));
@@ -186,7 +202,10 @@ void TabWid::disconnectSource()
     //        checkUpdateBtn->setText(tr("检查更新"));
     checkUpdateBtn->setText(tr("Check Update"));
     //        versionInformationLab->setText(tr("服务连接异常，请重新检测!") );
-    versionInformationLab->setText(tr("Failed to connect to software warehouse!") );
+    if (isTimeOut)
+        versionInformationLab->setText(tr("Software source server connection timeout"));
+    else
+        versionInformationLab->setText(tr("Software source server connection failed"));
 }
 TabWid::~TabWid()
 {
@@ -482,8 +501,8 @@ void TabWid::allComponents()
 {
     mainTabLayout = new QVBoxLayout();  //整个页面的主布局
     scrollArea = new QScrollArea(this);
-    updateTab = new QWidget(this);  //更新页面
 
+    updateTab = new QWidget(this);  //更新页面
     AppMessage = new QVBoxLayout();
     AppMessage->setAlignment(Qt::AlignTop);
     updateTab->setLayout(AppMessage);
@@ -502,7 +521,7 @@ void TabWid::allComponents()
     //    labUpdate->setText(tr("更新"));
     labUpdate->setText(tr("Update"));
     labUpdate->adjustSize();
-    labUpdate->setFixedHeight(25);
+    labUpdate->setFixedHeight(27);
 
     scrollArea->setWidget(updateTab);
     scrollArea->setFrameStyle(0);
@@ -511,7 +530,7 @@ void TabWid::allComponents()
     scrollArea->setWidgetResizable(true);
 
     systemWidget->resize(560,140);
-    systemWidget->setFixedHeight(140);
+    systemWidget->setFixedHeight(160);
 
     systemPortraitLab = new QLabel();
     tab1HLayout = new QHBoxLayout();
@@ -537,6 +556,7 @@ void TabWid::allComponents()
     allProgressBar->setFixedHeight(4);
     allProgressBar->hide();
     allProgressBar->setValue(0);
+    allProgressBar->setTextVisible(false);
 
     progressLabel = new QLabel(systemWidget);
     //    progressLabel->setText(tr("45M/300M"));
@@ -570,7 +590,7 @@ void TabWid::allComponents()
     //    updateSettingLab->setText(tr("更新设置"));
     //~ contents_path /upgrade/Update Settings
     updateSettingLab->setText(tr("Update Settings"));
-    updateSettingLab->setFixedHeight(25);
+    updateSettingLab->setFixedHeight(27);
     updateSettingWidget = new QWidget(this);
     updatesettingLayout = new QVBoxLayout();
     updateSettingWidget->setLayout(updatesettingLayout);
@@ -597,6 +617,84 @@ void TabWid::allComponents()
     isAutoBackupLayout->addWidget(isAutoBackupLab);
     isAutoBackupLayout->addWidget(isAutoBackupSBtn);
     isAutoBackupWidget->setLayout(isAutoBackupLayout);
+
+    //download speed limit
+//    DownloadLimitWidget = new QFrame();
+//    DownloadLimitWidget->setFrameShape(QFrame::Box);
+//        DownloadLabelWidget = new QFrame();
+//        DownloadLabelWidget->setFrameShape(QFrame::Box);
+//    DownloadLimitLayout = new QHBoxLayout();
+//        DownloadLabelLayout = new QVBoxLayout();
+//    DownloadLimitLab = new QLabel();
+//    DownloadLimitLab->setText(tr("Download Limit(Kb/s)"));
+//    DownloadLimitBtn = new SwitchButton();
+//    DownloadLimitValue = new QSpinBox();
+//    DownloadLab = new QLabel();
+//    DownloadLab->setText(tr("It will be avaliable in the next download."));
+//    /*自动换行*/
+//    DownloadLab->adjustSize();
+//    DownloadLab->setWordWrap(true);
+//    DownloadLab->setAlignment(Qt::AlignTop);
+//    QPalette DownloadlabelPalette = DownloadLab->palette();
+//    DownloadlabelPalette.setBrush(QPalette::WindowText, DownloadlabelPalette.color(QPalette::PlaceholderText));
+//    DownloadLab->setPalette(DownloadlabelPalette);
+
+//    DownloadLimitLayout->addWidget(DownloadLimitLab);
+//    DownloadLimitLayout->addWidget(DownloadLimitValue);
+//    DownloadLimitLayout->addWidget(DownloadLimitBtn);
+
+//    //DownloadLabelWidget->setLayout(DownloadLimitLayout);
+//    //DownloadLimitWidget->setLayout(DownloadLimitLayout);
+//    //DownloadLabelWidget->setLayout(DownloadLabelLayout);
+
+//    DownloadLabelLayout->addLayout(DownloadLimitLayout);
+//    DownloadLabelLayout->addWidget(DownloadLab);
+
+//    DownloadHWidget = new QFrame();
+//    DownloadHWidget->setFrameShape(QFrame::Box);
+        DownloadVWidget = new QFrame();
+        DownloadVWidget->setFrameShape(QFrame::Box);
+
+    DownloadHLayout = new QHBoxLayout();
+        DownloadVLayout = new QVBoxLayout();
+
+    DownloadHLab = new QLabel();
+    DownloadHLab->setText(tr("Download Limit(Kb/s)"));
+    DownloadHBtn = new SwitchButton();
+    DownloadHValue = new QComboBox();
+    DownloadHValue->hide();
+     DownloadVLab = new QLabel();
+     DownloadVLab->setText(tr("It will be avaliable in the next download."));
+
+
+    /*自动换行*/
+    DownloadVLab->adjustSize();
+    DownloadVLab->setWordWrap(true);
+    DownloadVLab->setAlignment(Qt::AlignTop);
+    QPalette DownloadVlabelPalette = DownloadVLab->palette();
+    DownloadVlabelPalette.setBrush(QPalette::WindowText, DownloadVlabelPalette.color(QPalette::PlaceholderText));
+    DownloadVLab->setPalette(DownloadVlabelPalette);
+
+    //DownloadLabelWidget->setLayout(DownloadLimitLayout);
+    //DownloadLimitWidget->setLayout(DownloadLimitLayout);
+    //DownloadLabelWidget->setLayout(DownloadLabelLayout);
+
+    //DownloadHLayout->addWidget(DownloadHWidget);
+    DownloadHLayout->addWidget(DownloadHLab);
+    DownloadHLayout->addWidget(DownloadHValue);
+    DownloadHLayout->addWidget(DownloadHBtn);
+
+
+    DownloadVLayout->addLayout(DownloadHLayout);
+
+
+    DownloadVLayout->addWidget(DownloadVLab);
+    DownloadVWidget->setLayout(DownloadVLayout);
+
+    //DownloadVLayout->addWidget(DownloadVLab);
+
+
+//    DownloadLabelLayout->addLayout(DownloadLimitLayout);
     /*是否自动更新选项*/
     isAutoUpgradeWidget = new QFrame();
     isAutoUpgradeWidget->setFrameShape(QFrame::Box);
@@ -628,6 +726,12 @@ void TabWid::allComponents()
     updatesettingLayout->addWidget(isAutoCheckWidget);
     //    updatesettingLayout->addWidget(isAutoBackupWidget);
     updatesettingLayout->addWidget(isAutoUpgradeWidget);
+    updatesettingLayout->setSpacing(2);
+    updatesettingLayout->setMargin(0);
+//    updatesettingLayout->addWidget(DownloadHWidget);没用了
+//    updatesettingLayout->setSpacing(2);
+//    updatesettingLayout->setMargin(0);
+    updatesettingLayout->addWidget(DownloadVWidget);
     updatesettingLayout->setSpacing(2);
     updatesettingLayout->setMargin(0);
 
@@ -711,6 +815,7 @@ void TabWid::loadingFinishedSlot(int size)
     disconnect(updateSource->serviceInterface,SIGNAL(updateSourceProgress(QVariantList)),this,SLOT(slotUpdateCacheProgress(QVariantList)));
     qDebug()<< "更新管理器：" <<"加载完毕信号 " << "size = " << size;
     if(updateMutual->importantList.size() == 0) {
+        updateMutual->fileUnLock();
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->stop();
         //        checkUpdateBtn->setText(tr("检查更新"));
@@ -834,7 +939,7 @@ void TabWid::checkUpdateBtnClicked()
         QTimer *timer = new QTimer;
         timer->setSingleShot(true);
         connect(timer,&QTimer::timeout,this,&TabWid::unableToConnectSource);
-        timer->start(60000);
+        timer->start(90000);
         QDateTime current_date_time = QDateTime::currentDateTime();
         QString current_date = current_date_time.toString("yyyy.MM.dd hh:mm:ss");
         updateMutual->insertInstallStates("check_time",current_date);
@@ -857,7 +962,7 @@ void TabWid::checkUpdateBtnClicked()
         QMessageBox msgBox(this);
         msgBox.setText(tr("Please back up the system before all updates to avoid unnecessary losses"));
         msgBox.setWindowTitle(tr("Prompt information"));
-
+        msgBox.setIcon(QMessageBox::Icon::Information);
         msgBox.addButton(tr("Only Update"), QMessageBox::YesRole);
         msgBox.addButton(tr("Back And Update"), QMessageBox::AcceptRole);
         msgBox.addButton(tr("Cancel"), QMessageBox::NoRole);
@@ -902,6 +1007,47 @@ void TabWid::checkUpdateBtnClicked()
     }
 }
 
+
+void TabWid::DownloadLimitSwitchChanged()
+{
+
+    if(DownloadHBtn->isChecked()==false)
+    {
+        qDebug()<<"download limit disabled";
+        DownloadHValue->hide();
+        updateMutual->SetDownloadLimit(0,false);
+    }
+    else if (DownloadHBtn->isChecked()==true)
+    {
+        qDebug()<<"download limit enabled";
+        DownloadHValue->show();
+        QString dlimit = DownloadHValue->currentText();
+        updateMutual->SetDownloadLimit(dlimit,true);
+    }
+    else
+    {
+        qWarning()<<"download limit disabled,this should not happen";
+        updateMutual->SetDownloadLimit(0,false);
+    }
+}
+
+void TabWid::DownloadLimitValueChanged(const QString &value)
+{
+    if(DownloadHBtn->isChecked()==false)
+    {
+        updateMutual->SetDownloadLimit(0,false);
+    }
+    else if (DownloadHBtn->isChecked()==true)
+    {
+        //int dlimit = DownloadLimitValue->value();
+        updateMutual->SetDownloadLimit(value,true);
+    }
+    else
+    {
+        qDebug()<<"Download Limit Changed";
+        updateMutual->SetDownloadLimit(0,false);
+    }
+}
 void TabWid::isAutoCheckedChanged()     //自动检测按钮绑定的槽函数
 {
     if(isAutoCheckSBtn->isChecked() == false)
@@ -949,9 +1095,11 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
             systemPortraitLab->setPixmap(QPixmap(":/img/plugins/upgrade/normal.png").scaled(96,96));
             checkUpdateBtn->hide();
             allProgressBar->hide();
+            updateMutual->fileUnLock();
         }
         else {
             versionInformationLab->setText(tr("Part of the update failed!"));
+            updateMutual->fileUnLock();
             allProgressBar->hide();
         }
         QString updatetime = tr("No Information!");
@@ -1000,7 +1148,7 @@ void TabWid::waitCrucialInstalled()
 void TabWid::getReplyFalseSlot()
 {
     isConnectSourceSignal = true;
-    disconnectSource();
+    disconnectSource(false);
 }
 
 void TabWid::receiveBackupStartResult(int result)

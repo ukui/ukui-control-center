@@ -10,7 +10,8 @@
 
 #define POWER_SCHMES                     "org.ukui.power-manager"
 #define POWER_KEY                        "brightness-ac"
-
+#define POWER_KEY_C                      "brightnessAc"
+ 
 BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &serialNum, QWidget *parent) :
     QFrame(parent)
 {
@@ -97,16 +98,28 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
         QByteArray powerId(POWER_SCHMES);
         if (QGSettings::isSchemaInstalled(powerId)) {
             QGSettings *mPowerGSettings = new QGSettings(powerId, QByteArray(), this);
-
-            int brightnessValue = mPowerGSettings->get(POWER_KEY).toInt();
-            setTextLabelValue(QString::number(brightnessValue));
-            slider->setValue(brightnessValue);
-            slider->setEnabled(true);
-            connect(slider, &QSlider::valueChanged, this, [=](){
-                qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
-                mPowerGSettings->set(POWER_KEY, slider->value());
-                setTextLabelValue(QString::number(mPowerGSettings->get(POWER_KEY).toInt()));
-            });
+            if (!mPowerGSettings->keys().contains(POWER_KEY_C)) {
+                setTextLabelValue("-1");
+            } else {
+                int brightnessValue = mPowerGSettings->get(POWER_KEY).toInt();
+                setTextLabelValue(QString::number(brightnessValue));
+                slider->setValue(brightnessValue);
+                slider->setEnabled(true);
+                connect(slider, &QSlider::valueChanged, this, [=](){
+                    qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
+                    mPowerGSettings->blockSignals(true);
+                    mPowerGSettings->set(POWER_KEY, slider->value());
+                    mPowerGSettings->blockSignals(false);
+                    setTextLabelValue(QString::number(mPowerGSettings->get(POWER_KEY).toInt()));
+                });
+                connect(mPowerGSettings,&QGSettings::changed,this,[=](QString key){
+                   if (key == POWER_KEY_C) {
+                       int value = mPowerGSettings->get(POWER_KEY).toInt();
+                       slider->setValue(value);
+                       setTextLabelValue(QString::number(value));
+                   }
+                });
+            }
         }
     }
 }

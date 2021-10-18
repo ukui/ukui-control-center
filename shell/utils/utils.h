@@ -37,6 +37,7 @@
 namespace Utils
 {    
     void centerToScreen(QWidget *widget);
+    QRect sizeOnCursor();
     void setCLIName(QCommandLineParser &parser);
     QVariantMap getModuleHideStatus();
     QString getCpuInfo();
@@ -44,5 +45,6 @@ namespace Utils
     void setKwinMouseSize(int size);
     bool isWayland();
     bool isCommunity();
+    bool isExitBattery();
 }
 #endif // UTILS_H

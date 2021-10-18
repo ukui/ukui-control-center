@@ -116,7 +116,7 @@
               </size>
              </property>
              <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
@@ -181,7 +181,7 @@
              <property name="minimumSize">
               <size>
                <width>176</width>
-               <height>0</height>
+               <height>137</height>
               </size>
              </property>
              <property name="frameShape">
@@ -250,7 +250,7 @@
              <property name="minimumSize">
               <size>
                <width>176</width>
-               <height>0</height>
+               <height>137</height>
               </size>
              </property>
              <property name="frameShape">

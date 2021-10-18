@@ -29,6 +29,7 @@
 #include <QString>
 #include <QListWidgetItem>
 #include <QListWidget>
+#include <QPushButton>
 
 class UkuiListWidget : public QListWidget
 {
@@ -68,6 +69,7 @@ public:
     QString portName;
     QLabel * portLabel;
     QLabel * deviceLabel;
+
 protected:
 //    void paintEvent(QPaintEvent *event);
     void mousePressEvent(QMouseEvent *ev);

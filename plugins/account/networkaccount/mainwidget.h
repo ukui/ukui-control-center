@@ -80,6 +80,10 @@ public:
 
 protected:
 private:
+    void            checkUserStatus();
+    void            startSync();
+    void            startAutoSync();
+    void            syncSelect();
     ItemList       *m_itemList;
     FrameItem    *m_autoSyn;
     TitleLabel              *m_title;
@@ -95,11 +99,6 @@ private:
     DBusUtils   *m_dbusClient;
     QString             m_confName;
     QPushButton         *m_login_btn;
-    QTimer              *m_lazyTimer;
-    QTimer              *m_listTimer;
-    QTimer              *m_singleTimer;
-    QTimer              *m_manTimer;
-    QTimer              *m_checkTimer;
     TitleLabel              *m_welcomeMsg;
     QSvgWidget              *m_welcomeImage;
     QVBoxLayout         *m_welcomeLayout;
@@ -120,6 +119,7 @@ private:
     bool                m_bTokenValid = false; //是否是有效用户
     bool                m_isOpenDialog = false; //对话框是否打开
     bool                m_firstLoad = false;
+    bool                m_bIsInit = true;
     QTimer              *m_cLoginTimer; //登录超时计时器
     QString             m_szUuid;
     QFileSystemWatcher m_fsWatcher;
@@ -141,6 +141,7 @@ private:
     bool            m_bIsOnline = true; //网络是否通
     bool            m_bIsOldBackEnds = false; //是否是旧的后台程序
     bool            m_bIsFailed = false; //是否同步失败
+    int             m_status;
 
 public slots:
     void            on_login_out();

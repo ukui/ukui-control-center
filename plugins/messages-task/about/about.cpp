@@ -21,10 +21,19 @@
 
 #include "about.h"
 #include "ui_about.h"
+#include "trialdialog.h"
+#include "shell/utils/utils.h"
 
 #include <KFormat>
 #include <unistd.h>
 #include <QFile>
+#include <QTimer>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
 
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
@@ -82,6 +91,8 @@ QWidget *About::get_plugin_ui()
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        ui->activeContent->setText(tr("Active Status"));
+        ui->diskContent->setVisible(false);
 
         initSearchText();
         initActiveDbus();
@@ -107,13 +118,16 @@ void About::setupDesktopComponent()
 {
     // 获取当前桌面环境
     QString dEnv;
+    bool ExitDesktopEnv =false;
     foreach (dEnv, QProcess::systemEnvironment()) {
-        if (dEnv.startsWith("XDG_CURRENT_DESKTOP"))
+        if (dEnv.startsWith("XDG_CURRENT_DESKTOP")){
+            ExitDesktopEnv = true;
             break;
+        }
     }
 
     // 设置当前桌面环境信息
-    if (!dEnv.isEmpty()) {
+    if (!dEnv.isEmpty()  && ExitDesktopEnv) {
         QString desktop = dEnv.section("=", -1, -1);
         if (desktop.contains("UKUI", Qt::CaseInsensitive)) {
             ui->desktopContent->setText("UKUI");
@@ -121,21 +135,13 @@ void About::setupDesktopComponent()
             ui->desktopContent->setText(desktop);
         }
     }
+    ui->desktopContent->setText("UKUI");
 
-    qlonglong uid = getuid();
-    QDBusInterface user("org.freedesktop.Accounts",
-                        "/org/freedesktop/Accounts",
-                        "org.freedesktop.Accounts",
-                        QDBusConnection::systemBus());
-    QDBusMessage result = user.call("FindUserById", uid);
-    QString userpath = result.arguments().value(0).value<QDBusObjectPath>().path();
-    QDBusInterface *userInterface = new QDBusInterface ("org.freedesktop.Accounts",
-                                          userpath,
-                                        "org.freedesktop.Accounts.User",
-                                        QDBusConnection::systemBus());
-    QString userName = userInterface->property("RealName").value<QString>();
+    ChangedSlot();
 
-    ui->userContent->setText(userName);
+    QDBusConnection::systemBus().connect(QString(), QString("/org/freedesktop/Accounts/User1000"),
+                                          QString("org.freedesktop.Accounts.User"), "Changed",this,
+                                         SLOT(ChangedSlot()));
 }
 
 void About::setupKernelCompenent()
@@ -148,28 +154,8 @@ void About::setupKernelCompenent()
 
     ui->kernalContent->setText(kernal);
     ui->memoryContent->setText(memorySize);
-
-    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
-                                   "/com/kylin/assistant/systemdaemon",
-                                   "com.kylin.assistant.systemdaemon",
-                                   QDBusConnection::systemBus());
-    if (!youkerInterface.isValid()) {
-        qCritical() << "Create youker Interface Failed When Get Computer info: " <<
-            QDBusConnection::systemBus().lastError();
-        return;
-    }
-
-    QDBusReply<QMap<QString, QVariant> > cpuinfo;
-    cpuinfo = youkerInterface.call("get_cpu_info");
-    if (!cpuinfo.isValid()) {
-        qDebug() << "cpuinfo is invalid" << endl;
-    } else {
-        QMap<QString, QVariant> res = cpuinfo.value();
-        cpuType = res["CpuVersion"].toString();
-    }
-
+    cpuType = Utils::getCpuInfo();
     ui->cpuContent->setText(cpuType);
-    ui->diskContent->setVisible(false);
 }
 
 void About::setupVersionCompenent()
@@ -270,28 +256,146 @@ void About::setupSerialComponent()
     if (dateReply.type() == QDBusMessage::ReplyMessage) {
         dateRes = dateReply.arguments().at(0).toString();
     }
-    if (1 == status) {
-        ui->activeContent->setText(tr("Activated"));
-        ui->timeContent->setText(dateRes);
-        ui->activeButton->hide();
-        ui->trialButton->hide();
-    } else {
-        ui->activeContent->setStyleSheet("color:red;");
-        ui->timeContent->setStyleSheet("color:red;");
-        if (!dateRes.isEmpty()) {
-            ui->activeContent->setText(tr("Technical service has expired"));
-            ui->timeContent->setText(dateRes);
-        } else {
-            ui->label_8->hide();
-            ui->timeContent->hide();
-            ui->activeContent->setText(tr("Inactivated"));
-        }
-    }
-
     ui->serviceContent->setText(serial);
 
+    if (dateRes.isEmpty()) {  //未激活
+        ui->label->hide();
+        ui->timeContent->hide();
+        ui->activeContent->setText(tr("Inactivated"));
+        ui->activeContent->setStyleSheet("color : red");
+        ui->activeButton->setText(tr("Active"));
+    } else {    //已激活
+        ui->activeButton->hide();
+        ui->trialButton->hide();
+        ui->activeContent->setText(tr("Activated"));
+        ui->timeContent->setText(dateRes);
+        QTimer::singleShot( 1, this, [=](){
+            QString s1(ntpdate());
+            if (s1.isNull()) {    //未连接上网络
+                ui->timeContent->setText(dateRes);
+            } else {    //获取到网络时间
+                QStringList list_1 = s1.split(" ");
+                QStringList list_2 = dateRes.split("-");
+
+                if (QString(list_2.at(0)).toInt() > QString(list_1.at(4)).toInt() ) { //未到服务到期时间
+                    ui->timeContent->setText(dateRes);
+                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(4)).toInt()) {
+                    if (QString(list_2.at(1)).toInt() > getMonth(list_1.at(1))) {
+                        ui->timeContent->setText(dateRes);
+                    } else if (QString(list_2.at(1)).toInt() == getMonth(list_1.at(1))) {
+                        if (QString(list_2.at(2)).toInt() > QString(list_1.at(2)).toInt()) {
+                            ui->timeContent->setText(dateRes);
+                        } else {   // 已过服务到期时间
+                            showExtend(dateRes);
+                        }
+                    } else {
+                        showExtend(dateRes);
+                    }
+                } else {
+                    showExtend(dateRes);
+                }
+            }
+        });
+    }
     connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
-    connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
+    connect(ui->trialButton, &QPushButton::clicked, this, [=](){
+        TrialDialog *mDialog = new TrialDialog(pluginWidget);
+        mDialog->show();
+    });
+}
+
+void About::showExtend(QString dateres)
+{
+    ui->timeContent->setStyleSheet("color:red;");
+    ui->timeContent->setText(dateres+QString("(%1)").arg(tr("expired")));
+    ui->activeButton->setVisible(true);
+    ui->trialButton->setVisible(true);
+    ui->activeButton->setText(tr("Extend"));
+}
+
+char *About::ntpdate()
+{
+    char *hostname=(char *)"200.20.186.76";
+    int portno = 123;     //NTP is port 123
+    int maxlen = 1024;        //check our buffers
+    int i;          // misc var i
+    unsigned char msg[48]={010,0,0,0,0,0,0,0,0};    // the packet we send
+    unsigned long  buf[maxlen]; // the buffer we get back
+    struct protoent *proto;
+    struct sockaddr_in server_addr;
+    int s;  // socket
+    long tmit;   // the time -- This is a time_t sort of
+
+    proto = getprotobyname("udp");
+    s = socket(PF_INET, SOCK_DGRAM, proto->p_proto);
+    if (-1 == s) {
+        perror("socket");
+        return NULL;
+    }
+
+    memset( &server_addr, 0, sizeof( server_addr ));
+    server_addr.sin_family=AF_INET;
+    server_addr.sin_addr.s_addr = inet_addr(hostname);
+
+    server_addr.sin_port=htons(portno);
+
+    i=sendto(s,msg,sizeof(msg),0,(struct sockaddr *)&server_addr,sizeof(server_addr));
+    if (-1 == i) {
+        perror("sendto");
+        return NULL;
+    }
+
+    // 设置超时
+    struct timeval timeout;
+    timeout.tv_sec = 1;
+    timeout.tv_usec = 0;//微秒
+    if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) == -1) {
+        perror("setsockopt failed:");
+        return NULL;
+    }
+
+    struct sockaddr saddr;
+    socklen_t saddr_l = sizeof (saddr);
+    i=recvfrom(s,buf,48,0,&saddr,&saddr_l);
+    if (-1 == i) {
+        perror("recvfr");
+        return NULL;
+    }
+
+    tmit=ntohl((time_t)buf[4]);    // get transmit time
+
+    tmit -= 2208988800U;
+
+    return ctime(&tmit);
+}
+
+int About::getMonth(QString month)
+{
+    if (month == "Jan") {
+        return 1;
+    } else if (month == "Feb") {
+        return 2;
+    } else if (month == "Mar") {
+        return 3;
+    } else if (month == "Apr") {
+        return 4;
+    } else if (month == "May") {
+        return 5;
+    } else if (month == "Jun") {
+        return 6;
+    } else if (month == "Jul") {
+        return 7;
+    } else if (month == "Aug") {
+        return 8;
+    } else if (month == "Sep" || month == "Sept") {
+        return 9;
+    } else if (month == "Oct") {
+        return 10;
+    } else if (month == "Nov") {
+        return 11;
+    } else if (month == "Dec") {
+        return 12;
+    }
 }
 
 qlonglong About::calculateTotalRam()
@@ -406,13 +510,14 @@ void About::initSearchText()
     ui->label_3->setText(tr("Desktop"));
     //~ contents_path /about/User
     ui->label_6->setText(tr("User"));
-    //~ contents_path /about/Active Status
-    ui->label_5->setText(tr("Active Status"));
+    //~ contents_path /about/Status
+    ui->label_5->setText(tr("Status"));
     //~ contents_path /about/Active
     ui->activeButton->setText(tr("Active"));
     //~ contents_path /about/Protocol
     ui->trialButton->setText(tr("Protocol"));
     ui->diskLabel->setVisible(false);
+
 }
 
 void About::initActiveDbus()
@@ -466,6 +571,23 @@ void About::activeSlot(int activeSignal)
     if (!activeSignal) {
         setupSerialComponent();
     }
+}
+
+void About::ChangedSlot()
+{
+    qlonglong uid = getuid();
+    QDBusInterface user("org.freedesktop.Accounts",
+                        "/org/freedesktop/Accounts",
+                        "org.freedesktop.Accounts",
+                        QDBusConnection::systemBus());
+    QDBusMessage result = user.call("FindUserById", uid);
+    QString userpath = result.arguments().value(0).value<QDBusObjectPath>().path();
+    QDBusInterface *userInterface = new QDBusInterface ("org.freedesktop.Accounts",
+                                          userpath,
+                                        "org.freedesktop.Accounts.User",
+                                        QDBusConnection::systemBus());
+    QString userName = userInterface->property("RealName").value<QString>();
+    ui->userContent->setText(userName);
 }
 
 

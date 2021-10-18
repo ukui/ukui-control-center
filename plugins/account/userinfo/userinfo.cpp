@@ -61,6 +61,10 @@ extern "C" {
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
 #define ITEMHEIGH 52
 
+#define STYLE_FONT_SCHEMA  "org.ukui.style"
+
+#define FONTSWIDTH 80
+
 UserInfo::UserInfo() : mFirstLoad(true)
 {
     pluginName = tr("User Info");
@@ -74,6 +78,8 @@ UserInfo::~UserInfo()
         ui = nullptr;
         delete autoSettings;
         autoSettings = nullptr;
+        delete pSetting;
+        pSetting = nullptr;
     }
 }
 
@@ -94,8 +100,13 @@ QWidget *UserInfo::get_plugin_ui() {
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
 
+        const QByteArray styleID(STYLE_FONT_SCHEMA);
+        pSetting = new QGSettings(styleID, QByteArray(), this);
+
         // 构建System dbus调度对象
         sysdispatcher = new SystemDbusDispatcher(this);
+
+        pcgThread = new PwdChangeThread;
 
         // 获取系统全部用户信息，用户Uid大于等于1000的
         _acquireAllUsersInfo();
@@ -106,6 +117,24 @@ QWidget *UserInfo::get_plugin_ui() {
         initAllUserStatus();
         // 设置界面用户信息
         _refreshUserInfoUI();
+
+        connect(pSetting, &QGSettings::changed, this, [=](QString key){
+            if (QString::compare(key, "systemFontSize") == 0){
+
+                QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+                for (; it != allUserInfoMap.end(); it++){
+                    UserInfomation user = it.value();
+
+                    //当前用户
+                    if (user.username == QString(g_get_user_name())){
+                        //刷新
+                        if (QLabelSetText(ui->userNameLabel, user.realname))
+                            ui->userNameLabel->setToolTip(user.realname);
+                    }
+                }
+            }
+
+        });
     }
     return pluginWidget;
 }
@@ -253,7 +282,7 @@ UserInfomation UserInfo::_acquireUserInfo(QString objpath){
         user.iconfile = propertyMap.find("IconFile").value().toString();
         user.passwdtype = propertyMap.find("PasswordMode").value().toInt();
         user.uid = propertyMap.find("Uid").value().toInt();
-        user.autologin = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
+        user.autologin = !getAutomaticLogin().compare(user.username, Qt::CaseSensitive);
         user.objpath = objpath;
     }
     else
@@ -402,9 +431,9 @@ void UserInfo::initComponent(){
 #endif
 
 #ifdef __sw_64__
-    ui->changeValidBtn->show();
+//    ui->changeValidBtn->show();
 #else
-    ui->changeValidBtn->hide();
+//    ui->changeValidBtn->hide();
 #endif
 
     ui->listWidget->setStyleSheet("QListWidget::Item:hover{background:palette(base);}");
@@ -493,6 +522,14 @@ void UserInfo::initComponent(){
         showChangePwdDialog(user.username);
     });
 
+    connect(pcgThread, &PwdChangeThread::complete, this, [=](QString re){
+        QString primaryText;
+        primaryText = re.simplified().isEmpty() ? tr("Pwd Changed Succes") : re;
+
+        QMessageBox::warning(NULL, "", primaryText, QMessageBox::Yes);
+
+    });
+
     //修改当前用户类型的回调
     if (getuid())
         connect(ui->changeTypeBtn, &QPushButton::clicked, this, [=](bool checked){
@@ -507,13 +544,13 @@ void UserInfo::initComponent(){
         showChangeGroupDialog();
     });
 
-    connect(ui->changeValidBtn, &QPushButton::clicked, this, [=](bool checked){
-        Q_UNUSED(checked)
-        UserInfomation user = allUserInfoMap.value(g_get_user_name());
+//    connect(ui->changeValidBtn, &QPushButton::clicked, this, [=](bool checked){
+//        Q_UNUSED(checked)
+//        UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        showChangeValidDialog(user.username);
+//        showChangeValidDialog(user.username);
 
-    });
+//    });
 
     //修改当前用户免密登录
     if (getuid())
@@ -546,7 +583,7 @@ void UserInfo::initComponent(){
 
             UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
 
-            bool status = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
+            bool status = !getAutomaticLogin().compare(user.username, Qt::CaseSensitive);
 
             if (checked && !isOpenAutoLogin(user.username)) {
                 autoLoginSwitchBtn->blockSignals(true);
@@ -556,11 +593,11 @@ void UserInfo::initComponent(){
             }
 
             if ((checked != status)) {
-                if (checked) {
-                    userdispatcher->change_user_autologin(user.username);
-                } else {
-                    userdispatcher->change_user_autologin("");
-                }
+                userdispatcher->change_user_autologin(checked);
+                bool status = !getAutomaticLogin().compare(user.username, Qt::CaseSensitive);
+                autoLoginSwitchBtn->blockSignals(true);
+                autoLoginSwitchBtn->setChecked(status);
+                autoLoginSwitchBtn->blockSignals(false);
             }
         });
 
@@ -576,15 +613,13 @@ void UserInfo::initComponent(){
 //    });
 
     //成功新建用户的回调
-    connect(sysdispatcher, &SystemDbusDispatcher::createuserdone, this, [=](QString objPath){
-        createUserDone(objPath);
-    });
+//    connect(sysdispatcher, &SystemDbusDispatcher::createuserdone, this, [=](QString objPath){
+//        createUserDone(objPath);
+//    });
+    QDBusConnection::systemBus().connect(QString(), QString(), "org.freedesktop.Accounts", "UserAdded", this, SLOT(createUserDone(QDBusObjectPath)));
 
     //初始化生物密码控件
-    if(isShowBiometric())
-        initBioComonent();
-    else
-        setBiometricDeviceVisible(false);
+    initBioComonent();
 }
 
 void UserInfo::_resetListWidgetHeigh(){
@@ -680,7 +715,8 @@ void UserInfo::_refreshUserInfoUI(){
             ui->currentUserFaceLabel->setPixmap(iconPixmap);
 
             //设置用户名
-            ui->userNameLabel->setText(user.realname);
+            if (QLabelSetText(ui->userNameLabel, user.realname))
+                ui->userNameLabel->setToolTip(user.realname);
             ui->userNameChangeLabel->setProperty("useIconHighlightEffect", 0x8);
             ui->userNameChangeLabel->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(ui->userNameChangeLabel->size()));
             //设置用户类型
@@ -746,18 +782,30 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     nameLabel->setSizePolicy(nameSizePolicy);
-    nameLabel->setText(user.realname);
+//    nameLabel->setText(user.realname);
+    if (QLabelSetText(nameLabel, user.realname)){
+        nameLabel->setToolTip(user.realname);
+    }
+
+    connect(pSetting, &QGSettings::changed, baseWidget, [=](QString key){
+        if (QString::compare(key, "systemFontSize") == 0){
+            if (QLabelSetText(nameLabel, user.realname)){
+                nameLabel->setToolTip(user.realname);
+            }
+        }
+
+    });
 
     QString btnQss = QString("QPushButton{background: #ffffff; border-radius: 4px;}");
 
     QPushButton * typeBtn = new QPushButton(widget);
 //    typeBtn->setFixedSize(88, 36);
     typeBtn->setFixedHeight(36);
-    typeBtn->setMinimumWidth(88);
+    typeBtn->setMinimumWidth(90);
     typeBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     typeBtn->setText(tr("Change type"));
 //    typeBtn->setStyleSheet(btnQss);
-    connect(typeBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(typeBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showChangeTypeDialog(user.username);
     });
@@ -766,11 +814,11 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     QPushButton * pwdBtn = new QPushButton(widget);
 //    pwdBtn->setFixedSize(88, 36);
     pwdBtn->setFixedHeight(36);
-    pwdBtn->setMinimumWidth(88);
+    pwdBtn->setMinimumWidth(90);
     pwdBtn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     pwdBtn->setText(tr("Change pwd"));
 //    pwdBtn->setStyleSheet(btnQss);
-    connect(pwdBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(pwdBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showChangePwdDialog(user.username);
     });
@@ -785,16 +833,16 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
     widget->setLayout(mainHorLayout);
 
     QPushButton * delBtn = new QPushButton(baseWidget);
-    delBtn->setFixedSize(60, 36);
+    delBtn->setFixedSize(80, 36);
     delBtn->setText(tr("Del"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
-    connect(delBtn, &QPushButton::clicked, this, [=](bool checked){
+    connect(delBtn, &QPushButton::clicked, baseWidget, [=](bool checked){
         Q_UNUSED(checked)
         showDeleteUserDialog(user.username);
     });
 
-    connect(baseWidget, &HoverWidget::enterWidget, this, [=](QString name){
+    connect(baseWidget, &HoverWidget::enterWidget, baseWidget, [=](QString name){
 
         //不允许删除最后一个管理员
         if (_userCanDel(name) == 1){
@@ -815,7 +863,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
         pwdBtn->show();
         delBtn->show();
     });
-    connect(baseWidget, &HoverWidget::leaveWidget, this, [=](QString name){
+    connect(baseWidget, &HoverWidget::leaveWidget, baseWidget, [=](QString name){
         Q_UNUSED(name)
         typeBtn->hide();
         pwdBtn->hide();
@@ -876,19 +924,7 @@ QStringList UserInfo::getUsersList()
 
 void UserInfo::createUser(QString username, QString pwd, QString pin, int atype){
     Q_UNUSED(pin);
-    sysdispatcher->create_user(username, "", atype);
-
-    //使用全局变量传递新建用户密码
-    _newUserPwd = pwd;
-    _newUserName = username;
-}
-
-void UserInfo::createUserDone(QString objpath){
-    UserDispatcher * userdispatcher  = new UserDispatcher(objpath);
-    //设置默认头像
-    userdispatcher->change_user_face(DEFAULTFACE);
-    //设置默认密码
-//    userdispatcher->change_user_pwd(_newUserPwd, "");
+//    sysdispatcher->create_user(username, "", atype);
     QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                                           "/",
                                                           "com.control.center.interface",
@@ -898,10 +934,17 @@ void UserInfo::createUserDone(QString objpath){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    tmpSysinterface->call("changeOtherUserPasswd", _newUserName, _newUserPwd);
+
+    tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
+    tmpSysinterface->call("createUser", username, username, atype, DEFAULTFACE, pwd);
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
+
+}
+
+void UserInfo::createUserDone(QDBusObjectPath op){
+    QString objpath = op.path();
 
     //刷新全部用户信息
     _acquireAllUsersInfo();
@@ -914,6 +957,9 @@ void UserInfo::createUserDone(QString objpath){
 
     //构建Item
     _buildWidgetForItem(user);
+
+    //更新界面显示
+    _refreshUserInfoUI();
 }
 
 void UserInfo::showDeleteUserDialog(QString username){
@@ -955,7 +1001,7 @@ void UserInfo::delete_user_slot(bool removefile, QString username){
 void UserInfo::pwdAndAutoChangedSlot(QString key) {
     if ("option" == key) {
         autoLoginSwitchBtn->blockSignals(true);
-        autoLoginSwitchBtn->setChecked(getAutomaticLogin().contains(mUserName, Qt::CaseSensitive));
+        autoLoginSwitchBtn->setChecked(!getAutomaticLogin().compare(mUserName, Qt::CaseSensitive));
         autoLoginSwitchBtn->blockSignals(false);
         nopwdSwitchBtn->setChecked(getNoPwdStatus());
     } else if( "avatar" == key) {
@@ -977,6 +1023,11 @@ void UserInfo::propertyChangedSlot(QString property, QMap<QString, QVariant> pro
             ui->userTypeLabel->setText(_accountTypeIntToString(type));
         }
     }
+    if (propertyMap.keys().contains("AutomaticLogin")) {
+        autoLoginSwitchBtn->blockSignals(true);
+        autoLoginSwitchBtn->setChecked(!getAutomaticLogin().compare(mUserName));
+        autoLoginSwitchBtn->blockSignals(false);
+    }
 }
 
 void UserInfo::deleteUserDone(QString objpath){
@@ -993,6 +1044,9 @@ void UserInfo::deleteUserDone(QString objpath){
 
     //重置其他用户ListWidget高度
     _resetListWidgetHeigh();
+
+    //更新界面显示
+    _refreshUserInfoUI();
 }
 
 void UserInfo::showChangeGroupDialog(){
@@ -1150,7 +1204,7 @@ void UserInfo::showChangePwdDialog(QString username){
 
             QString output;
 
-            char * cmd = g_strdup_printf("/usr/bin/changeuserpwd %s %s", oldpwd.toLatin1().data(), pwd.toLatin1().data());
+            char * cmd = g_strdup_printf("/usr/bin/changeuserpwd '%s' '%s'", oldpwd.toLatin1().data(), pwd.toLatin1().data());
 
             FILE   *stream;
             char buf[256];
@@ -1167,19 +1221,12 @@ void UserInfo::showChangePwdDialog(QString username){
 
         });
         connect(dialog, &ChangePwdDialog::passwd_send2, this, [=](QString pwd){
+            changeUserPwd(pwd, username);
+        });
+        connect(dialog, &ChangePwdDialog::passwd_send3, this, [=](QString currentpwd, QString pwd){
+            pcgThread->setArgs(currentpwd, pwd);
 
-            PolkitQt1::Authority::Result result;
-
-            result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                        "org.control.center.qt.systemdbus.action",
-                        PolkitQt1::UnixProcessSubject(QCoreApplication::applicationPid()),
-                        PolkitQt1::Authority::AllowUserInteraction);
-
-            if (result == PolkitQt1::Authority::Yes){
-                changeUserPwd(pwd, username);
-            }
-
-
+            pcgThread->start();
         });
         dialog->exec();
 
@@ -1205,12 +1252,32 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    QDBusReply<int> reply = tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
+    if (reply.isValid()){
+        tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    }
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
 }
 
+bool UserInfo::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+
+    QString str = string;
+    if (fontSize > FONTSWIDTH) {
+        label->setFixedWidth(FONTSWIDTH);
+        str = fontMetrics.elidedText(string, Qt::ElideRight, FONTSWIDTH);
+        is_over_length = true;
+    } else {
+        label->setFixedWidth(fontSize);
+    }
+    label->setText(str);
+    return is_over_length;
+}
 
 bool UserInfo::eventFilter(QObject *watched, QEvent *event){
     if (watched == ui->currentUserFaceLabel){
@@ -1347,13 +1414,13 @@ void UserInfo::initBioComonent()
     QHBoxLayout *addBioFeatureLayout = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    QLabel * textLabel = new QLabel(tr("Add biometric feature"));
+    bioTextLabel = new QLabel(tr("Add biometric feature"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
     iconLabel->setProperty("useIconHighlightEffect", true);
     iconLabel->setProperty("iconHighlightEffectMode", 1);
     addBioFeatureLayout->addWidget(iconLabel);
-    addBioFeatureLayout->addWidget(textLabel);
+    addBioFeatureLayout->addWidget(bioTextLabel);
     addBioFeatureLayout->addStretch();
     addBioFeatureWidget->setLayout(addBioFeatureLayout);
 
@@ -1364,7 +1431,7 @@ void UserInfo::initBioComonent()
         iconLabel->setProperty("iconHighlightEffectMode", 0);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
         iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
+        bioTextLabel->setStyleSheet("color: white;");
     });
 
     // 还原状态
@@ -1374,7 +1441,7 @@ void UserInfo::initBioComonent()
         iconLabel->setProperty("iconHighlightEffectMode", 1);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
         iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
+        bioTextLabel->setStyleSheet("color: palette(windowText);");
     });
 
     connect(addBioFeatureWidget, &HoverWidget::widgetClicked, this, [=](QString mname) {
@@ -1411,10 +1478,16 @@ void UserInfo::initBioComonent()
     {
         connect(m_biometricProxy, &BiometricProxy::USBDeviceHotPlug,
             this, &UserInfo::onBiometricUSBDeviceHotPlug);
+
+        connect(m_biometricProxy, &BiometricProxy::FeatureChanged,
+                this, &UserInfo::onFeatureChanged);
     }
 
     enableBiometricBtn = new SwitchButton(ui->enableBiometricFrame);
-    enableBiometricBtn->setChecked(getBioStatus());
+    bool enableBio = getBioStatus();
+
+    enableBiometricBtn->setChecked(enableBio);
+    setBioVisible(enableBio);
     ui->enableBiometricLayout->addWidget(enableBiometricBtn);
     connect(enableBiometricBtn, &SwitchButton::checkedChanged, [=](bool checked){
         QProcess process;
@@ -1434,7 +1507,9 @@ void UserInfo::initBioComonent()
         connect(mBiometricWatcher,&QFileSystemWatcher::fileChanged,this,[=](const QString &path){
             mBiometricWatcher->addPath(UKUI_BIOMETRIC_SYS_CONFIG_PATH);
             enableBiometricBtn->blockSignals(true);
-            enableBiometricBtn->setChecked(getBioStatus());
+            bool res = getBioStatus();
+            enableBiometricBtn->setChecked(res);
+            setBioVisible(res);
             enableBiometricBtn->blockSignals(false);
         });
     }
@@ -1458,6 +1533,24 @@ bool UserInfo::getBioStatus()
 void UserInfo::setBioStatus(bool status)
 {
     enableBiometricBtn->setChecked(true);
+}
+
+void UserInfo::onFeatureChanged(int drvid,int uid,int cType)
+{
+    if(isShowDialog || isShowEnrollDialog){
+        isShowDialog = false;
+        return ;
+    }
+
+    QTimer::singleShot(200, [&]{
+        int savedDeviceId = -1;
+        if(currentDevice)
+            savedDeviceId = currentDevice->id;
+
+        updateDevice();
+        if(savedDeviceId >= 0)
+            setCurrentDevice(savedDeviceId);
+   });
 }
 
 void UserInfo::onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum)
@@ -1485,6 +1578,21 @@ void UserInfo::onBiometricUSBDeviceHotPlug(int drvid, int action, int deviceNum)
         updateDevice();
     }
 
+    }
+}
+
+void UserInfo::setBioVisible(bool visible)
+{
+    if(visible){
+        ui->addFeatureWidget->setVisible(true);
+        ui->bioFeatureListWidget->setVisible(true);
+        ui->biometricDeviceFrame->setVisible(true);
+        ui->biometricTypeFrame->setVisible(true);
+    }else{
+        ui->addFeatureWidget->setVisible(false);
+        ui->bioFeatureListWidget->setVisible(false);
+        ui->biometricDeviceFrame->setVisible(false);
+        ui->biometricTypeFrame->setVisible(false);
     }
 }
 
@@ -1618,6 +1726,8 @@ void UserInfo::onbiometricTypeBoxCurrentIndexChanged(int index)
     {
         ui->biometricDeviceBox->addItem(deviceInfo->shortName);
     }
+
+    bioTextLabel->setText(QString(tr("Add") + ui->biometrictypeBox->currentText()));
 }
 
 void UserInfo::onbiometricDeviceBoxCurrentIndexChanged(int index)
@@ -1641,6 +1751,20 @@ void UserInfo::onbiometricDeviceBoxCurrentIndexChanged(int index)
                         SLOT(errorCallback(QDBusError)));
 }
 
+bool compareBarData(const QDBusVariant &feature1, const QDBusVariant &feature2)
+{
+    FeatureInfo *featureInfo1 = new FeatureInfo;
+    FeatureInfo *featureInfo2 = new FeatureInfo;
+
+    feature1.variant().value<QDBusArgument>() >> *featureInfo1;
+    feature2.variant().value<QDBusArgument>() >> *featureInfo2;
+    if (featureInfo1->index_name < featureInfo2->index_name)
+    {
+       return true;
+    }
+    return false;
+}
+
 void UserInfo::updateFeatureListCallback(QDBusMessage callbackReply)
 {
     QList<QDBusVariant> qlist;
@@ -1653,6 +1777,9 @@ void UserInfo::updateFeatureListCallback(QDBusMessage callbackReply)
     QList<QVariant> variantList = callbackReply.arguments();
     listsize = variantList[0].value<int>();
     variantList[1].value<QDBusArgument>() >> qlist;
+
+    qSort(qlist.begin(), qlist.end(), compareBarData);
+
     for (int i = 0; i < listsize; i++) {
         featureInfo = new FeatureInfo;
         qlist[i].variant().value<QDBusArgument>() >> *featureInfo;
@@ -1687,6 +1814,7 @@ void UserInfo::showEnrollDialog()
     if(!deviceInfo)
         return ;
 
+    isShowEnrollDialog = true;
     BiometricEnrollDialog * dialog = new BiometricEnrollDialog(serviceInterface,deviceInfo->deviceType,deviceInfo->id,getuid());
     //gdxfp显示指纹图片
     if(deviceInfo->shortName == "gdxfp")
@@ -1704,7 +1832,7 @@ void UserInfo::showEnrollDialog()
     dialog->enroll(deviceInfo->id,getuid(),-1,featurename);
 
     onbiometricDeviceBoxCurrentIndexChanged(ui->biometricDeviceBox->currentIndex());
-
+    isShowEnrollDialog = false;
 }
 
 void UserInfo::showVerifyDialog(FeatureInfo *featureinfo)
@@ -1750,12 +1878,10 @@ void UserInfo::renameFeaturedone(FeatureInfo *featureinfo ,QString newname)
 
      featureinfo->index_name = newname;
      addFeature(featureinfo);
-
 }
 
 void UserInfo::deleteFeaturedone(FeatureInfo *featureinfo)
 {
-
     QListWidgetItem *item = biometricFeatureMap.value(featureinfo->index_name);
 
     ui->bioFeatureListWidget->takeItem(ui->bioFeatureListWidget->row(item));
@@ -1814,7 +1940,7 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
         if(!deviceInfoPtr)
                 return ;
         bool res = m_biometricProxy->renameFeature(deviceInfoPtr->id,getuid(),featureinfo->index,rename);
-        renameFeaturedone(featureinfo,rename);
+        //renameFeaturedone(featureinfo,rename);
     });
 
     QPushButton * renameBtn = new QPushButton(widget);
@@ -1855,7 +1981,7 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
     widget->setLayout(mainHorLayout);
 
     QPushButton * delBtn = new QPushButton(baseWidget);
-    delBtn->setFixedSize(60, 36);
+    delBtn->setFixedSize(88, 36);
     delBtn->setText(tr("Delete"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
@@ -1864,6 +1990,7 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
         DeviceInfoPtr deviceInfoPtr = findDeviceByName(featureinfo->device_shortname);
         if(!deviceInfoPtr)
                 return ;
+        isShowDialog = true;
         bool res = m_biometricProxy->deleteFeature(deviceInfoPtr->id,getuid(),featureinfo->index,featureinfo->index);
         if(!res){
              deleteFeaturedone(featureinfo);

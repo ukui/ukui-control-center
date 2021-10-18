@@ -5,7 +5,6 @@ CONFIG += ordered
 SUBDIRS = \
     changeOtherUserPwd \
     changeUserPwd \
-    checkUserPwd \
     checkUserPwdWithPAM \
     registeredQDbus \
     plugins\
@@ -36,6 +35,8 @@ qm_files.files = shell/res/i18n/*.qm
 
 search_file.path = $${PREFIX}/share/ukui-control-center/shell/res/
 search_file.files = shell/res/search.xml
+
+INCLUDEPATH += /usr/lib/gcc/aarch64-linux-gnu/9/include/
 
 INSTALLS += qm_files \
             search_file

@@ -38,22 +38,9 @@ ChangeTypeDialog::ChangeTypeDialog(QWidget *parent) :
     setWindowTitle(tr("Change type"));
 
     ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
-    if (QLabelSetText(ui->tipLabel,tr("Make sure that there is at least one administrator on the computer"))) {
-        ui->tipLabel->setToolTip(tr("Make sure that there is at least one administrator on the computer"));
+    if (QLabelSetText(ui->tipLabel,tr("Ensure that must have admin on system"))) {
+        ui->tipLabel->setToolTip(tr("Ensure that must have admin on system"));
     }
-//    ui->closeBtn->setProperty("useIconHighlightEffect", true);
-//    ui->closeBtn->setProperty("iconHighlightEffectMode", 1);
-//    ui->closeBtn->setFlat(true);
-//    ui->closeBtn->setStyleSheet("QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 4px;}"
-//                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border-radius: 4px;}");
-
-//    ui->frame->setStyleSheet("QFrame{background: #ffffff; border: none; border-radius: 6px;}");
-//    ui->closeBtn->setStyleSheet("QPushButton{background: #ffffff; border: none;}");
-
-
-
-//    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.svg"));
-
 
     setupComonpent();
 
@@ -94,7 +81,9 @@ void ChangeTypeDialog::setFace(QString faceFile){
 }
 
 void ChangeTypeDialog::setUsername(QString username){
-    ui->usernameLabel->setText(username);
+    if (QLabelSetText(ui->usernameLabel, username)){
+        ui->usernameLabel->setToolTip(username);
+    }
 }
 
 void ChangeTypeDialog::setCurrentAccountTypeLabel(QString atype){

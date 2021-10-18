@@ -195,12 +195,14 @@ void ChangeGroupDialog::loadAllGroup()
         QPushButton *itemEditBtn = singleWidget->editBtnComponent();
 
         connect(itemDelBtn, &QPushButton::clicked, [=](){
-            bool reply = polkitDel();
-            qDebug() << "call polkitdel " << reply;
+//            bool reply = polkitDel();
+//            qDebug() << "call polkitdel " << reply;
+            bool reply = true;
             if(reply){
                 DelGroupDialog *delDialog = new DelGroupDialog(groupList->at(i)->groupname,this);
                 QPushButton *delBtn = delDialog->delBtnComponent();
                 connect(delBtn, &QPushButton::clicked, [=](){
+                    QDBusReply<bool> replyBefore1 = serviceInterface->call("setPid", int(QCoreApplication::applicationPid()));
                     QDBusReply<bool> reply = serviceInterface->call("del",groupList->at(i)->groupname);
                     if (reply.isValid()){
                         // use the returned value
@@ -221,8 +223,9 @@ void ChangeGroupDialog::loadAllGroup()
             }
         });
         connect(itemEditBtn, &QPushButton::clicked, [=](){
-            bool reply = polkitEdit();
-            qDebug() << "call polkitedit " << reply;
+//            bool reply = polkitEdit();
+            bool reply = true;
+//            qDebug() << "call polkitedit " << reply;
             if(reply){
                 EditGroupDialog *editDialog = new EditGroupDialog(groupList->at(i)->usergroup,groupList->at(i)->groupid,
                                                   groupList->at(i)->groupname, idSetEnable,this);
@@ -319,8 +322,9 @@ void ChangeGroupDialog::initNewGroupBtn()
         textLabel->setStyleSheet("color: palette(windowText);");
     });
     connect(addWgt, &HoverWidget::widgetClicked, this, [=](){
-        bool reply = polkitAdd();
-        qDebug() << "call polkitadd " << reply;
+//        bool reply = polkitAdd();
+//        qDebug() << "call polkitadd " << reply;
+        bool reply = true;
         if(reply){
             CreateGroupDialog *dialog = new CreateGroupDialog(this);
             QPushButton *certainBtn = dialog->certainBtnComponent();
@@ -347,8 +351,46 @@ void ChangeGroupDialog::initNewGroupBtn()
                         return;
                     }
                 }
+//                QDBusReply<bool> replyBefore1 = serviceInterface->call("setPid", int(QCoreApplication::applicationPid()));
+//                QDBusReply<bool> reply = serviceInterface->call("add",lineName->text(),lineId->text());
+//                if (reply.isValid()){
+//                    // use the returned value
+//                    qDebug() << "get call value" << reply.value();
+//                } else {
+//                    // call failed. Show an error condition.
+//                    qDebug() << "call failed" << reply.error();
+//                }
+                QStringList usersInGroup = QStringList();
+                for (int i = 0; i < cglist->count(); i++){
+                    QListWidgetItem *item = cglist->item(i);
+                    QCheckBox *box = static_cast<QCheckBox *> (cglist->itemWidget(item));
+                    if(box->isChecked()){
+                        usersInGroup.append(box->text());
+//                        QDBusReply<bool> replyBefore1 = serviceInterface->call("setPid", int(QCoreApplication::applicationPid()));
+//                        QDBusReply<bool> reply = serviceInterface->call("addUserToGroup", lineName->text(), box->text());
+//                        if (reply.isValid()){
+//                            // use the returned value
+//                            qDebug() << "addUserToGroupget call value" << reply.value() << lineName->text() << box->text();
+//                        } else {
+//                            // call failed. Show an error condition.
+//                            qDebug() << "addUserToGroup call failed" << reply.error();
+//                        }
+                    } else {
+//                        QDBusReply<bool> replyBefore1 = serviceInterface->call("setPid", int(QCoreApplication::applicationPid()));
+//                        QDBusReply<bool> reply = serviceInterface->call("delUserFromGroup",
+//                                                        lineId->text(),box->text());
+//                        if (reply.isValid()){
+//                            // use the returned value
+//                            qDebug() << "delUserFromGroup get call value" << reply.value() << lineName->text() << box->text();;
+//                        } else {
+//                            // call failed. Show an error condition.
+//                            qDebug() << "delUserFromGroup call failed" << reply.error() << lineName->text() << box->text();;
+//                        }
+                    }
+                }
 
-                QDBusReply<bool> reply = serviceInterface->call("add",lineName->text(),lineId->text());
+                QDBusReply<bool> replyBefore1 = serviceInterface->call("setPid", int(QCoreApplication::applicationPid()));
+                QDBusReply<bool> reply = serviceInterface->call("createNewGroup",lineName->text(),lineId->text(), usersInGroup);
                 if (reply.isValid()){
                     // use the returned value
                     qDebug() << "get call value" << reply.value();
@@ -357,31 +399,7 @@ void ChangeGroupDialog::initNewGroupBtn()
                     qDebug() << "call failed" << reply.error();
                 }
 
-                for (int i = 0; i < cglist->count(); i++){
-                    QListWidgetItem *item = cglist->item(i);
-                    QCheckBox *box = static_cast<QCheckBox *> (cglist->itemWidget(item));
-                    if(box->isChecked()){
-                        QDBusReply<bool> reply = serviceInterface->call("addUserToGroup",
-                                                        lineName->text(),box->text());
-                        if (reply.isValid()){
-                            // use the returned value
-                            qDebug() << "addUserToGroupget call value" << reply.value() << lineName->text() << box->text();
-                        } else {
-                            // call failed. Show an error condition.
-                            qDebug() << "addUserToGroup call failed" << reply.error();
-                        }
-                    } else {
-                        QDBusReply<bool> reply = serviceInterface->call("delUserFromGroup",
-                                                        lineId->text(),box->text());
-                        if (reply.isValid()){
-                            // use the returned value
-                            qDebug() << "delUserFromGroup get call value" << reply.value() << lineName->text() << box->text();;
-                        } else {
-                            // call failed. Show an error condition.
-                            qDebug() << "delUserFromGroup call failed" << reply.error() << lineName->text() << box->text();;
-                        }
-                    }
-                }
+
                 refreshList();
                 ui->listWidget->scrollToBottom();
                 dialog->close();

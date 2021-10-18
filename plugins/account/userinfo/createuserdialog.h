@@ -43,6 +43,8 @@ namespace Ui {
 class CreateUserDialog;
 }
 
+class QLabel;
+
 class CreateUserDialog : public QDialog
 {
     Q_OBJECT
@@ -70,6 +72,7 @@ protected:
 
 private:
     QStringList getHomeUser();
+    bool QLabelSetText(QLabel *label, QString string);
 
 private:
     Ui::CreateUserDialog *ui;

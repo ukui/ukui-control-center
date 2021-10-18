@@ -26,7 +26,7 @@
 #include <QIcon>
 #include <QStyledItemDelegate>
 #include <QtDBus>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 #include <QTime>
 
 #include "shell/interface.h"
@@ -77,6 +77,7 @@ public:
     void initUI();
     void initSlots();
     void initSearchText();
+    void initDefaultAppInfo(const char* type, QComboBox *combox);
 
     bool setWebBrowsersDefaultProgram(char * appid);
     bool setMailReadersDefaultProgram(char * appid);
@@ -107,6 +108,8 @@ private:
     QString mDefaultAdudio;
     QString mDefaultVideo;
     QString mDefaultText;
+
+    QString mDefaultString;
 
     QStringList browserList;
 

@@ -1,7 +1,6 @@
 #ifndef ICONLABEL_H
 #define ICONLABEL_H
 
-#include <QObject>
 #include <QWidget>
 #include <QLabel>
 

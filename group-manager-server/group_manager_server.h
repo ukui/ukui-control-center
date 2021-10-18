@@ -23,6 +23,8 @@
 #include <QProcess>
 #include <QFile>
 
+#include <polkit-qt5-1/polkitqt1-authority.h>
+
 #include "custom_struct.h"
 
 class group_manager_server : public QObject
@@ -41,9 +43,19 @@ public slots:
     bool del(QString groupName);
     bool addUserToGroup(QString groupName, QString userName);
     bool delUserFromGroup(QString groupName, QString userName);
+    bool setPid(int p);
+    void exitService();
+
+    bool createNewGroup(QString groupName, QString groupId, QStringList userNames);
+    bool editGroup(QString groupName, QString groupId, QStringList userNames, QStringList userNames2);
+
+protected:
+    bool polkitAdd();
 
 private:
     QList<custom_struct> value;
+
+    int _cpid;
 
 signals:
     void message();

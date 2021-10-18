@@ -144,8 +144,8 @@ void BluetoothNameLabel::enterEvent(QEvent *event)
     if(style_flag)
     {
         this->setStyleSheet("QWidget#BluetoothNameLabel{background-color:black;border:none;border-radius:2px;}");
-
-
+        icon_pencil->setProperty("setIconHighlightEffectDefaultColor", QColor(Qt::white));
+        icon_pencil->setProperty("useIconHighlightEffect", 0x10);
     }
     else
     {

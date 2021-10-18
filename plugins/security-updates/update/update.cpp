@@ -67,9 +67,9 @@ const QString Update::name() const {
 
 void Update::ui_init(){
     ui->titleLabel->setText(tr("System Update"));
+    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
     //~ contents_path /update/Check for updates
     ui->checkBtn->setText(tr("Check for updates"));
-    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 
     QString filename = QDir::homePath() + "/.config/ukccUpdate.conf";
     syncSettings = new QSettings(filename, QSettings::IniFormat);

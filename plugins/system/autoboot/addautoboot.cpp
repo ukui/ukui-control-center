@@ -36,6 +36,9 @@ AddAutoBoot::AddAutoBoot(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
     setAttribute(Qt::WA_TranslucentBackground);
+    ui->label->setText(tr("Program name"));
+    ui->label_2->setText(tr("Program exec"));
+    ui->label_3->setText(tr("Program comment"));
 
     initStyle();
     initConnection();
@@ -54,37 +57,6 @@ void AddAutoBoot::resetBeforeClose()
     ui->commentLineEdit->setText(QString());
     ui->execLineEdit->setText(QString());
     close();
-}
-
-bool AddAutoBoot::getFilename(GDir *dir,const char *Name)
-{
-    QString filedir = QString(g_build_filename(g_get_user_config_dir(), "autostart", NULL))+"/";
-    const char *desktopName;
-    if (dir) {
-        while ((desktopName = g_dir_read_name(dir))) {
-            QString filePath = filedir + QString::fromUtf8(desktopName);
-            QByteArray ba;
-            ba = filePath.toUtf8();
-            GKeyFile *keyfile;
-            char *name;
-            keyfile = g_key_file_new();
-            if (!g_key_file_load_from_file(keyfile, ba.data(), G_KEY_FILE_NONE, NULL)) {
-                g_key_file_free(keyfile);
-                g_dir_close(mdir);
-                return false;
-            }
-            name = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                                G_KEY_FILE_DESKTOP_KEY_NAME, NULL);
-            g_key_file_free(keyfile);
-            qDebug()<<Name<<  "  "<<name;
-            if (QString::fromUtf8(name) == QString::fromUtf8(Name)) {
-                g_dir_close(mdir);
-               return true;
-            }
-        }
-    }
-    g_dir_close(mdir);
-    return false;
 }
 
 void AddAutoBoot::paintEvent(QPaintEvent *event)
@@ -247,20 +219,12 @@ void AddAutoBoot::open_desktop_dir_slots()
 
     emit ui->execLineEdit->textEdited(QString(selectedfile));
 
-    mdir = g_dir_open(g_build_filename(g_get_user_config_dir(), "autostart", NULL), 0, NULL);
-
     if (no_display) {
         ui->hintLabel->setText(tr("desktop file not allowed add"));
         ui->hintLabel->setAlignment(Qt::AlignCenter);
         ui->hintLabel->setStyleSheet("color:red;");
         ui->certainBtn->setEnabled(false);
-    } else if (getFilename(mdir,name)) {
-        ui->hintLabel->setText(tr("desktop file  already exist"));
-        ui->hintLabel->setAlignment(Qt::AlignCenter);
-        ui->hintLabel->setStyleSheet("color:red;");
-        ui->certainBtn->setEnabled(false);
     }
-
     g_key_file_free(keyfile);
 }
 

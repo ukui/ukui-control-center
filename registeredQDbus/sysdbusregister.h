@@ -50,6 +50,11 @@ private:
     QVector<struct brightInfo> brightInfo_V;
     volatile bool runThreadFlag;
 
+    qint64 _id;
+
+private:
+    int _changeOtherUserPasswd(QString username, QString pwd);
+
 signals:
     Q_SCRIPTABLE void nameChanged(QString);
     Q_SCRIPTABLE void computerinfo(QString);
@@ -58,6 +63,8 @@ public slots:
 
     Q_SCRIPTABLE void exitService();
     Q_SCRIPTABLE QString GetComputerInfo();
+    // 设置进程id
+    Q_SCRIPTABLE int setPid(qint64 id);
 
     // 设置免密登录状态
     Q_SCRIPTABLE void setNoPwdLoginStatus(bool status,QString username);
@@ -79,6 +86,9 @@ public slots:
 
     // 提权修改其他用户密码
     Q_SCRIPTABLE int changeOtherUserPasswd(QString username, QString pwd);
+
+    // 提权创建用户，避免两次验证弹窗
+    Q_SCRIPTABLE int createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd);
 
     // 调节外接台式屏幕亮度
     Q_SCRIPTABLE void setDDCBrightness(QString brightness, QString type);

@@ -241,7 +241,7 @@ static gboolean io_watch_stdout (GIOChannel *source, GIOCondition condition, Pas
 
         if (is_string_complete (str->str, "assword: ", "failure", "wrong", "error", NULL)) {
 
-            if (g_strrstr (str->str, "assword: ") != NULL) {
+            if (g_strrstr (str->str, "New password: ") != NULL) {
                 /* Authentication successful */
 
                 passwd_handler->backend_state = PASSWD_STATE_NEW;
@@ -256,7 +256,7 @@ static gboolean io_watch_stdout (GIOChannel *source, GIOCondition condition, Pas
                 /* Authentication failed */
 
                 error = g_error_new_literal (PASSWD_ERROR, PASSWD_ERROR_AUTH_FAILED,
-                                             "Authentication failure!");
+                                             "Authentication token manipulation error!");
 
                 passwd_handler->changing_password = FALSE;
 

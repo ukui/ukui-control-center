@@ -21,11 +21,16 @@
 #include "biometricenroll.h"
 #include "ui_biometricenroll.h"
 #include <QPixmap>
+#include <QDBusUnixFileDescriptor>
+#include <unistd.h>
+#include <opencv2/opencv.hpp>
 
 #include "CloseButton/closebutton.h"
 #include "biometricdeviceinfo.h"
 #include "biometricproxy.h"
 #include "servicemanager.h"
+#include "giodbus.h"
+
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 
@@ -51,6 +56,9 @@ BiometricEnrollDialog::BiometricEnrollDialog(QDBusInterface *service,int bioType
     connect(serviceInterface, SIGNAL(ProcessChanged(int,QString,int,QString)),
             this, SLOT(onProcessChanged(int,QString,int,QString)));
 
+    connect(serviceInterface, SIGNAL(FrameWritten(int)),
+            this, SLOT(onFrameWritten(int)));
+
     ServiceManager *sm = ServiceManager::instance();
     connect(sm, &ServiceManager::serviceStatusChanged,
             this, [&](bool activate){
@@ -65,6 +73,11 @@ BiometricEnrollDialog::BiometricEnrollDialog(QDBusInterface *service,int bioType
 BiometricEnrollDialog::~BiometricEnrollDialog()
 {
     delete ui;
+}
+
+void BiometricEnrollDialog::setIsFace(bool val)
+{
+    isFace = val;
 }
 
 void BiometricEnrollDialog::setProcessed(bool val)
@@ -172,6 +185,7 @@ int BiometricEnrollDialog::enroll(int drvId, int uid, int idx, const QString &id
 void BiometricEnrollDialog::enrollCallBack(const QDBusMessage &reply)
 {
     int result;
+    dup_fd = -1;
     result = reply.arguments()[0].value<int>();
     qDebug() << "Enroll result: " << result;
 
@@ -213,11 +227,11 @@ QString BiometricEnrollDialog::getGif(int type)
     case BIOTYPE_FINGERPRINT:
         return "/usr/share/ukui-biometric/images/FingerPrint.gif";
     case BIOTYPE_FINGERVEIN:
-        return "/usr/share/ukui-biometric/images/fingervein.gif";
+        return "/usr/share/ukui-biometric/images/FingerVein.gif";
     case BIOTYPE_IRIS:
-        return "/usr/share/ukui-biometric/images/iris.gif";
+        return "/usr/share/ukui-biometric/images/Iris.gif";
     case BIOTYPE_VOICEPRINT:
-        return "/usr/share/ukui-biometric/images/voiceprint.gif";
+        return "/usr/share/ukui-biometric/images/VoicePrint.gif";
     }
     return QString();
 }
@@ -240,6 +254,7 @@ QString BiometricEnrollDialog::getImage(int type)
 void BiometricEnrollDialog::verifyCallBack(const QDBusMessage &reply)
 {
     int result;
+    dup_fd = -1;
     result = reply.arguments()[0].value<int>();
     qDebug() << "Verify result: " << result;
 
@@ -282,10 +297,46 @@ void BiometricEnrollDialog::on_biometricFinishbtn_clicked()
     close();
 }
 
+QStringList BiometricEnrollDialog::getFeaturelist(int drvid, int uid, int indexStart, int indexEnd)
+{
+    QStringList list;
+    QList<QDBusVariant> qlist;
+    FeatureInfo *featureInfo;
+    int listsize;
+    QDBusMessage result = serviceInterface->call(QStringLiteral("GetFeatureList"),drvid,uid,indexStart,indexEnd);
+    if(result.type() == QDBusMessage::ErrorMessage)
+    {
+        qWarning() << "GetDevList error:" << result.errorMessage();
+        return list;
+    }
+    QList<QVariant> variantList = result.arguments();
+    listsize = variantList[0].value<int>();
+    variantList[1].value<QDBusArgument>() >> qlist;
+    for (int i = 0; i < listsize; i++) {
+        featureInfo = new FeatureInfo;
+        qlist[i].variant().value<QDBusArgument>() >> *featureInfo;
+        list.append(featureInfo->index_name);
+        delete featureInfo;
+    }
+    return list;
+}
+
 void BiometricEnrollDialog::on_biometricConBtn_clicked()
 {
-    resetUI();
-    enroll(deviceId,uid,-1,"指纹2");
+    QTimer::singleShot(1000, [&]{
+        resetUI();
+
+        int num=1;
+        QStringList list = getFeaturelist(deviceId,getuid(),0,-1);
+        QString featurename;
+        while(1){
+            featurename = DeviceType::getDeviceType_tr(type) + QString::number(num);
+            if(!list.contains(featurename))
+                break;
+            num++;
+        }
+        enroll(deviceId,getuid(),-1,featurename);
+    });
 }
 
 int BiometricEnrollDialog::search(int drvId, int uid, int idxStart, int idxEnd)
@@ -325,17 +376,22 @@ void BiometricEnrollDialog::showFinishPrompt()
     ui->biometricOpsLbl->hide();
     ui->biometricButtonWidget->show();
 
-    ui->biometricConBtn->hide();
+    if(ops == ENROLL)
+        ui->biometricConBtn->show();
+    else
+        ui->biometricConBtn->hide();
 }
 
 void BiometricEnrollDialog::StopOpsCallBack(const QDBusMessage &reply)
 {
+    dup_fd = -1;
     int ret = reply.arguments().at(0).toInt();
     accept();
 }
 
 void BiometricEnrollDialog::errorCallBack(const QDBusError &error)
 {
+    dup_fd = -1;
     qDebug() << "DBus Error: " << error.message();
     accept();
 }
@@ -344,6 +400,30 @@ void BiometricEnrollDialog::closeEvent(QCloseEvent *event)
 {
     serviceInterface->call("StopOps", deviceId,5);
 }
+
+void BiometricEnrollDialog::onFrameWritten(int drvId)
+{
+    if(dup_fd == -1){
+        dup_fd = get_server_gvariant_stdout(drvId);
+    }
+
+    if(dup_fd < 0)
+        return ;
+
+    cv::Mat img;
+    lseek(dup_fd, 0, SEEK_SET);
+    char base64_bufferData[1024*1024];
+    int rc = read(dup_fd, base64_bufferData, 1024*1024);
+    printf("rc = %d\n", rc);
+
+    cv::Mat mat2(1, sizeof(base64_bufferData), CV_8U, base64_bufferData);
+    img = cv::imdecode(mat2, cv::IMREAD_COLOR);
+    cv::cvtColor(img,img,cv::COLOR_BGR2RGB);
+
+    QImage srcQImage = QImage((uchar*)(img.data), img.cols, img.rows, QImage::Format_RGB888);
+    ui->biometricEnrollLable->setPixmap(QPixmap::fromImage(srcQImage).scaled(QSize(160,160)));
+}
+
 
 void BiometricEnrollDialog::onProcessChanged(int drvId,QString  aa, int statusType,QString bb)
 {
@@ -380,7 +460,7 @@ void BiometricEnrollDialog::onStatusChanged(int drvId, int statusType)
         return;
     }
 
-    if(!isProcessed && movie->state() != QMovie::Running)
+    if(!isProcessed && movie->state() != QMovie::Running && !isFace)
     {
         ui->biometricEnrollLable->setMovie(movie);
         movie->start();
@@ -399,6 +479,7 @@ void BiometricEnrollDialog::onStatusChanged(int drvId, int statusType)
 
 void BiometricEnrollDialog::handleErrorResult(int error)
 {
+    dup_fd = -1;
     switch(error) {
     case DBUS_RESULT_ERROR: {
         //操作失败，需要进一步获取失败原因

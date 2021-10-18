@@ -30,14 +30,16 @@ auth_cb (PasswdHandler *passwd_handler,
          GError        *error,
          gpointer       user_data)
 {
+    char *secondary_text;
     char * pwd = (char*) user_data;
 
     if (error){
-        g_warning("%s", error->message);
-        return;
+        secondary_text = error->message;
+        printf("%s\n", secondary_text);
+        qApp->exit(1);
+    } else {
+        passwd_change_password (passwd_handler, pwd, chpasswd_cb, NULL);
     }
-
-    passwd_change_password (passwd_handler, pwd, chpasswd_cb, NULL);
 
 }
 

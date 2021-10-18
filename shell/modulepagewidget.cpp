@@ -47,10 +47,10 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
 
     // 右侧Widget大小限定(限制了最小宽度)
     ui->widget->setMinimumWidth(650);
-    ui->widget->setMaximumWidth(1200);
+    //ui->widget->setMaximumWidth(1200);
 
     // 左侧二级菜单样式
-    ui->leftStackedWidget->setStyleSheet("border: none;");
+    ui->leftbarWidget->setStyleSheet("QWidget{border: none;}");
     ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //初始化记录标志位
@@ -246,11 +246,14 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         preWidgetItem->setSelected(false);
         preWidgetItem->setLabelTextIsWhite(false);
         preWidgetItem->isSetLabelPixmapWhite(false);
+        CommonInterface * prePluginInstance = pluginInstanceMap[preWidgetItem->text()];
+        prePluginInstance->plugin_leave();
     }
 
     LeftWidgetItem * curWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(cur));
     if (pluginInstanceMap.contains(curWidgetItem->text())){
         CommonInterface * pluginInstance = pluginInstanceMap[curWidgetItem->text()];
+        currentPlugin = pluginInstance;
         refreshPluginWidget(pluginInstance);
         //高亮
         curWidgetItem->setSelected(true);
@@ -258,5 +261,12 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         curWidgetItem->isSetLabelPixmapWhite(true);
     } else {
         qDebug() << "plugin widget not fount!";
+    }
+}
+
+void ModulePageWidget::pluginLeave()
+{
+    if (currentPlugin) {
+        currentPlugin->plugin_leave();
     }
 }

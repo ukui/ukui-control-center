@@ -22,6 +22,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include "ukmedia_volume_control.h"
 #include "ukmedia_output_widget.h"
 #include "ukmedia_input_widget.h"
 #include "ukmedia_sound_effects_widget.h"
@@ -29,7 +30,6 @@
 #include <QMediaPlayer>
 #include <gio/gio.h>
 #include <libxml/tree.h>
-#include <libmatemixer/matemixer.h>
 #include <glib-object.h>
 #include <glib.h>
 #include <glib/gi18n.h>
@@ -84,6 +84,9 @@ extern "C" {
 #define CUSTOM_THEME_NAME "__custom"
 #define NO_SOUNDS_THEME_NAME "__no_sounds"
 
+#define PA_VOLUME_NORMAL 65536.0
+#define UKMEDIA_VOLUME_NORMAL 100.0
+
 #ifdef __GNUC__
 #define CA_CLAMP(x, low, high)                                          \
         __extension__ ({ typeof(x) _x = (x);                            \
@@ -101,18 +104,6 @@ typedef enum
     GVC_LEVEL_SCALE_LOG
 } LevelScale;
 
-class PortInfo {
-public:
-
-      QByteArray name;
-      QByteArray description;
-      uint32_t priority;
-      int available;
-      int direction;
-      int64_t latency_offset;
-      std::vector<QByteArray> profiles;
-
-};
 
 class UkmediaMainWidget : public QWidget
 {
@@ -122,6 +113,13 @@ public:
     UkmediaMainWidget(QWidget *parent = nullptr);
     ~UkmediaMainWidget();
 
+    void initWidget(); //初始化界面
+    void initGsettings(); //初始化gsetting值
+    void dealSlot(); //处理槽函数
+    void initListWidgetItem(); //初始化output/input list widget的选项
+    int valueToPaVolume(int value); //滑动条值转换成音量
+    int paVolumeToValue(int value); //音量值转换成滑动条值
+    void themeChangeIcons();
     static int connectContext(gpointer userdata);
     static int caProplistMergeAp(ca_proplist *p, va_list ap);
     static int caPlayForWidget(UkmediaMainWidget *w, uint32_t id, ...);
@@ -129,57 +127,17 @@ public:
 
     QPixmap drawDarkColoredPixmap(const QPixmap &source);
     QPixmap drawLightColoredPixmap(const QPixmap &source);
-    void updateProfileOption();
+
     void alertIconButtonSetIcon(bool state,int value);
     void createAlertSound(UkmediaMainWidget *w);
     void inputVolumeDarkThemeImage(int value,bool status);
     void outputVolumeDarkThemeImage(int value,bool status);
     int getInputVolume();
     int getOutputVolume();
-    bool getInputMuteStatus();
-    bool getOutputMuteStatus();
     void comboboxCurrentTextInit();
     QList<char *> listExistsPath();
     QString findFreePath();
     void addValue(QString name,QString filename);
-
-    static void listDevice(UkmediaMainWidget *w,MateMixerContext *context);
-    static void streamStatusIconSetControl (UkmediaMainWidget *w,MateMixerStreamControl *control);
-    static void contextSetProperty(UkmediaMainWidget *object);//guint prop_id,const GValue *value,GParamSpec *pspec);
-    static void onContextStateNotify (MateMixerContext *context,GParamSpec *pspec,UkmediaMainWidget	*w);
-
-    static void onContextStreamAdded (MateMixerContext *context,const gchar *name,UkmediaMainWidget  *w);
-    static void onContextStreamRemoved (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
-    static void removeStream (UkmediaMainWidget *w, const gchar *name);
-
-    static void addStream (UkmediaMainWidget *w, MateMixerStream *stream,MateMixerContext *context);
-    static void addApplicationControl (UkmediaMainWidget *w, MateMixerStreamControl *control);
-    static void onStreamControlAdded (MateMixerStream *stream,const gchar *name,UkmediaMainWidget  *w);
-    static void onStreamControlRemoved (MateMixerStream *stream,const gchar *name,UkmediaMainWidget *w);
-
-    static void onContextStoredControlAdded (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
-    static void onContextDeviceAdded (MateMixerContext *context, const gchar *name, UkmediaMainWidget *w);
-    static void addDevice (UkmediaMainWidget *w, MateMixerDevice *device);
-    static void onContextDeviceRemoved (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
-
-    static void onContextDefaultInputStreamNotify (MateMixerContext *context,GParamSpec *pspec,UkmediaMainWidget *w);
-    static void setInputStream (UkmediaMainWidget *w, MateMixerStream *stream);
-    static void onStreamControlMuteNotify (MateMixerStreamControl *control,GParamSpec *pspec,UkmediaMainWidget *w);
-
-    static void onContextDefaultOutputStreamNotify (MateMixerContext *context,GParamSpec *pspec,UkmediaMainWidget *w);
-    static void onContextStoredControlRemoved (MateMixerContext *context,const gchar *name,UkmediaMainWidget *w);
-    static void setContext(UkmediaMainWidget *w,MateMixerContext *context);
-
-    static void updateIconInput (UkmediaMainWidget *w);
-    static void updateIconOutput (UkmediaMainWidget *w);
-    static void onStreamControlVolumeNotify (MateMixerStreamControl *control,GParamSpec *pspec,UkmediaMainWidget *w);
-    static void onControlMuteNotify (MateMixerStreamControl *control,GParamSpec *pspec,UkmediaMainWidget *w);
-    //平衡
-    static void ukuiBalanceBarSetProperty (UkmediaMainWidget *w,MateMixerStreamControl *control);
-    static void ukuiBalanceBarSetControl (UkmediaMainWidget *w, MateMixerStreamControl *control);
-
-    static void onBalanceValueChanged (MateMixerStreamControl *control,GParamSpec *pspec,UkmediaMainWidget *w);
-    static void updateOutputSettings (UkmediaMainWidget *w,MateMixerStreamControl *control);
 
     static void onKeyChanged (GSettings *settings,gchar *key,UkmediaMainWidget *w);
     static void updateTheme (UkmediaMainWidget *w);
@@ -200,21 +158,6 @@ public:
     static xmlChar *xmlGetAndTrimNames (xmlNodePtr node);
 
     static void playAlretSoundFromPath (UkmediaMainWidget *w,QString path);
-    static void setOutputStream (UkmediaMainWidget *w, MateMixerStream *stream);
-    static void updateOutputStreamList(UkmediaMainWidget *w,MateMixerStream *stream);
-    static void ukuiBarSetStream (UkmediaMainWidget *w ,MateMixerStream *stream);
-    static void ukuiBarSetStreamControl (UkmediaMainWidget *w,MateMixerDirection direction,MateMixerStreamControl *control);
-
-    static void updateInputSettings (UkmediaMainWidget *w,MateMixerStreamControl *control);
-    static void onStreamControlMonitorValue (MateMixerStream *stream,gdouble value,UkmediaMainWidget *w);
-    void ukuiInputLevelSetProperty (UkmediaMainWidget *w);
-    void ukuiInputLevelSetScale (UkmediaMainWidget *w, LevelScale scale);
-    static void ukuiUpdatePeakValue (UkmediaMainWidget *w);
-
-    static gdouble ukuiFractionFromAdjustment(UkmediaMainWidget  *w);
-    static void onInputStreamControlAdded (MateMixerStream *stream,const gchar *name,UkmediaMainWidget *w);
-    static void onInputStreamControlRemoved (MateMixerStream *stream,const gchar *name,UkmediaMainWidget *w);
-    static gboolean updateDefaultInputStream (UkmediaMainWidget *w);
 
     static gboolean saveAlertSounds (QComboBox *combox,const char *id);
     static void deleteOldFiles (const char **sounds);
@@ -226,163 +169,97 @@ public:
     static void createCustomTheme (const char *parent);
     static void customThemeUpdateTime (void);
     static gboolean customThemeDirIsEmpty (void);
-    static MateMixerSwitch *findStreamPortSwitch (UkmediaMainWidget *widget,MateMixerStream *stream);
-    static MateMixerSwitch *findDeviceProfileSwitch (UkmediaMainWidget *widget,MateMixerDevice *device);
-    static void onSwitchActiveOptionNotify (MateMixerSwitch *swtch,GParamSpec *pspec,UkmediaMainWidget *w);
-    static void onDeviceProfileActiveOptionNotify (MateMixerDeviceSwitch *swtch,GParamSpec *pspec,UkmediaMainWidget *w);
-    static gchar *deviceStatus (MateMixerDevice *device);
-    static void updateDeviceInfo (UkmediaMainWidget *w, MateMixerDevice *device);
-    void updateOutputDevicePort();
-    void updateInputDevicePort();
-    static void onInputSwitchActiveOptionNotify (MateMixerSwitch *swtch,GParamSpec *pspec,UkmediaMainWidget *w);
-    static void onOutputSwitchActiveOptionNotify (MateMixerSwitch *swtch,GParamSpec *pspec,UkmediaMainWidget *w);
 
-    //为一些不能更改提示音音量的机器做一些初始化操作
-    void executeVolumeUpdate(bool status);
-    pa_context* get_context(void);
-    void show_error(const char *txt);
-    static void context_state_callback(pa_context *c, void *userdata);
-    gboolean connect_to_pulse(gpointer userdata);
-    void setConnectingMessage(const char *string);
-    void createEventRole();
-    void updateRole(const pa_ext_stream_restore_info &info);
-    static void ext_stream_restore_read_cb(pa_context *,const pa_ext_stream_restore_info *i,int eol,void *userdata);
-    static void ext_stream_restore_subscribe_cb(pa_context *c, void *userdata);
-    static void subscribe_cb(pa_context *c, pa_subscription_event_type_t t, uint32_t index, void *userdata);
-    void updateCard(const pa_card_info &info);
-    static void card_cb(pa_context *, const pa_card_info *i, int eol, void *userdata);
-
-    static void updatePorts(UkmediaMainWidget *w,const pa_card_info &info, std::map<QByteArray, PortInfo> &ports);
+    void addOutputListWidgetItem(QString portName,QString cardName); //添加output listWidget item
+    void addInputListWidgetItem(QString portName, QString cardName); //添加input listwidget item
 
     void deleteNotAvailableOutputPort();
     void deleteNotAvailableInputPort();
     void addAvailableOutputPort();
     void addAvailableInputPort();
+    bool outputPortIsNeedDelete(int index,QString name);//port是否需要在outputListWidget删除
+    bool outputPortIsNeedAdd(int index,QString name);//port是否需要在outputListWidget删除
+    bool inputPortIsNeedDelete(int index,QString name);//port是否需要在inputListWidget删除
+    bool inputPortIsNeedAdd(int index,QString name);//port是否需要在inputListWidget删除
 
-    void removeOutputPortName(const pa_card_info &info);  //移除不可用输出端口name
-    void removeOutputPortLabel(const pa_card_info &info);  //移除不可用的输出端口label
-    void removeInputPortName(const pa_card_info &info);  //移除不可用输入端口Name
-    void removeInputPortLabel(const pa_card_info &info);  //移除不可用输入端口Label
-
-    int findCardIndex(QString cardName);
-    QString findCardName(int index);
+    int findCardIndex(QString cardName, QMap<int,QString> cardMap);//查找声卡指定的索引
+    QString findCardName(int index,QMap<int,QString> cardMap);
     QString findHighPriorityProfile(int index,QString profile);
-    void findOutputListWidgetItem(QString cardName,MateMixerStream *stream);
-    void findInputListWidgetItem(QString cardName,MateMixerStream *stream);
-    bool inputCardListContainBluetooth();
+    void findOutputListWidgetItem(QString cardName,QString portLabel);
+    void findInputListWidgetItem(QString cardName,QString portLabel);
+    QString findPortSink(int cardIndex,QString portName);
+    QString findPortSource(int cardIndex,QString portName);
+    bool inputDeviceContainBluetooth();
     int indexOfOutputPortInOutputListWidget(QString portName);
     int indexOfInputPortInInputListWidget(QString portName);
     void inputStreamMapCardName(QString streamName,QString cardName);
     void outputStreamMapCardName(QString streamName,QString cardName);
     QString findInputStreamCardName(QString streamName);
     QString findOutputStreamCardName(QString streamName);
-    void setOutputListWidgetRow(); //设置输出设备
+
     bool exitBluetoochDevice();
     QString blueCardName(); //记录蓝牙声卡名称
     QString findOutputPortName(int index,QString portLabel); //找到outputPortLabel对应的portName
     QString findInputPortName(int index,QString portLabel); //找到inputPortLabel对应的portName
-    void setCardProfile(QString profile);
-
-    static void sinkCb(pa_context *c, const pa_sink_info *i, int eol, void *userdata); //sink callback
-    static void sourceCb(pa_context *, const pa_source_info *i, int eol, void *userdata); //source callback
-    bool updateSink(const pa_sink_info &info); // update sink when port or sink change
-    void updateSource(const pa_source_info &info); // update source when port or source change
-    QString findPortSink(QString portName); // find port
-    QString findPortSource(QString portName);
-
-Q_SIGNALS:
-    void appVolumeChangedSignal(bool is_mute,int volume,const QString app_name);
+    QString findOutputPortLabel(int index,QString portName); //查找名为portName对应的portLabel
+    QString findInputPortLabel(int index,QString portName); //查找名为portName对应的portLabel
+    void setCardProfile(QString name,QString profile); //设置声卡的配置文件
+    void setDefaultOutputPortDevice(QString devName,QString portName); //设置默认的输出端口
+    void setDefaultInputPortDevice(QString devName,QString portName); //设置默认的输入端口
+    QString findCardActiveProfile(int index); //查找声卡的active profile
 
 private Q_SLOTS:
-    void themeComboxIndexChangedSlot(int index);
+
+    void initVoulmeSlider(); //初始化音量滑动条的值
+
+    void themeComboxIndexChangedSlot(int index); //主题下拉框改变
     void comboxIndexChangedSlot(int index);
-    void outputDeviceComboxIndexChangedSlot(QString str);
-    void inputDeviceComboxIndexChangedSlot(QString str);
-    void inputLevelValueChangedSlot();
-    void outputWidgetSliderChangedSlot(int value);
+
+    void outputWidgetSliderChangedSlot(int v); //输出音量改变
+    void inputWidgetSliderChangedSlot(int v); //输入滑动条更改
+    void inputMuteButtonSlot(); //输入音量静音控制
+    void outputMuteButtonSlot(); //输出音量静音控制
+    void balanceSliderChangedSlot(int v); //平衡值改变
+    void peakVolumeChangedSlot(double v); //输入等级
+    void updateDevicePort(); //更新设备端口
+    void updateListWidgetItemSlot();
+
     void timeSliderSlot();
-    void inputWidgetSliderChangedSlot(int value);
     void ukuiThemeChangedSlot(const QString &);
-    void startupButtonSwitchChangedSlot(bool status);
-    void poweroffButtonSwitchChangedSlot(bool status);
-    void logoutMusicButtonSwitchChangedSlot(bool status);
-    void wakeButtonSwitchChangedSlot(bool status);
+    void startupButtonSwitchChangedSlot(bool status); //开机音乐开关
+    void poweroffButtonSwitchChangedSlot(bool status); //关机音乐开关
+    void logoutMusicButtonSwitchChangedSlot(bool status); //注销音乐开关
+    void wakeButtonSwitchChangedSlot(bool status); //唤醒音乐开关
     void alertSoundButtonSwitchChangedSlot(bool status);
     void bootMusicSettingsChanged();
-    void inputPortComboxChangedSlot(int index);
-    void outputPortComboxChangedSlot(int index);
+
     void windowClosedComboboxChangedSlot(int index);
     void volumeChangedComboboxChangeSlot(int index);
     void settingMenuComboboxChangedSlot(int index);
-    void profileComboboxChangedSlot(int index);
-    void selectComboboxChangedSlot(int index);
-    void inputMuteButtonSlot();
-    void outputMuteButtonSlot();
-    void alertVolumeSliderChangedSlot(int value);
-    void alertSoundVolumeChangedSlot();
-    void outputListWidgetCurrentRowChangedSlot(int row);
-    void inputListWidgetCurrentRowChangedSlot(int row);
+
+//    void alertVolumeSliderChangedSlot(int value);
+//    void alertSoundVolumeChangedSlot();
+    void outputListWidgetCurrentRowChangedSlot(int row); //output list widget选项改变
+    void inputListWidgetCurrentRowChangedSlot(int row); //input list widget选项改变
 
 private:
     UkmediaInputWidget *m_pInputWidget;
     UkmediaOutputWidget *m_pOutputWidget;
     UkmediaSoundEffectsWidget *m_pSoundWidget;
 
-    MateMixerContext *m_pContext;
-    MateMixerStream *m_pInputStream;
-    MateMixerStream *m_pOutputStream;
-    MateMixerStream *m_pInput;
-    MateMixerStreamControl *m_pOutputBarStreamControl;
-    MateMixerStreamControl *m_pInputBarStreamControl;
-    MateMixerStreamControl *m_pControl;
-    MateMixerStreamControl *m_pMediaRoleControl;
-    MateMixerStreamControl *m_pPrivInputControl;
-    MateMixerStream *m_pStream;
-    MateMixerDevice *m_pDevice;
-    MateMixerSwitch *m_pSwitch;
+    UkmediaVolumeControl *m_pVolumeControl;
 
     QStringList *m_pSoundList;
     QStringList *m_pThemeDisplayNameList;
     QStringList *m_pThemeNameList;
-    QStringList *m_pDeviceLabelList;
-    QStringList *m_pDeviceNameList;
-    QStringList *m_pInputDeviceLabelList;
-    QStringList *m_pAppNameList;
-
-    QStringList *m_pOutputStreamList;
-    QStringList *m_pPrivOutputStreamList;
-    QStringList *m_pInputStreamList;
-    QStringList *m_pAppVolumeList;
-    QStringList *m_pStreamControlList;
-    QStringList *m_pInputPortList;
-    QStringList *m_pOutputPortList;
-    QStringList *m_pOutputPortLabelList;
-    QStringList *m_pInputPortLabelList;
-    QStringList *m_pProfileNameList;
     QStringList *m_pSoundThemeList;
     QStringList *m_pSoundThemeDirList;
     QStringList *m_pSoundThemeXmlNameList;
-    QStringList *m_pListWidgetLabelList;
-
-    QStringList *m_pCurrentOutputCardList;
-    QStringList *m_pOutputCardList;
-    QStringList *m_pCurrentOutputPortLabelList;
-    QStringList *m_pCurrentInputPortLabelList;
-    QStringList *m_pCurrentInputCardList;
-    QStringList *m_pInputCardList;
     QStringList *m_pSoundNameList;
     QStringList *eventList;
     QStringList *eventIdNameList;
-    QStringList *m_pCardNameList;
-    QStringList *m_pInputCardNameList;
-    QString m_pDeviceStr;
 
     GSettings *m_pSoundSettings;
-    LevelScale scale;
-    gdouble peakFraction;
-    gdouble maxPeak;
-    guint maxPeakId;
-
     QGSettings *m_pBootSetting;
     QGSettings *m_pThemeSetting;
 //    QGSettings *m_pWindowClosedSetting;
@@ -391,23 +268,10 @@ private:
     bool firstEnterSystem = true;
 
     const gchar* m_privOutputPortLabel = "";
-    QByteArray role;
-    QByteArray device;
-    pa_channel_map channelMap;
-    pa_cvolume volume;
-    pa_context* context ;
-    pa_mainloop_api* api;
-    pa_ext_stream_restore_info info;
 
     int callBackCount = 0;
     bool firstEntry = true;
-    bool hasSinks;
-    bool hasSources;
-    QByteArray activeProfile;
-    QByteArray noInOutProfile;
-    QByteArray lastActiveProfile;
-    std::map<QByteArray, PortInfo> ports;
-    std::vector< std::pair<QByteArray,QByteArray> > profiles;
+
     QMap<int, QString> cardMap;
     QMap<int,QMap<QString,QString>> outputPortMap;
     QMap<int,QMap<QString,QString>> inputPortMap;
@@ -417,14 +281,14 @@ private:
     QMap<int, QString> currentOutputPortLabelMap;
     QMap<int, QString> currentInputPortLabelMap;
     QMap<int, QString> inputPortLabelMap;
-    QMap<QString, QString> profileNameMap;
-    QMap<QString, QString> inputPortProfileNameMap;
-    QMap<int, QList<QString>> cardProfileMap;
-    QMap<int, QMap<QString,int>> cardProfilePriorityMap;
+//    QMap<QString, QString> profileNameMap;
+//    QMap<QString, QString> inputPortProfileNameMap;
+//    QMap<int, QList<QString>> cardProfileMap;
+//    QMap<int, QMap<QString,int>> cardProfilePriorityMap;
     QMap<QString,QString> inputCardStreamMap;
     QMap<QString,QString> outputCardStreamMap;
-    QMap<int,QMap<QString,QString>> sinkPortMap;
-    QMap<int,QMap<QString,QString>> sourcePortMap;
+//    QMap<int,QMap<QString,QString>> sinkPortMap;
+//    QMap<int,QMap<QString,QString>> sourcePortMap;
 
     bool updatePort = true;
     bool setDefaultstream = true;

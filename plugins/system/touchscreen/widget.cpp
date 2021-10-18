@@ -77,6 +77,10 @@ Widget::Widget(QWidget *parent)
 
     ui->setupUi(this);
     ui->touchscreenLabel->setStyleSheet("QLabel{color: palette(windowText);}");
+    //~ contents_path /touchscreen/touch id
+    ui->touchLabel->setText(tr("touch id"));
+    //~ contents_path /touchscreen/monitor
+    ui->monitorLabel->setText(tr("Monitor"));
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
     oriApply = true;
@@ -317,12 +321,12 @@ void Widget::outputRemoved(int outputId) {
 }
 
 void Widget::touchscreenAdded() {
-    //initui();
+    initui();
     resettouchscreenCombo();
 }
 
 void Widget::touchscreenRemoved() {
-    //initui();
+    initui();
     resettouchscreenCombo();
 
 }

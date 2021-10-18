@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTabWidget>
 #include <QLabel>
+#include <QSpinBox>
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -13,6 +14,7 @@
 #include <QCheckBox>
 #include <QFont>
 #include <QProgressBar>
+#include <QComboBox>
 
 #include "appupdate.h"
 //#include "switchbutton.h"
@@ -88,6 +90,16 @@ public:
     QHBoxLayout *isAutoBackupLayout;
     QLabel *isAutoBackupLab;
     SwitchButton *isAutoBackupSBtn;
+    //download limit widgets
+    QFrame *DownloadHWidget;
+    QFrame *DownloadVWidget;
+    //QFrame *isDownloadWidget;
+    QHBoxLayout *DownloadHLayout;
+    QVBoxLayout *DownloadVLayout;
+    QLabel *DownloadHLab;
+    QLabel *DownloadVLab;
+    SwitchButton *DownloadHBtn;
+    QComboBox *DownloadHValue;
 
     QFrame *isAutoUpgradeWidget;
     QVBoxLayout *isAutoUpgradeLayout;
@@ -119,7 +131,7 @@ public:
 
     QList<pkgProgress> pkgList;
 
-    void disconnectSource();
+    void disconnectSource(bool isTimeOut);
 signals:
 //    void send_Signal();
 //    void parameterSignal(int i);
@@ -135,6 +147,9 @@ public slots:
 
     void hideUpdateBtnSlot(bool isSucceed);
     void changeUpdateAllSlot(bool isUpdate);
+
+    void DownloadLimitSwitchChanged();
+    void DownloadLimitValueChanged(const QString &);
 
     void getAllProgress(QString pkgName, int Progress, QString type);
     //调用源管理器相关

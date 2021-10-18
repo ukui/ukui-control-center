@@ -127,8 +127,8 @@ void KeyboardControl::setupStylesheet(){
     //~ contents_path /keyboard/Tip of keyboard
     ui->tipLabel->setText(tr("Tip of keyboard"));
     ui->layoutLabel->setText(tr("Keyboard layout"));
-    //~ contents_path /keyboard/Input Settings
-    ui->title2Label->setText(tr("Input Settings"));
+    //~ contents_path /keyboard/Input Set
+    ui->inputSettingsBtn->setText(tr("Input Set"));
 
 }
 

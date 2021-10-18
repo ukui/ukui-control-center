@@ -114,10 +114,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
     
     layoutUI();
     dbusInterface();
-    m_checkTimer->setSingleShot(true);
-    m_checkTimer->setInterval(500);
-    m_checkTimer->start();
-
+    checkUserStatus();
     QFile tokenFile(QDir::homePath() + "/.cache/kylinId/" + ACC_INFO);
     if (tokenFile.exists() && tokenFile.size() > 1) {
         m_mainWidget->setCurrentWidget(m_widgetContainer);
@@ -146,9 +143,7 @@ void MainWidget::checkNetWork(QVariantMap map) {
         for (int i = 0;i < m_szItemlist.size(); i ++ ) {
             m_itemList->get_item(i)->get_swbtn()->setDisabledFlag(false);
         }
-        m_lazyTimer->setInterval(500);
-        m_lazyTimer->setSingleShot(true);
-        m_lazyTimer->start();
+        checkUserStatus();
     }
 }
 
@@ -222,7 +217,9 @@ void MainWidget::dbusInterface() {
     }
     connect(this, &MainWidget::docheck, m_dbusClient, [=]() {
         QList<QVariant> argList;
-        m_dbusClient->callMethod("checkLogin",argList);
+        QtConcurrent::run([=]() {
+          m_dbusClient->callMethod("checkLogin",argList);
+        });
 
     });
 
@@ -235,62 +232,85 @@ void MainWidget::dbusInterface() {
     connect(this, &MainWidget::dooss, m_dbusClient, [=](QString uuid) {
         QList<QVariant> argList;
         argList << uuid;
-        m_dbusClient->callMethod("init_oss",argList);
+        QtConcurrent::run([=]() {
+          m_dbusClient->callMethod("init_oss",argList);;
+        });
     });
 
     connect(this, &MainWidget::doconf, m_dbusClient, [=]() {
         QList<QVariant> argList;
-        m_dbusClient->callMethod("init_conf",argList);
+        QtConcurrent::run([=]() {
+            m_dbusClient->callMethod("init_conf",argList);
+        });
     });
 
     connect(this, &MainWidget::doman, m_dbusClient, [=]() {
         QList<QVariant> argList;
-        m_dbusClient->callMethod("manual_sync",argList);
+        emit isSync(true);
+        QtConcurrent::run([=](){
+          m_dbusClient->callMethod("manual_sync",argList);
+        });
     });
 
     connect(this, &MainWidget::dochange, m_dbusClient, [=](QString name,bool flag) {
         QList<QVariant> argList;
         int var = flag ? 1 : 0;
         argList << name << var;
-        m_dbusClient->callMethod("change_conf_value",argList);
+        QtConcurrent::run([=]() {
+          m_dbusClient->callMethod("change_conf_value",argList);
+        });
     });
 
     connect(this, &MainWidget::doquerry, m_dbusClient, [=](QString name) {
         QList<QVariant> argList;
         argList << name;
-        m_dbusClient->callMethod("querryUploaded",argList);
+        emit isSync(true);
+        QtConcurrent::run([=]() {
+           m_dbusClient->callMethod("querryUploaded",argList);
+        });
     });
 
     connect(this, &MainWidget::dosend, m_dbusClient, [=](QString info) {
         QList<QVariant>args;
         args<<info;
-        m_dbusClient->callMethod("sendClientInfo",args);
+        QtConcurrent::run([=]() {
+           m_dbusClient->callMethod("sendClientInfo",args);
+        });
     });
 
 
     connect(this, &MainWidget::dologout, m_dbusClient, [=]() {
         QList<QVariant> argList;
-        m_dbusClient->callMethod("logout",argList);
+        QtConcurrent::run([=]() {
+           m_dbusClient->callMethod("logout",argList);
+        });
 
     });
 
     connect(this, &MainWidget::dosingle, m_dbusClient, [=](QString key) {
         QList<QVariant> argList;
         argList << key;
-        m_dbusClient->callMethod("single_sync",argList);
+        emit isSync(true);
+        QtConcurrent::run([=](){
+           m_dbusClient->callMethod("single_sync",argList);
+        });
     });
 
     connect(this, &MainWidget::doselect, m_dbusClient, [=](QStringList keyList) {
         QList<QVariant> argList;
         argList << keyList;
-        m_dbusClient->callMethod("selectSync",argList);
+        emit isSync(true);
+        QtConcurrent::run([=]() {
+          m_dbusClient->callMethod("selectSync",argList);
+        });
     });
 
     connect(m_dbusClient,&DBusUtils::taskFinished,this,[=] (const QString &taskName,int ret) {
         Q_UNUSED(taskName);
         if (ret == 504) {
             if (taskName == "logout") {
-                m_mainWidget->setCurrentWidget(m_nullWidget);
+                if (m_mainWidget->currentWidget() != m_nullWidget)
+                    m_mainWidget->setCurrentWidget(m_nullWidget);
             }
         }
 
@@ -299,7 +319,8 @@ void MainWidget::dbusInterface() {
             m_autoSyn->set_active(true);
             m_keyInfoList.clear();
 
-            m_mainWidget->setCurrentWidget(m_nullWidget);
+            if (m_mainWidget->currentWidget() != m_nullWidget)
+                m_mainWidget->setCurrentWidget(m_nullWidget);
             __once__ = false;
             __run__ = false;
             m_bIsStopped = true;
@@ -325,17 +346,11 @@ void MainWidget::dbusInterface() {
                 fileFLag.waitForReadyRead(-1);
                 localDate = fileFLag.readAll().toStdString().c_str();
             }else {
-                m_manTimer->setSingleShot(true);
-                m_manTimer->setInterval(1000);
-                m_manTimer->start();
-                emit isSync(true);
+                startAutoSync();
                 return;
             }
             if (localDate == keyList.at(0) || !file.exists()) {
-                m_manTimer->setSingleShot(true);
-                m_manTimer->setInterval(1000);
-                m_manTimer->start();
-                emit isSync(true);
+                startAutoSync();
             } else {
                 m_autoSyn->make_itemoff();
                 m_pSettings->setValue("Auto-sync/enable","false");
@@ -350,10 +365,7 @@ void MainWidget::dbusInterface() {
                     m_pSettings->setValue("Auto-sync/enable","true");
                     m_pSettings->sync();
                     m_syncDialog->close();
-                    emit isSync(true);
-                    m_listTimer->setSingleShot(true);
-                    m_listTimer->setInterval(1000);
-                    m_listTimer->start();
+                    syncSelect();
                 });
 
                 connect(m_syncDialog, &SyncDialog::coverMode, this, [=] () {
@@ -362,22 +374,34 @@ void MainWidget::dbusInterface() {
                     m_pSettings->setValue("Auto-sync/enable","true");
                     m_pSettings->sync();
                     m_syncDialog->close();
-                    m_manTimer->setSingleShot(true);
-                    m_manTimer->setInterval(1000);
-                    m_manTimer->start();
-                    emit isSync(true);
+                    startAutoSync();
                 });
                 m_syncDialog->checkOpt();
                 m_syncDialog->show();
 
             }
         } else {
-            m_manTimer->setSingleShot(true);
-            m_manTimer->setInterval(1000);
-            m_manTimer->start();
-            emit isSync(true);
+            startAutoSync();
         }
     });
+}
+
+void MainWidget::checkUserStatus()
+{
+    if (m_bIsKylinId) {
+        emit kylinIdCheck();
+    } else {
+        emit docheck();
+    }
+}
+
+void MainWidget::startSync()
+{
+    if (m_key == "") {
+        return ;
+    }
+
+    emit dosingle(m_key);
 }
 
 void MainWidget::finishedLogout(int ret) {
@@ -403,18 +427,28 @@ void MainWidget::checkBackEnd() {
 
 
 void MainWidget::refreshSyncDate() {
+    if (m_status != SYNC_NORMAL) return ;
+
     QFile fileConf(m_szConfPath);
     QVariant ret = ConfigFile(m_szConfPath).Get("Auto-sync","time");
-    if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1 && !ret.isNull())
+    if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1 && !ret.isNull()) {
         m_syncTimeLabel->setText(tr("The latest time sync is: ") +   ret.toString().toStdString().c_str());
-    else
+        m_syncTimeLabel->show();
+    }
+    else if (m_pSettings != nullptr && fileConf.exists() && fileConf.size() > 1){
+        emit isSync(false);
+        m_syncTimeLabel->hide();
+    } else {
         m_syncTimeLabel->setText(tr("Waiting for initialization..."));
+        m_syncTimeLabel->show();
+    }
 }
 
 //更新用户信息，获取用户名
 void MainWidget::checkUserName(QString name) {
     //检测登录状态
     if (name == "401") {
+        m_bIsInit = false;
         m_firstLoad = true;
         //token无效执行登出
         if (m_mainWidget->currentWidget() != m_nullWidget) {
@@ -439,9 +473,15 @@ void MainWidget::checkUserName(QString name) {
         emit dooss(m_szUuid);
     }
     //当前用户名为用户名
+    QFile allConfFile(m_szConfPath);
+    if (!allConfFile.exists()) {
+        emit doconf();
+    }
 
     //这里要根据上次同步的情况来设置显示情况 to do
-    if (m_pSettings->value("Auto-sync/run").toString() == "failed") {
+    QString failePath = QDir::homePath() + "/.cache/kylinId/failed";
+    QFile fileLock(failePath);
+    if (fileLock.exists()) {
         ctrlAutoSync(SYNC_FAILURE);
         m_bIsFailed = true;
     } else {
@@ -453,7 +493,6 @@ void MainWidget::checkUserName(QString name) {
     m_infoTab->setText(tr("Your account：%1").arg(m_szCode));
     //刷新同步时间
     refreshSyncDate();
-
     handle_conf();
 
 }
@@ -482,17 +521,13 @@ void MainWidget::initMemoryAlloc() {
     m_welcomeLayout = new QVBoxLayout;
     m_welcomeImage = new QSvgWidget(":/new/image/96_color.svg");
     m_welcomeMsg = new TitleLabel(this);
+    //~ contents_path /networkaccount/Sign in
     m_login_btn  = new QPushButton(tr("Sign in"),this);
     m_svgHandler = new SVGHandler(this);
     m_stackedWidget = new QStackedWidget(this);
     m_nullwidgetContainer = new QWidget(this);
     m_syncTimeLabel = new QLabel(this);
     m_cLoginTimer = new QTimer(this);
-    m_lazyTimer = new QTimer(this);
-    m_listTimer = new QTimer(this);
-    m_singleTimer = new QTimer(this);
-    m_checkTimer = new QTimer(this);
-    m_manTimer = new QTimer(this);
     m_pSettings = nullptr;
 
     m_animateLayout = new QHBoxLayout;
@@ -570,6 +605,7 @@ void MainWidget::layoutUI() {
     m_vboxLayout->addWidget(m_mainWidget);
     m_vboxLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     this->setLayout(m_vboxLayout);
+    m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
 
 }
 
@@ -582,7 +618,6 @@ void MainWidget::singleExecutor(QTimer *timer, int mesc) {
 void MainWidget::setTokenWatcher() {
     QString tokenFile = QDir::homePath() + "/.cache/kylinId/" + ACC_INFO;
     m_fsWatcher.addPath(tokenFile);
-
     connect(&m_fsWatcher,&QFileSystemWatcher::fileChanged,this,[=] () {
         QFile token(tokenFile);
         //可能存在token为空的情况，故应该保证token.size()大于TOKEN_MIN_SIZE才能为有效token
@@ -591,7 +626,7 @@ void MainWidget::setTokenWatcher() {
                 m_mainWidget->setCurrentWidget(m_nullWidget);
             }
         } else {
-            singleExecutor(m_checkTimer,500);
+            checkUserStatus();
         }
     });
 }
@@ -628,10 +663,8 @@ void MainWidget::initSignalSlots() {
                 m_key = m_itemMap.key(name);
                 if (m_key != "") {
                     //这样的执行顺序是正确的
-                    emit isSync(true);
-                    singleExecutor(m_singleTimer,1000);
+                    startSync();
                 }
-
             }
             //特殊同步项提示消息：快捷键
             if (m_itemMap.key(name) == "shortcut" && checked == true) {
@@ -665,13 +698,10 @@ void MainWidget::initSignalSlots() {
         if (checked == true ) {
             //本身就有网，之前没网，执行一次信息更新操作
             if(tmpOnline == false) {
-                singleExecutor(m_checkTimer,500);
+                checkUserStatus();
             }
             ctrlAutoSync(SYNC_NORMAL);
-
             //网络状态记录为有网状态，并进入正常状态
-
-
         } else {
             //检测到没网络，网络状态记录为无网状态，并进入无网状态
             if(tmpOnline == true) {
@@ -702,7 +732,7 @@ void MainWidget::initSignalSlots() {
 
     });
 
-    //检测是否为旧版本云账户处理槽函数
+    //检测是否为旧版本云帐户处理槽函数
     connect(this,&MainWidget::oldVersion,[=] () {
         if (m_mainWidget->currentWidget() != m_nullWidget) {
             on_login_out();
@@ -713,7 +743,7 @@ void MainWidget::initSignalSlots() {
 
     //连接信号
     connect(m_mainWidget,&QStackedWidget::currentChanged,this,[this] (int index) {
-       if (m_mainWidget->widget(index) == m_nullWidget) {
+       if (m_mainWidget->currentWidget() == m_nullWidget) {
            setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
            download_over();
            m_mainWidget->adjustSize();
@@ -738,59 +768,6 @@ void MainWidget::initSignalSlots() {
     });
     //Token监控
     setTokenWatcher();
-
-
-    connect(m_singleTimer, &QTimer::timeout,this, [this] () {
-        if (isAvaliable() == false) {
-            m_singleTimer->stop();
-            return ;
-        }
-        if (m_key == "") {
-            return ;
-        }
-
-        emit dosingle(m_key);
-        m_singleTimer->stop();
-    });
-
-    connect(m_lazyTimer,&QTimer::timeout,this,[this] () {
-       //emit doman();
-        if (m_bIsKylinId) {
-            emit kylinIdCheck();
-        } else {
-            emit docheck();
-        }
-        m_lazyTimer->stop();
-    });
-
-    connect(m_listTimer,&QTimer::timeout,this,[this] () {
-        if (isAvaliable() == false) {
-            m_listTimer->stop();
-            return ;
-        }
-        emit doselect(m_syncDialog->m_List);
-        m_listTimer->stop();
-    });
-
-    connect(m_checkTimer, &QTimer::timeout, this, [this] () {
-        if (m_bIsKylinId) {
-            emit kylinIdCheck();
-        } else {
-            emit docheck();
-        }
-        m_checkTimer->stop();
-    });
-
-    connect(m_manTimer, &QTimer::timeout, this, [this] () {
-        if (isAvaliable() == false) {
-            m_manTimer->stop();
-            return ;
-        }
-        m_pSettings->setValue("Auto-sync/run","done");
-        m_pSettings->sync();
-        emit doman();
-        m_manTimer->stop();
-    });
 
     connect(m_stackedWidget, &QStackedWidget::currentChanged,this, [this] (int index) {
         Q_UNUSED(index);
@@ -822,6 +799,24 @@ void MainWidget::initSignalSlots() {
 
 }
 
+void MainWidget::syncSelect()
+{
+    if (isAvaliable() == false) {
+        return ;
+    }
+    emit doselect(m_syncDialog->m_List);
+}
+
+void MainWidget::startAutoSync()
+{
+    if (isAvaliable() == false) {
+        return ;
+    }
+    m_pSettings->setValue("Auto-sync/run","done");
+    m_pSettings->sync();
+    emit doman();
+}
+
 /* 初始化GUI */
 void MainWidget::init_gui() {
     //m_mainWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
@@ -848,7 +843,7 @@ void MainWidget::init_gui() {
 
     m_infoTab->setText(tr("Your account:%1").arg(m_szCode));
     m_autoSyn->set_itemname(tr("Auto sync"));
-    m_autoSyn->make_itemon();
+    m_autoSyn->make_itemoff();
     m_widgetContainer->setFocusPolicy(Qt::NoFocus);
     m_mainWidget->addWidget(m_widgetContainer);
 
@@ -944,7 +939,7 @@ void MainWidget::open_cloud() {
         return ;
     }
     //更新用户信息
-    singleExecutor(m_checkTimer,500);
+    checkUserStatus();
     //关闭登录窗口，回收内存
     m_mainDialog->on_close();
     m_mainDialog = nullptr;
@@ -963,8 +958,16 @@ void MainWidget::finished_conf(int ret) {
         return ;
     }
     if (ret == 0) {
-        m_bTokenValid = true;
-        emit doquerry(m_szCode);
+        if (!m_bTokenValid) {
+            m_pSettings->setValue("Auto-sync/enable","false");
+            m_pSettings->sync();
+            m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
+            m_autoSyn->make_itemoff();
+            m_bTokenValid = true;
+        }
+        m_bIsInit = true;
+        refreshSyncDate();
+        handle_conf();
     }
 }
 
@@ -1002,16 +1005,21 @@ void MainWidget::finished_load(int ret, QString uuid) {
     @返回类型： void
 */
 void MainWidget::handle_conf() {
-    if (__once__  || m_pSettings == nullptr) {
+    if (__once__  || m_pSettings == nullptr || !m_bIsInit) {
         return ;
     }
     bool ret = m_pSettings->value("Auto-sync/enable").toString() == "false";
     if (ret) {
         m_autoSyn->make_itemoff();
+        m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
         //此时云端和本地开关本来就是关闭的，不可能进行同步
         emit isSync(false);
     } else {
-        m_autoSyn->make_itemon();
+        //保证自动同步按钮状态正确
+        if(m_stackedWidget->currentWidget() != m_itemList) {
+            m_stackedWidget->setCurrentWidget(m_itemList);
+            m_autoSyn->make_itemon();
+        }
     }
     for (int i  = 0;i < m_szItemlist.size();i ++) {
         judge_item(  ConfigFile(m_szConfPath).Get(m_szItemlist.at(i),"enable").toString(),i);
@@ -1019,10 +1027,11 @@ void MainWidget::handle_conf() {
             m_itemList->get_item(i)->get_swbtn()->setDisabledFlag(true);
         }
     }
-
 }
 
 void MainWidget::ctrlAutoSync(int status) {
+    QString faileTips = tr("Please check your connetion!");
+    m_status = status;
     if (status == NETWORK_FAILURE) {
         m_bIsFailed = false;
         m_autoSyn->set_active(false);
@@ -1030,14 +1039,19 @@ void MainWidget::ctrlAutoSync(int status) {
         for (int i  = 0;i < m_szItemlist.size();i ++) {
             m_itemList->get_item(i)->set_active(false);
         }
+        m_syncTimeLabel->setText(faileTips);
     } else if (status == SYNC_FAILURE) {
         m_bIsFailed = true;
         m_autoSyn->make_itemoff();
+        m_pSettings->setValue("Auto-sync/enable","false");
+        m_pSettings->sync();
         m_autoSyn->set_active(true);
+        emit isSync(false);
         m_autoSyn->set_change(-1,"Failed!");
         for (int i  = 0;i < m_szItemlist.size();i ++) {
             m_itemList->get_item(i)->set_active(false);
         }
+        m_syncTimeLabel->setText(faileTips);
     } else if (status == SYNC_NORMAL) {
         m_bIsFailed = false;
         m_autoSyn->set_active(true);
@@ -1046,6 +1060,7 @@ void MainWidget::ctrlAutoSync(int status) {
             m_itemList->get_item(i)->set_active(true);
             m_itemList->get_item(i)->set_change(0,"0");
         }
+        refreshSyncDate();
     }
 }
 
@@ -1069,11 +1084,17 @@ void MainWidget::on_auto_syn(bool checked) {
         return ;
      }
     if (checked == true) {
+        checkUserStatus();
+        //检查同步错误锁文件是否存在
+        QString filePath = QDir::homePath() + "/.cache/kylinId/failed";
+        QFile fileLock(filePath);
+        if(fileLock.exists()) {
+            fileLock.remove();
+        }
         m_keyInfoList.clear();
-
         //用户试图打开自动同步，将同步尝试设置为正常状态
         ctrlAutoSync(SYNC_NORMAL);
-
+        m_stackedWidget->setCurrentWidget(m_itemList);
         //用户打开自动按钮开关，进行下载同步，要考虑到用户token有效，但是没有All.conf的情况出现
         QFile file( m_szConfPath);
         if (file.exists() == false) {
@@ -1082,12 +1103,12 @@ void MainWidget::on_auto_syn(bool checked) {
         } else {
             emit doquerry(m_szCode);
         }
-        m_stackedWidget->setCurrentWidget(m_itemList);
     } else {
         m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
     }
 
-    emit dochange("Auto-sync",checked);
+    m_pSettings->setValue("Auto-sync/enable",checked ? "true" : "false");
+    m_pSettings->sync();
 }
 
 /* 登出处理事件 */
@@ -1102,6 +1123,12 @@ void MainWidget::on_login_out() {
         m_szCode = tr("Disconnected");
         m_bTokenValid = false; //Token失效
         m_firstLoad = true;
+        m_bIsInit = false;
+        m_autoSyn->make_itemoff();
+        if (m_mainWidget->currentWidget() != m_nullWidget) {
+            m_mainWidget->setCurrentWidget(m_nullWidget);
+            m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
+        }
 
     } else {
         //同步正在开始，结束同步
@@ -1221,20 +1248,23 @@ void MainWidget::get_key_info(QString info) {
 
 void MainWidget::showDesktopNotify(const QString &message)
 {
-    QDBusInterface iface("org.freedesktop.Notifications",
-                         "/org/freedesktop/Notifications",
-                         "org.freedesktop.Notifications",
-                         QDBusConnection::sessionBus());
-    QList<QVariant> args;
-    args<<(tr("Kylin Cloud Account"))
-    <<((unsigned int) 0)
-    <<QString("kylin-cloud-account")
-    <<tr("Cloud ID desktop message") //显示的是什么类型的信息
-    <<message //显示的具体信息
-    <<QStringList()
-    <<QVariantMap()
-    <<(int)-1;
-    iface.callWithArgumentList(QDBus::AutoDetect,"Notify",args);
+    QtConcurrent::run([=]() {
+        QDBusInterface iface("org.freedesktop.Notifications",
+                             "/org/freedesktop/Notifications",
+                             "org.freedesktop.Notifications",
+                             QDBusConnection::sessionBus());
+        QList<QVariant> args;
+        args<<(tr("Kylin Cloud Account"))
+        <<((unsigned int) 0)
+        <<QString("kylin-cloud-account")
+        <<tr("Cloud ID desktop message") //显示的是什么类型的信息
+        <<message //显示的具体信息
+        <<QStringList()
+        <<QVariantMap()
+        <<(int)-1;
+        iface.callWithArgumentList(QDBus::AutoDetect,"Notify",args);
+    });
+
 }
 
 void MainWidget::loginSuccess(int ret) {

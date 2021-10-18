@@ -19,10 +19,11 @@
 #include "group_manager_server.h"
 #include "custom_struct.h"
 #include <stdio.h>
+#include <QCoreApplication>
 
 group_manager_server::group_manager_server()
 {
-	
+    _cpid = 0;
 }
 
 // 解析组文件
@@ -94,6 +95,39 @@ QVariantList group_manager_server::getPasswd()
     return value;
 }
 
+//创建组
+bool group_manager_server::createNewGroup(QString groupName, QString groupId, QStringList userNames){
+    if (!polkitAdd())
+        return false;
+
+    add(groupName, groupId);
+
+    for (QString u : userNames){
+        addUserToGroup(groupName, u);
+    }
+
+    return true;
+
+}
+
+//编辑组
+bool group_manager_server::editGroup(QString groupName, QString groupId, QStringList userNames, QStringList userNames2){
+    if (!polkitAdd())
+        return false;
+
+    set(groupName, groupId);
+
+    for(QString u : userNames){
+        addUserToGroup(groupName, u);
+    }
+
+    for(QString u : userNames2){
+        delUserFromGroup(groupName, u);
+    }
+
+    return true;
+}
+
 // 添加组
 bool group_manager_server::add(QString groupName, QString groupId)
 {
@@ -155,6 +189,9 @@ bool group_manager_server::set(QString groupName, QString groupId)
 // 删除组
 bool group_manager_server::del(QString groupName)
 {
+    if (!polkitAdd())
+        return false;
+
     QString groupdel = "/usr/sbin/groupdel";
     QFile groupdelFile(groupdel);
     QProcess p(0);
@@ -172,9 +209,19 @@ bool group_manager_server::del(QString groupName)
     return true;
 }
 
+bool group_manager_server::setPid(int p){
+    _cpid = p;
+    return true;
+}
+
+void group_manager_server::exitService() {
+    qApp->exit(0);
+}
+
 // 添加用户到组
 bool group_manager_server::addUserToGroup(QString groupName, QString userName)
 {
+
     QString usermod = "/usr/sbin/usermod";
     QString gpasswd = "/usr/bin/gpasswd";
     QString command;
@@ -211,6 +258,7 @@ bool group_manager_server::addUserToGroup(QString groupName, QString userName)
 // 删除用户从组
 bool group_manager_server::delUserFromGroup(QString groupName, QString userName)
 {
+
     QString gpasswd = "/usr/bin/gpasswd";
     QString command;
 
@@ -232,4 +280,28 @@ bool group_manager_server::delUserFromGroup(QString groupName, QString userName)
     p.waitForFinished(-1);
 //    qDebug() << QString::fromLocal8Bit(p.readAllStandardError());
     return true;
+}
+
+bool group_manager_server::polkitAdd()
+{
+
+    if (_cpid == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+    //PolkitQt1::SystemBusNameSubject subject(message().service());
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.ukui.groupmanager.action.add",
+                PolkitQt1::UnixProcessSubject(_cpid),
+                PolkitQt1::Authority::AllowUserInteraction);
+    if (result == PolkitQt1::Authority::Yes) { //认证通过
+        qDebug() << QString("operation authorized");
+        _cpid = 0;
+        return true;
+    } else {
+        qDebug() << QString("not authorized");
+        _cpid = 0;
+        return false;
+    }
 }

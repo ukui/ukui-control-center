@@ -54,10 +54,10 @@ protected:
     virtual void mousePressEvent(QMouseEvent * event);
 
 Q_SIGNALS:
-    void resize();
     void widgetClicked(QString name);
     void enterWidget(QString name);
     void leaveWidget(QString name);
+    void resize();
 };
 
 #endif // HOVERBTN_H

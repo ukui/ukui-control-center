@@ -24,6 +24,8 @@
 #include <QStringList>
 #include <QDebug>
 #include <QStandardItemModel>
+#include <QFuture>
+#include <QtConcurrent>
 
 #define N 3
 #define SMALL 1.00
@@ -124,9 +126,9 @@ const QString Fonts::name() const {
 
 void Fonts::initSearchText() {
     //~ contents_path /fonts/Font size
-    ui->fontSizeLabel->setText(tr("Font size"));
+    ui->fontSizeLabel->setText(tr("Font size"));   
     //~ contents_path /fonts/Fonts select
-    ui->fontSelectLabel->setText(tr("Fonts select"));
+    ui->monoSelectLabel->setText(tr("Fonts select"));
     //~ contents_path /fonts/Mono font
     ui->monoSelectLabel->setText(tr("Mono font"));
     //~ contents_path /fonts/Reset to default
@@ -139,8 +141,8 @@ void Fonts::setupStylesheet(){
 void Fonts::setupComponent(){
 
     QStringList fontScale;
-    fontScale<< tr("11") << tr("12") << tr("13") << tr("14") << tr("15")
-              <<tr("16");
+    fontScale<< tr("10") << tr("11") << tr("12") << tr("13") << tr("14")
+              <<tr("15");
 
     uslider  = new Uslider(fontScale);
     uslider->setRange(1,6);
@@ -248,28 +250,28 @@ QStringList Fonts::_splitFontNameSize(QString value) {
 
 int Fonts::fontConvertToSlider(const int size) const {
     switch (size) {
-    case 11:
+    case 10:
         return 1;
         break;
-    case 12:
+    case 11:
         return 2;
         break;
-    case 13:
+    case 12:
         return 3;
         break;
-    case 14:
+    case 13:
         return 4;
         break;
-    case 15:
+    case 14:
         return 5;
         break;
-    case 16:
+    case 15:
         return 6;
         break;
-    case 17:
+    case 16:
         return 7;
         break;
-    case 18:
+    case 17:
         return 8;
         break;
     default:
@@ -282,30 +284,30 @@ int Fonts::sliderConvertToSize(const int value) const
 {
     switch (value) {
     case 1:
-        return 11;
+        return 10;
         break;
     case 2:
-        return 12;
+        return 11;
         break;
     case 3:
-        return 13;
+        return 12;
         break;
     case 4:
-        return 14;
+        return 13;
         break;
     case 5:
-        return 15;
+        return 14;
         break;
     case 6:
-        return 16;
+        return 15;
         break;
     case 7:
-        return 17;
+        return 16;
         break;
     case 8:
-        return 18;
+        return 17;
     default:
-        return 11;
+        return 10;
         break;
     }
 }
@@ -329,18 +331,25 @@ void Fonts::resetDefault(){
 }
 
 void Fonts::connectToServer(){
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid()) {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+    });
 }
 
 void Fonts::keyChangedSlot(const QString &key) {
@@ -380,7 +389,7 @@ void Fonts::initModel()
             fontModel->appendRow(standardItem);
         }
 
-        if (fontValue.contains("Mono")) {
+        if (fontValue.contains("Mono") && !fontValue.contains("Ubuntu",Qt::CaseInsensitive)) {
             QStandardItem *monoItem = new QStandardItem(fontValue);
             monoItem->setFont(QFont(fontValue));
             monoModel->appendRow(monoItem);

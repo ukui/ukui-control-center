@@ -31,6 +31,8 @@
 #include <QMouseEvent>
 #include <QPushButton>
 #include <QGSettings>
+#include <QFuture>
+#include <QtConcurrent>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -144,7 +146,7 @@ void AutoBoot::initAddBtn()
 
     QLabel *iconLabel = new QLabel(pluginWidget);
     //~ contents_path /autoboot/Add autoboot app
-    QLabel *textLabel = new QLabel(tr("Add autoboot app "), pluginWidget); 
+    QLabel *textLabel = new QLabel(tr("Add autoboot app "), pluginWidget);
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
     iconLabel->setProperty("useIconHighlightEffect", true);
@@ -222,17 +224,17 @@ void AutoBoot::initUI()
     headHorLayout->setContentsMargins(64, 0, 32, 0);
 
     QLabel *nameLabel = new QLabel(headWidget);
-    nameLabel->setFixedWidth(220);
+    nameLabel->setFixedWidth(400);
     nameLabel->setText(tr("Name"));
 
     QLabel *statusLabel = new QLabel(headWidget);
-    statusLabel->setFixedWidth(150);
+    statusLabel->setFixedWidth(180);
     statusLabel->setText(tr("Status"));
 
     headHorLayout->addWidget(nameLabel);
-    headHorLayout->addStretch();
+    headHorLayout->addStretch(5);
     headHorLayout->addWidget(statusLabel);
-    headHorLayout->addStretch();
+    headHorLayout->addStretch(3);
 
     headWidget->setLayout(headHorLayout);
 
@@ -275,8 +277,8 @@ void AutoBoot::initUI()
         iconLabel->setFixedSize(32, 32);
         iconLabel->setPixmap(it.value().pixmap);
 
-        QLabel *textLabel = new QLabel(widget);
-        textLabel->setFixedWidth(250);
+        FixLabel *textLabel = new FixLabel(widget);
+        textLabel->setFixedWidth(400);
         textLabel->setText(appName);
 
         SwitchButton *button = new SwitchButton(widget);
@@ -287,21 +289,21 @@ void AutoBoot::initUI()
         appgroupMultiMaps.insert(it.key(), button);
 
         QPushButton *dBtn = new QPushButton(widget);
-        dBtn->setFixedSize(QSize(64, 32));
+        dBtn->setFixedSize(QSize(100, 32));
         dBtn->setText(tr("Delete"));
         dBtn->setHidden(true);
         connect(dBtn, &QPushButton::clicked, this, [=] {
             del_autoboot_realize(bname);
         });
         QLabel *pLabel = new QLabel(widget);
-        pLabel->setFixedSize(QSize(64, 32));
+        pLabel->setFixedSize(QSize(100, 32));
         pLabel->setHidden(false);
 
         mainHLayout->addWidget(iconLabel);
         mainHLayout->addWidget(textLabel);
-        mainHLayout->addStretch(1);
+        mainHLayout->addStretch(5);
         mainHLayout->addWidget(button);
-        mainHLayout->addStretch(1);
+        mainHLayout->addStretch(3);
         mainHLayout->addWidget(pLabel);
         mainHLayout->addWidget(dBtn);
         widget->setLayout(mainHLayout);
@@ -624,61 +626,60 @@ gboolean AutoBoot::_key_file_get_boolean(GKeyFile *keyfile, const gchar *key, gb
 
 AutoApp AutoBoot::_app_new(const char *path)
 {
+    QString filepath = QString(QLatin1String(path));
     AutoApp app;
-    GKeyFile *keyfile;
-    char *bname, *obpath, *name, *comment, *exec, *icon;
-    bool hidden, no_display, enable, shown;
+    QSettings* desktopFile = new QSettings(filepath, QSettings::IniFormat);
+    QString icon, only_showin, not_show_in;
+    if (desktopFile) {
+       desktopFile->setIniCodec("utf-8");
 
-    app.bname = "";
-    keyfile = g_key_file_new();
-    if (!g_key_file_load_from_file(keyfile, path, G_KEY_FILE_NONE, NULL)) {
+       QFileInfo file = QFileInfo(filepath);
+       app.bname = file.fileName();
+       app.path = filepath;
+       app.exec = desktopFile->value(QString("Desktop Entry/Exec")).toString();
+       icon = desktopFile->value(QString("Desktop Entry/Icon")).toString();
+       app.hidden = desktopFile->value(QString("Desktop Entry/Hidden")).toBool();
+       app.no_display = desktopFile->value(QString("Desktop Entry/NoDisplay")).toBool();
+       only_showin = desktopFile->value(QString("Desktop Entry/OnlyShowIn")).toString();
+       not_show_in = desktopFile->value(QString("Desktop Entry/NotShowIn")).toString();
+       bool mshow = true;
+       if (only_showin != nullptr) {
+           if (!only_showin.contains("UKUI")) {
+               mshow = false;
+           }
+       }
+       if (not_show_in != nullptr) {
+           if (not_show_in.contains("UKUI")) {
+               mshow = false;
+           }
+       }
+       app.shown = mshow;
+
+       QFileInfo iconfile(icon);
+
+       if (!QString(icon).isEmpty()) {
+           QIcon currenticon
+               = QIcon::fromTheme(icon,
+                                  QIcon(QString("/usr/share/pixmaps/"+icon
+                                                +".png")));
+           app.pixmap = currenticon.pixmap(QSize(32, 32));
+       } else if (iconfile.exists()) {
+           app.pixmap = QPixmap(iconfile.filePath()).scaled(32, 32);
+       } else {
+           app.pixmap = QPixmap(QString(":/img/plugins/autoboot/desktop.png"));
+       }
+
+       delete desktopFile;
+       desktopFile = nullptr;
+    }
+    //通过glib库函数获取Name字段，防止特殊情况（含有字段X-Ubuntu-Gettext-Domain）
+    GKeyFile *keyfile = g_key_file_new();
+    if (!g_key_file_load_from_file(keyfile, filepath.toLatin1().data(), G_KEY_FILE_NONE, NULL)) {
         g_key_file_free(keyfile);
         return app;
     }
-
-    bname = g_path_get_basename(path);
-    obpath = g_strdup(path);
-    hidden = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
-    no_display = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY, FALSE);
-// enable = _key_file_get_boolean(keyfile, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, TRUE);
-    shown = _key_file_get_shown(keyfile, g_getenv("XDG_CURRENT_DESKTOP"));
-    name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+    app.name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                         G_KEY_FILE_DESKTOP_KEY_NAME, NULL, NULL);
-    comment = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                           G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
-    exec = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC,
-                                 NULL);
-    icon = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                        G_KEY_FILE_DESKTOP_KEY_ICON, NULL, NULL);
-
-    app.bname = QString::fromUtf8(bname);
-    app.path = QString::fromUtf8(obpath);
-
-    app.hidden = hidden;
-    app.no_display = no_display;
-    app.shown = shown;
-// app.enable = enable;
-
-    app.name = QString::fromUtf8(name);
-    app.comment = QString::fromUtf8(comment);
-    app.exec = QString::fromUtf8(exec);
-
-    QFileInfo iconfile(static_cast<QString>(icon));
-
-    if (!QString(icon).isEmpty() /*&& QIcon::hasThemeIcon(QString(icon))*/) {
-        QIcon currenticon
-            = QIcon::fromTheme(QString(icon),
-                               QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(icon))
-                                             +".png")));
-        app.pixmap = currenticon.pixmap(QSize(32, 32));
-    } else if (iconfile.exists()) {
-        app.pixmap = QPixmap(iconfile.filePath()).scaled(32, 32);
-    } else {
-        app.pixmap = QPixmap(QString(":/img/plugins/autoboot/desktop.png"));
-    }
-
-    g_free(bname);
-    g_free(obpath);
     g_key_file_free(keyfile);
 
     return app;
@@ -783,6 +784,15 @@ void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exe
     if (path.isEmpty())
         return;
 
+    // 判断是否有重复项，重复则不加入对应列表
+    QMap<QString, AutoApp>::iterator it = statusMaps.begin();
+    for (int index = 0; it != statusMaps.end(); it++, index++) {
+        if (it.value().name == name) {
+            return;
+        }
+    }
+
+
     char *filename, *filepath;
     QByteArray ba = path.section("/", -1, -1).toUtf8();
 
@@ -860,21 +870,26 @@ void AutoBoot::checkbox_changed_cb(QString bname)
 
 void AutoBoot::connectToServer()
 {
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid()) {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"),
-                                          QString(
-                                              "org.freedesktop.kylinssoclient.interface"), "keyChanged", this,
-                                          SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+    });
+
 }
 
 void AutoBoot::initConfig()

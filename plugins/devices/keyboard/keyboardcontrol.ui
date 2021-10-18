@@ -269,7 +269,7 @@
                   <string notr="true"/>
                  </property>
                  <property name="minimum">
-                  <number>100</number>
+                  <number>200</number>
                  </property>
                  <property name="maximum">
                   <number>2100</number>

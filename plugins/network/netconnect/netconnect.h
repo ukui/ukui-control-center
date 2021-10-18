@@ -46,6 +46,7 @@
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 #include "netdetail.h"
+#include "commonComponent/HoverBtn/hoverbtn.h"
 
 enum {
     DISCONNECTED,
@@ -75,6 +76,7 @@ typedef struct ActiveConInfo_s {
     QString strConType;
     QString strSecType;
     QString strChan;
+    QString strSpeed;
     QString strMac;
     QString strHz;
 
@@ -108,17 +110,15 @@ public:
 public:
     void initSearchText();
     void initComponent();
-    void rebuildNetStatusComponent(QString iconPath, QString netName);
-    void rebuildNetStatusComponent(QString iconPath, QStringList netName);
-    void rebuildAvailComponent(QString iconpath, QString netName);
-
+    void rebuildNetStatusComponent(QString iconPath, QMap<QString, bool> netNameMap);
+    void rebuildWifiActComponent(QString iconPath, QMap<QString, bool> netNameMap);
+    void rebuildAvailComponent(QString iconpath, QString netName, QString type);
     void runExternalApp();
-    void runKylinmApp();
+    void runKylinmApp(QString netName, QString type);
 
     bool getwifiisEnable();
 
-    void getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
-
+    int getActiveConInfo(QList<ActiveConInfo>& qlActiveConInfo);
 private:
     Ui::NetConnect     *ui;
 
@@ -128,16 +128,24 @@ private:
 
 
     QDBusInterface     *m_interface = nullptr;
+    QDBusInterface     *kdsDbus = nullptr;
     SwitchButton       *wifiBtn;
 
     QMap<QString, int> connectedWifi;
     QMap<QString,int>  wifiList;
+
+    QMap<QString, bool> actLanNames;
+    QMap<QString, bool> preActLan;
+
+    QMap<QString, bool> actWifiNames;
+    QMap<QString, bool> preActWifi;
+
+    QMap<QString, bool> noneAct;
+
     QStringList        wifilist;
     QThread            *pThread;
-    NetconnectWork     *pNetWorker;
 
-    QString            connectedLan;
-    QStringList        actLanNames;
+    NetconnectWork     *pNetWorker;
 
     QStringList        TwifiList;
     QStringList        TlanList;
@@ -147,19 +155,24 @@ private:
     bool               mIsLanVisible = false;
     bool               mIsWlanVisible = false;
 
-    NetDetail          *mWlanDetail;
-    NetDetail          *mLanDetail;
-
     QList<ActiveConInfo> mActiveInfo;
     QTimer             *refreshTimer;
+
+    int                runCount;
+    QString            prefreChan;
+    QString            mPreWifiConnectedName;
+    QString            mPreLanConnectedName;
+    QString            connectWifi;
 private:
     int         setSignal(QString lv);
     QStringList execGetLanList();
-    void         getWifiListDone(QVector<QStringList> wifislist, QStringList lanList, bool getWifiListDone);
+    int         getWifiListDone(QVector<QStringList> wifislist, QStringList lanList);
+    QString     geiWifiChan();
+    QString     getWifiSpeed();
+
     bool        getInitStatus();
     bool        getWifiStatus();
     bool        getHasWirelessCard();
-
     void        clearContent();
 
     void        deleteNetworkDone(QString);
@@ -168,15 +181,18 @@ private:
     void        initNetworkMap();
     void        setWifiBtnDisable();
     void        setNetDetailVisible();                              // 设置网络刷新状态
-    QString     wifiIcon(bool isLock, int strength,int category);
     QString     wifiIcon(bool isLock, int strength);
     QList<QVariantMap> getDbusMap(const QDBusMessage &dbusMessage);
 private slots:
     void wifiSwitchSlot(bool status);
     void getNetList();
     void netPropertiesChangeSlot(QMap<QString, QVariant> property);
-    void netDetailSlot(QString netName);
+    void netDetailSlot(NetDetail *netDetail,QString netName, bool status, HoverBtn * deviceItem);
+    void netDetailSlot(NetDetail *wlanDetail, QString netName, bool status);
+    void netDetailOpen(NetDetail *netDetail,QString netName);
     void refreshNetInfoTimerSlot();
+    void refreshNetInfoSlot();
+
 signals:
     void refresh();
 };

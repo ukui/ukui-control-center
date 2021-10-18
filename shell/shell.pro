@@ -22,7 +22,8 @@ include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 DEFINES += PLUGIN_INSTALL_DIRS='\\"$${PLUGIN_INSTALL_DIRS}\\"'
 
 
-LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi
+LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi -lkysec -lukui-log4qt
+DEFINES+=WITHKYSEC KYDEBUG
 
 #LIBS += -L$$[QT_INSTALL_LIBS] -lkylinssoclient
 
@@ -87,6 +88,7 @@ SOURCES += \
     framelessExtended/framelesshandle.cpp \
     framelessExtended/widgethandlerealize.cpp \
     homepagewidget.cpp \
+    mhomedelegate.cpp \
     modulepagewidget.cpp \
     pinyin.cpp \
     prescene.cpp \
@@ -115,6 +117,7 @@ HEADERS += \
     framelessExtended/framelesshandleprivate.h \
     framelessExtended/widgethandlerealize.h \
     homepagewidget.h \
+    mhomedelegate.h \
     modulepagewidget.h \
     pinyin.h \
     prescene.h \

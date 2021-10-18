@@ -86,7 +86,7 @@ private:
 
     SwitchButton * newfeatureSwitchBtn;
     SwitchButton * enableSwitchBtn;
-    SwitchButton * lockscreenSwitchBtn;
+    SwitchButton * lockscreenSwitchBtn;       
 
     QMap<QString, bool> appMap;
 

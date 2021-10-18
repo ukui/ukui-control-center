@@ -49,14 +49,6 @@
 #undef signals
 #endif
 
-extern "C" {
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-rr.h>
-#include <libmate-desktop/mate-rr-config.h>
-#include <libmate-desktop/mate-rr-labeler.h>
-#include <libmate-desktop/mate-desktop-utils.h>
-}
-
 #define QML_PATH "kcm_kscreen/qml/"
 
 #define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
@@ -85,12 +77,12 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::DisplayWindow())
 {
     qRegisterMetaType<QQuickView *>();
-    gdk_init(NULL, NULL);
 
     ui->setupUi(this);
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
 
+    firstAddOutputName = "";
     mCloseScreenButton = new SwitchButton(this);
     ui->showScreenLayout->addWidget(mCloseScreenButton);
 
@@ -140,7 +132,22 @@ Widget::Widget(QWidget *parent) :
     initConnection();
     loadQml();
 
-    mScreenScale = scaleGSettings->get(SCALE_KEY).toDouble();
+    connect(ui->scaleCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, [=](int index){
+        scaleChangedSlot(ui->scaleCombo->itemData(index).toDouble());
+    });
+    connect(scaleGSettings,&QGSettings::changed,this,[=](QString key){
+        if (!key.compare("scalingFactor", Qt::CaseSensitive)) {
+            double scale = scaleGSettings->get(key).toDouble();
+            if (ui->scaleCombo->findData(scale) == -1) {
+                scale = 1.0;
+            }
+            ui->scaleCombo->blockSignals(true);
+            ui->scaleCombo->setCurrentText(QString::number(scale * 100) + "%");
+            ui->scaleCombo->blockSignals(false);
+        }
+    });
+
 }
 
 Widget::~Widget()
@@ -179,6 +186,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
 
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
     resetPrimaryCombo();
+    changescale();
     connect(mConfig.data(), &KScreen::Config::outputAdded,
             this, [=](const KScreen::OutputPtr &output){
         outputAdded(output, false);
@@ -190,6 +198,20 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
 
     connect(mConfig.data(), &KScreen::Config::primaryOutputChanged,
             this, &Widget::primaryOutputChanged);
+
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        if (output->isConnected()) {
+            connect(output.data(), &KScreen::Output::currentModeIdChanged,
+                    this, [=]() {
+                if (output->currentMode()) {
+                    if (ui->scaleCombo) {
+                        changescale();
+                    }
+                }
+            });
+        }
+
+    }
 
     // 上面屏幕拿取配置
     mScreen->setConfig(mConfig);
@@ -207,7 +229,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
                 this, &Widget::slotOutputEnabledChanged);
         }
     }
-   unifySetconfig = false;
+    unifySetconfig = false;
     // 择主屏幕输出
     QMLOutput *qmlOutput = mScreen->primaryOutput();
 
@@ -312,11 +334,6 @@ void Widget::slotFocusedOutputChanged(QMLOutput *output)
     ui->primaryCombo->setCurrentIndex(index);
 }
 
-void Widget::slotFocusedOutputChangedNoParam()
-{
-    mControlPanel->activateOutput(res);
-}
-
 void Widget::slotOutputEnabledChanged()
 {
     // 点击禁用屏幕输出后的改变
@@ -351,7 +368,7 @@ void Widget::slotOutputConnectedChanged()
     }
 
     resetPrimaryCombo();
-
+    mainScreenButtonSelect(ui->primaryCombo->currentIndex());
 }
 
 void Widget::slotUnifyOutputs()
@@ -372,9 +389,18 @@ void Widget::slotUnifyOutputs()
             return;
         }
     }
+    for (QMLOutput *output: mScreen->outputs()) {
+        if (output) {
+            if (mUnifyButton->isChecked() && output == base) {
+                output->setIsCloneMode(true, true);
+            } else {
+                output->setIsCloneMode(mUnifyButton->isChecked(), false);
+            }
+        }
+    }
 
     // 取消统一输出
-    if (base->isCloneMode() && !mUnifyButton->isChecked()) {
+    if (!mUnifyButton->isChecked()) {
         bool isExistCfg = QFile::exists((QDir::homePath() + "/.config/ukui/ukcc-screenPreCfg.json"));
         if (mKDSCfg.isEmpty() && isExistCfg) {
             KScreen::OutputList screens = mPrevConfig->connectedOutputs();
@@ -407,7 +433,7 @@ void Widget::slotUnifyOutputs()
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
         ui->primaryCombo->setEnabled(true);
-    } else if (!base->isCloneMode() && mUnifyButton->isChecked()) {
+    } else if (mUnifyButton->isChecked()) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
         mPrevConfig = mConfig->clone();
@@ -426,7 +452,6 @@ void Widget::slotUnifyOutputs()
             }
 
             if (!output->output()->isEnabled()) {
-                output->setVisible(false);
                 continue;
             }
 
@@ -442,14 +467,10 @@ void Widget::slotUnifyOutputs()
             if (base != output) {
                 clones << output->output()->id();
                 output->setCloneOf(base);
-                output->setVisible(false);
             }
         }
 
         base->output()->setClones(clones);
-
-        base->setIsCloneMode(true);
-
         mScreen->updateOutputsPlacement();
 
         // 关闭开关
@@ -512,16 +533,18 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 void Widget::setHideModuleInfo()
 {
     mCPU = getCpuInfo();
-    if (!mCPU.startsWith(kCpu, Qt::CaseInsensitive)) {
+//    if (!mCPU.startsWith(kCpu, Qt::CaseInsensitive)) {  //fix bug#78013
         ui->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
         ui->quickWidget->setClearColor(Qt::transparent);
-    }
+//    }
 }
 
 void Widget::setTitleLabel()
 {
     //~ contents_path /display/monitor
     ui->primaryLabel->setText(tr("monitor"));
+    //~ contents_path /display/screen zoom
+    ui->scaleLabel->setText(tr("screen zoom"));
 }
 
 void Widget::writeScale(double scale)
@@ -531,9 +554,12 @@ void Widget::writeScale(double scale)
     }
 
     if (mIsScaleChanged) {
-        if (!mIsRestore) {
-            QMessageBox::information(this, tr("Information"),
+        if (!mIsChange) {
+            QMessageBox::information(this->topLevelWidget(), tr("Information"),
                                      tr("Some applications need to be logouted to take effect"));
+        } else {
+            // 非主动切换缩放率，则不弹提示弹窗
+            mIsChange = false;
         }
     } else {
         return;
@@ -620,7 +646,7 @@ bool Widget::isRestoreConfig()
     int cnt = 15;
     int ret = -100;
     MainWindow *mainWindow = static_cast<MainWindow*>(this->topLevelWidget());
-    QMessageBox msg;
+    QMessageBox msg(mainWindow);
     connect(mainWindow, &MainWindow::posChanged, this, [=,&msg]() {
         QTimer::singleShot(8, this, [=,&msg]() { //窗管会移动窗口，等待8ms,确保在窗管移动之后再move，时间不能太长，否则会看到移动的路径
             QRect rect = this->topLevelWidget()->geometry();
@@ -636,19 +662,21 @@ bool Widget::isRestoreConfig()
                        "due to compatibility issues between the display device and the graphics card, "
                        "the display may be abnormal or unable to display\n"
                        "the settings will be saved after 14 seconds"));
-        msg.addButton(tr("Save Config"), QMessageBox::RejectRole);
-        msg.addButton(tr("Restore Config"), QMessageBox::AcceptRole);
+        msg.addButton(tr("Save"), QMessageBox::RejectRole);
+        msg.addButton(tr("Not Save"), QMessageBox::AcceptRole);
 
         QTimer cntDown;
         QObject::connect(&cntDown, &QTimer::timeout, [&msg, &cnt, &cntDown, &ret]()->void {
             if (--cnt < 0) {
                 cntDown.stop();
+                msg.hide();
                 msg.close();
             } else {
                 msg.setText(QString(tr("After modifying the resolution or refresh rate, "
                                        "due to compatibility issues between the display device and the graphics card, "
                                        "the display may be abnormal or unable to display \n"
                                        "the settings will be saved after %1 seconds")).arg(cnt));
+                msg.show();
             }
         });
         cntDown.start(1000);
@@ -666,13 +694,14 @@ bool Widget::isRestoreConfig()
         res = false;
         break;
     case QMessageBox::RejectRole:
-        res = true;
-        if (mScaleres) {
-            //该情况下不弹提示弹窗
-            mIsRestore = true;
-            writeScale(mScaleres);
-            mIsRestore = false;
+        if (mIsSCaleRes) {
+            QStringList keys = scaleGSettings->keys();
+            if (keys.contains("scalingFactor")) {
+                scaleGSettings->set(SCALE_KEY,scaleres);
+            }
+            mIsSCaleRes = false;
         }
+        res = true;
         break;
     }
     return res;
@@ -680,26 +709,7 @@ bool Widget::isRestoreConfig()
 
 QString Widget::getCpuInfo()
 {
-    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
-                                   "/com/kylin/assistant/systemdaemon",
-                                   "com.kylin.assistant.systemdaemon",
-                                   QDBusConnection::systemBus());
-    if (!youkerInterface.isValid()) {
-        qCritical() << "Create youker Interface Failed When Get Computer info: " <<
-            QDBusConnection::systemBus().lastError();
-        return QString();
-    }
-
-    QDBusReply<QMap<QString, QVariant> > cpuinfo;
-    QString cpuType;
-    cpuinfo = youkerInterface.call("get_cpu_info");
-    if (!cpuinfo.isValid()) {
-        qDebug() << "cpuinfo is invalid" << endl;
-    } else {
-        QMap<QString, QVariant> res = cpuinfo.value();
-        cpuType = res["CpuVersion"].toString();
-    }
-    return cpuType;
+    return Utils::getCpuInfo();
 }
 
 bool Widget::isCloneMode()
@@ -710,7 +720,7 @@ bool Widget::isCloneMode()
     }
     if (mConfig->connectedOutputs().count() >= 2) {
         foreach (KScreen::OutputPtr secOutput, mConfig->connectedOutputs()) {
-            if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
+            if (secOutput->pos() != output->pos() || !secOutput->isEnabled()) {
                 return false;
             }
         }
@@ -832,14 +842,14 @@ void Widget::clearOutputIdentifiers()
 
 void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
 {
-    if (mIsBattery && (!name.contains("eDP") && !name.contains("DisplayPort-0", Qt::CaseInsensitive)))  //笔记本非内置
+    if (mIsBattery && name != firstAddOutputName)  //笔记本非内置
         return;
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {  //已经有了
         if (name == BrightnessFrameV[i]->getOutputName())
             return;
     }
     BrightnessFrame *frame = nullptr;
-    if (mIsBattery && (name.contains("eDP") || name.contains("DisplayPort-0", Qt::CaseInsensitive))) {
+    if (mIsBattery && name == firstAddOutputName) {
         frame = new BrightnessFrame(name, true, serialNum);
     } else if(!mIsBattery) {
         frame = new BrightnessFrame(name, false, serialNum);
@@ -855,9 +865,27 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
 
 void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
 {
+    if (firstAddOutputName == "" && output->isConnected()) {
+            firstAddOutputName = Utils::outputName(output);
+    }
+
     if (output->isConnected()) {
         QString name = Utils::outputName(output);
         addBrightnessFrame(name, output->isEnabled(), output->edid()->serial());
+    }
+    // 刷新缩放选项，监听新增显示屏的mode变化
+    changescale();
+    if (output->isConnected()) {
+        connect(output.data(), &KScreen::Output::currentModeIdChanged,
+                this, [=]() {
+            if (output->currentMode()) {
+                if (ui->scaleCombo) {
+                    ui->scaleCombo->blockSignals(true);
+                    changescale();
+                    ui->scaleCombo->blockSignals(false);
+                }
+            }
+        });
     }
     if (!connectChanged) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
@@ -869,25 +897,13 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
     addOutputToPrimaryCombo(output);
 
     if (!mFirstLoad) {
-        mIsScreenAdd = true;
-        mUnifyButton->setChecked(isCloneMode());
+        bool isCloneMode_m = isCloneMode();
+        if (isCloneMode_m != mUnifyButton->isChecked())
+            mIsScreenAdd = true;
+        mUnifyButton->setChecked(isCloneMode_m);
         QTimer::singleShot(2000, this, [=] {
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
         });
-    }
-
-    // 检查统一输出-防止多显示屏幕
-    if (mUnifyButton->isChecked()) {
-        for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
-            }
-            if (!qmlOutput->isCloneMode()) {
-                qmlOutput->blockSignals(true);
-                qmlOutput->setVisible(false);
-                qmlOutput->blockSignals(false);
-            }
-        }
     }
 
     ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
@@ -898,6 +914,8 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
 
 void Widget::outputRemoved(int outputId, bool connectChanged)
 {
+    // 刷新缩放选项
+    changescale();
     if (!connectChanged) {
         KScreen::OutputPtr output = mConfig->output(outputId);
         if (!output.isNull()) {
@@ -920,13 +938,9 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
     // 检查统一输出-防止移除后没有屏幕可显示
     if (mUnifyButton->isChecked()) {
         for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
+            if (qmlOutput) {
+                qmlOutput->setIsCloneMode(false, false);
             }
-            qmlOutput->setIsCloneMode(false);
-            qmlOutput->blockSignals(true);
-            qmlOutput->setVisible(true);
-            qmlOutput->blockSignals(false);
         }
     }
     ui->unionframe->setVisible(mConfig->connectedOutputs().count() > 1);
@@ -1136,20 +1150,6 @@ void Widget::setScreenKDS(QString kdsConfig)
             }
             nowIt++;
         }
-    } else if (kdsConfig == "first") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i == 0));
-            }
-        }
-        delayApply();
-    } else if (kdsConfig == "second") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i != 0));
-            }
-        }
-        delayApply();
     } else {
         Q_FOREACH(KScreen::OutputPtr output, screens) {
             if (!output.isNull()) {
@@ -1191,13 +1191,16 @@ void Widget::setActiveScreen(QString status)
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
-    bool isCheck = (status == "copy") ? true : false;
-    mKDSCfg = status;
-    setScreenKDS(mKDSCfg);
-    if (mConfig->connectedOutputs().count() >= 2) {
-        mUnifyButton->setChecked(isCheck);
-    }
-    QTimer::singleShot(1500, this, [=]{ //需要延时
+    QTimer::singleShot(2500, this, [=] { //需要延时
+        bool isCheck = (status == "copy") ? true : false;
+        mKDSCfg = status;
+        if (mKDSCfg != "copy" && !mUnifyButton->isChecked()) {
+            delayApply();;
+        }
+        if (mConfig->connectedOutputs().count() >= 2) {
+            mUnifyButton->setChecked(isCheck);
+        }
+
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
                 continue;
@@ -1222,6 +1225,8 @@ void Widget::delayApply()
         // kds与插拔不触发应用操作
         if (mKDSCfg.isEmpty() && !mIsScreenAdd) {
             save();
+        } else {
+            mPrevConfig = mConfig->clone();
         }
         mKDSCfg.clear();
         mIsScreenAdd = false;
@@ -1230,6 +1235,7 @@ void Widget::delayApply()
 
 void Widget::save()
 {
+    qDebug() << Q_FUNC_INFO << ": apply the screen config" << this->currentConfig()->connectedOutputs();
     if (!this) {
         return;
     }
@@ -1267,7 +1273,7 @@ void Widget::save()
     }
 
     if (!KScreen::Config::canBeApplied(config)) {
-        QMessageBox::information(this,
+        QMessageBox::information(this->topLevelWidget(),
                                  tr("Warning"),
                                  tr("Sorry, your configuration could not be applied.\nCommon reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU."));
         return;
@@ -1284,10 +1290,6 @@ void Widget::save()
     // due to the fact that we just can't be sure when xrandr is done changing things, 1000 doesn't seem to get in the way
     QTimer::singleShot(1000, this,
                        [=]() {
-        if (mIsWayland) {
-            QString hash = config->connectedOutputsHash();
-            writeFile(mDir % hash);
-        }
         mBlockChanges = false;
         mConfigChanged = false;
     });
@@ -1304,15 +1306,15 @@ void Widget::save()
     if (isRestoreConfig()) {
         auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
-
     } else {
         mPrevConfig = mConfig->clone();
-        writeScreenXml();
+        QString hash = config->connectedOutputsHash();
+        writeFile(mDir % hash);
     }
 
     setActiveScreen();
 
-	for (int i = 0; i < BrightnessFrameV.size(); ++i) {   //应用成功再更新屏幕是否开启的状态，判断亮度条是否打开
+    for (int i = 0; i < BrightnessFrameV.size(); ++i) {   //应用成功再更新屏幕是否开启的状态，判断亮度条是否打开
         for (KScreen::OutputPtr output : mConfig->outputs()) {
             if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
                 BrightnessFrameV[i]->setOutputEnable(output->isEnabled());
@@ -1321,7 +1323,7 @@ void Widget::save()
     }
     int flag = mUnifyButton->isChecked() ? 1 : 2;
     showBrightnessFrame(flag);  //成功应用之后，重新显示亮度条,传入是否统一输出,1表示打开，2表示关闭
-	
+
 }
 
 QVariantMap metadata(const KScreen::OutputPtr &output)
@@ -1434,8 +1436,7 @@ bool Widget::writeFile(const QString &filePath)
         }
 
         writeGlobalPart(output, info, oldOutput);
-        info[QStringLiteral("primary")] = !output->name().compare(
-            getPrimaryWaylandScreen(), Qt::CaseInsensitive);
+        info[QStringLiteral("primary")] = output->isPrimary();
         info[QStringLiteral("enabled")] = output->isEnabled();
 
         auto setOutputConfigInfo = [&info](const KScreen::OutputPtr &out) {
@@ -1470,14 +1471,13 @@ bool Widget::writeFile(const QString &filePath)
 
 void Widget::scaleChangedSlot(double scale)
 {
-    this->mScreenScale = scale;
-    if (scaleGSettings->get(SCALE_KEY).toDouble() != this->mScreenScale) {
+    if (scaleGSettings->get(SCALE_KEY).toDouble() != scale) {
         mIsScaleChanged = true;
     } else {
         mIsScaleChanged = false;
     }
 
-    writeScale(this->mScreenScale);
+    writeScale(scale);
 }
 
 void Widget::changedSlot()
@@ -1505,19 +1505,19 @@ void Widget::mainScreenButtonSelect(int index)
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     int connectCount = mConfig->connectedOutputs().count();
 
-    if (mIsWayland) {
-        if (!getPrimaryWaylandScreen().compare(newPrimary->name(), Qt::CaseInsensitive)) {
-            ui->mainScreenButton->setEnabled(false);
-        } else {
-            ui->mainScreenButton->setEnabled(true);
-        }
+
+    if (newPrimary == mConfig->primaryOutput() || mUnifyButton->isChecked() || !newPrimary->isEnabled()) {
+        ui->mainScreenButton->setEnabled(false);
     } else {
-        if (newPrimary == mConfig->primaryOutput()) {
-            ui->mainScreenButton->setEnabled(false);
-        } else {
-            ui->mainScreenButton->setEnabled(true);
-        }
+        ui->mainScreenButton->setEnabled(true);
     }
+
+    if (!newPrimary->isEnabled()) {
+        ui->scaleCombo->setEnabled(false);
+    } else {
+        ui->scaleCombo->setEnabled(true);
+    }
+
 
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
@@ -1578,7 +1578,7 @@ void Widget::checkOutputScreen(bool judge)
     }
 
     ui->primaryCombo->setCurrentIndex(index);
-	ui->primaryCombo->blockSignals(false);
+    ui->primaryCombo->blockSignals(false);
 }
 
 
@@ -1611,15 +1611,18 @@ void Widget::initConnection()
     connect(mUnifyButton, &SwitchButton::checkedChanged,
             [this] {
         slotUnifyOutputs();
-        setScreenIsApply(true);
+        /*  bug#54275 避免拔插触发save()
+            setScreenIsApply(true);
+        */
         delayApply();
-		showBrightnessFrame();
+        showBrightnessFrame();
     });
 
     connect(mCloseScreenButton, &SwitchButton::checkedChanged,
             this, [=](bool checked) {
         checkOutputScreen(checked);
         delayApply();
+        changescale();
     });
 
     connect(mNightButton, &SwitchButton::checkedChanged, this, [=](bool status){
@@ -1698,33 +1701,6 @@ void Widget::initTemptSlider()
     }
 }
 
-void Widget::writeScreenXml()
-{
-    MateRRScreen *rr_screen;
-    MateRRConfig *rr_config;
-
-    /* Normally, mate_rr_config_save() creates a backup file based on the
-     * old monitors.xml.  However, if *that* file didn't exist, there is
-     * nothing from which to create a backup.  So, here we'll save the
-     * current/unchanged configuration and then let our caller call
-     * mate_rr_config_save() again with the new/changed configuration, so
-     * that there *will* be a backup file in the end.
-     */
-
-    rr_screen = mate_rr_screen_new(gdk_screen_get_default(), NULL);   /* NULL-GError */
-    if (!rr_screen)
-        return;
-
-    rr_config = mate_rr_config_new_current(rr_screen, NULL);
-    mate_rr_config_save(rr_config, NULL);  /* NULL-GError */
-
-    char *backup_filename = mate_rr_config_get_backup_filename();
-    unlink(backup_filename);
-
-    g_object_unref(rr_config);
-    g_object_unref(rr_screen);
-}
-
 void Widget::setNightMode(const bool nightMode)
 {
     QDBusInterface colorIft("org.ukui.KWin",
@@ -1742,7 +1718,7 @@ void Widget::setNightMode(const bool nightMode)
         mNightConfig["Active"] = true;
         if (ui->sunradioBtn->isChecked()) {
             mNightConfig["EveningBeginFixed"] = "17:55:01";
-            mNightConfig["MorningBeginFixed"] = "05:55:00";
+            mNightConfig["MorningBeginFixed"] = "05:04:00";
             mNightConfig["Mode"] = 2;
         } else if (ui->customradioBtn->isChecked()) {
             mNightConfig["EveningBeginFixed"] = ui->opHourCom->currentText() + ":"
@@ -1825,7 +1801,7 @@ void Widget::initNightStatus()
                             "/ColorCorrect",
                             "org.ukui.kwin.ColorCorrect",
                             QDBusConnection::sessionBus());
-    if (colorIft.isValid() && Utils::isExistEffect() && !mIsWayland) {
+    if (colorIft.isValid()  && !mIsWayland) {
         this->mRedshiftIsValid = true;
     } else {
         qWarning() << "create org.ukui.kwin.ColorCorrect failed";
@@ -1983,4 +1959,75 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
 
     }
     file.write(QJsonDocument::fromVariant(outputList).toJson());
+}
+
+void Widget::changescale()
+{
+    mScaleSizeRes = QSize();
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        if (output->isEnabled()) {
+            // 作判空判断，防止控制面板闪退
+            if (output->currentMode()) {
+                if (mScaleSizeRes == QSize()) {
+                    mScaleSizeRes = output->currentMode()->size();
+                } else {
+                    mScaleSizeRes = mScaleSizeRes.width() < output->currentMode()->size().width()?mScaleSizeRes:output->currentMode()->size();
+                }
+            } else {
+                return;
+            }
+
+        }
+    }
+
+    if (mScaleSizeRes != QSize(0,0)) {
+        QSize scalesize = mScaleSizeRes;
+        ui->scaleCombo->blockSignals(true);
+        ui->scaleCombo->clear();
+        ui->scaleCombo->addItem("100%", 1.0);
+
+        if (scalesize.width() > 1024 ) {
+            ui->scaleCombo->addItem("125%", 1.25);
+        }
+        if (scalesize.width() == 1920 ) {
+            ui->scaleCombo->addItem("150%", 1.5);
+        }
+        if (scalesize.width() > 1920) {
+            ui->scaleCombo->addItem("150%", 1.5);
+            ui->scaleCombo->addItem("175%", 1.75);
+        }
+        if (scalesize.width() >= 2160) {
+            ui->scaleCombo->addItem("200%", 2.0);
+        }
+        if (scalesize.width() > 2560) {
+            ui->scaleCombo->addItem("225%", 2.25);
+        }
+        if (scalesize.width() > 3072) {
+            ui->scaleCombo->addItem("250%", 2.5);
+        }
+        if (scalesize.width() > 3840) {
+            ui->scaleCombo->addItem("275%", 2.75);
+        }
+
+        double scale;
+        QStringList keys = scaleGSettings->keys();
+        if (keys.contains("scalingFactor")) {
+            scale = scaleGSettings->get(SCALE_KEY).toDouble();
+        }
+        if (ui->scaleCombo->findData(scale) == -1) {
+            //记录分辨率切换时，新分辨率不存在的缩放率，在用户点击恢复设置时写入
+            mIsSCaleRes = true;
+
+            //记录是否因分辨率导致的缩放率变化
+            mIsChange = true;
+
+            scaleres = scale;
+            scale = 1.0;
+        }
+        ui->scaleCombo->setCurrentText(QString::number(scale * 100) + "%");
+        scaleChangedSlot(scale);
+        ui->scaleCombo->blockSignals(false);
+        mScaleSizeRes = QSize();
+
+    }
 }

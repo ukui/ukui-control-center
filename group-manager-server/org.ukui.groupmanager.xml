@@ -7,29 +7,48 @@
     <method name="getPasswd">
       <arg type="av" direction="out"/>
     </method>
-    <method name="add">
+    <method name="createNewGroup">
       <arg type="b" direction="out"/>
       <arg name="groupName" type="s" direction="in"/>
       <arg name="groupId" type="s" direction="in"/>
+      <arg name="userNames" type="as" direction="in"/>
     </method>
-    <method name="set">
+    <method name="editGroup">
       <arg type="b" direction="out"/>
       <arg name="groupName" type="s" direction="in"/>
       <arg name="groupId" type="s" direction="in"/>
+      <arg name="userNames" type="as" direction="in"/>
+      <arg name="userNames2" type="as" direction="in"/>
     </method>
+<!--    <method name="add">
+      <arg type="b" direction="out"/>
+      <arg name="groupName" type="s" direction="in"/>
+      <arg name="groupId" type="s" direction="in"/>
+    </method>-->
+<!--    <method name="set">
+      <arg type="b" direction="out"/>
+      <arg name="groupName" type="s" direction="in"/>
+      <arg name="groupId" type="s" direction="in"/>
+    </method>-->
     <method name="del">
       <arg type="b" direction="out"/>
       <arg name="groupName" type="s" direction="in"/>
     </method>
-    <method name="addUserToGroup">
+<!--    <method name="addUserToGroup">
       <arg type="b" direction="out"/>
       <arg name="groupName" type="s" direction="in"/>
       <arg name="userName" type="s" direction="in"/>
+    </method>-->
+<!--    <method name="delUserFromGroup">
+      <arg type="b" direction="out"/>
+      <arg name="groupName" type="s" direction="in"/>
+      <arg name="userName" type="s" direction="in"/>
+    </method>-->
+    <method name="setPid">
+      <arg type="b" direction="out"/>
+      <arg name="pid" type="i" direction="in"/>
     </method>
-    <method name="delUserFromGroup">
-      <arg type="b" direction="out"/>
-      <arg name="groupName" type="s" direction="in"/>
-      <arg name="userName" type="s" direction="in"/>
+    <method name="exitService">
     </method>
   </interface>
 </node>

@@ -25,6 +25,8 @@
 #include <QDir>
 #include <QDesktopWidget>
 #include <QLineEdit>
+#include <QFuture>
+#include <QtConcurrent>
 
 #include <QTimeZone>
 #include <QComboBox>
@@ -38,6 +40,7 @@
 #include <polkit-qt5-1/polkitqt1-authority.h>
 #include "ImageUtil/imageutil.h"
 #include "Label/fixlabel.h"
+#include <QtConcurrent/QtConcurrent>
 
 const char kTimezoneDomain[] = "installer-timezones";
 const char kDefaultLocale[]  = "en_US.UTF-8";
@@ -105,18 +108,23 @@ int DateTime::get_plugin_type()
 
 QWidget *DateTime::get_plugin_ui()
 {
-
-    if (mFirstLoad) {
-
-        mFirstLoad = false;
-
-        initUI();
-        initTitleLabel();
-        initStatus();
-        initComponent();
-        initConnect();
-        connectToServer();
-    }
+     QTimer::singleShot(1, this, [=]() {
+        if (mFirstLoad) {
+            mFirstLoad = false;
+            initUI();
+            qApp->processEvents();
+            initTitleLabel();
+            qApp->processEvents();
+            initStatus();
+            qApp->processEvents();
+            initComponent();
+            qApp->processEvents();
+            initConnect();
+            qApp->processEvents();
+            connectToServer();
+            qApp->processEvents();
+        }
+     });
     return pluginWidget;
 }
 
@@ -159,6 +167,8 @@ void DateTime::initUI()
     m_zoneinfo          = new ZoneInfo;
     m_timezone          = new TimeZoneChooser(pluginWidget);
     m_itimer            = new QTimer(this);
+
+    ntpCombox = new QComboBox(ui->ntpFrame);
     m_itimer->start(1000);
 
     const QByteArray id(FORMAT_SCHEMA);
@@ -185,7 +195,9 @@ void DateTime::initUI()
                                              QDBusConnection::systemBus(), this);
 
     initNtp();
-    initTimeShow();
+    QTimer::singleShot(1, this, [=]() {
+        initTimeShow();
+    });
 
 }
 
@@ -196,9 +208,10 @@ void DateTime::initComponent()
 
     //~ contents_path /date/Change time
     ui->chgtimebtn->setText(tr("Change time"));
-    //~ contents_path /date/Change time zone
-    ui->chgzonebtn->setText(tr("Change time zone"));
+    //~ contents_path /date/Change timezone
+    ui->chgzonebtn->setText(tr("Change timezone"));
 
+    ui->hourFrame->setVisible(false);  //移到area里面了
     QHBoxLayout *hourLayout = new QHBoxLayout(ui->hourFrame);
 
     hourLayout->addWidget(m_formTimeLabel);
@@ -247,7 +260,7 @@ void DateTime::initTimeShow()
     ui->summaryLabel->setText(tr("Add time zones to display the time,only 5 can be added"));
 
     HoverWidget *addTimeWgt = new HoverWidget("");
-    addTimeWgt->setObjectName(tr("addTimeWgt"));
+    addTimeWgt->setObjectName("addTimeWgt");
     addTimeWgt->setMinimumSize(QSize(580, 50));
     addTimeWgt->setMaximumSize(QSize(960, 50));
 
@@ -324,6 +337,7 @@ void DateTime::initTimeShow()
 
         for (int i = 0; i < timesNum; ++i) {
             newTimeshow(timezonesList[i]);
+            qApp->processEvents();
         }
      }
 }
@@ -397,7 +411,7 @@ void DateTime::newTimeshow(const QString &timezone)
     label_2->setText(timeAndWeek + "     " + m_zoneinfo->getLocalTimezoneName(timezone, locale));
 
     btn->setText(tr("Delete"));
-    btn->setFixedSize(80,  36);
+    btn->setFixedSize(98, 36);
     btn->hide();
 
     connect(addWgt, &HoverWidget::enterWidget, this, [=](){
@@ -425,7 +439,7 @@ void DateTime::initNtp()
 {
     QLabel      *ntpLabel  = new QLabel(ui->ntpFrame);
     QHBoxLayout *ntpLayout = new QHBoxLayout(ui->ntpFrame);
-                 ntpCombox = new QComboBox(ui->ntpFrame);
+
     ntpLabel->setFixedWidth(260);
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
@@ -529,18 +543,25 @@ void DateTime::initNtp()
 
 void DateTime::connectToServer()
 {
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid()) {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+    });
 }
 
 void DateTime::keyChangedSlot(const QString &key)
@@ -579,13 +600,7 @@ void DateTime::changetimeSlot()
 
 void DateTime::changezoneSlot(int flag)
 {
-    QDesktopWidget* m = QApplication::desktop();
-    QRect desk_rect = m->screenGeometry(m->screenNumber(QCursor::pos()));
-    int desk_x = desk_rect.width();
-    int desk_y = desk_rect.height();
-    int x = m_timezone->width();
-    int y = m_timezone->height();
-    m_timezone->move(desk_x / 2 - x / 2 + desk_rect.left(), desk_y / 2 - y / 2 + desk_rect.top());
+    m_timezone->setFixedSize(1000,720);
     if (flag == 1) {
         m_timezone->setTitle(tr("Add Timezone"));
     } else {
@@ -594,7 +609,9 @@ void DateTime::changezoneSlot(int flag)
     m_timezone->setWindowModality(Qt::ApplicationModal);
     m_timezone->show();
 
-    m_timezone->setMarkedTimeZoneSlot(m_zoneinfo->getCurrentTimzone());
+    QDBusReply<QVariant> tz = m_datetimeiproperties->call("Get", "org.freedesktop.timedate1", "Timezone");
+    m_timezone->setMarkedTimeZoneSlot(tz.value().toString());
+
 }
 
 void DateTime::changezoneSlot(QString zone)

@@ -22,6 +22,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QSettings>
+#include <QProcess>
 
 #ifdef WITHKYSEC
 #include <kysec/libkysec.h>
@@ -89,7 +90,7 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 #ifdef WITHKYSEC
     if (!kysec_is_disabled() && kysec_get_3adm_status()){
         if (!getuid() || !geteuid()){
-            //时间和日期 | 用户账户 | 电源管理 |网络连接 |网络代理|更新
+            //时间和日期 | 用户帐户 | 电源管理 |网络连接 |网络代理|更新
             parser.addOption(powerRoleOption);
             parser.addOption(netconnectRoleOption);
             parser.addOption(vpnRoleOption);
@@ -167,23 +168,29 @@ QVariantMap Utils::getModuleHideStatus() {
 }
 
 QString Utils::getCpuInfo() {
-    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
-                                   "/com/kylin/assistant/systemdaemon",
-                                   "com.kylin.assistant.systemdaemon",
-                                   QDBusConnection::systemBus());
-    if (!youkerInterface.isValid()) {
-        qCritical() << "Create youker Interface Failed When Get Computer info: " << QDBusConnection::systemBus().lastError();
-        return QString();
-    }
-
-    QDBusReply<QMap<QString, QVariant>> cpuinfo;
     QString cpuType;
-    cpuinfo  = youkerInterface.call("get_cpu_info");
-    if (!cpuinfo.isValid()) {
-        qDebug() << "cpuinfo is invalid" << endl;
-    } else {
-        QMap<QString, QVariant> res = cpuinfo.value();
-        cpuType = res["CpuVersion"].toString();
+    // 设置系统环境变量
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("lscpu");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+
+    delete process;
+    QString cpuinfo = QString(ba.data());
+    QStringList cpuinfo_list = cpuinfo.split("\n");
+    for (int i = 0; i < cpuinfo_list.count(); i++) {
+        QString mstring = cpuinfo_list.at(i);
+        if (mstring.contains("Model name")) {
+            // 去除空格
+            mstring = mstring.remove(QRegExp("\\s"));
+            QStringList list = mstring.split(":");
+            cpuType = list.at(1);
+            break;
+        }
     }
     return cpuType;
 }
@@ -266,4 +273,35 @@ bool Utils::isCommunity()
         return false;
     }
     return true;
+}
+
+QRect Utils::sizeOnCursor()
+{
+    QDesktopWidget* m = QApplication::desktop();
+    QRect desk_rect = m->screenGeometry(m->screenNumber(QCursor::pos()));
+    return desk_rect;
+}
+
+bool Utils::isExitBattery()
+{
+    /* 默认机器没有电池 */
+    bool hasBat = false;
+    QDBusInterface *brightnessInterface = new QDBusInterface("org.freedesktop.UPower",
+                                     "/org/freedesktop/UPower/devices/DisplayDevice",
+                                     "org.freedesktop.DBus.Properties",
+                                     QDBusConnection::systemBus());
+    if (!brightnessInterface->isValid()) {
+        qDebug() << "Create UPower Interface Failed : " << QDBusConnection::systemBus().lastError();
+        return false;
+    }
+
+    QDBusReply<QVariant> briginfo;
+    briginfo  = brightnessInterface ->call("Get", "org.freedesktop.UPower.Device", "PowerSupply");
+
+    if (briginfo.value().toBool()) {
+        hasBat = true ;
+    }
+    delete brightnessInterface;
+
+    return hasBat;
 }

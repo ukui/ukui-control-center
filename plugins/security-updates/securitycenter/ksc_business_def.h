@@ -17,43 +17,45 @@ enum DEFENDER_MODULE_TYPE{
     DEFEDNER_MODULE_TYPE_BEGIN = DEFENDER_SCAN
 };
 
-typedef struct ksc_defender_module	{
+typedef struct ksc_defender_module {
+    QString ksc_name;           // 安全中心名称
+    QString ksc_desc;           // 安全中心描述
+
     int module_type;
-    QString module_name;			//模块名称
-    QString module_desc;			//模块描述
-    QString module_normal_icon; 	//正常模式下图标
-    QString module_hover_icon;      //悬停图标
-    QString module_exec;            //命令参数
-    QStringList status_list;        //模块状态描述列表
+    QString module_name;            // 模块名称
+    QString module_desc;            // 模块描述
+    QString module_normal_icon;     // 正常模式下图标
+    QString module_hover_icon;      // 悬停图标
+    QString module_exec;            // 命令参数
+    int module_status;              // 模块状态：正常 = 0/警告 = 1
+    QStringList status_list;        // 模块状态描述列表
 
-    ksc_defender_module(){}
-
-    ksc_defender_module(const int type, const QString& str1, const QString& str2, const QString& str3, const QString& str4, const QString& str5 /*, QStringList strlist*/)
-        :module_type(type)
-        ,module_name(str1)
-        ,module_desc(str2)
-        ,module_normal_icon(str3)
-        ,module_hover_icon(str4)
-        ,module_exec(str5)
+    ksc_defender_module()
     {
     }
 
-    ksc_defender_module& operator=(const ksc_defender_module& other)
+    ksc_defender_module(const QString &name, const QString &des, const int type,
+                        const QString &str1, const QString &str2, const QString &str3,
+                        const QString &str4, const QString &str5,
+                        const int status /*, QStringList strlist*/) :
+        ksc_name(name),
+        ksc_desc(des),
+        module_type(type),
+        module_name(str1),
+        module_desc(str2),
+        module_normal_icon(str3),
+        module_hover_icon(str4),
+        module_exec(str5),
+        module_status(status)
     {
-        this->module_type = other.module_type;
-        this->module_name = other.module_name;
-        this->module_desc = other.module_desc;
-        this->module_normal_icon = other.module_normal_icon;
-        this->module_hover_icon = other.module_hover_icon;
-        this->module_exec = other.module_exec;
-        this->status_list = other.status_list;
-
-        return *this;
     }
 
     friend QDBusArgument &operator<<(QDBusArgument &argument, const ksc_defender_module &cfg)
     {
         argument.beginStructure();
+
+        argument << cfg.ksc_name;
+        argument << cfg.ksc_desc;
 
         argument << cfg.module_type;
         argument << cfg.module_name;
@@ -61,6 +63,7 @@ typedef struct ksc_defender_module	{
         argument << cfg.module_normal_icon;
         argument << cfg.module_hover_icon;
         argument << cfg.module_exec;
+        argument << cfg.module_status;
         argument << cfg.status_list;
 
         argument.endStructure();
@@ -72,19 +75,22 @@ typedef struct ksc_defender_module	{
     {
         argument.beginStructure();
 
+        argument >> cfg.ksc_name;
+        argument >> cfg.ksc_desc;
+
         argument >> cfg.module_type;
         argument >> cfg.module_name;
         argument >> cfg.module_desc;
         argument >> cfg.module_normal_icon;
         argument >> cfg.module_hover_icon;
         argument >> cfg.module_exec;
+        argument >> cfg.module_status;
         argument >> cfg.status_list;
 
         argument.endStructure();
 
         return argument;
     }
-
 }ksc_defender_module;
 Q_DECLARE_METATYPE(ksc_defender_module)
 

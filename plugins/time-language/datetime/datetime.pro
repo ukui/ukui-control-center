@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += widgets dbus x11extras
+QT       += widgets dbus x11extras concurrent
 
 TEMPLATE = lib
 CONFIG += plugin \
