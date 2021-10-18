@@ -28,7 +28,7 @@
 
 #include <QDBusInterface>
 #include <QDBusReply>
-
+#include<QCryptographicHash>
 #include <polkit-qt5-1/polkitqt1-authority.h>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -52,9 +52,8 @@ SysdbusRegister::SysdbusRegister()
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
     mHibernateSet->setIniCodec("UTF-8");
-    runThreadFlag = false;
-    getBrightnessInfo();
-
+    runGetDislayThreadFlag = false;
+    getDisplayInfo();
     _id = 0;
 }
 
@@ -263,47 +262,6 @@ int SysdbusRegister::createUser(QString name, QString fullname, int accounttype,
 
 }
 
-void SysdbusRegister::setDDCBrightness(QString brightness, QString type) {
-    QString program = "/usr/sbin/i2ctransfer";
-    QStringList arg;
-    int br=brightness.toInt();
-    QString light = "0x" + QString::number(br,16);
-    QString c = "0x" + QString::number(168^br,16);
-    arg << "-f" << "-y" << type << "w7@0x37" << "0x51" << "0x84" << "0x03"
-        << "0x10" << "0x00" << light << c;
-    QProcess *vcpPro = new QProcess(this);
-//    vcpPro->start(program, arg);
-//    vcpPro->waitForStarted();
-//    vcpPro->waitForFinished();
-    vcpPro->startDetached(program, arg);
-}
-
-int SysdbusRegister::getDDCBrightness(QString type) {
-    QString program = "/usr/sbin/i2ctransfer";
-    QStringList arg;
-    arg<<"-f"<<"-y"<<type<<"w5@0x37"<<"0x51"<<"0x82"<<"0x01"<<"0x10"<<"0xac";
-    QProcess *vcpPro = new QProcess();
-    vcpPro->start(program, arg);
-    vcpPro->waitForStarted();
-    vcpPro->waitForFinished();
-    arg.clear();
-    arg<<"-f"<<"-y"<<type<<"r16@0x37";
-    usleep(40000);
-    vcpPro->start(program, arg);
-    vcpPro->waitForStarted();
-    vcpPro->waitForFinished();
-    QString result = vcpPro->readAllStandardOutput().trimmed();
-    if (result == "")
-        return -1;
-    QString bri=result.split(" ").at(9);
-    bool ok;
-    int bright=bri.toInt(&ok,16);
-    if(ok && bright >= 0 && bright <= 100)
-        return bright;
-
-    return -1;
-}
-
 int SysdbusRegister::changeRTC() {
     QString cmd = "hwclock -w";
     return system(cmd.toLatin1().data());
@@ -342,84 +300,90 @@ bool SysdbusRegister::setNtpSerAddress(QString serverAddress)
 
 }
 
-void SysdbusRegister::getBrightnessInfo()
+void SysdbusRegister::getDisplayInfo()
 {
-    if (true == runThreadFlag)
+    if (true == runGetDislayThreadFlag)
         return;
 
     QtConcurrent::run([=] {
-        runThreadFlag = true;
-        QString program = "/usr/bin/ddcutil";
-        QStringList arg;
-        arg << "detect";
-        QProcess *vcpPro = new QProcess();
-        vcpPro->start(program, arg);
-        vcpPro->waitForStarted();
-        vcpPro->waitForFinished();
-        QByteArray arr=vcpPro->readAll();
-
-        char *re=arr.data();
-        char *p;
-        QList<QString> l;
-        while (*re) {
-            p=strpbrk(re,"\n");
-            *p=0;
-            QString s=re;
-            s=s.trimmed();
-            l.append(s);
-            re=++p;
-            if(*re=='\n')
-                re++;
-        }
-        
-        for (int i=0; i < l.count(); i=i+9) {
-            if (l.at(i).startsWith("Display") || l.at(i).startsWith("Invalid display")) {
-                if (i+5 >= l.count())
+        runGetDislayThreadFlag = true;
+        bool include_invalid_displays = false;
+        DDCA_Display_Info_List*  dlist_loc = nullptr;
+        ddca_get_display_info_list2(include_invalid_displays, &dlist_loc);
+        QCryptographicHash Hash(QCryptographicHash::Md5);
+        for(int i = 0; i < dlist_loc->ct; i++) {
+            Hash.reset();
+            Hash.addData(reinterpret_cast<const char *>(dlist_loc->info[i].edid_bytes), 128);
+            QByteArray md5 = Hash.result().toHex();
+            QString edidHash = QString(md5);
+            bool edidExist = false;
+            for (int j = 0; j < displayInfo_V.size(); j++) {
+                if (edidHash == displayInfo_V[j].edidHash) {
+                    edidExist = true;
                     break;
-                QString bus=l.at(i+1).split(":").at(1).trimmed();
-                QString serial=l.at(i+5).split(":").at(1).trimmed();
-                QString busType = bus.split("-").at(1);
-                bool existFlag = false;
-                for (int i = 0; i < brightInfo_V.size(); i++) {
-                    if (brightInfo_V[i].serialNum == serial) {
-                        brightInfo_V[i].brightness = getDDCBrightness(busType);
-                        existFlag = true;
-                        break;
-                    }
-                }
-                if (false == existFlag) {
-                    struct brightInfo  mBrightInfo;
-                    mBrightInfo.serialNum  = serial;
-                    mBrightInfo.busType    = busType;
-                    mBrightInfo.brightness = getDDCBrightness(busType);
-                    brightInfo_V.push_back(mBrightInfo);
                 }
             }
+            if (!edidExist) {
+                struct displayInfo display;
+                DDCA_Display_Identifier did;
+                DDCA_Display_Ref ddca_dref;
+                display.edidHash = edidHash;
+                ddca_create_edid_display_identifier(dlist_loc->info[i].edid_bytes,&did);
+                ddca_create_display_ref(did,&ddca_dref);
+                ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc);
+                displayInfo_V.append(display);
+            }
         }
-        runThreadFlag = false;
+        runGetDislayThreadFlag = false;
     });
     return;
 }
 
-void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum)
+void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash)
 {
-    for (int i = 0; i < brightInfo_V.size(); i++) {
-        if (brightInfo_V[i].serialNum == serialNum) {
-            setDDCBrightness(brightness, brightInfo_V[i].busType);
-            brightInfo_V[i].brightness = brightness.toInt();
-            return;
+    bool edidExist = false;
+    for (int j = 0; j < displayInfo_V.size(); j++) {
+        if (displayInfo_V[j].edidHash == edidHash) {
+            edidExist = true;
+            uint8_t new_sh = brightness.toUInt() >> 8;
+            uint8_t new_sl = brightness.toUInt() & 0xff;
+            ddca_set_non_table_vcp_value(displayInfo_V[j].ddca_dh_loc,0x10,new_sh,new_sl);
         }
     }
+    if (!edidExist) {
+        getDisplayInfo();
+    }
+    return;
 }
 
-int SysdbusRegister::getDDCBrightnessUkui(QString serialNum)
+int SysdbusRegister::getDisplayBrightness(QString edidHash)
 {
-    for (int i = 0; i < brightInfo_V.size(); i++) {
-        if (brightInfo_V[i].serialNum == serialNum && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
-            return brightInfo_V[i].brightness;
+    bool edidExist = false;
+    for (int j = 0; j < displayInfo_V.size(); j++) {
+        if (displayInfo_V[j].edidHash == edidHash) {
+            edidExist = true;
+            DDCA_Non_Table_Vcp_Value  valrec;
+            if (ddca_get_non_table_vcp_value(displayInfo_V[j].ddca_dh_loc,0x10,&valrec) == 0) {
+//                uint16_t max_val = valrec.mh << 8 | valrec.ml; 暂未使用
+                uint16_t cur_val = valrec.sh << 8 | valrec.sl;
+                return cur_val;
+            } else {
+                getDisplayInfo();
+                return -2;
+            }
         }
     }
+    if (!edidExist) {
+        getDisplayInfo();
+    }
+    return -2;
+}
 
-    getBrightnessInfo();
-    return -2;   //表示没有信息，需要隔3～5秒再次获取
+QString SysdbusRegister::showDisplayInfo()
+{
+    QString retString = "";
+    for (int j = 0; j < displayInfo_V.size(); j++) {
+        retString = retString + "edidHash:" + displayInfo_V[j].edidHash + "\r\n";
+    }
+    return retString;
 }

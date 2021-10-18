@@ -26,11 +26,18 @@
 #include <QFile>
 #include <QSettings>
 #include <QVector>
+#include <ddcutil_c_api.h>
+#include <ddcutil_types.h>
 
 struct brightInfo {
     QString serialNum;
     QString busType;
     int     brightness;
+};
+
+struct displayInfo {
+    DDCA_Display_Handle ddca_dh_loc;   //显示器句柄
+    QString             edidHash;      //edid信息的hash值(md5)
 };
 
 class SysdbusRegister : public QObject
@@ -47,10 +54,9 @@ private:
     QString mHibernateFile;
     QSettings *mHibernateSet;
 
-    QVector<struct brightInfo> brightInfo_V;
-    volatile bool runThreadFlag;
-
+    volatile bool runGetDislayThreadFlag;
     qint64 _id;
+    QVector<struct displayInfo> displayInfo_V;
 
 private:
     int _changeOtherUserPasswd(QString username, QString pwd);
@@ -90,23 +96,17 @@ public slots:
     // 提权创建用户，避免两次验证弹窗
     Q_SCRIPTABLE int createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd);
 
-    // 调节外接台式屏幕亮度
-    Q_SCRIPTABLE void setDDCBrightness(QString brightness, QString type);
-
-    // 获取外接台式屏幕亮度
-    Q_SCRIPTABLE int getDDCBrightness(QString type);
-
     // 修改硬件时间
     Q_SCRIPTABLE int changeRTC();
 
     // 设置NTP授时服务器
     Q_SCRIPTABLE bool setNtpSerAddress(QString serverAddress);
 
-    //获取显示器i2c bus号
-    Q_SCRIPTABLE void getBrightnessInfo();
-    Q_SCRIPTABLE void setDDCBrightnessUkui(QString brightness, QString serialNum);
-    Q_SCRIPTABLE int  getDDCBrightnessUkui(QString serialNum);
-
+    //新亮度相关的接口
+    Q_SCRIPTABLE void getDisplayInfo();
+    Q_SCRIPTABLE QString showDisplayInfo();
+    Q_SCRIPTABLE void setDisplayBrightness(QString brightness, QString edidHash);
+    Q_SCRIPTABLE int getDisplayBrightness(QString edidHash);
 };
 
 #endif // SYSDBUSREGISTER_H

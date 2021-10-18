@@ -12,7 +12,7 @@
 #define POWER_KEY                        "brightness-ac"
 #define POWER_KEY_C                      "brightnessAc"
  
-BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &serialNum, QWidget *parent) :
+BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &edidHash, QWidget *parent) :
     QFrame(parent)
 {
     this->setFixedHeight(50);
@@ -42,7 +42,7 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
     this->exitFlag = false;
     this->isBattery = isBattery;
     this->outputName = name;
-    this->serialNum  = serialNum;
+    this->edidHash = edidHash;
     this->threadRunFlag = false;
 
     labelValue->setText("0"); //最低亮度10,获取前显示为0
@@ -74,7 +74,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
 
         threadRun = QtConcurrent::run([=]{
             threadRunFlag = true;
-            if ("" == this->serialNum) {
+            if ("" == this->edidHash) {
                 threadRunFlag = false;
                 return;
             }
@@ -134,6 +134,11 @@ bool BrightnessFrame::getSliderEnable()
     return slider->isEnabled();
 }
 
+void BrightnessFrame::setSliderEnable(const bool &enable)
+{
+    this->slider->setEnabled(enable);
+}
+
 bool BrightnessFrame::getOutputEnable()
 {
     return outputEnable;
@@ -153,9 +158,9 @@ int BrightnessFrame::getDDCBrighthess()
                            QDBusConnection::systemBus());
     QDBusReply<int> reply;
     while (--times) {
-        if (this->serialNum == "" || exitFlag)
+        if (this->edidHash == "" || exitFlag)
             return -1;
-        reply = ukccIfc.call("getDDCBrightnessUkui", this->serialNum);
+        reply = ukccIfc.call("getDisplayBrightness", this->edidHash);
         if (reply.isValid() && reply.value() >= 0 && reply.value() <= 100) {
             return reply.value();
         }
@@ -166,7 +171,7 @@ int BrightnessFrame::getDDCBrighthess()
 
 void BrightnessFrame::setDDCBrightness(const int &value)
 {
-    if (this->serialNum == "")
+    if (this->edidHash == "")
         return;
 
     QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
@@ -176,7 +181,17 @@ void BrightnessFrame::setDDCBrightness(const int &value)
 
 
     if (mLock.tryLock()) {
-        ukccIfc.call("setDDCBrightnessUkui", QString::number(value), this->serialNum);
+        ukccIfc.call("setDisplayBrightness", QString::number(value), this->edidHash);
         mLock.unlock();
     }
+}
+
+void BrightnessFrame::updateEdidHash(const QString &edid)
+{
+    this->edidHash = edid;
+}
+
+QString BrightnessFrame::getEdidHash()
+{
+    return this->edidHash;
 }
