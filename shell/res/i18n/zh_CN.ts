@@ -1483,11 +1483,11 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>Select</source>
-        <translation">选择</translation>
+        <translation>选择</translation>
     </message>
     <message>
         <source>Position: </source>
-        <translation">位置： </translation>
+        <translation>位置： </translation>
     </message>
     <message>
         <source>FileName: </source>
@@ -2234,7 +2234,7 @@ Please authenticate yourself to continue</source>
     <name>ChangeUserName</name>
     <message>
         <source>Change Username</source>
-        <translation">修改用户名</translation>
+        <translation>修改用户名</translation>
     </message>
     <message>
         <source>NickName</source>
@@ -3534,7 +3534,7 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Delete the user &apos;</source>
-        <translation">是否删除用户&apos;</translation>
+        <translation>是否删除用户&apos;</translation>
     </message>
     <message>
         <source>&apos;and:</source>

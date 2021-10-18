@@ -701,7 +701,7 @@ void NetConnect::onActiveConnectionChanged(QString deviceName, QString uuid, int
             }
         }
     } else {
-        for (int i = 0; i < deviceFrameMap[deviceName]->itemMap.size(); ++i) {
+        if (deviceFrameMap.contains(deviceName)) {
             if (deviceFrameMap[deviceName]->itemMap.contains(uuid)) {
                 item = deviceFrameMap[deviceName]->itemMap[uuid];
                 if (status == ACTIVATED) {
