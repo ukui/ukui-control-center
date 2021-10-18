@@ -180,6 +180,14 @@ void Wallpaper::setupComponent(){
         colordialog->exec();
 
     });
+    connect(ui->previewStackedWidget,&QStackedWidget::currentChanged,this,[=](int current){
+       if (current == COLOR) {
+           if(prePicUnit != nullptr) {
+               prePicUnit->changeClickedFlag(false);
+               prePicUnit->setStyleSheet("border-width: 0px;");
+           }
+       }
+    });
 }
 
 void Wallpaper::setupConnect(){
