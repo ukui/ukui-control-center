@@ -1,3 +1,9 @@
+ukui-control-center (3.0.1-1-70.31) v101; urgency=medium
+
+  * 更新libukui-log4qt-dev版本为1.0.1-8
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 08 Oct 2021 14:28:22 +0800
+
 ukui-control-center (3.0.1-1-70.28) v101; urgency=medium
 
   * 提交commit:68a3bd45
