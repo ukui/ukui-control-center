@@ -6224,7 +6224,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="167"/>
         <source>Left hand</source>
-        <translation>左键（默认选中）</translation>
+        <translation>左键</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="168"/>
