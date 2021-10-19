@@ -34,11 +34,20 @@
 #include <QCheckBox>
 #include <QTextEdit>
 #include <QButtonGroup>
+#include <QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusError>
+#include <QDBusReply>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 #include "Label/titlelabel.h"
 #include "HoverWidget/hoverwidget.h"
+
+#define APT_PROXY_SCHEMA              "org.ukui.control-center.apt.proxy"
+#define APT_PROXY_ENABLED            "enabled"
+#define APT_PROXY_HOST_KEY         "host"
+#define APT_PROXY_PORT_KEY         "port"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -103,6 +112,8 @@ public:
     void manualProxyTextChanged(QString txt);
     int _getCurrentProxyMode();
     void _setSensitivity();
+    bool getAptProxyInfo(bool status);
+    bool setAptProxy(QString host ,int port ,bool status);
 
     QFrame *setLine(QFrame *frame);
 
@@ -112,6 +123,7 @@ private:
     QWidget * pluginWidget;
 
     TitleLabel *mTitleLabel;
+    TitleLabel *mAptProxyLabel;
     QLabel *mAutoProxyLabel;
     QLabel *mUrlLabel;
     QLabel *mManualProxyLabel;
@@ -124,6 +136,11 @@ private:
     QLabel *mSOCKSLabel;
     QLabel *mSOCKSPortLabel;
     QLabel *mIgnoreLabel;
+    QLabel *mAptLabel;
+    QLabel *mAPTHostLabel_1;
+    QLabel *mAPTHostLabel_2;
+    QLabel *mAPTPortLabel_1;
+    QLabel *mAPTPortLabel_2;
 
     QLabel *mCertificationLabel;
     QLabel *mUserNameLabel;
@@ -143,15 +160,22 @@ private:
     QFrame *mIgnoreFrame;
     QFrame *mCertificationFrame_1;
 
+     QFrame *mAPTFrame;
+    QFrame *mAPTFrame_1;
+    QFrame *mAPTFrame_2;
+
     QFrame *line_1;
     QFrame *line_2;
     QFrame *line_3;
     QFrame *line_4;
     QFrame *line_5;
     QFrame *line_6;
+    QFrame *line_7;
 
     QRadioButton *mAutoBtn;
     QRadioButton *mManualBtn;
+    SwitchButton *mAptBtn;
+    QPushButton *mEditBtn;
     QCheckBox *mCertificationBtn;
 
     QButtonGroup *mProxyBtnGroup;
@@ -175,6 +199,7 @@ private:
     QGSettings * securesettings;
     QGSettings * ftpsettings;
     QGSettings * sockssettings;
+    QGSettings * aptsettings;
 
     bool settingsCreate;
     bool mFirstLoad;

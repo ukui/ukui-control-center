@@ -18,7 +18,7 @@
  *
  */
 #include "proxy.h"
-
+#include "aptproxydialog.h"
 #include <QDebug>
 
 #define PROXY_SCHEMA              "org.gnome.system.proxy"
@@ -73,19 +73,21 @@ QWidget *Proxy::get_plugin_ui() {
         const QByteArray iddd(HTTPS_PROXY_SCHEMA);
         const QByteArray iid(FTP_PROXY_SCHEMA);
         const QByteArray iiid(SOCKS_PROXY_SCHEMA);
+         const QByteArray iVd(APT_PROXY_SCHEMA);
 
         initSearchText();
         setupComponent();
 
         if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
                 QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
-                QGSettings::isSchemaInstalled(iiid)){
+                QGSettings::isSchemaInstalled(iiid) && QGSettings::isSchemaInstalled(iVd)){
 
             proxysettings = new QGSettings(id,QByteArray(),this);
             httpsettings = new QGSettings(idd,QByteArray(),this);
             securesettings = new QGSettings(iddd,QByteArray(),this);
             ftpsettings = new QGSettings(iid,QByteArray(),this);
             sockssettings = new QGSettings(iiid,QByteArray(),this);
+            aptsettings = new QGSettings(iVd,QByteArray(),this);
 
             setupConnect();
             initProxyModeStatus();
@@ -397,9 +399,68 @@ void Proxy::initUi(QWidget *widget)
     mManualLayout->addWidget(line_6);
     mManualLayout->addWidget(mIgnoreFrame);
 
+    //APT代理模块
+    mAptProxyLabel = new TitleLabel(widget);
+    mAPTFrame = new QFrame(widget);
+    mAPTFrame->setMinimumSize(QSize(550, 0));
+    mAPTFrame->setMaximumSize(QSize(16777215, 16777215));
+    mAPTFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *AptLayout = new QVBoxLayout(mAPTFrame);
+    AptLayout->setContentsMargins(0, 0, 0, 0);
+    AptLayout->setSpacing(0);
+
+    mAPTFrame_1 = new QFrame(mAPTFrame);
+    mAPTFrame_1->setMinimumSize(QSize(550, 60));
+    mAPTFrame_1->setMaximumSize(QSize(16777215, 60));
+    mAPTFrame_1->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mAptLayout_1 = new QHBoxLayout(mAPTFrame_1);
+    mAptLayout_1->setContentsMargins(16, 0, 16, 0);
+    mAptLayout_1->setSpacing(8);
+
+    mAptLabel = new QLabel(mAPTFrame_1);
+    mAptLabel->setFixedWidth(200);
+    mAptBtn = new SwitchButton(mAPTFrame_1);
+    mAptLayout_1->addWidget(mAptLabel);
+    mAptLayout_1->addStretch();
+    mAptLayout_1->addWidget(mAptBtn);
+
+    mAPTFrame_2 = new QFrame(mAPTFrame);
+    mAPTFrame_2->setMinimumSize(QSize(550, 60));
+    mAPTFrame_2->setMaximumSize(QSize(16777215, 60));
+    mAPTFrame_2->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mAptLayout_2 = new QHBoxLayout(mAPTFrame_2);
+    mAptLayout_2->setContentsMargins(16, 0, 16, 0);
+    mAptLayout_2->setSpacing(8);
+
+    mAPTHostLabel_1 = new QLabel(mAPTFrame_2);
+    mAPTHostLabel_2 = new QLabel(mAPTFrame_2);
+    mAPTPortLabel_1 = new QLabel(mAPTFrame_2);
+    mAPTPortLabel_2 = new QLabel(mAPTFrame_2);
+    mEditBtn = new QPushButton(mAPTFrame_2);
+    mEditBtn->setFixedWidth(80);
+    mAptLayout_2->addWidget(mAPTHostLabel_1);
+    mAptLayout_2->addWidget(mAPTHostLabel_2);
+    mAptLayout_2->addSpacing(100);
+    mAptLayout_2->addWidget(mAPTPortLabel_1);
+    mAptLayout_2->addWidget(mAPTPortLabel_2);
+    mAptLayout_2->addStretch();
+    mAptLayout_2->addWidget(mEditBtn,Qt::AlignRight);
+
+    line_7 = setLine(mAPTFrame);
+
+    AptLayout->addWidget(mAPTFrame_1);
+    AptLayout->addWidget(line_7);
+    AptLayout->addWidget(mAPTFrame_2);
+
     mverticalLayout->addWidget(mTitleLabel);
     mverticalLayout->addWidget(mAutoFrame);
     mverticalLayout->addWidget(mManualFrame);
+    mverticalLayout->addSpacing(24);
+    mverticalLayout->addWidget(mAptProxyLabel);
+    mverticalLayout->addWidget(mAPTFrame);
     mverticalLayout->addStretch();
 
 }
@@ -433,6 +494,13 @@ void Proxy::retranslateUi()
     mCertificationLabel->setText(tr("Enable Authentication"));
     mUserNameLabel->setText(tr("User Name"));
     mPwdLabel->setText(tr("Password"));
+
+    //~ contents_path /proxy/Apt Proxy
+    mAptProxyLabel->setText(tr("Apt Proxy"));
+    mAptLabel->setText(tr("Open"));
+    mAPTHostLabel_1->setText(tr("Server Address : "));
+    mAPTPortLabel_1->setText(tr("Port : "));
+    mEditBtn->setText(tr("Edit"));
 }
 
 void Proxy::setupComponent(){
@@ -485,6 +553,29 @@ void Proxy::setupConnect(){
 
     connect(mManualProxyWidget,&HoverWidget::widgetClicked,[=](){
         emit mManualBtn->click();
+    });
+
+    connect(mEditBtn ,&QPushButton::clicked,[=]() {
+        AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
+        mwindow->exec();
+        if (aptsettings->get(APT_PROXY_HOST_KEY).toString().isEmpty()) {
+            aptsettings->set(APT_PROXY_ENABLED , false);
+            mAptBtn->setChecked(false);
+        } else {
+            line_7->show();
+            mAPTFrame_2->show();
+            mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
+            mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+        }
+        setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+    });
+
+    connect(mAptBtn, &SwitchButton::checkedChanged ,this ,[=](bool status) {
+       mAptBtn->blockSignals(true);
+       if (!getAptProxyInfo(status)) {
+            setAptProxy("" ,0 ,false);
+       }
+       mAptBtn->blockSignals(false);
     });
 
     connect(mCertificationBtn, &QCheckBox::clicked, this, [=](){
@@ -554,6 +645,7 @@ void Proxy::initProxyModeStatus(){
     mAutoBtn->blockSignals(true);
     mManualBtn->blockSignals(true);
     mCertificationBtn->blockSignals(true);
+    mAptBtn->blockSignals(true);
 
     if (mode == AUTO){
         mAutoBtn->setChecked(true);
@@ -571,9 +663,16 @@ void Proxy::initProxyModeStatus(){
     mCertificationBtn->setChecked(httpsettings->get(HTTP_AUTH_KEY).toBool());
     mCertificationFrame_1->setEnabled(httpsettings->get(HTTP_AUTH_KEY).toBool());
 
+    if (aptsettings->get(APT_PROXY_HOST_KEY).toString().isEmpty()) {
+        aptsettings->set(APT_PROXY_ENABLED,false);
+    }
+    mAptBtn->setChecked(aptsettings->get(APT_PROXY_ENABLED).toBool());
+    getAptProxyInfo(aptsettings->get(APT_PROXY_ENABLED).toBool());
+
     mAutoBtn->blockSignals(false);
     mManualBtn->blockSignals(false);
     mCertificationBtn->blockSignals(false);
+    mAptBtn->blockSignals(false);
 
     _setSensitivity();
 }
@@ -669,6 +768,39 @@ void Proxy::_setSensitivity(){
     mSOCKSFrame->setEnabled(manualChecked);
     mIgnoreFrame->setEnabled(manualChecked);
 
+}
+
+bool Proxy::getAptProxyInfo(bool status)
+{
+    aptsettings->set(APT_PROXY_ENABLED,status);
+    if (status) {
+        if (aptsettings->get(APT_PROXY_HOST_KEY).toString().isEmpty()) {
+            emit mEditBtn->click();
+        } else {
+            line_7->show();
+            mAPTFrame_2->show();
+            mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
+            mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+            setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,true);
+        }
+    } else {
+        line_7->hide();
+        mAPTFrame_2->hide();
+        return false;
+    }
+    return true;
+}
+
+bool Proxy::setAptProxy(QString host, int port, bool status)
+{
+    QDBusInterface *setaptproxyDbus = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                             "/",
+                                                             "com.control.center.interface",
+                                                             QDBusConnection::systemBus());
+
+    QDBusReply<bool> reply = setaptproxyDbus->call("setaptproxy", host,QString::number(port) ,status);
+    delete setaptproxyDbus;
+    setaptproxyDbus = nullptr;
 }
 
 QFrame *Proxy::setLine(QFrame *frame)
