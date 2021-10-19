@@ -1192,6 +1192,7 @@ void TabWid::changeUpdateAllSlot(bool isUpdate)
         {
             checkUpdateBtn->setText(tr("UpdateAll"));
             checkUpdateBtn->setEnabled(true);
+            versionInformationLab->setText(tr("Part of the update failed!"));
         }
     }
 }
