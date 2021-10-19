@@ -52,12 +52,6 @@ class WlanConnect;
 }
 
 
-typedef struct DeviceWlanlistInfo_s
-{
-    QMap<QString,ItemFrame *> deviceLayoutMap;
-    QMap<QString, WlanItem *> wlanItemMap;
-}DeviceWlanlistInfo;
-
 class WlanConnect : public QObject, CommonInterface
 {
     Q_OBJECT
@@ -78,20 +72,50 @@ private:
     void initComponent();
     void runExternalApp();
     void initSearchText();
-    void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
-    void addOneWlanFrame(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
-    void rebuildAvailComponent(ItemFrame *frame, QString deviceName, QString name, QString signal, bool isLock, bool status, int type);
+
+    //点击item 连接/断开
     void activeConnect(QString netName, QString deviceName, int type);
     void deActiveConnect(QString netName, QString deviceName, int type);
-    void clearLayout(QVBoxLayout * layout);
-    void setSwitchStatus();
-    void initNet();
-    void getDeviceList();
+
+
+
     int  sortWlanNet(QString deviceName, QString name, QString signal);
-    int getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
+    void updateIcon(WlanItem *item, QString signalStrength, QString security);
+    void resortWifiList(ItemFrame *frame, QVector<QStringList> list);
+
+
+    //单wifi图标
     int  setSignal(QString lv);
     QString wifiIcon(bool isLock, int strength);
 
+
+    //开关相关
+    void setSwitchStatus();
+    void hideLayout(QVBoxLayout * layout);
+    void showLayout(QVBoxLayout * layout);
+
+
+    //获取设备列表
+    void getDeviceList(QStringList &list);
+    //初始化设备wifi列表
+    void initNet();
+    void initNetListFromDevice(QString deviceName);
+    //处理列表 已连接
+    void addActiveItem(ItemFrame *frame, QString devName, QStringList infoList);
+    //处理列表 未连接
+    void addCustomItem(ItemFrame *frame, QString devName, QStringList infoList);
+    //增加设备
+    void addDeviceFrame(QString devName);
+    //减少设备
+    void removeDeviceFrame(QString devName);
+    //增加ap
+    void addOneWlanFrame(ItemFrame *frame, QString deviceName, QString name, QString signal, QString uuid, bool isLock, bool status, int type);
+    //减少ap
+    void removeOneWlanFrame(ItemFrame *frame, QString deviceName, QString ssid);
+
+
+    //单个wifi连接状态变化
+    void itemActiveConnectionStatusChanged(WlanItem *item, int status);
 protected:
     bool eventFilter(QObject *w,QEvent *e);
 
@@ -106,22 +130,31 @@ private:
 
     QGSettings         *m_switchGsettings = nullptr;
 
-    QMap<QString, bool> deviceListMap;
-    QMap<QString, bool> dropDownMap;
+    //设备列表
+    QStringList deviceList;
+    //设备名 + 单设备frame
     QMap<QString, ItemFrame *> deviceFrameMap;
-    QVector<QStringList>  wlanSignalList;
-    DeviceWlanlistInfo   deviceWlanlistInfo;
+
+    //QVector<QStringList>  wlanSignalList;
+//    DeviceWlanlistInfo   deviceWlanlistInfo;
+
+    QTimer * m_scanTimer = nullptr;
+    QTimer * m_updateTimer = nullptr;
 private:
     SwitchButton       *wifiSwtch;
     bool               mFirstLoad;
-    bool               isFinished = false;
 
 private slots:
-    void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName);
-    void updateOneWlanFrame(QString deviceName, QStringList wlanInfo);
-    void updateOneWlanFrame(QString deviceName, QString wlannName);
-    void updateOneWlanFrame(QString deviceName, QString ssid, int status);
-    void updateStrengthList(QString deviceName, QString ssid, int strength);
-    void updateWlanListWidget();
+
+    void onNetworkAdd(QString deviceName, QStringList wlanInfo);
+    void onNetworkRemove(QString deviceName, QString wlannName);
+    void onActiveConnectionChanged(QString deviceName, QString ssid, QString uuid, int status);
+
+    void updateList();
+    void onDeviceStatusChanged();
+
+    void reScan();
+
+
 };
 #endif // WLANCONNECT_H

@@ -875,12 +875,13 @@ bool MainWindow::isExitWirelessDevice()
         qDebug() << "/com/kylin/network is invalid";
         return false;
     }
+
     QDBusMessage result = interface->call(QStringLiteral("getDeviceListAndEnabled"),1);
-    if(result.type() == QDBusMessage::ErrorMessage)
-    {
+    if(result.type() == QDBusMessage::ErrorMessage) {
         qWarning() << "getWirelessDeviceList error:" << result.errorMessage();
         return false;
     }
+
     auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
     QMap<QString, bool> deviceListMap;
     dbusArg >> deviceListMap;

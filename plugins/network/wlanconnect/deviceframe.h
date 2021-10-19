@@ -12,14 +12,14 @@ class DeviceFrame : public QFrame
 {
 
 public:
-    DeviceFrame(QWidget *parent = nullptr);
+    DeviceFrame(QString devName, QWidget *parent = nullptr);
     ~DeviceFrame();
 public:
+    //仅设备名称+下拉label
     QLabel * deviceLabel = nullptr;
     DrownLabel *dropDownLabel = nullptr;
 
 private:
-    bool isDropDown = false;
     int frameSize;
 
 };
