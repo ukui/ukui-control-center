@@ -25,9 +25,8 @@ INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \
 		 /usr/include/opencv4
 
-LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam -lkysec   -lpwquality
-DEFINES += ENABLEPQ
-DEFINES += WITHKYSEC
+LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam -lpwquality
+
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
