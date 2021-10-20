@@ -514,6 +514,7 @@ void TabWid::allComponents()
     scrollArea = new QScrollArea(this);
 
     updateTab = new QWidget(this);  //更新页面
+    updateTab->setMaximumSize(960,960);
     AppMessage = new QVBoxLayout();
     AppMessage->setAlignment(Qt::AlignTop);
     updateTab->setLayout(AppMessage);
