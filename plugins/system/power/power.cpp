@@ -553,6 +553,7 @@ void Power::resetui()
         mBatterySaveFrame->hide();
         mDisplayTimeFrame->hide();
     }
+    mSleepFrame->hide();
 }
 
 void Power::initSearText()
