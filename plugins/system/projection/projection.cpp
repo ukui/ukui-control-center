@@ -1,4 +1,4 @@
-﻿ /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+﻿/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -47,7 +47,7 @@ enum {
 Projection::Projection()
 {
     pluginName = tr("Projection");
-    pluginType = SYSTEM;
+    pluginType = DEVICES;
     ui = new Ui::Projection;
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
@@ -55,13 +55,14 @@ Projection::Projection()
     ui->setupUi(pluginWidget);
     projectionBtn = new SwitchButton(pluginWidget);
 
-//   ui->pinframe->hide();
-
+    //   ui->pinframe->hide();
+    init_button_status(get_process_status());
+    //    qDebug()<<"---- Projection contructed, then subscribe slot func ";
     connect(projectionBtn, SIGNAL(checkedChanged(bool)), this, SLOT(projectionButtonClickSlots(bool)));
     // m_pin = new QLabel(pluginWidget);
     // ui->label->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     ui->label->setStyleSheet("QLabel{color: palette(windowText);}");
-    //~ contents_path /projection/Open Bluetooth
+    //~ contents_path /projection/Open Projection
     ui->titleLabel->setText(tr("Open Projection"));
     ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 
@@ -76,9 +77,9 @@ Projection::Projection()
     qDebug()<<bo<<"bo";
     if (!bo) {
         QDBusInterface *hostInterface = new QDBusInterface("org.freedesktop.hostname1",
-                                                          "/org/freedesktop/hostname1",
-                                                          "org.freedesktop.hostname1",
-                                                          QDBusConnection::systemBus());
+                                                           "/org/freedesktop/hostname1",
+                                                           "org.freedesktop.hostname1",
+                                                           QDBusConnection::systemBus());
         hostName = hostInterface->property("Hostname").value<QString>();
         setting->setValue("host",hostName);
         setting->sync();
@@ -170,18 +171,17 @@ void Projection::catchsignal()
             connect(m_pServiceInterface,SIGNAL(PinCode(QString, QString)),this,SLOT(projectionPinSlots(QString,QString)));
             return;
         }else {
-            qDebug()<<"失败";
             delete m_pServiceInterface;
             delaymsec(1000);
         }
     }
-\
+    \
 }
 void Projection::delaymsec(int msec)
 {
     QTime dieTime = QTime::currentTime().addMSecs(msec);
     while( QTime::currentTime() < dieTime )
-    QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
 Projection::~Projection()
@@ -204,20 +204,36 @@ int Projection::get_plugin_type(){
     return pluginType;
 }
 
-QWidget *Projection::get_plugin_ui(){
+int Projection::get_process_status(void)
+{
     int res;
-    int projectionstatus;
 
     do{
         res = system("checkDaemonRunning.sh");
     }while(SYSTEM_CMD_ERROR == res);
 
-    if (res == PROJECTION_RUNNING) {
+    return res;
+}
+
+void Projection::init_button_status(int status)
+{
+    //    qDebug()<<"---- button init status "<<status;
+    if (status == PROJECTION_RUNNING) {
         projectionBtn->setChecked(true);
     }
     else {
         projectionBtn->setChecked(false);//projection not switch-on, or daemon programs not running at all
     }
+}
+
+QWidget *Projection::get_plugin_ui(){
+    int res;
+    int projectionstatus;
+
+
+    res = get_process_status();
+
+    init_button_status(res);
 
     if (res == DAEMON_NOT_RUNNING){
         projectionstatus = NO_SERVICE;
@@ -234,16 +250,15 @@ QWidget *Projection::get_plugin_ui(){
     ui->label_3->hide();
     ui->widget_2->show();
     ui->label_setsize->setText("");
-
     //First, we check whether service process is running
     if (NO_SERVICE == projectionstatus) {
-        ui->label_2->setText("服务异常，请重启系统");
+        ui->label_2->setText(tr("Service exception,please restart the system"));
         ui->projectionNameWidget->setEnabled(false);
         projectionBtn->setEnabled(false);
     }
     //Then let's check whether hardware is ok
     else if (NOT_SUPPORT_P2P == projectionstatus) {
-        ui->label_2->setText("未检测到无线网卡或网卡驱动不支持，投屏功能不可用");
+        ui->label_2->setText(tr("Network card is not detected or the driver is not supported."));
         ui->projectionNameWidget->setEnabled(false);
         projectionBtn->setEnabled(false);
     }
@@ -253,33 +268,40 @@ QWidget *Projection::get_plugin_ui(){
         {
             qDebug()<<"wifi is on now";
             if(SUPPORT_P2P_WITHOUT_DEV == projectionstatus)
-                ui->label_3->setText("使用时请保持WLAN处于开启状态；开启投屏后，无线网络相关功能会失效");
+                ui->label_3->setText(tr("Please keep WLAN on;\nWireless-network functions will be invalid when the screen projection on"));
             if(SUPPORT_P2P_PERFECT == projectionstatus)
-                ui->label_3->setText("使用时请保持WLAN处于开启状态；开启投屏会短暂中断无线连接");
+                ui->label_3->setText(tr("Please keep WLAN on;\nWireless will be temporarily disconnected when the screen projection on"));
             ui->widget->show();
             ui->label->show();
             ui->label_3->show();
             ui->widget_2->hide();
             ui->projectionNameWidget->setEnabled(true);
             projectionBtn->setEnabled(true);
+            ui->label_setsize->setText(tr("After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details"));
         }
         else
         {
             qDebug()<<"wifi is off now";
-            ui->label_2->setText("WLAN未开启，请打开WLAN开关");
+            ui->label_2->setText(tr("WLAN is off, please turn on WLAN"));
             ui->projectionNameWidget->setEnabled(false);
             projectionBtn->setEnabled(false);
         }
     }
     else if (OP_NO_RESPONSE == projectionstatus) {
-        ui->label_2->setText("无线网卡繁忙，请稍后再试");
+        ui->label_2->setText(tr("Wireless network card is busy. Please try again later"));
         ui->projectionNameWidget->setEnabled(false);
         projectionBtn->setEnabled(false);
     }
-
+    //监听WLAN开关
+    QDBusConnection::systemBus().connect(QString(), QString("/org/freedesktop/NetworkManager"), "org.freedesktop.NetworkManager", "PropertiesChanged", this, SLOT(netPropertiesChangeSlot(QMap<QString,QVariant>)));
     return pluginWidget;
 }
-
+void Projection::netPropertiesChangeSlot(QMap<QString, QVariant> property) {
+    if (property.keys().contains("WirelessEnabled")) {
+        qDebug()<<"WLAN status changed";
+        get_plugin_ui();
+    }
+}
 void Projection::plugin_delay_control(){
 
 }
@@ -300,15 +322,33 @@ void Projection::projectionPinSlots(QString type, QString pin) {
 
 void Projection::projectionButtonClickSlots(bool status) {
 
-    if (status){        
+    QDBusInterface interface( "org.freedesktop.Notifications",
+                              "/org/freedesktop/Notifications",
+                              "org.freedesktop.Notifications",
+                              QDBusConnection::sessionBus());
+    QString appname = tr("projection");
+    quint32 notify_id = 0;
+    QString app_icon = "kylin-miracast";
+    QString tilte = tr("Projection is ")+  QString(status?tr("on"):tr("off"));
+    QString body = status?tr("Please enable or refresh the scan at the projection device"):tr("You need to turn on the projection again");
+    qint32 timeout = 5000;
+    QStringList arry1;
+    QVariantMap arry2;
+
+    if (status){
         QDBusMessage result = m_pServiceInterface->call("Start",ui->projectionName->text(),"");
         QList<QVariant> outArgs = result.arguments();
         int res = outArgs.at(0).value<int>();
-        qDebug() << "Execute Start method call result -->" << res;
         if(res)
-           ui->label_3->setText("执行失败，请再次打开该页面查看");
+        {
+            ui->label_3->setText(tr("Failed to execute. Please reopen the page later"));
+        }else
+        {
+            interface.call(QLatin1String("Notify"),appname,notify_id,app_icon,tilte,body,arry1,arry2,timeout);
+        }
     } else {
         m_pServiceInterface->call("Stop");
+        interface.call(QLatin1String("Notify"),appname,notify_id,app_icon,tilte,body,arry1,arry2,timeout);
     }
 }
 
@@ -323,7 +363,6 @@ void Projection::initComponent(){
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    //~ contents_path /projection/Add Bluetooths
     QLabel * textLabel = new QLabel(tr("Add Bluetooths"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);

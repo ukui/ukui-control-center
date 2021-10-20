@@ -66,7 +66,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     m_queryIcon->setProperty("useIconHighlightEffect",0x02);
 
     m_queryText = new QLabel(this);
-    m_queryText->setText(tr("Input what you are looking for"));
+    m_queryText->setText(tr("Search Timezone"));
     m_queryText->setStyleSheet("background:transparent;color:#626c6e;");
     m_queryText->adjustSize();
 
@@ -259,7 +259,7 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
                 m_queryText->setParent(nullptr);
                 m_animation->stop();
                 int left = 0;
-                left = firstin ? (m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2 : -60;
+                left = firstin ? (m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2 : m_queryWid->x()-(m_queryIcon->width()+m_queryText->width()+8)/2 ;
                 if (firstin) {
                     firstin = false;
                 }

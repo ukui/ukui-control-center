@@ -43,74 +43,50 @@ PKGCONFIG     += gio-2.0 \
 
 SOURCES += \
     changegroupdialog.cpp \
-    changeusername.cpp \
+    changeuserlogo.cpp \
     changeusernickname.cpp \
     changeuserpwd.cpp \
     changeusertype.cpp \
     creategroupdialog.cpp \
+    createusernew.cpp \
     definegroupitem.cpp \
+    deleteuserexists.cpp \
     delgroupdialog.cpp \
     editgroupdialog.cpp \
     elipsemaskwidget.cpp \
     pwdcheckthread.cpp \
-    run-passwd.cpp \
     userinfo.cpp \
     qtdbus/systemdbusdispatcher.cpp \
-    changepwddialog.cpp \
     qtdbus/userdispatcher.cpp \
-    changetypedialog.cpp \
-    changefacedialog.cpp \
-    deluserdialog.cpp \
-    createuserdialog.cpp \
     passwdcheckutil.cpp \
-    biometricdeviceinfo.cpp \
-    biometricproxy.cpp \
-    biometricenroll.cpp \
-    biometricmoreinfo.cpp \
-    servicemanager.cpp
+    utilsforuserinfo.cpp
 
 HEADERS += \
     changegroupdialog.h \
-    changeusername.h \
+    changeuserlogo.h \
     changeusernickname.h \
     changeuserpwd.h \
     changeusertype.h \
     creategroupdialog.h \
+    createusernew.h \
     definegroupitem.h \
+    deleteuserexists.h \
     delgroupdialog.h \
     editgroupdialog.h \
     elipsemaskwidget.h \
     loginedusers.h \
     pwdcheckthread.h \
-    run-passwd.h \
     userinfo.h \
     qtdbus/systemdbusdispatcher.h \
-    changepwddialog.h \
     qtdbus/userdispatcher.h \
-    changetypedialog.h \
-    changefacedialog.h \
-    deluserdialog.h \
-    createuserdialog.h \
     passwdcheckutil.h \
-    biometricdeviceinfo.h \
-    biometricproxy.h \
-    biometricenroll.h \
-    biometricmoreinfo.h \
-    servicemanager.h 
+    utilsforuserinfo.h
 
 FORMS += \
     changegroupdialog.ui \
-    changeusername.ui \
-    creategroupdialog.ui \
     delgroupdialog.ui \
     editgroupdialog.ui \
+    creategroupdialog.ui \
     userinfo.ui \
-    changepwddialog.ui \
-    changetypedialog.ui \
-    changefacedialog.ui \
-    deluserdialog.ui \
-    createuserdialog.ui \
-    biometricmoreinfo.ui \
-    biometricenroll.ui 
 
 INSTALLS += target

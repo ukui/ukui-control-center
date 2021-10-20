@@ -6,8 +6,8 @@
 #define THEME_QT_SCHEMA  "org.ukui.style"
 #define MODE_QT_KEY      "style-name"
 
-WlanItem::WlanItem(bool isAcitve, bool isLock, QWidget *parent)
-    : isAcitve(isAcitve), isLock(isLock), QPushButton(parent)
+WlanItem::WlanItem(bool bAcitve, bool isLock, QWidget *parent)
+    : isAcitve(bAcitve), isLock(isLock), QPushButton(parent)
 {
     this->setMinimumSize(550, 58);
     this->setProperty("useButtonPalette", true);
@@ -17,8 +17,9 @@ WlanItem::WlanItem(bool isAcitve, bool isLock, QWidget *parent)
     mLanLyt->setSpacing(16);
     iconLabel = new QLabel(this);
     titileLabel = new FixLabel(this);
-    statusLabel = new FixLabel(this);
-    statusLabel->setMinimumSize(36,36);
+    statusLabel = new QLabel(this);
+    statusLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+//    statusLabel->setMinimumSize(36,36);
     infoLabel = new InfoButton(this);
     mLanLyt->addWidget(iconLabel);
     mLanLyt->addWidget(titileLabel,Qt::AlignLeft);

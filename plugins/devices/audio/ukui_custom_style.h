@@ -27,6 +27,10 @@
 #include <QLabel>
 #include <QMouseEvent>
 #include "Label/titlelabel.h"
+#include <QDomDocument>
+#include <QDir>
+#include <QFile>
+#include <QDebug>
 
 static QColor symbolic_color = Qt::gray;
 
@@ -91,4 +95,22 @@ private:
     bool mousePress = false;
 };
 
+
+class CustomSound
+{
+public:
+    CustomSound();
+    ~CustomSound();
+    bool createAudioFile();
+    bool isExist(QString nodeName);
+    int addXmlNode(QString nodeNane, bool initState);
+    bool isFirstRun();
+
+
+public:
+    QFile *file;
+private:
+    QDomDocument *doc;
+    QString audioPath;
+};
 #endif // UKUICUSTOMSTYLE_H

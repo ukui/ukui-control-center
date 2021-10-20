@@ -28,6 +28,7 @@
 #include <QDBusInterface>
 #include <QDebug>
 #include <QScrollBar>
+#include <QStringList>
 
 #include <QSvgRenderer>
 #include "mainwindow.h"
@@ -39,6 +40,8 @@
 #include "../commonComponent/FlowLayout/flowlayout.h"
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
+
+const QStringList KexcludeModule{"update","security","application","search_f"};
 
 HomePageWidget::HomePageWidget(QWidget *parent) :
     QWidget(parent),
@@ -59,14 +62,11 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
     ui->scrollArea->verticalScrollBar()->setVisible(false);
     const QByteArray styleID(STYLE_FONT_SCHEMA);
     QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
-    connect(stylesettings,&QGSettings::changed,[=](QString key)
-    {
-        if("systemFont" == key || "systemFontSize" == key)
-        {
+    connect(stylesettings,&QGSettings::changed, [=](QString key) {
+        if ("systemFont" == key || "systemFontSize" == key) {
             if (ui->scrollArea->layout() != NULL) {
                 QLayoutItem *item;
-                while ((item = ui->scrollAreaWidgetContents_5->layout()->takeAt(0)) != NULL)
-                {
+                while ((item = ui->scrollAreaWidgetContents_5->layout()->takeAt(0)) != NULL) {
                     if(item->widget()) {
                        item->widget()->setParent(NULL);
                     }
@@ -107,13 +107,12 @@ void HomePageWidget::initUI() {
         moduleMap = pmainWindow->exportModule(moduleIndex);
 
         //获取当前模块名
+
         QString modulenameString = kvConverter->keycodeTokeystring(moduleIndex).toLower();
         QString modulenamei18nString = kvConverter->keycodeTokeyi18nstring(moduleIndex);
-
-        if (mModuleMap.keys().contains(modulenameString)) {
-            if (!mModuleMap[modulenameString].toBool()) {
-                continue;
-            }
+        if ((mModuleMap.keys().contains(modulenameString) && !mModuleMap[modulenameString].toBool())
+                || (Utils::isTablet() && KexcludeModule.contains(modulenameString))) {
+            continue;
         }
 
         //构建首页10个模块

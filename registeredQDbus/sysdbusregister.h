@@ -110,6 +110,9 @@ public slots:
     Q_SCRIPTABLE void setDDCBrightnessUkui(QString brightness, QString serialNum);
     Q_SCRIPTABLE int  getDDCBrightnessUkui(QString serialNum);
 
+    //设置apt代理
+    Q_SCRIPTABLE bool setaptproxy(QString ip , QString port ,bool open);
+
 };
 
 #endif // SYSDBUSREGISTER_H

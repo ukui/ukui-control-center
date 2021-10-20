@@ -34,14 +34,14 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pInputSlectWidget->setFrameShape(QFrame::Shape::Box);
 
     //设置大小
-    m_pInputWidget->setMinimumSize(820,182);
-    m_pInputWidget->setMaximumSize(960,182);
-    m_pVolumeWidget->setMinimumSize(820,60);
-    m_pVolumeWidget->setMaximumSize(960,60);
-    m_pInputLevelWidget->setMinimumSize(820,60);
-    m_pInputLevelWidget->setMaximumSize(960,60);
-    m_pInputSlectWidget->setMinimumSize(820,60);
-    m_pInputSlectWidget->setMaximumSize(960,60);
+    m_pInputWidget->setMinimumSize(550,182);
+    m_pInputWidget->setMaximumSize(16777215,182);
+    m_pVolumeWidget->setMinimumSize(550,60);
+    m_pVolumeWidget->setMaximumSize(16777215,60);
+    m_pInputLevelWidget->setMinimumSize(550,60);
+    m_pInputLevelWidget->setMaximumSize(16777215,60);
+    m_pInputSlectWidget->setMinimumSize(550,60);
+    m_pInputSlectWidget->setMaximumSize(16777215,60);
 
     m_pInputLabel = new TitleLabel(this);
     m_pInputLabel->setText(tr("Input"));
@@ -68,12 +68,12 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
 
     //输入设备添加布局
-    m_pInputDeviceLabel->setFixedSize(110,20);
+    m_pInputDeviceLabel->setFixedSize(140,20);
     m_pInputDeviceSelectBox->setFixedHeight(40);
     QHBoxLayout *inputdeviceSlectLayout = new QHBoxLayout();
     inputdeviceSlectLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     inputdeviceSlectLayout->addWidget(m_pInputDeviceLabel);
-    inputdeviceSlectLayout->addItem(new QSpacerItem(123,20,QSizePolicy::Fixed));
+    inputdeviceSlectLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     inputdeviceSlectLayout->addWidget(m_pInputDeviceSelectBox);
     inputdeviceSlectLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     inputdeviceSlectLayout->setSpacing(0);
@@ -82,31 +82,32 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
     //主音量添加布局
     QHBoxLayout *m_pMasterLayout = new QHBoxLayout(m_pVolumeWidget);
-    m_pIpVolumeLabel->setFixedSize(110,20);
+    m_pIpVolumeLabel->setFixedSize(140,20);
     m_pInputIconBtn->setFixedSize(24,24);
     m_pIpVolumeSlider->setFixedHeight(20);
-    m_pIpVolumePercentLabel->setFixedSize(45,20);
+    m_pIpVolumePercentLabel->setFixedSize(55,20);
+    m_pIpVolumePercentLabel->setAlignment(Qt::AlignCenter);
     m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     m_pMasterLayout->addWidget(m_pIpVolumeLabel);
-    m_pMasterLayout->addItem(new QSpacerItem(123,20,QSizePolicy::Fixed));
+    m_pMasterLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     m_pMasterLayout->addWidget(m_pInputIconBtn);
     m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     m_pMasterLayout->addWidget(m_pIpVolumeSlider);
-    m_pMasterLayout->addItem(new QSpacerItem(14,20,QSizePolicy::Maximum));
+    m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Maximum));
     m_pMasterLayout->addWidget(m_pIpVolumePercentLabel);
-    m_pMasterLayout->addItem(new QSpacerItem(10,20,QSizePolicy::Maximum));
+    m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Maximum));
     m_pMasterLayout->setSpacing(0);
     m_pVolumeWidget->setLayout(m_pMasterLayout);
     m_pVolumeWidget->layout()->setContentsMargins(0,0,0,0);
 
     //输入反馈添加布局
     QHBoxLayout *m_pSoundLayout = new QHBoxLayout(m_pInputLevelWidget);
-    m_pInputLevelLabel->setFixedSize(110,20);
+    m_pInputLevelLabel->setFixedSize(140,20);
     m_pSoundLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     m_pSoundLayout->addWidget(m_pInputLevelLabel);
-    m_pSoundLayout->addItem(new QSpacerItem(123,20,QSizePolicy::Fixed));
+    m_pSoundLayout->addItem(new QSpacerItem(100,20,QSizePolicy::Fixed));
     m_pSoundLayout->addWidget(m_pInputLevelProgressBar);
-    m_pSoundLayout->addItem(new QSpacerItem(5,20,QSizePolicy::Fixed));
+//    m_pSoundLayout->addItem(new QSpacerItem(3,20,QSizePolicy::Fixed));
     m_pSoundLayout->setSpacing(0);
     m_pInputLevelWidget->setLayout(m_pSoundLayout);
     m_pInputLevelWidget->layout()->setContentsMargins(0,0,0,0);

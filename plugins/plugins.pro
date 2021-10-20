@@ -17,6 +17,7 @@ SUBDIRS = \
           system/projection \
           system/touchscreen \
           system/vino \
+          system/backup_intel \
           personalized/wallpaper \
           personalized/theme \
           personalized/screenlock \

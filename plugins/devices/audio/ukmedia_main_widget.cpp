@@ -70,22 +70,6 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     m_pSoundThemeList = new QStringList;
     m_pSoundThemeDirList = new QStringList;
     m_pSoundThemeXmlNameList = new QStringList;
-    eventList = new QStringList;
-    eventIdNameList = new QStringList;
-
-    eventList->append("window-close");
-    eventList->append("system-setting");
-    eventList->append("volume-changed");
-    eventList->append("alert-sound");
-    eventIdNameList->append("dialog-warning");
-    eventIdNameList->append("bell");
-    eventIdNameList->append("flop");
-    eventIdNameList->append("gudou");
-
-    for (int i=0;i<eventList->count();i++) {
-//        getValue();
-        addValue(eventList->at(i),eventIdNameList->at(i));
-    }
 
     initGsettings();
     setupThemeSelector(this);
@@ -98,6 +82,25 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
 
     time = new QTimer();
     dealSlot();//处理槽函数
+}
+
+void UkmediaMainWidget::paintEvent(QPaintEvent *event)
+{
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+
+    QBrush brush = QBrush(QColor(244,244,244));
+    p.setBrush(brush);
+    p.setPen(Qt::NoPen);
+    QPainterPath path;
+    opt.rect.adjust(0,0,0,0);
+    path.addRoundedRect(opt.rect,6,6);
+    p.setRenderHint(QPainter::Antialiasing);  // 反锯齿;
+    p.drawRoundedRect(opt.rect,6,6);
+    setProperty("blurRegion",QRegion(path.toFillPolygon().toPolygon()));
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+//    QWidget::paintEvent(event);
 }
 
 /*
@@ -118,9 +121,9 @@ void UkmediaMainWidget::initWidget()
     m_pvLayout->addSpacerItem(new QSpacerItem(20,0,QSizePolicy::Fixed,QSizePolicy::Expanding));
     m_pvLayout->setSpacing(40);
     this->setLayout(m_pvLayout);
-    this->setMinimumWidth(582);
-    this->setMaximumWidth(910);
-    this->layout()->setContentsMargins(0,0,31,0);
+    this->setMinimumWidth(550);
+    this->setMaximumWidth(16777215);
+    this->layout()->setContentsMargins(0,0,40,40);
 
     //设置滑动条的最大值为100
     m_pInputWidget->m_pIpVolumeSlider->setMaximum(100);//输入音量滑动条
@@ -1579,9 +1582,10 @@ void UkmediaMainWidget::balanceSliderChangedSlot(int value)
  */
 void UkmediaMainWidget::peakVolumeChangedSlot(double v)
 {
+    int value;
     if (v >= 0) {
         m_pInputWidget->m_pInputLevelProgressBar->setEnabled(true);
-        int value = qRound(v * m_pInputWidget->m_pInputLevelProgressBar->maximum());
+         value = qRound(v * m_pInputWidget->m_pInputLevelProgressBar->maximum());
         m_pInputWidget->m_pInputLevelProgressBar->setValue(value);
     } else {
         m_pInputWidget->m_pInputLevelProgressBar->setEnabled(false);
@@ -2451,13 +2455,9 @@ void UkmediaMainWidget::addComboboxAvailableOutputPort()
                     m_pOutputWidget->m_pDeviceSelectBox->setCurrentText(it.value());
                     m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
 
-                    qDebug()<<"给combobox添加选项============"<< it.value()<<m_pOutputWidget->m_pDeviceSelectBox->count();
+                    qDebug()<<"add combobox item:"<< it.value()<< "number of items:" << m_pOutputWidget->m_pDeviceSelectBox->count();
 
-                    for(int c=0;c<m_pOutputWidget->m_pDeviceSelectBox->count();c++)
-                    {
-                        qDebug()<<"box选手有：" << m_pOutputWidget->m_pDeviceSelectBox->itemText(c)
-                               <<"关联数据：" <<m_pOutputWidget->m_pDeviceSelectBox->itemData(c).toString();
-                    }
+
                 }
                 ++it;
             }
@@ -2478,7 +2478,7 @@ void UkmediaMainWidget::addComboboxOutputListWidgetItem(QString portName, QStrin
     m_pOutputWidget->m_pDeviceSelectBox->insertItem(i,portName,cardName);
     m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
 
-    qDebug()<<"当前combobox的内容是"<<m_pOutputWidget->m_pDeviceSelectBox->currentText()
+    qDebug()<<"当前输出设备是："<<m_pOutputWidget->m_pDeviceSelectBox->currentText()
            <<m_pOutputWidget->m_pDeviceSelectBox->currentData().toString();
 }
 
@@ -2515,7 +2515,6 @@ void UkmediaMainWidget::deleteNotAvailableComboboxOutputPort()
             m_pOutputWidget->m_pDeviceSelectBox->blockSignals(true);
             m_pOutputWidget->m_pDeviceSelectBox->removeItem(index);
             m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
-            qDebug()<<"删除combobox的选项内容为====="<<index;
             it = currentCboxOutputPortLabelMap.erase(it);
             continue;
         }
@@ -2534,7 +2533,7 @@ void UkmediaMainWidget::findInputComboboxItem(QString cardName,QString portLabel
 
         QString comboboxcardname = m_pInputWidget->m_pInputDeviceSelectBox->itemData(row).toString();
         QString comboboxportname = m_pInputWidget->m_pInputDeviceSelectBox->itemText(row);
-        qDebug() << "dididi" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
+        qDebug() << "findInputComboboxItem" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
                  << comboboxcardname << comboboxportname;
         if (comboboxcardname == cardName && comboboxportname == portLabel) {
             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(true);
@@ -2559,7 +2558,7 @@ void UkmediaMainWidget::addComboboxInputListWidgetItem(QString portName, QString
     m_pInputWidget->m_pInputDeviceSelectBox->insertItem(i,portName,cardName);
     m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(false);
 
-    qDebug()<<"当前输入combobox的内容是"<<m_pInputWidget->m_pInputDeviceSelectBox->currentText()
+    qDebug()<<"当前输入设备是："<<m_pInputWidget->m_pInputDeviceSelectBox->currentText()
            <<m_pInputWidget->m_pInputDeviceSelectBox->currentData().toString();
 
 }
@@ -2582,7 +2581,6 @@ void UkmediaMainWidget::deleteNotAvailableComboboxInputPort()
             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(true);
             m_pInputWidget->m_pInputDeviceSelectBox->removeItem(index);
             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(false);
-            qDebug() << "input Combobox删除的选项内容为：" << index ;
 
             it = currentCboxInputPortLabelMap.erase(it);
             continue;
@@ -2627,7 +2625,7 @@ void UkmediaMainWidget::addComboboxAvailableInputPort()
         if (index != -1) {
             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(true);
             m_pInputWidget->m_pInputDeviceSelectBox->removeItem(index);
-             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(false);
+            m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(false);
         }
 
         for(at=m_pVolumeControl->inputPortMap.begin();at!=m_pVolumeControl->inputPortMap.end();)
@@ -2727,7 +2725,9 @@ void UkmediaMainWidget::updateCboxDevicePort()
     else {
         int index = m_pOutputWidget->m_pDeviceSelectBox->findText("None");
         if (index != -1)
+            m_pOutputWidget->m_pDeviceSelectBox->blockSignals(true);
             m_pOutputWidget->m_pDeviceSelectBox->removeItem(index);
+            m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
     }
 
     if (cboxfirstEntry == true) {
@@ -2735,7 +2735,7 @@ void UkmediaMainWidget::updateCboxDevicePort()
         {
             temp = it.value();
             for (at=temp.begin();at!=temp.end();) {
-                qDebug() << "更新设备端口：" << cboxfirstEntry << it.key() << at.value();
+                qDebug() << "update output port:" << cboxfirstEntry << it.key() << at.value();
                 QString cardName = findCardName(it.key(),m_pVolumeControl->cardMap);
                 addComboboxOutputListWidgetItem(at.value(),cardName);
                 ++at;
@@ -2746,7 +2746,7 @@ void UkmediaMainWidget::updateCboxDevicePort()
         {
             temp = it.value();
             for (at=temp.begin();at!=temp.end();) {
-                qDebug() << "更新输入设备端口" << cboxfirstEntry << it.key() << at.value();
+                qDebug() << "update input port:" << cboxfirstEntry << it.key() << at.value();
                 QString cardName = findCardName(it.key(),m_pVolumeControl->cardMap);
                 addComboboxInputListWidgetItem(at.value(),cardName);
                 ++at;
@@ -2771,7 +2771,7 @@ void UkmediaMainWidget::updateCboxDevicePort()
             }
             currentCboxOutputPortLabelMap.insertMulti(index,portname);
 
-            qDebug() << index << "current cbox output item **" << cardname << portname;
+            qDebug() << index << "current cbox output item:" << cardname << portname;
         }
 
         for(int i=0;i<m_pInputWidget->m_pInputDeviceSelectBox->count();i++){
@@ -2901,6 +2901,8 @@ void UkmediaMainWidget::cboxoutputListWidgetCurrentRowChangedSlot(int row)
 void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
 {
     //当所有可用的输入设备全部移除，台式机才会出现该情况
+    if(strstr(m_pVolumeControl->defaultSourceName,"monitor"))
+        m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
     if (row == -1)
         return;
 
@@ -2936,7 +2938,7 @@ void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
         if (it.key() == index) {
             temp = it.value();
             for(at=temp.begin();at!=temp.end();){
-                if(at.key() == outputComboboxPortName){
+                if(at.key() == inputComboboxPortName){
                     endInputProfile = at.value();
                 }
                 ++at;

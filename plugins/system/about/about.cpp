@@ -345,16 +345,13 @@ void About::initUI(QWidget *widget)
 
     mTrialBtn = new QPushButton(Aboutwidget);
     mTrialBtn->setFixedSize(200,40);
-    mTrialBtn->setStyleSheet("background: transparent;font-family:Microsoft YaHei;"
-                  "border-width:1px;text-decoration:underline;border-style:none none none;");
+    mTrialBtn->setStyleSheet("background: transparent;border-width:1px;"
+                     "text-decoration:underline;border-style:none none none;");
 
     QHBoxLayout *mTrialLayout = new QHBoxLayout(mTrialBtn);
     mTrialLayout->setContentsMargins(0, 0, 0, 0);
 
     mTrialLabel = new QLabel(mTrialBtn);
-    mTrialLabel->setStyleSheet("background: transparent;font-family:Microsoft YaHei;"
-                               "border-width:1px;text-decoration:underline;border-style:none none none;");
-//    mTrialLabel->setFixedWidth(180);
     mTrialLabel->setContentsMargins(16, 0, 0, 0);
 
     mTrialLayout->addWidget(mTrialLabel,Qt::AlignLeft);
@@ -657,7 +654,7 @@ void About::setupDesktopComponent()
             mDesktopLabel_2->setText(desktop);
         }
     }
-
+    mDesktopLabel_2->setText("UKUI");
     ChangedSlot();
 
     QDBusConnection::systemBus().connect(QString(), QString("/org/freedesktop/Accounts/User1000"),

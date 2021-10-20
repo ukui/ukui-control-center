@@ -34,9 +34,11 @@ public:
     const QString name() const  Q_DECL_OVERRIDE;
 
 private:
+    ksc_main_page_widget *ui;
+
     QString pluginName;
     int pluginType;
-    ksc_main_page_widget * pluginWidget;
+    QWidget * pluginWidget;
 
     bool mFirstLoad;
 

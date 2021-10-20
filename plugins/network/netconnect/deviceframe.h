@@ -14,7 +14,7 @@ class DeviceFrame : public QFrame
 {
 
 public:
-    DeviceFrame(QWidget *parent = nullptr);
+    DeviceFrame(QString devName, QWidget *parent = nullptr);
     ~DeviceFrame();
 public:
     QLabel * deviceLabel = nullptr;

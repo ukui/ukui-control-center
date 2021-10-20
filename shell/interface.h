@@ -51,6 +51,7 @@ enum SystemIndex{
     PROJECTION,
     ABOUT,
     EXPERIENCEPLAN,
+    BACK_INTEL,
     TOTALSYSFUNC,
 };
 
@@ -59,7 +60,7 @@ enum DevicesIndex{
     PRINTER,
     MOUSE,
     TOUCHPAD,
-//    GESTURE,
+    GESTURE,
     TOUCHSCREEN,
     KEYBOARD,
     SHORTCUT,

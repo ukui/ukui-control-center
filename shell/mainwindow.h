@@ -114,6 +114,7 @@ private:
     QPushButton * buildLeftsideBtn(QString bname, QString tipName);
     bool isExitsCloudAccount();
     bool isExitsPower();
+    bool isExitWirelessDevice();
     bool dblOnEdge(QMouseEvent *event);
     void initStyleSheet();
     void changeSearchSlot();
