@@ -58,6 +58,7 @@ void TabWid::initDbus()
     checkUpdateBtn->setText(tr("Check Update"));
 
     checkUpdateBtn->setText(tr("initializing"));
+    checkUpdateBtn->setToolTip("");
     checkUpdateBtn->setEnabled(false);
 
 }
@@ -125,6 +126,7 @@ void TabWid::getAutoUpgradeStatus()
         isAllUpgrade = true;
         checkUpdateBtn->hide();
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
         bool ret = autoUpdateLoadUpgradeList(false);
         if (!ret)
             updateMutual->disconnectDbusSignal();
@@ -132,11 +134,13 @@ void TabWid::getAutoUpgradeStatus()
         /*如果没有进行自动更新，那就不需要操作 */
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         checkUpdateBtnClicked();
     } else {
         /*如果读不到，默认也不进行操作*/
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         checkUpdateBtnClicked();
     }
 }
@@ -166,6 +170,7 @@ bool TabWid::autoUpdateLoadUpgradeList(bool isBackUp)
         lastRefreshTime->setText(tr("Last refresh:")+ updatetime);
         lastRefreshTime->show();
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         return false;
     } else {
         QStringList list;
@@ -202,6 +207,7 @@ void TabWid::disconnectSource(bool isTimeOut)
     checkUpdateBtn->stop();
     //        checkUpdateBtn->setText(tr("检查更新"));
     checkUpdateBtn->setText(tr("Check Update"));
+    checkUpdateBtn->setToolTip("");
     //        versionInformationLab->setText(tr("服务连接异常，请重新检测!") );
     if (isTimeOut)
         versionInformationLab->setText(tr("Software source server connection timeout"));
@@ -244,6 +250,7 @@ void TabWid::backupMessageBox(QString str)
         //       checkUpdateBtn->setText(tr("全部更新"));
         versionInformationLab->setText(tr("Updatable app detected on your system!"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
         foreach (AppUpdateWid *wid, widgetList) {
             wid->updateAPPBtn->show();
         }
@@ -382,6 +389,7 @@ void TabWid::backupHideUpdateBtn(int result)
         checkUpdateBtn->setEnabled(true);
         //        checkUpdateBtn->setText(tr("全部更新"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
 
     }
 }
@@ -443,6 +451,7 @@ void TabWid::slotUpdateCache(QVariantList sta)
                 checkUpdateBtn->setEnabled(true);
                 checkUpdateBtn->stop();
                 checkUpdateBtn->setText(tr("Check Update"));
+                checkUpdateBtn->setToolTip("");
                 return ;
             }
             QString str =  file.readAll();
@@ -473,6 +482,7 @@ void TabWid::slotUpdateCache(QVariantList sta)
                 checkUpdateBtn->stop();
                 //                checkUpdateBtn->setText(tr("检查更新"));
                 checkUpdateBtn->setText(tr("Check Update"));
+                checkUpdateBtn->setToolTip("");
                 //                versionInformationLab->setText(tr("软件源更新失败：")+failedInfo );
                 versionInformationLab->setText(tr("Software source update failed: ")+failedInfo );
                 disconnect(updateSource->serviceInterface,SIGNAL(updateTemplateStatus(QString)),this,SLOT(slotUpdateTemplate(QString)));
@@ -824,6 +834,7 @@ void TabWid::loadingFinishedSlot(int size)
         checkUpdateBtn->stop();
         //        checkUpdateBtn->setText(tr("检查更新"));
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         //        versionInformationLab->setText(tr("您的系统已是最新！"));
         versionInformationLab->setText(tr("Your system is the latest!"));
         foreach (AppUpdateWid *wid, widgetList) {
@@ -850,6 +861,7 @@ void TabWid::loadingFinishedSlot(int size)
         checkUpdateBtn->setEnabled(true);
         //        checkUpdateBtn->setText(tr("全部更新"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
         //        versionInformationLab->setText(tr("检测到你的系统有可更新的应用！"));
         if (!isAutoUpgrade) {
             versionInformationLab->setText(tr("Updatable app detected on your system!"));
@@ -1143,29 +1155,50 @@ void TabWid::slotCancelDownload()
     checkUpdateBtn->stop();
     //    checkUpdateBtn->setText("全部更新");
     checkUpdateBtn->setText(tr("UpdateAll"));
+    checkUpdateBtn->setToolTip("");
     checkUpdateBtn->setCheckable(true);
 }
 
 void TabWid::hideUpdateBtnSlot(bool isSucceed)
 {
-    Q_UNUSED(isSucceed);
-    if(updateMutual->importantList.size() == 0) {
-        checkUpdateBtn->setEnabled(true);
-        checkUpdateBtn->stop();
-        //        checkUpdateBtn->setText(tr("检查更新"));
-        checkUpdateBtn->setText(tr("Check Update"));
-        if(updateMutual->failedList.size() == 0) {
+    if(isSucceed){
+        Q_UNUSED(isSucceed);
+        if(updateMutual->importantList.size() == 0) {
+            checkUpdateBtn->setEnabled(true);
+            checkUpdateBtn->stop();
+            //        checkUpdateBtn->setText(tr("检查更新"));
+            checkUpdateBtn->setText(tr("Check Update"));
+            checkUpdateBtn->setToolTip("");
+            if(updateMutual->failedList.size() == 0) {
             versionInformationLab->setText(tr("Your system is the latest!"));
             systemPortraitLab->setPixmap(QPixmap(":/img/plugins/upgrade/normal.png").scaled(96,96));
             checkUpdateBtn->hide();
             allProgressBar->hide();
             updateMutual->fileUnLock();
+            }
+            else {
+                versionInformationLab->setText(tr("Part of the update failed!"));
+                updateMutual->fileUnLock();
+                allProgressBar->hide();
+            }
+            QString updatetime = tr("No Information!");
+            QSqlQuery queryInstall(QSqlDatabase::database("A"));
+            queryInstall.exec("select * from installed order by id desc");
+            while (queryInstall.next()) {
+                QString statusType = queryInstall.value("keyword").toString();
+                if(statusType == "" || statusType =="1") {
+                    updatetime = queryInstall.value("time").toString();
+                    break;
+                }
+            }
+        lastRefreshTime->setText(tr("Last refresh:")+updatetime);
+        lastRefreshTime->show();
+        allProgressBar->hide();
         }
-        else {
-            versionInformationLab->setText(tr("Part of the update failed!"));
-            updateMutual->fileUnLock();
-            allProgressBar->hide();
-        }
+    }else{
+        versionInformationLab->setText(tr("Part of the update failed!"));
+        updateMutual->fileUnLock();
+        allProgressBar->hide();
         QString updatetime = tr("No Information!");
         QSqlQuery queryInstall(QSqlDatabase::database("A"));
         queryInstall.exec("select * from installed order by id desc");
@@ -1178,7 +1211,6 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
         }
         lastRefreshTime->setText(tr("Last refresh:")+updatetime);
         lastRefreshTime->show();
-        allProgressBar->hide();
     }
 }
 
@@ -1191,6 +1223,7 @@ void TabWid::changeUpdateAllSlot(bool isUpdate)
         if(checkUpdateBtn->isEnabled() == false)
         {
             checkUpdateBtn->setText(tr("UpdateAll"));
+            checkUpdateBtn->setToolTip("");
             checkUpdateBtn->setEnabled(true);
             versionInformationLab->setText(tr("Part of the update failed!"));
         }

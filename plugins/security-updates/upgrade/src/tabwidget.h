@@ -25,6 +25,7 @@
 #include "checkbutton.h"
 #include "SwitchButton/switchbutton.h"
 #include "Label/titlelabel.h"
+#include "qwidget.h"
 
 #define CRUCIAL_FILE_PATH "/var/lib/kylin-software-properties/template/crucial.list"
 #define IMPORTANT_FIEL_PATH "/var/lib/kylin-software-properties/template/important.list"
