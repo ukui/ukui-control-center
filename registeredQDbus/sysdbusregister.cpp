@@ -420,3 +420,34 @@ int SysdbusRegister::getDDCBrightnessUkui(QString serialNum)
     getBrightnessInfo();
     return -2;   //表示没有信息，需要隔3～5秒再次获取
 }
+
+bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
+{
+    QString content_http = QString("%1%2%3%4%5%6").arg("Acquire::http::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString dirName  = "/etc/apt/apt.conf.d/";
+    QString fileName = "/etc/apt/apt.conf.d/80apt-proxy";
+    QDir AptDir(dirName);
+    QFile AptProxyFile(fileName);
+    if (AptDir.exists()) {
+        if (open) {    //开关开启则创建对应文件，未开启则删掉对应文件
+            if (AptProxyFile.exists()) {
+               AptProxyFile.remove();
+            }
+            AptProxyFile.open(QIODevice::ReadWrite | QIODevice::Text);
+            //写入内容,这里需要转码，否则报错
+            QByteArray str = content_http.toUtf8();
+            QByteArray str_1 = content_https.toUtf8();
+            //写入QByteArray格式字符串
+            AptProxyFile.write(str);
+            AptProxyFile.write(str_1);
+        } else {
+            if (AptProxyFile.exists()) {
+               AptProxyFile.remove();
+            }
+        }
+    }else {
+           return false;
+    }
+    return true;
+}

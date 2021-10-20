@@ -9,7 +9,7 @@ include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 
-QT       += widgets
+QT       += widgets dbus
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -34,9 +34,11 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    aptproxydialog.cpp \
     proxy.cpp
 
 HEADERS += \
+    aptproxydialog.h \
     proxy.h \
     certificationdialog.h
 
