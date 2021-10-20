@@ -6,6 +6,7 @@
 
 #include "shell/interface.h"
 #include "bluetoothmain.h"
+#include "bluetoothmainwindow.h"
 
 class Bluetooth : public QObject, CommonInterface
 {
@@ -26,6 +27,7 @@ private:
     QString pluginName;
     int pluginType;
     BlueToothMain * pluginWidget;
+//    BlueToothMainWindow *pluginWidget;
     bool mFirstLoad;
 
 };

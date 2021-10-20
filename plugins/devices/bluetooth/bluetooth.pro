@@ -39,7 +39,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     bluetooth.cpp \
+    bluetoothdbusservice.cpp \
     bluetoothmain.cpp \
+    bluetoothmainwindow.cpp \
     bluetoothnamelabel.cpp \
     deviceinfoitem.cpp \
     loadinglabel.cpp
@@ -47,7 +49,9 @@ SOURCES += \
 
 HEADERS += \
     bluetooth.h \
+    bluetoothdbusservice.h \
     bluetoothmain.h \
+    bluetoothmainwindow.h \
     bluetoothnamelabel.h \
     config.h \
     deviceinfoitem.h \
