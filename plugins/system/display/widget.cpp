@@ -1197,6 +1197,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         if (mKDSCfg != "copy" && !mUnifyButton->isChecked()) {
             delayApply();;
         }
+        mPrevConfig = mConfig->clone();
         if (mConfig->connectedOutputs().count() >= 2) {
             mUnifyButton->setChecked(isCheck);
         }
