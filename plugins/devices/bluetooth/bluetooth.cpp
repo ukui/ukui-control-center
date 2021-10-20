@@ -30,6 +30,7 @@ QWidget *Bluetooth::get_plugin_ui() {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new BlueToothMain;
+//        pluginWidget = new BlueToothMainWindow;
     }
     return pluginWidget;
 }

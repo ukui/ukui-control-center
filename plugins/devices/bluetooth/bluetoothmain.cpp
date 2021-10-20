@@ -313,6 +313,19 @@ void BlueToothMain::InitMainbottomUI()
     title_layout->addWidget(loadLabel);
     title_layout->addStretch();
 
+    cacheDevTypeList = new QComboBox(frame_bottom);
+    cacheDevTypeList->clear();
+    cacheDevTypeList->setMinimumWidth(120);
+//    cacheDevTypeList->addItems(getDevTypeShowList());
+    cacheDevTypeList->addItem(tr("All"));
+    cacheDevTypeList->addItem(tr("Audio"));
+    cacheDevTypeList->addItem(tr("Peripherals"));
+    cacheDevTypeList->addItem(tr("PC"));
+    cacheDevTypeList->addItem(tr("Phone"));
+    cacheDevTypeList->addItem(tr("Other"));
+    connect(cacheDevTypeList,SIGNAL(currentIndexChanged(int)),this,SLOT(changeListOfDiscoveredDevices(int)));
+    title_layout->addWidget(cacheDevTypeList);
+
     QVBoxLayout *bottom_layout = new QVBoxLayout(frame_bottom);
     bottom_layout->setSpacing(8);
     bottom_layout->setContentsMargins(0,0,0,0);
@@ -768,6 +781,76 @@ void BlueToothMain::cleanPairDevices()
     }
 }
 
+QStringList BlueToothMain::getDevTypeShowList()
+{
+    QStringList list;
+    list.clear();
+
+    QMetaEnum metaEnum = QMetaEnum::fromType<BlueToothMain::DevTypeShow>();
+
+    for (int i = 0; i < metaEnum.keyCount(); i++) {
+        qDebug() << Q_FUNC_INFO << metaEnum.key(i);
+        list.append(metaEnum.key(i));
+    }
+    return list;
+}
+
+void BlueToothMain::addDiscoverDevListByFlag(BlueToothMain::DevTypeShow flag)
+{
+    qDebug() << Q_FUNC_INFO << flag;
+
+    for (BluezQt::DevicePtr dev : m_localDevice.data()->devices()) {
+        qDebug() << Q_FUNC_INFO << dev.data()->address();
+//        BluezQt::DevicePtr dev = m_localDevice.data()->deviceForAddress(addr);
+        if (dev.data()->isPaired() ||
+            dev.data()->uuids().size() == 0 &&
+            dev.data()->name().split("-").length() == 6 &&
+            dev.data()->type() == BluezQt::Device::Uncategorized)
+            continue;
+
+        switch (flag) {
+        case DevTypeShow::All:
+            addOneBluetoothDeviceItemUi(dev);
+            break;
+        case DevTypeShow::Audio:
+            if (dev.data()->type() == BluezQt::Device::Headset ||
+                dev.data()->type() == BluezQt::Device::Headphones ||
+                dev.data()->type() == BluezQt::Device::AudioVideo) {
+                addOneBluetoothDeviceItemUi(dev);
+            }
+            break;
+        case DevTypeShow::Peripherals:
+            if (dev.data()->type() == BluezQt::Device::Mouse ||
+                dev.data()->type() == BluezQt::Device::Keyboard) {
+                addOneBluetoothDeviceItemUi(dev);
+            }
+            break;
+        case DevTypeShow::PC:
+            if (dev.data()->type() == BluezQt::Device::Computer) {
+                addOneBluetoothDeviceItemUi(dev);
+            }
+            break;
+        case DevTypeShow::Phone:
+            if (dev.data()->type() == BluezQt::Device::Phone) {
+                addOneBluetoothDeviceItemUi(dev);
+            }
+            break;
+        default:
+            if (dev.data()->type() == BluezQt::Device::Headset ||
+                dev.data()->type() == BluezQt::Device::Headphones ||
+                dev.data()->type() == BluezQt::Device::AudioVideo ||
+                dev.data()->type() == BluezQt::Device::Phone ||
+                dev.data()->type() == BluezQt::Device::Mouse ||
+                dev.data()->type() == BluezQt::Device::Keyboard ||
+                dev.data()->type() == BluezQt::Device::Computer)
+            break;
+
+            else
+                addOneBluetoothDeviceItemUi(dev);
+        }
+    }
+}
+
 void BlueToothMain::MonitorSleepSlot(bool value)
 {
     if (!value) {
@@ -782,6 +865,51 @@ void BlueToothMain::MonitorSleepSlot(bool value)
     } else {
         sleep_status = m_localDevice->isPowered();
     }
+}
+
+void BlueToothMain::changeListOfDiscoveredDevices(int index)
+{
+    qDebug() << Q_FUNC_INFO << index << Discovery_device_address;
+    switch (index) {
+    case 0:
+        discoverDevFlag = DevTypeShow::All;
+        break;
+    case 1:
+        discoverDevFlag = DevTypeShow::Audio;
+        break;
+    case 2:
+        discoverDevFlag = DevTypeShow::Peripherals;
+        break;
+    case 3:
+        discoverDevFlag = DevTypeShow::PC;
+        break;
+    case 4:
+        discoverDevFlag = DevTypeShow::Phone;
+        break;
+    case 5:
+        discoverDevFlag = DevTypeShow::Other;
+        break;
+    default:
+        break;
+    }
+
+    QLayoutItem *child;
+    while ((child = device_list_layout->takeAt(0)) != 0)
+    {
+        if(child->widget())
+        {
+            last_discovery_device_address.removeAll(child->widget()->objectName());
+            child->widget()->setParent(NULL);
+        }
+        delete child;
+        child = nullptr;
+    }
+
+    qDebug() << Q_FUNC_INFO << Discovery_device_address;
+
+    addDiscoverDevListByFlag(discoverDevFlag);
+
+//    clea
 }
 
 void BlueToothMain::leaveEvent(QEvent *event)
@@ -912,12 +1040,65 @@ void BlueToothMain::serviceDiscovered(BluezQt::DevicePtr device)
         qDebug() << Q_FUNC_INFO << device->name() << device->type();
         return;
     }
+
+    switch (discoverDevFlag) {
+    case DevTypeShow::All:
+        goto addDevUi;
+        break;
+    case DevTypeShow::Audio:
+        if (device->type() == BluezQt::Device::Headset ||
+            device->type() == BluezQt::Device::Headphones ||
+            device->type() == BluezQt::Device::AudioVideo) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    case DevTypeShow::Peripherals:
+        if (device->type() == BluezQt::Device::Mouse ||
+            device->type() == BluezQt::Device::Keyboard) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    case DevTypeShow::PC:
+        if (device->type() == BluezQt::Device::Computer) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    case DevTypeShow::Phone:
+        if (device->type() == BluezQt::Device::Phone) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    default:
+        if (device->type() == BluezQt::Device::Headset ||
+            device->type() == BluezQt::Device::Headphones ||
+            device->type() == BluezQt::Device::AudioVideo ||
+            device->type() == BluezQt::Device::Phone ||
+            device->type() == BluezQt::Device::Mouse ||
+            device->type() == BluezQt::Device::Keyboard ||
+            device->type() == BluezQt::Device::Computer) {
+            goto addAddr;
+        } else {
+            goto addDevUi;
+        }
+        break;
+    }
+
+addDevUi:
     if(Discovery_device_address.contains(device->address())){
         addOneBluetoothDeviceItemUi(device);
         return;
     }
-
     addOneBluetoothDeviceItemUi(device);
+
+addAddr:
     Discovery_device_address << device->address();
 }
 
@@ -955,12 +1136,64 @@ void BlueToothMain::serviceDiscoveredChange(BluezQt::DevicePtr device)
         return;
     }
 
+    switch (discoverDevFlag) {
+    case DevTypeShow::All:
+        goto addDevUi;
+        break;
+    case DevTypeShow::Audio:
+        if (device->type() == BluezQt::Device::Headset ||
+            device->type() == BluezQt::Device::Headphones ||
+            device->type() == BluezQt::Device::AudioVideo) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    case DevTypeShow::Peripherals:
+        if (device->type() == BluezQt::Device::Mouse ||
+            device->type() == BluezQt::Device::Keyboard) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    case DevTypeShow::PC:
+        if (device->type() == BluezQt::Device::Computer) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    case DevTypeShow::Phone:
+        if (device->type() == BluezQt::Device::Phone) {
+            goto addDevUi;
+        } else {
+            goto addAddr;
+        }
+        break;
+    default:
+        if (device->type() == BluezQt::Device::Headset ||
+            device->type() == BluezQt::Device::Headphones ||
+            device->type() == BluezQt::Device::AudioVideo ||
+            device->type() == BluezQt::Device::Phone ||
+            device->type() == BluezQt::Device::Mouse ||
+            device->type() == BluezQt::Device::Keyboard ||
+            device->type() == BluezQt::Device::Computer) {
+            goto addAddr;
+        } else {
+            goto addDevUi;
+        }
+        break;
+    }
+
+addDevUi:
     if(Discovery_device_address.contains(device->address())){
         addOneBluetoothDeviceItemUi(device);
         return;
     }
-
     addOneBluetoothDeviceItemUi(device);
+
+addAddr:
     Discovery_device_address << device->address();
 }
 
