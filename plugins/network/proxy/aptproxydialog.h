@@ -30,12 +30,7 @@ private:
 
 private:
     void initConnect();
-
      void setupComponent();
-//    bool eventFilter(QObject *wcg, QEvent *event);
-
-//private slots:
-//    void mpwdInputSlot(const QString &pwd);
 };
 
 #endif // APTPROXYDIALOG_H

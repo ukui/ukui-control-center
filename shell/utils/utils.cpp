@@ -323,3 +323,23 @@ bool Utils::isExitBattery()
     return hasBat;
 }
 
+
+QString Utils::getHostName()
+{
+    QString hostname;
+    // 设置系统环境变量
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("hostname");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+
+    delete process;
+    hostname = ba.data();
+
+    hostname.replace(QString("\n"),QString(""));
+    return hostname;
+}

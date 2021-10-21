@@ -38,6 +38,7 @@
 #include <QDBusConnection>
 #include <QDBusError>
 #include <QDBusReply>
+#include <QMessageBox>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
@@ -114,6 +115,7 @@ public:
     void _setSensitivity();
     bool getAptProxyInfo(bool status);
     bool setAptProxy(QString host ,int port ,bool status);
+    void reboot();
 
     QFrame *setLine(QFrame *frame);
 

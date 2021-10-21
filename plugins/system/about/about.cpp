@@ -28,6 +28,7 @@
 #include <QGridLayout>
 #include <QPluginLoader>
 #include <QEvent>
+#include <QMessageBox>
 #include <time.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -94,6 +95,7 @@ QWidget *About::get_plugin_ui()
         initActiveDbus();
 
         setupVersionCompenent();
+        setHostNameCompenet();
         setupSystemVersion();
         setupDesktopComponent();
         setupKernelCompenent();
@@ -186,6 +188,42 @@ void About::initUI(QWidget *widget)
     mVersionNumLayout->addStretch();
 
     mInformationLayout->addWidget(mVersionNumFrame);
+
+    mHostNameFrame = new QFrame(mInformationFrame);
+    mHostNameFrame->setMinimumSize(QSize(550, 30));
+    mHostNameFrame->setMaximumSize(QSize(16777215, 30));
+    mHostNameFrame->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mHostNameLayout = new QHBoxLayout(mHostNameFrame);
+    mHostNameLayout->setContentsMargins(0, 0, 16, 0);
+
+    QHBoxLayout *mHostNameLayout_1 = new QHBoxLayout();
+    mHostNameLayout_1->setContentsMargins(0, 0, 0, 0);
+
+    mHostNameLabel_1 = new QLabel(tr("HostName") , mHostNameFrame);
+    mHostNameLabel_1->setFixedSize(80,30);
+
+    mHostNameLabel_2 = new QLabel(mHostNameFrame );
+    mHostNameLabel_2->setFixedHeight(30);
+
+    mHostNameLabel_3 = new QLabel(mHostNameFrame);
+    mHostNameLabel_3->setFixedSize(16 ,24);
+    mHostNameLabel_3->setProperty("useIconHighlightEffect", 0x8);
+    mHostNameLabel_3->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(mHostNameLabel_3->size()));
+
+    mHostNameLabel_2->installEventFilter(this);
+    mHostNameLabel_3->installEventFilter(this);
+
+    mHostNameLayout_1->setSpacing(4);
+    mHostNameLayout_1->addWidget(mHostNameLabel_2);
+    mHostNameLayout_1->addWidget(mHostNameLabel_3);
+
+    mHostNameLayout->addWidget(mHostNameLabel_1);
+    mHostNameLayout->addSpacing(80);
+    mHostNameLayout->addLayout(mHostNameLayout_1);
+    mHostNameLayout->addStretch();
+
+    mInformationLayout->addWidget(mHostNameFrame);
 
     mKernelFrame = new QFrame(mInformationFrame);
     mKernelFrame->setMinimumSize(QSize(550, 30));
@@ -775,6 +813,11 @@ void About::setupSystemVersion()
     mVersionNumLabel_2->setText(content2);
 }
 
+void About::setHostNameCompenet()
+{
+    mHostNameLabel_2->setText(Utils::getHostName());
+}
+
 void About::showExtend(QString dateres)
 {
     mTimeLabel_2->setText(dateres+QString("(%1)").arg(tr("expired")));
@@ -871,6 +914,18 @@ int About::getMonth(QString month)
     }
 }
 
+void About::reboot()
+{
+    QDBusInterface *rebootDbus = new QDBusInterface("org.gnome.SessionManager",
+                                                             "/org/gnome/SessionManager",
+                                                             "org.gnome.SessionManager",
+                                                             QDBusConnection::sessionBus());
+
+    rebootDbus->call("reboot");
+    delete rebootDbus;
+    rebootDbus = nullptr;
+}
+
 /* 处理文本宽度 */
 void About::setLabelText(QLabel *label, QString text)
 {
@@ -894,6 +949,30 @@ bool About::eventFilter(QObject *obj, QEvent *event)
             emit resize();
         }
         return false;
+    } else if (obj == mHostNameLabel_2 || obj == mHostNameLabel_3) {
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton ){
+                QString str = Utils::getHostName();
+                HostNameDialog *mdialog = new HostNameDialog(pluginWidget);
+                mdialog->exec();
+                if (str !=  Utils::getHostName()) {
+                    QMessageBox *mReboot = new QMessageBox(pluginWidget);
+                    mReboot->setIcon(QMessageBox::Warning);
+                    mReboot->setText(tr("The system needs to be restarted to set the HostName, whether to reboot"));
+                    mReboot->addButton(tr("Reboot Now"), QMessageBox::AcceptRole);
+                    mReboot->addButton(tr("Reboot Later"), QMessageBox::RejectRole);
+                    int ret = mReboot->exec();
+                    switch (ret) {
+                    case QMessageBox::AcceptRole:
+                        sleep(1);
+                        reboot();
+                        break;
+                    }
+                    mHostNameLabel_2->setText(Utils::getHostName());
+                }
+            }
+        }
     }
     return false;
 }
