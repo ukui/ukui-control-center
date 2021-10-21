@@ -113,6 +113,9 @@ public slots:
     //设置apt代理
     Q_SCRIPTABLE bool setaptproxy(QString ip , QString port ,bool open);
 
+    //修改/etc/hosts文件内的主机名
+    Q_SCRIPTABLE void sethostname(QString hostname);
+
 };
 
 #endif // SYSDBUSREGISTER_H

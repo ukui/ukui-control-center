@@ -12,6 +12,7 @@ AptProxyDialog::AptProxyDialog(QGSettings *Keygsettiings, QWidget *parent ):
     initUi();
     setupComponent();
     initConnect();
+    mgsettings->set(APT_PROXY_ENABLED , false);
 }
 
 AptProxyDialog::~AptProxyDialog()
@@ -103,11 +104,12 @@ void AptProxyDialog::initConnect()
         }
     });
 
-    connect(mCancelBtn, &QPushButton::clicked, this, [=]() {
+    connect(mCancelBtn, &QPushButton::clicked, this, [=]() {      
         this->close();
     });
 
     connect(mConfirmBtn, &QPushButton::clicked, this, [=]() {
+        mgsettings->set(APT_PROXY_ENABLED , true);
         mgsettings->set(APT_PROXY_HOST_KEY,mHostEdit->text());
         mgsettings->set(APT_PROXY_PORT_KEY,mPortEdit->text().toInt());
         this->close();

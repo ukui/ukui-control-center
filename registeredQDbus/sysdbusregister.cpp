@@ -425,25 +425,40 @@ bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
 {
     QString content_http = QString("%1%2%3%4%5%6").arg("Acquire::http::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
     QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString profile_http = QString("%1%2%3%4%5").arg("export http_proxy=\"http://").arg(ip).arg(":").arg(port).arg("\"\n");
+    QString profile_https = QString("%1%2%3%4%5").arg("export https_proxy=\"https://").arg(ip).arg(":").arg(port).arg("\"\n");
+
     QString dirName  = "/etc/apt/apt.conf.d/";
     QString fileName = "/etc/apt/apt.conf.d/80apt-proxy";
+    QString dirName_1  = "/etc/profile.d/";
+    QString fileName_1 = "/etc/profile.d/80apt-proxy.sh";
     QDir AptDir(dirName);
+    QDir ProDir(dirName_1);
     QFile AptProxyFile(fileName);
-    if (AptDir.exists()) {
+    QFile AptProxyProFile(fileName_1);
+
+    if (AptDir.exists() && ProDir.exists()) {
         if (open) {    //开关开启则创建对应文件，未开启则删掉对应文件
-            if (AptProxyFile.exists()) {
+            if (AptProxyFile.exists() && AptProxyProFile.exists()) {
                AptProxyFile.remove();
+               AptProxyProFile.remove();
             }
             AptProxyFile.open(QIODevice::ReadWrite | QIODevice::Text);
+            AptProxyProFile.open(QIODevice::ReadWrite | QIODevice::Text);
             //写入内容,这里需要转码，否则报错
             QByteArray str = content_http.toUtf8();
             QByteArray str_1 = content_https.toUtf8();
+            QByteArray str_2 = profile_http.toUtf8();
+            QByteArray str_3 = profile_https.toUtf8();
             //写入QByteArray格式字符串
             AptProxyFile.write(str);
             AptProxyFile.write(str_1);
+            AptProxyProFile.write(str_2);
+            AptProxyProFile.write(str_3);
         } else {
-            if (AptProxyFile.exists()) {
+            if (AptProxyFile.exists() && AptProxyProFile.exists()) {
                AptProxyFile.remove();
+               AptProxyProFile.remove();
             }
         }
     }else {
@@ -451,3 +466,36 @@ bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
     }
     return true;
 }
+
+void SysdbusRegister::sethostname(QString hostname)
+{
+    QString fileName = "/etc/hosts";
+    QString strAll;
+    QStringList strList;
+    QFile readFile(fileName);
+    if(readFile.open(QIODevice::ReadWrite | QIODevice::Text))
+    {
+        QTextStream stream(&readFile);
+        strAll = stream.readAll();
+    }
+    readFile.close();
+    QFile writeFile(fileName);
+    if(writeFile.open(QIODevice::ReadWrite|QIODevice::Text))
+    {
+            QTextStream stream(&writeFile);
+            strList=strAll.split("\n");
+            for(int i=0;i<strList.count();i++)
+            {
+                if(strList.at(i).contains("127.0.1.1"))
+                {
+                    QString tempStr = QString("%1%2").arg("127.0.1.1      ").arg(hostname);
+                    stream<<tempStr<<'\n';
+                    continue;
+                }
+                stream<<strList.at(i)<<'\n';
+            }
+    }
+}
+
+
+

@@ -22,10 +22,12 @@ INCLUDEPATH   +=  \
 HEADERS += \
     HpQRCodeInterface.h \
     about.h \
+    hostnamedialog.h \
     trialdialog.h
 
 SOURCES += \
     about.cpp \
+    hostnamedialog.cpp \
     trialdialog.cpp
 
 FORMS +=

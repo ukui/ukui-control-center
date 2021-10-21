@@ -36,9 +36,11 @@
 #include <QThread>
 #include <QtConcurrent>
 #include <QFuture>
+#include <QMouseEvent>
 
 #include "HpQRCodeInterface.h"
 #include "shell/utils/utils.h"
+#include "hostnamedialog.h"
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
@@ -74,10 +76,11 @@ private:
     void setupKernelCompenent();
     void setupDiskCompenet();
     void setupSystemVersion();
+    void setHostNameCompenet();
     void showExtend(QString dateres);
     char *ntpdate();
     int getMonth(QString month);
-
+    void reboot();
     void setLabelText(QLabel *label,QString text);
     bool eventFilter(QObject *obj, QEvent *event);
 
@@ -98,6 +101,7 @@ private:
     QFrame *mActivationFrame;
     QFrame *mVersionFrame;
     QFrame *mVersionNumFrame;
+    QFrame *mHostNameFrame;
     QFrame *mKernelFrame;
     QFrame *mCpuFrame;
     QFrame *mMemoryFrame;
@@ -110,6 +114,7 @@ private:
     QLabel *mLogoLabel;
     QLabel *mVersionLabel_1;
     QLabel *mVersionNumLabel_1;
+    QLabel *mHostNameLabel_1;
     QLabel *mKernelLabel_1;
     QLabel *mCpuLabel_1;
     QLabel *mMemoryLabel_1;
@@ -118,6 +123,8 @@ private:
     QLabel *mUsernameLabel_1;
     QLabel *mVersionLabel_2;
     QLabel *mVersionNumLabel_2;
+    QLabel *mHostNameLabel_2;
+    QLabel *mHostNameLabel_3;
     QLabel *mKernelLabel_2;
     QLabel *mCpuLabel_2;
     QLabel *mMemoryLabel_2;

@@ -556,26 +556,55 @@ void Proxy::setupConnect(){
     });
 
     connect(mEditBtn ,&QPushButton::clicked,[=]() {
+        mAptBtn->blockSignals(true);
+        bool prestatus = aptsettings->get(APT_PROXY_ENABLED).toBool();
         AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
         mwindow->exec();
-        if (aptsettings->get(APT_PROXY_HOST_KEY).toString().isEmpty()) {
-            aptsettings->set(APT_PROXY_ENABLED , false);
-            mAptBtn->setChecked(false);
-        } else {
+        if ((aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus) || (aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus)) {
+            QMessageBox *mReboot = new QMessageBox(pluginWidget);
+            mReboot->setIcon(QMessageBox::Warning);
+            mReboot->setText(tr("The system needs to be restarted to set the Apt proxy, whether to reboot"));
+            QPushButton *nowbtn =   mReboot->addButton(tr("Reboot Now"), QMessageBox::RejectRole);
+           QPushButton *laterbtn =  mReboot->addButton(tr("Reboot Later"), QMessageBox::AcceptRole);
+            mReboot->exec();
+            if (mReboot->clickedButton() == nowbtn) {
+                setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+                sleep(1);
+                reboot();
+            } else if (mReboot->clickedButton() == laterbtn) {
+                line_7->show();
+                mAPTFrame_2->show();
+                mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
+                mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+                mAptBtn->setChecked(true);
+                 setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+            } else {
+                aptsettings->set(APT_PROXY_ENABLED , false);
+                mAptBtn->setChecked(false);
+                line_7->hide();
+                mAPTFrame_2->hide();
+            }
+        } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){
+            aptsettings->set(APT_PROXY_ENABLED , true);
             line_7->show();
             mAPTFrame_2->show();
-            mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
-            mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+            mAptBtn->setChecked(true);
+        } else if(!aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus){
+            aptsettings->set(APT_PROXY_ENABLED , false);
+            mAptBtn->setChecked(false);
         }
-        setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+        mAptBtn->blockSignals(false);
     });
 
     connect(mAptBtn, &SwitchButton::checkedChanged ,this ,[=](bool status) {
-       mAptBtn->blockSignals(true);
-       if (!getAptProxyInfo(status)) {
-            setAptProxy("" ,0 ,false);
+       if (status) {
+           emit mEditBtn->click();
+       } else {
+           aptsettings->set(APT_PROXY_ENABLED , false);
+           line_7->hide();
+           mAPTFrame_2->hide();
+           setAptProxy("" ,0 ,false);
        }
-       mAptBtn->blockSignals(false);
     });
 
     connect(mCertificationBtn, &QCheckBox::clicked, this, [=](){
@@ -801,6 +830,18 @@ bool Proxy::setAptProxy(QString host, int port, bool status)
     QDBusReply<bool> reply = setaptproxyDbus->call("setaptproxy", host,QString::number(port) ,status);
     delete setaptproxyDbus;
     setaptproxyDbus = nullptr;
+}
+
+void Proxy::reboot()
+{
+    QDBusInterface *rebootDbus = new QDBusInterface("org.gnome.SessionManager",
+                                                             "/org/gnome/SessionManager",
+                                                             "org.gnome.SessionManager",
+                                                             QDBusConnection::sessionBus());
+
+    rebootDbus->call("reboot");
+    delete rebootDbus;
+    rebootDbus = nullptr;
 }
 
 QFrame *Proxy::setLine(QFrame *frame)
