@@ -349,7 +349,7 @@ void TabWid::backupProgress(int progress)
         return;
     }
     versionInformationLab->setText(tr("System is backing up..."));
-    allProgressBar->setValue(progress);
+    //allProgressBar->setValue(progress);
     checkUpdateBtn->hide();
     allProgressBar->show();
     lastRefreshTime->hide();
