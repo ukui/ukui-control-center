@@ -72,12 +72,10 @@ public:
     void setupGSettings();
     void initNoticeStatus();
     void initOriNoticeStatus();
-    void initGSettings();
     void initListUI(QDir dir,QString mpath,QStringList *stringlist);
 
 
 private:
-    void changeAppstatus(bool checked, QString name,SwitchButton *appBtn);
     void setHiddenNoticeApp(bool status);
 
 private:

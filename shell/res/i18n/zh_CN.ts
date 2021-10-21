@@ -4,65 +4,85 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="405"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="443"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="406"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="444"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="407"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="445"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="468"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="506"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/about/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="470"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="508"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="410"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="448"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="411"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="203"/>
+        <source>HostName</source>
+        <translation>计算机名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="449"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="413"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>&lt;&lt;试用免责协议&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="432"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="470"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="442"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="480"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="780"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="823"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="783"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="826"/>
         <source>Extend</source>
         <translation>延长服务</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="962"/>
+        <source>The system needs to be restarted to set the HostName, whether to reboot</source>
+        <translation>设置主机名后需要重启系统才可正常使用，是否重启系统</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="963"/>
+        <source>Reboot Now</source>
+        <translation>立即重启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="964"/>
+        <source>Reboot Later</source>
+        <translation>稍后重启</translation>
     </message>
     <message>
         <source>Technical service has expired</source>
@@ -73,9 +93,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="729"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="738"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1007"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="767"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="776"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1086"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -92,7 +112,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="456"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="494"/>
         <source>Version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -106,43 +126,43 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="606"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="608"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="644"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="646"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="458"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="496"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="460"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="498"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="462"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="500"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="408"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="736"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="446"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="774"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="464"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="502"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="466"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="504"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
@@ -156,7 +176,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="469"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="507"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -169,7 +189,7 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="521"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="559"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -186,7 +206,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="63"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="64"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -203,12 +223,12 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="519"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="557"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="525"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="563"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -585,6 +605,34 @@
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="918"/>
         <source>No content.</source>
         <translation>暂无内容.</translation>
+    </message>
+</context>
+<context>
+    <name>AptProxyDialog</name>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="25"/>
+        <source>Set Apt Proxy</source>
+        <translation>设置APT代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="42"/>
+        <source>Server Address</source>
+        <translation>服务器地址</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="60"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="81"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="85"/>
+        <source>Confirm</source>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -1011,7 +1059,7 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <source>Biometrics </source>
-        <translation>生物识别</translation>
+        <translation type="vanished">生物识别</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/biometrics/biometricenroll.ui" line="290"/>
@@ -1375,7 +1423,37 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="676"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="320"/>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="321"/>
+        <source>Audio</source>
+        <translation type="unfinished">声音</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="322"/>
+        <source>Peripherals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="323"/>
+        <source>PC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="324"/>
+        <source>Phone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="325"/>
+        <source>Other</source>
+        <translation type="unfinished">其他</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="689"/>
         <source>Bluetooth adapter is not detected!</source>
         <translation>未检测到蓝牙适配器！</translation>
     </message>
@@ -1414,6 +1492,54 @@ Please authenticate yourself to continue</source>
     <message>
         <source>Refresh</source>
         <translation type="vanished">刷新</translation>
+    </message>
+</context>
+<context>
+    <name>BlueToothMainWindow</name>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="51"/>
+        <source>Bluetooth adapter is abnormal !</source>
+        <translation type="unfinished">蓝牙适配器异常！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="82"/>
+        <source>Bluetooth adapter not detected !</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="132"/>
+        <source>Bluetooth</source>
+        <translation type="unfinished">蓝牙</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="155"/>
+        <source>Turn on :</source>
+        <translation type="unfinished">开启：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="184"/>
+        <source>Adapter List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="211"/>
+        <source>Show icon on taskbar</source>
+        <translation type="unfinished">在任务栏显示蓝牙图标</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="237"/>
+        <source>Discoverable by nearby Bluetooth devices</source>
+        <translation type="unfinished">可被附近的蓝牙设备发现</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="264"/>
+        <source>My Devices</source>
+        <translation type="unfinished">我的设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="280"/>
+        <source>Other Devices</source>
+        <translation type="unfinished">蓝牙设备</translation>
     </message>
 </context>
 <context>
@@ -1479,35 +1605,35 @@ Please authenticate yourself to continue</source>
     <name>ChangeFaceDialog</name>
     <message>
         <source>select custom face file</source>
-        <translation>选择自定义头像文件</translation>
+        <translation type="vanished">选择自定义头像文件</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>选择</translation>
+        <translation type="vanished">选择</translation>
     </message>
     <message>
         <source>Position: </source>
-        <translation>位置： </translation>
+        <translation type="vanished">位置： </translation>
     </message>
     <message>
         <source>FileName: </source>
-        <translation>文件名： </translation>
+        <translation type="vanished">文件名： </translation>
     </message>
     <message>
         <source>FileType: </source>
-        <translation>文件类型： </translation>
+        <translation type="vanished">文件类型： </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>警告</translation>
+        <translation type="vanished">警告</translation>
     </message>
     <message>
         <source>The avatar is larger than 1M, please choose again</source>
-        <translation>警告，头像大于1M请重新选择</translation>
+        <translation type="vanished">警告，头像大于1M请重新选择</translation>
     </message>
     <message>
         <source>The avatar is larger than 2M, please choose again</source>
@@ -1519,15 +1645,15 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>System Icon</source>
-        <translation>系统头像</translation>
+        <translation type="vanished">系统头像</translation>
     </message>
     <message>
         <source>Select face from local</source>
-        <translation>从本地选择用户头像</translation>
+        <translation type="vanished">从本地选择用户头像</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>确定</translation>
+        <translation type="vanished">确定</translation>
     </message>
 </context>
 <context>
@@ -1967,7 +2093,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>Authentication failed, input authtok again!</source>
-        <translation>密码输入错误,重新输入!</translation>
+        <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/biometrics/changepwddialog.cpp" line="188"/>
@@ -2089,7 +2215,7 @@ Please authenticate yourself to continue</source>
     <name>ChangeTypeDialog</name>
     <message>
         <source>Make sure that there is at least one administrator on the computer</source>
-        <translation>请确保该计算机上至少有一个管理员用户</translation>
+        <translation type="vanished">请确保该计算机上至少有一个管理员用户</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot install software and change system settings</source>
@@ -2101,11 +2227,11 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>standard user</source>
-        <translation>标准用户</translation>
+        <translation type="vanished">标准用户</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation>标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation type="vanished">标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
         <source>administrator</source>
@@ -2113,19 +2239,19 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>Administrators can make any changes they need</source>
-        <translation>管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation type="vanished">管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>确定</translation>
+        <translation type="vanished">确定</translation>
     </message>
     <message>
         <source>Change type</source>
-        <translation>更改类型</translation>
+        <translation type="vanished">更改类型</translation>
     </message>
 </context>
 <context>
@@ -2234,31 +2360,31 @@ Please authenticate yourself to continue</source>
     <name>ChangeUserName</name>
     <message>
         <source>Change Username</source>
-        <translation>修改用户名</translation>
+        <translation type="vanished">修改用户名</translation>
     </message>
     <message>
         <source>NickName</source>
-        <translation>用户昵称</translation>
+        <translation type="vanished">用户昵称</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation>用户名</translation>
+        <translation type="vanished">用户名</translation>
     </message>
     <message>
         <source>ComName</source>
-        <translation>计算机名</translation>
+        <translation type="vanished">计算机名</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>确定</translation>
+        <translation type="vanished">确定</translation>
     </message>
     <message>
         <source>Name already in use, change another one.</source>
-        <translation>该用户名已存在，请更改。</translation>
+        <translation type="vanished">该用户名已存在，请更改。</translation>
     </message>
 </context>
 <context>
@@ -2639,19 +2765,19 @@ Please authenticate yourself to continue</source>
     <name>CreateUserDialog</name>
     <message>
         <source>UserName</source>
-        <translation>用户名</translation>
+        <translation type="vanished">用户名</translation>
     </message>
     <message>
         <source>ComName</source>
-        <translation>计算机名</translation>
+        <translation type="vanished">计算机名</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>密码</translation>
+        <translation type="vanished">密码</translation>
     </message>
     <message>
         <source>Account Type</source>
-        <translation>用户类型</translation>
+        <translation type="vanished">用户类型</translation>
     </message>
     <message>
         <source>Add New Account</source>
@@ -2663,15 +2789,15 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <source>PasswordSure</source>
-        <translation>确认密码</translation>
+        <translation type="vanished">确认密码</translation>
     </message>
     <message>
         <source>standard user</source>
-        <translation>标准用户</translation>
+        <translation type="vanished">标准用户</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation>标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation type="vanished">标准帐户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot install the software and
@@ -2680,23 +2806,23 @@ change system settings</source>
     </message>
     <message>
         <source>administrator</source>
-        <translation>管理员用户</translation>
+        <translation type="vanished">管理员用户</translation>
     </message>
     <message>
         <source>Administrators can make any changes they need</source>
-        <translation>管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
+        <translation type="vanished">管理员帐户可以更改任何系统配置，包括安装软件和升级软件</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>确定</translation>
+        <translation type="vanished">确定</translation>
     </message>
     <message>
         <source>Password Identify</source>
-        <translation>密码确认</translation>
+        <translation type="vanished">密码确认</translation>
     </message>
     <message>
         <source>General Password</source>
@@ -2704,23 +2830,23 @@ change system settings</source>
     </message>
     <message>
         <source>Inconsistency with pwd</source>
-        <translation>和密码不一致</translation>
+        <translation type="vanished">和密码不一致</translation>
     </message>
     <message>
         <source>Must be begin with lower letters!</source>
-        <translation>用户名必须以小写字母开始！</translation>
+        <translation type="vanished">用户名必须以小写字母开始！</translation>
     </message>
     <message>
         <source>Can not contain capital letters!</source>
-        <translation>用户名不能包含大写字母！</translation>
+        <translation type="vanished">用户名不能包含大写字母！</translation>
     </message>
     <message>
         <source>Name already in use, change another one.</source>
-        <translation>该用户名已存在，请更改。</translation>
+        <translation type="vanished">该用户名已存在，请更改。</translation>
     </message>
     <message>
         <source>Name corresponds to group already exists.</source>
-        <translation>用户名对应组已存在，请更改。</translation>
+        <translation type="vanished">用户名对应组已存在，请更改。</translation>
     </message>
     <message>
         <source>Name length must less than %1 letters!</source>
@@ -2744,7 +2870,7 @@ change system settings</source>
     </message>
     <message>
         <source>Add new user</source>
-        <translation>添加新用户</translation>
+        <translation type="vanished">添加新用户</translation>
     </message>
     <message>
         <source>Password cannot be made up entirely by Numbers!</source>
@@ -2752,11 +2878,11 @@ change system settings</source>
     </message>
     <message>
         <source>Contains illegal characters!</source>
-        <translation>含有非法字符！</translation>
+        <translation type="vanished">含有非法字符！</translation>
     </message>
     <message>
         <source>The user name cannot be empty</source>
-        <translation>用户名不能为空</translation>
+        <translation type="vanished">用户名不能为空</translation>
     </message>
     <message>
         <source>The first character must be lowercase letters!</source>
@@ -3510,19 +3636,19 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>keep the user&apos;s data, like desktop,documents, favorites, music, pictures and so on</source>
-        <translation>保留用户下所属的桌面、文件、收藏夹、音乐等文件</translation>
+        <translation type="vanished">保留用户下所属的桌面、文件、收藏夹、音乐等文件</translation>
     </message>
     <message>
         <source>delete whole data belong user</source>
-        <translation>删除该用户所有文件</translation>
+        <translation type="vanished">删除该用户所有文件</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation type="vanished">删除</translation>
     </message>
     <message>
         <source>KeepFile</source>
@@ -3534,11 +3660,11 @@ folder will be deleted!</source>
     </message>
     <message>
         <source>Delete the user &apos;</source>
-        <translation>是否删除用户&apos;</translation>
+        <translation type="vanished">是否删除用户&apos;</translation>
     </message>
     <message>
         <source>&apos;and:</source>
-        <translation>&apos;同时:</translation>
+        <translation type="vanished">&apos;同时:</translation>
     </message>
 </context>
 <context>
@@ -4629,35 +4755,58 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
-    <name>InputPwdDialog</name>
+    <name>HostNameDialog</name>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="45"/>
-        <source>Set Password</source>
-        <translation>设置密码</translation>
+        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="11"/>
+        <source>Set HostName</source>
+        <translation>设置计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="97"/>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="117"/>
-        <source>Password can not be blank</source>
-        <translation>密码不能为空</translation>
+        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="39"/>
+        <source>HostName</source>
+        <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="77"/>
+        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="60"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="28"/>
+        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="64"/>
+        <source>Confirm</source>
+        <translation>确定</translation>
+    </message>
+</context>
+<context>
+    <name>InputPwdDialog</name>
+    <message>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="46"/>
+        <source>Set Password</source>
+        <translation>设置密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="98"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="118"/>
+        <source>Password can not be blank</source>
+        <translation>密码不能为空</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="78"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="29"/>
         <source>Set</source>
         <translation>系统设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="81"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="82"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="121"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="122"/>
         <source>less than or equal to 8</source>
         <translation>密码长度需要小于等于８</translation>
     </message>
@@ -5941,37 +6090,39 @@ Please retry or relogin!</source>
         <translation>移动热点</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="319"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="333"/>
         <source>Open</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="339"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="353"/>
         <source>Wi-Fi Name</source>
         <translation>Wi-Fi名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="359"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="373"/>
         <source>Password</source>
         <translation>网络密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="397"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="411"/>
         <source>Frequency band</source>
         <translation>网络频带</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="421"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="435"/>
         <source>Net card</source>
         <translation>共享网卡端口</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="476"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="196"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="490"/>
         <source>hotspot already close</source>
         <translation>热点已关闭</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="492"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="506"/>
+        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="514"/>
         <source>hotspot already open</source>
         <translation>热点已开启</translation>
     </message>
@@ -6301,7 +6452,7 @@ Please retry or relogin!</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="423"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="424"/>
         <source>card</source>
         <translation>网卡</translation>
     </message>
@@ -6330,8 +6481,8 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新中...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="358"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="734"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="359"/>
+        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="737"/>
         <source>connected</source>
         <translation>已连接</translation>
     </message>
@@ -7221,7 +7372,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>Proxy</name>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="415"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="476"/>
         <source>Auto Proxy</source>
         <translation>自动代理</translation>
         <extra-contents_path>/proxy/Auto Proxy</extra-contents_path>
@@ -7231,13 +7382,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">开启自动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="417"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="478"/>
         <source>Auto url</source>
         <translation>配置URL</translation>
         <extra-contents_path>/proxy/Auto url</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="419"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="480"/>
         <source>Manual Proxy</source>
         <translation>手动代理</translation>
         <extra-contents_path>/proxy/Manual Proxy</extra-contents_path>
@@ -7247,16 +7398,16 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">开启手动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="421"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="482"/>
         <source>Http Proxy</source>
         <translation>HTTP代理</translation>
         <extra-contents_path>/proxy/Http Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="428"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="429"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="430"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="431"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="489"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="490"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="491"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="492"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
@@ -7265,47 +7416,88 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="413"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="474"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="423"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="484"/>
         <source>Https Proxy</source>
         <translation>HTTPS代理</translation>
         <extra-contents_path>/proxy/Https Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="425"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="486"/>
         <source>Ftp Proxy</source>
         <translation>FTP代理</translation>
         <extra-contents_path>/proxy/Ftp Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="427"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="488"/>
         <source>Socks Proxy</source>
         <translation>SOCKS代理</translation>
         <extra-contents_path>/proxy/Socks Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="432"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="493"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
         <translation>忽略的主机列表，请使用英文分号（;）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="433"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="494"/>
         <source>Enable Authentication</source>
         <translation>启用认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="434"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="495"/>
         <source>User Name</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="435"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="496"/>
         <source>Password</source>
         <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="499"/>
+        <source>Apt Proxy</source>
+        <translation>APT代理</translation>
+        <extra-contents_path>/proxy/Apt Proxy</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="500"/>
+        <source>Open</source>
+        <translation>开启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="501"/>
+        <source>Server Address : </source>
+        <translation>服务器地址：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="502"/>
+        <source>Port : </source>
+        <translation>端口：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="503"/>
+        <source>Edit</source>
+        <translation>编辑</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="566"/>
+        <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
+        <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="567"/>
+        <source>Reboot Now</source>
+        <translation>立即重启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="568"/>
+        <source>Reboot Later</source>
+        <translation>稍后重启</translation>
     </message>
     <message>
         <source>proxy</source>
@@ -10670,19 +10862,19 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Hint</source>
-        <translation>提示</translation>
+        <translation type="vanished">提示</translation>
     </message>
     <message>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
-        <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
+        <translation type="vanished">系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
         <source>Trun on</source>
-        <translation>开启</translation>
+        <translation type="vanished">开启</translation>
     </message>
     <message>
         <source>Close on</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Add biometric feature</source>
@@ -10712,7 +10904,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Del</source>
-        <translation>删除</translation>
+        <translation type="vanished">删除</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="145"/>
@@ -10761,11 +10953,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <source>Change pwd</source>
-        <translation>更改密码</translation>
+        <translation type="vanished">更改密码</translation>
     </message>
     <message>
         <source>Change type</source>
-        <translation>更改类型</translation>
+        <translation type="vanished">更改类型</translation>
     </message>
     <message>
         <source>Change valid</source>
@@ -11461,14 +11653,14 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="766"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="769"/>
         <source>card</source>
         <translation>网卡</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="263"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="803"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="865"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="264"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="806"/>
+        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="868"/>
         <source>connected</source>
         <translation>已连接</translation>
     </message>
