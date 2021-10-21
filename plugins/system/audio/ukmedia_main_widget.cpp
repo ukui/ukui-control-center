@@ -2351,10 +2351,10 @@ void UkmediaMainWidget::setDefaultOutputPortDevice(QString devName, QString port
 {
     int cardIndex = findCardIndex(devName,m_pVolumeControl->cardMap);
     QString portStr = findOutputPortName(cardIndex,portName);
-
+    qDebug() << "setDefaultOutputPortDevice" << devName <<portName;
     QTimer *timer = new QTimer;
-    time->start(50);
-    connect(time,&QTimer::timeout,[=](){
+    timer->start(50);
+    connect(timer,&QTimer::timeout,[=](){
         QString sinkStr = findPortSink(cardIndex,portStr);
 
         /*默认的stream 和设置的stream相同 需要更新端口*/
