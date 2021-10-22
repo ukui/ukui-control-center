@@ -25,6 +25,7 @@
 #include "checkbutton.h"
 #include "SwitchButton/switchbutton.h"
 #include "Label/titlelabel.h"
+#include "qwidget.h"
 
 #define CRUCIAL_FILE_PATH "/var/lib/kylin-software-properties/template/crucial.list"
 #define IMPORTANT_FIEL_PATH "/var/lib/kylin-software-properties/template/important.list"
@@ -131,7 +132,7 @@ public:
 
     QList<pkgProgress> pkgList;
 
-    void disconnectSource();
+    void disconnectSource(bool isTimeOut);
 signals:
 //    void send_Signal();
 //    void parameterSignal(int i);
@@ -140,6 +141,7 @@ public slots:
     void showHistoryWidget();
     void isAutoCheckedChanged();
     void isAutoUpgradeChanged();
+    void DownloadLimitChanged();
     void slotCancelDownload();
     void loadingOneUpdateMsgSlot(AppAllMsg msg); //逐个加载更新
     void loadingFinishedSlot(int size); //加载完毕信号

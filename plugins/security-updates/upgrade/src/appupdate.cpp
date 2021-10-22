@@ -1,4 +1,5 @@
 #include "appupdate.h"
+#include "tabwidget.h"
 #include <QPixmap>
 #include <stdio.h>
 #include <QLocale>
@@ -334,7 +335,7 @@ void AppUpdateWid::showInstallStatues(QString status,QString appAptName, float p
             m_updateMutual->fileUnLock();
             //            appVersion->setText(tr("更新失败！"));
             appVersion->setText(tr("Update failed!"));
-
+//            TabWid::versionInformationLab->setText(tr("Part of the update failed!"));
             //            appVersion->setToolTip(tr("失败原因：")+(appNameLab->dealMessage(errormsg)));
             appVersion->setToolTip(tr("Failure reason:")+ "\r\n"+(appNameLab->dealMessage(errormsg)));
             m_updateMutual->importantList.removeOne(appAllMsg.name);

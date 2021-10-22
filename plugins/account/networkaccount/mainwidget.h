@@ -80,6 +80,10 @@ public:
 
 protected:
 private:
+    void            checkUserStatus();
+    void            startSync();
+    void            startAutoSync();
+    void            syncSelect();
     ItemList       *m_itemList;
     FrameItem    *m_autoSyn;
     TitleLabel              *m_title;
@@ -95,11 +99,6 @@ private:
     DBusUtils   *m_dbusClient;
     QString             m_confName;
     QPushButton         *m_login_btn;
-    QTimer              *m_lazyTimer;
-    QTimer              *m_listTimer;
-    QTimer              *m_singleTimer;
-    QTimer              *m_manTimer;
-    QTimer              *m_checkTimer;
     TitleLabel              *m_welcomeMsg;
     QSvgWidget              *m_welcomeImage;
     QVBoxLayout         *m_welcomeLayout;
@@ -121,7 +120,6 @@ private:
     bool                m_isOpenDialog = false; //对话框是否打开
     bool                m_firstLoad = false;
     bool                m_bIsInit = true;
-    QTimer              *m_cLoginTimer; //登录超时计时器
     QString             m_szUuid;
     QFileSystemWatcher m_fsWatcher;
     SVGHandler *m_svgHandler;
@@ -139,10 +137,10 @@ private:
     bool            bIsLogging = false; //是否已经登录
     QSettings         *m_pSettings;
     bool            m_bIsKylinId = false; //是否安装了麒麟ID
-    bool            m_bIsOnline = true; //网络是否通
     bool            m_bIsOldBackEnds = false; //是否是旧的后台程序
     bool            m_bIsFailed = false; //是否同步失败
     int             m_status;
+    QTimer          * m_checkTimer;
 
 public slots:
     void            on_login_out();
@@ -159,7 +157,7 @@ public slots:
     void            checkUserName(QString name);
     void            finishedLogout(int ret);
     void            loginSuccess(int ret);
-    void            checkNetWork(QVariantMap map);
+    void            checkNetWork(const QString &str, const QVariantMap &map, const QStringList &list);
     void            checkNetStatus(bool status);
 signals:
     void dooss(const QString &m_szUuid);

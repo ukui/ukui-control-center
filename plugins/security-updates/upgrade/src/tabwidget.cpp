@@ -36,19 +36,20 @@ void TabWid::initDbus()
     connect(isAutoBackupSBtn,&SwitchButton::checkedChanged,this,&TabWid::isAutoBackupChanged);
     connect(isAutoUpgradeSBtn, &SwitchButton::checkedChanged, this, &TabWid::isAutoUpgradeChanged);
     connect(updateSource,&UpdateSource::getReplyFalseSignal,this,&TabWid::getReplyFalseSlot);
-    connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
+    //connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);
+    connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitChanged);
     connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
     //connect(DownloadHValue,static_cast<void (QComboBox::*)(QString)>(&QComboBox:: currentIndexChanged),this,&TabWid::DownloadLimitValueChanged);
     //initialize download limit switch button
-    DownloadHBtn->setChecked(false);
+    //DownloadHBtn->setChecked(false);
     //set download limit range
 //    DownloadHValue->setRange(325,32500);
 //    DownloadHValue->setSingleStep(325);
 //    DownloadHValue->setValue(325);
 //    DownloadHValue->setFocusPolicy(Qt::NoFocus);
-    QStringList strList;
-    strList<<"50"<<"100"<<"200"<<"300"<<"600";
-    DownloadHValue->addItems(strList);
+//    QStringList strList;
+//    strList<<"50"<<"100"<<"200"<<"300"<<"600";
+//    DownloadHValue->addItems(strList);
     //    bacupInit();//初始化备份
     isAutoBackupSBtn->setChecked(true);
     checkUpdateBtn->stop();
@@ -57,6 +58,7 @@ void TabWid::initDbus()
     checkUpdateBtn->setText(tr("Check Update"));
 
     checkUpdateBtn->setText(tr("initializing"));
+    checkUpdateBtn->setToolTip("");
     checkUpdateBtn->setEnabled(false);
 
 }
@@ -124,6 +126,7 @@ void TabWid::getAutoUpgradeStatus()
         isAllUpgrade = true;
         checkUpdateBtn->hide();
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
         bool ret = autoUpdateLoadUpgradeList(false);
         if (!ret)
             updateMutual->disconnectDbusSignal();
@@ -131,11 +134,13 @@ void TabWid::getAutoUpgradeStatus()
         /*如果没有进行自动更新，那就不需要操作 */
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         checkUpdateBtnClicked();
     } else {
         /*如果读不到，默认也不进行操作*/
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         checkUpdateBtnClicked();
     }
 }
@@ -165,6 +170,7 @@ bool TabWid::autoUpdateLoadUpgradeList(bool isBackUp)
         lastRefreshTime->setText(tr("Last refresh:")+ updatetime);
         lastRefreshTime->show();
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         return false;
     } else {
         QStringList list;
@@ -188,10 +194,10 @@ void TabWid::unableToConnectSource()
     qDebug() << "源管理器信号是否连接成功：" << isConnectSourceSignal;
     if(isConnectSourceSignal == false)
     {
-        disconnectSource();
+        disconnectSource(true);
     }
 }
-void TabWid::disconnectSource()
+void TabWid::disconnectSource(bool isTimeOut)
 {
     disconnect(updateSource->serviceInterface,SIGNAL(updateTemplateStatus(QString)),this,SLOT(slotUpdateTemplate(QString)));
     disconnect(updateSource->serviceInterface,SIGNAL(updateCacheStatus(QVariantList)),this,SLOT(slotUpdateCache(QVariantList)));
@@ -201,8 +207,12 @@ void TabWid::disconnectSource()
     checkUpdateBtn->stop();
     //        checkUpdateBtn->setText(tr("检查更新"));
     checkUpdateBtn->setText(tr("Check Update"));
+    checkUpdateBtn->setToolTip("");
     //        versionInformationLab->setText(tr("服务连接异常，请重新检测!") );
-    versionInformationLab->setText(tr("Software source server connection timeout") );
+    if (isTimeOut)
+        versionInformationLab->setText(tr("Software source server connection timeout"));
+    else
+        versionInformationLab->setText(tr("Software source server connection failed"));
 }
 TabWid::~TabWid()
 {
@@ -240,6 +250,7 @@ void TabWid::backupMessageBox(QString str)
         //       checkUpdateBtn->setText(tr("全部更新"));
         versionInformationLab->setText(tr("Updatable app detected on your system!"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
         foreach (AppUpdateWid *wid, widgetList) {
             wid->updateAPPBtn->show();
         }
@@ -378,6 +389,7 @@ void TabWid::backupHideUpdateBtn(int result)
         checkUpdateBtn->setEnabled(true);
         //        checkUpdateBtn->setText(tr("全部更新"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
 
     }
 }
@@ -439,6 +451,7 @@ void TabWid::slotUpdateCache(QVariantList sta)
                 checkUpdateBtn->setEnabled(true);
                 checkUpdateBtn->stop();
                 checkUpdateBtn->setText(tr("Check Update"));
+                checkUpdateBtn->setToolTip("");
                 return ;
             }
             QString str =  file.readAll();
@@ -469,6 +482,7 @@ void TabWid::slotUpdateCache(QVariantList sta)
                 checkUpdateBtn->stop();
                 //                checkUpdateBtn->setText(tr("检查更新"));
                 checkUpdateBtn->setText(tr("Check Update"));
+                checkUpdateBtn->setToolTip("");
                 //                versionInformationLab->setText(tr("软件源更新失败：")+failedInfo );
                 versionInformationLab->setText(tr("Software source update failed: ")+failedInfo );
                 disconnect(updateSource->serviceInterface,SIGNAL(updateTemplateStatus(QString)),this,SLOT(slotUpdateTemplate(QString)));
@@ -500,6 +514,7 @@ void TabWid::allComponents()
     scrollArea = new QScrollArea(this);
 
     updateTab = new QWidget(this);  //更新页面
+    updateTab->setMaximumSize(960,960);
     AppMessage = new QVBoxLayout();
     AppMessage->setAlignment(Qt::AlignTop);
     updateTab->setLayout(AppMessage);
@@ -659,7 +674,10 @@ void TabWid::allComponents()
     DownloadHLab->setText(tr("Download Limit(Kb/s)"));
     DownloadHBtn = new SwitchButton();
     DownloadHValue = new QComboBox();
-    DownloadHValue->hide();
+    QStringList strList;
+    strList<<"50"<<"100"<<"200"<<"300"<<"600";
+    DownloadHValue->addItems(strList);
+    //DownloadHValue->hide();
      DownloadVLab = new QLabel();
      DownloadVLab->setText(tr("It will be avaliable in the next download."));
 
@@ -817,6 +835,7 @@ void TabWid::loadingFinishedSlot(int size)
         checkUpdateBtn->stop();
         //        checkUpdateBtn->setText(tr("检查更新"));
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->setToolTip("");
         //        versionInformationLab->setText(tr("您的系统已是最新！"));
         versionInformationLab->setText(tr("Your system is the latest!"));
         foreach (AppUpdateWid *wid, widgetList) {
@@ -843,6 +862,7 @@ void TabWid::loadingFinishedSlot(int size)
         checkUpdateBtn->setEnabled(true);
         //        checkUpdateBtn->setText(tr("全部更新"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+        checkUpdateBtn->setToolTip("");
         //        versionInformationLab->setText(tr("检测到你的系统有可更新的应用！"));
         if (!isAutoUpgrade) {
             versionInformationLab->setText(tr("Updatable app detected on your system!"));
@@ -860,13 +880,18 @@ void TabWid::getAllDisplayInformation()
     QString checkedtime;
     QString checkedstatues;
     QString backupStatus;
+    QString downloadlimitstatus;
+    QString downloadlimitvalue;
     query.exec("select * from display");
     while(query.next())
     {
         checkedtime = query.value("check_time").toString();
         checkedstatues = query.value("auto_check").toString();
         backupStatus = query.value("auto_backup").toString();
+        downloadlimitstatus = query.value("download_limit").toString();
+        downloadlimitvalue = query.value("download_limit_value").toString();
     }
+    qDebug()<<"downloadlimitstatus:"<<downloadlimitstatus;
     QSqlQuery queryInstall(QSqlDatabase::database("A"));
     updatetime = tr("No Information!");
     queryInstall.exec("select * from installed order by id desc");
@@ -898,6 +923,38 @@ void TabWid::getAllDisplayInformation()
     {
         isAutoBackupSBtn->setChecked(true);
     }
+
+    if(downloadlimitstatus == "false")
+    {
+        DownloadHBtn->setChecked(false);
+        DownloadHValue->hide();
+//                        updateMutual->SetDownloadLimit(0,false);
+        //DownloadHValue->hide();
+    }
+    else
+    {
+        DownloadHBtn->setChecked(true);
+        DownloadHValue->show();
+        DownloadHValue->setCurrentText(downloadlimitvalue);
+        qDebug()<<"!!!!setCurrentText"<<downloadlimitvalue;
+//        QString dlimit = DownloadHValue->currentText();
+//        updateMutual->SetDownloadLimit(dlimit,true);
+        //DownloadHValue->show();
+    }
+//    if(downloadlimitvalue != "0")
+//    {
+//        //DownloadHBtn->setChecked(true);
+//        DownloadHValue->show();
+//                //QString dlimit = DownloadHValue->currentText();
+//        qDebug()<<"downloadlimitvalue is :"<<downloadlimitvalue;
+//        //updateMutual->SetDownloadLimit(downloadlimitvalue,true);不需要set，只需要显示即可
+//    }
+//    else
+//    {
+//        //DownloadHBtn->setChecked(false);
+//        DownloadHValue->hide();
+//        updateMutual->SetDownloadLimit(0,false);
+//    }
 }
 void TabWid::showHistoryWidget()
 {
@@ -973,7 +1030,7 @@ void TabWid::checkUpdateBtnClicked()
         switch (ret) {
         case 0:
             qDebug() << "全部更新。。。。。。";
-            isAutoBackupSBtn->setChecked(false);
+            isAutoBackupSBtn->setChecked(false);//貌似没意义？
             checkUpdateBtn->setEnabled(false);
             checkUpdateBtn->start();
             updateMutual->isPointOutNotBackup = false;   //全部更新时不再弹出单个更新未备份提示
@@ -1005,7 +1062,7 @@ void TabWid::checkUpdateBtnClicked()
 }
 
 
-void TabWid::DownloadLimitSwitchChanged()
+void TabWid::DownloadLimitSwitchChanged()//暂时废弃
 {
 
     if(DownloadHBtn->isChecked()==false)
@@ -1033,16 +1090,19 @@ void TabWid::DownloadLimitValueChanged(const QString &value)
     if(DownloadHBtn->isChecked()==false)
     {
         updateMutual->SetDownloadLimit(0,false);
+        updateMutual->insertInstallStates("download_limit_value","0");
     }
     else if (DownloadHBtn->isChecked()==true)
     {
         //int dlimit = DownloadLimitValue->value();
         updateMutual->SetDownloadLimit(value,true);
+        updateMutual->insertInstallStates("download_limit_value",value);
     }
     else
     {
         qDebug()<<"Download Limit Changed";
         updateMutual->SetDownloadLimit(0,false);
+        updateMutual->insertInstallStates("download_limit_value","0");
     }
 }
 void TabWid::isAutoCheckedChanged()     //自动检测按钮绑定的槽函数
@@ -1071,34 +1131,75 @@ void TabWid::isAutoBackupChanged()
     }
 }
 
+void TabWid::DownloadLimitChanged()
+{
+    if(DownloadHBtn->isChecked() == false)
+    {
+        qDebug()<<"download limit disabled";
+        DownloadHValue->hide();
+        updateMutual->SetDownloadLimit(0,false);
+        updateMutual->insertInstallStates("download_limit","false");
+
+    }
+    else if(DownloadHBtn->isChecked() == true)
+    {
+        updateMutual->insertInstallStates("download_limit","true");
+        qDebug()<<"download limit enabled";
+        DownloadHValue->show();
+        QString dlimit = DownloadHValue->currentText();
+        updateMutual->SetDownloadLimit(dlimit,true);
+    }
+}
+
 void TabWid::slotCancelDownload()
 {
     checkUpdateBtn->stop();
     //    checkUpdateBtn->setText("全部更新");
     checkUpdateBtn->setText(tr("UpdateAll"));
+    checkUpdateBtn->setToolTip("");
     checkUpdateBtn->setCheckable(true);
 }
 
 void TabWid::hideUpdateBtnSlot(bool isSucceed)
 {
-    Q_UNUSED(isSucceed);
-    if(updateMutual->importantList.size() == 0) {
-        checkUpdateBtn->setEnabled(true);
-        checkUpdateBtn->stop();
-        //        checkUpdateBtn->setText(tr("检查更新"));
-        checkUpdateBtn->setText(tr("Check Update"));
-        if(updateMutual->failedList.size() == 0) {
+    if(isSucceed){
+        Q_UNUSED(isSucceed);
+        if(updateMutual->importantList.size() == 0) {
+            checkUpdateBtn->setEnabled(true);
+            checkUpdateBtn->stop();
+            //        checkUpdateBtn->setText(tr("检查更新"));
+            checkUpdateBtn->setText(tr("Check Update"));
+            checkUpdateBtn->setToolTip("");
+            if(updateMutual->failedList.size() == 0) {
             versionInformationLab->setText(tr("Your system is the latest!"));
             systemPortraitLab->setPixmap(QPixmap(":/img/plugins/upgrade/normal.png").scaled(96,96));
             checkUpdateBtn->hide();
             allProgressBar->hide();
             updateMutual->fileUnLock();
+            }
+            else {
+                versionInformationLab->setText(tr("Part of the update failed!"));
+                updateMutual->fileUnLock();
+                allProgressBar->hide();
+            }
+            QString updatetime = tr("No Information!");
+            QSqlQuery queryInstall(QSqlDatabase::database("A"));
+            queryInstall.exec("select * from installed order by id desc");
+            while (queryInstall.next()) {
+                QString statusType = queryInstall.value("keyword").toString();
+                if(statusType == "" || statusType =="1") {
+                    updatetime = queryInstall.value("time").toString();
+                    break;
+                }
+            }
+        lastRefreshTime->setText(tr("Last refresh:")+updatetime);
+        lastRefreshTime->show();
+        allProgressBar->hide();
         }
-        else {
-            versionInformationLab->setText(tr("Part of the update failed!"));
-            updateMutual->fileUnLock();
-            allProgressBar->hide();
-        }
+    }else{
+        versionInformationLab->setText(tr("Part of the update failed!"));
+        updateMutual->fileUnLock();
+        allProgressBar->hide();
         QString updatetime = tr("No Information!");
         QSqlQuery queryInstall(QSqlDatabase::database("A"));
         queryInstall.exec("select * from installed order by id desc");
@@ -1111,7 +1212,6 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
         }
         lastRefreshTime->setText(tr("Last refresh:")+updatetime);
         lastRefreshTime->show();
-        allProgressBar->hide();
     }
 }
 
@@ -1124,7 +1224,9 @@ void TabWid::changeUpdateAllSlot(bool isUpdate)
         if(checkUpdateBtn->isEnabled() == false)
         {
             checkUpdateBtn->setText(tr("UpdateAll"));
+            checkUpdateBtn->setToolTip("");
             checkUpdateBtn->setEnabled(true);
+            versionInformationLab->setText(tr("Part of the update failed!"));
         }
     }
 }
@@ -1145,7 +1247,7 @@ void TabWid::waitCrucialInstalled()
 void TabWid::getReplyFalseSlot()
 {
     isConnectSourceSignal = true;
-    disconnectSource();
+    disconnectSource(false);
 }
 
 void TabWid::receiveBackupStartResult(int result)

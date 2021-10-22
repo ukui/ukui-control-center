@@ -368,7 +368,7 @@ void Widget::slotOutputConnectedChanged()
     }
 
     resetPrimaryCombo();
-
+    mainScreenButtonSelect(ui->primaryCombo->currentIndex());
 }
 
 void Widget::slotUnifyOutputs()
@@ -594,15 +594,15 @@ void Widget::writeScale(double scale)
 void Widget::initGSettings()
 {
     QByteArray id(UKUI_CONTORLCENTER_PANEL_SCHEMAS);
-    if (QGSettings::isSchemaInstalled(id)) {
-        mGsettings = new QGSettings(id, QByteArray(), this);
-        if (mGsettings->keys().contains(THEME_NIGHT_KEY)) {
-            mThemeButton->setChecked(mGsettings->get(THEME_NIGHT_KEY).toBool());
-        }
-    } else {
-        qDebug() << Q_FUNC_INFO << "org.ukui.control-center.panel.plugins not install";
-        return;
-    }
+//    if (QGSettings::isSchemaInstalled(id)) {
+//        mGsettings = new QGSettings(id, QByteArray(), this);
+//        if (mGsettings->keys().contains(THEME_NIGHT_KEY)) {
+//            mThemeButton->setChecked(mGsettings->get(THEME_NIGHT_KEY).toBool());
+//        }
+//    } else {
+//        qDebug() << Q_FUNC_INFO << "org.ukui.control-center.panel.plugins not install";
+//        return;
+//    }
 
 
     QByteArray scaleId(FONT_RENDERING_DPI);
@@ -634,11 +634,11 @@ void Widget::initNightUI()
     nightLayout->addStretch();
     nightLayout->addWidget(mNightButton);
 
-    QHBoxLayout *themeLayout = new QHBoxLayout(ui->themeFrame);
-    mThemeButton = new SwitchButton(this);
-    themeLayout->addWidget(new QLabel(tr("Theme follow night mode")));
-    themeLayout->addStretch();
-    themeLayout->addWidget(mThemeButton);
+//    QHBoxLayout *themeLayout = new QHBoxLayout(ui->themeFrame);
+//    mThemeButton = new SwitchButton(this);
+//    themeLayout->addWidget(new QLabel(tr("Theme follow night mode")));
+//    themeLayout->addStretch();
+//    themeLayout->addWidget(mThemeButton);
 }
 
 bool Widget::isRestoreConfig()
@@ -1197,6 +1197,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         if (mKDSCfg != "copy" && !mUnifyButton->isChecked()) {
             delayApply();;
         }
+        mPrevConfig = mConfig->clone();
         if (mConfig->connectedOutputs().count() >= 2) {
             mUnifyButton->setChecked(isCheck);
         }
@@ -1584,7 +1585,7 @@ void Widget::checkOutputScreen(bool judge)
 
 void Widget::initConnection()
 {
-    connect(mThemeButton, SIGNAL(checkedChanged(bool)), this, SLOT(slotThemeChanged(bool)));
+//    connect(mThemeButton, SIGNAL(checkedChanged(bool)), this, SLOT(slotThemeChanged(bool)));
     connect(ui->primaryCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &Widget::mainScreenButtonSelect);
 
@@ -1855,7 +1856,10 @@ void Widget::initNightStatus()
 void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
 {
     if (this->mRedshiftIsValid) {
+        mNightButton->blockSignals(true);
         mNightButton->setChecked(nightArg["Active"].toBool());
+        showNightWidget(mNightButton->isChecked());
+        mNightButton->blockSignals(false);
     }
 }
 
