@@ -240,6 +240,12 @@
         <file>plugins/gesture/Showtaskbar.gif</file>
         <file>plugins/gesture/Textselection.gif</file>
         <file>plugins/gesture/Zoompicture.gif</file>
+        <file>plugins/bluetooth/connect-fail.svg</file>
+        <file>plugins/bluetooth/connected.svg</file>
+        <file>plugins/bluetooth/connecting.svg</file>
+        <file>plugins/bluetooth/more-blue.svg</file>
+        <file>plugins/bluetooth/more.svg</file>
+        <file>plugins/bluetooth/not-connected.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

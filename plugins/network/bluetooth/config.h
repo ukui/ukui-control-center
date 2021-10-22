@@ -12,6 +12,7 @@
 enum DEVICE_STATUS{
     NONE = 0,
     LINK,
+    LINKING,
     UNLINK,
     PAIRED,
     ERROR,

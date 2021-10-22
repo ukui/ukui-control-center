@@ -7,12 +7,12 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 #include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-#include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
+include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 #include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 #include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets
-QT       += core gui widgets dbus
+QT       += core gui widgets dbus svg
 
 TEMPLATE = lib
 CONFIG += plugin \
@@ -61,9 +61,10 @@ HEADERS += \
     bluetoothnamelabel.h \
     config.h \
     deviceinfoitem.h \
-    loadinglabel.h
+    loadinglabel.h \
 
-
+#RESOURCES += \
+#    res/img.qrc
 #FORMS += \
 #        bluetooth.ui
 

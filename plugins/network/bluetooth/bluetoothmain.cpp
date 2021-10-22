@@ -539,8 +539,7 @@ void BlueToothMain::removeDeviceItemUI(QString address)
 //            delete item;
 //            item = nullptr;
             item->deleteLater();
-
-            if(frame_middle->children().size() == 2){
+            if(!paired_dev_layout->count()){
                 frame_middle->setVisible(false);
             }
         }else{
@@ -580,12 +579,6 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         {
             this->startDiscovery();
         });
-
-
-        if(device->isConnected())
-            item->initInfoPage(device->name(), DEVICE_STATUS::LINK, device);
-        else
-            item->initInfoPage(device->name(), DEVICE_STATUS::PAIRED, device);
 
         show_flag = true;
         paired_dev_layout->addWidget(item,Qt::AlignTop);
@@ -896,8 +889,6 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
             this->startDiscovery();
         });
 
-
-        item->initInfoPage(device->name(), DEVICE_STATUS::UNLINK, device);
         if(device->name() == device->address())
             device_list_layout->addWidget(item,Qt::AlignTop);
         else
@@ -910,14 +901,14 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
 
 void BlueToothMain::serviceDiscovered(BluezQt::DevicePtr device)
 {
-    qDebug() << Q_FUNC_INFO << device->type() << device->name() << device->address() << device->uuids().size();
+//    qDebug() << Q_FUNC_INFO << device->type() << device->name() << device->address() << device->uuids().size();
     if(device->isPaired()){
         addMyDeviceItemUI(device);
         return;
     }
 
     if(device->uuids().size() == 0 && device->name().split("-").length() == 6 && device->type() == BluezQt::Device::Uncategorized){
-        qDebug() << Q_FUNC_INFO << device->name() << device->type();
+//        qDebug() << Q_FUNC_INFO << device->name() << device->type();
         return;
     }
     if(Discovery_device_address.contains(device->address())){
@@ -953,13 +944,13 @@ void BlueToothMain::clearUiShowDeviceList()
 
 void BlueToothMain::serviceDiscoveredChange(BluezQt::DevicePtr device)
 {
-    qDebug() << Q_FUNC_INFO << device->type() << device->name() << device->address() << device->uuids().size() << device->rssi();
+//    qDebug() << Q_FUNC_INFO << device->type() << device->name() << device->address() << device->uuids().size() << device->rssi();
     if(device->uuids().size() == 0 && device->name().split("-").length() == 6 && device->type() == BluezQt::Device::Uncategorized){
         return;
     }
 
     if(device->isPaired() || device->isConnected()) {
-        qDebug() << Q_FUNC_INFO << "device is Paired or Connected" << __LINE__;
+//        qDebug() << Q_FUNC_INFO << "device is Paired or Connected" << __LINE__;
         return;
     }
 
