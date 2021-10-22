@@ -1026,7 +1026,7 @@ void TabWid::checkUpdateBtnClicked()
         }
 
 
-        QMessageBox msgBox(this);
+        QMessageBox msgBox(qApp->activeModalWidget());
         msgBox.setText(tr("Please back up the system before all updates to avoid unnecessary losses"));
         msgBox.setWindowTitle(tr("Prompt information"));
         msgBox.setIcon(QMessageBox::Icon::Information);
