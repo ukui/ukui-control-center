@@ -38,8 +38,8 @@
  */
 #define THEME_GTK_SCHEMA "org.mate.interface"
 #define MODE_GTK_KEY "gtk-theme"
-#define MODE_GTK_BLACK "ukui-black-unity"
-#define MODE_GTK_WHITE"ukui-white-unity"
+#define MODE_GTK_BLACK "ukui-black"
+#define MODE_GTK_WHITE"ukui-white"
 /* GTK图标主题 */
 #define ICON_GTK_KEY "icon-theme"
 
