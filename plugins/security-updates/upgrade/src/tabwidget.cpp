@@ -59,6 +59,7 @@ void TabWid::initDbus()
 
     checkUpdateBtn->setText(tr("initializing"));
     checkUpdateBtn->setToolTip("");
+            checkUpdateBtn->adjustSize();
     checkUpdateBtn->setEnabled(false);
 
 }
@@ -119,6 +120,7 @@ void TabWid::getAutoUpgradeStatus()
         updateSource->killProcessSignal(pid.toInt(), 10);
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->adjustSize();
         checkUpdateBtnClicked();
     } else if (!ret.compare("install")){
         isAutoUpgrade = true;
@@ -127,6 +129,7 @@ void TabWid::getAutoUpgradeStatus()
         checkUpdateBtn->hide();
         checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setToolTip("");
+        checkUpdateBtn->adjustSize();
         bool ret = autoUpdateLoadUpgradeList(false);
         if (!ret)
             updateMutual->disconnectDbusSignal();
@@ -135,11 +138,13 @@ void TabWid::getAutoUpgradeStatus()
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->setText(tr("Check Update"));
         checkUpdateBtn->setToolTip("");
+        checkUpdateBtn->adjustSize();
         checkUpdateBtnClicked();
     } else {
         /*如果读不到，默认也不进行操作*/
         checkUpdateBtn->setEnabled(true);
         checkUpdateBtn->setText(tr("Check Update"));
+        checkUpdateBtn->adjustSize();
         checkUpdateBtn->setToolTip("");
         checkUpdateBtnClicked();
     }
@@ -171,6 +176,7 @@ bool TabWid::autoUpdateLoadUpgradeList(bool isBackUp)
         lastRefreshTime->show();
         checkUpdateBtn->setText(tr("Check Update"));
         checkUpdateBtn->setToolTip("");
+                checkUpdateBtn->adjustSize();
         return false;
     } else {
         QStringList list;
@@ -207,6 +213,7 @@ void TabWid::disconnectSource(bool isTimeOut)
     checkUpdateBtn->stop();
     //        checkUpdateBtn->setText(tr("检查更新"));
     checkUpdateBtn->setText(tr("Check Update"));
+            checkUpdateBtn->adjustSize();
     checkUpdateBtn->setToolTip("");
     //        versionInformationLab->setText(tr("服务连接异常，请重新检测!") );
     if (isTimeOut)
@@ -251,6 +258,7 @@ void TabWid::backupMessageBox(QString str)
         versionInformationLab->setText(tr("Updatable app detected on your system!"));
         checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setToolTip("");
+                checkUpdateBtn->adjustSize();
         foreach (AppUpdateWid *wid, widgetList) {
             wid->updateAPPBtn->show();
         }
@@ -389,6 +397,7 @@ void TabWid::backupHideUpdateBtn(int result)
         checkUpdateBtn->setEnabled(true);
         //        checkUpdateBtn->setText(tr("全部更新"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+                checkUpdateBtn->adjustSize();
         checkUpdateBtn->setToolTip("");
 
     }
@@ -451,6 +460,7 @@ void TabWid::slotUpdateCache(QVariantList sta)
                 checkUpdateBtn->setEnabled(true);
                 checkUpdateBtn->stop();
                 checkUpdateBtn->setText(tr("Check Update"));
+                        checkUpdateBtn->adjustSize();
                 checkUpdateBtn->setToolTip("");
                 return ;
             }
@@ -482,6 +492,7 @@ void TabWid::slotUpdateCache(QVariantList sta)
                 checkUpdateBtn->stop();
                 //                checkUpdateBtn->setText(tr("检查更新"));
                 checkUpdateBtn->setText(tr("Check Update"));
+                        checkUpdateBtn->adjustSize();
                 checkUpdateBtn->setToolTip("");
                 //                versionInformationLab->setText(tr("软件源更新失败：")+failedInfo );
                 versionInformationLab->setText(tr("Software source update failed: ")+failedInfo );
@@ -835,6 +846,7 @@ void TabWid::loadingFinishedSlot(int size)
         checkUpdateBtn->stop();
         //        checkUpdateBtn->setText(tr("检查更新"));
         checkUpdateBtn->setText(tr("Check Update"));
+                checkUpdateBtn->adjustSize();
         checkUpdateBtn->setToolTip("");
         //        versionInformationLab->setText(tr("您的系统已是最新！"));
         versionInformationLab->setText(tr("Your system is the latest!"));
@@ -862,6 +874,7 @@ void TabWid::loadingFinishedSlot(int size)
         checkUpdateBtn->setEnabled(true);
         //        checkUpdateBtn->setText(tr("全部更新"));
         checkUpdateBtn->setText(tr("UpdateAll"));
+                checkUpdateBtn->adjustSize();
         checkUpdateBtn->setToolTip("");
         //        versionInformationLab->setText(tr("检测到你的系统有可更新的应用！"));
         if (!isAutoUpgrade) {
@@ -1156,6 +1169,7 @@ void TabWid::slotCancelDownload()
     checkUpdateBtn->stop();
     //    checkUpdateBtn->setText("全部更新");
     checkUpdateBtn->setText(tr("UpdateAll"));
+            checkUpdateBtn->adjustSize();
     checkUpdateBtn->setToolTip("");
     checkUpdateBtn->setCheckable(true);
 }
@@ -1169,6 +1183,7 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
             checkUpdateBtn->stop();
             //        checkUpdateBtn->setText(tr("检查更新"));
             checkUpdateBtn->setText(tr("Check Update"));
+                    checkUpdateBtn->adjustSize();
             checkUpdateBtn->setToolTip("");
             if(updateMutual->failedList.size() == 0) {
             versionInformationLab->setText(tr("Your system is the latest!"));
@@ -1224,6 +1239,7 @@ void TabWid::changeUpdateAllSlot(bool isUpdate)
         if(checkUpdateBtn->isEnabled() == false)
         {
             checkUpdateBtn->setText(tr("UpdateAll"));
+                    checkUpdateBtn->adjustSize();
             checkUpdateBtn->setToolTip("");
             checkUpdateBtn->setEnabled(true);
             versionInformationLab->setText(tr("Part of the update failed!"));
