@@ -30,17 +30,17 @@ Biometrics::~Biometrics()
 
 }
 
-QString Biometrics::get_plugin_name()
+QString Biometrics::plugini18nName()
 {
     return pluginName;
 }
 
-int Biometrics::get_plugin_type()
+int Biometrics::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Biometrics::get_plugin_ui()
+QWidget *Biometrics::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -51,12 +51,22 @@ QWidget *Biometrics::get_plugin_ui()
     return pluginWidget;
 }
 
-void Biometrics::plugin_delay_control()
-{
-
-}
-
 const QString Biometrics::name() const
 {
-    return QStringLiteral("biometrics");
+    return QStringLiteral("Biometrics");
+}
+
+bool Biometrics::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Biometrics::icon() const
+{
+    return QIcon();
+}
+
+bool Biometrics::isEnable() const
+{
+    return true;
 }

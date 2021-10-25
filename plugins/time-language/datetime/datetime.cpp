@@ -96,17 +96,17 @@ DateTime::~DateTime()
     }
 }
 
-QString DateTime::get_plugin_name()
+QString DateTime::plugini18nName()
 {
     return pluginName;
 }
 
-int DateTime::get_plugin_type()
+int DateTime::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *DateTime::get_plugin_ui()
+QWidget *DateTime::pluginUi()
 {
     QTimer::singleShot(1, this, [=]() {
         if (mFirstLoad) {
@@ -132,15 +132,25 @@ QWidget *DateTime::get_plugin_ui()
     return pluginWidget;
 }
 
-void DateTime::plugin_delay_control()
-{
-
-}
-
 const QString DateTime::name() const
 {
 
-    return QStringLiteral("date");
+    return QStringLiteral("Date");
+}
+
+bool DateTime::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon DateTime::icon() const
+{
+    return QIcon();
+}
+
+bool DateTime::isEnable() const
+{
+    return true;
 }
 
 void DateTime::initTitleLabel()

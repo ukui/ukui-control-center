@@ -73,15 +73,15 @@ Fonts::~Fonts()
     }
 }
 
-QString Fonts::get_plugin_name() {
+QString Fonts::plugini18nName() {
     return pluginName;
 }
 
-int Fonts::get_plugin_type() {
+int Fonts::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Fonts::get_plugin_ui() {
+QWidget *Fonts::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -115,12 +115,23 @@ QWidget *Fonts::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Fonts::plugin_delay_control() {
-
+const QString Fonts::name() const {
+    return QStringLiteral("Fonts");
 }
 
-const QString Fonts::name() const {
-    return QStringLiteral("fonts");
+bool Fonts::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Fonts::icon() const
+{
+    return QIcon();
+}
+
+bool Fonts::isEnable() const
+{
+    return true;
 }
 
 void Fonts::initSearchText() {

@@ -44,15 +44,15 @@ DefaultApp::~DefaultApp() {
     }
 }
 
-QString DefaultApp::get_plugin_name() {
+QString DefaultApp::plugini18nName() {
     return pluginName;
 }
 
-int DefaultApp::get_plugin_type() {
+int DefaultApp::pluginTypes() {
     return pluginType;
 }
 
-QWidget *DefaultApp::get_plugin_ui() {
+QWidget *DefaultApp::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new QWidget;
@@ -69,13 +69,24 @@ QWidget *DefaultApp::get_plugin_ui() {
     return pluginWidget;
 }
 
-void DefaultApp::plugin_delay_control() {
-
-}
-
 const QString DefaultApp::name() const {
 
-    return QStringLiteral("defaultapp");
+    return QStringLiteral("Defaultapp");
+}
+
+bool DefaultApp::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon DefaultApp::icon() const
+{
+    return QIcon();
+}
+
+bool DefaultApp::isEnable() const
+{
+    return true;
 }
 
 /* 初始化整体UI布局 */

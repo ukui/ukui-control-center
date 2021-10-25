@@ -38,7 +38,7 @@ DisplaySet::~DisplaySet()
 {
 }
 
-QWidget *DisplaySet::get_plugin_ui()
+QWidget *DisplaySet::pluginUi()
 {
     if (mFirstLoad) {
         requestBackend();
@@ -53,23 +53,34 @@ QWidget *DisplaySet::get_plugin_ui()
     return pluginWidget;
 }
 
-QString DisplaySet::get_plugin_name()
+QString DisplaySet::plugini18nName()
 {
     return pluginName;
 }
 
-int DisplaySet::get_plugin_type()
+int DisplaySet::pluginTypes()
 {
     return pluginType;
 }
 
-void DisplaySet::plugin_delay_control()
-{
-}
-
 const QString DisplaySet::name() const
 {
-    return QStringLiteral("display");
+    return QStringLiteral("Display");
+}
+
+bool DisplaySet::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon DisplaySet::icon() const
+{
+    return QIcon();
+}
+
+bool DisplaySet::isEnable() const
+{
+    return true;
 }
 
 void DisplaySet::requestBackend()

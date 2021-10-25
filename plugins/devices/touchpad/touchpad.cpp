@@ -36,17 +36,17 @@ Touchpad::~Touchpad()
 {
 }
 
-QString Touchpad::get_plugin_name()
+QString Touchpad::plugini18nName()
 {
     return pluginName;
 }
 
-int Touchpad::get_plugin_type()
+int Touchpad::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Touchpad::get_plugin_ui()
+QWidget *Touchpad::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -57,11 +57,22 @@ QWidget *Touchpad::get_plugin_ui()
     return pluginWidget;
 }
 
-void Touchpad::plugin_delay_control()
-{
-}
-
 const QString Touchpad::name() const
 {
-    return QStringLiteral("touchpad");
+    return QStringLiteral("Touchpad");
+}
+
+bool Touchpad::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Touchpad::icon() const
+{
+    return QIcon();
+}
+
+bool Touchpad::isEnable() const
+{
+    return true;
 }

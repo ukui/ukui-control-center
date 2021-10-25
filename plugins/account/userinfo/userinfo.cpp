@@ -82,15 +82,15 @@ UserInfo::~UserInfo()
     }
 }
 
-QString UserInfo::get_plugin_name() {
+QString UserInfo::plugini18nName() {
     return pluginName;
 }
 
-int UserInfo::get_plugin_type() {
+int UserInfo::pluginTypes() {
     return pluginType;
 }
 
-QWidget *UserInfo::get_plugin_ui() {
+QWidget *UserInfo::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -122,13 +122,24 @@ QWidget *UserInfo::get_plugin_ui() {
     return pluginWidget2;
 }
 
-void UserInfo::plugin_delay_control() {
-
-}
-
 const QString UserInfo::name() const {
 
-    return QStringLiteral("userinfo");
+    return QStringLiteral("Userinfo");
+}
+
+bool UserInfo::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon UserInfo::icon() const
+{
+    return QIcon();
+}
+
+bool UserInfo::isEnable() const
+{
+    return true;
 }
 
 void UserInfo::initSearchText() {

@@ -35,15 +35,15 @@ Audio::~Audio()
     }
 }
 
-QString Audio::get_plugin_name() {
+QString Audio::plugini18nName() {
     return pluginName;
 }
 
-int Audio::get_plugin_type() {
+int Audio::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Audio::get_plugin_ui() {
+QWidget *Audio::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         ui = new Ui::Audio;
@@ -55,11 +55,22 @@ QWidget *Audio::get_plugin_ui() {
     return  pluginWidget;
 }
 
-void Audio::plugin_delay_control(){
-
+const QString Audio::name() const {
+    return QStringLiteral("Audio");
 }
 
-const QString Audio::name() const {
-    return QStringLiteral("audio");
+bool Audio::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Audio::icon() const
+{
+    return QIcon();
+}
+
+bool Audio::isEnable() const
+{
+    return true;
 }
 

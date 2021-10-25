@@ -44,25 +44,36 @@ Update::~Update()
     ui = nullptr;
 }
 
-QString Update::get_plugin_name(){
+QString Update::plugini18nName(){
     return pluginName;
 }
 
-int Update::get_plugin_type(){
+int Update::pluginTypes(){
     return pluginType;
 }
 
-QWidget *Update::get_plugin_ui(){
+QWidget *Update::pluginUi(){
     return pluginWidget;
-}
-
-void Update::plugin_delay_control(){
-
 }
 
 const QString Update::name() const {
 
-    return QStringLiteral("update");
+    return QStringLiteral("Update");
+}
+
+bool Update::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Update::icon() const
+{
+    return QIcon();
+}
+
+bool Update::isEnable() const
+{
+    return false;
 }
 
 void Update::ui_init(){

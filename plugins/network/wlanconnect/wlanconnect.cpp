@@ -78,15 +78,15 @@ WlanConnect::~WlanConnect()
     delete m_switchGsettings;
 }
 
-QString WlanConnect::get_plugin_name() {
+QString WlanConnect::plugini18nName() {
     return pluginName;
 }
 
-int WlanConnect::get_plugin_type() {
+int WlanConnect::pluginTypes() {
     return pluginType;
 }
 
-QWidget *WlanConnect::get_plugin_ui() {
+QWidget *WlanConnect::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -106,13 +106,24 @@ QWidget *WlanConnect::get_plugin_ui() {
     return pluginWidget;
 }
 
-void WlanConnect::plugin_delay_control() {
-
-}
-
 const QString WlanConnect::name() const {
 
-    return QStringLiteral("wlanconnect");
+    return QStringLiteral("Wlanconnect");
+}
+
+bool WlanConnect::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon WlanConnect::icon() const
+{
+    return QIcon();
+}
+
+bool WlanConnect::isEnable() const
+{
+    return false;
 }
 
 void WlanConnect::initSearchText() {

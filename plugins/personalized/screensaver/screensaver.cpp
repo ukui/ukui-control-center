@@ -108,17 +108,17 @@ Screensaver::~Screensaver()
     }
 }
 
-QString Screensaver::get_plugin_name()
+QString Screensaver::plugini18nName()
 {
     return pluginName;
 }
 
-int Screensaver::get_plugin_type()
+int Screensaver::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Screensaver::get_plugin_ui()
+QWidget *Screensaver::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -144,21 +144,30 @@ QWidget *Screensaver::get_plugin_ui()
     return pluginWidget;
 }
 
-void Screensaver::plugin_delay_control()
-{
-    // 初始化屏保预览Widget
-    initPreviewWidget();
-}
-
 const QString Screensaver::name() const
 {
-    return QStringLiteral("screensaver");
+    return QStringLiteral("Screensaver");
 }
 
 void Screensaver::plugin_leave()
 {
     closeScreensaver();
     return;
+}
+
+bool Screensaver::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Screensaver::icon() const
+{
+    return QIcon();
+}
+
+bool Screensaver::isEnable() const
+{
+    return true;
 }
 
 void Screensaver::initPreviewLabel()

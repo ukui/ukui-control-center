@@ -56,17 +56,17 @@ Screenlock::~Screenlock()
     }
 }
 
-QString Screenlock::get_plugin_name()
+QString Screenlock::plugini18nName()
 {
     return pluginName;
 }
 
-int Screenlock::get_plugin_type()
+int Screenlock::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Screenlock::get_plugin_ui()
+QWidget *Screenlock::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -92,14 +92,24 @@ QWidget *Screenlock::get_plugin_ui()
     return pluginWidget;
 }
 
-void Screenlock::plugin_delay_control()
-{
-
-}
-
 const QString Screenlock::name() const
 {
-    return QStringLiteral("screenlock");
+    return QStringLiteral("Screenlock");
+}
+
+bool Screenlock::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Screenlock::icon() const
+{
+    return QIcon();
+}
+
+bool Screenlock::isEnable() const
+{
+    return false;
 }
 
 void Screenlock::initSearchText() {

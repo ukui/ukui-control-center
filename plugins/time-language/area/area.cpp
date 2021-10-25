@@ -68,15 +68,15 @@ void Area::connectToServer(){
     NetThread->start();
 }
 
-QString Area::get_plugin_name() {
+QString Area::plugini18nName() {
     return pluginName;
 }
 
-int Area::get_plugin_type() {
+int Area::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Area::get_plugin_ui() {
+QWidget *Area::pluginUi() {
     if (mFirstLoad) {
 
         mFirstLoad = false;
@@ -128,13 +128,24 @@ QWidget *Area::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Area::plugin_delay_control() {
+const QString Area::name() const {
+    return QStringLiteral("Area");
 
 }
 
-const QString Area::name() const {
-    return QStringLiteral("area");
+bool Area::isShowOnHomePage() const
+{
+    return true;
+}
 
+QIcon Area::icon() const
+{
+    return QIcon();
+}
+
+bool Area::isEnable() const
+{
+    return true;
 }
 
 void Area::run_external_app_slot() {

@@ -17,15 +17,15 @@ Bluetooth::~Bluetooth() {
     }
 }
 
-QString Bluetooth::get_plugin_name() {
+QString Bluetooth::plugini18nName() {
     return pluginName;
 }
 
-int Bluetooth::get_plugin_type() {
+int Bluetooth::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Bluetooth::get_plugin_ui() {
+QWidget *Bluetooth::pluginUi() {
 
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -35,12 +35,23 @@ QWidget *Bluetooth::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Bluetooth::plugin_delay_control() {
-
+const QString Bluetooth::name() const {
+    return QStringLiteral("Bluetooth");
 }
 
-const QString Bluetooth::name() const {
-    return QStringLiteral("bluetooth");
+bool Bluetooth::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Bluetooth::icon() const
+{
+    return QIcon();
+}
+
+bool Bluetooth::isEnable() const
+{
+    return true;
 }
 
 

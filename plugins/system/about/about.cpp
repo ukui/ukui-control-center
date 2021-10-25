@@ -72,17 +72,17 @@ About::~About()
     }
 }
 
-QString About::get_plugin_name()
+QString About::plugini18nName()
 {
     return pluginName;
 }
 
-int About::get_plugin_type()
+int About::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *About::get_plugin_ui()
+QWidget *About::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -107,13 +107,24 @@ QWidget *About::get_plugin_ui()
     return pluginWidget;
 }
 
-void About::plugin_delay_control()
-{
-}
-
 const QString About::name() const
 {
-    return QStringLiteral("about");
+    return QStringLiteral("About");
+}
+
+bool About::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon About::icon() const
+{
+    return QIcon();
+}
+
+bool About::isEnable() const
+{
+    return true;
 }
 
 /* 初始化整体UI布局 */

@@ -63,15 +63,15 @@ NetConnect::~NetConnect() {
     } 
 }
 
-QString NetConnect::get_plugin_name() {
+QString NetConnect::plugini18nName() {
     return pluginName;
 }
 
-int NetConnect::get_plugin_type() {
+int NetConnect::pluginTypes() {
     return pluginType;
 }
 
-QWidget *NetConnect::get_plugin_ui() {
+QWidget *NetConnect::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -93,13 +93,24 @@ QWidget *NetConnect::get_plugin_ui() {
     return pluginWidget;
 }
 
-void NetConnect::plugin_delay_control() {
-
-}
-
 const QString NetConnect::name() const {
 
-    return QStringLiteral("netconnect");
+    return QStringLiteral("WiredConnect");
+}
+
+bool NetConnect::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon NetConnect::icon() const
+{
+    return QIcon();
+}
+
+bool NetConnect::isEnable() const
+{
+    return true;
 }
 
 void NetConnect::initSearchText() {

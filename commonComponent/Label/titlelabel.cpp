@@ -21,7 +21,6 @@
 #include "titlelabel.h"
 #include <QFont>
 
-#include <QGSettings>
 #include <QVariant>
 #include <QDebug>
 

@@ -66,15 +66,15 @@ Power::~Power() {
     }
 }
 
-QString Power::get_plugin_name() {
+QString Power::plugini18nName() {
     return pluginName;
 }
 
-int Power::get_plugin_type() {
+int Power::pluginTypes() {
     return pluginType;
 }
 
-QWidget * Power::get_plugin_ui() {
+QWidget * Power::pluginUi() {
     if (mFirstLoad) {
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
@@ -128,13 +128,24 @@ QWidget * Power::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Power::plugin_delay_control() {
-
-}
-
 const QString Power::name() const {
 
-    return QStringLiteral("power");
+    return QStringLiteral("Power");
+}
+
+bool Power::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Power::icon() const
+{
+    return QIcon();
+}
+
+bool Power::isEnable() const
+{
+    return true;
 }
 
 void Power::InitUI(QWidget *widget)

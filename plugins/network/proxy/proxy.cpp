@@ -51,15 +51,15 @@ Proxy::~Proxy()
 
 }
 
-QString Proxy::get_plugin_name() {
+QString Proxy::plugini18nName() {
     return pluginName;
 }
 
-int Proxy::get_plugin_type() {
+int Proxy::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Proxy::get_plugin_ui() {
+QWidget *Proxy::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new QWidget;
@@ -101,13 +101,24 @@ QWidget *Proxy::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Proxy::plugin_delay_control(){
-
-}
-
 const QString Proxy::name() const {
 
-    return QStringLiteral("proxy");
+    return QStringLiteral("Proxy");
+}
+
+bool Proxy::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Proxy::icon() const
+{
+    return QIcon();
+}
+
+bool Proxy::isEnable() const
+{
+    return true;
 }
 
 void Proxy::initUi(QWidget *widget)

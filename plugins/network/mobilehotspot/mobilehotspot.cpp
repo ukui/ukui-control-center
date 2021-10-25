@@ -38,15 +38,15 @@ MobileHotspot::~MobileHotspot()
     }
 }
 
-QString MobileHotspot::get_plugin_name() {
+QString MobileHotspot::plugini18nName() {
     return pluginName;
 }
 
-int MobileHotspot::get_plugin_type() {
+int MobileHotspot::pluginTypes() {
     return pluginType;
 }
 
-QWidget *MobileHotspot::get_plugin_ui() {
+QWidget *MobileHotspot::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -66,12 +66,23 @@ QWidget *MobileHotspot::get_plugin_ui() {
     return pluginWidget;
 }
 
-void MobileHotspot::plugin_delay_control() {
-
-}
-
 const QString MobileHotspot::name() const {
 
-    return QStringLiteral("mobilehotspot");
+    return QStringLiteral("MobileHotspot");
+}
+
+bool MobileHotspot::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon MobileHotspot::icon() const
+{
+    return QIcon();
+}
+
+bool MobileHotspot::isEnable() const
+{
+    return true;
 }
 

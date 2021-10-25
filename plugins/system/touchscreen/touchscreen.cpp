@@ -16,7 +16,7 @@ TouchScreen::TouchScreen() : mFirstLoad(true)
 TouchScreen::~TouchScreen() {
 }
 
-QWidget *TouchScreen::get_plugin_ui() {
+QWidget *TouchScreen::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new Widget;
@@ -29,19 +29,30 @@ QWidget *TouchScreen::get_plugin_ui() {
     return pluginWidget;
 }
 
-QString TouchScreen::get_plugin_name() {
+QString TouchScreen::plugini18nName() {
     return pluginName;
 }
 
-int TouchScreen::get_plugin_type() {
+int TouchScreen::pluginTypes() {
     return pluginType;
-}
-
-void TouchScreen::plugin_delay_control() {
-
 }
 
 const QString TouchScreen::name() const {
 
-    return QStringLiteral("touchscreen");
+    return QStringLiteral("Touchscreen");
+}
+
+QIcon TouchScreen::icon() const
+{
+    return QIcon();
+}
+
+bool TouchScreen::isShowOnHomePage() const
+{
+    return false;
+}
+
+bool TouchScreen::isEnable() const
+{
+    return true;
 }

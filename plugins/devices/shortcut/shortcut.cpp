@@ -90,17 +90,17 @@ Shortcut::~Shortcut()
     }
 }
 
-QString Shortcut::get_plugin_name()
+QString Shortcut::plugini18nName()
 {
     return pluginName;
 }
 
-int Shortcut::get_plugin_type()
+int Shortcut::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Shortcut::get_plugin_ui()
+QWidget *Shortcut::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -122,13 +122,24 @@ QWidget *Shortcut::get_plugin_ui()
     return pluginWidget;
 }
 
-void Shortcut::plugin_delay_control()
-{
-}
-
 const QString Shortcut::name() const
 {
-    return QStringLiteral("shortcut");
+    return QStringLiteral("Shortcut");
+}
+
+bool Shortcut::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Shortcut::icon() const
+{
+    return QIcon();
+}
+
+bool Shortcut::isEnable() const
+{
+    return true;
 }
 
 void Shortcut::connectToServer()

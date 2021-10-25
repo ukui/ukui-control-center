@@ -73,17 +73,17 @@ AutoBoot::~AutoBoot()
     }
 }
 
-QString AutoBoot::get_plugin_name()
+QString AutoBoot::plugini18nName()
 {
     return pluginName;
 }
 
-int AutoBoot::get_plugin_type()
+int AutoBoot::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *AutoBoot::get_plugin_ui()
+QWidget *AutoBoot::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -101,13 +101,24 @@ QWidget *AutoBoot::get_plugin_ui()
     return pluginWidget;
 }
 
-void AutoBoot::plugin_delay_control()
-{
-}
-
 const QString AutoBoot::name() const
 {
-    return QStringLiteral("autoboot");
+    return QStringLiteral("Autoboot");
+}
+
+bool AutoBoot::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon AutoBoot::icon() const
+{
+    return QIcon();
+}
+
+bool AutoBoot::isEnable() const
+{
+    return true;
 }
 
 /* 初始化整体UI布局 */

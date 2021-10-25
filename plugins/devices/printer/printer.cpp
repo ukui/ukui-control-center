@@ -40,17 +40,17 @@ Printer::~Printer()
     }
 }
 
-QString Printer::get_plugin_name()
+QString Printer::plugini18nName()
 {
     return pluginName;
 }
 
-int Printer::get_plugin_type()
+int Printer::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Printer::get_plugin_ui()
+QWidget *Printer::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -73,13 +73,24 @@ QWidget *Printer::get_plugin_ui()
     return pluginWidget;
 }
 
-void Printer::plugin_delay_control()
-{
-}
-
 const QString Printer::name() const
 {
-    return QStringLiteral("printer");
+    return QStringLiteral("Printer");
+}
+
+bool Printer::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Printer::icon() const
+{
+    return QIcon();
+}
+
+bool Printer::isEnable() const
+{
+    return true;
 }
 
 void Printer::initUi(QWidget *widget)

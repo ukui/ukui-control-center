@@ -65,15 +65,15 @@ Wallpaper::~Wallpaper()
     }
 }
 
-QString Wallpaper::get_plugin_name() {
+QString Wallpaper::plugini18nName() {
     return pluginName;
 }
 
-int Wallpaper::get_plugin_type() {
+int Wallpaper::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Wallpaper::get_plugin_ui() {
+QWidget *Wallpaper::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -102,12 +102,24 @@ QWidget *Wallpaper::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Wallpaper::plugin_delay_control(){
-}
-
 const QString Wallpaper::name() const {
 
-    return QStringLiteral("wallpaper");
+    return QStringLiteral("Wallpaper");
+}
+
+bool Wallpaper::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Wallpaper::icon() const
+{
+    return QIcon();
+}
+
+bool Wallpaper::isEnable() const
+{
+    return true;
 }
 
 void Wallpaper::initSearchText() {

@@ -37,15 +37,15 @@ Vpn::~Vpn()
     }
 }
 
-QString Vpn::get_plugin_name(){
+QString Vpn::plugini18nName(){
     return pluginName;
 }
 
-int Vpn::get_plugin_type(){
+int Vpn::pluginTypes(){
     return pluginType;
 }
 
-QWidget *Vpn::get_plugin_ui(){
+QWidget *Vpn::pluginUi(){
     if (mFirstLoad) {
         mFirstLoad = false;
         ui = new Ui::Vpn;
@@ -58,13 +58,24 @@ QWidget *Vpn::get_plugin_ui(){
     return pluginWidget;
 }
 
-void Vpn::plugin_delay_control(){
-
-}
-
 const QString Vpn::name() const {
 
-    return QStringLiteral("vpn");
+    return QStringLiteral("Vpn");
+}
+
+bool Vpn::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Vpn::icon() const
+{
+    return QIcon();
+}
+
+bool Vpn::isEnable() const
+{
+    return true;
 }
 
 void Vpn::initComponent(){

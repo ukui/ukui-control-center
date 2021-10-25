@@ -133,25 +133,36 @@ Theme::~Theme()
     ui = nullptr;
 }
 
-QString Theme::get_plugin_name() {
+QString Theme::plugini18nName() {
     return pluginName;
 }
 
-int Theme::get_plugin_type() {
+int Theme::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Theme::get_plugin_ui() {
+QWidget *Theme::pluginUi() {
     return pluginWidget;
-}
-
-void Theme::plugin_delay_control(){
-
 }
 
 const QString Theme::name() const {
 
-    return QStringLiteral("theme");
+    return QStringLiteral("Theme");
+}
+
+bool Theme::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Theme::icon() const
+{
+    return QIcon();
+}
+
+bool Theme::isEnable() const
+{
+    return true;
 }
 
 void Theme::initSearchText() {

@@ -28,15 +28,15 @@ SecurityCenter::~SecurityCenter()
     }
 }
 
-QString SecurityCenter::get_plugin_name(){
+QString SecurityCenter::plugini18nName(){
     return pluginName;
 }
 
-int SecurityCenter::get_plugin_type(){
+int SecurityCenter::pluginTypes(){
     return pluginType;
 }
 
-QWidget * SecurityCenter::get_plugin_ui(){
+QWidget * SecurityCenter::pluginUi(){
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -51,11 +51,22 @@ QWidget * SecurityCenter::get_plugin_ui(){
     return pluginWidget;
 }
 
-void SecurityCenter::plugin_delay_control(){
-
-}
-
 const QString SecurityCenter::name() const {
 
-    return QStringLiteral("securitycenter");
+    return QStringLiteral("SecurityCenter");
+}
+
+bool SecurityCenter::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon SecurityCenter::icon() const
+{
+    return QIcon();
+}
+
+bool SecurityCenter::isEnable() const
+{
+    return false;
 }

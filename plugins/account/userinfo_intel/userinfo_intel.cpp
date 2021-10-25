@@ -70,15 +70,15 @@ UserInfoIntel::~UserInfoIntel()
     }
 }
 
-QString UserInfoIntel::get_plugin_name(){
+QString UserInfoIntel::plugini18nName(){
     return pluginName;
 }
 
-int UserInfoIntel::get_plugin_type(){
+int UserInfoIntel::pluginTypes(){
     return pluginType;
 }
 
-QWidget *UserInfoIntel::get_plugin_ui(){
+QWidget *UserInfoIntel::pluginUi(){
     if (mFirstLoad) {
         mFirstLoad = false;
         ui = new Ui::UserInfoIntel;
@@ -120,13 +120,24 @@ QWidget *UserInfoIntel::get_plugin_ui(){
     return pluginWidget;
 }
 
-void UserInfoIntel::plugin_delay_control(){
-
-}
-
 const QString UserInfoIntel::name() const {
 
-    return QStringLiteral("userinfo");
+    return QStringLiteral("Userinfo");
+}
+
+bool UserInfoIntel::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon UserInfoIntel::icon() const
+{
+    return QIcon();
+}
+
+bool UserInfoIntel::isEnable() const
+{
+    return true;
 }
 
 void UserInfoIntel::initSearchText() {
