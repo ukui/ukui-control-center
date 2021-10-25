@@ -1,4 +1,5 @@
 #include "bluetoothmain.h"
+#include "ImageUtil/imageutil.h"
 
 #include <QDBusObjectPath>
 #include <QtDBus/QDBusConnection>
@@ -7,23 +8,41 @@
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnectionInterface>
 #include <QDBusMessage>
-//#include <polkit-qt5-1/PolkitQt1/Authority>
+#include <QPalette>
 #include <QMessageLogger>
 
 BlueToothMain::BlueToothMain(QWidget *parent)
     : QMainWindow(parent)
 {
+//    this->setStyleSheet("background:#F6F6F6;");
     if(QGSettings::isSchemaInstalled("org.ukui.bluetooth")){
-        settings = new QGSettings("org.ukui.bluetooth");
+        blutoothSettings = new QGSettings("org.ukui.bluetooth");
 
 //        paired_device_address.clear();
 //        paired_device_address = settings->get("paired-device-address").toStringList();
 //        finally_connect_the_device = settings->get("finally-connect-the-device").toString();
-        Default_Adapter = settings->get("adapter-address").toString();
+        Default_Adapter = blutoothSettings->get("adapter-address").toString();
 
         qDebug() << "GSetting Value: " << Default_Adapter/* << finally_connect_the_device << paired_device_address*/;
     }
-//    this->setMinimumSize(582,500);
+
+    if(QGSettings::isSchemaInstalled("org.ukui.style")){
+        QPalette palette;
+        styleSettings = new QGSettings("org.ukui.style");
+        if (styleSettings->get("style-name").toString() == "ukui-black" ||
+            styleSettings->get("style-name").toString() == "ukui-dark") {
+            _themeIsBlack = true;
+            palette.setBrush(QPalette::Background,QBrush(QColor("#272729")));
+            palette.setBrush(QPalette::Text,QBrush(QColor(Qt::black)));
+        } else {
+            palette.setBrush(QPalette::Background,QBrush(QColor("#F6F6F6")));
+            palette.setBrush(QPalette::Text,QBrush(QColor(Qt::white)));
+        }
+        this->setPalette(palette);
+        connect(styleSettings,&QGSettings::changed,this,&BlueToothMain::styleGsettingChanged);
+    }
+
+
 
     InitBluetoothManager();
     qDebug() << m_manager->isOperational() << m_manager->isBluetoothBlocked();
@@ -716,8 +735,8 @@ BluezQt::AdapterPtr BlueToothMain::getDefaultAdapter()
             }
         }
     }
-    if(settings)
-        settings->set("adapter-address",QVariant::fromValue(value->address()));
+    if(blutoothSettings)
+        blutoothSettings->set("adapter-address",QVariant::fromValue(value->address()));
 
     return value;
 }
@@ -785,6 +804,22 @@ void BlueToothMain::MonitorSleepSlot(bool value)
     }
 }
 
+void BlueToothMain::styleGsettingChanged(const QString &key)
+{
+    if(key == "styleName"){
+        if(styleSettings->get("style-name").toString() == "ukui-black" ||
+           styleSettings->get("style-name").toString() == "ukui-dark")
+        {
+            _themeIsBlack = true;
+        }
+        else
+        {
+            _themeIsBlack = false;
+
+        }
+    }
+}
+
 void BlueToothMain::leaveEvent(QEvent *event)
 {
     qDebug() << Q_FUNC_INFO;
@@ -792,8 +827,8 @@ void BlueToothMain::leaveEvent(QEvent *event)
 
 BlueToothMain::~BlueToothMain()
 {
-    delete settings;
-    settings = nullptr;
+    delete blutoothSettings;
+    blutoothSettings = nullptr;
     delete device_list;
     device_list = nullptr;
 }
@@ -1025,7 +1060,11 @@ void BlueToothMain::Refresh_load_Label_icon()
     if(this->centralWidget()->objectName() == "normalWidget") {
         if(i == 0)
             i = 7;
-        loadLabel->setPixmap(QIcon::fromTheme("ukui-loading-"+QString::number(i,10)).pixmap(18,18));
+
+        if (_themeIsBlack)
+            loadLabel->setPixmap(ImageUtil::drawSymbolicColoredPixmap(QIcon::fromTheme("ukui-loading-"+QString::number(i,10)).pixmap(18,18),"white"));
+        else
+            loadLabel->setPixmap(QIcon::fromTheme("ukui-loading-"+QString::number(i,10)).pixmap(18,18));
         loadLabel->update();
         i--;
     }
@@ -1033,7 +1072,7 @@ void BlueToothMain::Refresh_load_Label_icon()
 
 void BlueToothMain::set_tray_visible(bool value)
 {
-    settings->set("tray-show",QVariant::fromValue(value));
+    blutoothSettings->set("tray-show",QVariant::fromValue(value));
 }
 
 void BlueToothMain::set_discoverable(bool value)
@@ -1072,8 +1111,8 @@ void BlueToothMain::change_device_parent(const QString &address)
 void BlueToothMain::adapterPoweredChanged(bool value)
 {
     qDebug() << Q_FUNC_INFO <<value;
-    if(settings)
-        settings->set("switch",QVariant::fromValue(value));
+    if(blutoothSettings)
+        blutoothSettings->set("switch",QVariant::fromValue(value));
 
     if(value)
     {
@@ -1136,8 +1175,8 @@ void BlueToothMain::adapterComboxChanged(int i)
 	    return;
         m_localDevice->stopDiscovery();
         updateUIWhenAdapterChanged();
-        if(settings)
-            settings->set("adapter-address",QVariant::fromValue(adapter_address_list.at(i)));
+        if(blutoothSettings)
+            blutoothSettings->set("adapter-address",QVariant::fromValue(adapter_address_list.at(i)));
             Default_Adapter = adapter_address_list.at(i);
     }
     else

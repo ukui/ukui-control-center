@@ -96,8 +96,12 @@ private slots:
     void adapterNameChanged(const QString &name);
     void adapterDeviceRemove(BluezQt::DevicePtr ptr);
     void MonitorSleepSlot(bool value);
+    void styleGsettingChanged(const QString &);
 private:
-    QGSettings *settings = nullptr;
+    QGSettings *blutoothSettings = nullptr;
+    QGSettings *styleSettings = nullptr;
+    bool _themeIsBlack = false;
+
     QString Default_Adapter;
     QStringList paired_device_address;
     QString finally_connect_the_device;
