@@ -1480,21 +1480,21 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="438"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="440"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="439"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="447"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="441"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="449"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="440"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="448"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="442"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="450"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
@@ -1865,37 +1865,37 @@ change system settings</source>
         <translation>和密码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="398"/>
         <source>Must be begin with lower letters!</source>
         <translation>用户名必须以小写字母开始！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="399"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="401"/>
         <source>Can not contain capital letters!</source>
         <translation>用户名不能包含大写字母！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="421"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="423"/>
         <source>Name already in use, change another one.</source>
         <translation>该用户名已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="423"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="425"/>
         <source>Name corresponds to group already exists.</source>
         <translation>用户名对应组已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="428"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="430"/>
         <source>Name length must less than %1 letters!</source>
         <translation>用户名长度必须小于%1！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="430"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="432"/>
         <source>Can only contain letters,digits,underline!</source>
         <translation>用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="435"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="437"/>
         <source>Username&apos;s folder exists, change another one</source>
         <translation>用户目录已存在，请更改</translation>
     </message>
@@ -1922,7 +1922,7 @@ change system settings</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="394"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -2458,7 +2458,7 @@ folder will be deleted!</source>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="94"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="290"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="319"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="416"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="417"/>
         <source>device Link</source>
         <translation>已连接</translation>
     </message>
@@ -2467,8 +2467,8 @@ folder will be deleted!</source>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="178"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="221"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="285"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="340"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="422"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="341"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="423"/>
         <source>device matched</source>
         <translation>已配对</translation>
     </message>
@@ -2484,13 +2484,13 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="223"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="426"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="427"/>
         <source>device unLink</source>
         <translation>未连接</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="301"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="353"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="354"/>
         <source>device unlink</source>
         <translation>未连接</translation>
     </message>
@@ -4291,7 +4291,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="376"/>
+        <location filename="../../mainwindow.cpp" line="378"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4301,43 +4301,43 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="82"/>
-        <location filename="../../mainwindow.cpp" line="396"/>
-        <location filename="../../mainwindow.cpp" line="778"/>
+        <location filename="../../mainwindow.cpp" line="398"/>
+        <location filename="../../mainwindow.cpp" line="780"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="405"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="406"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="409"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="408"/>
+        <location filename="../../mainwindow.cpp" line="410"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="466"/>
+        <location filename="../../mainwindow.cpp" line="468"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="468"/>
+        <location filename="../../mainwindow.cpp" line="470"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="470"/>
+        <location filename="../../mainwindow.cpp" line="472"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4346,17 +4346,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="885"/>
+        <location filename="../../mainwindow.cpp" line="887"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="885"/>
+        <location filename="../../mainwindow.cpp" line="887"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="597"/>
+        <location filename="../../mainwindow.cpp" line="599"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -5210,9 +5210,8 @@ Please retry or relogin!</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="586"/>
         <source>10minn</source>
-        <translation>10分钟</translation>
+        <translation type="vanished">10分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="586"/>
@@ -5227,6 +5226,7 @@ Please retry or relogin!</source>
         <translation>30分钟</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="586"/>
         <location filename="../../../plugins/system/power/power.cpp" line="596"/>
         <location filename="../../../plugins/system/power/power.cpp" line="615"/>
         <source>10min</source>
@@ -8686,8 +8686,8 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2196"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2203"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2192"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2199"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -8727,13 +8727,13 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1840"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1836"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1533"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1840"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1535"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1836"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -8744,7 +8744,7 @@ the settings will be saved after %1 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1534"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1536"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -8753,12 +8753,12 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1543"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1545"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1544"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1546"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
