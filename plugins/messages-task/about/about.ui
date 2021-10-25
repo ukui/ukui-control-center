@@ -519,7 +519,7 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
                <item>
-                <widget class="QLabel" name="label_5">
+                <widget class="FixLabel" name="label_5">
                  <property name="minimumSize">
                   <size>
                    <width>90</width>
@@ -653,6 +653,13 @@
   <zorder>widget</zorder>
   <zorder>titleLabel</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>fixlabel.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
