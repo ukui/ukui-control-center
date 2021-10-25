@@ -147,6 +147,8 @@ public:
     QString sourcePortName; //输入设备端口名
     int defaultOutputCard;
     int defaultInputCard;
+    int peakDetectIndex = 0;
+    pa_source_flags sourceFlags;
 
     pa_channel_map defaultChannelMap;
     friend class UkmediaMainWidget;
