@@ -767,6 +767,15 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     iconBtn->setCheckable(true);
     iconBtn->setFixedSize(QSize(16, 16));
     iconBtn->setFocusPolicy(Qt::NoFocus);
+    iconBtn->reLoadIcon();
+    if (QGSettings::isSchemaInstalled("org.ukui.style")){
+       QGSettings *qtSettings = new QGSettings("org.ukui.style");
+       connect(qtSettings, &QGSettings::changed, this, [=](const QString &key) {
+            if (key == "styleName") {
+                iconBtn->reLoadIcon();
+            }
+       });
+    }
 
     QLabel * textLabel = new QLabel(leftsidebarBtn);
     textLabel->setFixedWidth(leftsidebarBtn->width() - 40);
