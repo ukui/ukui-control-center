@@ -20,11 +20,12 @@
 #ifndef FUNCTIONSELECT_H
 #define FUNCTIONSELECT_H
 
+#include <QDir>
 #include <QList>
 #include <QStack>
-//#include <QStringList>
 #include <QObject>
-
+#include <QPluginLoader>
+#include <QCoreApplication>
 
 typedef struct _FuncInfo
 {
@@ -52,24 +53,16 @@ public:
     ~FunctionSelect();
 
 public:
+    static QList<QList<FuncInfo>> funcinfoListHomePage;
     static QList<QList<FuncInfo>> funcinfoList;
     static QStack<RecordFunc> recordFuncStack;
-
-//    static FuncInfo displayStruct;
 
     static void initValue();
     static void pushRecordValue(int type, QString name);
     static void popRecordValue();
-    static void initValueSystem();
-    static void initValueDevice();
-    static void initValueNetwork();
-    static void initValuePersonal();
-    static void initValueAccount();
-    static void initValueDatetime();
-    static void initValueUpdate();
-    static void initValueSecurity();
-    static void initValueApp();
-    static void initValueSearch();
+
+    static void loadHomeModule();
+    static void loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow);
 };
 
 #endif // FUNCTIONSELECT_H

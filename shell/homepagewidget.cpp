@@ -96,10 +96,9 @@ void HomePageWidget::initUI() {
     KeyValueConverter * kvConverter = new KeyValueConverter(); //继承QObject，No Delete
 
     //初始化功能列表数据
-    FunctionSelect::initValue();
+    FunctionSelect::loadHomeModule();
 
     QSignalMapper * moduleSignalMapper = new QSignalMapper(this);
-
 
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++) {
         //获取插件QMap
@@ -107,7 +106,6 @@ void HomePageWidget::initUI() {
         moduleMap = pmainWindow->exportModule(moduleIndex);
 
         //获取当前模块名
-
         QString modulenameString = kvConverter->keycodeTokeystring(moduleIndex).toLower();
         QString modulenamei18nString = kvConverter->keycodeTokeyi18nstring(moduleIndex);
         if ((mModuleMap.keys().contains(modulenameString) && !mModuleMap[modulenameString].toBool())
@@ -152,7 +150,7 @@ void HomePageWidget::initUI() {
 
             //获取模块的第一项跳转
             QString firstFunc;
-            QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
+            QList<FuncInfo> tmpList = FunctionSelect::funcinfoListHomePage[moduleIndex];
             for (FuncInfo tmpStruct : tmpList) {
                 QString sysVersion = "/etc/apt/ota_version";
                 QFile file(sysVersion);
@@ -183,7 +181,6 @@ void HomePageWidget::initUI() {
         logoLabel->setScaledContents(true);
 
         QString path = (QString(":/img/homepage/kylin-settings-%1.png").arg(picModuleName));
-//        QPixmap pix = loadSvg(path, HIGHLIGHT);
         QPixmap pix;
         pix.load(path);
         logoLabel->setPixmap(pix);
@@ -200,7 +197,11 @@ void HomePageWidget::initUI() {
 
         uint AllWidth = 0;
         //循环填充模块下属功能
-        QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
+        if (moduleIndex >= FunctionSelect::funcinfoListHomePage.size()) {
+            continue;
+        }
+
+        QList<FuncInfo> tmpList = FunctionSelect::funcinfoListHomePage[moduleIndex];
         for (int funcIndex = 0; funcIndex < tmpList.size(); funcIndex++){
             FuncInfo single = tmpList.at(funcIndex);
             //跳过插件不存在的功能项

@@ -88,88 +88,19 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::bootOptionsFilter(QString opt) {
-    if (opt == "--display" || opt == "-m") {
-        bootOptionsSwitch(SYSTEM, DISPLAY);
-    } else if (opt == "--audio" || opt == "-s") {
-        bootOptionsSwitch(SYSTEM, AUDIO);
-    } else if (opt == "--power" || opt == "-p") {
-        bootOptionsSwitch(SYSTEM, POWER);
-    } else if (opt == "--notice" || opt == "-n") {
-        bootOptionsSwitch(SYSTEM, NOTICE);
-    } else if (opt == "--vino") {
-        bootOptionsSwitch(SYSTEM, VINO);
-    } else if (opt == "--projection") {
-        bootOptionsSwitch(SYSTEM, PROJECTION);
-    } else if (opt == "--about" || opt == "-a") {
-        bootOptionsSwitch(SYSTEM, ABOUT);
-    } else if (opt == "--bluetooth") {
-        bootOptionsSwitch(DEVICES, BLUETOOTH);
-    } else if (opt == "--printer") {
-        bootOptionsSwitch(DEVICES, PRINTER);
-    } else if (opt == "--mouse") {
-        bootOptionsSwitch(DEVICES, MOUSE);
-    } else if (opt == "--touchpad") {
-        bootOptionsSwitch(DEVICES, TOUCHPAD);
-    } /*else if (opt == "--gesture") {
-        bootOptionsSwitch(DEVICES, GESTURE);
-    }*/ else if (opt == "--touchscreen") {
-        bootOptionsSwitch(DEVICES, TOUCHSCREEN);
-    } else if (opt == "--keyboard") {
-        bootOptionsSwitch(DEVICES, KEYBOARD);
-    } else if (opt == "--shortcut") {
-        bootOptionsSwitch(DEVICES, SHORTCUT);
-    } else if (opt == "--wiredconnect") {
-        bootOptionsSwitch(NETWORK, WIREDCONNECT);
-    } else if (opt == "--wlanconnect") {
-        bootOptionsSwitch(NETWORK, WLANCONNECT);
-    } else if (opt == "--mobilehotspot") {
-        bootOptionsSwitch(NETWORK, MOBILEHOTSPOT);
-    } else if (opt == "--vpn" || opt == "-g") {
-        bootOptionsSwitch(NETWORK, VPN);
-    } else if (opt == "--proxy") {
-        bootOptionsSwitch(NETWORK, PROXY);
-    } else if (opt == "--background" || opt == "-b") {
-        bootOptionsSwitch(PERSONALIZED, BACKGROUND);
-    } else if (opt == "--theme") {
-        bootOptionsSwitch(PERSONALIZED, THEME);
-    } else if (opt == "--screenlock") {
-        bootOptionsSwitch(PERSONALIZED, SCREENLOCK);
-    } else if (opt == "--screensaver") {
-        bootOptionsSwitch(PERSONALIZED, SCREENSAVER);
-    } else if (opt == "--fonts") {
-        bootOptionsSwitch(PERSONALIZED, FONTS);
-    } else if (opt == "--desktop" || opt == "-d") {
-        bootOptionsSwitch(PERSONALIZED, DESKTOP);
-    } else if (opt == "--userinfo" || opt == "-u") {
-        bootOptionsSwitch(ACCOUNT, USERINFO);
-    } else if (opt == "--cloudaccount") {
-        bootOptionsSwitch(ACCOUNT, NETWORKACCOUNT);
-    } else if (opt == "--datetime" || opt == "-t") {
-        bootOptionsSwitch(DATETIME, DAT);
-    } else if (opt == "--area") {
-        bootOptionsSwitch(DATETIME, AREA);
-    } /*else if (opt == "--updates") {
-        bootOptionsSwitch(UPDATE, UPDATES);
-    } */else if (opt == "--upgrade") {
-        bootOptionsSwitch(UPDATE, UPGRADE);
-    } else if (opt == "--backup") {
-        bootOptionsSwitch(UPDATE, BACKUP);
-    } /*else if (opt == "--securityCenter") {
-        bootOptionsSwitch(SECURITY, SECURITYCENTER);
-    } */else if (opt == "--defaultapp") {
-        bootOptionsSwitch(APPLICATION, DEFAULTAPP);
-    } else if (opt == "--autoboot") {
-        bootOptionsSwitch(APPLICATION, AUTOBOOT);
-    } else if (opt == "--search") {
-        bootOptionsSwitch(SEARCH_F, SEARCH);
+    int moduleNum;
+    QString funcStr;
+    QList<FuncInfo> pFuncStructList;
+    for (int i = 0; i < FunctionSelect::funcinfoList.size(); i++) {
+        for (int j = 0; j < FunctionSelect::funcinfoList[i].size(); j++) {
+            if (!FunctionSelect::funcinfoList[i][j].nameString.compare(opt)) {
+                moduleNum = FunctionSelect::funcinfoList[i][j].type;
+                funcStr = FunctionSelect::funcinfoList[i][j].namei18nString;
+                pFuncStructList = FunctionSelect::funcinfoList[i];
+                break;
+            }
+        }
     }
-}
-
-void MainWindow::bootOptionsSwitch(int moduleNum, int funcNum){
-
-    QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[moduleNum];
-    QString funcStr = pFuncStructList.at(funcNum).namei18nString;
-    qDebug() << "moduleNum is" << moduleNum << " " << funcNum << " " << funcStr << endl;
 
     QMap<QString, QObject *> pluginsObjMap = modulesList.at(moduleNum);
 
@@ -190,10 +121,10 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
         QPoint  searchPoint      = searchParentWid->mapFromGlobal(mEvent->globalPos());
         //qDebug()<<m_searchWidget->geometry()<<  mWindowGlobalPoint << mouseGlobalPoint << tPoint;
         if (!m_searchWidget->geometry().contains(searchPoint)) {
-                if (m_isSearching == true) {
-                    m_searchWidget->setFocus();
-                    m_searchWidget->clearFocus();
-                }
+            if (m_isSearching == true) {
+                m_searchWidget->setFocus();
+                m_searchWidget->clearFocus();
+            }
         }
     }
 
@@ -376,8 +307,8 @@ void MainWindow::initUI() {
     });
 
     // 快捷参数
-    if (QApplication::arguments().length() > 1) {
-        bootOptionsFilter(QApplication::arguments().at(1));
+    if (QApplication::arguments().length() >= 2) {
+        bootOptionsFilter(QApplication::arguments().at(2));
     }
 
     //快捷键
@@ -626,13 +557,13 @@ void MainWindow::loadPlugins(){
         QObject * plugin = loader.instance();
         if (plugin) {
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
-            modulesList[pluginInstance->get_plugin_type()].insert(pluginInstance->get_plugin_name(), plugin);
+            modulesList[pluginInstance->pluginTypes()].insert(pluginInstance->plugini18nName(), plugin);
 
-            qDebug() << "Load Plugin :" << kvConverter->keycodeTokeyi18nstring(pluginInstance->get_plugin_type()) << "->" << pluginInstance->get_plugin_name() ;
+            qDebug() << "Load Plugin :" << kvConverter->keycodeTokeyi18nstring(pluginInstance->pluginTypes()) << "->" << pluginInstance->plugini18nName() ;
 
-            m_searchWidget->addModulesName(pluginInstance->name(), pluginInstance->get_plugin_name(), pluginInstance->translationPath());
+            m_searchWidget->addModulesName(pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->translationPath());
 
-            int moduletypeInt = pluginInstance->get_plugin_type();
+            int moduletypeInt = pluginInstance->pluginTypes();
             if (!moduleIndexList.contains(moduletypeInt))
                 moduleIndexList.append(moduletypeInt);
         } else {
@@ -1004,32 +935,21 @@ void MainWindow::functionBtnClicked(QObject *plugin) {
     modulepageWidget->switchPage(plugin);
 
     CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
-    int value = pluginInstance->pluginBtn->pos().y() + pluginInstance->pluginBtn->height() - scrollArea->verticalScrollBar()->pageStep();
-    value = value + scrollArea->height()/2; //尽量让选中的显示在中间位置
-    if (value <= 0) {
-        scrollArea->verticalScrollBar()->setValue(0);
-    } else if (value > scrollArea->verticalScrollBar()->maximum()){
-        scrollArea->verticalScrollBar()->setValue(scrollArea->verticalScrollBar()->maximum());
-    } else {
-        scrollArea->verticalScrollBar()->setValue(value);
-    }
+//    int value = pluginInstance->pluginBtn->pos().y() + pluginInstance->pluginBtn->height() - scrollArea->verticalScrollBar()->pageStep();
+//    value = value + scrollArea->height()/2; //尽量让选中的显示在中间位置
+//    if (value <= 0) {
+//        scrollArea->verticalScrollBar()->setValue(0);
+//    } else if (value > scrollArea->verticalScrollBar()->maximum()){
+//        scrollArea->verticalScrollBar()->setValue(scrollArea->verticalScrollBar()->maximum());
+//    } else {
+//        scrollArea->verticalScrollBar()->setValue(value);
+//    }
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
-    //    if (!this->isActiveWindow()) {
-    //        this->hide();
-    //        this->show();
-    //        showNormal();
-    //    }
     KWindowSystem::forceActiveWindow(this->winId());
     this->show();
     bootOptionsFilter(msg);
-
-    //Qt::WindowFlags flags = windowFlags();
-    //flags |= Qt::WindowStaysOnTopHint;
-    //setWindowFlags(flags);
-    //flags &= ~Qt::WindowStaysOnTopHint;
-    //setWindowFlags(flags);
 }
 
 void MainWindow::switchPage(QString moduleName, QString jumpMoudle) {

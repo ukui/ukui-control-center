@@ -89,17 +89,14 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     ui->scrollArea->takeWidget();
     delete(ui->scrollArea->widget());
 
-    QWidget *pluginwidget =  plu->get_plugin_ui();
+    QWidget *pluginwidget =  plu->pluginUi();
     pluginwidget->setObjectName("widget");
     pluginwidget->setStyleSheet("QWidget#widget{background  :  palette(window);}");
     ui->scrollArea->setWidget(pluginwidget);
 
-    //延迟操作
-    plu->plugin_delay_control();
-
     //记录打开历史
     if (flagBit){
-        FunctionSelect::pushRecordValue(plu->get_plugin_type(), plu->get_plugin_name());
+        FunctionSelect::pushRecordValue(plu->pluginTypes(), plu->plugini18nName());
     }
 
     //恢复标志位

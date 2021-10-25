@@ -22,6 +22,7 @@
 
 #include <QPushButton>
 #include <QFile>
+#include <QIcon>
 
 class QString;
 class QWidget;
@@ -42,108 +43,17 @@ enum FunType{
     TOTALMODULES,
 };
 
-enum SystemIndex{
-    DISPLAY,
-    AUDIO,
-    POWER,
-    NOTICE,
-    VINO,
-    PROJECTION,
-    ABOUT,
-    EXPERIENCEPLAN,
-    BACK_INTEL,
-    TOTALSYSFUNC,
-};
-
-enum DevicesIndex{
-    BLUETOOTH,
-    PRINTER,
-    MOUSE,
-    TOUCHPAD,
-    GESTURE,
-    TOUCHSCREEN,
-    KEYBOARD,
-    SHORTCUT,
-    TOTALDEVICESFUNC,
-};
-
-enum NetworkIndex{
-    WIREDCONNECT,
-    WLANCONNECT,
-    VPN,
-    PROXY,
-    MOBILEHOTSPOT,
-    TOTALNETFUNC,
-};
-
-enum PersonalizedIndex{
-    BACKGROUND,
-    THEME,
-    SCREENLOCK,
-    SCREENSAVER,
-    FONTS,
-    DESKTOP,
-    TOTALPERSFUNC,
-};
-
-enum AccountIndex{
-    USERINFO,
-    USERINFO_INTEL,
-    NETWORKACCOUNT,
-    BIOMETRICS,
-    TOTALACCOUNTFUNC,
-};
-
-enum DatetimeIndex{
-    DAT,
-    AREA,
-    TOTALDTFUNC,
-};
-
-enum UpdateIndex{
-    BACKUP,
-    UPDATES,
-    UPGRADE,
-    TOTALUPDATE,
-};
-
-enum SecurityIndex{
-    SECURITYCENTER,
-    TOTALSECURITY,
-};
-
-enum ApplicationIndex {
-    DEFAULTAPP,
-    AUTOBOOT,
-    TOTALAPP,
-};
-
-enum SearchIndex {
-    SEARCH,
-    TOTALSEARCH,
-};
-
 class CommonInterface{
 public:
     virtual ~CommonInterface(){}
-    virtual QString get_plugin_name() = 0;
-    virtual int get_plugin_type() = 0;
-    virtual QWidget * get_plugin_ui() = 0;
-    virtual void plugin_delay_control() = 0;
-
-
-    /**
-     * \brief name
-     * module name (用于搜索？)
-     */
-    virtual const QString name() const = 0;
-
-    /**
-     * \brief translationPath
-     * 获取多语言文件路径，用于搜索
-     * \return QString
-     */
-    virtual QString translationPath()const {
+    virtual QString plugini18nName() = 0;         // 插件名字
+    virtual int pluginTypes() = 0;                // 插件类型
+    virtual QWidget * pluginUi() = 0;             // 插件主界面
+    virtual bool isShowOnHomePage() const = 0;    // 是否显示在首页
+    virtual QIcon icon() const = 0;               // 图标
+    virtual bool isEnable() const = 0;            // 插件是否启用
+    virtual const QString name() const = 0;       // 模块名称
+    virtual QString translationPath() const {     // 获取多语言文件路径，用于搜索
         return QStringLiteral(":/i18n/%1.ts");
     }
     QPushButton *pluginBtn = nullptr;
@@ -158,7 +68,7 @@ public:
     }
 };
 
-#define CommonInterface_iid "org.kycc.CommonInterface"
+#define CommonInterface_iid "org.ukcc.CommonInterface"
 
 Q_DECLARE_INTERFACE(CommonInterface, CommonInterface_iid)
 
