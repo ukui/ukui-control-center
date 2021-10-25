@@ -52,16 +52,19 @@ SysdbusRegister::SysdbusRegister()
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
     mHibernateSet->setIniCodec("UTF-8");
-    runGetDislayThreadFlag = false;
-    getDisplayInfo();
+    exitFlag = false;
+    toGetDisplayInfo = true;
+    _getDisplayInfoThread();
     _id = 0;
 }
 
 SysdbusRegister::~SysdbusRegister()
 {
+    exitFlag = true;
 }
 
 void SysdbusRegister::exitService() {
+    exitFlag = true;
     qApp->exit(0);
 }
 
@@ -302,41 +305,50 @@ bool SysdbusRegister::setNtpSerAddress(QString serverAddress)
 
 void SysdbusRegister::getDisplayInfo()
 {
-    if (true == runGetDislayThreadFlag)
-        return;
+    toGetDisplayInfo = true;
+    return;
+}
 
-    QtConcurrent::run([=] {
-        runGetDislayThreadFlag = true;
-        bool include_invalid_displays = false;
-        DDCA_Display_Info_List*  dlist_loc = nullptr;
-        ddca_get_display_info_list2(include_invalid_displays, &dlist_loc);
-        QCryptographicHash Hash(QCryptographicHash::Md5);
-        for(int i = 0; i < dlist_loc->ct; i++) {
-            Hash.reset();
-            Hash.addData(reinterpret_cast<const char *>(dlist_loc->info[i].edid_bytes), 128);
-            QByteArray md5 = Hash.result().toHex();
-            QString edidHash = QString(md5);
-            bool edidExist = false;
-            for (int j = 0; j < displayInfo_V.size(); j++) {
-                if (edidHash == displayInfo_V[j].edidHash) {
-                    edidExist = true;
-                    break;
+void SysdbusRegister::_getDisplayInfoThread()
+{
+    QtConcurrent::run([=] {  //运行独立线程去获取ddc信息，不能每次重新运行run，会导致获取的信息不对
+        while (true) {
+            if (exitFlag)
+                return;
+            if (!toGetDisplayInfo) {
+                sleep(1);
+                continue;
+            }
+            bool include_invalid_displays = false;
+            DDCA_Display_Info_List*  dlist_loc = nullptr;
+            ddca_get_display_info_list2(include_invalid_displays, &dlist_loc);
+            QCryptographicHash Hash(QCryptographicHash::Md5);
+            for(int i = 0; i < dlist_loc->ct; i++) {
+                Hash.reset();
+                Hash.addData(reinterpret_cast<const char *>(dlist_loc->info[i].edid_bytes), 128);
+                QByteArray md5 = Hash.result().toHex();
+                QString edidHash = QString(md5);
+                bool edidExist = false;
+                for (int j = 0; j < displayInfo_V.size(); j++) {
+                    if (edidHash == displayInfo_V[j].edidHash) {
+                        edidExist = true;
+                        break;
+                    }
+                }
+                if (!edidExist) {
+                    struct displayInfo display;
+                    DDCA_Display_Identifier did;
+                    DDCA_Display_Ref ddca_dref;
+                    display.edidHash = edidHash;
+                    ddca_create_edid_display_identifier(dlist_loc->info[i].edid_bytes,&did);
+                    ddca_create_display_ref(did,&ddca_dref);
+                    ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc);
+                    displayInfo_V.append(display);
                 }
             }
-            if (!edidExist) {
-                struct displayInfo display;
-                DDCA_Display_Identifier did;
-                DDCA_Display_Ref ddca_dref;
-                display.edidHash = edidHash;
-                ddca_create_edid_display_identifier(dlist_loc->info[i].edid_bytes,&did);
-                ddca_create_display_ref(did,&ddca_dref);
-                ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc);
-                displayInfo_V.append(display);
-            }
+            toGetDisplayInfo = false;
         }
-        runGetDislayThreadFlag = false;
     });
-    return;
 }
 
 void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash)

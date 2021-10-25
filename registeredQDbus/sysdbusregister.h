@@ -54,12 +54,14 @@ private:
     QString mHibernateFile;
     QSettings *mHibernateSet;
 
-    volatile bool runGetDislayThreadFlag;
+    volatile bool exitFlag;
+    volatile bool toGetDisplayInfo;
     qint64 _id;
     QVector<struct displayInfo> displayInfo_V;
 
 private:
     int _changeOtherUserPasswd(QString username, QString pwd);
+    void _getDisplayInfoThread();
 
 signals:
     Q_SCRIPTABLE void nameChanged(QString);

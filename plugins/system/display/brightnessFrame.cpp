@@ -87,6 +87,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
             slider->setValue(brightnessValue);
             setTextLabelValue(QString::number(brightnessValue));
             slider->setEnabled(true);
+            disconnect(slider,&QSlider::valueChanged,this,0);
             connect(slider, &QSlider::valueChanged, this, [=](){
                  qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
                  setTextLabelValue(QString::number(slider->value()));
@@ -105,6 +106,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                 setTextLabelValue(QString::number(brightnessValue));
                 slider->setValue(brightnessValue);
                 slider->setEnabled(true);
+                disconnect(slider,&QSlider::valueChanged,this,0);
                 connect(slider, &QSlider::valueChanged, this, [=](){
                     qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
                     mPowerGSettings->blockSignals(true);
@@ -112,6 +114,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                     mPowerGSettings->blockSignals(false);
                     setTextLabelValue(QString::number(mPowerGSettings->get(POWER_KEY).toInt()));
                 });
+                disconnect(mPowerGSettings,&QGSettings::changed,this,0);
                 connect(mPowerGSettings,&QGSettings::changed,this,[=](QString key){
                    if (key == POWER_KEY_C) {
                        int value = mPowerGSettings->get(POWER_KEY).toInt();
@@ -137,6 +140,11 @@ bool BrightnessFrame::getSliderEnable()
 void BrightnessFrame::setSliderEnable(const bool &enable)
 {
     this->slider->setEnabled(enable);
+    if (false == enable) {
+        slider->setValue(0);
+        setTextLabelValue("0");
+    }
+    return;
 }
 
 bool BrightnessFrame::getOutputEnable()
