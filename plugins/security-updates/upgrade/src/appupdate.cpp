@@ -395,7 +395,8 @@ void AppUpdateWid::updateAppUi(QString name)
     detaileInfo = new QPushButton(this);
     //    detaileInfo->setText(tr("详情"));
     detaileInfo->setText(tr("details"));
-    detaileInfo->setFixedSize(60,30);
+    //detaileInfo->setFixedSize(60,30);
+    detaileInfo->adjustSize();
     detaileInfo->setFlat(true);
 
     updateAPPBtn = new QPushButton(this);
