@@ -219,7 +219,6 @@
         <file>secondaryleftmenu/Area.svg</file>
         <file>secondaryleftmenu/Audio.svg</file>
         <file>secondaryleftmenu/Autoboot.svg</file>
-        <file>secondaryleftmenu/Background.svg</file>
         <file>secondaryleftmenu/Backup.svg</file>
         <file>secondaryleftmenu/Biometrics.svg</file>
         <file>secondaryleftmenu/Bluetooth.svg</file>
@@ -257,6 +256,7 @@
         <file>plugins/mobilehotspot/show-pwd.png</file>
         <file>secondaryleftmenu/Userinfointel.svg</file>
         <file>secondaryleftmenu/System Recovery.svg</file>
+        <file>secondaryleftmenu/Wallpaper.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
