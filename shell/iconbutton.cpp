@@ -17,12 +17,11 @@ IconButton::~IconButton()
 
 }
 
-void IconButton::paintEvent(QPaintEvent *e)
+void IconButton::reLoadIcon()
 {
     QString path = QString("://img/secondaryleftmenu/%1.svg").arg(iconName);
     QPixmap pix = loadSvg(path);
     this->setIcon(pix);
-    QPushButton::paintEvent(e);
 }
 
 QPixmap IconButton::loadSvg(const QString &path, int size) {
