@@ -10,6 +10,7 @@ SUBDIRS = \
     plugins\
     registeredSession \
     shell \
+    libukcc \
     group-manager-server \
 #    tastenbrett \
 
