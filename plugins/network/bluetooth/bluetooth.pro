@@ -52,6 +52,7 @@ SOURCES += \
     bluetooth.cpp \
     bluetoothmain.cpp \
     bluetoothnamelabel.cpp \
+    customizenamelabel.cpp \
     deviceinfoitem.cpp \
     loadinglabel.cpp
 
@@ -60,6 +61,7 @@ HEADERS += \
     bluetoothmain.h \
     bluetoothnamelabel.h \
     config.h \
+    customizenamelabel.h \
     deviceinfoitem.h \
     loadinglabel.h \
 

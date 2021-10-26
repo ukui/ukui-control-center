@@ -114,11 +114,26 @@ void BlueToothMain::InitMainTopUI()
                            line-height: 20px;}");
     frame_1_layout->addWidget(label_2);
 
-    bluetooth_name = new BluetoothNameLabel(frame_1,300,38);
-    connect(bluetooth_name,&BluetoothNameLabel::send_adapter_name,this,&BlueToothMain::change_adapter_name);
-    connect(this,&BlueToothMain::adapter_name_changed,bluetooth_name,&BluetoothNameLabel::set_label_text);
+//    bluetooth_name = new BluetoothNameLabel(frame_1,300,38);
+//    bluetooth_name = new BluetoothNameLabel(frame_1,300,38);
+//    connect(bluetooth_name,&BluetoothNameLabel::send_adapter_name,this,&BlueToothMain::change_adapter_name);
+//    connect(this,&BlueToothMain::adapter_name_changed,bluetooth_name,&BluetoothNameLabel::set_label_text);
+//    frame_1_layout->addWidget(bluetooth_name);
+    bluetooth_name = new CustomizeNameLabel(frame_top);
+    bluetooth_name->setFixedSize(420,40);
+    connect(bluetooth_name,&CustomizeNameLabel::setTipText,this,&BlueToothMain::setTipTextSlot);
+    connect(bluetooth_name,&CustomizeNameLabel::sendAdapterName,this,&BlueToothMain::change_adapter_name);
+    connect(this,&BlueToothMain::adapter_name_changed,bluetooth_name,&CustomizeNameLabel::setAdapterNameText);
     frame_1_layout->addWidget(bluetooth_name);
+
     frame_1_layout->addStretch();
+
+    _tip1 = tr("* Nothing entered, please re-enter");
+    _tip2 = tr("* Up to 30 characters can be entered");
+    tipTextLabel = new QLabel(frame_top);
+    tipTextLabel->resize(300,40);
+//    tipTextLabel->setText(_tip2);
+    frame_1_layout->addWidget(tipTextLabel);
 
     open_bluetooth = new SwitchButton(frame_1);
 
@@ -484,7 +499,8 @@ void BlueToothMain::updateUIWhenAdapterChanged()
 
 
     //==============初始化蓝牙信息和基础信息====================================
-     bluetooth_name->set_dev_name(m_localDevice->name());
+//     bluetooth_name->set_dev_name(m_localDevice->name());
+     bluetooth_name->setAdapterNameText(m_localDevice->name());
 
      if(m_localDevice->isPowered()){
          qDebug() << Q_FUNC_INFO << __LINE__;
@@ -820,6 +836,17 @@ void BlueToothMain::styleGsettingChanged(const QString &key)
     }
 }
 
+void BlueToothMain::setTipTextSlot(int i)
+{
+    if (i == 1) {
+        tipTextLabel->setText(_tip1);
+    } else if (i == 2){
+        tipTextLabel->setText(_tip2);
+    } else {
+        tipTextLabel->clear();
+    }
+}
+
 void BlueToothMain::leaveEvent(QEvent *event)
 {
     qDebug() << Q_FUNC_INFO;
@@ -1116,7 +1143,8 @@ void BlueToothMain::adapterPoweredChanged(bool value)
 
     if(value)
     {
-        bluetooth_name->set_dev_name(m_localDevice->name());
+//        bluetooth_name->set_dev_name(m_localDevice->name());
+        bluetooth_name->setAdapterNameText(m_localDevice->name());
         bluetooth_name->setVisible(true);
         frame_bottom->setVisible(true);
 

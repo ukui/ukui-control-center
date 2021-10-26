@@ -58,6 +58,8 @@ void DeviceInfoItem::InitMemberVariables()
         _themeIsBlack = false;
     }
 
+    _fontFamily = item_gsettings->get("system-font").toString();
+    _fontSize = item_gsettings->get("system-font-size").toString().toInt();
 
     _clicked = false;
     _pressFlag = false;
@@ -166,6 +168,10 @@ void DeviceInfoItem::GSettingsChanges(const QString &key)
             _themeIsBlack = false;
 
         }
+    } else if (key == "systemFont") {
+        _fontFamily = item_gsettings->get("system-font").toString();
+    } else if (key == "systemFontSize") {
+        _fontSize = item_gsettings->get("system-font-size").toString().toInt();
     }
 }
 
@@ -249,7 +255,7 @@ bool DeviceInfoItem::mouseEventIntargetAera(QPoint p)
     }
 }
 
-QRect DeviceInfoItem::getStatusTextRect()
+QRect DeviceInfoItem::getStatusTextRect(QRect rect)
 {
     if (_MDev && _MDev.data()->isPaired()) {
         return QRect(this->width()-226,20,150,24);
@@ -258,7 +264,7 @@ QRect DeviceInfoItem::getStatusTextRect()
     }
 }
 
-QRect DeviceInfoItem::getStatusIconRect()
+QRect DeviceInfoItem::getStatusIconRect(QRect rect)
 {
     if (_MDev && _MDev.data()->isPaired()) {
 
@@ -349,6 +355,16 @@ QPixmap DeviceInfoItem::convertIconColor(QPixmap icon, QColor rgb)
     }
 
     return QPixmap::fromImage(targetImage);
+}
+
+QRect DeviceInfoItem::getFontPixelQPoint(QString str)
+{
+    QFont font;
+    font.setFamily(_fontFamily);
+    font.setPointSize(_fontSize);
+    QFontMetrics fm(font);
+
+    return fm.boundingRect(str);
 }
 
 void DeviceInfoItem::enterEvent(QEvent *event)
@@ -630,41 +646,36 @@ void DeviceInfoItem::DrawStatusText(QPainter &painter)
     else
         painter.setPen(QColor(Qt::black));
 
+    QString str;
+
     switch (_DevStatus) {
     case DEVSTATUS::Paired:
-        painter.setPen(getStatusColor(DEVSTATUS::Paired));
-        style()->drawItemPixmap(&painter,getStatusIconRect(), Qt::AlignCenter, getDevConnectedIcon(DEVSTATUS::Paired,QSize(20,20)));
-        painter.drawText(getStatusTextRect(),Qt::AlignRight,(m_str_dev_ununited));
+        str = m_str_dev_ununited;
         break;
     case DEVSTATUS::Connected:
-        painter.setPen(getStatusColor(DEVSTATUS::Connected));
-        style()->drawItemPixmap(&painter,getStatusIconRect(), Qt::AlignCenter, getDevConnectedIcon(DEVSTATUS::Connected,QSize(20,20)));
-        painter.drawText(getStatusTextRect(),Qt::AlignRight,(m_str_dev_connected));
+        str = m_str_dev_connected;
         break;
     case DEVSTATUS::Connecting:
-        painter.setPen(getStatusColor(DEVSTATUS::Connecting));
-        style()->drawItemPixmap(&painter,getStatusIconRect(), Qt::AlignCenter, getDevConnectedIcon(DEVSTATUS::Connecting,QSize(20,20)));
-        painter.drawText(getStatusTextRect(),Qt::AlignRight,(m_str_dev_connecting));
+        str = m_str_dev_connecting;
         break;
     case DEVSTATUS::DisConnecting:
-        painter.setPen(getStatusColor(DEVSTATUS::DisConnecting));
-        style()->drawItemPixmap(&painter,getStatusIconRect(), Qt::AlignCenter, getDevConnectedIcon(DEVSTATUS::DisConnecting,QSize(20,20)));
-        painter.drawText(getStatusTextRect(),Qt::AlignRight,(m_str_dev_disconnecting));
+        str = m_str_dev_disconnecting;
         break;
     case DEVSTATUS::DisConnectFailed:
-        painter.setPen(getStatusColor(DEVSTATUS::DisConnectFailed));
-        style()->drawItemPixmap(&painter,getStatusIconRect(), Qt::AlignCenter, getDevConnectedIcon(DEVSTATUS::DisConnectFailed,QSize(20,20)));
-        painter.drawText(getStatusTextRect(),Qt::AlignRight,(m_str_dev_disconn_fail));
+        str = m_str_dev_disconn_fail;
         break;
     case DEVSTATUS::ConnectFailed:
-        painter.setPen(getStatusColor(DEVSTATUS::ConnectFailed));
-        style()->drawItemPixmap(&painter,getStatusIconRect(), Qt::AlignCenter, getDevConnectedIcon(DEVSTATUS::ConnectFailed,QSize(20,20)));
-        painter.drawText(getStatusTextRect(),Qt::AlignRight,(m_str_dev_conn_fail));
+        str = m_str_dev_conn_fail;
         break;
     default:
         break;
     }
 
+    QRect rect = getFontPixelQPoint(str);
+
+    painter.setPen(getStatusColor(_DevStatus));
+    style()->drawItemPixmap(&painter,getStatusIconRect(rect), Qt::AlignCenter, getDevConnectedIcon(_DevStatus,QSize(20,20)));
+    painter.drawText(getStatusTextRect(rect),Qt::AlignRight,(str));
 
     painter.restore();
 }
