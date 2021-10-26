@@ -280,6 +280,30 @@ Check whether the system has available updates.
 
 ![Fig 44 Upgrade-big](image/37.png) 
 
+### Background update
+
+Background update is mainly used for important update operations in the background, and to remind users of available update content.
+
+- When there is an important update, the update will be silently in the background, and the user will receive the notification information before and after the upgrade.
+
+  ![](image/44.png)
+
+  
+
+  ![](image/45.png)
+
+- When there are available updates, the selection interface will pop up for users to select.
+
+  ![](image/46.png)
+
+  
+
+  ![](image/43.png)
+
+- After the user selects immediate update, the Settings > update interface will pop up to check the update
+
+- When the user chooses to delay, the record sets the delay time and exits the background update program.
+
 ## Messages
 
 It includes "Notice", "Search", and "AboutConnect".
