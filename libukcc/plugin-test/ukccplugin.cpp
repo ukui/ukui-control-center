@@ -1,6 +1,6 @@
 #include "ukccplugin.h"
 
-#include <ukcc/switchbutton.h>
+#include <ukcc/widgets/switchbutton.h>
 
 UkccPlugin::UkccPlugin()
 {

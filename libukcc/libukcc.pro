@@ -29,8 +29,17 @@ HEADERS += \
 unix {
     target.path = $$[QT_INSTALL_LIBS]
 
-    header.path = /usr/include/ukcc
-    header.files =  *.h widgets/SwitchButton/*.h interface/*.h
-    INSTALLS += header
+    widgets.path = /usr/include/ukcc/widgets
+    widgets.files = widgets/SwitchButton/*.h widgets/AddBtn/*.h widgets/Button/*.h \
+                    widgets/CloseButton/*.h widgets/ComboBox/*.h widgets/ComboxFrame/*.h \
+                    widgets/FlowLayout/*.h widgets/Frame/*.h widgets/HoverBtn/*.h \
+                    widgets/HoverWidget/*.h widgets/ImageUtil/*.h widgets/InfoButton/*.h \
+                    widgets/Label/*.h widgets/ListDelegate/*.h widgets/MaskWidget/*.h \
+                    widgets/Uslider/*.h *.h
+
+    interfaces.path = /usr/include/ukcc/interface
+    interfaces.files =  *.h interface/*.h
+
+    INSTALLS += widgets interfaces
 }
 !isEmpty(target.path): INSTALLS += target

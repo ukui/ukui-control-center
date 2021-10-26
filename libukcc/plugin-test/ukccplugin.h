@@ -8,7 +8,7 @@
 #include <QLocale>
 #include <QApplication>
 
-#include <ukcc/interface.h>
+#include <ukcc/interface/interface.h>
 
 class UkccPlugin : public QObject, CommonInterface
 {
