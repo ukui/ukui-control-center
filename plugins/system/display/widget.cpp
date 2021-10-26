@@ -76,6 +76,11 @@ Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DisplayWindow())
 {
+    dbusEdid = new QDBusInterface("org.kde.KScreen",
+        "/backend",
+        "org.kde.kscreen.Backend",
+        QDBusConnection::sessionBus());
+
     qRegisterMetaType<QQuickView *>();
 
     ui->setupUi(this);
@@ -840,19 +845,25 @@ void Widget::clearOutputIdentifiers()
     mOutputIdentifiers.clear();
 }
 
-void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
+void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
 {
     if (mIsBattery && name != firstAddOutputName)  //笔记本非内置
         return;
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {  //已经有了
-        if (name == BrightnessFrameV[i]->getOutputName())
+        if (name == BrightnessFrameV[i]->getOutputName()) {
+            if (edidHash != BrightnessFrameV[i]->getEdidHash()) {//更换了同一接口的显示器
+                BrightnessFrameV[i]->updateEdidHash(edidHash);
+                BrightnessFrameV[i]->setSliderEnable(false);
+                BrightnessFrameV[i]->runConnectThread(openFlag);
+            }
             return;
+        }
     }
     BrightnessFrame *frame = nullptr;
     if (mIsBattery && name == firstAddOutputName) {
-        frame = new BrightnessFrame(name, true, serialNum);
+        frame = new BrightnessFrame(name, true);
     } else if(!mIsBattery) {
-        frame = new BrightnessFrame(name, false, serialNum);
+        frame = new BrightnessFrame(name, false, edidHash);
     }
     if (frame != nullptr) {
         BrightnessFrameV.push_back(frame);
@@ -870,8 +881,17 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
     }
 
     if (output->isConnected()) {
+
+         QDBusReply<QByteArray> replyEdid = dbusEdid->call("getEdid",output->id());
+         const quint8 *edidData = reinterpret_cast<const quint8 *>(replyEdid.value().constData());
+         QCryptographicHash hash(QCryptographicHash::Md5);
+         hash.reset();
+         hash.addData(reinterpret_cast<const char *>(edidData), 128);
+         QString edidHash = QString::fromLatin1(hash.result().toHex());
+
         QString name = Utils::outputName(output);
-        addBrightnessFrame(name, output->isEnabled(), output->edid()->serial());
+        qDebug()<<"(outputAdded)  displayName:"<<name<<" ----> edidHash:"<<edidHash<<"  id:"<<output->id();
+        addBrightnessFrame(name, output->isEnabled(), edidHash);
     }
     // 刷新缩放选项，监听新增显示屏的mode变化
     changescale();
