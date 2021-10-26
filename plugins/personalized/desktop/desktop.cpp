@@ -92,6 +92,7 @@ QWidget *Desktop::get_plugin_ui() {
         ui->deskNetworkFrame->setVisible(false);
 
         ui->titleLabel->setVisible(false);
+        ui->title3Label->setVisible(false);
 
         ui->deskComputerFrame->setVisible(false);
         ui->deskTrashFrame->setVisible(false);
