@@ -1,5 +1,6 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 QT       += widgets dbus KI18n KCoreAddons \
              widgets dbus concurrent

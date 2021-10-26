@@ -101,6 +101,7 @@ QWidget *About::get_plugin_ui()
         setupKernelCompenent();
         setupDiskCompenet();
         setupSerialComponent();
+        setPrivacyCompent();
     }
 
     return pluginWidget;
@@ -351,6 +352,30 @@ void About::initUI(QWidget *widget)
 
     mInformationLayout->addWidget(mUsernameFrame);
 
+    mPriTitleLabel = new TitleLabel(Aboutwidget);
+    mPriTitleLabel->setText(tr("Privacy and agreement"));
+
+    mPrivacyFrame = new QFrame(Aboutwidget);
+    mPrivacyFrame->setMinimumSize(QSize(550, 0));
+    mPrivacyFrame->setMaximumSize(QSize(16777215, 16777215));
+    mPrivacyFrame->setFrameShape(QFrame::Box);
+
+    QGridLayout *mPriLayout = new QGridLayout(mPrivacyFrame);
+    mPriLayout->setVerticalSpacing(8);
+    mPriLayout->setContentsMargins(16, 16, 16, 8);
+
+    QLabel *mPriLabel_1 = new QLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
+    mPriLabel_1->setFixedHeight(30);
+    QLabel *mPriLabel_2 = new QLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
+    mPriLabel_2->setFixedHeight(30);
+     mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
+
+    mPriBtn = new SwitchButton(mPrivacyFrame);
+
+    mPriLayout->addWidget(mPriLabel_1 , 0 , 0 , 3 , 4);
+    mPriLayout->addWidget(mPriLabel_2 , 3, 0 , 3 , 4);
+    mPriLayout->addWidget(mPriBtn , 1 , 4 , 4 , 4 ,Qt::AlignRight);
+
     mActivationFrame = new QFrame(Aboutwidget);
     mActivationFrame->setMinimumSize(QSize(550, 0));
     mActivationFrame->setMaximumSize(QSize(16777215, 16777215));
@@ -381,19 +406,26 @@ void About::initUI(QWidget *widget)
     mActivationLayout->addWidget(mTimeLabel_2, 4, 1, 2, 3,Qt::AlignLeft);
     mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1, Qt::AlignRight);
 
-    mTrialBtn = new QPushButton(Aboutwidget);
-    mTrialBtn->setFixedSize(200,40);
-    mTrialBtn->setStyleSheet("background: transparent;border-width:1px;"
+    mBtnFrame = new QFrame(Aboutwidget);
+    mBtnFrame->setMinimumSize(QSize(550, 0));
+    mBtnFrame->setMaximumSize(QSize(16777215, 16777215));
+    mBtnFrame->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mBtnLyt = new QHBoxLayout(mBtnFrame);
+    mBtnLyt->setContentsMargins(16, 0, 0, 0);
+    mTrialLabel = new QLabel(tr("<<Protocol>>") , mBtnFrame);
+    mAndLabel = new QLabel(tr("and") , mBtnFrame);
+    mAgreeLabel = new QLabel(tr("<<Privacy>>") , mBtnFrame);
+    mTrialLabel->setStyleSheet("background: transparent;color:#2FB3E8;border-width:1px;"
                      "text-decoration:underline;border-style:none none none;");
-
-    QHBoxLayout *mTrialLayout = new QHBoxLayout(mTrialBtn);
-    mTrialLayout->setContentsMargins(0, 0, 0, 0);
-
-    mTrialLabel = new QLabel(mTrialBtn);
-    mTrialLabel->setContentsMargins(16, 0, 0, 0);
-
-    mTrialLayout->addWidget(mTrialLabel,Qt::AlignLeft);
-    mTrialLayout->addStretch();
+    mAgreeLabel->setStyleSheet("background: transparent;color:#2FB3E8;border-width:1px;"
+                     "text-decoration:underline;border-style:none none none;");
+    mTrialLabel->installEventFilter(this);
+    mAgreeLabel->installEventFilter(this);
+    mBtnLyt->addWidget(mTrialLabel);
+    mBtnLyt->addWidget(mAndLabel);
+    mBtnLyt->addWidget(mAgreeLabel);
+    mBtnLyt->addStretch();
 
     mHoldTitleLabel = new TitleLabel(Aboutwidget);
 
@@ -426,8 +458,11 @@ void About::initUI(QWidget *widget)
 
     AboutLayout->addWidget(mInformationFrame);
     AboutLayout->addWidget(mActivationFrame);
-    AboutLayout->addWidget(mTrialBtn);
-    AboutLayout->addSpacing(8);
+    AboutLayout->addSpacing(24);
+    AboutLayout->addWidget(mPriTitleLabel);
+    AboutLayout->addWidget(mPrivacyFrame);
+    AboutLayout->addSpacing(-8);
+    AboutLayout->addWidget(mBtnFrame);
     AboutLayout->addWidget(mHoldTitleLabel);
     AboutLayout->addWidget(mHoldWidget);
 
@@ -448,7 +483,7 @@ void About::retranslateUi()
     mHpLabel->setText(tr("Wechat code scanning obtains HP professional technical support"));
     mEducateLabel->setText(tr("See more about Kylin Tianqi edu platform"));
 
-    mTrialLabel->setText(tr("<<Protocol>>"));
+//    mTrialLabel->setText(tr("<<Protocol>>"));
 
 
     //Intel部分
@@ -559,7 +594,8 @@ void About::setupSerialComponent()
         mActivationBtn->setText(tr("Active"));
     } else {    //已激活
         mActivationBtn->hide();
-        mTrialBtn->hide();
+        mTrialLabel->hide();
+        mAndLabel->hide();
         mStatusLabel_2->setText(tr("Activated"));
         mTimeLabel_2->setText(dateRes);
         QTimer::singleShot( 1, this, [=](){
@@ -591,10 +627,6 @@ void About::setupSerialComponent()
         });
     }
     connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
-    connect(mTrialBtn, &QPushButton::clicked, this, [=](){
-        TrialDialog *mDialog = new TrialDialog(pluginWidget);
-        mDialog->show();
-    });
 }
 
 /* 获取logo图片 */
@@ -667,7 +699,8 @@ void About::setupVersionCompenent()
        }
     } else {
         mActivationFrame->setVisible(false);
-        mTrialBtn->setVisible(false);
+        mTrialLabel->setVisible(false);
+        mAndLabel->setVisible(false);
         mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.svg"));
     }
 
@@ -793,8 +826,14 @@ void About::setupSystemVersion()
         mVersionNumFrame->hide();
         mDiskFrame->hide();
         mHoldWidget->hide();
-        mHoldTitleLabel->hide();
+        mHoldTitleLabel->hide();        
         return;
+    } else {
+        mPrivacyFrame->hide();
+        mHostNameFrame->hide();
+        mPriTitleLabel->hide();
+        mAndLabel->hide();
+        mAgreeLabel->hide();
     }
 
     file.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -818,11 +857,30 @@ void About::setHostNameCompenet()
     mHostNameLabel_2->setText(Utils::getHostName());
 }
 
+void About::setPrivacyCompent()
+{
+    QDBusInterface *PriDBus = new QDBusInterface("com.kylin.daq",
+                                                             "/com/kylin/daq",
+                                                             "com.kylin.daq.interface",
+                                                             QDBusConnection::sessionBus(), this);
+    if (!PriDBus->isValid()) {
+        qDebug()<<"create pridbus error";
+        return;
+    }
+    QDBusReply<int> reply = PriDBus->call("getUploadState");
+    mPriBtn->setChecked(reply == 0 ? false : true);
+
+    connect(mPriBtn,&SwitchButton::checkedChanged ,this ,[=](bool status){
+         PriDBus->call("setUploadState" , (status ? 1 : 0));
+    } );
+}
+
 void About::showExtend(QString dateres)
 {
     mTimeLabel_2->setText(dateres+QString("(%1)").arg(tr("expired")));
     mActivationBtn->setVisible(true);
-    mTrialBtn->setVisible(true);
+    mTrialLabel->setVisible(true);
+    mAndLabel->setVisible(true);
     mActivationBtn->setText(tr("Extend"));
 }
 
@@ -943,7 +1001,7 @@ void About::setLabelText(QLabel *label, QString text)
 /* 处理窗口缩放时的文本显示 */
 bool About::eventFilter(QObject *obj, QEvent *event)
 {
-    if (obj == mVersionFrame) {
+    if (obj == mVersionFrame ) {
         if (event->type() == QEvent::Resize) {
             mVersionLabel_2->setFixedWidth(mVersionFrame->width()-176);
             emit resize();
@@ -972,6 +1030,17 @@ bool About::eventFilter(QObject *obj, QEvent *event)
                     mHostNameLabel_2->setText(Utils::getHostName());
                 }
             }
+        }
+    } else if (obj == mTrialLabel) {
+         if (event->type() == QEvent::MouseButtonPress) {
+             TrialDialog *mDialog = new TrialDialog(pluginWidget);
+             mDialog->show();
+         }
+    } else if (obj == mAgreeLabel) {
+        if (event->type() == QEvent::MouseButtonPress) {
+            QDialog *mDialog = new QDialog(pluginWidget);
+            mDialog->setFixedSize(QSize(560 , 560));
+            mDialog->show();
         }
     }
     return false;

@@ -44,6 +44,7 @@
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
+#include "SwitchButton/switchbutton.h"
 
 namespace Ui {
 class About;
@@ -77,6 +78,7 @@ private:
     void setupDiskCompenet();
     void setupSystemVersion();
     void setHostNameCompenet();
+    void setPrivacyCompent();
     void showExtend(QString dateres);
     char *ntpdate();
     int getMonth(QString month);
@@ -95,6 +97,7 @@ private:
     int pluginType;
 
     TitleLabel *mTitleLabel;
+    TitleLabel *mPriTitleLabel;
     TitleLabel *mHoldTitleLabel;
 
     QFrame *mInformationFrame;
@@ -108,6 +111,8 @@ private:
     QFrame *mDiskFrame;
     QFrame *mDesktopFrame;
     QFrame *mUsernameFrame;
+    QFrame *mPrivacyFrame;
+    QFrame *mBtnFrame;
 
     QHBoxLayout *mDiskLayout;
 
@@ -138,15 +143,20 @@ private:
     QLabel *mSequenceLabel_1;
     QLabel *mSequenceLabel_2;
     QLabel *mTrialLabel;
+    QLabel *mAndLabel;
+    QLabel *mAgreeLabel;
     QLabel *mHpLabel;
     QLabel *mEducateIconLabel;
     QLabel *mEducateLabel;
+
+
 
 
     QPushButton *mActivationBtn;
     QPushButton *mTrialBtn;
     QPushButton *mHpBtn;
     QPushButton *mEducateBtn;
+    SwitchButton *mPriBtn;
 
     QStringList diskInfo;
     QMap<QString, QStringList> disk2; //disk2的结构 QMap<块设备名，总大小和可用大小>
