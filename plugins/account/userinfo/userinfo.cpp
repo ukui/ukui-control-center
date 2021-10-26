@@ -663,23 +663,46 @@ void UserInfo::setUserConnect(){
     connect(nopwdLoginSBtn, &SwitchButton::checkedChanged, [=](bool checked){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        QDBusInterface piface("com.control.center.qt.systemdbus",
-                              "/",
-                              "com.control.center.interface",
-                              QDBusConnection::systemBus());
+        bool result = authoriyLogin();
+        if (result == true) {
+            QDBusInterface piface("com.control.center.qt.systemdbus",
+                                  "/",
+                                  "com.control.center.interface",
+                                  QDBusConnection::systemBus());
 
-        if (piface.isValid()){
-            piface.call("setNoPwdLoginStatus", checked, user.username);
+            if (piface.isValid()){
+                piface.call("setNoPwdLoginStatus", checked, user.username);
+            } else {
+                qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+            }
         } else {
-            qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
-
+            nopwdLoginSBtn->blockSignals(true);
+            nopwdLoginSBtn->setChecked(!checked);
+            nopwdLoginSBtn->blockSignals(false);
         }
-
     });
 
     connect(addUserBtn, &AddBtn::clicked, [=]{
         showCreateUserNewDialog();
     });
+}
+
+bool UserInfo::authoriyLogin()
+{
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.login",
+                PolkitQt1::UnixProcessSubject(QCoreApplication::applicationPid()),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::Yes) { //认证通过
+        qDebug() << QString("operation authorized") << result;
+        return true;
+    } else {
+        qDebug() << QString("not authorized") << result;
+        return false;
+    }
 }
 
 void UserInfo::setUserDBusPropertyConnect(const QString pObjPath){
