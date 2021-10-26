@@ -14,7 +14,7 @@ class BrightnessFrame : public QFrame
 {
     Q_OBJECT
 public:
-    BrightnessFrame(const QString &name, const bool &isBattery, const QString &serialNum = "", QWidget *parent = nullptr);
+    BrightnessFrame(const QString &name, const bool &isBattery, const QString &edidHash = "", QWidget *parent = nullptr);
     ~BrightnessFrame();
     void setTextLabelName(QString text);
     void setTextLabelValue(QString text);
@@ -23,7 +23,10 @@ public:
     void runConnectThread(const bool &openFlag);
     int  getDDCBrighthess();
     bool getSliderEnable();
+    void setSliderEnable(const bool &enable);
     void setDDCBrightness(const int &value);
+    void updateEdidHash(const QString &edid);
+    QString getEdidHash();
     QString getOutputName();
 private:
     FixLabel *labelName = nullptr;
@@ -32,7 +35,7 @@ private:
     QString outputName;          //屏幕名
     bool    outputEnable;     //该屏幕是否打开
     bool    connectFlag;  //该屏幕是否连接
-    QString serialNum;     //屏幕序列号
+    QString edidHash;
     QMutex      mLock;
     bool exitFlag;
     bool isBattery;

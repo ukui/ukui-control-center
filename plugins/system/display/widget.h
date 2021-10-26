@@ -81,13 +81,14 @@ public:
     void initUiComponent();
     void setScreenKDS(QString kdsConfig);
     void setActiveScreen(QString status = "");
-    void addBrightnessFrame(QString name, bool openFlag, QString serialNum);
+    void addBrightnessFrame(QString name, bool openFlag, QString edidHash);
     void showBrightnessFrame(const int flag = 0);
 
     QList<ScreenConfig> getPreScreenCfg();
     void setPreScreenCfg(KScreen::OutputList screens);
 
     void changescale();
+    QDBusInterface *dbusEdid = nullptr;
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 

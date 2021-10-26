@@ -12,7 +12,7 @@
 #define POWER_KEY                        "brightness-ac"
 #define POWER_KEY_C                      "brightnessAc"
  
-BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &serialNum, QWidget *parent) :
+BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &edidHash, QWidget *parent) :
     QFrame(parent)
 {
     this->setFixedHeight(50);
@@ -42,7 +42,7 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
     this->exitFlag = false;
     this->isBattery = isBattery;
     this->outputName = name;
-    this->serialNum  = serialNum;
+    this->edidHash = edidHash;
     this->threadRunFlag = false;
 
     labelValue->setText("0"); //最低亮度10,获取前显示为0
@@ -74,7 +74,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
 
         threadRun = QtConcurrent::run([=]{
             threadRunFlag = true;
-            if ("" == this->serialNum) {
+            if ("" == this->edidHash) {
                 threadRunFlag = false;
                 return;
             }
@@ -87,6 +87,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
             slider->setValue(brightnessValue);
             setTextLabelValue(QString::number(brightnessValue));
             slider->setEnabled(true);
+            disconnect(slider,&QSlider::valueChanged,this,0);
             connect(slider, &QSlider::valueChanged, this, [=](){
                  qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
                  setTextLabelValue(QString::number(slider->value()));
@@ -105,6 +106,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                 setTextLabelValue(QString::number(brightnessValue));
                 slider->setValue(brightnessValue);
                 slider->setEnabled(true);
+                disconnect(slider,&QSlider::valueChanged,this,0);
                 connect(slider, &QSlider::valueChanged, this, [=](){
                     qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
                     mPowerGSettings->blockSignals(true);
@@ -112,6 +114,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                     mPowerGSettings->blockSignals(false);
                     setTextLabelValue(QString::number(mPowerGSettings->get(POWER_KEY).toInt()));
                 });
+                disconnect(mPowerGSettings,&QGSettings::changed,this,0);
                 connect(mPowerGSettings,&QGSettings::changed,this,[=](QString key){
                    if (key == POWER_KEY_C) {
                        int value = mPowerGSettings->get(POWER_KEY).toInt();
@@ -134,6 +137,16 @@ bool BrightnessFrame::getSliderEnable()
     return slider->isEnabled();
 }
 
+void BrightnessFrame::setSliderEnable(const bool &enable)
+{
+    this->slider->setEnabled(enable);
+    if (false == enable) {
+        slider->setValue(0);
+        setTextLabelValue("0");
+    }
+    return;
+}
+
 bool BrightnessFrame::getOutputEnable()
 {
     return outputEnable;
@@ -153,9 +166,9 @@ int BrightnessFrame::getDDCBrighthess()
                            QDBusConnection::systemBus());
     QDBusReply<int> reply;
     while (--times) {
-        if (this->serialNum == "" || exitFlag)
+        if (this->edidHash == "" || exitFlag)
             return -1;
-        reply = ukccIfc.call("getDDCBrightnessUkui", this->serialNum);
+        reply = ukccIfc.call("getDisplayBrightness", this->edidHash);
         if (reply.isValid() && reply.value() >= 0 && reply.value() <= 100) {
             return reply.value();
         }
@@ -166,7 +179,7 @@ int BrightnessFrame::getDDCBrighthess()
 
 void BrightnessFrame::setDDCBrightness(const int &value)
 {
-    if (this->serialNum == "")
+    if (this->edidHash == "")
         return;
 
     QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
@@ -176,7 +189,17 @@ void BrightnessFrame::setDDCBrightness(const int &value)
 
 
     if (mLock.tryLock()) {
-        ukccIfc.call("setDDCBrightnessUkui", QString::number(value), this->serialNum);
+        ukccIfc.call("setDisplayBrightness", QString::number(value), this->edidHash);
         mLock.unlock();
     }
+}
+
+void BrightnessFrame::updateEdidHash(const QString &edid)
+{
+    this->edidHash = edid;
+}
+
+QString BrightnessFrame::getEdidHash()
+{
+    return this->edidHash;
 }
