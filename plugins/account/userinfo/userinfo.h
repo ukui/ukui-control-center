@@ -130,7 +130,7 @@ public:
     void initSearchText();
     void initComponent();
     void initAllUserStatus();
-
+    bool authorityLogin();
     //初始化生物特征组件
     void initBioComonent();
     //添加生物特征
