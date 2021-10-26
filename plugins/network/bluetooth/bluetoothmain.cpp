@@ -605,9 +605,9 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         item->setObjectName(device->address());
 
         connect(item,SIGNAL(devPaired(QString)),this,SLOT(change_device_parent(QString)));
-        connect(item,SIGNAL(devConnect(QString)),this,SLOT(receiveConnectsignal(QString)));
-        connect(item,SIGNAL(devDisconnect(QString)),this,SLOT(receiveDisConnectSignal(QString)));
-        connect(item,SIGNAL(devRemove(QString)),this,SLOT(receiveRemoveSignal(QString)));
+//        connect(item,SIGNAL(devConnect(QString)),this,SLOT(receiveConnectsignal(QString)));
+//        connect(item,SIGNAL(devDisconnect(QString)),this,SLOT(receiveDisConnectSignal(QString)));
+//        connect(item,SIGNAL(devRemove(QString)),this,SLOT(receiveRemoveSignal(QString)));
 
         connect(item,SIGNAL(devSendFiles(QString)),this,SLOT(receiveSendFileSignal(QString)));
         connect(item,&DeviceInfoItem::devConnectComplete,this,[=]
@@ -941,9 +941,9 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
         item->setObjectName(device->address());
 
         connect(item,SIGNAL(devPaired(QString)),this,SLOT(change_device_parent(QString)));
-        connect(item,SIGNAL(devConnect(QString)),this,SLOT(receiveConnectsignal(QString)));
-        connect(item,SIGNAL(devDisconnect(QString)),this,SLOT(receiveDisConnectSignal(QString)));
-        connect(item,SIGNAL(devRemove(QString)),this,SLOT(receiveRemoveSignal(QString)));
+//        connect(item,SIGNAL(devConnect(QString)),this,SLOT(receiveConnectsignal(QString)));
+//        connect(item,SIGNAL(devDisconnect(QString)),this,SLOT(receiveDisConnectSignal(QString)));
+//        connect(item,SIGNAL(devRemove(QString)),this,SLOT(receiveRemoveSignal(QString)));
 
         connect(item,SIGNAL(devSendFiles(QString)),this,SLOT(receiveSendFileSignal(QString)));
         connect(item,&DeviceInfoItem::devConnectComplete,this,[=]

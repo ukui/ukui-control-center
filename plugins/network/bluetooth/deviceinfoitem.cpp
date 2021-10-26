@@ -146,7 +146,9 @@ void DeviceInfoItem::MenuSignalDeviceFunction(QAction *action)
         if (removeBox->clickedButton() == remove_btn)
         {
             qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Remove" << __LINE__;
-            emit devRemove(_MDev.data()->address());
+//            emit devRemove(_MDev.data()->address());
+            BluezQt::AdapterPtr ptr = _MDev.data()->adapter();
+            ptr.data()->removeDevice(_MDev);
         }
         else
         {
@@ -721,14 +723,14 @@ void DeviceInfoItem::MouseClickedFunc()
     if (_MDev) {
         if (_MDev.data()->isConnected()) {
             qDebug() << Q_FUNC_INFO << "devDisconnect: "<< _MDev.data()->name() <<  _MDev.data()->address() << __LINE__;
-            //_MDev.data()->disconnectFromDevice();
+            _MDev.data()->disconnectFromDevice();
             _DevStatus = DEVSTATUS::DisConnecting;
-            emit devDisconnect(_MDev.data()->address());
+//            emit devDisconnect(_MDev.data()->address());
         } else {
             qDebug() << Q_FUNC_INFO << "devConnect: "<< _MDev.data()->name() <<  _MDev.data()->address() << __LINE__;
-           // _MDev.data()->connectToDevice();
+            DevConnectFunc();
             _DevStatus = DEVSTATUS::Connecting;
-            emit devConnect(_MDev.data()->address());
+//            emit devConnect(_MDev.data()->address());
         }
     }
 

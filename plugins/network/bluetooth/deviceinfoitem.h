@@ -79,9 +79,9 @@ private slots:
 signals:
 
     void devPaired(QString);
-    void devConnect(QString);
-    void devDisconnect(QString);
-    void devRemove(QString);
+//    void devConnect(QString);
+//    void devDisconnect(QString);
+//    void devRemove(QString);
     void devSendFiles(QString);
     void devConnectComplete();
 

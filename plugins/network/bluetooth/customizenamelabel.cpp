@@ -45,6 +45,8 @@ void CustomizeNameLabel::initMemberVariables()
     nameLineEdit->setVisible(false);
     nameLineEdit->setStyleSheet("QLineEdit {\
                                  border: 1px solid transparent; /* 边框宽度 */\
+                                 selection-background-color: #2FB3E8; /* 选中文本的背景颜色 */\
+                                 selection-color: #FFFFFF; /* 选中文本的颜色 */\
                                  background-color: transparent; /* 背景颜色 */}");
 }
 
@@ -187,7 +189,6 @@ void CustomizeNameLabel::nameLineEditSlot(const QString &text)
 
 void CustomizeNameLabel::LineEditFinishSlot()
 {
-    qDebug() << Q_FUNC_INFO << nameLineEdit->text() << nameLineEdit->text().length();
     if (nameLineEdit->text().length() > 0 &&
         nameLineEdit->text().length() < 30) {
 
