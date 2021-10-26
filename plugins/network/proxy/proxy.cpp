@@ -154,9 +154,7 @@ void Proxy::initUi(QWidget *widget)
     line_1 = setLine(mAutoFrame);
 
     mUrlFrame = new QFrame(mAutoFrame);
-    mUrlFrame->setMinimumSize(QSize(550, 60));
-    mUrlFrame->setMaximumSize(QSize(16777215, 60));
-    mUrlFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mUrlFrame);
 
     QHBoxLayout *mUrlLayout = new QHBoxLayout(mUrlFrame);
     mUrlLayout->setContentsMargins(16, 0, 16, 0);
@@ -298,9 +296,7 @@ void Proxy::initUi(QWidget *widget)
     line_3 = setLine(mManualFrame);
 
     mHTTPSFrame = new QFrame(mManualFrame);
-    mHTTPSFrame->setMinimumSize(QSize(550, 60));
-    mHTTPSFrame->setMaximumSize(QSize(16777215, 60));
-    mHTTPSFrame->setFrameShape(QFrame::NoFrame);
+   setFrame_Noframe(mHTTPSFrame);
 
     QHBoxLayout *mHTTPSLayout = new QHBoxLayout(mHTTPSFrame);
     mHTTPSLayout->setSpacing(8);
@@ -323,9 +319,7 @@ void Proxy::initUi(QWidget *widget)
     line_4 = setLine(mManualFrame);
 
     mFTPFrame = new QFrame(mManualFrame);
-    mFTPFrame->setMinimumSize(QSize(550, 60));
-    mFTPFrame->setMaximumSize(QSize(16777215, 60));
-    mFTPFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mFTPFrame);
 
     QHBoxLayout *mFTPLayout = new QHBoxLayout(mFTPFrame);
     mFTPLayout->setSpacing(8);
@@ -348,9 +342,7 @@ void Proxy::initUi(QWidget *widget)
     line_5 = setLine(mManualFrame);
 
     mSOCKSFrame = new QFrame(mManualFrame);
-    mSOCKSFrame->setMinimumSize(QSize(550, 60));
-    mSOCKSFrame->setMaximumSize(QSize(16777215, 60));
-    mSOCKSFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mSOCKSFrame);
 
     QHBoxLayout *mSOCKSLayout = new QHBoxLayout(mSOCKSFrame);
     mSOCKSLayout->setSpacing(8);
@@ -411,9 +403,7 @@ void Proxy::initUi(QWidget *widget)
     AptLayout->setSpacing(0);
 
     mAPTFrame_1 = new QFrame(mAPTFrame);
-    mAPTFrame_1->setMinimumSize(QSize(550, 60));
-    mAPTFrame_1->setMaximumSize(QSize(16777215, 60));
-    mAPTFrame_1->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mAPTFrame_1);
 
     QHBoxLayout *mAptLayout_1 = new QHBoxLayout(mAPTFrame_1);
     mAptLayout_1->setContentsMargins(16, 0, 16, 0);
@@ -427,9 +417,7 @@ void Proxy::initUi(QWidget *widget)
     mAptLayout_1->addWidget(mAptBtn);
 
     mAPTFrame_2 = new QFrame(mAPTFrame);
-    mAPTFrame_2->setMinimumSize(QSize(550, 60));
-    mAPTFrame_2->setMaximumSize(QSize(16777215, 60));
-    mAPTFrame_2->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mAPTFrame_2);
 
     QHBoxLayout *mAptLayout_2 = new QHBoxLayout(mAPTFrame_2);
     mAptLayout_2->setContentsMargins(16, 0, 16, 0);
@@ -842,6 +830,13 @@ void Proxy::reboot()
     rebootDbus->call("reboot");
     delete rebootDbus;
     rebootDbus = nullptr;
+}
+
+void Proxy::setFrame_Noframe(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 60));
+    frame->setMaximumSize(QSize(16777215, 60));
+    frame->setFrameShape(QFrame::NoFrame);
 }
 
 QFrame *Proxy::setLine(QFrame *frame)

@@ -89,6 +89,9 @@ private:
     QStringList getUserDefaultLanguage();
     QStringList  readFile(QString filepath);
     QString getTotalMemory();
+
+    void setFrame_NoFrame(QFrame *frame);
+    void setFrame_Box(QFrame *frame);
 private:
     QWidget *pluginWidget;
     QFrame *mHoldWidget;

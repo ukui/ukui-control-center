@@ -135,9 +135,7 @@ void About::initUI(QWidget *widget)
     AboutLayout->addWidget(mTitleLabel);
 
     mInformationFrame = new QFrame(Aboutwidget);
-    mInformationFrame->setMinimumSize(QSize(550, 0));
-    mInformationFrame->setMaximumSize(QSize(16777215, 16777215));
-    mInformationFrame->setFrameShape(QFrame::Box);
+    setFrame_Box(mInformationFrame);
 
     QVBoxLayout *mInformationLayout = new QVBoxLayout(mInformationFrame);
     mInformationLayout->setContentsMargins(16, 16, 16, 8);
@@ -149,9 +147,7 @@ void About::initUI(QWidget *widget)
 
     mVersionFrame = new QFrame(mInformationFrame);
     mVersionFrame->installEventFilter(this);
-    mVersionFrame->setMinimumSize(QSize(550, 30));
-    mVersionFrame->setMaximumSize(QSize(16777215, 30));
-    mVersionFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mVersionFrame);
 
     QHBoxLayout *mVersionLayout = new QHBoxLayout(mVersionFrame);
     mVersionLayout->setContentsMargins(0, 0, 16, 0);
@@ -170,9 +166,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mVersionFrame);
 
     mVersionNumFrame = new QFrame(mInformationFrame);
-    mVersionNumFrame->setMinimumSize(QSize(550, 30));
-    mVersionNumFrame->setMaximumSize(QSize(16777215, 30));
-    mVersionNumFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mVersionNumFrame);
 
     QHBoxLayout *mVersionNumLayout = new QHBoxLayout(mVersionNumFrame);
     mVersionNumLayout->setContentsMargins(0, 0, 16, 0);
@@ -191,9 +185,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mVersionNumFrame);
 
     mHostNameFrame = new QFrame(mInformationFrame);
-    mHostNameFrame->setMinimumSize(QSize(550, 30));
-    mHostNameFrame->setMaximumSize(QSize(16777215, 30));
-    mHostNameFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mHostNameFrame);
 
     QHBoxLayout *mHostNameLayout = new QHBoxLayout(mHostNameFrame);
     mHostNameLayout->setContentsMargins(0, 0, 16, 0);
@@ -227,9 +219,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mHostNameFrame);
 
     mKernelFrame = new QFrame(mInformationFrame);
-    mKernelFrame->setMinimumSize(QSize(550, 30));
-    mKernelFrame->setMaximumSize(QSize(16777215, 30));
-    mKernelFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mKernelFrame);
 
     QHBoxLayout *mKernerLayout = new QHBoxLayout(mKernelFrame);
     mKernerLayout->setContentsMargins(0, 0, 16, 0);
@@ -248,9 +238,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mKernelFrame);
 
     mCpuFrame = new QFrame(mInformationFrame);
-    mCpuFrame->setMinimumSize(QSize(550, 30));
-    mCpuFrame->setMaximumSize(QSize(16777215, 30));
-    mCpuFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mCpuFrame);
 
     QHBoxLayout *mCpuLayout = new QHBoxLayout(mCpuFrame);
     mCpuLayout->setContentsMargins(0, 0, 16, 0);
@@ -269,9 +257,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mCpuFrame);
 
     mMemoryFrame = new QFrame(mInformationFrame);
-    mMemoryFrame->setMinimumSize(QSize(550, 30));
-    mMemoryFrame->setMaximumSize(QSize(16777215, 30));
-    mMemoryFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mMemoryFrame);
 
     QHBoxLayout *mMemoryLayout = new QHBoxLayout(mMemoryFrame);
     mMemoryLayout->setContentsMargins(0, 0, 16, 0);
@@ -290,9 +276,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mMemoryFrame);
 
     mDiskFrame = new QFrame(mInformationFrame);
-    mDiskFrame->setMinimumSize(QSize(550, 30));
-    mDiskFrame->setMaximumSize(QSize(16777215, 30));
-    mDiskFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mDiskFrame);
 
     mDiskLayout = new QHBoxLayout(mDiskFrame);
     mDiskLayout->setContentsMargins(0, 0, 16, 0);
@@ -311,9 +295,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mDiskFrame);
 
     mDesktopFrame = new QFrame(mInformationFrame);
-    mDesktopFrame->setMinimumSize(QSize(550, 30));
-    mDesktopFrame->setMaximumSize(QSize(16777215, 30));
-    mDesktopFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mDesktopFrame);
 
     QHBoxLayout *mDesktopLayout = new QHBoxLayout(mDesktopFrame);
     mDesktopLayout->setContentsMargins(0, 0, 16, 0);
@@ -332,9 +314,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mDesktopFrame);
 
     mUsernameFrame = new QFrame(mInformationFrame);
-    mUsernameFrame->setMinimumSize(QSize(550, 30));
-    mUsernameFrame->setMaximumSize(QSize(16777215, 30));
-    mUsernameFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mUsernameFrame);
 
     QHBoxLayout *mUsernameLayout = new QHBoxLayout(mUsernameFrame);
     mUsernameLayout->setContentsMargins(0, 0, 16, 0);
@@ -356,9 +336,7 @@ void About::initUI(QWidget *widget)
     mPriTitleLabel->setText(tr("Privacy and agreement"));
 
     mPrivacyFrame = new QFrame(Aboutwidget);
-    mPrivacyFrame->setMinimumSize(QSize(550, 0));
-    mPrivacyFrame->setMaximumSize(QSize(16777215, 16777215));
-    mPrivacyFrame->setFrameShape(QFrame::Box);
+    setFrame_Box(mPrivacyFrame);
 
     QGridLayout *mPriLayout = new QGridLayout(mPrivacyFrame);
     mPriLayout->setVerticalSpacing(8);
@@ -377,9 +355,7 @@ void About::initUI(QWidget *widget)
     mPriLayout->addWidget(mPriBtn , 1 , 4 , 4 , 4 ,Qt::AlignRight);
 
     mActivationFrame = new QFrame(Aboutwidget);
-    mActivationFrame->setMinimumSize(QSize(550, 0));
-    mActivationFrame->setMaximumSize(QSize(16777215, 16777215));
-    mActivationFrame->setFrameShape(QFrame::Box);
+    setFrame_Box(mActivationFrame);
 
     QGridLayout *mActivationLayout = new QGridLayout(mActivationFrame);
     mActivationLayout->setVerticalSpacing(8);
@@ -1153,6 +1129,20 @@ QString About::getTotalMemory()
     memtotal = pow(2.0, nPow);
 
     return QString::number(memtotal) + "GB (" + QString::number(memAvaliable, 'f', 1)+ "GB "+tr("avaliable") +")";
+}
+
+void About::setFrame_Box(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 0));
+    frame->setMaximumSize(QSize(16777215, 16777215));
+    frame->setFrameShape(QFrame::Box);
+}
+
+void About::setFrame_NoFrame(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 30));
+    frame->setMaximumSize(QSize(16777215, 30));
+    frame->setFrameShape(QFrame::NoFrame);
 }
 
 void About::activeSlot(int activeSignal)

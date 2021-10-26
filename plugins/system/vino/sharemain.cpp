@@ -56,9 +56,7 @@ void ShareMain::initUI()
     mVinoTitleLabel = new TitleLabel(this);
     mVinoTitleLabel->setText(tr("Remote Desktop"));
     mEnableFrame = new QFrame(this);
-    mEnableFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mEnableFrame->setMinimumSize(550, 60);
-    mEnableFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mEnableFrame);
 
     QHBoxLayout *enableHLayout = new QHBoxLayout();
     enableHLayout->setContentsMargins(12, 0, 16, 0);
@@ -73,9 +71,7 @@ void ShareMain::initUI()
     mEnableFrame->setLayout(enableHLayout);
 
     mViewFrame = new QFrame(this);
-    mViewFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mViewFrame->setMinimumSize(550, 60);
-    mViewFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mViewFrame);
 
     QHBoxLayout *viewHLayout = new QHBoxLayout();
     viewHLayout->setContentsMargins(12, 0, 16, 0);
@@ -90,9 +86,7 @@ void ShareMain::initUI()
     mViewFrame->setLayout(viewHLayout);
 
     mSecurityFrame = new QFrame(this);
-    mSecurityFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mSecurityFrame->setMinimumSize(550, 60);
-    mSecurityFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mSecurityFrame);
 
     QHBoxLayout *secHLayout = new QHBoxLayout();
     secHLayout->setContentsMargins(12, 0, 16, 0);
@@ -107,9 +101,7 @@ void ShareMain::initUI()
     mSecurityFrame->setLayout(secHLayout);
 
     mSecurityPwdFrame = new QFrame(this);
-    mSecurityPwdFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mSecurityPwdFrame->setMinimumSize(550, 60);
-    mSecurityPwdFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mSecurityPwdFrame);
 
     QHBoxLayout *pwdHLayout = new QHBoxLayout();
     pwdHLayout->setContentsMargins(12, 0, 16, 0);
@@ -221,6 +213,13 @@ void ShareMain::setVinoService(bool status)
             vinoIfc.call("DisableService", "vino-server");
         }
     }
+}
+
+void ShareMain::setFrame_Noframe(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 60));
+    frame->setMaximumSize(QSize(16777215, 60));
+    frame->setFrameShape(QFrame::NoFrame);
 }
 
 QFrame *ShareMain::setLine(QFrame *frame)
