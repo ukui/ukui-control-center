@@ -47,6 +47,7 @@ Build-Depends: debhelper-compat (= 12),
                yhkylin-backup-tools-dev(>=4.0.13-kylin19)[!sw64],
                libukui-log4qt-dev[!sw64],
                libmate-desktop-dev,
+               libddcutil-dev(>=0.9.9-5kylin1),
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center
@@ -62,7 +63,7 @@ Depends: ${shlibs:Depends},
          qt5-image-formats-plugins,
          dconf-cli,
          language-selector-gnome,
-         ddcutil,
+         ddcutil(>=0.9.9-5kylin1),
 Suggests: gsettings-desktop-schemas,
           mate-desktop-common,
           ukui-power-manager(>=2.1.29~rc11),
