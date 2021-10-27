@@ -119,6 +119,7 @@ public:
     bool setAptProxy(QString host ,int port ,bool status);
     void reboot();
 
+    void setFrame_Noframe(QFrame *frame);
     QFrame *setLine(QFrame *frame);
 
 private:

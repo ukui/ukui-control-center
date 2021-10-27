@@ -73,8 +73,8 @@ public:
     double getBattery();
     bool QLabelSetText(QLabel *label, QString string);
     void clearAutoItem(QVBoxLayout *mLyt);
+    void setFrame_Noframe(QFrame *frame);
     QFrame *setLine(QFrame *frame);
-
 
 private:
 

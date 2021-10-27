@@ -488,7 +488,7 @@ void SysdbusRegister::sethostname(QString hostname)
             {
                 if(strList.at(i).contains("127.0.1.1"))
                 {
-                    QString tempStr = QString("%1%2").arg("127.0.1.1      ").arg(hostname);
+                    QString tempStr = QString("%1%2").arg("127.0.1.1       ").arg(hostname);
                     stream<<tempStr<<'\n';
                     continue;
                 }
