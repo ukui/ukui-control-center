@@ -74,3 +74,12 @@ Description: utilities to configure the UKUI desktop
  allowing to set accessibility configuration, desktop fonts, keyboard
  and mouse properties, sound setup, desktop theme and background, user
  interface properties, screen resolution, and other UKUI parameters.
+
+Package: libukcc-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends},
+Description:  The UKUI control center contains configuration applets for the UKUI desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other UKUI parameters.
