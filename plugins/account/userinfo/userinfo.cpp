@@ -558,21 +558,28 @@ void UserInfo::initComponent(){
 
             UserInfomation user = allUserInfoMap.value(g_get_user_name());
             //免密登录状态改变
+            bool result = authorityLogin();
+            if (result == true) { //认证通过
+                qDebug() << QString("operation authorized");
+                QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                                      "/",
+                                                                      "com.control.center.interface",
+                                                                      QDBusConnection::systemBus());
 
-            QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
-                                                                  "/",
-                                                                  "com.control.center.interface",
-                                                                  QDBusConnection::systemBus());
+                if (!tmpSysinterface->isValid()){
+                    qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+                    return;
+                }
+                tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
 
-            if (!tmpSysinterface->isValid()){
-                qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
-                return;
+                delete tmpSysinterface;
+                tmpSysinterface = nullptr;
+            } else {
+                qDebug() << QString("not authorized") << checked;
+                nopwdSwitchBtn->blockSignals(true);
+                nopwdSwitchBtn->setChecked(!checked);
+                nopwdSwitchBtn->blockSignals(false);
             }
-            tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
-
-            delete tmpSysinterface;
-            tmpSysinterface = nullptr;
-
         });
 
     //修改当前用户自动登录
@@ -622,6 +629,23 @@ void UserInfo::initComponent(){
     initBioComonent();
 }
 
+bool UserInfo::authorityLogin()
+{
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.login",
+                PolkitQt1::UnixProcessSubject(QCoreApplication::applicationPid()),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::Yes) { //认证通过
+        qDebug() << QString("operation authorized") << result;
+        return true;
+    } else {
+        qDebug() << QString("not authorized") << result;
+        return false;
+    }
+}
 void UserInfo::_resetListWidgetHeigh(){
     //设置其他用户控件的总高度
     ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1 ) * (ITEMHEIGH) + 4);
