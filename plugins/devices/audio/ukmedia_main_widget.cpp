@@ -2310,7 +2310,7 @@ void UkmediaMainWidget::deleteNotAvailableOutputPort()
     for(it=currentOutputPortLabelMap.begin();it!=currentOutputPortLabelMap.end();) {
         //没找到，需要删除
         if (outputPortIsNeedDelete(it.key(),it.value())) {
-            int index = indexOfOutputPortInOutputListWidget(it.value());
+            int index = indexOfOutputPortInOutputListWidget(it.key(),it.value());
             if (index == -1)
                 return;
             m_pOutputWidget->m_pOutputListWidget->blockSignals(true);
@@ -2336,7 +2336,7 @@ void UkmediaMainWidget::deleteNotAvailableInputPort()
     for(it=currentInputPortLabelMap.begin();it!=currentInputPortLabelMap.end();) {
         //没找到，需要删除
         if (inputPortIsNeedDelete(it.key(),it.value())) {
-            int index = indexOfInputPortInInputListWidget(it.value());
+            int index = indexOfInputPortInInputListWidget(it.key(),it.value());
             if (index == -1)
                 return;
             m_pInputWidget->m_pInputListWidget->blockSignals(true);
@@ -2749,26 +2749,29 @@ QString UkmediaMainWidget::blueCardName()
     return "";
 }
 
-int UkmediaMainWidget::indexOfOutputPortInOutputListWidget(QString portName)
+int UkmediaMainWidget::indexOfOutputPortInOutputListWidget(int index,QString portName)
 {
+    QString cardName = findCardName(index,m_pVolumeControl->cardMap);
     for (int row=0;row<m_pOutputWidget->m_pOutputListWidget->count();row++) {
 
         QListWidgetItem *item = m_pOutputWidget->m_pOutputListWidget->item(row);
         UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pOutputWidget->m_pOutputListWidget->itemWidget(item);
-        if (wid->portLabel->text() == portName) {
+        if (wid->portLabel->text() == portName && wid->deviceLabel->text() == cardName) {
             return row;
         }
     }
     return -1;
 }
 
-int UkmediaMainWidget::indexOfInputPortInInputListWidget(QString portName)
+int UkmediaMainWidget::indexOfInputPortInInputListWidget(int index,QString portName)
 {
+    QString cardName = findCardName(index,m_pVolumeControl->cardMap);
+    qDebug() << "indexOfInputPortInInputListWidget" << cardName << portName;
     for (int row=0;row<m_pInputWidget->m_pInputListWidget->count();row++) {
 
         QListWidgetItem *item = m_pInputWidget->m_pInputListWidget->item(row);
         UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pInputWidget->m_pInputListWidget->itemWidget(item);
-        if (wid->portLabel->text() == portName) {
+        if (wid->portLabel->text() == portName && wid->deviceLabel->text() == cardName) {
             return row;
         }
     }

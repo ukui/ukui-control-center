@@ -190,8 +190,8 @@ public:
     QString findPortSink(int cardIndex,QString portName);
     QString findPortSource(int cardIndex,QString portName);
     bool inputDeviceContainBluetooth();
-    int indexOfOutputPortInOutputListWidget(QString portName);
-    int indexOfInputPortInInputListWidget(QString portName);
+    int indexOfOutputPortInOutputListWidget(int index,QString portName);
+    int indexOfInputPortInInputListWidget(int index,QString portName);
     void inputStreamMapCardName(QString streamName,QString cardName);
     void outputStreamMapCardName(QString streamName,QString cardName);
     QString findInputStreamCardName(QString streamName);

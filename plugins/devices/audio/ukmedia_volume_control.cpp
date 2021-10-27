@@ -327,7 +327,7 @@ bool UkmediaVolumeControl::setDefaultSource(const gchar *name)
         showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
     }
     pa_operation_unref(o);
-    if (pa_context_get_server_protocol_version(getContext()) >= 13) {
+    if (!sourceOutputVector.contains(sourceIndex) && pa_context_get_server_protocol_version(getContext()) >= 13) {
 //        sourceOutputVector.append(info.index);
         pa_operation* o;
         qDebug() <<"killall source output index" <<peakDetectIndex;
@@ -537,17 +537,17 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
 bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info &info) {
     bool is_new = false;
     m_defaultSinkVolume = info.volume;
-    channel = info.volume.channels;
     QMap<QString,QString>temp;
-    int volume;
-    if (info.volume.channels >= 2)
-        volume = MAX(info.volume.values[0],info.volume.values[1]);
-    else
-        volume = info.volume.values[0];
 
     //默认的输出音量
     if (info.name && strcmp(defaultSinkName.data(),info.name) == 0) {
-        sinkIndex= info.index;
+
+        sinkIndex= info.index;int volume;
+        channel = info.volume.channels;
+        if (info.volume.channels >= 2)
+            volume = MAX(info.volume.values[0],info.volume.values[1]);
+        else
+            volume = info.volume.values[0];
         balance = pa_cvolume_get_balance(&info.volume,&info.channel_map);
         defaultChannelMap = info.channel_map;
         channelMap = info.channel_map;
@@ -820,7 +820,7 @@ void UkmediaVolumeControl::updateSinkInput(const pa_sink_input_info &info) {
 void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info) {
     const char *app;
 
-    if(info.name && strstr(info.name,"Peak detect")) {
+    if(info.name && strstr(info.name,"Peak detect") && !sourceOutputVector.contains(info.source)) {
         pa_operation* o;
         qDebug() <<"killall source output index====" <<peakDetectIndex;
         if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
