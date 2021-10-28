@@ -16,3 +16,4 @@ usr/share/polkit-1/actions/*
 usr/share/ukui/faces/*
 usr/share/ukui-control-center/shell/res/i18n/*
 usr/share/ukui-control-center/shell/res/*
+usr/lib/*/ukui-control-center/*.so
