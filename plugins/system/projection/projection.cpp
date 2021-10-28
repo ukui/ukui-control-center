@@ -46,6 +46,9 @@ enum {
 
 Projection::Projection()
 {
+    QTranslator *translator = new QTranslator(this);
+    translator->load("/usr/share/projection/translations/" + QLocale::system().name());
+    QApplication::installTranslator(translator);
     pluginName = tr("Projection");
     pluginType = DEVICES;
     ui = new Ui::Projection;
@@ -384,4 +387,15 @@ void Projection::initComponent(){
     addLyt->addStretch();
     addWgt->setLayout(addLyt);
     addWgt->hide();
+}
+
+QString Projection::translationPath() const
+{
+    return "/usr/share/projection/translations/%1.ts";
+}
+
+void Projection::initSearchText()
+{
+    //~ contents_path /Projection/Open Projection
+    tr("Open Projection");
 }
