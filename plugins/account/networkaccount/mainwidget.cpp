@@ -865,7 +865,6 @@ void MainWidget::open_cloud() {
 
 
 void MainWidget::finished_conf(int ret) {
-    showDesktopNotify("hhhhhhhhhhhhhhhhhhhhhhhh");
     m_bIsInitConf = false;
     if (ret == 0) {
         m_pSettings->setValue("Auto-sync/enable","false");
@@ -903,7 +902,6 @@ void MainWidget::finished_load(int ret, QString uuid) {
     }
     m_bIsStopped = false;
     if (ret == 0 ) {
-        showDesktopNotify("ooooooooooooooooooooooooo");
         emit doconf();
     }
 }
@@ -914,7 +912,6 @@ void MainWidget::finished_load(int ret, QString uuid) {
     @返回类型： void
 */
 void MainWidget::handle_conf() {
-    showDesktopNotify("1111111111111111111111");
     if (__once__  || m_pSettings == nullptr || !m_bIsInit) {
         return ;
     }
