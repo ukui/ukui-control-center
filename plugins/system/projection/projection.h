@@ -55,7 +55,6 @@ public:
     bool isShowOnHomePage() const Q_DECL_OVERRIDE;
     QIcon icon() const Q_DECL_OVERRIDE;
     bool isEnable() const Q_DECL_OVERRIDE;
-    QString translationPath() const Q_DECL_OVERRIDE;
 
     bool getWifiStatus();
     void setWifiStatus(bool status);
@@ -89,7 +88,7 @@ private:
     void delaymsec(int msec);
     int get_process_status(void);
     void init_button_status(int);
-    void initSearchText();      // 搜索翻译
+
 public slots:
     void projectionButtonClickSlots(bool status);
     void projectionPinSlots(QString type,QString pin);
