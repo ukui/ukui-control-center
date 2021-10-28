@@ -41,6 +41,7 @@ private:
     bool isBattery;
     QFuture<void> threadRun;
     volatile bool threadRunFlag;
+    FixLabel *labelMsg = nullptr;
 };
 
 #endif // BRIGHTNESSFRAME_H

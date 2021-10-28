@@ -15,12 +15,27 @@
 BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &edidHash, QWidget *parent) :
     QFrame(parent)
 {
-    this->setFixedHeight(50);
+    this->setFixedHeight(80);
     this->setMinimumWidth(550);
     this->setFrameShape(QFrame::Shape::Box);
-    QHBoxLayout *layout = new QHBoxLayout(this);
+
+    QHBoxLayout *layout = new QHBoxLayout;
     layout->setSpacing(6);
-    layout->setMargin(9);
+    layout->setMargin(0);
+
+    QHBoxLayout *layout_2 = new QHBoxLayout;
+    layout->setMargin(0);
+
+    QVBoxLayout *fLayout = new QVBoxLayout(this);
+    fLayout->setSpacing(4);
+    fLayout->addLayout(layout);
+    fLayout->addLayout(layout_2);
+
+    labelMsg = new FixLabel;
+    labelMsg->setFixedHeight(36);
+    layout_2->addWidget(labelMsg);
+    labelMsg->setDisabled(true);
+    labelMsg->setText(tr("Failed to get the brightness information of this monitor"));//未能获得该显示器的亮度信息
 
     labelName = new FixLabel(this);
     labelName->setFixedWidth(118);
@@ -86,6 +101,8 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
             slider->setValue(brightnessValue);
             setTextLabelValue(QString::number(brightnessValue));
             slider->setEnabled(true);
+            labelMsg->hide();
+            this->setFixedHeight(50);
             disconnect(slider,&QSlider::valueChanged,this,0);
             connect(slider, &QSlider::valueChanged, this, [=](){
                  qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
@@ -105,6 +122,8 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                 setTextLabelValue(QString::number(brightnessValue));
                 slider->setValue(brightnessValue);
                 slider->setEnabled(true);
+                labelMsg->hide();
+                this->setFixedHeight(50);
                 disconnect(slider,&QSlider::valueChanged,this,0);
                 connect(slider, &QSlider::valueChanged, this, [=](){
                     qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
@@ -142,6 +161,7 @@ void BrightnessFrame::setSliderEnable(const bool &enable)
 {
     this->slider->setEnabled(enable);
     if (false == enable) {
+        labelMsg->show();
         slider->setValue(0);
         setTextLabelValue("0");
     }
