@@ -48,11 +48,10 @@ QStringList SystemDbusDispatcher::list_cached_users(){
     return users;
 }
 
-void SystemDbusDispatcher::create_user(QString name, QString fullname, int accounttype){
-    QDBusReply<QDBusObjectPath> repley = systemiface->asyncCall("CreateUser", name, fullname, accounttype);
-    if (!repley.isValid())
-        qDebug() << "Create User Error" << repley.error().message();
-//        QMessageBox::information(0, "Create User Error", repley.error().message());
+void SystemDbusDispatcher::create_user(QString name, QString fullname, int accounttype)
+{
+    // 防止阻塞
+    systemiface->asyncCall("CreateUser", name, fullname, accounttype);
 }
 
 void SystemDbusDispatcher::delete_user(qint64 uid, bool removefile){
