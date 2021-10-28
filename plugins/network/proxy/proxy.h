@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QFileSystemWatcher>
 
 #include <QDialog>
 #include <QLineEdit>
@@ -205,6 +206,9 @@ private:
     QGSettings * ftpsettings;
     QGSettings * sockssettings;
     QGSettings * aptsettings;
+
+    QFileSystemWatcher *mfileWatch_1;
+    QFileSystemWatcher *mfileWatch_2;
 
     bool settingsCreate;
     bool mFirstLoad;
