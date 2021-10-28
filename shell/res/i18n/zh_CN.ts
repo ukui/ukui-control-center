@@ -3999,7 +3999,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="401"/>
         <source>Too many failed attemps,please wait!</source>
-        <translation>登录错误次数过多，请五分钟后重试!</translation>
+        <translation>失败次数过多，请稍后重试!</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="402"/>
