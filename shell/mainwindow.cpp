@@ -493,7 +493,7 @@ void MainWindow::loadPlugins(){
         pluginsDir = QDir(qApp->applicationDirPath() + "/plugins");
     }
 
-    foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
+    foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
         //三权分立开启
 #ifdef WITHKYSEC
         if (!kysec_is_disabled() && kysec_get_3adm_status() && (getuid() || geteuid())){
@@ -506,57 +506,22 @@ void MainWindow::loadPlugins(){
 #endif
         qDebug() << "Scan Plugin: " << fileName;
 
-        if (!fileName.endsWith(".so")
-                || (fileName == "libexperienceplan.so")
-                || ("libnetworkaccount.so" == fileName && (!isExitsCloudAccount() || Utils::isTablet()))
-                || ("libmobilehotspot.so" == fileName && !isExitWirelessDevice())
-                || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
-                || ("libbluetooth.so" == fileName && !isExitBluetooth())
-                || ("libpower.so" == fileName && !isExitsPower())
-                || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
-                || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || (("libfonts.so" == fileName || "libuserinfo.so" == fileName ||
-                     "libshortcut.so" == fileName || "libdefaultapp.so" == fileName ||
-                     "libautoboot.so" == fileName || "libnotice.so" == fileName ||
-                     "libprojection.so" == fileName || "libtouchscreen.so" == fileName ||
-                     "libvino.so" == fileName || "libscreensaver.so" == fileName ||
-                     "libvpn.so" == fileName || "libmobilehotspot.so" == fileName ||
-                     "libbiometrics.so" == fileName || "libsecuritycenter.so" == fileName ||
-                     "libupgrade.so" == fileName || "libsearch.so" == fileName ||
-                     "libarea.so" == fileName || "libbackup.so" == fileName) && Utils::isTablet())
-                || ("libtouchpad.so" == fileName && !isfindSynaptics())
-                || (("libuserinfo_intel.so" == fileName || "libbackup_intel.so" == fileName ||
-                     "libgesture.so" == fileName) && !Utils::isTablet())) {
-            continue;
-        }
 
-
-
-        //ukui-session-manager
-        const char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
-        //ukui-screensaver
-        const char * screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
-
-        //屏保功能依赖ukui-session-manager
-        if ((!g_file_test(screensaverFile, G_FILE_TEST_EXISTS) ||
-             !g_file_test(sessionFile, G_FILE_TEST_EXISTS)) &&
-                (fileName == "libscreensaver.so" || fileName == "libscreenlock.so"))
-            continue;
 #ifdef __sw_64__
         if ("libpower.so" == fileName) {
             continue;
         }
 #endif
 
-        const char * securityCmd = "/usr/sbin/ksc-defender";
-
-        if ((!g_file_test(securityCmd, G_FILE_TEST_EXISTS)) && (fileName == "libsecuritycenter.so"))
-            continue;
-
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject * plugin = loader.instance();
         if (plugin) {
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
+            // 插件是否启用
+            if (!pluginInstance->isEnable()) {
+                continue;
+            }
+
             modulesList[pluginInstance->pluginTypes()].insert(pluginInstance->plugini18nName(), plugin);
 
             qDebug() << "Load Plugin :" << kvConverter->keycodeTokeyi18nstring(pluginInstance->pluginTypes()) << "->" << pluginInstance->plugini18nName() ;
