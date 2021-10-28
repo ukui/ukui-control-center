@@ -554,46 +554,7 @@ void Proxy::setupConnect(){
         emit mManualBtn->click();
     });
 
-    connect(mEditBtn ,&QPushButton::clicked,[=]() {
-        mAptBtn->blockSignals(true);
-        bool prestatus = aptsettings->get(APT_PROXY_ENABLED).toBool();
-        AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
-        mwindow->exec();
-        if ((aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus) || (aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus)) {
-            QMessageBox *mReboot = new QMessageBox(pluginWidget);
-            mReboot->setIcon(QMessageBox::Warning);
-            mReboot->setText(tr("The system needs to be restarted to set the Apt proxy, whether to reboot"));
-            QPushButton *nowbtn =   mReboot->addButton(tr("Reboot Now"), QMessageBox::RejectRole);
-           QPushButton *laterbtn =  mReboot->addButton(tr("Reboot Later"), QMessageBox::AcceptRole);
-            mReboot->exec();
-            if (mReboot->clickedButton() == nowbtn) {
-                setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
-                sleep(1);
-                reboot();
-            } else if (mReboot->clickedButton() == laterbtn) {
-                line_7->show();
-                mAPTFrame_2->show();
-                mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
-                mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
-                mAptBtn->setChecked(true);
-                 setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
-            } else {
-                aptsettings->set(APT_PROXY_ENABLED , false);
-                mAptBtn->setChecked(false);
-                line_7->hide();
-                mAPTFrame_2->hide();
-            }
-        } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){
-            aptsettings->set(APT_PROXY_ENABLED , true);
-            line_7->show();
-            mAPTFrame_2->show();
-            mAptBtn->setChecked(true);
-        } else if(!aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus){
-            aptsettings->set(APT_PROXY_ENABLED , false);
-            mAptBtn->setChecked(false);
-        }
-        mAptBtn->blockSignals(false);
-    });
+    connect(mEditBtn ,&QPushButton::clicked, this, &Proxy::setAptProxySlot);
 
     connect(mAptBtn, &SwitchButton::checkedChanged ,this ,[=](bool status) {
        if (status) {
@@ -859,6 +820,48 @@ QFrame *Proxy::setLine(QFrame *frame)
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
     return line;
+}
+
+void Proxy::setAptProxySlot()
+{
+    mAptBtn->blockSignals(true);
+    bool prestatus = aptsettings->get(APT_PROXY_ENABLED).toBool();
+    AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
+    mwindow->exec();
+    if (aptsettings->get(APT_PROXY_ENABLED).toBool()) {
+        QMessageBox *mReboot = new QMessageBox(pluginWidget);
+        mReboot->setIcon(QMessageBox::Warning);
+        mReboot->setText(tr("The system needs to be restarted to set the Apt proxy, whether to reboot"));
+        QPushButton *laterbtn =  mReboot->addButton(tr("Reboot Later"), QMessageBox::RejectRole);
+        QPushButton *nowbtn =   mReboot->addButton(tr("Reboot Now"), QMessageBox::AcceptRole);
+        mReboot->exec();
+        if (mReboot->clickedButton() == nowbtn) {
+            setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+            sleep(1);
+            reboot();
+        } else if (mReboot->clickedButton() == laterbtn) {
+            line_7->show();
+            mAPTFrame_2->show();
+            mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
+            mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+            mAptBtn->setChecked(true);
+             setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+        } else {
+            aptsettings->set(APT_PROXY_ENABLED , false);
+            mAptBtn->setChecked(false);
+            line_7->hide();
+            mAPTFrame_2->hide();
+        }
+    } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){
+        aptsettings->set(APT_PROXY_ENABLED , true);
+        line_7->show();
+        mAPTFrame_2->show();
+        mAptBtn->setChecked(true);
+    } else if(!aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus){
+        aptsettings->set(APT_PROXY_ENABLED , false);
+        mAptBtn->setChecked(false);
+    }
+    mAptBtn->blockSignals(false);
 }
 
 void Proxy::manualProxyTextChanged(QString txt){
