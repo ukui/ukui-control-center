@@ -106,12 +106,15 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
     
     layoutUI();
     dbusInterface();
-    checkUserStatus();
+    //初始化登录信息
+    emit docheck();
     QFile tokenFile(QDir::homePath() + "/.cache/kylinId/" + ACC_INFO);
     if (tokenFile.exists() && tokenFile.size() > 100) {
         m_mainWidget->setCurrentWidget(m_widgetContainer);
+        setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
     } else {
         m_mainWidget->setCurrentWidget(m_nullWidget);
+        setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
         m_szCode = "-1";
     }
     checkBackEnd();
@@ -130,7 +133,6 @@ void MainWidget::checkNetWork(const QString &str, const QVariantMap &map,const Q
     }
     if (ret.toInt() != 1 && ret.toInt() != 3) {
         ctrlAutoSync(SYNC_NORMAL);
-        checkUserStatus();
     } else {
         ctrlAutoSync(NETWORK_FAILURE);
     }
@@ -209,13 +211,13 @@ void MainWidget::dbusInterface() {
         QtConcurrent::run([=]() {
           m_dbusClient->callMethod("checkLogin",argList);
         });
-
     });
 
     connect(m_dbusClient, &DBusUtils::infoFinished,this,[=] (const QString &name) {
-        if (name != "0") {
-            showDesktopNotify(tr("It's not a good day to use cloud-sync!"));
+        if (name == "-1") {
+            return ;
         }
+        checkUserName(name);
     });
 
     connect(this, &MainWidget::dooss, m_dbusClient, [=](QString uuid) {
@@ -228,6 +230,7 @@ void MainWidget::dbusInterface() {
 
     connect(this, &MainWidget::doconf, m_dbusClient, [=]() {
         QList<QVariant> argList;
+        m_bIsInitConf = true;
         QtConcurrent::run([=]() {
             m_dbusClient->callMethod("init_conf",argList);
         });
@@ -270,6 +273,7 @@ void MainWidget::dbusInterface() {
 
     connect(this, &MainWidget::dologout, m_dbusClient, [=]() {
         QList<QVariant> argList;
+        m_bIsLogin = false;
         QtConcurrent::run([=]() {
            m_dbusClient->callMethod("logout",argList);
         });
@@ -302,7 +306,6 @@ void MainWidget::dbusInterface() {
                     m_mainWidget->setCurrentWidget(m_nullWidget);
             }
         }
-
         if (taskName == "logout") {
             m_autoSyn->set_change(0,"0");
             m_autoSyn->set_active(true);
@@ -376,11 +379,6 @@ void MainWidget::checkUserStatus()
 {
     m_checkTimer->setInterval(2000);
     m_checkTimer->start();
-    if (m_bIsKylinId) {
-        emit kylinIdCheck();
-    } else {
-        emit docheck();
-    }
 }
 
 void MainWidget::startSync()
@@ -437,7 +435,7 @@ void MainWidget::checkUserName(QString name) {
     if (name == "401") {
         m_bIsInit = false;
         m_firstLoad = true;
-        //token无效执行登出
+        //出于某种原因正在登录后的界面，但是token无效执行登出
         if (m_mainWidget->currentWidget() != m_nullWidget) {
             if (m_bIsKylinId) {
                 emit kylinIdLogOut();
@@ -452,10 +450,6 @@ void MainWidget::checkUserName(QString name) {
     }
     //其它由于网络问题登录状态错误
     if (name == "508" || name =="201" || name == "203" || name == "500" || name == "502") {
-        showDesktopNotify(tr("It's not a good day to use cloud-sync!"));
-        m_checkTimer->setInterval(5000);
-        m_checkTimer->start();
-        ctrlAutoSync(NETWORK_FAILURE);
         return ;
     }
     //设置用户名
@@ -464,12 +458,11 @@ void MainWidget::checkUserName(QString name) {
     if(m_szCode == tr("Disconnected") && m_firstLoad == true) {
         emit dooss(m_szUuid);
     }
-    //当前用户名为用户名
-    QFile allConfFile(m_szConfPath);
-    if (!allConfFile.exists()) {
+    //防止已经登录，但是conf文件没有下载下来的情况发生
+    QFile confFile(m_szConfPath);
+    if (!m_bIsInitConf && !confFile.exists()) {
         emit doconf();
     }
-
     //这里要根据上次同步的情况来设置显示情况 to do
     QString failePath = QDir::homePath() + "/.cache/kylinId/failed";
     QFile fileLock(failePath);
@@ -483,11 +476,11 @@ void MainWidget::checkUserName(QString name) {
     if (m_checkTimer->isActive()) {
         m_checkTimer->stop();
     }
+    //存储用户名
     m_szCode = name;
     //刷新同步时间
     refreshSyncDate();
     handle_conf();
-
 }
 
 void MainWidget::initMemoryAlloc() {
@@ -600,6 +593,7 @@ void MainWidget::layoutUI() {
     m_vboxLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     this->setLayout(m_vboxLayout);
     m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
+    setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
 
 }
 
@@ -620,6 +614,7 @@ void MainWidget::setTokenWatcher() {
                 m_mainWidget->setCurrentWidget(m_nullWidget);
             }
         } else {
+            //Token发生改变需要重新检测下登录信息
             checkUserStatus();
         }
     });
@@ -664,7 +659,6 @@ void MainWidget::initSignalSlots() {
     }
 
     connect(m_checkTimer, &QTimer::timeout, this, [=]() {
-        qDebug() <<"ssssssssssss";
         emit docheck();
     });
 
@@ -728,6 +722,7 @@ void MainWidget::initSignalSlots() {
     connect(m_stackedWidget, &QStackedWidget::currentChanged,this, [this] (int index) {
         Q_UNUSED(index);
         if (m_stackedWidget->currentWidget() == m_itemList) {
+            //更改大小显示策略
             setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
         } else {
             setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
@@ -856,12 +851,11 @@ void MainWidget::on_login() {
 
 /* 登录过程处理事件 */
 void MainWidget::open_cloud() {
-    //更新用户信息
-    checkUserStatus();
     //关闭登录窗口，回收内存
+    emit docheck();
     m_mainDialog->on_close();
     m_mainDialog = nullptr;
-
+    m_bIsLogin = true;
     bIsLogging = false;
     //此时用户不能随意点击
     emit isSync(true);
@@ -871,14 +865,14 @@ void MainWidget::open_cloud() {
 
 
 void MainWidget::finished_conf(int ret) {
+    showDesktopNotify("hhhhhhhhhhhhhhhhhhhhhhhh");
+    m_bIsInitConf = false;
     if (ret == 0) {
-        if (!m_bTokenValid) {
-            m_pSettings->setValue("Auto-sync/enable","false");
-            m_pSettings->sync();
-            m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
-            m_autoSyn->make_itemoff();
-            m_bTokenValid = true;
-        }
+        m_pSettings->setValue("Auto-sync/enable","false");
+        m_pSettings->sync();
+        m_stackedWidget->setCurrentWidget(m_nullwidgetContainer);
+        m_autoSyn->make_itemoff();
+        m_bTokenValid = true;
         m_bIsInit = true;
         refreshSyncDate();
         handle_conf();
@@ -909,6 +903,7 @@ void MainWidget::finished_load(int ret, QString uuid) {
     }
     m_bIsStopped = false;
     if (ret == 0 ) {
+        showDesktopNotify("ooooooooooooooooooooooooo");
         emit doconf();
     }
 }
@@ -919,6 +914,7 @@ void MainWidget::finished_load(int ret, QString uuid) {
     @返回类型： void
 */
 void MainWidget::handle_conf() {
+    showDesktopNotify("1111111111111111111111");
     if (__once__  || m_pSettings == nullptr || !m_bIsInit) {
         return ;
     }
@@ -955,8 +951,10 @@ void MainWidget::ctrlAutoSync(int status) {
         for (int i  = 0;i < m_szItemlist.size();i ++) {
             m_itemList->get_item(i)->set_active(false);
         }
-        m_checkTimer->setInterval(2000);
-        m_checkTimer->start();
+        if (!m_checkTimer->isActive()) {
+            //断网不断重试，刷新信息
+            checkUserStatus();
+        }
         m_syncTimeLabel->setText(faileTips);
         if (m_exitCloud_btn->property("on") == true) {
             QProcess proc;
