@@ -554,51 +554,12 @@ void Proxy::setupConnect(){
         emit mManualBtn->click();
     });
 
-    connect(mEditBtn ,&QPushButton::clicked,[=]() {
-        mAptBtn->blockSignals(true);
-        bool prestatus = aptsettings->get(APT_PROXY_ENABLED).toBool();
-        AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
-        mwindow->exec();
-        if ((aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus) || (aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus)) {
-            QMessageBox *mReboot = new QMessageBox(pluginWidget);
-            mReboot->setIcon(QMessageBox::Warning);
-            mReboot->setText(tr("The system needs to be restarted to set the Apt proxy, whether to reboot"));
-            QPushButton *nowbtn =   mReboot->addButton(tr("Reboot Now"), QMessageBox::RejectRole);
-           QPushButton *laterbtn =  mReboot->addButton(tr("Reboot Later"), QMessageBox::AcceptRole);
-            mReboot->exec();
-            if (mReboot->clickedButton() == nowbtn) {
-                setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
-                sleep(1);
-                reboot();
-            } else if (mReboot->clickedButton() == laterbtn) {
-                line_7->show();
-                mAPTFrame_2->show();
-                mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
-                mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
-                mAptBtn->setChecked(true);
-                 setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
-            } else {
-                aptsettings->set(APT_PROXY_ENABLED , false);
-                mAptBtn->setChecked(false);
-                line_7->hide();
-                mAPTFrame_2->hide();
-            }
-        } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){
-            aptsettings->set(APT_PROXY_ENABLED , true);
-            line_7->show();
-            mAPTFrame_2->show();
-            mAptBtn->setChecked(true);
-        } else if(!aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus){
-            aptsettings->set(APT_PROXY_ENABLED , false);
-            mAptBtn->setChecked(false);
-        }
-        mAptBtn->blockSignals(false);
-    });
+    connect(mEditBtn ,&QPushButton::clicked, this, &Proxy::setAptProxySlot);
 
     connect(mAptBtn, &SwitchButton::checkedChanged ,this ,[=](bool status) {
        if (status) {
            emit mEditBtn->click();
-       } else {
+       } else {  // 关闭APT代理，删除对应的配置文件
            aptsettings->set(APT_PROXY_ENABLED , false);
            line_7->hide();
            mAPTFrame_2->hide();
@@ -859,6 +820,48 @@ QFrame *Proxy::setLine(QFrame *frame)
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
     return line;
+}
+
+void Proxy::setAptProxySlot()
+{
+    mAptBtn->blockSignals(true);
+    bool prestatus = aptsettings->get(APT_PROXY_ENABLED).toBool();
+    AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
+    mwindow->exec();
+    if (aptsettings->get(APT_PROXY_ENABLED).toBool()) { // enabled键值为true，用户点击了确定按钮，进行配置文件的写入，提示用户重启系统
+        QMessageBox *mReboot = new QMessageBox(pluginWidget);
+        mReboot->setIcon(QMessageBox::Warning);
+        mReboot->setText(tr("The system needs to be restarted to set the Apt proxy, whether to reboot"));
+        QPushButton *laterbtn =  mReboot->addButton(tr("Reboot Later"), QMessageBox::RejectRole);
+        QPushButton *nowbtn =   mReboot->addButton(tr("Reboot Now"), QMessageBox::AcceptRole);
+        mReboot->exec();
+        if (mReboot->clickedButton() == nowbtn) {  //选择了立即重启，一秒后系统会重启
+            setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+            sleep(1);
+            reboot();
+        } else if (mReboot->clickedButton() == laterbtn) {  //选择了稍后重启，配置文件已写入，但是/etc/profile.d目录下新增的脚本文件未执行
+            line_7->show();
+            mAPTFrame_2->show();
+            mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
+            mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+            mAptBtn->setChecked(true);
+             setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+        } else { // 关闭按钮，删除已写入的配置文件，关闭APT代理
+            aptsettings->set(APT_PROXY_ENABLED , false);
+            mAptBtn->setChecked(false);
+            line_7->hide();
+            mAPTFrame_2->hide();
+        }
+    } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){  //点击了编辑按钮，且在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
+        aptsettings->set(APT_PROXY_ENABLED , true);
+        line_7->show();
+        mAPTFrame_2->show();
+        mAptBtn->setChecked(true);
+    } else if(!aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus){ // 点击了APT开关按钮，但是在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
+        aptsettings->set(APT_PROXY_ENABLED , false);
+        mAptBtn->setChecked(false);
+    }
+    mAptBtn->blockSignals(false);
 }
 
 void Proxy::manualProxyTextChanged(QString txt){
