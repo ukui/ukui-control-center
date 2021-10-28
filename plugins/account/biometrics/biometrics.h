@@ -38,6 +38,7 @@ public:
     QString plugini18nName() Q_DECL_OVERRIDE;
     int pluginTypes() Q_DECL_OVERRIDE;
     QWidget * pluginUi() Q_DECL_OVERRIDE;
+    const QString name() const Q_DECL_OVERRIDE;
     bool isShowOnHomePage() const Q_DECL_OVERRIDE;
     QIcon icon() const Q_DECL_OVERRIDE;
     bool isEnable() const Q_DECL_OVERRIDE;
