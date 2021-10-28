@@ -103,6 +103,8 @@ private:
     void initEnableStatus();
     void setFrameVisible(bool visible);
     void setVinoService(bool status);
+
+    void setFrame_Noframe(QFrame *frame);
     QFrame *setLine(QFrame *frame);
 
 private slots:

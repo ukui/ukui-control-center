@@ -44,7 +44,7 @@
         <file>titlebar/min.svg</file>
         <file>titlebar/back.svg</file>
         <file>plugins/netconnect/eth.svg</file>
-        <file>plugins/netconnect/nonet.svg</file>        
+        <file>plugins/netconnect/nonet.svg</file>
         <file>plugins/theme/selected.svg</file>
         <file>plugins/shortcut/up.svg</file>
         <file>plugins/shortcut/down.svg</file>
@@ -62,7 +62,7 @@
         <file>plugins/theme/opacityhigh.svg</file>
         <file>plugins/upgrade/refresh.png</file>
         <file>plugins/upgrade/update.png</file>
-        <file>plugins/upgrade/normal.png</file>        
+        <file>plugins/upgrade/normal.png</file>
         <file>plugins/upgrade/kylin-update-desktop-app.png</file>
         <file>plugins/upgrade/kylin-update-desktop-kernel-3a4000.png</file>
         <file>plugins/upgrade/kylin-update-desktop-security.png</file>
@@ -165,7 +165,7 @@
         <file>plugins/netconnect/7-black.png</file>
         <file>plugins/netconnect/8-black.png</file>
         <file>plugins/netconnect/6-black.png</file>
-		<file>plugins/securitycenter/icon_scanning_b48@1x.png</file>
+        <file>plugins/securitycenter/icon_scanning_b48@1x.png</file>
         <file>plugins/securitycenter/icon_scanning_w48@1x.png</file>
         <file>plugins/securitycenter/kysec_48_white.png</file>
         <file>plugins/securitycenter/kysec_48.png</file>
@@ -230,7 +230,7 @@
         <file>secondaryleftmenu/Experienceplan.svg</file>
         <file>secondaryleftmenu/Fonts.svg</file>
         <file>secondaryleftmenu/Gesture.svg</file>
-        <file>secondaryleftmenu/MobileHotspot.svg</file>
+        <file>secondaryleftmenu/mobilehotspot.svg</file>
         <file>secondaryleftmenu/Keyboard.svg</file>
         <file>secondaryleftmenu/Mouse.svg</file>
         <file>secondaryleftmenu/Notice.svg</file>
@@ -249,8 +249,8 @@
         <file>secondaryleftmenu/Userinfo.svg</file>
         <file>secondaryleftmenu/Vino.svg</file>
         <file>secondaryleftmenu/Vpn.svg</file>
-        <file>secondaryleftmenu/Wlanconnect.svg</file>
-        <file>secondaryleftmenu/WiredConnect.svg</file>
+        <file>secondaryleftmenu/wlanconnect.svg</file>
+        <file>secondaryleftmenu/netconnect.svg</file>
         <file>secondaryleftmenu/Theme.svg</file>
         <file>plugins/mobilehotspot/hide-pwd.png</file>
         <file>plugins/mobilehotspot/show-pwd.png</file>

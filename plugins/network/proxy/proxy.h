@@ -116,9 +116,10 @@ public:
     int _getCurrentProxyMode();
     void _setSensitivity();
     bool getAptProxyInfo(bool status);
-    bool setAptProxy(QString host ,int port ,bool status);
-    void reboot();
+    bool setAptProxy(QString host ,int port ,bool status); //  apt代理对应的配置文件的写入或删除
+    void reboot(); // 调用重启接口
 
+    void setFrame_Noframe(QFrame *frame);
     QFrame *setLine(QFrame *frame);
 
 private:
@@ -197,7 +198,7 @@ private:
     QLineEdit *mPwdLineEdit;
 
     QTextEdit *mIgnoreLineEdit;
-private:
+
     QGSettings * proxysettings;
     QGSettings * httpsettings;
     QGSettings * securesettings;
@@ -208,6 +209,8 @@ private:
     bool settingsCreate;
     bool mFirstLoad;
 
+private slots:
+    void setAptProxySlot();  //处理apt代理前端交互逻辑
 };
 
 #endif // PROXY_H

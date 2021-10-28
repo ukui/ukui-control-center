@@ -26,7 +26,6 @@
 #include <QLabel>
 #include <QPixmap>
 
-#include "../ImageUtil/imageutil.h"
 #include "libukcc_global.h"
 
 class LIBUKCC_EXPORT HoverWidget : public QWidget

@@ -172,6 +172,7 @@ public:
     void buildAndSetupUsers();
     void setUserConnect();
     void setUserDBusPropertyConnect(const QString pObjPath);
+    bool authoriyLogin();
 
     void showChangeUserTypeDialog(QString u);
     void showChangeUserNicknameDialog();
