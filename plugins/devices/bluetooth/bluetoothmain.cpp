@@ -223,31 +223,7 @@ BlueToothMain::BlueToothMain(QWidget *parent)
     //刷新界面状态
     RefreshWindowUiState();
 
-    return;
-
-
-    if (!not_hci_node)
-        m_localDevice = getDefaultAdapter();
-    if(m_manager->adapters().size() == 0)
-    {
-        not_hci_node = true;
-        M_adapter_flag = false;
-        if (spe_bt_node)
-            showSpeNoteMainWindow();
-        else
-            showMainWindowError();
-        return;
-    }
-    else
-    {
-        M_adapter_flag = true;
-    }
-
-    //qDebug() << m_localDevice->name() << m_localDevice->isPowered() << m_localDevice->isDiscoverable() << m_localDevice->isDiscovering() << m_localDevice->address();
-
-    qDebug() << Q_FUNC_INFO << "ShowNormalMainWindow" << __LINE__;
-    //showNormalMainWindow();
-
+    MonitorSleepSignal();
 }
 
 BlueToothMain::~BlueToothMain()
