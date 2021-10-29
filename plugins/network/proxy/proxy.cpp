@@ -68,6 +68,14 @@ QWidget *Proxy::pluginUi() {
         initUi(pluginWidget);
         retranslateUi();
 
+        mfileWatch_1 = new QFileSystemWatcher(this);
+        mfileWatch_2 = new QFileSystemWatcher(this);
+
+        QString dir_1("/etc/apt/apt.conf.d");
+        QString dir_2("/etc/profile.d");
+        mfileWatch_1->addPath(dir_1);
+        mfileWatch_2->addPath(dir_2);
+
         const QByteArray id(PROXY_SCHEMA);
         const QByteArray idd(HTTP_PROXY_SCHEMA);
         const QByteArray iddd(HTTPS_PROXY_SCHEMA);
@@ -546,6 +554,34 @@ void Proxy::setupComponent(){
 }
 
 void Proxy::setupConnect(){
+    connect(mfileWatch_1, &QFileSystemWatcher::directoryChanged, this, [=](){
+        QFile file("/etc/apt/apt.conf.d/80apt-proxy");
+        if (mAptBtn->isChecked()) {
+            if (!file.exists()) {
+                mAptBtn->setChecked(false);
+                aptsettings->set(APT_PROXY_ENABLED , false);
+                line_7->hide();
+                mAPTFrame_2->hide();
+                setAptProxy("" ,0 ,false);
+            }
+        }
+    });
+
+    connect(mfileWatch_2, &QFileSystemWatcher::directoryChanged, this, [=](){
+        QFile file("/etc/profile.d/80apt-proxy.sh");
+        if (mAptBtn->isChecked()) {
+            qDebug()<<"-------------";
+            if (!file.exists()) {
+                qDebug()<<".................";
+                mAptBtn->setChecked(false);
+                aptsettings->set(APT_PROXY_ENABLED , false);
+                line_7->hide();
+                mAPTFrame_2->hide();
+                setAptProxy("" ,0 ,false);
+            }
+        }
+    });
+
     connect(mAutoProxyWidget,&HoverWidget::widgetClicked,[=](){
         emit mAutoBtn->click();
     });
