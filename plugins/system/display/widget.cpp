@@ -718,9 +718,30 @@ void Widget::writeScale(double scale)
     }
 
     if (mIsScaleChanged) {
+        int cursize;
+        QByteArray iid(MOUSE_SIZE_SCHEMAS);
+        if (QGSettings::isSchemaInstalled(MOUSE_SIZE_SCHEMAS)) {
+            QGSettings cursorSettings(iid);
+
+            if (1.0 == scale) {
+                cursize = 24;
+            } else if (2.0 == scale) {
+                cursize = 48;
+            } else if (3.0 == scale) {
+                cursize = 96;
+            } else {
+                cursize = 24;
+            }
+
+            QStringList keys = scaleGSettings->keys();
+            if (keys.contains("scalingFactor")) {
+                scaleGSettings->set(SCALE_KEY, scale);
+            }
+            cursorSettings.set(CURSOR_SIZE_KEY, cursize);
+            Utils::setKwinMouseSize(cursize);
+        }
         if (!mIsChange) {
-            QMessageBox::information(this, tr("Information"),
-                                     tr("Some applications need to be logouted to take effect"));
+            showZoomtips();
         } else {
             // 非主动切换缩放率，则不弹提示弹窗
             mIsChange = false;
@@ -729,31 +750,7 @@ void Widget::writeScale(double scale)
         return;
     }
 
-
     mIsScaleChanged = false;
-    int cursize;
-    QByteArray iid(MOUSE_SIZE_SCHEMAS);
-    if (QGSettings::isSchemaInstalled(MOUSE_SIZE_SCHEMAS)) {
-        QGSettings cursorSettings(iid);
-
-        if (1.0 == scale) {
-            cursize = 24;
-        } else if (2.0 == scale) {
-            cursize = 48;
-        } else if (3.0 == scale) {
-            cursize = 96;
-        } else {
-            cursize = 24;
-        }
-
-        QStringList keys = scaleGSettings->keys();
-        if (keys.contains("scalingFactor")) {
-
-            scaleGSettings->set(SCALE_KEY, scale);
-        }
-        cursorSettings.set(CURSOR_SIZE_KEY, cursize);
-        Utils::setKwinMouseSize(cursize);
-    }
 }
 
 void Widget::initGSettings()
@@ -812,7 +809,7 @@ void Widget::initNightUI()
     ui->unifyLabel->setText(tr("unify output"));
 
     QHBoxLayout *nightLayout = new QHBoxLayout(ui->nightframe);
-    //~ contents_path /display/night mode
+    //~ contents_path /Display/night mode
     nightLabel = new QLabel(tr("night mode"), this);
     mNightButton = new SwitchButton(this);
     nightLayout->addWidget(nightLabel);
@@ -1041,6 +1038,30 @@ void Widget::initMultScreenStatus()
         }
     }
     mMultiScreenCombox->blockSignals(false);
+}
+
+void Widget::showZoomtips()
+{
+    int ret;
+    QDBusInterface ifc("org.gnome.SessionManager",
+                       "/org/gnome/SessionManager",
+                       "org.gnome.SessionManager",
+                       QDBusConnection::sessionBus());
+    QMessageBox msg(this->topLevelWidget());
+    msg.setWindowTitle(tr("Hint"));
+    msg.setText(tr("The zoom function needs to log out to take effect"));
+    msg.addButton(tr("Log out now"), QMessageBox::AcceptRole);
+    msg.addButton(tr("Later"), QMessageBox::RejectRole);
+
+    ret = msg.exec();
+
+    switch (ret) {
+    case QMessageBox::AcceptRole:
+        ifc.call("logout");
+        break;
+    case QMessageBox::RejectRole:
+        break;
+    }
 }
 
 void Widget::showNightWidget(bool judge)
@@ -2353,7 +2374,6 @@ void Widget::showBrightnessFrame(const int flag)
                 } else {
                     ui->unifyBrightFrame->setFixedHeight(82);
                 }
-                //~ contents_path /display/Brightness
                 BrightnessFrameV[i]->setTextLabelName(tr("Brightness"));
                 BrightnessFrameV[i]->setVisible(true);
                 //不能break，要把其他的frame隐藏

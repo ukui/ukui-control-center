@@ -190,6 +190,8 @@ private:
     void setMulScreenVisiable();
     void initMultScreenStatus();
 
+    void showZoomtips();      // 缩放注销提示框
+
 private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
