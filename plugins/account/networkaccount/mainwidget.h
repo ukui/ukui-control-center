@@ -84,6 +84,7 @@ private:
     void            startSync();
     void            startAutoSync();
     void            syncSelect();
+    void            watchConf(bool checked);
     ItemList       *m_itemList;
     FrameItem    *m_autoSyn;
     TitleLabel              *m_title;
@@ -120,6 +121,8 @@ private:
     bool                m_isOpenDialog = false; //对话框是否打开
     bool                m_firstLoad = false;
     bool                m_bIsInit = true;
+    bool                m_bIsInitConf = false;  //是否正在初始化设置文件，防止多次访问DBUS
+    bool                m_bIsLogin = false;
     QString             m_szUuid;
     QFileSystemWatcher m_fsWatcher;
     SVGHandler *m_svgHandler;
