@@ -658,10 +658,6 @@ void UserInfo::_refreshUserInfoUI(){
             ui->userNameLabel->installEventFilter(this);
 
             oldName = ui->userNameLabel->text();
-            QFont wordfont = ui->userNameLabel->font();
-            QFontMetrics fm(wordfont);
-            QRect rec = fm.boundingRect(ui->userNameLabel->text());
-            ui->userNameLabel->setFixedWidth(rec.width()+15);
             connect(ui->userNameLabel,&QLineEdit::textChanged, [=](QString text){
                     qDebug()<<text;
                     QString str =ui->userNameLabel->text();
@@ -676,10 +672,7 @@ void UserInfo::_refreshUserInfoUI(){
                         ui->userNameLabel->setText(oldName);
                     } else {
                         oldName = text;
-                        QFont wordfont = ui->userNameLabel->font();
-                        QFontMetrics fm(wordfont);
-                        QRect rec = fm.boundingRect(ui->userNameLabel->text());
-                        ui->userNameLabel->setFixedWidth(rec.width()+15);
+                        ui->userNameLabel->setText(ui->userNameLabel->text());
                     }
             });
             connect(ui->editBtn,&QPushButton::clicked,[=](){
