@@ -3348,7 +3348,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="40"/>
         <source>Wallpaper</source>
-        <translation>桌面壁纸</translation>
+        <translation>桌面背景</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/itemlist.h" line="41"/>
