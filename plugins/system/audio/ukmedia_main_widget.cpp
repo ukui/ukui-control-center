@@ -84,25 +84,6 @@ UkmediaMainWidget::UkmediaMainWidget(QWidget *parent)
     dealSlot();//处理槽函数
 }
 
-//void UkmediaMainWidget::paintEvent(QPaintEvent *event)
-//{
-//    QStyleOption opt;
-//    opt.init(this);
-//    QPainter p(this);
-
-//    QBrush brush = QBrush(QColor(244,244,244));
-//    p.setBrush(brush);
-//    p.setPen(Qt::NoPen);
-//    QPainterPath path;
-//    opt.rect.adjust(0,0,0,0);
-//    path.addRoundedRect(opt.rect,6,6);
-//    p.setRenderHint(QPainter::Antialiasing);  // 反锯齿;
-//    p.drawRoundedRect(opt.rect,6,6);
-//    setProperty("blurRegion",QRegion(path.toFillPolygon().toPolygon()));
-//    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
-//    QWidget::paintEvent(event);
-//}
-
 /*
  * 初始化界面
  */
@@ -304,7 +285,7 @@ void UkmediaMainWidget::initGsettings()
  */
 void UkmediaMainWidget::dealSlot()
 {
-    QTimer::singleShot(100, this, SLOT(initVoulmeSlider()));
+    QTimer::singleShot(200, this, SLOT(initVoulmeSlider()));
     connect(m_pInputWidget->m_pInputIconBtn,SIGNAL(clicked()),this,SLOT(inputMuteButtonSlot()));
     connect(m_pOutputWidget->m_pOutputIconBtn,SIGNAL(clicked()),this,SLOT(outputMuteButtonSlot()));
     connect(m_pSoundWidget->m_pStartupButton,SIGNAL(checkedChanged(bool)),this,SLOT(startupButtonSwitchChangedSlot(bool)));
@@ -393,7 +374,7 @@ void UkmediaMainWidget::initVoulmeSlider()
     int sourceVolume = paVolumeToValue(m_pVolumeControl->getSourceVolume());
     QString percent = QString::number(sinkVolume);
     float balanceVolume = m_pVolumeControl->getBalanceVolume();
-   qDebug() <<"initVolumeSlider" << sourceVolume;
+   qDebug() <<"initVolumeSlider"  << "sourceVolume" << sourceVolume << "sinkVolume" << sinkVolume;
     m_pOutputWidget->m_pOpVolumePercentLabel->setText(percent+"%");
     percent = QString::number(sourceVolume);
     m_pInputWidget->m_pIpVolumePercentLabel->setText(percent+"%");
@@ -401,6 +382,12 @@ void UkmediaMainWidget::initVoulmeSlider()
     m_pOutputWidget->m_pOpBalanceSlider->blockSignals(true);
     m_pInputWidget->m_pIpVolumeSlider->blockSignals(true);
     m_pOutputWidget->m_pOpBalanceSlider->setValue(balanceVolume*100);
+    if(m_pOutputWidget->m_pOpBalanceSlider->value() == 0) {
+        m_pOutputWidget->m_pBalanceMidPointLabel->hide();
+    }
+    else {
+        m_pOutputWidget->m_pBalanceMidPointLabel->show();
+    }
     m_pOutputWidget->m_pOpVolumeSlider->setValue(sinkVolume);
     m_pInputWidget->m_pIpVolumeSlider->setValue(sourceVolume);
     m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
@@ -1687,6 +1674,12 @@ void UkmediaMainWidget::balanceSliderChangedSlot(int value)
     gdouble volume = value/100.0;
     value = valueToPaVolume(m_pOutputWidget->m_pOpVolumeSlider->value());
     m_pVolumeControl->setBalanceVolume(m_pVolumeControl->sinkIndex,value,volume);
+    if(volume == 0) {
+        m_pOutputWidget->m_pBalanceMidPointLabel->hide();
+    }
+    else {
+        m_pOutputWidget->m_pBalanceMidPointLabel->show();
+    }
     qDebug() << "balanceSliderChangedSlot" <<value;
 }
 
@@ -2114,7 +2107,7 @@ QString UkmediaMainWidget::findOutputPortLabel(int index,QString portName)
         if (it.key() == index) {
             portMap = it.value();
             for (tempMap = portMap.begin();tempMap!=portMap.end();) {
-                qDebug() <<"findOutputPortLabel" <<portName <<tempMap.key() <<tempMap.value();
+//                qDebug() <<"findOutputPortLabel" <<portName <<tempMap.key() <<tempMap.value();
                 if (tempMap.key() == portName) {
                     portLabel = tempMap.value();
                     break;
@@ -2353,7 +2346,7 @@ void UkmediaMainWidget::setDefaultOutputPortDevice(QString devName, QString port
     QString portStr = findOutputPortName(cardIndex,portName);
     qDebug() << "setDefaultOutputPortDevice" << devName <<portName;
     QTimer *timer = new QTimer;
-    timer->start(50);
+    timer->start(100);
     connect(timer,&QTimer::timeout,[=](){
         QString sinkStr = findPortSink(cardIndex,portStr);
 
@@ -2378,7 +2371,7 @@ void UkmediaMainWidget::setDefaultInputPortDevice(QString devName, QString portN
     int cardIndex = findCardIndex(devName,m_pVolumeControl->cardMap);
     QString portStr = findInputPortName(cardIndex,portName);
     QTimer *timer = new QTimer;
-    timer->start(50);
+    timer->start(100);
     connect(timer,&QTimer::timeout,[=](){
         QString sourceStr = findPortSource(cardIndex,portStr);
 
@@ -2488,10 +2481,6 @@ void UkmediaMainWidget::findOutputComboboxItem(QString cardName,QString portLabe
 {
 
     for (int row=0;row<m_pOutputWidget->m_pDeviceSelectBox->count();row++) {
-
-        qDebug() << "findOutputComboboxItem" << "card name:" << cardName
-                 << "comboboxcardname：" << m_pOutputWidget->m_pDeviceSelectBox->itemData(row).toString()
-                 << "comboboxportname：" << m_pOutputWidget->m_pDeviceSelectBox->itemText(row);
         QString comboboxcardname = m_pOutputWidget->m_pDeviceSelectBox->itemData(row).toString();
         QString comboboxportname = m_pOutputWidget->m_pDeviceSelectBox->itemText(row);
 
@@ -2499,13 +2488,10 @@ void UkmediaMainWidget::findOutputComboboxItem(QString cardName,QString portLabe
             m_pOutputWidget->m_pDeviceSelectBox->blockSignals(true);
             m_pOutputWidget->m_pDeviceSelectBox->setCurrentIndex(row);
             m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
-
             break;
         }
     }
 }
-
-
 /*
  * 当前的输出端口是否应该添加到Combobox output list widget上
  */
@@ -2575,16 +2561,16 @@ void UkmediaMainWidget::addComboboxAvailableOutputPort()
 
                     m_pOutputWidget->m_pDeviceSelectBox->blockSignals(true);
                     m_pOutputWidget->m_pDeviceSelectBox->insertItem(i,it.value(),findCardName(at.key(),m_pVolumeControl->cardMap));
-                    m_pOutputWidget->m_pDeviceSelectBox->setCurrentText(it.value());
+                    qDebug() << "更新下拉框" <<m_pOutputWidget->m_pDeviceSelectBox->currentText();
                     m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
 
                     qDebug()<<"给combobox添加选项============"<< it.value()<<m_pOutputWidget->m_pDeviceSelectBox->count();
 
-                    for(int c=0;c<m_pOutputWidget->m_pDeviceSelectBox->count();c++)
-                    {
-                        qDebug()<<"box选手有：" << m_pOutputWidget->m_pDeviceSelectBox->itemText(c)
-                               <<"关联数据：" <<m_pOutputWidget->m_pDeviceSelectBox->itemData(c).toString();
-                    }
+//                    for(int c=0;c<m_pOutputWidget->m_pDeviceSelectBox->count();c++)
+//                    {
+//                        qDebug()<<"box选手有：" << m_pOutputWidget->m_pDeviceSelectBox->itemText(c)
+//                               <<"关联数据：" <<m_pOutputWidget->m_pDeviceSelectBox->itemData(c).toString();
+//                    }
                 }
                 ++it;
             }
@@ -2605,8 +2591,8 @@ void UkmediaMainWidget::addComboboxOutputListWidgetItem(QString portName, QStrin
     m_pOutputWidget->m_pDeviceSelectBox->insertItem(i,portName,cardName);
     m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
 
-    qDebug()<<"当前combobox的内容是"<<m_pOutputWidget->m_pDeviceSelectBox->currentText()
-           <<m_pOutputWidget->m_pDeviceSelectBox->currentData().toString();
+//    qDebug()<<"当前combobox的内容是"<<m_pOutputWidget->m_pDeviceSelectBox->currentText()
+//           <<m_pOutputWidget->m_pDeviceSelectBox->currentData().toString();
 }
 
 //传进来一个portName用来定位他的位置
@@ -2642,7 +2628,6 @@ void UkmediaMainWidget::deleteNotAvailableComboboxOutputPort()
             m_pOutputWidget->m_pDeviceSelectBox->blockSignals(true);
             m_pOutputWidget->m_pDeviceSelectBox->removeItem(index);
             m_pOutputWidget->m_pDeviceSelectBox->blockSignals(false);
-            qDebug()<<"删除combobox的选项内容为====="<<index;
             it = currentCboxOutputPortLabelMap.erase(it);
             continue;
         }
@@ -2661,8 +2646,8 @@ void UkmediaMainWidget::findInputComboboxItem(QString cardName,QString portLabel
 
         QString comboboxcardname = m_pInputWidget->m_pInputDeviceSelectBox->itemData(row).toString();
         QString comboboxportname = m_pInputWidget->m_pInputDeviceSelectBox->itemText(row);
-        qDebug() << "findInputComboboxItem" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
-                 << comboboxcardname << comboboxportname;
+//        qDebug() << "findInputComboboxItem" << cardName <<portLabel<< m_pInputWidget->m_pInputDeviceSelectBox->count()
+//                 << comboboxcardname << comboboxportname;
         if (comboboxcardname == cardName && comboboxportname == portLabel) {
             m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(true);
             m_pInputWidget->m_pInputDeviceSelectBox->setCurrentIndex(row);
@@ -2764,11 +2749,10 @@ void UkmediaMainWidget::addComboboxAvailableInputPort()
                     currentCboxInputPortLabelMap.insertMulti(at.key(),it.value());
                     m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(true);
                     m_pInputWidget->m_pInputDeviceSelectBox->insertItem(i,it.value(),findCardName(at.key(),m_pVolumeControl->cardMap));
-                    m_pInputWidget->m_pInputDeviceSelectBox->setCurrentText(it.value());
                     m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(false);
 
-                    qDebug()<<"输入Combobox添加选项："<< it.value()
-                           << "当前输入combobox的选项数目："<<m_pInputWidget->m_pInputDeviceSelectBox->count();
+                    //                    qDebug()<<"输入Combobox添加选项："<< it.value()
+                    //                           << "当前输入combobox的选项数目："<<m_pInputWidget->m_pInputDeviceSelectBox->count();
                 }
 
                 ++it;
@@ -2855,7 +2839,7 @@ void UkmediaMainWidget::updateCboxDevicePort()
         {
             temp = it.value();
             for (at=temp.begin();at!=temp.end();) {
-                qDebug() << "更新设备端口：" << cboxfirstEntry << it.key() << at.value();
+                qDebug() << "更新输出设备端口：" << cboxfirstEntry << it.key() << at.value();
                 QString cardName = findCardName(it.key(),m_pVolumeControl->cardMap);
                 addComboboxOutputListWidgetItem(at.value(),cardName);
                 ++at;
@@ -2916,7 +2900,7 @@ void UkmediaMainWidget::updateCboxDevicePort()
         addComboboxAvailableInputPort();
         m_pInputWidget->m_pInputDeviceSelectBox->blockSignals(false);
     }
-    if (m_pOutputWidget->m_pDeviceSelectBox->count() > 0 || m_pInputWidget->m_pInputDeviceSelectBox->count() ) {
+    if (m_pOutputWidget->m_pDeviceSelectBox->count() > 0 || m_pInputWidget->m_pInputDeviceSelectBox->count() >0) {
 
         cboxfirstEntry = false;
     }

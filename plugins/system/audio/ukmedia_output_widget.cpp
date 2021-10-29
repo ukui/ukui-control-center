@@ -126,10 +126,15 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
                                        "}"
 
                                        "QSlider::sub-page:horizontal {"
-                                       "background: #2FB3E8;"
+                                       "background: palette(button);"
                                        "border-radius: 5px;"
                                        "}");
     m_pRightBalanceLabel = new QLabel(tr("Right"),m_pChannelBalanceWidget);
+    m_pBalanceMidPointLabel = new QLabel(m_pChannelBalanceWidget);
+    m_pBalanceMidPointLabel->setStyleSheet("min-width: 4px;min-height: 4px;max-width: 4px;max-height: 4px;"
+                                           "border-radius:2px;"
+                                           "border:1px solid white;"
+                                           "background:white");
 
     m_pOpVolumeSlider->setOrientation(Qt::Horizontal);
     m_pOpBalanceSlider->setOrientation(Qt::Horizontal);
@@ -189,6 +194,8 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     soundLayout->setSpacing(0);
     m_pChannelBalanceWidget->setLayout(soundLayout);
     m_pChannelBalanceWidget->layout()->setContentsMargins(0,0,0,0);
+    m_pBalanceMidPointLabel->raise();
+
 
     //进行整体布局
     m_pVlayout = new QVBoxLayout;
@@ -210,6 +217,12 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     //设置样式
     m_pOutputLabel->setObjectName("m_pOutputLabel");
 
+}
+
+void UkmediaOutputWidget::paintEvent(QPaintEvent *e)
+{
+    m_pBalanceMidPointLabel->move(294+m_pOpBalanceSlider->size().width()/2,m_pOpBalanceSlider->size().height()+7);
+    QWidget::paintEvent(e);
 }
 
 UkmediaOutputWidget::~UkmediaOutputWidget()

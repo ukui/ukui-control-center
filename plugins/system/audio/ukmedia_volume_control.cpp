@@ -442,8 +442,8 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
     hasSinks = c->hasSources = false;
     profile_priorities.clear();
     for (pa_card_profile_info2 ** p_profile = info.profiles2; *p_profile != nullptr; ++p_profile) {
-//        c->hasSinks = c->hasSinks || ((*p_profile)->n_sinks > 0);
-//        c->hasSources = c->hasSources || ((*p_profile)->n_sources > 0);
+        //        c->hasSinks = c->hasSinks || ((*p_profile)->n_sinks > 0);
+        //        c->hasSources = c->hasSources || ((*p_profile)->n_sources > 0);
         profile_priorities.insert(*p_profile);
         profileName.append((*p_profile)->name);
         profilePriorityMap.insertMulti((*p_profile)->name,(*p_profile)->priority);
@@ -463,7 +463,7 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
         for (pa_card_profile_info2 ** p_profile = info.ports[i]->profiles2; *p_profile != nullptr; ++p_profile)
             p.profiles.push_back((*p_profile)->name);
         if (p.direction == 1 && p.available != PA_PORT_AVAILABLE_NO) {
-//            portMap.insertMulti(p.name,p.description.data());
+            //            portMap.insertMulti(p.name,p.description.data());
             insertOutputPort = true;
             qDebug() << " add sink port name "<< info.index << p.name << p.description.data();
             tempOutput.insertMulti(p.name,p.description.data());
@@ -541,7 +541,7 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
         updateDeviceVisibility();
 
     Q_EMIT checkDeviceSelectionSianal(&info);
-//    c->updating = false;
+    //    c->updating = false;
 }
 
 /*
@@ -566,14 +566,22 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         defaultChannelMap = info.channel_map;
         channelMap = info.channel_map;
         if (info.active_port) {
-//            sinkPortLabel = info.active_port->description;
+            //            sinkPortLabel = info.active_port->description;
             sinkPortName = info.active_port->name;
+            QTimer::singleShot(100,this,SLOT(timeoutSlot()));
         }
         defaultOutputCard = info.card;
         if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) && (sinkVolume != volume || sinkMuted != info.mute)) {
             sinkVolume = volume;
             sinkMuted = info.mute;
             Q_EMIT updateVolume(sinkVolume,sinkMuted);
+        }
+        else if(sinkVolume != volume && sinkPortName == "")//特殊情况(没有输出端口的情况下也要发送信号同步音量)
+        {
+            sinkVolume = volume;
+            Q_EMIT updateVolume(sinkVolume,sinkMuted);
+
+            qDebug() << "无输出端口情况下发送 updateSink 信号";
         }
     }
 
@@ -586,7 +594,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         qDebug() << "updateSink" << info.volume.channels << info.active_port->description << info.active_port->name << sinkVolume <<"balance：" <<balance << "defauleSinkName:" <<defaultSinkName.data() << "sinkport" << sinkPortName;
 
         const char *icon;
-    //    std::map<uint32_t, UkmediaCard*>::iterator cw;
+        //    std::map<uint32_t, UkmediaCard*>::iterator cw;
         std::set<pa_sink_port_info,sink_port_prio_compare> port_priorities;
 
 
@@ -721,12 +729,23 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         if (info.active_port) {
 //            sourcePortLabel = info.active_port->description;
             sourcePortName = info.active_port->name;
+            QTimer::singleShot(100,this,SLOT(timeoutSlot()));
         }
         defaultInputCard = info.card;
-        if (sourceVolume != volume || sourceMuted != info.mute) {
+        if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sourcePortName)) && (sourceVolume != volume || sourceMuted != info.mute)) {
             sourceVolume = volume;
             sourceMuted = info.mute;
             Q_EMIT updateSourceVolume(sourceVolume,sourceMuted);
+            qDebug() << "222222 updateSourceVolume 信号";
+
+        }
+        else if(sourceVolume != volume && sourcePortName == "")//特殊情况(没有输入端口的情况下也要发送信号同步音量)
+        {
+            sourceVolume = volume;
+            sourceMuted = info.mute;
+            Q_EMIT updateSourceVolume(sourceVolume,sourceMuted);
+
+            qDebug() << "无输入端口情况下发送 updateSourceVolume 信号";
         }
     }
     if (pa_context_get_server_protocol_version(getContext()) >= 13)
@@ -740,7 +759,14 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         for (pa_source_port_info ** sourcePort = info.ports; *sourcePort != nullptr; ++sourcePort) {
             temp.insertMulti(info.name,(*sourcePort)->name);
         }
-        sourcePortMap.insert(info.card,temp);
+        QList<QMap<QString,QString>> sourcePortMapList;
+        if(sourcePortMap.isEmpty())
+            sourcePortMap.insertMulti(info.card,temp);
+        sourcePortMapList = sourcePortMap.values();
+        if(!sourcePortMapList.contains(temp)){
+            sourcePortMap.insertMulti(info.card,temp);
+        }
+
     }
     qDebug() << "update source" << m_pDefaultSink->name<<m_pDefaultSink->index;
 
