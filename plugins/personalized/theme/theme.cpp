@@ -166,15 +166,15 @@ bool Theme::isEnable() const
 }
 
 void Theme::initSearchText() {
-    //~ contents_path /theme/Theme Mode
+    //~ contents_path /Theme/Theme Mode
     ui->titleLabel->setText(tr("Theme Mode"));
-    //~ contents_path /theme/Icon theme
+    //~ contents_path /Theme/Icon theme
     ui->iconLabel->setText(tr("Icon theme"));
-    //~ contents_path /theme/Cursor theme
+    //~ contents_path /Theme/Cursor theme
     ui->cursorLabel->setText(tr("Cursor theme"));
-    //~ contents_path /theme/Performance mode
+    //~ contents_path /Theme/Performance mode
     ui->perforLabel->setText(tr("Performance mode"));
-    //~ contents_path /theme/Transparency
+    //~ contents_path /Theme/Transparency
     ui->transparencyLabel->setText(tr("Transparency"));
 }
 

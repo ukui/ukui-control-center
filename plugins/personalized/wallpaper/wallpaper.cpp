@@ -124,9 +124,9 @@ bool Wallpaper::isEnable() const
 
 void Wallpaper::initSearchText() {
     ui->selectLabel->setText(tr("Background"));
-    //~ contents_path /wallpaper/Browse
+    //~ contents_path /Wallpaper/Browse
     ui->browserLocalwpBtn->setText(tr("Browse"));
-    //~ contents_path /wallpaper/Online Picture
+    //~ contents_path /Wallpaper/Online Picture
     ui->onlineBtn->setText(tr("Online Picture"));
     ui->onlineBtn->setFocusPolicy(Qt::NoFocus);
     ui->onlineBtn->setContentsMargins(0,0,0,0);
@@ -135,7 +135,7 @@ void Wallpaper::initSearchText() {
     connect( ui->onlineBtn, &QPushButton::clicked, this,[=] {
         QDesktopServices::openUrl(QUrl(QLatin1String("https://www.ubuntukylin.com/wallpaper.html")));
     });
-    //~ contents_path /wallpaper/Reset To Default
+    //~ contents_path /Wallpaper/Reset To Default
     ui->resetBtn->setText(tr("Reset To Default"));
 }
 

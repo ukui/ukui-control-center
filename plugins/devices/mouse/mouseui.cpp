@@ -161,7 +161,7 @@ void MouseUI::setDominantHandFrame()
 
     QHBoxLayout *dominantHandHLayout = new QHBoxLayout();
 
-     //~ contents_path /mouse/Dominant hand
+     //~ contents_path /Mouse/Dominant hand
     mDominantHandLabel = new QLabel(tr("Dominant hand"), this);
     mDominantHandLabel->setMinimumWidth(140);
     mDominantHandLeftRadio = new QRadioButton(tr("Left hand"), this);
@@ -189,7 +189,7 @@ void MouseUI::setWheelSpeedFrame()
 
     QHBoxLayout *wheelSpeedHLayout = new QHBoxLayout();
 
-    //~ contents_path /mouse/Wheel speed
+    //~ contents_path /Mouse/Wheel speed
     mWheelSpeedLabel = new QLabel(tr("Wheel speed"), this);
     mWheelSpeedLabel->setMinimumWidth(140);
     mWheelSpeedSlowLabel = new QLabel(tr("Slow"), this);
@@ -219,7 +219,7 @@ void MouseUI::setDoubleClickFrame()
 
     QHBoxLayout *doubleClickIntervalHLayout = new QHBoxLayout();
 
-    //~ contents_path /mouse/Double-click interval time
+    //~ contents_path /Mouse/Double-click interval time
     mDoubleClickIntervalLabel = new QLabel(tr("Double-click interval time"), this);
     mDoubleClickIntervalLabel->setMinimumWidth(140);
     mDoubleClickIntervalShortLabel = new QLabel(tr("Short"), this);
@@ -251,7 +251,7 @@ void MouseUI::setPointerSpeedFrame()
 
     QHBoxLayout *pointerSpeedHLayout = new QHBoxLayout();
 
-    //~ contents_path /mouse/Pointer speed
+    //~ contents_path /Mouse/Pointer speed
     mPointerSpeedLabel = new QLabel(tr("Pointer speed"), this);
     mPointerSpeedLabel->setMinimumWidth(140);
     mPointerSpeedSlowLabel = new QLabel(tr("Slow"), this);
@@ -283,7 +283,7 @@ void MouseUI::setMouseAccelerationFrame()
     QHBoxLayout *mouseAccelerationHLayout = new QHBoxLayout();
 
     mMouseAccelerationBtn = new SwitchButton(this);
-    //~ contents_path /mouse/Mouse acceleration
+    //~ contents_path /Mouse/Mouse acceleration
     mMouseAccelerationLabel = new QLabel(tr("Mouse acceleration"), this);
     mMouseAccelerationLabel->setMinimumWidth(140);
     mouseAccelerationHLayout->addSpacing(7);
@@ -304,7 +304,7 @@ void MouseUI::setPointerPositionFrame()
 
     QHBoxLayout *PointerPositionHLayout = new QHBoxLayout();
 
-    //~ contents_path /mouse/Show pointer position when pressing ctrl
+    //~ contents_path /Mouse/Show pointer position when pressing ctrl
     mPointerPositionLabel = new QLabel(tr("Show pointer position when pressing ctrl"), this);
     mPointerPositionLabel->setMinimumWidth(140);
     mPointerPositionBtn = new SwitchButton(this);
@@ -326,7 +326,7 @@ void MouseUI::setPointerSizeFrame()
 
     QHBoxLayout *pointerSizeHLayout = new QHBoxLayout();
 
-     //~ contents_path /mouse/Pointer size
+     //~ contents_path /Mouse/Pointer size
     mPointerSizeLabel = new QLabel(tr("Pointer size"),this);
     mPointerSizeLabel->setMinimumWidth(140);
     mPointerSizeSmallRadio = new QRadioButton(tr("Small(recommend)"), this);
@@ -362,7 +362,7 @@ void MouseUI::setBlinkCursorFrame()
 
     QHBoxLayout *blinkingCursorOnTextHLayout = new QHBoxLayout();
 
-     //~ contents_path /mouse/Blinking cursor in text area
+     //~ contents_path /Mouse/Blinking cursor in text area
     mBlinkingCursorOnTextLabel = new QLabel(tr("Blinking cursor in text area"), this);
     mBlinkingCursorOnTextLabel->setMinimumWidth(140);
     mBlinkingCursorOnTextBtn = new SwitchButton(this);
@@ -384,7 +384,7 @@ void MouseUI::setCursorSpeedFrame()
 
     QHBoxLayout *cursorSpeedHLayout = new QHBoxLayout();
 
-    //~ contents_path /mouse/Cursor speed
+    //~ contents_path /Mouse/Cursor speed
     mCursorSpeedlabel = new QLabel(tr("Cursor speed"), this);
     mCursorSpeedlabel->setMinimumWidth(140);
     mCursorSpeedSlowlabel = new QLabel(tr("Slow"), this);

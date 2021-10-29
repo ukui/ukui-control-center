@@ -512,19 +512,19 @@ void About::retranslateUi()
 /* 添加搜索索引 */
 void About::initSearchText()
 {
-    //~ contents_path /about/version
+    //~ contents_path /About/version
     mVersionLabel_1->setText(tr("Version"));
-    //~ contents_path /about/Kernel
+    //~ contents_path /About/Kernel
     mKernelLabel_1->setText(tr("Kernel"));
-    //~ contents_path /about/CPU
+    //~ contents_path /About/CPU
     mCpuLabel_1->setText(tr("CPU"));
-    //~ contents_path /about/Memory
+    //~ contents_path /About/Memory
     mMemoryLabel_1->setText(tr("Memory"));
-    //~ contents_path /about/Desktop
+    //~ contents_path /About/Desktop
     mDesktopLabel_1->setText(tr("Desktop"));
-    //~ contents_path /about/User
+    //~ contents_path /About/User
     mUsernameLabel_1->setText(tr("User"));
-     //~ contents_path /about/Status
+     //~ contents_path /About/Status
     mStatusLabel_1->setText(tr("Status"));
     mSequenceLabel_1->setText(tr("Serial"));
     mTimeLabel_1->setText(tr("DateRes"));

@@ -479,19 +479,19 @@ void Proxy::initSearchText() {
 void Proxy::retranslateUi()
 {
     mTitleLabel->setText(tr("System Proxy"));
-    //~ contents_path /proxy/Auto Proxy
+    //~ contents_path /Proxy/Auto Proxy
     mAutoProxyLabel->setText(tr("Auto Proxy"));
-    //~ contents_path /proxy/Auto url
+    //~ contents_path /Proxy/Auto url
     mUrlLabel->setText(tr("Auto url"));
-    //~ contents_path /proxy/Manual Proxy
+    //~ contents_path /Proxy/Manual Proxy
     mManualProxyLabel->setText(tr("Manual Proxy"));
-    //~ contents_path /proxy/Http Proxy
+    //~ contents_path /Proxy/Http Proxy
     mHTTPLabel->setText(tr("Http Proxy"));
-    //~ contents_path /proxy/Https Proxy
+    //~ contents_path /Proxy/Https Proxy
     mHTTPSLabel->setText(tr("Https Proxy"));
-    //~ contents_path /proxy/Ftp Proxy
+    //~ contents_path /Proxy/Ftp Proxy
     mFTPLabel->setText(tr("Ftp Proxy"));
-    //~ contents_path /proxy/Socks Proxy
+    //~ contents_path /Proxy/Socks Proxy
     mSOCKSLabel->setText(tr("Socks Proxy"));
     mHTTPPortLabel->setText(tr("Port"));
     mHTTPSPortLabel->setText(tr("Port"));
@@ -502,7 +502,7 @@ void Proxy::retranslateUi()
     mUserNameLabel->setText(tr("User Name"));
     mPwdLabel->setText(tr("Password"));
 
-    //~ contents_path /proxy/Apt Proxy
+    //~ contents_path /Proxy/Apt Proxy
     mAptProxyLabel->setText(tr("Apt Proxy"));
     mAptLabel->setText(tr("Open"));
     mAPTHostLabel_1->setText(tr("Server Address : "));

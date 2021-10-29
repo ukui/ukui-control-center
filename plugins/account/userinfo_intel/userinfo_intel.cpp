@@ -142,18 +142,18 @@ bool UserInfoIntel::isEnable() const
 
 void UserInfoIntel::initSearchText() {
     ui->changePhoneBtn->setIcon(QIcon(":/img/plugins/userinfo_intel/phone.svg"));
-    //~ contents_path /userinfo/Current User
+    //~ contents_path /Userinfo/Current User
     ui->titleLabel->setText(tr("Current User"));
 
-    //~ contents_path /userinfo/Other Users
+    //~ contents_path /Userinfo/Other Users
     ui->title2Label->setText(tr("Other Users"));
 
-    //~ contents_path /userinfo/Change Tel
+    //~ contents_path /Userinfo/Change Tel
     ui->changePhoneBtn->setText(tr("Change Tel"));
 
     ui->changePwdBtn->setIcon(QIcon(":/img/plugins/userinfo_intel/password.svg"));
 
-    //~ contents_path /userinfo/Change pwd
+    //~ contents_path /Userinfo/Change pwd
     ui->changePwdBtn->setText(tr("Change pwd"));
 
 
@@ -176,7 +176,7 @@ void UserInfoIntel::initSearchText() {
     }
 
 
-    //~ contents_path /userinfo/Delete user
+    //~ contents_path /Userinfo/Delete user
     ui->delUserBtn->setText(tr("Delete user"));
 
     ui->frame->hide();

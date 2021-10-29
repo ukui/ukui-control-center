@@ -156,12 +156,12 @@ void Shortcut::connectToServer()
 void Shortcut::setupComponent()
 {
     QLabel *AddLabel = new QLabel;
-    //~ contents_path /autoboot/Add
+    //~ contents_path /Shortcut/Add
     AddLabel->setText(tr("Add"));       // 用于添加搜索索引
     delete AddLabel;
-    //~ contents_path /shortcut/System Shortcut
+    //~ contents_path /Shortcut/System Shortcut
     ui->systemLabel->setText(tr("System Shortcut"));
-    //~ contents_path /shortcut/Customize Shortcut
+    //~ contents_path /Shortcut/Customize Shortcut
     ui->customLabel->setText(tr("Customize Shortcut"));
 
     QWidget *systemTitleWidget = new QWidget;

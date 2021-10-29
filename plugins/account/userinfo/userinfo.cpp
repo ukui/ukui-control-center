@@ -143,13 +143,13 @@ bool UserInfo::isEnable() const
 }
 
 void UserInfo::initSearchText() {
-    //~ contents_path /userinfo/Password
+    //~ contents_path /Userinfo/Password
     ui->changePwdBtn->setText(tr("Password"));
-    //~ contents_path /userinfo/Type
+    //~ contents_path /Userinfo/Type
     ui->changeTypeBtn->setText(tr("Type"));
-    //~ contents_path /userinfo/Login no passwd
+    //~ contents_path /Userinfo/Login no passwd
     ui->loginpwdLabel->setText(tr("Login no passwd"));
-    //~ contents_path /userinfo/enable autoLogin
+    //~ contents_path /Userinfo/enable autoLogin
     ui->autologinLabel->setText(tr("enable autoLogin"));
 
 

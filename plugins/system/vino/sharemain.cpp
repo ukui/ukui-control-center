@@ -62,7 +62,7 @@ void ShareMain::initUI()
     enableHLayout->setContentsMargins(12, 0, 16, 0);
 
     mEnableBtn = new SwitchButton(this);
-     //~ contents_path /vino/Allow others to view your desktop
+     //~ contents_path /Vino/Allow others to view your desktop
     mEnableLabel = new QLabel(tr("Allow others to view your desktop"), this);
     enableHLayout->addWidget(mEnableLabel);
     enableHLayout->addStretch();
@@ -77,7 +77,7 @@ void ShareMain::initUI()
     viewHLayout->setContentsMargins(12, 0, 16, 0);
 
     mViewBtn = new SwitchButton(this);
-    //~ contents_path /vino/Allow connection to control screen
+    //~ contents_path /Vino/Allow connection to control screen
     mViewLabel = new QLabel(tr("Allow connection to control screen"), this);
     viewHLayout->addWidget(mViewLabel);
     viewHLayout->addStretch();
@@ -92,7 +92,7 @@ void ShareMain::initUI()
     secHLayout->setContentsMargins(12, 0, 16, 0);
 
     mAccessBtn = new SwitchButton(this);
-     //~ contents_path /vino/You must confirm every visit for this machine
+     //~ contents_path /Vino/You must confirm every visit for this machine
     mAccessLabel = new QLabel(tr("You must confirm every visit for this machine"), this);
     secHLayout->addWidget(mAccessLabel);
     secHLayout->addStretch();
@@ -107,7 +107,7 @@ void ShareMain::initUI()
     pwdHLayout->setContentsMargins(12, 0, 16, 0);
 
     mPwdBtn = new SwitchButton(this);
-     //~ contents_path /vino/Require user to enter this password:
+     //~ contents_path /Vino/Require user to enter this password:
     mPwdsLabel = new QLabel(tr("Require user to enter this password: "), this);
 
     mPwdinputBtn = new QPushButton(this);

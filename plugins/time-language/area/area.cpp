@@ -156,9 +156,9 @@ void Area::run_external_app_slot() {
 }
 
 void Area::initUI() {
-    //~ contents_path /area/Regional Format
+    //~ contents_path /Area/Regional Format
     ui->titleLabel->setText(tr("Language Format"));
-    //~ contents_path /area/system language
+    //~ contents_path /Area/system language
     ui->title3Label->setText(tr("System Language"));
 
     ui->summaryLabel->setContentsMargins(16,0,0,0);
@@ -349,15 +349,15 @@ QStringList Area::getUserDefaultLanguage() {
 
 void Area::initFormFrame()
 {
-    //~ contents_path /area/Current Region
+    //~ contents_path /Area/Current Region
     ui->countrylabel->setText(tr("Current Region"));
-    //~ contents_path /area/Calendar
+    //~ contents_path /Area/Calendar
     ui->calendarLabel->setText(tr("Calendar"));
-    //~ contents_path /area/First Day Of Week
+    //~ contents_path /Area/First Day Of Week
     ui->dayLabel->setText(tr("First Day Of Week"));
-    //~ contents_path /area/Date
+    //~ contents_path /Area/Date
     ui->dateLabel->setText(tr("Date"));
-    //~ contents_path /area/Time
+    //~ contents_path /Area/Time
     ui->timelabel->setText(tr("Time"));
 
     ui->calendarBox->addItem(tr("solar calendar"));

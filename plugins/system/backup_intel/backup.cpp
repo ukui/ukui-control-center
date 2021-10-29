@@ -72,7 +72,7 @@ QWidget *Backup::pluginUi(){
         ui->label->setFixedSize(164,164);
         ui->label->setPixmap(pixmap);
         ui->backBtn->setFixedSize(184,56);
-        //~ contents_path /backup/Clear and restore
+        //~ contents_path /Backup/Clear and restore
         ui->backBtn->setText(tr("Clear and restore"));
 
         const QByteArray id("org.ukui.style");

@@ -158,7 +158,7 @@ void DateTime::initTitleLabel()
     QGSettings *m_fontSetting = new QGSettings("org.ukui.style");
     QFont font;
     ui->titleLabel_2->adjustSize();
-    //~ contents_path /date/Other Timezone
+    //~ contents_path /Date/Other Timezone
     ui->titleLabel_2->setText(tr("Other Timezone"));
     ui->timeClockLable->setObjectName("timeClockLable");
     font.setPixelSize(m_fontSetting->get("systemFontSize").toInt() * 28 / 11);
@@ -172,9 +172,9 @@ void DateTime::initTitleLabel()
 void DateTime::initUI()
 {
     m_formTimeBtn       = new SwitchButton(pluginWidget);
-    //~ contents_path /date/24-hour clock
+    //~ contents_path /Date/24-hour clock
     m_formTimeLabel     = new QLabel(tr("24-hour clock"), pluginWidget);
-    //~ contents_path /date/Sync time
+    //~ contents_path /Date/Sync time
     ui->syncLabel->setText(tr("Sync Time"));
     syncNetworkRetLabel = new QLabel(pluginWidget);
     syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");
@@ -194,7 +194,7 @@ void DateTime::initUI()
     Clock *m_clock = new Clock();
     //ui->clockFrame->setFrameShape(QFrame::Shape::Box);
     ui->clockLayout->addWidget(m_clock);
-    //~ contents_path /date/Manual Time
+    //~ contents_path /Date/Manual Time
     ui->timeLabel->setText(tr("Manual Time"));
     for (int m = 0; m < 60; m++) {
         ui->minComboBox->addItem(QString::number(m));
@@ -238,7 +238,7 @@ void DateTime::initComponent()
 {
     ui->timeClockLable->setContentsMargins(0,0,0,0);
 
-    //~ contents_path /date/Change time zone
+    //~ contents_path /Date/Change time zone
     ui->chgzonebtn->setText(tr("Change timezone"));
 
     ui->hourFrame->setVisible(false);  //移到area里面了
@@ -249,9 +249,9 @@ void DateTime::initComponent()
 
     ui->radioButton->adjustSize();
     ui->radioButton_2->adjustSize();
-    //~ contents_path /date/Auto Sync Time
+    //~ contents_path /Date/Auto Sync Time
     ui->radioButton->setText(tr("Auto Sync Time"));
-    //~ contents_path /date/Manual Time
+    //~ contents_path /Date/Manual Time
     ui->radioButton_2->setText(tr("Manual Time"));
 
     ui->syncHintFrame->adjustSize();
@@ -395,7 +395,7 @@ void DateTime::initNtp()
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
     ntpLayout->addWidget(ntpCombox);
-    //~ contents_path /date/Sync Server
+    //~ contents_path /Date/Sync Server
     ntpLabel->setText(tr("Sync Server"));
     ntpCombox->setFixedHeight(36);
     ntpCombox->addItem(tr("Default"));

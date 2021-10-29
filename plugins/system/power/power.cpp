@@ -666,11 +666,11 @@ void Power::resetui()
 
 void Power::initSearText()
 {
-    //~ contents_path /power/General
+    //~ contents_path /Power/General
     CustomTitleLabel->setText(tr("General"));
-    //~ contents_path /power/Select Powerplan
+    //~ contents_path /Power/Select Powerplan
     PowerPlanTitleLabel->setText(tr("Select Powerplan"));
-    //~ contents_path /power/Battery saving plan
+    //~ contents_path /Power/Battery saving plan
     BatteryPlanTitleLabel->setText((tr("Battery saving plan")));
 }
 

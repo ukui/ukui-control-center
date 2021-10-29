@@ -60,7 +60,7 @@ void OutputConfig::initUi()
     mResolution->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     QLabel *resLabel = new QLabel(this);
-    //~ contents_path /display/resolution
+    //~ contents_path /Display/resolution
     resLabel->setText(tr("resolution"));
     resLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     resLabel->setFixedSize(118, 30);
@@ -89,7 +89,7 @@ void OutputConfig::initUi()
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     QLabel *rotateLabel = new QLabel(this);
-    //~ contents_path /display/orientation
+    //~ contents_path /Display/orientation
     rotateLabel->setText(tr("orientation"));
     rotateLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     rotateLabel->setFixedSize(118, 30);
@@ -121,7 +121,7 @@ void OutputConfig::initUi()
     mRefreshRate = new QComboBox(this);
 
     QLabel *freshLabel = new QLabel(this);
-    //~ contents_path /display/frequency
+    //~ contents_path /Display/frequency
     freshLabel->setText(tr("frequency"));
     freshLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     freshLabel->setFixedSize(118, 30);
@@ -161,7 +161,7 @@ void OutputConfig::initUi()
     mScaleCombox->setObjectName("scaleCombox");
 
     QLabel *scaleLabel = new QLabel(this);
-    //~ contents_path /display/screen zoom
+    //~ contents_path /Display/screen zoom
     scaleLabel->setText(tr("screen zoom"));
     scaleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     scaleLabel->setFixedSize(118, 30);

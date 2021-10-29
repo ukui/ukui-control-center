@@ -98,7 +98,7 @@ void Vpn::initComponent(){
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    //~ contents_path /vpn/Add vpn connect
+    //~ contents_path /Vpn/Add vpn connect
     QLabel * textLabel = new QLabel(tr("Add vpn connect"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);

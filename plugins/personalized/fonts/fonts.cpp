@@ -135,11 +135,11 @@ bool Fonts::isEnable() const
 }
 
 void Fonts::initSearchText() {
-    //~ contents_path /fonts/Font size
+    //~ contents_path /Fonts/Font size
     ui->fontSizeLabel->setText(tr("Font size"));
-    //~ contents_path /fonts/Fonts select
+    //~ contents_path /Fonts/Fonts select
     ui->fontSelectLabel->setText(tr("Fonts select"));
-    //~ contents_path /fonts/Mono font
+    //~ contents_path /Fonts/Mono font
     ui->monoSelectLabel->setText(tr("Mono font"));
 }
 

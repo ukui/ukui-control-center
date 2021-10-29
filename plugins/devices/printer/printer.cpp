@@ -57,7 +57,7 @@ QWidget *Printer::pluginUi()
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
 
-//        //~ contents_path /printer/Add Printers And Scanners
+//        //~ contents_path /Printer/Add Printers And Scanners
 //        ui->titleLabel->setText(tr("Add Printers And Scanners"));
 
         initUi(pluginWidget);
@@ -172,7 +172,7 @@ void Printer::initPrinterUi()
 void Printer::initTitleLabel()
 {
     QLabel *AddLabel = new QLabel;
-    //~ contents_path /printer/Add
+    //~ contents_path /Printer/Add
     AddLabel->setText(tr("Add"));       // 用于添加搜索索引
     delete AddLabel;
 }

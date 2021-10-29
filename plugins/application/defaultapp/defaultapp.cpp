@@ -301,17 +301,17 @@ void DefaultApp::initDefaultUI() {
 /* 添加搜索索引 */
 void DefaultApp::initSearchText() {
     mTitleLabel->setText(QApplication::translate("DefaultAppWindow", "Select Default Application", nullptr));
-    //~ contents_path /defaultapp/Browser
+    //~ contents_path /Defaultapp/Browser
     mBrowserLabel->setText(tr("Browser"));
-    //~ contents_path /defaultapp/Mail
+    //~ contents_path /Defaultapp/Mail
     mMailLabel->setText(tr("Mail"));
-    //~ contents_path /defaultapp/Image Viewer
+    //~ contents_path /Defaultapp/Image Viewer
     mImageLabel->setText(tr("Image Viewer"));
-    //~ contents_path /defaultapp/Audio Player
+    //~ contents_path /Defaultapp/Audio Player
     mAudioLabel->setText(tr("Audio Player"));
-    //~ contents_path /defaultapp/Video Player
+    //~ contents_path /Defaultapp/Video Player
     mVideoLabel->setText(tr("Video Player"));
-    //~ contents_path /defaultapp/Text Editor
+    //~ contents_path /Defaultapp/Text Editor
     mTextLabel->setText(tr("Text Editor"));
 }
 

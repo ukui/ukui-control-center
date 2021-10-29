@@ -77,7 +77,7 @@ bool Update::isEnable() const
 }
 
 void Update::ui_init(){
-    //~ contents_path /update/System Update
+    //~ contents_path /Update/System Update
     ui->titleLabel->setText(tr("System Update"));
     ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 

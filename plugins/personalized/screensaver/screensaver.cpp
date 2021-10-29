@@ -191,9 +191,9 @@ void Screensaver::initPreviewLabel()
 
 void Screensaver::initSearchText()
 {
-    //~ contents_path /screensaver/Screensaver program
+    //~ contents_path /Screensaver/Screensaver program
     ui->programLabel->setText(tr("Screensaver program"));
-    //~ contents_path /screensaver/Idle time
+    //~ contents_path /Screensaver/Idle time
     ui->idleLabel->setText(tr("Idle time"));
 }
 
