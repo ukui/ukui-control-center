@@ -14,14 +14,21 @@ QString DBusUtils::callMethod(const QString &methodName, const QList<QVariant> &
     if (argList.isEmpty() == false) {
         message.setArguments(argList);
     }
-    QDBusMessage response = QDBusConnection::sessionBus().call(message);
-    if (response.type() == QDBusMessage::ReplyMessage)
-    {
-        if (response.arguments().isEmpty() == false) {
-            ret = response.arguments().takeFirst();;
-        }
+    QStringList list;
+    list << "init_conf" << "init_oss" << "manual_sync" << "single_sync";
+    if (list.contains(methodName)) {
+        QDBusConnection::sessionBus().asyncCall(message);
     } else {
-        qDebug()<<methodName<<"called failed";
+        QDBusMessage response;
+        response = QDBusConnection::sessionBus().call(message);
+        if (response.type() == QDBusMessage::ReplyMessage)
+        {
+            if (response.arguments().isEmpty() == false) {
+                ret = response.arguments().takeFirst();;
+            }
+        } else {
+            qDebug()<<methodName<<"called failed";
+        }
     }
 
     //qDebug() << methodName;
