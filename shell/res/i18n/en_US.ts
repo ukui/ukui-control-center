@@ -12,7 +12,7 @@
         <location filename="../../../plugins/system/about/about.cpp" line="516"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/about/version</extra-contents_path>
+        <extra-contents_path>/About/version</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="663"/>
@@ -24,19 +24,19 @@
         <location filename="../../../plugins/system/about/about.cpp" line="518"/>
         <source>Kernel</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/about/Kernel</extra-contents_path>
+        <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="520"/>
         <source>CPU</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/about/CPU</extra-contents_path>
+        <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="522"/>
         <source>Memory</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/about/Memory</extra-contents_path>
+        <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="468"/>
@@ -48,13 +48,13 @@
         <location filename="../../../plugins/system/about/about.cpp" line="524"/>
         <source>Desktop</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/about/Desktop</extra-contents_path>
+        <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="526"/>
         <source>User</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/about/User</extra-contents_path>
+        <extra-contents_path>/About/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="529"/>
@@ -80,7 +80,7 @@
         <location filename="../../../plugins/system/about/about.cpp" line="528"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/about/Status</extra-contents_path>
+        <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="530"/>
@@ -263,14 +263,6 @@
         <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="19"/>
         <location filename="../../../libukcc/widgets/AddBtn/addbtn.cpp" line="19"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AddNetBtn</name>
-    <message>
-        <location filename="../../../plugins/network/netconnect/addnetbtn.cpp" line="18"/>
-        <source>Add WiredNetork</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -500,7 +492,7 @@
         <location filename="../../../plugins/time-language/area/area.cpp" line="353"/>
         <source>Current Region</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/Current Region</extra-contents_path>
+        <extra-contents_path>/Area/Current Region</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="363"/>
@@ -512,35 +504,35 @@
         <location filename="../../../plugins/time-language/area/area.cpp" line="355"/>
         <source>Calendar</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/Calendar</extra-contents_path>
+        <extra-contents_path>/Area/Calendar</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="56"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="160"/>
         <source>Language Format</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/Regional Format</extra-contents_path>
+        <extra-contents_path>/Area/Regional Format</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="446"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="359"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/Date</extra-contents_path>
+        <extra-contents_path>/Area/Date</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="529"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="361"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/Time</extra-contents_path>
+        <extra-contents_path>/Area/Time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="568"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="162"/>
         <source>System Language</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/system language</extra-contents_path>
+        <extra-contents_path>/Area/system language</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="602"/>
@@ -576,7 +568,7 @@
         <location filename="../../../plugins/time-language/area/area.cpp" line="357"/>
         <source>First Day Of Week</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/area/First Day Of Week</extra-contents_path>
+        <extra-contents_path>/Area/First Day Of Week</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="363"/>
@@ -683,7 +675,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/security-updates/backup/backup.cpp" line="104"/>
         <source>Begin backup</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/backup/Begin backup</extra-contents_path>
+        <extra-contents_path>/Backup/Begin backup</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="157"/>
@@ -701,7 +693,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/security-updates/backup/backup.cpp" line="106"/>
         <source>Begin restore</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/backup/Begin restore</extra-contents_path>
+        <extra-contents_path>/Backup/Begin restore</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/backup_intel/backup.ui" line="144"/>
@@ -714,7 +706,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/system/backup_intel/backup.cpp" line="76"/>
         <source>Clear and restore</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/backup/Clear and restore</extra-contents_path>
+        <extra-contents_path>/Backup/Clear and restore</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/backup_intel/backup.cpp" line="42"/>
@@ -1053,167 +1045,9 @@ Please authenticate yourself to continue</source>
     </message>
 </context>
 <context>
-    <name>BlueToothMain</name>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="62"/>
-        <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="88"/>
-        <source>Turn on :</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="118"/>
-        <source>Bluetooth adapter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="146"/>
-        <source>Show icon on taskbar</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="176"/>
-        <source>Discoverable by nearby Bluetooth devices</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="209"/>
-        <source>My Devices</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="226"/>
-        <source>Other Devices</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="320"/>
-        <source>All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="321"/>
-        <source>Audio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="322"/>
-        <source>Peripherals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="323"/>
-        <source>PC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="324"/>
-        <source>Phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="325"/>
-        <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="689"/>
-        <source>Bluetooth adapter is not detected!</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BlueToothMainWindow</name>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="51"/>
-        <source>Bluetooth adapter is abnormal !</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="82"/>
-        <source>Bluetooth adapter not detected !</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="132"/>
-        <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="155"/>
-        <source>Turn on :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="184"/>
-        <source>Adapter List</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="211"/>
-        <source>Show icon on taskbar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="237"/>
-        <source>Discoverable by nearby Bluetooth devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="264"/>
-        <source>My Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmainwindow.cpp" line="280"/>
-        <source>Other Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Bluetooth</name>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetooth.cpp" line="6"/>
-        <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothNameLabel</name>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="37"/>
-        <source>Double-click to change the device name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="93"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="187"/>
-        <source>Can now be found as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="104"/>
-        <source>Tip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="105"/>
-        <source>The length of the device name does not exceed %1 characters !</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>BrightnessFrame</name>
     <message>
-        <location filename="../../../plugins/system/display/brightnessFrame.cpp" line="39"/>
+        <location filename="../../../plugins/system/display/brightnessFrame.cpp" line="38"/>
         <source>Failed to get the brightness information of this monitor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2415,7 +2249,7 @@ change system settings</source>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="242"/>
         <source>Change timezone</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/date/Change time zone</extra-contents_path>
+        <extra-contents_path>/Date/Change time zone</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.ui" line="441"/>
@@ -2449,13 +2283,13 @@ change system settings</source>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="162"/>
         <source>Other Timezone</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/date/Other Timezone</extra-contents_path>
+        <extra-contents_path>/Date/Other Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="176"/>
         <source>24-hour clock</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/date/24-hour clock</extra-contents_path>
+        <extra-contents_path>/Date/24-hour clock</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="577"/>
@@ -2466,26 +2300,26 @@ change system settings</source>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="178"/>
         <source>Sync Time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/date/Sync time</extra-contents_path>
+        <extra-contents_path>/Date/Sync time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="198"/>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="255"/>
         <source>Manual Time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/date/Manual Time</extra-contents_path>
+        <extra-contents_path>/Date/Manual Time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="253"/>
         <source>Auto Sync Time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/date/Auto Sync Time</extra-contents_path>
+        <extra-contents_path>/Date/Auto Sync Time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="399"/>
         <source>Sync Server</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/date/Sync Server</extra-contents_path>
+        <extra-contents_path>/Date/Sync Server</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="401"/>
@@ -2550,37 +2384,37 @@ change system settings</source>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="305"/>
         <source>Browser</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/defaultapp/Browser</extra-contents_path>
+        <extra-contents_path>/Defaultapp/Browser</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="307"/>
         <source>Mail</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/defaultapp/Mail</extra-contents_path>
+        <extra-contents_path>/Defaultapp/Mail</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="309"/>
         <source>Image Viewer</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/defaultapp/Image Viewer</extra-contents_path>
+        <extra-contents_path>/Defaultapp/Image Viewer</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="311"/>
         <source>Audio Player</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/defaultapp/Audio Player</extra-contents_path>
+        <extra-contents_path>/Defaultapp/Audio Player</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="313"/>
         <source>Video Player</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/defaultapp/Video Player</extra-contents_path>
+        <extra-contents_path>/Defaultapp/Video Player</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/application/defaultapp/defaultapp.cpp" line="315"/>
         <source>Text Editor</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/defaultapp/Text Editor</extra-contents_path>
+        <extra-contents_path>/Defaultapp/Text Editor</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2740,66 +2574,6 @@ change system settings</source>
     <message>
         <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="87"/>
         <source>Delete whole data belong user</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DeviceInfoItem</name>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="27"/>
-        <source>Connecting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="28"/>
-        <source>Disconnecting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="29"/>
-        <source>Connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="30"/>
-        <source>Ununited</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="31"/>
-        <source>Connect fail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="96"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="293"/>
-        <source>Send files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="102"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="295"/>
-        <source>Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="104"/>
-        <source>cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="105"/>
-        <source>remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="112"/>
-        <source>Sure to remove,</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="114"/>
-        <source>After removal, the next connection requires matching PIN code!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3117,34 +2891,6 @@ change system settings</source>
     </message>
 </context>
 <context>
-    <name>ExperiencePlan</name>
-    <message>
-        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="79"/>
-        <source>User Experience</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="130"/>
-        <source>Join in user Experience plan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="172"/>
-        <source>User experience plan terms, see</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.ui" line="179"/>
-        <source>《User Experience plan》</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/experienceplan/experienceplan.cpp" line="33"/>
-        <source>Experienceplan</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Fonts</name>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="47"/>
@@ -3157,14 +2903,14 @@ change system settings</source>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="139"/>
         <source>Font size</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/fonts/Font size</extra-contents_path>
+        <extra-contents_path>/Fonts/Font size</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="169"/>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="141"/>
         <source>Fonts select</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/fonts/Fonts select</extra-contents_path>
+        <extra-contents_path>/Fonts/Fonts select</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="302"/>
@@ -3176,7 +2922,7 @@ change system settings</source>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="143"/>
         <source>Mono font</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/fonts/Mono font</extra-contents_path>
+        <extra-contents_path>/Fonts/Mono font</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3205,20 +2951,6 @@ change system settings</source>
     <message>
         <location filename="../../../plugins/account/networkaccount/frameitem.cpp" line="129"/>
         <source>OSS access failed,please relogin!</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Gesture</name>
-    <message>
-        <location filename="../../../plugins/devices/gesture/gesture.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="6"/>
-        <location filename="../../../plugins/devices/gesture/gesture.cpp" line="71"/>
-        <source>Gesture</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3416,26 +3148,6 @@ change system settings</source>
     </message>
 </context>
 <context>
-    <name>Itemwidget</name>
-    <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="80"/>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="195"/>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="230"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/gesture/itemwidget.ui" line="112"/>
-        <source>PushButton</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>KbPreviewFrame</name>
     <message>
         <location filename="../../../plugins/devices/keyboard/preview/kbpreviewframe.cpp" line="321"/>
@@ -3558,19 +3270,19 @@ change system settings</source>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="50"/>
         <source>Input settings</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Input settings</extra-contents_path>
+        <extra-contents_path>/Keyboard/Input settings</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="88"/>
         <source>Key repeat</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Key repeat</extra-contents_path>
+        <extra-contents_path>/Keyboard/Key repeat</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="110"/>
         <source>Delay</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Delay</extra-contents_path>
+        <extra-contents_path>/Keyboard/Delay</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="112"/>
@@ -3586,7 +3298,7 @@ change system settings</source>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="140"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Speed</extra-contents_path>
+        <extra-contents_path>/Keyboard/Speed</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="142"/>
@@ -3602,13 +3314,13 @@ change system settings</source>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="170"/>
         <source>Input test</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Input test</extra-contents_path>
+        <extra-contents_path>/Keyboard/Input test</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="191"/>
         <source>Key tips</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/Key tips</extra-contents_path>
+        <extra-contents_path>/Keyboard/Key tips</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4252,89 +3964,6 @@ Please retry or relogin!</source>
     </message>
 </context>
 <context>
-    <name>MobileHotspot</name>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspot.cpp" line="28"/>
-        <source>MobileHotspot</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MobileHotspotWidget</name>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="26"/>
-        <source>ukui control center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="29"/>
-        <source>ukui control center desktop message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="93"/>
-        <source>start to close hotspot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="102"/>
-        <source>hotpots name or device is invalid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="106"/>
-        <source>can not  create hotspot with password length less than eight!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="109"/>
-        <source>start to open hotspot </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="142"/>
-        <source>Hotspot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="333"/>
-        <source>Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="353"/>
-        <source>Wi-Fi Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="373"/>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="411"/>
-        <source>Frequency band</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="435"/>
-        <source>Net card</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="196"/>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="490"/>
-        <source>hotspot already close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="506"/>
-        <location filename="../../../plugins/network/mobilehotspot/mobilehotspotwidget.cpp" line="514"/>
-        <source>hotspot already open</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MouseControl</name>
     <message>
         <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="24"/>
@@ -4363,7 +3992,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="165"/>
         <source>Dominant hand</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Dominant hand</extra-contents_path>
+        <extra-contents_path>/Mouse/Dominant hand</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="167"/>
@@ -4379,7 +4008,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="193"/>
         <source>Wheel speed</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Wheel speed</extra-contents_path>
+        <extra-contents_path>/Mouse/Wheel speed</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="195"/>
@@ -4399,7 +4028,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="223"/>
         <source>Double-click interval time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Double-click interval time</extra-contents_path>
+        <extra-contents_path>/Mouse/Double-click interval time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="225"/>
@@ -4415,25 +4044,25 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="255"/>
         <source>Pointer speed</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Pointer speed</extra-contents_path>
+        <extra-contents_path>/Mouse/Pointer speed</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="287"/>
         <source>Mouse acceleration</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Mouse acceleration</extra-contents_path>
+        <extra-contents_path>/Mouse/Mouse acceleration</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="308"/>
         <source>Show pointer position when pressing ctrl</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Show pointer position when pressing ctrl</extra-contents_path>
+        <extra-contents_path>/Mouse/Show pointer position when pressing ctrl</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="330"/>
         <source>Pointer size</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Pointer size</extra-contents_path>
+        <extra-contents_path>/Mouse/Pointer size</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="332"/>
@@ -4454,13 +4083,13 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="366"/>
         <source>Blinking cursor in text area</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Blinking cursor in text area</extra-contents_path>
+        <extra-contents_path>/Mouse/Blinking cursor in text area</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="388"/>
         <source>Cursor speed</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/Cursor speed</extra-contents_path>
+        <extra-contents_path>/Mouse/Cursor speed</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4468,45 +4097,6 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="21"/>
         <source>double-click to test</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>NetConnect</name>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="47"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="119"/>
-        <source>Wired Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="109"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="121"/>
-        <source>open</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/netconnect/open</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.ui" line="208"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="118"/>
-        <source>Advanced settings</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/netconnect/Advanced settings&quot;</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="53"/>
-        <source>WiredConnect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="435"/>
-        <source>card</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="370"/>
-        <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="748"/>
-        <source>connected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4543,13 +4133,13 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="64"/>
         <source>resolution</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/display/resolution</extra-contents_path>
+        <extra-contents_path>/Display/resolution</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="93"/>
         <source>orientation</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/display/orientation</extra-contents_path>
+        <extra-contents_path>/Display/orientation</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="110"/>
@@ -4575,7 +4165,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="125"/>
         <source>frequency</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/display/frequency</extra-contents_path>
+        <extra-contents_path>/Display/frequency</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="142"/>
@@ -4586,7 +4176,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="165"/>
         <source>screen zoom</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/display/screen zoom</extra-contents_path>
+        <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="282"/>
@@ -4822,19 +4412,19 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/power/power.cpp" line="670"/>
         <source>General</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/power/General</extra-contents_path>
+        <extra-contents_path>/Power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="672"/>
         <source>Select Powerplan</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/power/Select Powerplan</extra-contents_path>
+        <extra-contents_path>/Power/Select Powerplan</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="674"/>
         <source>Battery saving plan</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/power/Battery saving plan</extra-contents_path>
+        <extra-contents_path>/Power/Battery saving plan</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
@@ -4955,14 +4545,13 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/devices/printer/printer.cpp" line="176"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/printer/Add</extra-contents_path>
+        <extra-contents_path>/Printer/Add</extra-contents_path>
     </message>
 </context>
 <context>
     <name>Projection</name>
     <message>
         <location filename="../../../plugins/system/projection/projection.ui" line="53"/>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="49"/>
         <source>Projection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4982,85 +4571,85 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="66"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="65"/>
         <source>Open Projection</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/projection/Open Projection</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="255"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="254"/>
         <source>Service exception,please restart the system</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="261"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="260"/>
         <source>Network card is not detected or the driver is not supported.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="271"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="270"/>
         <source>Please keep WLAN on;
 Wireless-network functions will be invalid when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="273"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="272"/>
         <source>Please keep WLAN on;
 Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="280"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="279"/>
         <source>After opening the switch button,open the projection screen in the mobile phone drop-down menu,follow the prompts.See the user manual for details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="285"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="284"/>
         <source>WLAN is off, please turn on WLAN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="291"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="290"/>
         <source>Wireless network card is busy. Please try again later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="340"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="339"/>
         <source>projection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="343"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="342"/>
         <source>Projection is </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="343"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="342"/>
         <source>on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="343"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="342"/>
         <source>off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="344"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="343"/>
         <source>Please enable or refresh the scan at the projection device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="344"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="343"/>
         <source>You need to turn on the projection again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="355"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="354"/>
         <source>Failed to execute. Please reopen the page later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/projection/projection.cpp" line="377"/>
+        <location filename="../../../plugins/system/projection/projection.cpp" line="376"/>
         <source>Add Bluetooths</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5068,118 +4657,118 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>Proxy</name>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="475"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="483"/>
         <source>Auto Proxy</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Auto Proxy</extra-contents_path>
+        <extra-contents_path>/Proxy/Auto Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="477"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="485"/>
         <source>Auto url</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Auto url</extra-contents_path>
+        <extra-contents_path>/Proxy/Auto url</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="479"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="487"/>
         <source>Manual Proxy</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Manual Proxy</extra-contents_path>
+        <extra-contents_path>/Proxy/Manual Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="481"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="489"/>
         <source>Http Proxy</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Http Proxy</extra-contents_path>
+        <extra-contents_path>/Proxy/Http Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="488"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="489"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="490"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="491"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="496"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="497"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="498"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="499"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="473"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="481"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="483"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="491"/>
         <source>Https Proxy</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Https Proxy</extra-contents_path>
+        <extra-contents_path>/Proxy/Https Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="485"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="493"/>
         <source>Ftp Proxy</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Ftp Proxy</extra-contents_path>
+        <extra-contents_path>/Proxy/Ftp Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="487"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="495"/>
         <source>Socks Proxy</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Socks Proxy</extra-contents_path>
+        <extra-contents_path>/Proxy/Socks Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="492"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="500"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="493"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="501"/>
         <source>Enable Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="494"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="502"/>
         <source>User Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="495"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="503"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="498"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="506"/>
         <source>Apt Proxy</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/proxy/Apt Proxy</extra-contents_path>
+        <extra-contents_path>/Proxy/Apt Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="499"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="507"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="500"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="508"/>
         <source>Server Address : </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="501"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="509"/>
         <source>Port : </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="502"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="510"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="834"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="870"/>
         <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="835"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="871"/>
         <source>Reboot Later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="836"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="872"/>
         <source>Reboot Now</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5790,14 +5379,14 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="117"/>
         <source>Show picture of screenlock on screenlogin</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/screenlock/Show picture of screenlock on screenlogin</extra-contents_path>
+        <extra-contents_path>/Screenlock/Show picture of screenlock on screenlogin</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="278"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
         <source>Lock screen when screensaver boot</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/screenlock/Lock screen when screensaver boot</extra-contents_path>
+        <extra-contents_path>/Screenlock/Lock screen when screensaver boot</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="361"/>
@@ -5809,21 +5398,21 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="121"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/screenlock/Browse</extra-contents_path>
+        <extra-contents_path>/Screenlock/Browse</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="452"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="123"/>
         <source>Online Picture</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/screenlock/Online Picture</extra-contents_path>
+        <extra-contents_path>/Screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="484"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="132"/>
         <source>Reset To Default</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/screenlock/Reset To Default</extra-contents_path>
+        <extra-contents_path>/Screenlock/Reset To Default</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="149"/>
@@ -5926,10 +5515,10 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="201"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="193"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="197"/>
         <source>Idle time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/screensaver/Idle time</extra-contents_path>
+        <extra-contents_path>/Screensaver/Idle time</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="475"/>
@@ -5938,282 +5527,153 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="297"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="191"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="195"/>
         <source>Screensaver program</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
+        <extra-contents_path>/Screensaver/Screensaver program</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="179"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="183"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="846"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="850"/>
         <source>Text(up to 30 characters):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="880"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="884"/>
         <source>Show rest time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="220"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="224"/>
         <source>UKUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="221"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="225"/>
         <source>Blank_Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="232"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="236"/>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="247"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="749"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="251"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="753"/>
         <source>5min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="247"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="750"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="251"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="754"/>
         <source>10min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="247"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="751"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="251"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="755"/>
         <source>30min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="247"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="251"/>
         <source>15min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="247"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="251"/>
         <source>1hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="248"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="252"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="651"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="655"/>
         <source>Screensaver source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="657"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="707"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="661"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="711"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="665"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="669"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="706"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="710"/>
         <source>select custom screensaver dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="708"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="712"/>
         <source>Position: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="709"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="713"/>
         <source>FileName: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="710"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="714"/>
         <source>FileType: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="711"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="715"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="744"/>
-        <source>Switching time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="748"/>
+        <source>Switching time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="752"/>
         <source>1min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="796"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="800"/>
         <source>Ordinal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="797"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="801"/>
         <source>Random</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="805"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="809"/>
         <source>Random switching</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="899"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="903"/>
         <source>Text position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="907"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="911"/>
         <source>Centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="908"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="912"/>
         <source>Randow(Bubble text)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Search</name>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="7"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="121"/>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="189"/>
-        <source>Block Folders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="192"/>
-        <source>Following folders will not be searched. You can set it by adding and removing folders.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="234"/>
-        <source>Choose folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="173"/>
-        <source>Default web searching engine</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/search/Default web searching engine</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="147"/>
-        <source>Create index</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="148"/>
-        <source>Creating index can help you getting results quickly.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="178"/>
-        <source>baidu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="179"/>
-        <source>sougou</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="180"/>
-        <source>360</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="377"/>
-        <source>delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="432"/>
-        <source>Directories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="434"/>
-        <source>select blocked folder</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/search/select blocked folder</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="435"/>
-        <source>Select</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="436"/>
-        <source>Position: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="437"/>
-        <source>FileName: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="438"/>
-        <source>FileType: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="439"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="463"/>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="467"/>
-        <source>Warning</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="455"/>
-        <source>Add blocked folder failed, choosen path is empty!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="459"/>
-        <source>Add blocked folder failed, it is not in home path!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="463"/>
-        <source>Add blocked folder failed, its parent dir is exist!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/messages-task/search/search.cpp" line="467"/>
-        <source>Add blocked folder failed, it has been already blocked!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6236,25 +5696,25 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="66"/>
         <source>Allow others to view your desktop</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/vino/Allow others to view your desktop</extra-contents_path>
+        <extra-contents_path>/Vino/Allow others to view your desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="81"/>
         <source>Allow connection to control screen</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/vino/Allow connection to control screen</extra-contents_path>
+        <extra-contents_path>/Vino/Allow connection to control screen</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="96"/>
         <source>You must confirm every visit for this machine</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/vino/You must confirm every visit for this machine</extra-contents_path>
+        <extra-contents_path>/Vino/You must confirm every visit for this machine</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="111"/>
         <source>Require user to enter this password: </source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/vino/Require user to enter this password:</extra-contents_path>
+        <extra-contents_path>/Vino/Require user to enter this password:</extra-contents_path>
     </message>
 </context>
 <context>
@@ -6265,7 +5725,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="177"/>
         <source>System Shortcut</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/shortcut/System Shortcut</extra-contents_path>
+        <extra-contents_path>/Shortcut/System Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.ui" line="103"/>
@@ -6281,13 +5741,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="160"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/autoboot/Add</extra-contents_path>
+        <extra-contents_path>/Shortcut/Add</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="165"/>
         <source>Customize Shortcut</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/shortcut/Customize Shortcut</extra-contents_path>
+        <extra-contents_path>/Shortcut/Customize Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="712"/>
@@ -6750,14 +6210,14 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="170"/>
         <source>Theme Mode</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/theme/Theme Mode</extra-contents_path>
+        <extra-contents_path>/Theme/Theme Mode</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="361"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="172"/>
         <source>Icon theme</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/theme/Icon theme</extra-contents_path>
+        <extra-contents_path>/Theme/Icon theme</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="437"/>
@@ -6769,7 +6229,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="174"/>
         <source>Cursor theme</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/theme/Cursor theme</extra-contents_path>
+        <extra-contents_path>/Theme/Cursor theme</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="588"/>
@@ -6781,14 +6241,14 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="176"/>
         <source>Performance mode</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/theme/Performance mode</extra-contents_path>
+        <extra-contents_path>/Theme/Performance mode</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="751"/>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="178"/>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/theme/Transparency</extra-contents_path>
+        <extra-contents_path>/Theme/Transparency</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="866"/>
@@ -6946,13 +6406,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="58"/>
         <source>Disable touchpad when using the mouse</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/touchpad/Disable touchpad when using the mouse</extra-contents_path>
+        <extra-contents_path>/Touchpad/Disable touchpad when using the mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="75"/>
         <source>Cursor Speed</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/touchpad/Cursor Speed</extra-contents_path>
+        <extra-contents_path>/Touchpad/Cursor Speed</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="77"/>
@@ -6968,25 +6428,25 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="102"/>
         <source>Disable touchpad when typing</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/touchpad/Disable touchpad when typing</extra-contents_path>
+        <extra-contents_path>/Touchpad/Disable touchpad when typing</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="120"/>
         <source>Touch and click on the touchpad</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/touchpad/Touch and click on the touchpad</extra-contents_path>
+        <extra-contents_path>/Touchpad/Touch and click on the touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="138"/>
         <source>Scroll bar slides with finger</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/touchpad/Scroll bar slides with finger</extra-contents_path>
+        <extra-contents_path>/Touchpad/Scroll bar slides with finger</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="155"/>
         <source>Scrolling area</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/touchpad/Scrolling area</extra-contents_path>
+        <extra-contents_path>/Touchpad/Scrolling area</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="157"/>
@@ -7356,7 +6816,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/update/update.cpp" line="81"/>
         <source>System Update</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/update/System Update</extra-contents_path>
+        <extra-contents_path>/Update/System Update</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/update/update.ui" line="94"/>
@@ -7418,7 +6878,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="147"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Password</extra-contents_path>
+        <extra-contents_path>/Userinfo/Password</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="331"/>
@@ -7426,7 +6886,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="188"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Type</extra-contents_path>
+        <extra-contents_path>/Userinfo/Type</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="353"/>
@@ -7438,13 +6898,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="151"/>
         <source>Login no passwd</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Login no passwd</extra-contents_path>
+        <extra-contents_path>/Userinfo/Login no passwd</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="153"/>
         <source>enable autoLogin</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/enable autoLogin</extra-contents_path>
+        <extra-contents_path>/Userinfo/enable autoLogin</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="500"/>
@@ -7524,7 +6984,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="146"/>
         <source>Current User</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Current User</extra-contents_path>
+        <extra-contents_path>/Userinfo/Current User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="289"/>
@@ -7537,7 +6997,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="1132"/>
         <source>Change pwd</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
+        <extra-contents_path>/Userinfo/Change pwd</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.ui" line="385"/>
@@ -7564,7 +7024,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="149"/>
         <source>Other Users</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Other Users</extra-contents_path>
+        <extra-contents_path>/Userinfo/Other Users</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="61"/>
@@ -7575,13 +7035,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="152"/>
         <source>Change Tel</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Change Tel</extra-contents_path>
+        <extra-contents_path>/Userinfo/Change Tel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="180"/>
         <source>Delete user</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/userinfo/Delete user</extra-contents_path>
+        <extra-contents_path>/Userinfo/Delete user</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="193"/>
@@ -7666,7 +7126,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/network/vpn/vpn.cpp" line="102"/>
         <source>Add vpn connect</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/vpn/Add vpn connect</extra-contents_path>
+        <extra-contents_path>/Vpn/Add vpn connect</extra-contents_path>
     </message>
 </context>
 <context>
@@ -7686,21 +7146,21 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="128"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/wallpaper/Browse</extra-contents_path>
+        <extra-contents_path>/Wallpaper/Browse</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="544"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="130"/>
         <source>Online Picture</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/wallpaper/Online Picture</extra-contents_path>
+        <extra-contents_path>/Wallpaper/Online Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="576"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="139"/>
         <source>Reset To Default</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/wallpaper/Reset To Default</extra-contents_path>
+        <extra-contents_path>/Wallpaper/Reset To Default</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="331"/>
@@ -7800,64 +7260,54 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="722"/>
-        <source>Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="723"/>
-        <source>Some applications need to be logouted to take effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="812"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="809"/>
         <source>unify output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="816"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="813"/>
         <source>night mode</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/display/night mode</extra-contents_path>
+        <extra-contents_path>/Display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="824"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="821"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="878"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="875"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1051"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="879"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="876"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="893"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="890"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2066"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2087"/>
         <source>All Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2066"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2087"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2342"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2357"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2363"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2377"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="711"/>
@@ -7867,19 +7317,19 @@ the settings will be saved after %1 seconds</source>
         <extra-contents_path>/touchscreen/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1358"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1561"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1568"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1379"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1582"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1589"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1561"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1582"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1359"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1380"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7900,7 +7350,7 @@ the settings will be saved after %1 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="325"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2066"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2087"/>
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7950,60 +7400,34 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="880"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="884"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="881"/>
         <source>Not Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1569"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1052"/>
+        <source>The zoom function needs to log out to take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1053"/>
+        <source>Log out now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1054"/>
+        <source>Later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1590"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>WlanConnect</name>
-    <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="14"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="67"/>
-        <source>WlanConnect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="35"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="132"/>
-        <source>WLAN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="94"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="134"/>
-        <source>open</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/wlanconnect/open</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.ui" line="163"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="131"/>
-        <source>Advanced settings</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/wlanconnect/Advanced settings&quot;</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="780"/>
-        <source>card</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="275"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="817"/>
-        <location filename="../../../plugins/network/wlanconnect/wlanconnect.cpp" line="879"/>
-        <source>connected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
