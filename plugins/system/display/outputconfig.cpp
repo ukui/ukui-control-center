@@ -301,9 +301,9 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     if (-1 == mRefreshRate->currentIndex() || 0 == mRefreshRate->currentIndex()) {
         modeID = mRefreshRate->itemData(1).toString();
     }
-
+    mOutput->blockSignals(true); //避免修改分辨率缩略图多次变化
     mOutput->setCurrentModeId(modeID);
-
+    mOutput->blockSignals(false);
     if (emitFlag)
         Q_EMIT changed();
 }

@@ -141,6 +141,10 @@ QWidget *Screensaver::pluginUi()
         initThemeStatus();
         initIdleSliderStatus();
     }
+    QTimer::singleShot(10, [&]{
+        initPreviewWidget();
+    });
+
     return pluginWidget;
 }
 

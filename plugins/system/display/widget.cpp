@@ -2331,16 +2331,28 @@ void Widget::showBrightnessFrame(const int flag)
     if (flag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式
 
     } else if ((allShowFlag == true && flag == 0) || flag == 1) { //镜像模式/即将成为镜像模式
-        ui->unifyBrightFrame->setFixedHeight(BrightnessFrameV.size() * (50 + 2 + 2));
+        int FrameHeight = -2;
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (BrightnessFrameV[i]->getSliderEnable()) {
+                FrameHeight = FrameHeight + 54;
+            } else {
+                FrameHeight = FrameHeight + 84;
+            }
             BrightnessFrameV[i]->setOutputEnable(true);
             BrightnessFrameV[i]->setTextLabelName(tr("Brightness") + QString("(") + BrightnessFrameV[i]->getOutputName() + QString(")"));
             BrightnessFrameV[i]->setVisible(true);
         }
+        if (FrameHeight < 0)
+            FrameHeight = 0;
+        ui->unifyBrightFrame->setFixedHeight(FrameHeight);
     } else {
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
             if (ui->primaryCombo->currentText() == BrightnessFrameV[i]->getOutputName() && BrightnessFrameV[i]->getOutputEnable()) {
-                ui->unifyBrightFrame->setFixedHeight(52);
+                if (BrightnessFrameV[i]->getSliderEnable()) {
+                    ui->unifyBrightFrame->setFixedHeight(52);
+                } else {
+                    ui->unifyBrightFrame->setFixedHeight(82);
+                }
                 //~ contents_path /display/Brightness
                 BrightnessFrameV[i]->setTextLabelName(tr("Brightness"));
                 BrightnessFrameV[i]->setVisible(true);
