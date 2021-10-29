@@ -246,6 +246,8 @@
         <file>plugins/bluetooth/more-blue.svg</file>
         <file>plugins/bluetooth/more.svg</file>
         <file>plugins/bluetooth/not-connected.svg</file>
+        <file>plugins/bluetooth/edit.svg</file>
+        <file>plugins/bluetooth/edit-blue.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

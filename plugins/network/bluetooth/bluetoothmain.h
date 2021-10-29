@@ -45,6 +45,7 @@
 
 #include "deviceinfoitem.h"
 #include "bluetoothnamelabel.h"
+#include "customizenamelabel.h"
 
 class BlueToothMain : public QMainWindow
 {
@@ -96,8 +97,13 @@ private slots:
     void adapterNameChanged(const QString &name);
     void adapterDeviceRemove(BluezQt::DevicePtr ptr);
     void MonitorSleepSlot(bool value);
+    void styleGsettingChanged(const QString &);
+    void setTipTextSlot(int);
 private:
-    QGSettings *settings = nullptr;
+    QGSettings *blutoothSettings = nullptr;
+    QGSettings *styleSettings = nullptr;
+    bool _themeIsBlack = false;
+
     QString Default_Adapter;
     QStringList paired_device_address;
     QString finally_connect_the_device;
@@ -116,7 +122,11 @@ private:
     QWidget *frame_middle = nullptr;
     QVBoxLayout *paired_dev_layout = nullptr;
     QWidget *frame_bottom = nullptr;
-    BluetoothNameLabel *bluetooth_name = nullptr;
+//    BluetoothNameLabel *bluetooth_name = nullptr;
+    CustomizeNameLabel* bluetooth_name = nullptr;
+    QLabel *tipTextLabel = nullptr;
+    QString _tip1;
+    QString _tip2;
 
     QVBoxLayout *bottom_layout = nullptr;
     QScrollArea *device_area = nullptr;

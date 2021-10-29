@@ -26,6 +26,8 @@
 #include <QImage>
 #include <QPixmap>
 #include <QPushButton>
+#include <QFont>
+#include <QFontMetrics>
 
 #include <QGSettings/QGSettings>
 
@@ -77,9 +79,9 @@ private slots:
 signals:
 
     void devPaired(QString);
-    void devConnect(QString);
-    void devDisconnect(QString);
-    void devRemove(QString);
+//    void devConnect(QString);
+//    void devDisconnect(QString);
+//    void devRemove(QString);
     void devSendFiles(QString);
     void devConnectComplete();
 
@@ -98,12 +100,13 @@ private:
     void DevConnectFunc();
     void setDeviceConnectSignals();
     bool mouseEventIntargetAera(QPoint);
-    QRect getStatusTextRect();
-    QRect getStatusIconRect();
+    QRect getStatusTextRect(QRect);
+    QRect getStatusIconRect(QRect);
 
     QColor getStatusColor(DEVSTATUS);
     QPixmap getDevConnectedIcon(DEVSTATUS,QSize);
     QPixmap convertIconColor(QPixmap,QColor);
+    QRect  getFontPixelQPoint(QString);
 
     int iconFlag = 7;
 
@@ -118,6 +121,9 @@ private:
     bool _removeDevFlag ;
     bool _inBtn = false;
     bool _themeIsBlack = false;
+
+    QString _fontFamily;
+    int _fontSize = 0;
 
     QMenu  *dev_Menu         = nullptr;
 

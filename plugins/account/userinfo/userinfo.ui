@@ -187,6 +187,12 @@
                      <height>32</height>
                     </size>
                    </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>50</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
                    <property name="frame">
                     <bool>false</bool>
                    </property>
