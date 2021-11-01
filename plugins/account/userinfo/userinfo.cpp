@@ -215,7 +215,7 @@ void UserInfo::initUI(){
     currentUserinfoVerLayout->addStretch();
 
     currentUserHorLayout = new QHBoxLayout();
-    currentUserHorLayout->setSpacing(16);
+    currentUserHorLayout->setSpacing(8);
     currentUserHorLayout->setContentsMargins(16, 0, 16, 0);
     currentUserHorLayout->addWidget(currentUserlogoBtn);
     currentUserHorLayout->addLayout(currentUserinfoVerLayout);

@@ -114,9 +114,8 @@ void ChangeUserPwd::initUI(){
 
     //当前密码
     currentPwdLabel = new QLabel();
-    currentPwdLabel->setMinimumWidth(60);
-    currentPwdLabel->setMaximumWidth(120);
-    currentPwdLabel->setText(tr("Current Pwd"));
+    currentPwdLabel->setFixedWidth(100);
+    setTextDynamicInPwd(currentPwdLabel, tr("Current Pwd"));
 
     currentPwdLineEdit = new QLineEdit();
     currentPwdLineEdit->setFixedSize(QSize(300, 36));
@@ -131,9 +130,8 @@ void ChangeUserPwd::initUI(){
 
     //新密码
     newPwdLabel = new QLabel();
-    newPwdLabel->setMinimumWidth(60);
-    newPwdLabel->setMaximumWidth(120);
-    newPwdLabel->setText(tr("New Pwd"));
+    newPwdLabel->setFixedWidth(100);
+    setTextDynamicInPwd(newPwdLabel, tr("New Pwd"));
 
     newPwdLineEdit = new QLineEdit();
     newPwdLineEdit->setFixedSize(QSize(300, 36));
@@ -148,9 +146,8 @@ void ChangeUserPwd::initUI(){
 
     //确认密码
     surePwdLabel = new QLabel();
-    surePwdLabel->setMinimumWidth(60);
-    surePwdLabel->setMaximumWidth(120);
-    surePwdLabel->setText(tr("Sure Pwd"));
+    surePwdLabel->setFixedWidth(100);
+    setTextDynamicInPwd(surePwdLabel, tr("Sure Pwd"));
 
     surePwdLineEdit = new QLineEdit();
     surePwdLineEdit->setFixedSize(QSize(300, 36));
@@ -497,8 +494,9 @@ bool ChangeUserPwd::setTextDynamicInPwd(QLabel *label, QString string){
     if (fontSize > pSize) {
         str = fontMetrics.elidedText(string, Qt::ElideRight, pSize);
         isOverLength = true;
+        label->setToolTip(string);
     } else {
-
+        label->setToolTip("");
     }
     label->setText(str);
     return isOverLength;
