@@ -1031,7 +1031,7 @@ void Widget::initMultScreenStatus()
         }
         if (enableCount >= 2) {
             mMultiScreenCombox->setCurrentIndex(EXTEND);
-        } else if (screens.begin().value()->isEnabled()) {
+        } else if (screens.count() > 0 && screens.begin().value()->isEnabled()) {
             mMultiScreenCombox->setCurrentIndex(FIRST);
         } else {
             mMultiScreenCombox->setCurrentIndex(VICE);
