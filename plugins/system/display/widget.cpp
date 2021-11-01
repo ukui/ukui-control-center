@@ -108,7 +108,7 @@ Widget::Widget(QWidget *parent) :
             "/backend",
             "org.kde.kscreen.Backend",
             QDBusConnection::sessionBus());
-
+    cpuArchitecture = Utils::getCpuArchitecture();
     qRegisterMetaType<QQuickView *>();
 
     ui->setupUi(this);
@@ -1216,14 +1216,13 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
     }
 
     // 检查统一输出-防止移除后没有屏幕可显示
-    if (mUnifyButton->isChecked()) {
-        for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
-            }
-            qmlOutput->setIsCloneMode(false, false);
+    for (QMLOutput *qmlOutput: mScreen->outputs()) {
+        if (!qmlOutput->output()->isConnected()) {
+            continue;
         }
+        qmlOutput->setIsCloneMode(false, false);
     }
+
     ui->unionframe->setVisible(false);
     mUnifyButton->blockSignals(true);
     mUnifyButton->setChecked(mConfig->connectedOutputs().count() > 1);
@@ -2347,6 +2346,10 @@ void Widget::showBrightnessFrame(const int flag)
 {
     bool allShowFlag = true;
     allShowFlag = isCloneMode();
+    //mips机器，插拔信号不能及时反馈，在这里重新设置一遍，避免缩略图显示异常
+    if (cpuArchitecture.contains("mips", Qt::CaseInsensitive) && allShowFlag == true && !mUnifyButton->isChecked()) {
+        mUnifyButton->setChecked(true);
+    }
 
     ui->unifyBrightFrame->setFixedHeight(0);
     if (flag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式

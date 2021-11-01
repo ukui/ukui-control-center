@@ -300,6 +300,7 @@ private:
     bool unifySetconfig = false;
     QString mOutputClickedName;
     QDBusInterface *dbusEdid = nullptr;
+    QString cpuArchitecture = "";
 };
 
 #endif // WIDGET_H
