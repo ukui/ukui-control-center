@@ -104,6 +104,7 @@ private:
     QLabel *m_pOpBalanceLabel;
     QLabel *m_pLeftBalanceLabel;
     QLabel *m_pRightBalanceLabel;
+    QLabel *m_pBalanceMidPointLabel;
 
     QComboBox *m_pDeviceSelectBox;
     QFrame *m_pOutputSlectWidget;
@@ -113,6 +114,9 @@ private:
     UkmediaVolumeSlider *m_pOpBalanceSlider;
     QVBoxLayout *m_pVlayout;
     QString sliderQss;
+
+protected:
+    void paintEvent(QPaintEvent *e);
 };
 
 #endif // UKMEDIAOUTPUTWIDGET_H
