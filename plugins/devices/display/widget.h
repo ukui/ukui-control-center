@@ -152,6 +152,7 @@ class DisplayWidget : public QWidget
     void save();
     void scaleChangedSlot(int index);
     void widget_DbusSlot(bool tablet_mode);
+    void screenModeChangeSlot(int screenMode);
   private:
 
     void loadQml();
@@ -224,6 +225,7 @@ class DisplayWidget : public QWidget
     QGSettings * m_settings = nullptr;
     QSettings *m_qsettings = nullptr;
     QDBusInterface *m_statusSessionDbus = nullptr;
+    QDBusInterface *m_ScreenModeDbus = nullptr;
     QButtonGroup *singleButton;
     QGSettings * powerSettings;
     QGSettings * xrandrSettings;
