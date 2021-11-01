@@ -280,7 +280,7 @@ void Widget::initNightModeUi()
 
     QVBoxLayout *mNightModeLyt = new QVBoxLayout(mNightModeFrame);
     mNightModeLyt->setSpacing(0);
-    mNightModeLyt->setContentsMargins(0, 0, 0, 0);
+    mNightModeLyt->setContentsMargins(8, 0, 0, 0);
 
     /* Open */
     mOpenFrame = new QFrame(mNightModeFrame);
@@ -2207,7 +2207,7 @@ void Widget::initNightStatus()
                             "/ColorCorrect",
                             "org.ukui.kwin.ColorCorrect",
                             QDBusConnection::sessionBus());
-    if (colorIft.isValid() && Utils::isExistEffect() && !mIsWayland) {
+    if (colorIft.isValid() && !mIsWayland) {
         this->mRedshiftIsValid = true;
     } else {
         qWarning() << "create org.ukui.kwin.ColorCorrect failed";
