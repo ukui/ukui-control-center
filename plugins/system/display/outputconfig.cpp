@@ -287,7 +287,6 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
             mRefreshRate->addItem(tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)), mode->id());
-        //    qDebug()<<QString::number(mode->refreshRate(),'f',2);
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
@@ -301,6 +300,10 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 
     if (-1 == mRefreshRate->currentIndex() || 0 == mRefreshRate->currentIndex()) {
         modeID = mRefreshRate->itemData(1).toString();
+        // 避免选择50hz以下刷新率为空
+        mRefreshRate->blockSignals(true);
+        mRefreshRate->setCurrentIndex(0);
+        mRefreshRate->setCurrentIndex(false);
     }
     mOutput->blockSignals(true); //避免修改分辨率缩略图多次变化
     mOutput->setCurrentModeId(modeID);
