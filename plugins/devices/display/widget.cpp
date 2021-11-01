@@ -50,6 +50,13 @@ extern "C" {
 #include <math.h>
 }
 
+enum eScreenMode {
+    firstScreenMode = 0,
+    cloneScreenMode,
+    extendScreenMode,
+    secondScreenMode
+};
+
 #define QML_PATH "kcm_kscreen/qml/"
 
 #define UKUI_CONTORLCENTER_PANEL_SCHEMAS "org.ukui.control-center.panel.plugins"
@@ -240,11 +247,12 @@ void DisplayWidget::initUnifybuttonStatus() {
     connect(mScreenAddTimer,SIGNAL(timeout()),this,SLOT(screenAddedProcess()));
 //    connect(mScreenRemoveTimer,SIGNAL(timeout()),this,SLOT(screenRemovedTimer));
     connect(qApp, SIGNAL(screenRemoved(QScreen *)),this, SLOT(screenRemovedProcess()));
+    connect(m_ScreenModeDbus, SIGNAL(screenModeChanged(int)), this, SLOT(screenModeChangeSlot(int)));
 }
 
 void DisplayWidget::widget_DbusSlot(bool tablet_mode)
 {
-    QString pcMode = xrandrSettings->get(XRANDR_MIRROR_MODE).toString();
+    QDBusReply<int> pcMode = m_ScreenModeDbus->call("getScreenMode", "ukcc");
     QMLOutput *base = mScreen->primaryOutput();
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
@@ -258,10 +266,35 @@ void DisplayWidget::widget_DbusSlot(bool tablet_mode)
     if (enabledOutputsCount > 1 && tablet_mode ) {
         m_unifybutton->setChecked(true);
         m_unifybutton->setEnabled(false);
-    } else if (enabledOutputsCount > 1 && !tablet_mode && pcMode == "expand"){
+    } else if (enabledOutputsCount > 1 && !tablet_mode && pcMode == extendScreenMode){
         m_unifybutton->setEnabled(true);
         m_unifybutton->setChecked(false);
-    } else if (enabledOutputsCount > 1 && !tablet_mode && pcMode == "mirror"){
+    } else if (enabledOutputsCount > 1 && !tablet_mode && pcMode == cloneScreenMode){
+        m_unifybutton->setEnabled(true);
+        m_unifybutton->setChecked(true);
+    }
+}
+
+void DisplayWidget::screenModeChangeSlot(int screenMode)
+{
+    QDBusReply<bool> tablet_mode = m_statusSessionDbus->call("get_current_tabletmode");
+    QMLOutput *base = mScreen->primaryOutput();
+    int enabledOutputsCount = 0;
+    Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+        if (output->isEnabled()) {
+            ++enabledOutputsCount;
+        }
+        if (enabledOutputsCount > 1) {
+            break;
+        }
+    }
+    if (enabledOutputsCount > 1 && tablet_mode ) {
+        m_unifybutton->setChecked(true);
+        m_unifybutton->setEnabled(false);
+    } else if (enabledOutputsCount > 1 && !tablet_mode && screenMode == extendScreenMode){
+        m_unifybutton->setEnabled(true);
+        m_unifybutton->setChecked(false);
+    } else if (enabledOutputsCount > 1 && !tablet_mode && screenMode == cloneScreenMode){
         m_unifybutton->setEnabled(true);
         m_unifybutton->setChecked(true);
     }
@@ -286,20 +319,19 @@ void DisplayWidget::screenAddedTimer (){
 void DisplayWidget::m_unifybuttonChanged() {
     m_unifyTimer->stop();
     unifyChecked = true;
+    m_ScreenModeDbus = new QDBusInterface("org.ukui.SettingsDaemon",
+                                           "/org/ukui/SettingsDaemon/xrandr",
+                                           "org.ukui.SettingsDaemon.xrandr",
+                                           QDBusConnection::sessionBus(), this);
     QDBusReply<bool> tb_mode = m_statusSessionDbus->call("get_current_tabletmode");
     if (!tb_mode) {
         if (m_unifybutton->isChecked()) {
-            if (xrandrSettings &&xrandrSettings->keys().contains("xrandrMirrorMode") ) {
-                qDebug()<<"mirror";
-                xrandrSettings->set(XRANDR_MIRROR_MODE,"mirror");
-            }
+            m_ScreenModeDbus->call("setScreenMode", "cloneScreenMode", "ukcc");
         } else {
-            if (xrandrSettings &&xrandrSettings->keys().contains("xrandrMirrorMode") ) {
-                qDebug()<<"expand";
-                xrandrSettings->set(XRANDR_MIRROR_MODE,"expand");
-            }
+            m_ScreenModeDbus->call("setScreenMode", "extendScreenMode", "ukcc");
         }
     }
+
     slotUnifyOutputs();
 }
 void DisplayWidget::initUI(){
@@ -433,17 +465,22 @@ void DisplayWidget::OnRandrEvent()
         return;
     }
 
+    m_ScreenModeDbus = new QDBusInterface("org.ukui.SettingsDaemon",
+                                           "/org/ukui/SettingsDaemon/xrandr",
+                                           "org.ukui.SettingsDaemon.xrandr",
+                                           QDBusConnection::sessionBus());
+
     rr_config = mate_rr_config_new_current (mmScreen, NULL);
     isClone =  mate_rr_config_get_clone(rr_config);  
     QDBusReply<bool> is_tabletMode = tabletModeDbus->call("get_current_tabletmode");
     if (isClone) {
         if (!is_tabletMode) {
-            xrandrGSettings->set(XRANDR_MIRROR_MODE,"mirror");
+            m_ScreenModeDbus->call("setScreenMode", "cloneScreenMode", "ukcc");
         }
         xrandrGSettings->set(XRANDR_CLONE,true);
     } else {
         if (!is_tabletMode) {
-            xrandrGSettings->set(XRANDR_MIRROR_MODE,"expand");
+            m_ScreenModeDbus->call("setScreenMode", "extendScreenMode", "ukcc");
         }
         xrandrGSettings->set(XRANDR_CLONE,false);
     }
@@ -553,7 +590,9 @@ void DisplayWidget::setConfig(const KScreen::ConfigPtr &config)
         }
     }
     QDBusReply<bool> tb_mode = m_statusSessionDbus->call("get_current_tabletmode");
-    QString pcmode = xrandrSettings->get(XRANDR_MIRROR_MODE).toString();
+
+    QDBusReply<int> pcmode = m_ScreenModeDbus->call("getScreenMode", "ukcc");
+
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         if (output->isEnabled()) {
@@ -569,9 +608,9 @@ void DisplayWidget::setConfig(const KScreen::ConfigPtr &config)
         m_unifybutton->setEnabled(false);
     } else {
         m_unifybutton->setEnabled(true);
-        if (pcmode == "mirror") {
+        if (pcmode == cloneScreenMode) {
             m_unifybutton->setChecked(true);
-        } else if (pcmode == "expand") {
+        } else if (pcmode == extendScreenMode) {
             m_unifybutton->setChecked(false);
         }
     }
@@ -1027,6 +1066,10 @@ void DisplayWidget::initGSettings() {
                                                "com.kylin.statusmanager.interface",
                                                QDBusConnection::sessionBus(), this);
 
+    m_ScreenModeDbus = new QDBusInterface("org.ukui.SettingsDaemon",
+                                           "/org/ukui/SettingsDaemon/xrandr",
+                                           "org.ukui.SettingsDaemon.xrandr",
+                                           QDBusConnection::sessionBus(),this);
 }
 void DisplayWidget::slotChangeAutoBrightness(QString key)
 {
