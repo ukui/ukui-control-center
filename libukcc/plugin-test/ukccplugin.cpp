@@ -4,9 +4,9 @@
 
 UkccPlugin::UkccPlugin()
 {
-    QTranslator translator;
-    translator.load("/usr/share/plugin-test/translations/" + QLocale::system().name());
-    QApplication::installTranslator(&translator);
+    QTranslator *translator = new QTranslator(this);
+    translator->load("/usr/share/plugin-test/translations/" + QLocale::system().name());
+    QApplication::installTranslator(translator);
 
     pluginName = tr("UkccPlugin");
     pluginType = SYSTEM;
