@@ -109,7 +109,7 @@ QIcon Screenlock::icon() const
 
 bool Screenlock::isEnable() const
 {
-    return false;
+    return true;
 }
 
 void Screenlock::initSearchText() {

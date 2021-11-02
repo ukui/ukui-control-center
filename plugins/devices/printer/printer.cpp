@@ -80,7 +80,7 @@ const QString Printer::name() const
 
 bool Printer::isShowOnHomePage() const
 {
-    return true;
+    return false;
 }
 
 QIcon Printer::icon() const

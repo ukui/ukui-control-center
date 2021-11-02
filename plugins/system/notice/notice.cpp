@@ -118,7 +118,7 @@ const QString Notice::name() const
 
 bool Notice::isShowOnHomePage() const
 {
-    return true;
+    return false;
 }
 
 QIcon Notice::icon() const

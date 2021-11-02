@@ -94,8 +94,6 @@ bool Backup::isEnable() const
     return true;
 }
 
-
-
 void Backup::initTitleLabel()
 {
     ui->titleLabel->setText(tr("Backup"));
