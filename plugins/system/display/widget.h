@@ -51,9 +51,9 @@ typedef enum {
 
 typedef enum {
     FIRST,
+    VICE,
     CLONE,
     EXTEND,
-    VICE,
 }MULTISCREEN;
 
 namespace KScreen {
@@ -289,6 +289,7 @@ private:
     bool mIsSCaleRes = false;
     bool mIsChange = false;
 
+    int outputnum = 0;
     QStringList mTimeModeStringList;
 
     QString firstAddOutputName;
