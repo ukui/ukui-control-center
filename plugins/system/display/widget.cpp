@@ -481,6 +481,12 @@ void Widget::slotOutputEnabledChanged()
     setActiveScreen(mKDSCfg);
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+        for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
+                BrightnessFrameV[i]->setOutputEnable(output->isEnabled());
+                break;
+            }
+        }
         if (output->isEnabled()) {
             ++enabledOutputsCount;
             for (int i = 0; i < BrightnessFrameV.size(); ++i) {
@@ -495,6 +501,7 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
     ui->unionframe->setVisible(false);
+    showBrightnessFrame();
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -1109,6 +1116,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
                 BrightnessFrameV[i]->setSliderEnable(false);
                 BrightnessFrameV[i]->runConnectThread(openFlag);
             }
+            BrightnessFrameV[i]->setOutputEnable(openFlag);
             return;
         }
     }
@@ -1188,16 +1196,20 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
 
     ui->unionframe->setVisible(false);
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
-
     showBrightnessFrame();
 }
 
 void Widget::outputRemoved(int outputId, bool connectChanged)
 {
+    KScreen::OutputPtr output = mConfig->output(outputId);
+    for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+        if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
+            BrightnessFrameV[i]->setOutputEnable(false);
+        }
+    }
     // 刷新缩放选项
     changescale();
-    if (!connectChanged) {
-        KScreen::OutputPtr output = mConfig->output(outputId);
+    if (!connectChanged) {        
         if (!output.isNull()) {
             output->disconnect(this);
         }
@@ -2357,6 +2369,8 @@ void Widget::showBrightnessFrame(const int flag)
     } else if ((allShowFlag == true && flag == 0) || flag == 1) { //镜像模式/即将成为镜像模式
         int FrameHeight = -2;
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (!BrightnessFrameV[i]->getOutputEnable())
+                continue;
             if (BrightnessFrameV[i]->getSliderEnable()) {
                 FrameHeight = FrameHeight + 54;
             } else {
