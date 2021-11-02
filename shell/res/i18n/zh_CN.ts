@@ -936,13 +936,13 @@
         <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="545"/>
         <source>Add</source>
         <translation>添加</translation>
-        <extra-contents_path>/autoboot/Add</extra-contents_path>
+        <extra-contents_path>/Autoboot/Add</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="556"/>
         <source>Autoboot Settings</source>
         <translation>开机启动设置</translation>
-        <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
+        <extra-contents_path>/Autoboot/Autoboot Settings</extra-contents_path>
     </message>
     <message>
         <source>Add autoboot app </source>
@@ -1426,7 +1426,6 @@ Please authenticate yourself to continue</source>
     <message>
         <source>Turn on :</source>
         <translation type="vanished">开启：</translation>
-        <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
         <source>Bluetooth adapter</source>
@@ -1435,12 +1434,10 @@ Please authenticate yourself to continue</source>
     <message>
         <source>Show icon on taskbar</source>
         <translation type="vanished">在任务栏显示蓝牙图标</translation>
-        <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation type="vanished">可被附近的蓝牙设备发现</translation>
-        <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
         <source>Audio</source>
@@ -1473,7 +1470,6 @@ Please authenticate yourself to continue</source>
     <message>
         <source>My Devices</source>
         <translation type="vanished">我的设备</translation>
-        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
         <source>Can now be found as </source>
@@ -1482,7 +1478,6 @@ Please authenticate yourself to continue</source>
     <message>
         <source>Other Devices</source>
         <translation type="vanished">蓝牙设备</translation>
-        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
         <source>Refresh</source>
@@ -3708,7 +3703,6 @@ folder will be deleted!</source>
     <message>
         <source>Icon Show On Desktop</source>
         <translation type="vanished">显示在桌面的图标</translation>
-        <extra-contents_path>/desktop/Icon Show On Desktop</extra-contents_path>
     </message>
     <message>
         <source>Computerdesktop</source>
@@ -3757,7 +3751,6 @@ folder will be deleted!</source>
     <message>
         <source>Tray icon</source>
         <translation type="vanished">显示在托盘上的图标</translation>
-        <extra-contents_path>/desktop/Tray icon</extra-contents_path>
     </message>
     <message>
         <source>Homemenu</source>
@@ -5639,7 +5632,6 @@ Please retry for login!</source>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="486"/>
         <source>Sign in</source>
         <translation>登录</translation>
-        <extra-contents_path>/networkaccount/Sign in</extra-contents_path>
     </message>
     <message>
         <source>Enable item sync</source>
@@ -6323,7 +6315,6 @@ Please retry or relogin!</source>
     <message>
         <source>Advanced settings</source>
         <translation type="vanished">高级设置</translation>
-        <extra-contents_path>/netconnect/Advanced settings&quot;</extra-contents_path>
     </message>
     <message>
         <source>Other Networks</source>
@@ -6332,7 +6323,6 @@ Please retry or relogin!</source>
     <message>
         <source>open</source>
         <translation type="vanished">开启</translation>
-        <extra-contents_path>/netconnect/open</extra-contents_path>
     </message>
     <message>
         <source>Network settings</source>
@@ -6493,7 +6483,7 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/notice/notice.cpp" line="189"/>
         <source>Get notifications from the app</source>
         <translation>获取来自应用和其他发送者的通知</translation>
-        <extra-contents_path>/notice/Get notifications from the app</extra-contents_path>
+        <extra-contents_path>/Notice/Get notifications from the app</extra-contents_path>
     </message>
     <message>
         <source>Show notifications on the lock screen</source>
@@ -7188,7 +7178,6 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/system/projection/projection.cpp" line="65"/>
         <source>Open Projection</source>
         <translation>开启投屏</translation>
-        <extra-contents_path>/projection/Open Projection</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/projection/projection.cpp" line="254"/>
@@ -8863,7 +8852,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <source>Default web searching engine</source>
         <translation type="vanished">默认互联网搜索引擎</translation>
-        <extra-contents_path>/search/Default web searching engine</extra-contents_path>
     </message>
     <message>
         <source>baidu</source>
@@ -8900,7 +8888,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <source>select blocked folder</source>
         <translation type="vanished">选择要屏蔽的文件夹</translation>
-        <extra-contents_path>/search/select blocked folder</extra-contents_path>
     </message>
     <message>
         <source>Select</source>
@@ -9400,7 +9387,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="927"/>
         <source>Check Update</source>
         <translation>检查更新</translation>
-        <extra-contents_path>/upgrade/Check Update</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="46"/>
@@ -9604,7 +9590,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="489"/>
         <source>View history</source>
         <translation>查看更新历史</translation>
-        <extra-contents_path>/upgrade/View history</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="534"/>
@@ -9615,7 +9600,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="546"/>
         <source>Allowed to renewable notice</source>
         <translation>允许通知可更新的应用</translation>
-        <extra-contents_path>/upgrade/Allowed to renewable notice</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="556"/>
@@ -9639,7 +9623,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="569"/>
         <source>Automatically download and install updates</source>
         <translation>自动下载和安装更新</translation>
-        <extra-contents_path>/upgrade/Automatically download and install updates</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="571"/>
@@ -10178,12 +10161,10 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="52"/>
         <source>Input Device</source>
         <translation>选择输入设备</translation>
-        <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
         <source>Input Device:</source>
         <translation type="vanished">选择输入设备</translation>
-        <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="54"/>
@@ -10194,7 +10175,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="59"/>
         <source>Input Level</source>
         <translation>输入反馈</translation>
-        <extra-contents_path>/audio/Input Level</extra-contents_path>
     </message>
     <message>
         <source>Low</source>
@@ -10267,19 +10247,16 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="73"/>
         <source>Output Device:</source>
         <translation>选择输出设备</translation>
-        <extra-contents_path>/audio/Output Device</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="76"/>
         <source>Master Volume</source>
         <translation>音量</translation>
-        <extra-contents_path>/audio/Master Volume</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="81"/>
         <source>Balance</source>
         <translation>声道平衡</translation>
-        <extra-contents_path>/audio/Balance</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_output_widget.cpp" line="84"/>
@@ -10367,13 +10344,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="55"/>
         <source>Sound Theme</source>
         <translation>音效主题</translation>
-        <extra-contents_path>/audio/Sound Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="58"/>
         <source>Alert Sound</source>
         <translation>通知</translation>
-        <extra-contents_path>/audio/Alert Sound</extra-contents_path>
     </message>
     <message>
         <source>Alert Volume</source>
@@ -10383,7 +10358,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="71"/>
         <source>Logout Music</source>
         <translation>注销</translation>
-        <extra-contents_path>/audio/Logout Music</extra-contents_path>
     </message>
     <message>
         <source>Boot Music</source>
@@ -10393,25 +10367,21 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="61"/>
         <source>Beep Switch</source>
         <translation>提示音</translation>
-        <extra-contents_path>/audio/Beep Switch</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="63"/>
         <source>Poweroff Music</source>
         <translation>关机</translation>
-        <extra-contents_path>/audio/Poweroff Music</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="65"/>
         <source>Startup Music</source>
         <translation>开机</translation>
-        <extra-contents_path>/audio/Startup Music</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="67"/>
         <source>Wakeup Music</source>
         <translation>唤醒</translation>
-        <extra-contents_path>/audio/Wakeup Music</extra-contents_path>
     </message>
     <message>
         <source>Sleep Music</source>
@@ -10425,7 +10395,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_sound_effects_widget.cpp" line="69"/>
         <source>Volume Change</source>
         <translation>音量调节</translation>
-        <extra-contents_path>/audio/Volume Change</extra-contents_path>
     </message>
     <message>
         <source>Setting Menu</source>
@@ -11293,7 +11262,6 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="114"/>
         <source>monitor</source>
         <translation>显示器</translation>
-        <extra-contents_path>/touchscreen/monitor</extra-contents_path>
     </message>
     <message>
         <source>Information</source>
@@ -11441,7 +11409,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="116"/>
         <source>touch id</source>
         <translation type="unfinished">触摸屏标识</translation>
-        <extra-contents_path>/touchscreen/touch id</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="461"/>
@@ -11462,12 +11429,10 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <source>open</source>
         <translation type="vanished">开启</translation>
-        <extra-contents_path>/wlanconnect/open</extra-contents_path>
     </message>
     <message>
         <source>Advanced settings</source>
         <translation type="vanished">高级设置</translation>
-        <extra-contents_path>/wlanconnect/Advanced settings&quot;</extra-contents_path>
     </message>
     <message>
         <source>Other Networks</source>
@@ -11800,25 +11765,21 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="82"/>
         <source>Security Scan</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/securitycenter/Security Scan</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="84"/>
         <source>Account Protection</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/securitycenter/Account Protection</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="86"/>
         <source>Network Protection</source>
         <translation type="unfinished">网络保护</translation>
-        <extra-contents_path>/securitycenter/Network Protection</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/securitycenter/ksc_module_func_widget.cpp" line="88"/>
         <source>Application Protection</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/securitycenter/Application Protection</extra-contents_path>
     </message>
 </context>
 <context>
