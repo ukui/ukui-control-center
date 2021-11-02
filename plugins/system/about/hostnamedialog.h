@@ -20,6 +20,7 @@ public:
 
 private:
     void initConnect();
+    void setEdit();
     void setupComponent();
     void setHostname(QString hostname);
 
