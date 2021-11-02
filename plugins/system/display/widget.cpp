@@ -1841,7 +1841,7 @@ void Widget::mainScreenButtonSelect(int index)
             ui->mainScreenButton->setEnabled(true);
         }
     } else {
-        if (newPrimary == mConfig->primaryOutput()) {
+        if (newPrimary == mConfig->primaryOutput() || mConfig->primaryOutput().isNull() || !newPrimary->isEnabled()) {
             ui->mainScreenButton->setVisible(false);
         } else {
             ui->mainScreenButton->setVisible(true);
@@ -1913,15 +1913,13 @@ void Widget::checkOutputScreen(bool judge)
     }
 
     ui->primaryCombo->setCurrentIndex(index);
+    mainScreenButtonSelect(index);
 	ui->primaryCombo->blockSignals(false);
 }
 
 
 void Widget::initConnection()
 {
-    connect(ui->primaryCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &Widget::mainScreenButtonSelect);
-
     connect(ui->mainScreenButton, &QPushButton::clicked, this, [=](bool status){
         primaryButtonEnable(status);
         delayApply();
@@ -2033,9 +2031,9 @@ void Widget::initConnection()
     mApplyShortcut = new QShortcut(QKeySequence("Ctrl+A"), this);
     connect(mApplyShortcut, SIGNAL(activated()), this, SLOT(save()));
 
-    connect(ui->primaryCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),////////////////
+    connect(ui->primaryCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, [=](int index) {
-       // mainScreenButtonSelect(index);
+        mainScreenButtonSelect(index);
         showBrightnessFrame();  //当前屏幕框变化的时候，显示，此时不判断
     });
 
