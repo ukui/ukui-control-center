@@ -346,6 +346,13 @@ void Widget::slotOutputEnabledChanged()
     setActiveScreen(mKDSCfg);
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+        for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
+                BrightnessFrameV[i]->setOutputEnable(output->isEnabled());
+                break;
+            }
+        }
+
         if (output->isEnabled()) {
             ++enabledOutputsCount;
             for (int i = 0; i < BrightnessFrameV.size(); ++i) {
@@ -856,6 +863,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
                 BrightnessFrameV[i]->setSliderEnable(false);
                 BrightnessFrameV[i]->runConnectThread(openFlag);
             }
+            BrightnessFrameV[i]->setOutputEnable(openFlag);
             return;
         }
     }
@@ -934,10 +942,15 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
 
 void Widget::outputRemoved(int outputId, bool connectChanged)
 {
+    KScreen::OutputPtr output = mConfig->output(outputId);
+    for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+        if (!output.isNull() && BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
+            BrightnessFrameV[i]->setOutputEnable(false);
+        }
+    }
     // 刷新缩放选项
     changescale();
     if (!connectChanged) {
-        KScreen::OutputPtr output = mConfig->output(outputId);
         if (!output.isNull()) {
             output->disconnect(this);
         }
@@ -1892,6 +1905,7 @@ void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
  *ps: by feng chao
 */
 
+//不能在这里面设置配置信息，会引出很多问题(如:mUnifyButton->setChecked)
 void Widget::showBrightnessFrame(const int flag)
 {
     bool allShowFlag = true;
@@ -1901,12 +1915,16 @@ void Widget::showBrightnessFrame(const int flag)
     if (flag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式
 
     } else if ((allShowFlag == true && flag == 0) || flag == 1) { //镜像模式/即将成为镜像模式
-        ui->unifyBrightFrame->setFixedHeight(BrightnessFrameV.size() * (50 + 2 + 2));
+        int frameHeight = 0;
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (!BrightnessFrameV[i]->getOutputEnable())
+                continue;
+            frameHeight = frameHeight + 54;
             BrightnessFrameV[i]->setOutputEnable(true);
             BrightnessFrameV[i]->setTextLabelName(tr("Brightness") + QString("(") + BrightnessFrameV[i]->getOutputName() + QString(")"));
             BrightnessFrameV[i]->setVisible(true);
         }
+        ui->unifyBrightFrame->setFixedHeight(frameHeight);
     } else {
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
             if (ui->primaryCombo->currentText() == BrightnessFrameV[i]->getOutputName() && BrightnessFrameV[i]->getOutputEnable()) {

@@ -106,7 +106,7 @@ void ControlPanel::removeOutput(int outputId)
 void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
 {
     // Ignore activateOutput when in unified mode
-    if (mUnifiedOutputCfg) {
+    if (mUnifiedOutputCfg && mUnifiedOutputCfg->isVisible()) {
         return;
     }
 
