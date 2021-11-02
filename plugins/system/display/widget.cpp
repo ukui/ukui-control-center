@@ -108,7 +108,7 @@ Widget::Widget(QWidget *parent) :
             "/backend",
             "org.kde.kscreen.Backend",
             QDBusConnection::sessionBus());
-
+    cpuArchitecture = Utils::getCpuArchitecture();
     qRegisterMetaType<QQuickView *>();
 
     ui->setupUi(this);
@@ -481,6 +481,12 @@ void Widget::slotOutputEnabledChanged()
     setActiveScreen(mKDSCfg);
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+        for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
+                BrightnessFrameV[i]->setOutputEnable(output->isEnabled());
+                break;
+            }
+        }
         if (output->isEnabled()) {
             ++enabledOutputsCount;
             for (int i = 0; i < BrightnessFrameV.size(); ++i) {
@@ -495,6 +501,7 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
     ui->unionframe->setVisible(false);
+    showBrightnessFrame();
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -1031,7 +1038,7 @@ void Widget::initMultScreenStatus()
         }
         if (enableCount >= 2) {
             mMultiScreenCombox->setCurrentIndex(EXTEND);
-        } else if (screens.begin().value()->isEnabled()) {
+        } else if (screens.count() > 0 && screens.begin().value()->isEnabled()) {
             mMultiScreenCombox->setCurrentIndex(FIRST);
         } else {
             mMultiScreenCombox->setCurrentIndex(VICE);
@@ -1109,6 +1116,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
                 BrightnessFrameV[i]->setSliderEnable(false);
                 BrightnessFrameV[i]->runConnectThread(openFlag);
             }
+            BrightnessFrameV[i]->setOutputEnable(openFlag);
             return;
         }
     }
@@ -1188,16 +1196,20 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
 
     ui->unionframe->setVisible(false);
     mUnifyButton->setEnabled(mConfig->connectedOutputs().count() > 1);
-
     showBrightnessFrame();
 }
 
 void Widget::outputRemoved(int outputId, bool connectChanged)
 {
+    KScreen::OutputPtr output = mConfig->output(outputId);
+    for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+        if (BrightnessFrameV[i]->getOutputName() == Utils::outputName(output)) {
+            BrightnessFrameV[i]->setOutputEnable(false);
+        }
+    }
     // 刷新缩放选项
     changescale();
-    if (!connectChanged) {
-        KScreen::OutputPtr output = mConfig->output(outputId);
+    if (!connectChanged) {        
         if (!output.isNull()) {
             output->disconnect(this);
         }
@@ -1216,14 +1228,13 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
     }
 
     // 检查统一输出-防止移除后没有屏幕可显示
-    if (mUnifyButton->isChecked()) {
-        for (QMLOutput *qmlOutput: mScreen->outputs()) {
-            if (!qmlOutput->output()->isConnected()) {
-                continue;
-            }
-            qmlOutput->setIsCloneMode(false, false);
+    for (QMLOutput *qmlOutput: mScreen->outputs()) {
+        if (!qmlOutput->output()->isConnected()) {
+            continue;
         }
+        qmlOutput->setIsCloneMode(false, false);
     }
+
     ui->unionframe->setVisible(false);
     mUnifyButton->blockSignals(true);
     mUnifyButton->setChecked(mConfig->connectedOutputs().count() > 1);
@@ -2347,6 +2358,10 @@ void Widget::showBrightnessFrame(const int flag)
 {
     bool allShowFlag = true;
     allShowFlag = isCloneMode();
+    //mips机器，插拔信号不能及时反馈，在这里重新设置一遍，避免缩略图显示异常
+    if (cpuArchitecture.contains("mips", Qt::CaseInsensitive) && allShowFlag == true && !mUnifyButton->isChecked()) {
+        mUnifyButton->setChecked(true);
+    }
 
     ui->unifyBrightFrame->setFixedHeight(0);
     if (flag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式
@@ -2354,6 +2369,8 @@ void Widget::showBrightnessFrame(const int flag)
     } else if ((allShowFlag == true && flag == 0) || flag == 1) { //镜像模式/即将成为镜像模式
         int FrameHeight = -2;
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (!BrightnessFrameV[i]->getOutputEnable())
+                continue;
             if (BrightnessFrameV[i]->getSliderEnable()) {
                 FrameHeight = FrameHeight + 54;
             } else {

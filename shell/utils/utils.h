@@ -41,6 +41,7 @@ namespace Utils
     void setCLIName(QCommandLineParser &parser);
     QVariantMap getModuleHideStatus();
     QString getCpuInfo();
+    QString getCpuArchitecture();
     bool isExistEffect();
     bool isExitBattery();
     void setKwinMouseSize(int size);

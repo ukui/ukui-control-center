@@ -207,6 +207,36 @@ QString Utils::getCpuInfo() {
     return cpuType;
 }
 
+
+QString Utils::getCpuArchitecture()
+{
+    QString cpuArchitecture;
+    // 设置系统环境变量
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("lscpu");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+
+    delete process;
+    QString cpuinfo = QString(ba.data());
+    QStringList cpuinfo_list = cpuinfo.split("\n");
+    for (int i = 0; i < cpuinfo_list.count(); i++) {
+        QString mstring = cpuinfo_list.at(i);
+        if (mstring.contains("Architecture")) {
+            // 去除空格
+            mstring = mstring.remove(QRegExp("\\s"));
+            QStringList list = mstring.split(":");
+            cpuArchitecture = list.at(1);
+            break;
+        }
+    }
+    return cpuArchitecture;
+}
+
 bool Utils::isExistEffect() {
     QString filename = QDir::homePath() + "/.config/ukui-kwinrc";
     QSettings kwinSettings(filename, QSettings::IniFormat);
