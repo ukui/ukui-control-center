@@ -64,9 +64,8 @@ void ChangeUserNickname::initUI(){
 
     //用户名
     userNameLabel = new QLabel();
-    userNameLabel->setMinimumWidth(60);
-    userNameLabel->setMaximumWidth(120);
-    userNameLabel->setText(tr("UserName"));
+    userNameLabel->setFixedWidth(100);
+    setTextDynamicInNick(userNameLabel, tr("UserName"));
 
     userNameLineEdit = new QLineEdit();
     userNameLineEdit->setFixedSize(QSize(300, 36));
@@ -81,16 +80,13 @@ void ChangeUserNickname::initUI(){
 
     //用户昵称
     nickNameLabel = new QLabel();
-    nickNameLabel->setMinimumWidth(60);
-    nickNameLabel->setMaximumWidth(120);
-    nickNameLabel->setText(tr("NickName"));
+    nickNameLabel->setFixedWidth(100);
+    setTextDynamicInNick(nickNameLabel, tr("NickName"));
 
     tipLabel = new QLabel();
     tipLabel->setFixedSize(QSize(300, 24));
     QString tipinfo = tr("Name already in use, change another one.");
-    if (setTextDynamicInNick(tipLabel, tipinfo)){
-        tipLabel->setToolTip(tipinfo);
-    }
+    setTextDynamicInNick(tipLabel, tipinfo);
 
     nickNameLineEdit = new QLineEdit();
     nickNameLineEdit->setFixedSize(QSize(300, 36));
@@ -116,9 +112,8 @@ void ChangeUserNickname::initUI(){
 
     //计算机名
     computerNameLabel = new QLabel();
-    computerNameLabel->setMinimumWidth(60);
-    computerNameLabel->setMaximumWidth(120);
-    computerNameLabel->setText(tr("ComputerName"));
+    computerNameLabel->setFixedWidth(100);
+    setTextDynamicInNick(computerNameLabel, tr("ComputerName"));
 
     computerNameLineEdit = new QLineEdit();
     computerNameLineEdit->setFixedSize(QSize(300, 36));
@@ -212,9 +207,10 @@ bool ChangeUserNickname::setTextDynamicInNick(QLabel *label, QString string){
     int pSize = label->width();
     if (fontSize > pSize) {
         str = fontMetrics.elidedText(string, Qt::ElideRight, pSize);
+        label->setToolTip(string);
         isOverLength = true;
     } else {
-
+        label->setToolTip("");
     }
     label->setText(str);
     return isOverLength;
