@@ -1,55 +1,55 @@
 <plugins>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
         <ChineseFunc>屏幕（外接显示器后才展示）</ChineseFunc>
         <EnglishFunc>Display</EnglishFunc>
     </plugin>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>suofangpingmu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>缩放屏幕</ChineseFunc>	
         <EnglishFunc>Screen Zoom</EnglishFunc>
     </plugin>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmujingxiang</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>屏幕镜像</ChineseFunc>	
         <EnglishFunc>Screen mirror</EnglishFunc>
     </plugin>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmuliangdu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>屏幕亮度</ChineseFunc>	
         <EnglishFunc>Screen brightness</EnglishFunc>
     </plugin>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>yejianmoshi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>夜间模式</ChineseFunc>	
         <EnglishFunc>night mode</EnglishFunc>
     </plugin>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>zidongqiehuan</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>自动切换</ChineseFunc>	
         <EnglishFunc>Auto Switch</EnglishFunc>
     </plugin>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>quantiankaiqi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>全天开启</ChineseFunc>	
         <EnglishFunc>all time</EnglishFunc>
     </plugin>
     <plugin name="displays">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
+        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>sewen</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
 	<ChnieseFunc>色温</ChineseFunc>	
@@ -127,9 +127,9 @@
     </plugin>
     <plugin name="mouse">
         <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>qiyongwenbenquyudeguangbiaoshanshuo</pinyinfunc>
+        <pinyinfunc>qiyongwenbenquyuguangbiaodeshanshuo</pinyinfunc>
         <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>启用文本区域的光标闪烁</ChineseFunc>
+        <ChineseFunc>启用文本区域光标的闪烁</ChineseFunc>
         <EnglishFunc>Enable Flashing on text area</EnglishFunc>
     </plugin>
     <plugin name="mouse">
@@ -157,7 +157,7 @@
         <pinyinPlugin>chumoban</pinyinPlugin>
         <pinyinfunc>zhizhensudu</pinyinfunc>
         <ChinesePlugin>触摸板</ChinesePlugin>
-        <ChineseFunc>触摸板速度</ChineseFunc>
+        <ChineseFunc>指针速度</ChineseFunc>
         <EnglishFunc>Touchpad speed</EnglishFunc>
     </plugin>
     <plugin name="touchpad">
@@ -378,23 +378,23 @@
         <EnglishFunc>Local wallpaper</EnglishFunc>
     </plugin>
     <plugin name="netconnect">
-        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinPlugin>wangluolianjie</pinyinPlugin>
         <pinyinfunc>youxianwangluo</pinyinfunc>
-        <ChinesePlugin>网络</ChinesePlugin>
+        <ChinesePlugin>网络连接</ChinesePlugin>
         <ChineseFunc>有线网络</ChineseFunc>
         <EnglishFunc>Lan</EnglishFunc>
     </plugin>
     <plugin name="netconnect">
-        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinPlugin>wangluolianjie</pinyinPlugin>
         <pinyinfunc>wuxianwangluo</pinyinfunc>
-        <ChinesePlugin>网络</ChinesePlugin>
+        <ChinesePlugin>网络连接</ChinesePlugin>
         <ChineseFunc>无线网络</ChineseFunc>
         <EnglishFunc>Wifi</EnglishFunc>
     </plugin>
     <plugin name="netconnect">
-        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinPlugin>wangluolianjie</pinyinPlugin>
         <pinyinfunc>kaiqiwifi</pinyinfunc>
-        <ChinesePlugin>网络</ChinesePlugin>
+        <ChinesePlugin>网络连接</ChinesePlugin>
         <ChineseFunc>开启Wifi</ChineseFunc>
         <EnglishFunc>open wifi</EnglishFunc>
     </plugin>
@@ -423,15 +423,15 @@
         <pinyinPlugin>daili</pinyinPlugin>
         <pinyinfunc>httpdaili</pinyinfunc>
         <ChinesePlugin>代理</ChinesePlugin>
-        <ChineseFunc>http代理</ChineseFunc>
-        <EnglishFunc>Http Proxy</EnglishFunc>
+        <ChineseFunc>HTTP代理</ChineseFunc>
+        <EnglishFunc>HTTP Proxy</EnglishFunc>
     </plugin>
     <plugin name="proxy">
         <pinyinPlugin>daili</pinyinPlugin>
         <pinyinfunc>httpsdaili</pinyinfunc>
         <ChinesePlugin>代理</ChinesePlugin>
         <ChineseFunc>HTTPS代理</ChineseFunc>
-        <EnglishFunc>Https Proxy</EnglishFunc>
+        <EnglishFunc>HTTPS Proxy</EnglishFunc>
     </plugin>
     <plugin name="proxy">
         <pinyinPlugin>daili</pinyinPlugin>
@@ -455,72 +455,72 @@
         <EnglishFunc>Port</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
+        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>dangqianyonghu</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
+        <ChinesePlugin>账户信息</ChinesePlugin>
         <ChineseFunc>当前用户</ChineseFunc>
         <EnglishFunc>Current User</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
+        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>genghuantouxiang</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
+        <ChinesePlugin>账户信息</ChinesePlugin>
         <ChineseFunc>更换头像</ChineseFunc>
 	<EnglishFunc>Change user face</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
+        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>yonghugengming</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
+        <ChinesePlugin>账户信息</ChinesePlugin>
         <ChineseFunc>用户更名</ChineseFunc>
         <EnglishFunc>Change username</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
+        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>genghuanshoujihao</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
+        <ChinesePlugin>账户信息</ChinesePlugin>
         <ChineseFunc>更换手机号</ChineseFunc>
         <EnglishFunc>Change phone</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
+        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>xiugaimima</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
+        <ChinesePlugin>账户信息</ChinesePlugin>
         <ChineseFunc>修改密码（已创建Pin码）</ChineseFunc>
         <EnglishFunc>Change password</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
+        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>shezhimima</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
+        <ChinesePlugin>账户信息</ChinesePlugin>
         <ChineseFunc>设置密码（未创建Pin码）</ChineseFunc>
         <EnglishFunc>Change phone</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
+        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>qitayonghu</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
+        <ChinesePlugin>账户信息</ChinesePlugin>
 	<ChineseFunc>其他用户</ChineseFunc>
         <EnglishFunc>Other users</EnglishFunc>
     </plugin>
     <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
+        <pinyinPlugin>shijianyuriqi</pinyinPlugin>
         <pinyinfunc>rili</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
+        <ChinesePlugin>时间与日期</ChinesePlugin>
         <ChineseFunc>日历</ChineseFunc>
         <EnglishFunc>calendar</EnglishFunc>
     </plugin>
     <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
+        <pinyinPlugin>shijianyuriqi</pinyinPlugin>
         <pinyinfunc>riqigeshi</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
+        <ChinesePlugin>时间与日期</ChinesePlugin>
         <ChineseFunc>日期格式</ChineseFunc>
         <EnglishFunc>date</EnglishFunc>
     </plugin>
     <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
+        <pinyinPlugin>shijianyuriqi</pinyinPlugin>
         <pinyinfunc>xiaoshizhi</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
+        <ChinesePlugin>时间与日期</ChinesePlugin>
         <ChineseFunc>24小时制</ChineseFunc>
         <EnglishFunc>24-hour Clock</EnglishFunc>
     </plugin>
@@ -537,6 +537,20 @@
         <ChinesePlugin>系统还原</ChinesePlugin>
         <ChineseFunc>抹掉所有内容和设置</ChineseFunc>
         <EnglishFunc>Erase and Restore</EnglishFunc>
+    </plugin>
+    <plugin name="gesture">
+        <pinyinPlugin>qita</pinyinPlugin>
+        <pinyinfunc>shoushiyindao</pinyinfunc>
+        <ChinesePlugin>其他</ChinesePlugin>
+        <ChineseFunc>手势引导</ChineseFunc>
+        <EnglishFunc>Gesture Guidance</EnglishFunc>
+    </plugin>
+    <plugin name="about">
+        <pinyinPlugin>qita</pinyinPlugin>
+        <pinyinfunc>guanyuyuzhichi</pinyinfunc>
+        <ChinesePlugin>其他</ChinesePlugin>
+        <ChineseFunc>关于与支持</ChineseFunc>
+        <EnglishFunc>About and Support</EnglishFunc>
     </plugin>
     <plugin name="pen">
         <pinyinPlugin>shouxiebi</pinyinPlugin>
