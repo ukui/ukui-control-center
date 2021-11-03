@@ -777,6 +777,10 @@ QString Theme::dullTranslation(QString str) {
         return QObject::tr("hp");
     } else if (!QString::compare(str, "ukui")) {
         return QObject::tr("ukui");
+    } else if (!QString::compare(str, "found")) {
+        return QObject::tr("found");
+    } else if (!QString::compare(str, "heyin")) {
+         return QObject::tr("heyin");
     } else {
         return QObject::tr("default");
     }
