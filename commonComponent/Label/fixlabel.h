@@ -29,6 +29,7 @@ class FixLabel : public QLabel
     Q_OBJECT
 public:
     FixLabel(QWidget *parent = nullptr);
+    FixLabel(QString text , QWidget *parent = nullptr);
     ~FixLabel();
     void setText(const QString &text, bool saveTextFlag = true);
 private:

@@ -777,10 +777,10 @@ QString Theme::dullTranslation(QString str) {
         return QObject::tr("hp");
     } else if (!QString::compare(str, "ukui")) {
         return QObject::tr("ukui");
-    } else if (!QString::compare(str, "found")) {
-        return QObject::tr("found");
-    } else if (!QString::compare(str, "heyin")) {
-         return QObject::tr("heyin");
+    } else if (!QString::compare(str, "lightseeking")) {
+        return QObject::tr("lightseeking");
+    } else if (!QString::compare(str, "HeYin")) {
+         return QObject::tr("HeYin");
     } else {
         return QObject::tr("default");
     }

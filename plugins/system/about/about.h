@@ -44,6 +44,7 @@
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
+#include "Label/fixlabel.h"
 #include "SwitchButton/switchbutton.h"
 
 namespace Ui {
@@ -74,6 +75,7 @@ private:
     void initSearchText();
     void initActiveDbus();
     void setupSerialComponent();
+    void setVersionNumCompenent();
     void setupVersionCompenent();
     void setupDesktopComponent();
     void setupKernelCompenent();
@@ -109,6 +111,8 @@ private:
     QFrame *mActivationFrame;
     QFrame *mVersionFrame;
     QFrame *mVersionNumFrame;
+    QFrame *mVersionNumberFrame;
+    QFrame *mInterVersionFrame;
     QFrame *mHostNameFrame;
     QFrame *mKernelFrame;
     QFrame *mCpuFrame;
@@ -124,6 +128,8 @@ private:
     QLabel *mLogoLabel;
     QLabel *mVersionLabel_1;
     QLabel *mVersionNumLabel_1;
+    QLabel *mVersionNumberLabel_1;
+    FixLabel *mInterVersionLabel_1;
     QLabel *mHostNameLabel_1;
     QLabel *mKernelLabel_1;
     QLabel *mCpuLabel_1;
@@ -133,6 +139,8 @@ private:
     QLabel *mUsernameLabel_1;
     QLabel *mVersionLabel_2;
     QLabel *mVersionNumLabel_2;
+    QLabel *mVersionNumberLabel_2;
+    FixLabel *mInterVersionLabel_2;
     QLabel *mHostNameLabel_2;
     QLabel *mHostNameLabel_3;
     QLabel *mKernelLabel_2;
@@ -153,7 +161,7 @@ private:
     QLabel *mHpLabel;
     QLabel *mEducateIconLabel;
     QLabel *mEducateLabel;
-
+    QLabel *mTipLabel;
 
 
 

@@ -30,7 +30,8 @@ class LIBUKCC_EXPORT FixLabel : public QLabel
 
     Q_OBJECT
 public:
-    FixLabel(QWidget *parent = nullptr);
+    explicit FixLabel(QWidget *parent = nullptr);
+    explicit FixLabel(QString text , QWidget *parent = nullptr);
     ~FixLabel();
     void setText(const QString &text, bool saveTextFlag = true);
 private:

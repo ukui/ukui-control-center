@@ -95,6 +95,7 @@ QWidget *About::pluginUi()
         initActiveDbus();
 
         setupVersionCompenent();
+        setVersionNumCompenent();
         setHostNameCompenet();
         setupSystemVersion();
         setupDesktopComponent();
@@ -156,6 +157,7 @@ void About::initUI(QWidget *widget)
 
     mInformationLayout->addWidget(mLogoLabel);
 
+     /* 版本名称 */
     mVersionFrame = new QFrame(mInformationFrame);
     mVersionFrame->installEventFilter(this);
     setFrame_NoFrame(mVersionFrame);
@@ -176,6 +178,47 @@ void About::initUI(QWidget *widget)
 
     mInformationLayout->addWidget(mVersionFrame);
 
+     /* 版本号 */
+    mVersionNumberFrame = new QFrame(mInformationFrame);
+    setFrame_NoFrame(mVersionNumberFrame);
+
+    QHBoxLayout *mVersionNumberLayout = new QHBoxLayout(mVersionNumberFrame);
+    mVersionNumberLayout->setContentsMargins(0, 0, 16, 0);
+
+    mVersionNumberLabel_1 = new QLabel(tr("Version Number") , mVersionNumberFrame);
+    mVersionNumberLabel_1->setFixedSize(80,30);
+
+    mVersionNumberLabel_2 = new QLabel(mVersionNumberFrame);
+    mVersionNumberLabel_2->setFixedHeight(30);
+
+    mVersionNumberLayout->addWidget(mVersionNumberLabel_1);
+    mVersionNumberLayout->addSpacing(80);
+    mVersionNumberLayout->addWidget(mVersionNumberLabel_2);
+    mVersionNumberLayout->addStretch();
+
+    mInformationLayout->addWidget(mVersionNumberFrame);
+
+    /* 内部版本 */
+    mInterVersionFrame = new QFrame(mInformationFrame);
+    setFrame_NoFrame(mInterVersionFrame);
+
+    QHBoxLayout *mInterVersionLayout = new QHBoxLayout(mInterVersionFrame);
+    mInterVersionLayout->setContentsMargins(0, 0, 16, 0);
+
+    mInterVersionLabel_1 = new FixLabel(tr("InterVersion") , mInterVersionFrame);
+    mInterVersionLabel_1->setFixedSize(80,30);
+
+    mInterVersionLabel_2 = new FixLabel(mInterVersionFrame);
+    mInterVersionLabel_2->setFixedHeight(30);
+
+    mInterVersionLayout->addWidget(mInterVersionLabel_1);
+    mInterVersionLayout->addSpacing(80);
+    mInterVersionLayout->addWidget(mInterVersionLabel_2);
+    mInterVersionLayout->addStretch();
+
+    mInformationLayout->addWidget(mInterVersionFrame);
+
+     /* Intel版本号 */
     mVersionNumFrame = new QFrame(mInformationFrame);
     setFrame_NoFrame(mVersionNumFrame);
 
@@ -393,6 +436,9 @@ void About::initUI(QWidget *widget)
     mActivationLayout->addWidget(mTimeLabel_2, 4, 1, 2, 3,Qt::AlignLeft);
     mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1, Qt::AlignRight);
 
+    mTipLabel = new QLabel(tr("Copyright © 2009-2021 KylinSoft. All rights reserved.") , Aboutwidget);
+    mTipLabel->setContentsMargins(16 , 0 , 0 , 0);
+
     mBtnFrame = new QFrame(Aboutwidget);
     mBtnFrame->setMinimumSize(QSize(550, 0));
     mBtnFrame->setMaximumSize(QSize(16777215, 16777215));
@@ -445,7 +491,8 @@ void About::initUI(QWidget *widget)
 
     AboutLayout->addWidget(mInformationFrame);
     AboutLayout->addWidget(mActivationFrame);
-    AboutLayout->addSpacing(24);
+     AboutLayout->addWidget(mTipLabel);
+    AboutLayout->addSpacing(32);
     AboutLayout->addWidget(mPriTitleLabel);
     AboutLayout->addWidget(mPrivacyFrame);
     AboutLayout->addSpacing(-8);
@@ -590,6 +637,7 @@ void About::setupSerialComponent()
             if (s1.isNull()) {    //未连接上网络
                 mTimeLabel_2->setText(dateRes);
             } else {    //获取到网络时间
+                qDebug()<<"网络时间 : "<<s1;
                 QStringList list_1 = s1.split(" ");
                 QStringList list_2 = dateRes.split("-");
 
@@ -616,7 +664,49 @@ void About::setupSerialComponent()
     connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
 }
 
-/* 获取logo图片 */
+/* 获取内部版本号 */
+void About::setVersionNumCompenent()
+{
+//    QString InterVersion = nullptr;
+//    QString VersionNumPath = "/etc/kylin-build";
+//    QStringList mCentent = readFile(VersionNumPath);
+//     for (QString str : mCentent) {
+//         if (str.contains("Build")) {
+//             QRegExp rx("^Build (.*)$");
+//             int pos = rx.indexIn(str);
+//             if (pos > -1) {
+//                 InterVersion = rx.cap(1);
+//                mInterVersionLabel_2->setText(InterVersion);
+//                mVersionNumberLabel_2->setText(InterVersion.mid(2 , 4));
+//                mInterVersionFrame->hide();
+//             }
+//         }
+//     }
+    mInterVersionFrame->hide();
+    QString InfoPath = "/etc/.kyinfo";
+     QFile file(InfoPath);
+     if (file.exists()) {
+         QStringList mCentent = readFile(InfoPath);
+          for (QString str : mCentent) {
+              if (str.contains("dist_id=")) {
+                  QRegExp rx("^(.*)Release-(.*)-(.*)-(.*).iso$");
+                  int pos = rx.indexIn(str);
+//                  qDebug()<<rx.cap(1)<<"-----------"<<rx.cap(2)<<"---------------"<<rx.cap(3)<<"------------"<<rx.cap(4);
+                  if (pos > -1) {
+                      mVersionNumberLabel_2->setText(rx.cap(2));
+                  } else {
+                      mVersionNumberFrame->hide();
+                  }
+              }
+          }
+     } else {
+         mVersionNumberFrame->hide();
+     }
+
+
+}
+
+/* 获取logo图片和版本名称 */
 void About::setupVersionCompenent()
 {
     QString versionPath = "/etc/os-release";
@@ -660,9 +750,9 @@ void About::setupVersionCompenent()
     }
 
     if (!version.isEmpty()) {
-        setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+        setLabelText(mVersionLabel_2,version);
         connect(this,&About::resize,[=](){
-           setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+           setLabelText(mVersionLabel_2,version);
         });
     }
 
