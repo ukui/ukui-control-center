@@ -689,9 +689,9 @@ void About::setVersionNumCompenent()
          QStringList mCentent = readFile(InfoPath);
           for (QString str : mCentent) {
               if (str.contains("dist_id=")) {
-                  QRegExp rx("^(.*)Release-(.*)-(.*)-(.*).iso$");
+                  QRegExp rx("^(.*)Release-(.*)-(.*).iso$");
                   int pos = rx.indexIn(str);
-//                  qDebug()<<rx.cap(1)<<"-----------"<<rx.cap(2)<<"---------------"<<rx.cap(3)<<"------------"<<rx.cap(4);
+//                  qDebug()<<rx.cap(1)<<"-----------"<<rx.cap(2)<<"---------------"<<rx.cap(3);
                   if (pos > -1) {
                       mVersionNumberLabel_2->setText(rx.cap(2));
                   } else {

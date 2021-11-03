@@ -4,108 +4,114 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="465"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="512"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="466"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="513"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="467"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="188"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="514"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="528"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="530"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="470"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="517"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="207"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="250"/>
         <source>HostName</source>
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="471"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="518"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="403"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="449"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>《试用免责协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="347"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="208"/>
+        <source>InterVersion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="390"/>
         <source>Privacy and agreement</source>
         <translation>隐私和协议</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="356"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="399"/>
         <source>Send optional diagnostic data</source>
         <translation>发送可选诊断数据</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="358"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="401"/>
         <source>By sending us diagnostic data, improve the system experience and solve your problems faster</source>
         <translation>通过向我们发送诊断数据，提升系统体验以及更快的解决你的问题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="404"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="450"/>
         <source>and</source>
         <translation>和</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="405"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
         <source>&lt;&lt;Privacy&gt;&gt;</source>
         <translation>《用户隐私协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="492"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="539"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="502"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="549"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="867"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="957"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="871"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="961"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1007"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1097"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1008"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1098"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1009"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1099"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -118,9 +124,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="787"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="796"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1142"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="877"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="886"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1232"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -137,7 +143,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="516"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="563"/>
         <source>Version</source>
         <translation>版本</translation>
         <extra-contents_path>/About/version</extra-contents_path>
@@ -151,43 +157,42 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="663"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="665"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="439"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="518"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="565"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="567"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="522"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="569"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="468"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="794"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="515"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="884"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="524"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="526"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/About/User</extra-contents_path>
@@ -201,7 +206,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="529"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="576"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -214,7 +219,7 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="628"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -248,12 +253,12 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="626"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="586"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="633"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -7318,13 +7323,21 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="781"/>
-        <source>found</source>
+        <source>lightseeking</source>
         <translation>寻光</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="783"/>
-        <source>heyin</source>
+        <source>HeYin</source>
         <translation>和印</translation>
+    </message>
+    <message>
+        <source>found</source>
+        <translation type="vanished">寻光</translation>
+    </message>
+    <message>
+        <source>heyin</source>
+        <translation type="vanished">和印</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="173"/>
