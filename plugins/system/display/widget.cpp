@@ -942,7 +942,7 @@ bool Widget::isCloneMode()
     }
     if (mConfig->connectedOutputs().count() >= 2) {
         foreach (KScreen::OutputPtr secOutput, mConfig->connectedOutputs()) {
-            if (secOutput->pos() != output->pos() || !secOutput->isEnabled()) {
+            if (secOutput->pos() != output->pos() || !secOutput->isEnabled() || secOutput->size() == QSize(-1, -1)) {
                 return false;
             }
         }
