@@ -404,11 +404,11 @@ Tips：系统至少需要存在一个管理员用户。
 
 ![图 29-3 后台更新-big](image/notiffirst.png)
 
-![图 45 后台更新-big](image/notiend.png)
+![图 29-4 后台更新-big](image/notiend.png)
 
 - 当有可用更新时，弹出选择界面供用户选择。
 
-![图 29-4 后台更新-big](image/choicewidget.png)
+![图 29-5 后台更新-big](image/choicewidget.png)
 
 - 当用户选择立即更新后，会弹出设置>更新界面，进行检查更新
 
