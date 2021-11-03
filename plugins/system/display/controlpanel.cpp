@@ -106,7 +106,8 @@ void ControlPanel::removeOutput(int outputId)
 void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
 {
     // Ignore activateOutput when in unified mode
-    if (mUnifiedOutputCfg) {
+    //避免镜像下拔掉所有屏幕再插上导致不显示显示器内容
+    if (mUnifiedOutputCfg && mUnifiedOutputCfg->isVisible()) {
         return;
     }
 
