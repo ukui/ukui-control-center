@@ -3,6 +3,8 @@
 #include <QFrame>
 #include <QLabel>
 #include <QProcess>
+#include <QRegExp>
+#include <QRegExpValidator>
 
 HostNameDialog::HostNameDialog(QWidget *parent):
     QDialog(parent)
@@ -10,6 +12,7 @@ HostNameDialog::HostNameDialog(QWidget *parent):
     this->setWindowFlags(Qt::Dialog);
     setWindowTitle(tr("Set HostName"));
     InitUi();
+    setEdit();
     setupComponent();
     initConnect();
 }
@@ -92,6 +95,14 @@ void HostNameDialog::initConnect()
         }
         this->close();
     });
+}
+
+void HostNameDialog::setEdit()
+{
+    mHostNameEdit->setMaxLength(8);
+    QRegExp rx("[a-z_][a-zA-Z0-9_-]*[$]");
+    QRegExpValidator *validator = new QRegExpValidator(rx , this);
+    mHostNameEdit->setValidator(validator);
 }
 
 void HostNameDialog::setupComponent()
