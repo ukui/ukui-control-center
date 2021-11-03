@@ -28,6 +28,12 @@ FixLabel::FixLabel(QWidget *parent):
 
 }
 
+FixLabel::FixLabel(QString text, QWidget *parent):
+    QLabel(parent)
+{
+    this->setText(text);
+}
+
 FixLabel::~FixLabel()
 {
 
