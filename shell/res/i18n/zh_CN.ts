@@ -4519,7 +4519,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/printer/printer.cpp" line="101"/>
         <source>Add printers and scanners</source>
         <translation type="unfinished">添加可用设备</translation>
-        <extra-contents_path>/printer/Add printers and scanners</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/printer/printer.ui" line="102"/>
