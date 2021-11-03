@@ -89,6 +89,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::bootOptionsFilter(QString opt) {
     int moduleNum;
+    bool isExitsModule = false;
     QString funcStr;
     QList<FuncInfo> pFuncStructList;
     for (int i = 0; i < FunctionSelect::funcinfoList.size(); i++) {
@@ -97,9 +98,13 @@ void MainWindow::bootOptionsFilter(QString opt) {
                 moduleNum = FunctionSelect::funcinfoList[i][j].type;
                 funcStr = FunctionSelect::funcinfoList[i][j].namei18nString;
                 pFuncStructList = FunctionSelect::funcinfoList[i];
+                isExitsModule = true;
                 break;
             }
         }
+    }
+    if (!isExitsModule) {
+        return ;
     }
 
     QMap<QString, QObject *> pluginsObjMap = modulesList.at(moduleNum);
