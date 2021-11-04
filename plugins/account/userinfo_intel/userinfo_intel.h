@@ -129,6 +129,13 @@ public:
     QIcon icon() const Q_DECL_OVERRIDE;
     bool isEnable() const Q_DECL_OVERRIDE;
 
+    bool isIntel() const
+    {
+        QString sysVersion = "/etc/apt/ota_version";
+        QFile file(sysVersion);
+        return file.exists();
+    }
+
 public:
     void initSearchText();
     void initComponent();

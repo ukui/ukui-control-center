@@ -94,7 +94,7 @@ void MainWindow::bootOptionsFilter(QString opt) {
     QList<FuncInfo> pFuncStructList;
     for (int i = 0; i < FunctionSelect::funcinfoList.size(); i++) {
         for (int j = 0; j < FunctionSelect::funcinfoList[i].size(); j++) {
-            if (!FunctionSelect::funcinfoList[i][j].nameString.compare(opt)) {
+            if (!FunctionSelect::funcinfoList[i][j].nameString.compare(opt, Qt::CaseInsensitive)) {
                 moduleNum = FunctionSelect::funcinfoList[i][j].type;
                 funcStr = FunctionSelect::funcinfoList[i][j].namei18nString;
                 pFuncStructList = FunctionSelect::funcinfoList[i];
