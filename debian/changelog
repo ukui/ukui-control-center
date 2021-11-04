@@ -1,3 +1,146 @@
+ukui-control-center (3.0.4-2+2021-1104) v101; urgency=medium
+
+  * 提交commit:b221e1f5
+  * bug#47757更新搜索條目
+  * bug#88994修改伸展爲拉伸
+  * bug#56503解決窗口無法復原的問題
+  * bug#84717连接外显后修改投屏模式再打开控制面板,投屏模式变回修改前
+  * task#86957输入过长用户名时删除用户按钮越界
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 04 Nov 2021 18:51:46 +0800
+
+ukui-control-center (3.0.4-2+2021-1025) v101; urgency=medium
+
+  * 提交commit:3eeaa552
+  * bug#81722
+  * bug#85214文本编辑器等不跟随主题变化
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 25 Oct 2021 14:20:03 +0800
+
+ukui-control-center (3.0.4-2+2021-1021) v101; urgency=medium
+
+  * 提交commit:3a18e021
+  * bug#82805
+  * bug#82522
+  * task#56059配合ukui-search提供search.xml
+  * bug#84513防止内存泄露
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 21 Oct 2021 17:04:34 +0800
+
+ukui-control-center (3.0.4-2+2021-1011.3) v101; urgency=medium
+
+  * 缺少-log4qt编译失败问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 11 Oct 2021 19:56:50 +0800
+
+ukui-control-center (3.0.4-2+2021-1011.2) v101; urgency=medium
+
+  * 缺少-log4qt编译失败问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 11 Oct 2021 19:31:37 +0800
+
+ukui-control-center (3.0.4-2+2021-1011.1) v101; urgency=medium
+
+  * 更新依赖
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 11 Oct 2021 18:54:56 +0800
+
+ukui-control-center (3.0.4-2+2021-1011) v101; urgency=medium
+
+  * bug#84513修改浅色模式下的数字按钮
+  * bug#84373调节亮度
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 11 Oct 2021 14:07:07 +0800
+
+ukui-control-center (3.0.4-2+2021-1009) v101; urgency=medium
+
+  * 提交commit:d7c1bdd6
+  * bug# 82889,81427,81244,81167
+  * bug#84370【惠普用户手册】控制面板中"关于与支持"，支持下二维码处蓝色字中，“Hp”应为“HP”
+  * bug#83899【触摸】【控制面板】连续播放第一个手势动画，在每次播放完这个动画框会闪一下(必现)
+  * bug#83896【触摸】【控制面板】控制面板-手势模块，点击播放触摸动画时动画窗口四角有黑边(必现)
+  * bug#83899、83896
+  * bug#84370
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 09 Oct 2021 10:37:57 +0800
+
+ukui-control-center (3.0.4-2+2021-0930) v101; urgency=medium
+
+  * 提交commit:c19be202
+  * bug#80936
+  * bug#83365其他用户头像使用微信默认头像点击变蓝
+  * bug#83132修改密码界面数字悬浮与点击的颜色
+  * bug#82406设置修改密码界面圆点在输入时显示颜色
+  * bug#Radiobutton 无法使用键盘选择
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 30 Sep 2021 11:37:43 +0800
+
+ukui-control-center (3.0.4-2+2021-0922) v101; urgency=medium
+
+  * 提交commit:b70907e9
+  * bug#80535打开系统设置-蓝牙，蓝牙无法正常显示并使用，并且当前样式与设计图不符
+  * bug#81561添加“登录信息过期，请重新使用微信扫码登录”文案
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 22 Sep 2021 15:31:41 +0800
+
+ukui-control-center (3.0.4-2+2021-0916.1) v101; urgency=medium
+
+  * 提交commit:8ed5655d
+  * task#44724
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Sep 2021 14:13:29 +0800
+
+ukui-control-center (3.0.4-2+2021-0916) v101; urgency=medium
+
+  * 提交commit:58c9657d
+  * bug#34640在用户头像添加修改字样及阴影
+  * bug#65807当前用户被删除时其他用户中的最后一个用户被删除
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Sep 2021 11:29:02 +0800
+
+ukui-control-center (3.0.4-2+2021-0910) v101; urgency=medium
+
+  * 提交commit:0ef578f7
+  * bug#45658优化账户信息的修改密码忘记密码界面
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 10 Sep 2021 10:33:18 +0800
+
+ukui-control-center (3.0.4-2+2021-0909) v101; urgency=medium
+
+  * 提交commit:1000d374
+  * bug#79382手势->手势引导
+  * bug#79382
+  * bug#30027搜索结束后复原搜索框
+  * bug#45658优化深色模式下修改密码、手机号、头像、删除用户界面
+  * bug#75442修复修改主题后滚动特效失效
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 09 Sep 2021 19:01:12 +0800
+
+ukui-control-center (3.0.4-2+2021-0825) v101; urgency=medium
+
+  * 提交commit:55b918f0
+  * bug#35915修复输入验证码错误时关闭按钮自动高亮的问题
+  * bug#38497修改非正方形图片作为自定义头像变形的问题
+  * bug#30027重置搜索框在搜索结束后
+  * bug#34698点击历史头像时显示右上角的x号
+  * bug#41482修复点击系统头像时头像闪烁
+  * bug#52392修改effect的键值与特效模式按钮对应
+  * bug#74332设置背景和锁屏界面的本地壁纸窗口居中于控制面板
+  * bug#65586修改最大化/还原按钮，窗口最大是按钮提示还原，缩小时显示最大化
+  * bug#56484翻译屏幕中的display为屏幕设置
+  * bug#35915修复输入验证码错误时关闭按钮自动高亮的问题
+  * bug#65804删除 删除用户时点击确认后的提示信息
+  * bug#36462水平双指滚动默认有效，垂直双指、边界可选
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 25 Aug 2021 15:53:51 +0800
+
+ukui-control-center (3.0.4-2+2021-0819) v101; urgency=medium
+
+  * 提交commit:dcc41a18
+  * 添加手势模块(王贵喜)
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 19 Aug 2021 15:35:14 +0800
+
 ukui-control-center (3.0.4-2+2021-0714) v101; urgency=medium
 
   * Fix:解决锁屏设置为永不后，重启控制面板设置失效问题。
