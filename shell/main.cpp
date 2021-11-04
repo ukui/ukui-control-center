@@ -156,9 +156,6 @@ int main(int argc, char *argv[])
         a.setActivationWindow(w);
         QObject::connect(&a, SIGNAL(messageReceived(const QString&)),w, SLOT(sltMessageReceived(const QString&)));
 
-        FramelessHandle * pHandle = new FramelessHandle(w);
-        pHandle->activateOn(w);
-
 //        auto style = new InternalStyle(nullptr);
 //        a.setStyle(style);
 
