@@ -97,6 +97,7 @@ public:
     void setupControlTheme();
     void initCursorTheme();
     void initConnection();
+    void initIconThemeWidget(QString themedir , int count);
 
     void buildThemeModeBtn(QPushButton * button, QString name, QString icon);
 
