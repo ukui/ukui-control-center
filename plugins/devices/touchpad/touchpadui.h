@@ -67,9 +67,6 @@ private:
     QLabel *mClickLabel;
     QLabel *mScrollSlideLabel;
     QLabel *mScrollAreaLabel;
-    QLabel *mTipLabel;
-
-    QHBoxLayout *mTipHLayout;
 
     QVBoxLayout *mVlayout;
 
@@ -82,13 +79,7 @@ private:
     void initConnection();
     void gsettingConnectUi();
     void initEnableStatus();
-    void setFrameVisible(bool visible);
-    void isTouchpadExist();
     QString _findKeyScrollingType();
-    bool findSynaptics();
-    bool _supportsXinputDevices();
-    XDevice* _deviceIsTouchpad (XDeviceInfo * deviceinfo);
-    bool _deviceHasProperty (XDevice * device, const char * property_name);
 
     void mouseDisableSlot(bool status);
     void cursorSpeedSlot(int value);

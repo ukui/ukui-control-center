@@ -44,6 +44,11 @@ public:
     QIcon icon() const Q_DECL_OVERRIDE;
     bool isEnable() const Q_DECL_OVERRIDE;
 
+    bool findSynaptics() const;
+    bool _supportsXinputDevices() const;
+    XDevice* _deviceIsTouchpad (XDeviceInfo * deviceinfo) const;
+    bool _deviceHasProperty (XDevice * device, const char * property_name) const;
+
 private:
     QString pluginName;
     int pluginType;

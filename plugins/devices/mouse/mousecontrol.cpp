@@ -44,6 +44,7 @@ QWidget *MouseControl::pluginUi()
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new MouseUI;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     }
     return pluginWidget;
 }

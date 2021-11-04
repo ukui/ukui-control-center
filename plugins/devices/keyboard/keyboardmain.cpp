@@ -144,7 +144,7 @@ void KeyboardMain::setSpeedFrame()
     mSpeedFastLabel = new QLabel(tr("Fast"), this);
     mSpeedFastLabel->setMinimumWidth(40);
     mSpeedSlider = new QSlider(Qt::Horizontal);
-    mSpeedSlider->setMaximum(10);
+    mSpeedSlider->setMinimum(10);
     mSpeedSlider->setMaximum(110);
     mSpeedSlider->setPageStep(1);
     SpeedHLayout->addSpacing(7);
