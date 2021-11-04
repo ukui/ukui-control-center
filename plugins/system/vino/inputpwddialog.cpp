@@ -167,7 +167,6 @@ bool InputPwdDialog::eventFilter(QObject *wcg, QEvent *event)
        // 回车键触发确定按钮点击事件
        if (event->type() == QEvent::KeyPress) {
            QKeyEvent *mEvent = static_cast<QKeyEvent *>(event);
-           qDebug()<<mEvent->key();
            if (mEvent->key() == Qt::Key_Enter || mEvent->key() == Qt::Key_Return) {
                emit mConfirmBtn->clicked();
            }
