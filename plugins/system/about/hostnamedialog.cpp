@@ -99,7 +99,7 @@ void HostNameDialog::initConnect()
 
 void HostNameDialog::setEdit()
 {
-    mHostNameEdit->setMaxLength(8);
+    mHostNameEdit->setMaxLength(32);
     QRegExp rx("[a-z_][a-zA-Z0-9_-]*[$]");
     QRegExpValidator *validator = new QRegExpValidator(rx , this);
     mHostNameEdit->setValidator(validator);
