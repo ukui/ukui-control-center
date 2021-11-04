@@ -6570,7 +6570,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="281"/>
         <source>stretched</source>
-        <translation>伸展</translation>
+        <translation>拉伸</translation>
         <extra-contents_path>/wallpaper/stretched</extra-contents_path>
     </message>
     <message>
