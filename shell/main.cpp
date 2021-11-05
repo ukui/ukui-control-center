@@ -77,7 +77,8 @@ int main(int argc, char *argv[])
     QtSingleApplication a(id, argc, argv);
 
     if (a.isRunning()) {
-        a.sendMessage(QApplication::arguments().length() > 1 ? QApplication::arguments().at(1) : a.applicationFilePath());
+        int agr_length = QApplication::arguments().length();
+        a.sendMessage(QApplication::arguments().length() > 1 ? QApplication::arguments().at(agr_length-1) : a.applicationFilePath());
         qDebug() << QObject::tr("ukui-control-center is already running!");
         return EXIT_SUCCESS;
     } else {
