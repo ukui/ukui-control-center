@@ -505,6 +505,9 @@ void UserInfo::showChangeUserNicknameDialog(){
         for (; it != allUserInfoMap.end(); it++){
             UserInfomation user = it.value();
 
+            if (QString::compare(user.username, g_get_user_name()) == 0)
+                continue;
+
             names.append(user.username);
             names.append(user.realname);
         }
@@ -525,7 +528,7 @@ void UserInfo::showChangeUserLogoDialog(QString pName){
     if (allUserInfoMap.keys().contains(pName)){
         UserInfomation user = allUserInfoMap.value(pName);
 
-        ChangeUserLogo dialog(pName, user.objpath);
+        ChangeUserLogo dialog(pName, user.objpath, pluginWidget2);
         dialog.requireUserInfo(user.iconfile, _accountTypeIntToString(user.accounttype));
         dialog.exec();
 
@@ -540,7 +543,7 @@ void UserInfo::showChangeUserPwdDialog(QString pName){
     if (allUserInfoMap.keys().contains(pName)){
         UserInfomation user = allUserInfoMap.value(pName);
 
-        ChangeUserPwd dialog(pName);
+        ChangeUserPwd dialog(pName, pluginWidget2);
         dialog.exec();
 
     } else {
@@ -552,7 +555,7 @@ void UserInfo::showChangeUserTypeDialog(QString u){
     if (allUserInfoMap.keys().contains(u)){
         UserInfomation user = allUserInfoMap.value(u);
 
-        ChangeUserType dialog(user.objpath);
+        ChangeUserType dialog(user.objpath, pluginWidget2);
         dialog.requireUserInfo(user.iconfile, user.realname, user.accounttype, _accountTypeIntToString(user.accounttype));
         if (dialog.exec() == QDialog::Accepted){
             //告知有用户的类型发生变化
