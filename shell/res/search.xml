@@ -289,6 +289,36 @@
         <EnglishFunc1>Projection</EnglishFunc1>
         <EnglishFunc2>open Projection</EnglishFunc2>
     </plugin>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>chumoping</pinyinfunc1>
+        <pinyinfunc2>xianshiqi</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>触摸屏</ChineseFunc1>
+        <ChineseFunc2>显示器</ChineseFunc2>
+        <EnglishFunc1>touchscreen</EnglishFunc1>
+        <EnglishFunc2>monitor</EnglishFunc2>
+    </plugin>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>chumoping</pinyinfunc1>
+        <pinyinfunc2>chumopingbiaoshi</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>触摸屏</ChineseFunc1>
+        <ChineseFunc2>触摸屏标识</ChineseFunc2>
+        <EnglishFunc1>touchscreen</EnglishFunc1>
+        <EnglishFunc2>touch id</EnglishFunc2>
+    </plugin>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>chumoping</pinyinfunc1>
+        <pinyinfunc2>chumoshebei</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>触摸屏</ChineseFunc1>
+        <ChineseFunc2>触摸设备</ChineseFunc2>
+        <EnglishFunc1>touchscreen</EnglishFunc1>
+        <EnglishFunc2>input device</EnglishFunc2>
+    </plugin>
     <plugin name="devices">
         <pinyinPlugin>shebei</pinyinPlugin>
         <pinyinfunc1>lanya</pinyinfunc1>
@@ -1189,20 +1219,6 @@
         <EnglishFunc1>securitycenter</EnglishFunc1>
         <EnglishFunc2>Run Security Center</EnglishFunc2>
     </plugin>
-    <plugin name="desktop">
-        <pinyinPlugin>zhuomian</pinyinPlugin>
-        <pinyinfunc>suodingzaikaishicaidandetubiao</pinyinfunc>
-        <ChinesePlugin>桌面</ChinesePlugin>
-        <ChineseFunc>锁定在开始菜单的图标</ChineseFunc>
-        <EnglishFunc>Icon Lock on Menu</EnglishFunc>
-    </plugin>
-    <plugin name="desktop">
-        <pinyinPlugin>zhuomian</pinyinPlugin>
-        <pinyinfunc>xianshizaituopanshangdetubiao</pinyinfunc>
-        <ChinesePlugin>桌面</ChinesePlugin>
-        <ChineseFunc>显示在托盘上的图标</ChineseFunc>
-        <EnglishFunc>Tray icon</EnglishFunc>
-    </plugin>
     <plugin name="search">
         <pinyinPlugin>sousuo</pinyinPlugin>
         <pinyinfunc1>sousuo</pinyinfunc1>
@@ -1242,26 +1258,5 @@
         <ChineseFunc2>默认互联网搜索引擎</ChineseFunc2>
         <EnglishFunc1>search</EnglishFunc1>
         <EnglishFunc2>Default web searching engine</EnglishFunc2>
-    </plugin>
-    <plugin name="touchscreen">
-        <pinyinPlugin>chumoping</pinyinPlugin>
-        <pinyinfunc>xianshiqi</pinyinfunc>
-        <ChinesePlugin>触摸屏</ChinesePlugin>
-        <ChineseFunc>显示器</ChineseFunc>
-        <EnglishFunc>monitor</EnglishFunc>
-    </plugin>
-    <plugin name="touchscreen">
-        <pinyinPlugin>chumoping</pinyinPlugin>
-        <pinyinfunc>chumopingbiaoshi</pinyinfunc>
-        <ChinesePlugin>触摸屏</ChinesePlugin>
-        <ChineseFunc>触摸屏标识</ChineseFunc>
-        <EnglishFunc>touch id</EnglishFunc>
-    </plugin>
-    <plugin name="touchscreen">
-        <pinyinPlugin>chumoping</pinyinPlugin>
-        <pinyinfunc>chumoshebei</pinyinfunc>
-        <ChinesePlugin>触摸屏</ChinesePlugin>
-        <ChineseFunc>触摸设备</ChineseFunc>
-        <EnglishFunc>input device</EnglishFunc>
     </plugin>
 </plugins>
