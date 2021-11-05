@@ -43,6 +43,7 @@ QWidget *KeyboardControl::pluginUi()
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new KeyboardMain;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     }
     return pluginWidget;
 }

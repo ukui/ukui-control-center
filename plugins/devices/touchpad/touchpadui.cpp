@@ -38,13 +38,6 @@ void TouchpadUI::initUI()
     mTouchpadSetTitleLabel = new TitleLabel(this);
     mTouchpadSetTitleLabel->setText(tr("Touchpad Setting"));
 
-    /* Tip no touchpad found */
-    mTipHLayout = new QHBoxLayout();
-    mTipLabel = new QLabel(tr("No touchpad found"));
-    mTipHLayout->addStretch();
-    mTipHLayout->addWidget(mTipLabel);
-    mTipHLayout->addStretch();
-
     /* MouseDisable */
     mMouseDisableFrame = new QFrame(this);
     mMouseDisableFrame->setFrameShape(QFrame::Shape::Box);
@@ -186,7 +179,6 @@ void TouchpadUI::initUI()
     mVlayout->addWidget(mTouchpadSetTitleLabel);
     mVlayout->setSpacing(8);
     mVlayout->addWidget(touchpadFrame);
-    mVlayout->addLayout(mTipHLayout);
     mVlayout->addStretch();
 }
 
@@ -199,7 +191,7 @@ void TouchpadUI::initConnection()
         mTouchpadGsetting = new QGSettings(kTouchpadSchemas, QByteArray(), this);
         mMouseGsetting = new QGSettings(kMouseSchemas, QByteArray(), this);
 
-        isTouchpadExist();
+        initEnableStatus();
 
         connect(mMouseDisableBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::mouseDisableSlot);
 
@@ -261,21 +253,9 @@ void TouchpadUI::initEnableStatus()
     mScrollTypeComBox->blockSignals(true);
     mScrollTypeComBox->setCurrentIndex(mScrollTypeComBox->findData(_findKeyScrollingType()));
     mScrollTypeComBox->blockSignals(false);
-}
 
-void TouchpadUI::isTouchpadExist()
-{
-    if (findSynaptics()) {
-        qDebug() << "Touch Devices Available";
-        setFrameVisible(true);
-        mTipLabel->hide();
-        initEnableStatus();
-
-        // 默认水平双指滚动有效
-        mTouchpadGsetting->set(H_FINGER_KEY, true);
-    } else {
-        setFrameVisible(false);
-    }
+    // 默认水平双指滚动有效
+    mTouchpadGsetting->set(H_FINGER_KEY, true);
 }
 
 QString TouchpadUI::_findKeyScrollingType()
@@ -289,102 +269,6 @@ QString TouchpadUI::_findKeyScrollingType()
     }
 
     return N_SCROLLING;
-}
-
-void TouchpadUI::setFrameVisible(bool visible)
-{
-    mMouseDisableFrame->setVisible(visible);
-    mCursorSpeedFrame->setVisible(visible);
-    mTypingDisableFrame->setVisible(visible);
-    mClickFrame->setVisible(visible);
-    mScrollSlideFrame->setVisible(visible);
-    mScrollAreaFrame->setVisible(visible);
-}
-
-bool TouchpadUI::findSynaptics()
-{
-    XDeviceInfo *device_info;
-    int n_devices;
-    bool retval;
-
-    if (_supportsXinputDevices() == false) {
-        return true;
-    }
-
-    device_info = XListInputDevices (QX11Info::display(), &n_devices);
-    if (device_info == nullptr) {
-        return false;
-    }
-
-    retval = false;
-    for (int i = 0; i < n_devices; i++) {
-        XDevice *device;
-
-        device = _deviceIsTouchpad (&device_info[i]);
-        if (device != nullptr) {
-            retval = true;
-            break;
-        }
-    }
-    if (device_info != nullptr) {
-        XFreeDeviceList (device_info);
-    }
-
-    return retval;
-}
-
-bool TouchpadUI::_supportsXinputDevices()
-{
-    int op_code, event, error;
-
-    return XQueryExtension (QX11Info::display(),
-                            "XInputExtension",
-                            &op_code,
-                            &event,
-                            &error);
-}
-
-XDevice* TouchpadUI::_deviceIsTouchpad (XDeviceInfo *deviceinfo)
-{
-    XDevice *device;
-    if (deviceinfo->type != XInternAtom (QX11Info::display(), XI_TOUCHPAD, true)) {
-        return nullptr;
-    }
-
-    device = XOpenDevice (QX11Info::display(), deviceinfo->id);
-    if(device == nullptr) {
-        qDebug()<<"device== null";
-        return nullptr;
-    }
-
-    if (_deviceHasProperty(device, "libinput Tapping Enabled") ||
-            _deviceHasProperty(device, "Synaptics Off")) {
-        return device;
-    }
-    XCloseDevice (QX11Info::display(), device);
-    return nullptr;
-}
-
-bool TouchpadUI::_deviceHasProperty(XDevice *device, const char *property_name)
-{
-    Atom realtype, prop;
-    int realformat;
-    unsigned long nitems, bytes_after;
-    unsigned char *data;
-
-    prop = XInternAtom (QX11Info::display(), property_name, True);
-    if (!prop) {
-        return false;
-    }
-
-    if ((XGetDeviceProperty (QX11Info::display(), device, prop, 0, 1, False,
-                             XA_INTEGER, &realtype, &realformat, &nitems,
-                             &bytes_after, &data) == Success) && (realtype != None))
-    {
-        XFree (data);
-        return true;
-    }
-    return false;
 }
 
 /* slot functions */

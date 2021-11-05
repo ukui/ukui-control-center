@@ -137,7 +137,7 @@ QIcon UserInfoIntel::icon() const
 
 bool UserInfoIntel::isEnable() const
 {
-    return true;
+    return isIntel();
 }
 
 void UserInfoIntel::initSearchText() {
