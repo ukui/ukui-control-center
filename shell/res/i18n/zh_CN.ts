@@ -9589,7 +9589,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="157"/>
         <source>Disable scrolling</source>
-        <translation>禁止</translation>
+        <translation>禁止滚动</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="158"/>
@@ -9599,7 +9599,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="159"/>
         <source>Two-finger scrolling in the middle area</source>
-        <translation>中间区域双指滚动</translation>
+        <translation>中间区域滚动</translation>
     </message>
 </context>
 <context>
