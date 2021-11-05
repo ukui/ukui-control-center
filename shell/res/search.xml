@@ -1,211 +1,1193 @@
 <plugins>
-    <plugin name="about">
-        <pinyinPlugin>guanyu</pinyinPlugin>
-        <pinyinfunc>banben</pinyinfunc>
-        <ChinesePlugin>关于</ChinesePlugin>
-        <ChineseFunc>版本</ChineseFunc>
-        <EnglishFunc>Version</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>guanyu</pinyinfunc1>
+        <pinyinfunc2>xitonggaishu</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>关于</ChineseFunc1>
+        <ChineseFunc2>系统概述</ChineseFunc2>
+        <EnglishFunc1>about</EnglishFunc1>
+        <EnglishFunc2>System Summary</EnglishFunc2>
     </plugin>
-    <plugin name="about">
-        <pinyinPlugin>guanyu</pinyinPlugin>
-        <pinyinfunc>neihe</pinyinfunc>
-        <ChinesePlugin>关于</ChinesePlugin>
-        <ChineseFunc>内核</ChineseFunc>
-        <EnglishFunc>Kernel</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>xianshi</pinyinfunc1>
+        <pinyinfunc2>fenbianlv</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>显示</ChineseFunc1>
+        <ChineseFunc2>分辨率</ChineseFunc2>
+        <EnglishFunc1>display</EnglishFunc1>
+        <EnglishFunc2>Resolution</EnglishFunc2>
     </plugin>
-    <plugin name="about">
-        <ChinesePlugin>关于</ChinesePlugin>
-        <ChineseFunc>CPU</ChineseFunc>
-        <EnglishFunc>CPU</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>xianshi</pinyinfunc1>
+        <pinyinfunc2>fangxiang</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>显示</ChineseFunc1>
+        <ChineseFunc2>方向</ChineseFunc2>
+        <EnglishFunc1>display</EnglishFunc1>
+        <EnglishFunc2>orientation</EnglishFunc2>
     </plugin>
-    <plugin name="about">
-        <pinyinPlugin>guanyu</pinyinPlugin>
-        <pinyinfunc>neicun</pinyinfunc>
-        <ChinesePlugin>关于</ChinesePlugin>
-        <ChineseFunc>内存</ChineseFunc>
-        <EnglishFunc>Memory</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>xianshi</pinyinfunc1>
+        <pinyinfunc2>shuaxinlv</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>显示</ChineseFunc1>
+        <ChineseFunc2>刷新率</ChineseFunc2>
+        <EnglishFunc1>display</EnglishFunc1>
+        <EnglishFunc2>frequency</EnglishFunc2>
     </plugin>
-    <plugin name="about">
-        <pinyinPlugin>guanyu</pinyinPlugin>
-        <pinyinfunc>yingpan</pinyinfunc>
-        <ChinesePlugin>关于</ChinesePlugin>
-        <ChineseFunc>硬盘</ChineseFunc>
-        <EnglishFunc>Disk</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>xianshi</pinyinfunc1>
+        <pinyinfunc2>suofangpingmu</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>显示</ChineseFunc1>
+        <ChineseFunc2>缩放屏幕</ChineseFunc2>
+        <EnglishFunc1>display</EnglishFunc1>
+        <EnglishFunc2>Screen Zoom</EnglishFunc2>
     </plugin>
-    <plugin name="about">
-        <pinyinPlugin>guanyu</pinyinPlugin>
-        <pinyinfunc>xitonggaishu</pinyinfunc>
-        <ChinesePlugin>关于</ChinesePlugin>
-        <ChineseFunc>系统概述</ChineseFunc>
-        <EnglishFunc>System Summary</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>xianshi</pinyinfunc1>
+        <pinyinfunc2>liangdu</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>显示</ChineseFunc1>
+        <ChineseFunc2>亮度</ChineseFunc2>
+        <EnglishFunc1>display</EnglishFunc1>
+        <EnglishFunc2>Brightness</EnglishFunc2>
     </plugin>
-    <plugin name="area">
-        <pinyinPlugin>yuyanyudiqu</pinyinPlugin>
-        <pinyinfunc>dangqianquyu</pinyinfunc>
-        <ChinesePlugin>区域语言</ChinesePlugin>
-        <ChineseFunc>当前区域</ChineseFunc>
-        <EnglishFunc>Current Area</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>xianshi</pinyinfunc1>
+        <pinyinfunc2>yejianmoshi</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>显示</ChineseFunc1>
+        <ChineseFunc2>夜间模式</ChineseFunc2>
+        <EnglishFunc1>display</EnglishFunc1>
+        <EnglishFunc2>Night Mode</EnglishFunc2>
     </plugin>
-    <plugin name="area">
-        <pinyinPlugin>yuyanyudiqu</pinyinPlugin>
-        <pinyinfunc>xianshiriqishijianhuobigeshidequyu</pinyinfunc>
-        <ChinesePlugin>区域语言</ChinesePlugin>
-        <ChineseFunc>显示日期、时间、货币格式的区域</ChineseFunc>
-        <EnglishFunc>display format area</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>tongzhi</pinyinfunc1>
+        <pinyinfunc2>huoqulaiziyingyongheqitafasongzhedetongzhi</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>通知</ChineseFunc1>
+        <ChineseFunc2>获取来自应用和其他发送者的通知</ChineseFunc2>
+        <EnglishFunc1>notice</EnglishFunc1>
+        <EnglishFunc2>Get notifications from the app</EnglishFunc2>
     </plugin>
-    <plugin name="area">
-        <pinyinPlugin>yuyanyudiqu</pinyinPlugin>
-        <pinyinfunc>quyugeshishuju</pinyinfunc>
-        <ChinesePlugin>区域语言</ChinesePlugin>
-        <ChineseFunc>区域格式数据</ChineseFunc>
-        <EnglishFunc>Regional Format Data</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>dianyuan</pinyinfunc1>
+        <pinyinfunc2>pingheng</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>电源</ChineseFunc1>
+        <ChineseFunc2>平衡</ChineseFunc2>
+        <EnglishFunc1>power</EnglishFunc1>
+        <EnglishFunc2>Balance</EnglishFunc2>
     </plugin>
-    <plugin name="area">
-        <pinyinPlugin>yuyanyudiqu</pinyinPlugin>
-        <pinyinfunc>shouxuanyuyan</pinyinfunc>
-        <ChinesePlugin>区域语言</ChinesePlugin>
-        <ChineseFunc>首选语言</ChineseFunc>
-        <EnglishFunc>first language</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>dianyuan</pinyinfunc1>
+        <pinyinfunc2>jieneng</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>电源</ChineseFunc1>
+        <ChineseFunc2>节能</ChineseFunc2>
+        <EnglishFunc1>power</EnglishFunc1>
+        <EnglishFunc2>Saving</EnglishFunc2>
     </plugin>
-    <plugin name="area">
-        <pinyinPlugin>yuyanyudiqu</pinyinPlugin>
-        <pinyinfunc>xianshiyuyan</pinyinfunc>
-        <ChinesePlugin>区域语言</ChinesePlugin>
-        <ChineseFunc>显示语言</ChineseFunc>
-        <EnglishFunc>system language</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>dianyuan</pinyinfunc1>
+        <pinyinfunc2>zidingyi</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>电源</ChineseFunc1>
+        <ChineseFunc2>自定义</ChineseFunc2>
+        <EnglishFunc1>power</EnglishFunc1>
+        <EnglishFunc2>Custom</EnglishFunc2>
     </plugin>
-    <plugin name="area">
-        <pinyinPlugin>yuyanyudiqu</pinyinPlugin>
-        <pinyinfunc>tianjiashouyuyan</pinyinfunc>
-        <ChinesePlugin>语言与地区</ChinesePlugin>
-        <ChineseFunc>添加首语言</ChineseFunc>
-        <EnglishFunc>Add Main Language</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>zhuomiangongxiang</pinyinfunc1>
+        <pinyinfunc2>zidingyi</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>桌面共享</ChineseFunc1>
+        <ChineseFunc2>共享</ChineseFunc2>
+        <EnglishFunc1>vino</EnglishFunc1>
+        <EnglishFunc2>Remote</EnglishFunc2>
     </plugin>
-    <plugin name="autoboot">
-        <pinyinPlugin>kaijiqidong</pinyinPlugin>
-        <pinyinfunc>kaijiqidongshezhi</pinyinfunc>
-        <ChinesePlugin>开机启动</ChinesePlugin>
-        <ChineseFunc>开机启动设置</ChineseFunc>
-        <EnglishFunc>Set Autoboot Program</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>zhuomiangongxiang</pinyinfunc1>
+        <pinyinfunc2>yunxuqitarenyuanchenglianjienindezhuomian</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>桌面共享</ChineseFunc1>
+        <ChineseFunc2>允许其他人远程连接您的桌面</ChineseFunc2>
+        <EnglishFunc1>vino</EnglishFunc1>
+        <EnglishFunc2>Allow others to view your desktop</EnglishFunc2>
     </plugin>
-    <plugin name="autoboot">
-        <pinyinPlugin>kaijiqidong</pinyinPlugin>
-        <pinyinfunc>tianjiaziqidongchengxu</pinyinfunc>
-        <ChinesePlugin>开机启动</ChinesePlugin>
-        <ChineseFunc>添加自启动程序</ChineseFunc>
-        <EnglishFunc>Add autoboot program</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>xuanzeshuchushebei</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>选择输出设备</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Output Device</EnglishFunc2>
     </plugin>
-    <plugin name="backup">
-        <pinyinPlugin>xitonghuanyuan</pinyinPlugin>
-        <pinyinfunc>kaishibeifen</pinyinfunc>
-        <ChinesePlugin>系统还原</ChinesePlugin>
-        <ChineseFunc>开始备份</ChineseFunc>
-        <EnglishFunc>Backup</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>zhuyinliangdaxiao</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>主音量大小</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Master Volume</EnglishFunc2>
     </plugin>
-    <plugin name="backup">
-        <pinyinPlugin>xitonghuanyuan</pinyinPlugin>
-        <pinyinfunc>kaishihuanyuan</pinyinfunc>
-        <ChinesePlugin>系统还原</ChinesePlugin>
-        <ChineseFunc>开始还原</ChineseFunc>
-        <EnglishFunc>Restore</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>shengdaopingheng</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>声道平衡</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Channel Balance</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>shoudonggenggaishijian</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>手动更改时间</ChineseFunc>
-        <EnglishFunc>Change Time</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>xuanzeshurushebei</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>选择输入设备</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Input Device</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>genggaishiqu</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>更改时区</ChineseFunc>
-        <EnglishFunc>Change Time Zone</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>yinliangdaxiao</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>音量大小</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Volume</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>dangqianshijian</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>当前时间</ChineseFunc>
-        <EnglishFunc>urrent date</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>shurufankui</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>输入反馈</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Input Level</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>xiaoshizhi</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>24小时制</ChineseFunc>
-        <EnglishFunc>24-hour Clock</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>xitongyinxiao</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>系统音效</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>System Sound</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>tongbuwangluoshijian</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>同步网络时间</ChineseFunc>
-        <EnglishFunc>Sync Network Time</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>kaiji</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>开机</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Startup Music</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>shijianfuwuqi</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>时间服务器</ChineseFunc>
-        <EnglishFunc>Sever</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>guanji</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>关机</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Poweroff Music</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>qitashiqu</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>其他时区</ChineseFunc>
-        <EnglishFunc>Other Timezone</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>zhuxiao</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>注销</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Logout Music</EnglishFunc2>
     </plugin>
-    <plugin name="datetime">
-        <pinyinPlugin>shijianheriqi</pinyinPlugin>
-        <pinyinfunc>tianjiashiqu</pinyinfunc>
-        <ChinesePlugin>时间日期</ChinesePlugin>
-        <ChineseFunc>添加时区</ChineseFunc>
-        <EnglishFunc>Add Timezone</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>huanxing</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>唤醒</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Wakeup Music</EnglishFunc2>
     </plugin>
-    <plugin name="defaultapp">
-        <pinyinPlugin>morenyingyong</pinyinPlugin>
-        <pinyinfunc>liulanqi</pinyinfunc>
-        <ChinesePlugin>默认应用</ChinesePlugin>
-        <ChineseFunc>浏览器</ChineseFunc>
-        <EnglishFunc>Browser</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>tishiyinliangkaiguan</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>提示音量开关</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Beep Switch</EnglishFunc2>
     </plugin>
-    <plugin name="defaultapp">
-        <pinyinPlugin>morenyingyong</pinyinPlugin>
-        <pinyinfunc>dianziyoujian</pinyinfunc>
-        <ChinesePlugin>默认应用</ChinesePlugin>
-        <ChineseFunc>电子邮件</ChineseFunc>
-        <EnglishFunc>Mail</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>xitongyinxiaozhuti</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>系统音效主题</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Sound Theme</EnglishFunc2>
     </plugin>
-    <plugin name="defaultapp">
-        <pinyinPlugin>morenyingyong</pinyinPlugin>
-        <pinyinfunc>tuxiangchakanqi</pinyinfunc>
-        <ChinesePlugin>默认应用</ChinesePlugin>
-        <ChineseFunc>图像查看器</ChineseFunc>
-        <EnglishFunc>Image Viewer</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>tongzhitishi</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>通知提示</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Alert Sound</EnglishFunc2>
     </plugin>
-    <plugin name="defaultapp">
-        <pinyinPlugin>morenyingyong</pinyinPlugin>
-        <pinyinfunc>yinpinbofangqi</pinyinfunc>
-        <ChinesePlugin>默认应用</ChinesePlugin>
-        <ChineseFunc>音频播放器</ChineseFunc>
-        <EnglishFunc>Audio Player</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>shengyin</pinyinfunc1>
+        <pinyinfunc2>yinliangtiaojie</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>声音</ChineseFunc1>
+        <ChineseFunc2>音量调节</ChineseFunc2>
+        <EnglishFunc1>audio</EnglishFunc1>
+        <EnglishFunc2>Volume Change</EnglishFunc2>
     </plugin>
-    <plugin name="defaultapp">
-        <pinyinPlugin>morenyingyong</pinyinPlugin>
-        <pinyinfunc>shipinbofangqi</pinyinfunc>
-        <ChinesePlugin>默认应用</ChinesePlugin>
-        <ChineseFunc>视频播放器</ChineseFunc>
-        <EnglishFunc>Video Player</EnglishFunc>
+    <plugin name="system">
+        <pinyinPlugin>xitong</pinyinPlugin>
+        <pinyinfunc1>touping</pinyinfunc1>
+        <pinyinfunc2>kaiqitouping</pinyinfunc2>
+        <ChinesePlugin>系统</ChinesePlugin>
+        <ChineseFunc1>投屏</ChineseFunc1>
+        <ChineseFunc2>开启投屏</ChineseFunc2>
+        <EnglishFunc1>Projection</EnglishFunc1>
+        <EnglishFunc2>open Projection</EnglishFunc2>
     </plugin>
-    <plugin name="defaultapp">
-        <pinyinPlugin>morenyingyong</pinyinPlugin>
-        <pinyinfunc>wendangbianjiqi</pinyinfunc>
-        <ChinesePlugin>默认应用</ChinesePlugin>
-        <ChineseFunc>文档编辑器</ChineseFunc>
-        <EnglishFunc>Text Editor</EnglishFunc>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>lanya</pinyinfunc1>
+        <pinyinfunc2>zairenwulanshangxianshilanyatubiao</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>蓝牙</ChineseFunc1>
+        <ChineseFunc2>在任务栏上显示蓝牙图标</ChineseFunc2>
+        <EnglishFunc1>Bluetooth</EnglishFunc1>
+        <EnglishFunc2>Show icon on taskbar</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>lanya</pinyinfunc1>
+        <pinyinfunc2>kebeifujindelanyashebeifaxian</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>蓝牙</ChineseFunc1>
+        <ChineseFunc2>可被附近的蓝牙设备发现</ChineseFunc2>
+        <EnglishFunc1>Bluetooth</EnglishFunc1>
+        <EnglishFunc2>Discoverable by nearby Bluetooth devices</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>lanya</pinyinfunc1>
+        <pinyinfunc2>lanyashebei</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>蓝牙</ChineseFunc1>
+        <ChineseFunc2>蓝牙设备</ChineseFunc2>
+        <EnglishFunc1>Bluetooth</EnglishFunc1>
+        <EnglishFunc2>Other Devices</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>jianpan</pinyinfunc1>
+        <pinyinfunc2>tongyongshezhi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>键盘</ChineseFunc1>
+        <ChineseFunc2>通用设置</ChineseFunc2>
+        <EnglishFunc1>keyboard</EnglishFunc1>
+        <EnglishFunc2>General settings</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>jianpan</pinyinfunc1>
+        <pinyinfunc2>qiyonganjianzhongfushezhi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>键盘</ChineseFunc1>
+        <ChineseFunc2>启用按键重复设置</ChineseFunc2>
+        <EnglishFunc1>keyboard</EnglishFunc1>
+        <EnglishFunc2>Enable Repeat Key</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>jianpan</pinyinfunc1>
+        <pinyinfunc2>yanchi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>键盘</ChineseFunc1>
+        <ChineseFunc2>延迟</ChineseFunc2>
+        <EnglishFunc1>keyboard</EnglishFunc1>
+        <EnglishFunc2>Delay</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>jianpan</pinyinfunc1>
+        <pinyinfunc2>sudu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>键盘</ChineseFunc1>
+        <ChineseFunc2>速度</ChineseFunc2>
+        <EnglishFunc1>keyboard</EnglishFunc1>
+        <EnglishFunc2>Speed</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>jianpan</pinyinfunc1>
+        <pinyinfunc2>shuruzifuceshizhongfuxiaoguo</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>键盘</ChineseFunc1>
+        <ChineseFunc2>输入字符测试重复效果</ChineseFunc2>
+        <EnglishFunc1>keyboard</EnglishFunc1>
+        <EnglishFunc2>Test Repetition Effect</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>jianpan</pinyinfunc1>
+        <pinyinfunc2>qiyonganjiantishi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>键盘</ChineseFunc1>
+        <ChineseFunc2>启用按键提示</ChineseFunc2>
+        <EnglishFunc1>keyboard</EnglishFunc1>
+        <EnglishFunc2>Tip of Keyboard</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>jianpan</pinyinfunc1>
+        <pinyinfunc2>shurufashezhi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>键盘</ChineseFunc1>
+        <ChineseFunc2>输入法设置</ChineseFunc2>
+        <EnglishFunc1>keyboard</EnglishFunc1>
+        <EnglishFunc2>Input settings</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>shubiaojianshezhi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>鼠标键设置</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Hand Habit</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>guanyongshou</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>惯用手</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Hand Habit</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>shubiaogunlunsudu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>鼠标滚轮速度</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Wheel Speed</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>shubiaoshuangjijiangeshichang</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>鼠标双击间隔时长</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Doubleclick Delay</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>zhizhenshezhi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>指针设置</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Pointer set</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>sudu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>速度</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>speed</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>shubiaojiasu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>鼠标加速</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Acceleration</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>anctrlxianshizhizhenweizhi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>按Ctrl键显示指针位置</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Visibility</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>zhizhendaxiao</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>指针大小</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Pointer Size</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>guangbiaoshezhi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>光标设置</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Cursor set</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>qiyongwenbenquyudeguangbiaoshanshuo</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>启用文本区域的光标闪烁</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Enable Flashing on Text Area</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>shubiao</pinyinfunc1>
+        <pinyinfunc2>guangbiaosudu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>鼠标</ChineseFunc1>
+        <ChineseFunc2>光标速度</ChineseFunc2>
+        <EnglishFunc1>mouse</EnglishFunc1>
+        <EnglishFunc2>Cursor Speed</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>dayinji</pinyinfunc1>
+        <pinyinfunc2>tianjiadayinjihesaomiaoyi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>打印机</ChineseFunc1>
+        <ChineseFunc2>添加打印机和扫描仪</ChineseFunc2>
+        <EnglishFunc1>printer</EnglishFunc1>
+        <EnglishFunc2>Add Printers And Scanners</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>dakaiwenjianguanliqi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>打开文件管理器</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>open file manager</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>suozhupingmu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>锁住屏幕</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Lock Screen</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>jietu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>截图</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>screenshot</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>dakaizhongduan</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>打开终端</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Open terminal</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>dakaikongzhimianban</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>打开控制面板</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Open control center</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>xianshiquanjusousuo</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>显示全局搜索</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Show global search</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>zhankaicebianlan</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>展开侧边栏</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Expand sidebar</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>dakaixitongjianshiqi</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>打开系统监视器</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Turn on the system monitor</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>dakaigongzuoqu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>打开工作区</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Open workspace</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>jiequchuangkoudejietu</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>截取窗口的截图</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Screenshot of the capture window</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>kuaijiejian</pinyinfunc1>
+        <pinyinfunc2>zidingyikuaijiejian</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>快捷键</ChineseFunc1>
+        <ChineseFunc2>自定义快捷键</ChineseFunc2>
+        <EnglishFunc1>shortcut</EnglishFunc1>
+        <EnglishFunc2>Customize Shortcut</EnglishFunc2>
+    </plugin>
+    <plugin name="devices">
+        <pinyinPlugin>shebei</pinyinPlugin>
+        <pinyinfunc1>chumoban</pinyinfunc1>
+        <pinyinfunc2>charushubiaoshijinyongchumoban</pinyinfunc2>
+        <ChinesePlugin>设备</ChinesePlugin>
+        <ChineseFunc1>触摸板</ChineseFunc1>
+        <ChineseFunc2>插入鼠标时禁用触摸板</ChineseFunc2>
+        <EnglishFunc1>touchpad</EnglishFunc1>
+        <EnglishFunc2>Disable touchpad when using the mouse</EnglishFunc2>
+    </plugin>
+    <plugin name="network">
+        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinfunc1>daili</pinyinfunc1>
+        <pinyinfunc2>zidongshezhidaili</pinyinfunc2>
+        <ChinesePlugin>网络</ChinesePlugin>
+        <ChineseFunc1>代理</ChineseFunc1>
+        <ChineseFunc2>自动设置代理</ChineseFunc2>
+        <EnglishFunc1>proxy</EnglishFunc1>
+        <EnglishFunc2>Auto set proxy</EnglishFunc2>
+    </plugin>
+    <plugin name="network">
+        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinfunc1>daili</pinyinfunc1>
+        <pinyinfunc2>kaiqizidongdaili</pinyinfunc2>
+        <ChinesePlugin>网络</ChinesePlugin>
+        <ChineseFunc1>代理</ChineseFunc1>
+        <ChineseFunc2>开启自动代理</ChineseFunc2>
+        <EnglishFunc1>proxy</EnglishFunc1>
+        <EnglishFunc2>Auto Proxy</EnglishFunc2>
+    </plugin>
+    <plugin name="network">
+        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinfunc1>daili</pinyinfunc1>
+        <pinyinfunc2>shoudongshezhidaili</pinyinfunc2>
+        <ChinesePlugin>网络</ChinesePlugin>
+        <ChineseFunc1>代理</ChineseFunc1>
+        <ChineseFunc2>手动设置代理</ChineseFunc2>
+        <EnglishFunc1>proxy</EnglishFunc1>
+        <EnglishFunc2>Manual set proxy</EnglishFunc2>
+    </plugin>
+    <plugin name="network">
+        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinfunc1>daili</pinyinfunc1>
+        <pinyinfunc2>kaiqishoudongdaili</pinyinfunc2>
+        <ChinesePlugin>网络</ChinesePlugin>
+        <ChineseFunc1>代理</ChineseFunc1>
+        <ChineseFunc2>开启手动代理</ChineseFunc2>
+        <EnglishFunc1>proxy</EnglishFunc1>
+        <EnglishFunc2>Manual Proxy</EnglishFunc2>
+    </plugin>
+    <plugin name="network">
+        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinfunc1>vpn</pinyinfunc1>
+        <pinyinfunc2>tianjiavpnlianjie</pinyinfunc2>
+        <ChinesePlugin>网络</ChinesePlugin>
+        <ChineseFunc1>VPN</ChineseFunc1>
+        <ChineseFunc2>添加VPN连接</ChineseFunc2>
+        <EnglishFunc1>vpn</EnglishFunc1>
+        <EnglishFunc2>Add Vpn Connection</EnglishFunc2>
+    </plugin>
+    <plugin name="network">
+        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinfunc1>wangluolianjie</pinyinfunc1>
+        <pinyinfunc2>wangluozhuangtai</pinyinfunc2>
+        <ChinesePlugin>网络</ChinesePlugin>
+        <ChineseFunc1>网络连接</ChineseFunc1>
+        <ChineseFunc2>网络状态</ChineseFunc2>
+        <EnglishFunc1>vpn</EnglishFunc1>
+        <EnglishFunc2>Netconnect Status</EnglishFunc2>
+    </plugin>
+    <plugin name="network">
+        <pinyinPlugin>wangluo</pinyinPlugin>
+        <pinyinfunc1>wangluolianjie</pinyinfunc1>
+        <pinyinfunc2>keyongwangluo</pinyinfunc2>
+        <ChinesePlugin>网络</ChinesePlugin>
+        <ChineseFunc1>网络连接</ChineseFunc1>
+        <ChineseFunc2>可用网络</ChineseFunc2>
+        <EnglishFunc1>vpn</EnglishFunc1>
+        <EnglishFunc2>Available Network</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>ziti</pinyinfunc1>
+        <pinyinfunc2>zitidaxiao</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>字体</ChineseFunc1>
+        <ChineseFunc2>字体大小</ChineseFunc2>
+        <EnglishFunc1>fonts</EnglishFunc1>
+        <EnglishFunc2>Fonts Size</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>ziti</pinyinfunc1>
+        <pinyinfunc2>zitixuanze</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>字体</ChineseFunc1>
+        <ChineseFunc2>字体选择</ChineseFunc2>
+        <EnglishFunc1>fonts</EnglishFunc1>
+        <EnglishFunc2>Fonts Select</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>ziti</pinyinfunc1>
+        <pinyinfunc2>dengkuanziti</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>字体</ChineseFunc1>
+        <ChineseFunc2>等宽字体</ChineseFunc2>
+        <EnglishFunc1>fonts</EnglishFunc1>
+        <EnglishFunc2>Mono font</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>suoping</pinyinfunc1>
+        <pinyinfunc2>suopingjiemian</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>锁屏</ChineseFunc1>
+        <ChineseFunc2>锁屏界面</ChineseFunc2>
+        <EnglishFunc1>screenlock</EnglishFunc1>
+        <EnglishFunc2>Screenlock Interface</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>suoping</pinyinfunc1>
+        <pinyinfunc2>suopingshezhi</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>锁屏</ChineseFunc1>
+        <ChineseFunc2>锁屏设置</ChineseFunc2>
+        <EnglishFunc1>screenlock</EnglishFunc1>
+        <EnglishFunc2>Screenlock</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>suoping</pinyinfunc1>
+        <pinyinfunc2>xianshisuopingbizhizaidengluyemian</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>锁屏</ChineseFunc1>
+        <ChineseFunc2>显示锁屏壁纸在登录页面</ChineseFunc2>
+        <EnglishFunc1>screenlock</EnglishFunc1>
+        <EnglishFunc2>Show Picture of Screenlock on Screenlogin</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>suoping</pinyinfunc1>
+        <pinyinfunc2>jihuopingbaoshisuodingpingmu</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>锁屏</ChineseFunc1>
+        <ChineseFunc2>激活屏保时锁定屏幕</ChineseFunc2>
+        <EnglishFunc1>screenlock</EnglishFunc1>
+        <EnglishFunc2>Lock Screen on Screensaver Boot</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>suoping</pinyinfunc1>
+        <pinyinfunc2>xuanzesuopingbeijing</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>锁屏</ChineseFunc1>
+        <ChineseFunc2>选择锁屏背景</ChineseFunc2>
+        <EnglishFunc1>screenlock</EnglishFunc1>
+        <EnglishFunc2>Select Screenlock</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>pingbao</pinyinfunc1>
+        <pinyinfunc2>pingmubaohuchengxu</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>屏保</ChineseFunc1>
+        <ChineseFunc2>屏幕保护程序</ChineseFunc2>
+        <EnglishFunc1>screensaver</EnglishFunc1>
+        <EnglishFunc2>Select Screenlock</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>pingbao</pinyinfunc1>
+        <pinyinfunc2>xianshixiuxishijian</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>屏保</ChineseFunc1>
+        <ChineseFunc2>显示休息时间</ChineseFunc2>
+        <EnglishFunc1>screensaver</EnglishFunc1>
+        <EnglishFunc2>Show rest time</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>pingbao</pinyinfunc1>
+        <pinyinfunc2>cishijianduanhoukaiqipingbao</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>屏保</ChineseFunc1>
+        <ChineseFunc2>此时间段后开启屏保</ChineseFunc2>
+        <EnglishFunc1>screensaver</EnglishFunc1>
+        <EnglishFunc2>Idle time</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>zhuti</pinyinfunc1>
+        <pinyinfunc2>zhutimoshi</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>主题</ChineseFunc1>
+        <ChineseFunc2>主题模式</ChineseFunc2>
+        <EnglishFunc1>theme</EnglishFunc1>
+        <EnglishFunc2>Theme Mode</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>zhuti</pinyinfunc1>
+        <pinyinfunc2>tubiaozhuti</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>主题</ChineseFunc1>
+        <ChineseFunc2>图标主题</ChineseFunc2>
+        <EnglishFunc1>theme</EnglishFunc1>
+        <EnglishFunc2>Icon Theme</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>zhuti</pinyinfunc1>
+        <pinyinfunc2>guangbiaozhuti</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>主题</ChineseFunc1>
+        <ChineseFunc2>光标主题</ChineseFunc2>
+        <EnglishFunc1>theme</EnglishFunc1>
+        <EnglishFunc2>Cursor Theme</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>zhuti</pinyinfunc1>
+        <pinyinfunc2>xiaoguoshezhi</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>主题</ChineseFunc1>
+        <ChineseFunc2>效果设置</ChineseFunc2>
+        <EnglishFunc1>theme</EnglishFunc1>
+        <EnglishFunc2>Effect setting</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>zhuti</pinyinfunc1>
+        <pinyinfunc2>texiaomoshi</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>主题</ChineseFunc1>
+        <ChineseFunc2>特效模式</ChineseFunc2>
+        <EnglishFunc1>theme</EnglishFunc1>
+        <EnglishFunc2>Performance Mode</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>zhuti</pinyinfunc1>
+        <pinyinfunc2>toumingdu</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>主题</ChineseFunc1>
+        <ChineseFunc2>透明度</ChineseFunc2>
+        <EnglishFunc1>theme</EnglishFunc1>
+        <EnglishFunc2>Transparency</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>beijing</pinyinfunc1>
+        <pinyinfunc2>zhuomianbeijing</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>背景</ChineseFunc1>
+        <ChineseFunc2>桌面背景</ChineseFunc2>
+        <EnglishFunc1>wallpaper</EnglishFunc1>
+        <EnglishFunc2>Wallpaper</EnglishFunc2>
+    </plugin>
+    <plugin name="personalize">
+        <pinyinPlugin>gexinghua</pinyinPlugin>
+        <pinyinfunc1>beijing</pinyinfunc1>
+        <pinyinfunc2>xuanzebeijingxingshi</pinyinfunc2>
+        <ChinesePlugin>个性化</ChinesePlugin>
+        <ChineseFunc1>背景</ChineseFunc1>
+        <ChineseFunc2>选择背景形式</ChineseFunc2>
+        <EnglishFunc1>wallpaper</EnglishFunc1>
+        <EnglishFunc2>Background Mode</EnglishFunc2>
+    </plugin>
+    <plugin name="account">
+        <pinyinPlugin>zhanghu</pinyinPlugin>
+        <pinyinfunc1>yunzhanghu</pinyinfunc1>
+        <pinyinfunc2>tongbunindeshezhi</pinyinfunc2>
+        <ChinesePlugin>账户</ChinesePlugin>
+        <ChineseFunc1>云账户</ChineseFunc1>
+        <ChineseFunc2>同步您的设置</ChineseFunc2>
+        <EnglishFunc1>networkaccount</EnglishFunc1>
+        <EnglishFunc2>Sync your settings</EnglishFunc2>
+    </plugin>
+    <plugin name="account">
+        <pinyinPlugin>zhanghu</pinyinPlugin>
+        <pinyinfunc1>yunzhanghu</pinyinfunc1>
+        <pinyinfunc2>zidongtongbu</pinyinfunc2>
+        <ChinesePlugin>账户</ChinesePlugin>
+        <ChineseFunc1>云账户</ChineseFunc1>
+        <ChineseFunc2>自动同步</ChineseFunc2>
+        <EnglishFunc1>networkaccount</EnglishFunc1>
+        <EnglishFunc2>Auto sync</EnglishFunc2>
+    </plugin>
+    <plugin name="account">
+        <pinyinPlugin>zhanghu</pinyinPlugin>
+        <pinyinfunc1>zhanghuxinxi</pinyinfunc1>
+        <pinyinfunc2>dangqianyonghu</pinyinfunc2>
+        <ChinesePlugin>账户</ChinesePlugin>
+        <ChineseFunc1>账户信息</ChineseFunc1>
+        <ChineseFunc2>当前用户</ChineseFunc2>
+        <EnglishFunc1>userinfo</EnglishFunc1>
+        <EnglishFunc2>CurrentUser</EnglishFunc2>
+    </plugin>
+    <plugin name="account">
+        <pinyinPlugin>zhanghu</pinyinPlugin>
+        <pinyinfunc1>zhanghuxinxi</pinyinfunc1>
+        <pinyinfunc2>mianmidenglu</pinyinfunc2>
+        <ChinesePlugin>账户</ChinesePlugin>
+        <ChineseFunc1>账户信息</ChineseFunc1>
+        <ChineseFunc2>免密登录</ChineseFunc2>
+        <EnglishFunc1>userinfo</EnglishFunc1>
+        <EnglishFunc2>Login without Password</EnglishFunc2>
+    </plugin>
+    <plugin name="account">
+        <pinyinPlugin>zhanghu</pinyinPlugin>
+        <pinyinfunc1>zhanghuxinxi</pinyinfunc1>
+        <pinyinfunc2>kaijizidongdenglu</pinyinfunc2>
+        <ChinesePlugin>账户</ChinesePlugin>
+        <ChineseFunc1>账户信息</ChineseFunc1>
+        <ChineseFunc2>开机自动登录</ChineseFunc2>
+        <EnglishFunc1>userinfo</EnglishFunc1>
+        <EnglishFunc2>Auto Login</EnglishFunc2>
+    </plugin>
+    <plugin name="account">
+        <pinyinPlugin>zhanghu</pinyinPlugin>
+        <pinyinfunc1>zhanghuxinxi</pinyinfunc1>
+        <pinyinfunc2>qitayonghu</pinyinfunc2>
+        <ChinesePlugin>账户</ChinesePlugin>
+        <ChineseFunc1>账户信息</ChineseFunc1>
+        <ChineseFunc2>其他用户</ChineseFunc2>
+        <EnglishFunc1>userinfo</EnglishFunc1>
+        <EnglishFunc2>OthersUser</EnglishFunc2>
+    </plugin>
+    <plugin name="account">
+        <pinyinPlugin>zhanghu</pinyinPlugin>
+        <pinyinfunc1>zhanghuxinxi</pinyinfunc1>
+        <pinyinfunc2>tianjiaxinyonghu</pinyinfunc2>
+        <ChinesePlugin>账户</ChinesePlugin>
+        <ChineseFunc1>账户信息</ChineseFunc1>
+        <ChineseFunc2>添加新用户</ChineseFunc2>
+        <EnglishFunc1>userinfo</EnglishFunc1>
+        <EnglishFunc2>Add new user</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>quyuyuyan</pinyinfunc1>
+        <pinyinfunc2>dangqianquyu</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>区域语言</ChineseFunc1>
+        <ChineseFunc2>当前区域</ChineseFunc2>
+        <EnglishFunc1>area</EnglishFunc1>
+        <EnglishFunc2>Current Area</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>quyuyuyan</pinyinfunc1>
+        <pinyinfunc2>xianshiriqishijianhuobigeshidequyu</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>区域语言</ChineseFunc1>
+        <ChineseFunc2>显示日期、时间、货币格式的区域</ChineseFunc2>
+        <EnglishFunc1>area</EnglishFunc1>
+        <EnglishFunc2>display format area</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>quyuyuyan</pinyinfunc1>
+        <pinyinfunc2>quyugeshishuju</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>区域语言</ChineseFunc1>
+        <ChineseFunc2>区域格式数据</ChineseFunc2>
+        <EnglishFunc1>area</EnglishFunc1>
+        <EnglishFunc2>Regional Format Data</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>quyuyuyan</pinyinfunc1>
+        <pinyinfunc2>shouxuanyuyan</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>区域语言</ChineseFunc1>
+        <ChineseFunc2>首选语言</ChineseFunc2>
+        <EnglishFunc1>area</EnglishFunc1>
+        <EnglishFunc2>first language</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>quyuyuyan</pinyinfunc1>
+        <pinyinfunc2>xianshiyuyan</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>区域语言</ChineseFunc1>
+        <ChineseFunc2>显示语言</ChineseFunc2>
+        <EnglishFunc1>area</EnglishFunc1>
+        <EnglishFunc2>system language</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>quyuyuyan</pinyinfunc1>
+        <pinyinfunc2>tianjiashouyuyan</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>区域语言</ChineseFunc1>
+        <ChineseFunc2>添加首语言</ChineseFunc2>
+        <EnglishFunc1>area</EnglishFunc1>
+        <EnglishFunc2>Add Main Language</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>shijianheriqi</pinyinfunc1>
+        <pinyinfunc2>dangqianshijian</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>时间日期</ChineseFunc1>
+        <ChineseFunc2>当前时间</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>current date</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>shijianheriqi</pinyinfunc1>
+        <pinyinfunc2>xiaoshizhi</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>时间日期</ChineseFunc1>
+        <ChineseFunc2>24小时制</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>24-hour Clock</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>shijianheriqi</pinyinfunc1>
+        <pinyinfunc2>tongbuwangluoshijian</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>时间日期</ChineseFunc1>
+        <ChineseFunc2>同步网络时间</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>Sync Network Time</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>shijianheriqi</pinyinfunc1>
+        <pinyinfunc2>shijianfuwuqi</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>时间日期</ChineseFunc1>
+        <ChineseFunc2>时间服务器</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>Sever</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>shijianheriqi</pinyinfunc1>
+        <pinyinfunc2>qitashiqu</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>时间日期</ChineseFunc1>
+        <ChineseFunc2>其他时区</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>Other Timezone</EnglishFunc2>
+    </plugin>
+    <plugin name="time-language">
+        <pinyinPlugin>shijianyuyan</pinyinPlugin>
+        <pinyinfunc1>shijianheriqi</pinyinfunc1>
+        <pinyinfunc2>tianjiashiqu</pinyinfunc2>
+        <ChinesePlugin>时间语言</ChinesePlugin>
+        <ChineseFunc1>时间日期</ChineseFunc1>
+        <ChineseFunc2>添加时区</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>Add Timezone</EnglishFunc2>
+    </plugin>
+    <plugin name="security-updates">
+        <pinyinPlugin>gengxin</pinyinPlugin>
+        <pinyinfunc1>beifen</pinyinfunc1>
+        <pinyinfunc2>kaishibeifen</pinyinfunc2>
+        <ChinesePlugin>更新</ChinesePlugin>
+        <ChineseFunc1>备份</ChineseFunc1>
+        <ChineseFunc2>开始备份</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>Backup</EnglishFunc2>
+    </plugin>
+    <plugin name="security-updates">
+        <pinyinPlugin>gengxin</pinyinPlugin>
+        <pinyinfunc1>beifen</pinyinfunc1>
+        <pinyinfunc2>kaishihuanyuan</pinyinfunc2>
+        <ChinesePlugin>更新</ChinesePlugin>
+        <ChineseFunc1>备份</ChineseFunc1>
+        <ChineseFunc2>开始还原</ChineseFunc2>
+        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc2>Restore</EnglishFunc2>
+    </plugin>
+    <plugin name="application">
+        <pinyinPlugin>yingyong</pinyinPlugin>
+        <pinyinfunc1>kaijiqidong</pinyinfunc1>
+        <pinyinfunc2>tianjiaziqidongchengxu</pinyinfunc2>
+        <ChinesePlugin>应用</ChinesePlugin>
+        <ChineseFunc1>开机启动</ChineseFunc1>
+        <ChineseFunc2>添加自启动程序</ChineseFunc2>
+        <EnglishFunc1>autoboot</EnglishFunc1>
+        <EnglishFunc2>Add autoboot program</EnglishFunc2>
+    </plugin>
+    <plugin name="application">
+        <pinyinPlugin>yingyong</pinyinPlugin>
+        <pinyinfunc1>morenyingyong</pinyinfunc1>
+        <pinyinfunc2>liulanqi</pinyinfunc2>
+        <ChinesePlugin>应用</ChinesePlugin>
+        <ChineseFunc1>默认应用</ChineseFunc1>
+        <ChineseFunc2>浏览器</ChineseFunc2>
+        <EnglishFunc1>defaultapp</EnglishFunc1>
+        <EnglishFunc2>Browser</EnglishFunc2>
+    </plugin>
+    <plugin name="application">
+        <pinyinPlugin>yingyong</pinyinPlugin>
+        <pinyinfunc1>morenyingyong</pinyinfunc1>
+        <pinyinfunc2>dianziyoujian</pinyinfunc2>
+        <ChinesePlugin>应用</ChinesePlugin>
+        <ChineseFunc1>默认应用</ChineseFunc1>
+        <ChineseFunc2>电子邮件</ChineseFunc2>
+        <EnglishFunc1>defaultapp</EnglishFunc1>
+        <EnglishFunc2>Mail</EnglishFunc2>
+    </plugin>
+    <plugin name="application">
+        <pinyinPlugin>yingyong</pinyinPlugin>
+        <pinyinfunc1>morenyingyong</pinyinfunc1>
+        <pinyinfunc2>tuxiangchakanqi</pinyinfunc2>
+        <ChinesePlugin>应用</ChinesePlugin>
+        <ChineseFunc1>默认应用</ChineseFunc1>
+        <ChineseFunc2>图像查看器</ChineseFunc2>
+        <EnglishFunc1>defaultapp</EnglishFunc1>
+        <EnglishFunc2>Image Viewer</EnglishFunc2>
+    </plugin>
+    <plugin name="application">
+        <pinyinPlugin>yingyong</pinyinPlugin>
+        <pinyinfunc1>morenyingyong</pinyinfunc1>
+        <pinyinfunc2>yinyuebofangqi</pinyinfunc2>
+        <ChinesePlugin>应用</ChinesePlugin>
+        <ChineseFunc1>默认应用</ChineseFunc1>
+        <ChineseFunc2>音乐播放器</ChineseFunc2>
+        <EnglishFunc1>defaultapp</EnglishFunc1>
+        <EnglishFunc2>Audio Player</EnglishFunc2>
+    </plugin>
+    <plugin name="application">
+        <pinyinPlugin>yingyong</pinyinPlugin>
+        <pinyinfunc1>morenyingyong</pinyinfunc1>
+        <pinyinfunc2>shipinbofangqi</pinyinfunc2>
+        <ChinesePlugin>应用</ChinesePlugin>
+        <ChineseFunc1>默认应用</ChineseFunc1>
+        <ChineseFunc2>视频播放器</ChineseFunc2>
+        <EnglishFunc1>defaultapp</EnglishFunc1>
+        <EnglishFunc2>Video Player</EnglishFunc2>
+    </plugin>
+    <plugin name="application">
+        <pinyinPlugin>yingyong</pinyinPlugin>
+        <pinyinfunc1>morenyingyong</pinyinfunc1>
+        <pinyinfunc2>wendangbianjiqi</pinyinfunc2>
+        <ChinesePlugin>应用</ChinesePlugin>
+        <ChineseFunc1>默认应用</ChineseFunc1>
+        <ChineseFunc2>文档编辑器</ChineseFunc2>
+        <EnglishFunc1>defaultapp</EnglishFunc1>
+        <EnglishFunc2>Text Editor</EnglishFunc2>
+    </plugin>
+    <plugin name="security">
+        <pinyinPlugin>anquan</pinyinPlugin>
+        <pinyinfunc1>anquanzhongxin</pinyinfunc1>
+        <pinyinfunc2>dakaianquanzhongxin</pinyinfunc2>
+        <ChinesePlugin>安全</ChinesePlugin>
+        <ChineseFunc1>安全中心</ChineseFunc1>
+        <ChineseFunc2>打开安全中心</ChineseFunc2>
+        <EnglishFunc1>securitycenter</EnglishFunc1>
+        <EnglishFunc2>Run Security Center</EnglishFunc2>
     </plugin>
     <plugin name="desktop">
         <pinyinPlugin>zhuomian</pinyinPlugin>
@@ -221,783 +1203,45 @@
         <ChineseFunc>显示在托盘上的图标</ChineseFunc>
         <EnglishFunc>Tray icon</EnglishFunc>
     </plugin>
-    <plugin name="fonts">
-        <pinyinPlugin>ziti</pinyinPlugin>
-        <pinyinfunc>zitixuanze</pinyinfunc>
-        <ChinesePlugin>字体</ChinesePlugin>
-        <ChineseFunc>字体选择</ChineseFunc>
-        <EnglishFunc>Fonts Select</EnglishFunc>
-    </plugin>
-    <plugin name="fonts">
-        <pinyinPlugin>ziti</pinyinPlugin>
-        <pinyinfunc>zitidaxiao</pinyinfunc>
-        <ChinesePlugin>字体</ChinesePlugin>
-        <ChineseFunc>字体大小</ChineseFunc>
-        <EnglishFunc>Fonts Size</EnglishFunc>
-    </plugin>
-    <plugin name="fonts">
-        <pinyinPlugin>ziti</pinyinPlugin>
-        <pinyinfunc>dengkuanziti</pinyinfunc>
-        <ChinesePlugin>字体</ChinesePlugin>
-        <ChineseFunc>等宽字体</ChineseFunc>
-        <EnglishFunc>Mono font</EnglishFunc>
-    </plugin>
-    <plugin name="keyboard">
-        <pinyinPlugin>jianpan</pinyinPlugin>
-        <pinyinfunc>qiyonganjianzhongfushezhi</pinyinfunc>
-        <ChinesePlugin>键盘</ChinesePlugin>
-        <ChineseFunc>启用按键重复设置</ChineseFunc>
-        <EnglishFunc>Enable Repeat Key</EnglishFunc>
-    </plugin>
-    <plugin name="keyboard">
-        <pinyinPlugin>jianpan</pinyinPlugin>
-        <pinyinfunc>yanchi</pinyinfunc>
-        <ChinesePlugin>键盘</ChinesePlugin>
-        <ChineseFunc>延迟</ChineseFunc>
-        <EnglishFunc>Delay</EnglishFunc>
-    </plugin>
-    <plugin name="keyboard">
-        <pinyinPlugin>jianpan</pinyinPlugin>
-        <pinyinfunc>jianpansudu</pinyinfunc>
-        <ChinesePlugin>键盘</ChinesePlugin>
-        <ChineseFunc>速度</ChineseFunc>
-        <EnglishFunc>Speed</EnglishFunc>
-    </plugin>
-    <plugin name="keyboard">
-        <pinyinPlugin>jianpan</pinyinPlugin>
-        <pinyinfunc>shuruzifuceshizhongfuxiaoguo</pinyinfunc>
-        <ChinesePlugin>键盘</ChinesePlugin>
-        <ChineseFunc>输入字符测试重复效果</ChineseFunc>
-        <EnglishFunc>Test Repetition Effect</EnglishFunc>
-    </plugin>
-    <plugin name="keyboard">
-        <pinyinPlugin>jianpan</pinyinPlugin>
-        <pinyinfunc>qiyonganjiantishi</pinyinfunc>
-        <ChinesePlugin>键盘</ChinesePlugin>
-        <ChineseFunc>启用按键提示</ChineseFunc>
-        <EnglishFunc>Tip of Keyboard</EnglishFunc>
-    </plugin>
-    <plugin name="keyboard">
-        <pinyinPlugin>jianpan</pinyinPlugin>
-        <pinyinfunc>shurufashezhi</pinyinfunc>
-        <ChinesePlugin>键盘</ChinesePlugin>
-        <ChineseFunc>输入法设置</ChineseFunc>
-        <EnglishFunc>Input settings</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>shubiaojianshezhi</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>鼠标键设置</ChineseFunc>
-        <EnglishFunc>Hand Habit</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>guanyongshou</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>惯用手</ChineseFunc>
-        <EnglishFunc>Hand Habit</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>shubiaosudu</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>鼠标滚轮速度</ChineseFunc>
-        <EnglishFunc>Wheel Speed</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>shubiaoshuangjijiangeshichang</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>鼠标双击间隔时长</ChineseFunc>
-        <EnglishFunc>Doubleclick Delay</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>shubiaojiasu</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>鼠标加速</ChineseFunc>
-        <EnglishFunc>Acceleration</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>anctrlxianshizhizhenweizhi</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>按Ctrl键显示指针位置</ChineseFunc>
-        <EnglishFunc>Visibility</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>zhizhendaxiao</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>指针大小</ChineseFunc>
-        <EnglishFunc>Pointer Size</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>guangbiaosudu</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>光标速度</ChineseFunc>
-        <EnglishFunc>Cursor Speed</EnglishFunc>
-    </plugin>
-    <plugin name="mouse">
-        <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>qiyongwenbenquyudeguangbiaoshanshuo</pinyinfunc>
-        <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>启用文本区域的光标闪烁</ChineseFunc>
-        <EnglishFunc>Enable Flashing on Text Area</EnglishFunc>
-    </plugin>
-    <plugin name="netconnect">
-        <pinyinPlugin>wangluo</pinyinPlugin>
-        <pinyinfunc>wangluozhuangtai</pinyinfunc>
-        <ChinesePlugin>网络</ChinesePlugin>
-        <ChineseFunc>网络状态</ChineseFunc>
-        <EnglishFunc>Netconnect Status</EnglishFunc>
-    </plugin>
-    <plugin name="netconnect">
-        <pinyinPlugin>wangluo</pinyinPlugin>
-        <pinyinfunc>keyongwangluo</pinyinfunc>
-        <ChinesePlugin>网络</ChinesePlugin>
-        <ChineseFunc>可用网络</ChineseFunc>
-        <EnglishFunc>Available Network</EnglishFunc>
-    </plugin>
-    <plugin name="netconnect">
-        <pinyinPlugin>wangluo</pinyinPlugin>
-        <pinyinfunc>dakaiwifi</pinyinfunc>
-        <ChinesePlugin>网络</ChinesePlugin>
-        <ChineseFunc>打开wifi</ChineseFunc>
-        <EnglishFunc>Open Wifi</EnglishFunc>
-    </plugin>
-    <plugin name="notice">
-        <pinyinPlugin>tongzhi</pinyinPlugin>
-        <pinyinfunc>huoqulaiziyingyongheqitafasongzhedetongzhi</pinyinfunc>
-        <ChinesePlugin>通知</ChinesePlugin>
-        <ChineseFunc>获取来自应用和其他发送者的通知</ChineseFunc>
-        <EnglishFunc>Get notifications from the app</EnglishFunc>
-    </plugin>
-    <plugin name="notice">
-        <pinyinPlugin>tongzhi</pinyinPlugin>
-        <pinyinfunc>shezhizaitongzhizhongxinxianshidetongzhixinxi</pinyinfunc>
-        <ChinesePlugin>通知</ChinesePlugin>
-        <ChineseFunc>设置在通知中心显示的通知信息</ChineseFunc>
-        <EnglishFunc>Notification Type</EnglishFunc>
-    </plugin>
-    <plugin name="notice">
-        <pinyinPlugin>tongzhi</pinyinPlugin>
-        <pinyinfunc>shezhitongzhilaiyuan</pinyinfunc>
-        <ChinesePlugin>通知</ChinesePlugin>
-        <ChineseFunc>设置通知来源</ChineseFunc>
-        <EnglishFunc>Notice Origin</EnglishFunc>
+    <plugin name="search">
+        <pinyinPlugin>sousuo</pinyinPlugin>
+        <pinyinfunc1>sousuo</pinyinfunc1>
+        <pinyinfunc2>chuangjiansuoyin</pinyinfunc2>
+        <ChinesePlugin>搜索</ChinesePlugin>
+        <ChineseFunc1>搜索</ChineseFunc1>
+        <ChineseFunc2>创建索引</ChineseFunc2>
+        <EnglishFunc1>search</EnglishFunc1>
+        <EnglishFunc2>Create index</EnglishFunc2>
     </plugin>
     <plugin name="search">
         <pinyinPlugin>sousuo</pinyinPlugin>
-        <pinyinfunc>sousuomoshi</pinyinfunc>
+        <pinyinfunc1>sousuo</pinyinfunc1>
+        <pinyinfunc2>pingbiwenjianjia</pinyinfunc2>
         <ChinesePlugin>搜索</ChinesePlugin>
-        <ChineseFunc>搜索模式</ChineseFunc>
-        <EnglishFunc>Search Method</EnglishFunc>
+        <ChineseFunc1>搜索</ChineseFunc1>
+        <ChineseFunc2>屏蔽文件夹</ChineseFunc2>
+        <EnglishFunc1>search</EnglishFunc1>
+        <EnglishFunc2>Block Folders</EnglishFunc2>
     </plugin>
     <plugin name="search">
         <pinyinPlugin>sousuo</pinyinPlugin>
-        <pinyinfunc>chuangjiansuoyin</pinyinfunc>
+        <pinyinfunc1>sousuo</pinyinfunc1>
+        <pinyinfunc2>sousuoyinqing</pinyinfunc2>
         <ChinesePlugin>搜索</ChinesePlugin>
-        <ChineseFunc>创建索引</ChineseFunc>
-        <EnglishFunc>Create index</EnglishFunc>
+        <ChineseFunc1>搜索</ChineseFunc1>
+        <ChineseFunc2>搜索引擎</ChineseFunc2>
+        <EnglishFunc1>search</EnglishFunc1>
+        <EnglishFunc2>Web Engine</EnglishFunc2>
     </plugin>
     <plugin name="search">
         <pinyinPlugin>sousuo</pinyinPlugin>
-        <pinyinfunc>pingbiwenjianjia</pinyinfunc>
+        <pinyinfunc1>sousuo</pinyinfunc1>
+        <pinyinfunc2>morenhulianwangsousuoyinqing</pinyinfunc2>
         <ChinesePlugin>搜索</ChinesePlugin>
-        <ChineseFunc>屏蔽文件夹</ChineseFunc>
-        <EnglishFunc>Block Folders</EnglishFunc>
-    </plugin>
-    <plugin name="search">
-        <pinyinPlugin>sousuo</pinyinPlugin>
-        <pinyinfunc>sousuoyinqing</pinyinfunc>
-        <ChinesePlugin>搜索</ChinesePlugin>
-        <ChineseFunc>搜索引擎</ChineseFunc>
-        <EnglishFunc>Web Engine</EnglishFunc>
-    </plugin>
-    <plugin name="search">
-        <pinyinPlugin>sousuo</pinyinPlugin>
-        <pinyinfunc>morenhulianwangsousuoyinqing</pinyinfunc>
-        <ChinesePlugin>搜索</ChinesePlugin>
-        <ChineseFunc>默认互联网搜索引擎</ChineseFunc>
-        <EnglishFunc>Default web searching engine</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>fenbianlv</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>分辨率</ChineseFunc>
-        <EnglishFunc>Resolution</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>suofangpingmu</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>缩放屏幕</ChineseFunc>
-        <EnglishFunc>Screen Zoom</EnglishFunc>
-    </plugin>
-    <plugin name="power">
-        <pinyinPlugin>dianyuan</pinyinPlugin>
-        <pinyinfunc>pingheng</pinyinfunc>
-        <ChinesePlugin>电源</ChinesePlugin>
-        <ChineseFunc>平衡</ChineseFunc>
-        <EnglishFunc>Balance</EnglishFunc>
-    </plugin>
-    <plugin name="power">
-        <pinyinPlugin>dianyuan</pinyinPlugin>
-        <pinyinfunc>jieneng</pinyinfunc>
-        <ChinesePlugin>电源</ChinesePlugin>
-        <ChineseFunc>节能</ChineseFunc>
-        <EnglishFunc>Saving</EnglishFunc>
-    </plugin>
-    <plugin name="power">
-        <pinyinPlugin>dianyuan</pinyinPlugin>
-        <pinyinfunc>zidingyi</pinyinfunc>
-        <ChinesePlugin>电源</ChinesePlugin>
-        <ChineseFunc>自定义</ChineseFunc>
-        <EnglishFunc>Custom</EnglishFunc>
-    </plugin>
-    <plugin name="printer">
-        <pinyinPlugin>dayinji</pinyinPlugin>
-        <pinyinfunc>tianjiadayinjihesaomiaoyi</pinyinfunc>
-        <ChinesePlugin>打印机</ChinesePlugin>
-        <ChineseFunc>添加打印机和扫描仪</ChineseFunc>
-        <EnglishFunc>Add Printers And Scanners</EnglishFunc>
-    </plugin>
-    <plugin name="proxy">
-        <pinyinPlugin>daili</pinyinPlugin>
-        <pinyinfunc>zidongshezhidaili</pinyinfunc>
-        <ChinesePlugin>代理</ChinesePlugin>
-        <ChineseFunc>自动设置代理</ChineseFunc>
-        <EnglishFunc>Auto set proxy</EnglishFunc>
-    </plugin>
-    <plugin name="proxy">
-        <pinyinPlugin>daili</pinyinPlugin>
-        <pinyinfunc>kaiqizidongdaili</pinyinfunc>
-        <ChinesePlugin>代理</ChinesePlugin>
-        <ChineseFunc>开启自动代理</ChineseFunc>
-        <EnglishFunc>Auto Proxy</EnglishFunc>
-    </plugin>
-    <plugin name="proxy">
-        <pinyinPlugin>daili</pinyinPlugin>
-        <pinyinfunc>shoudongshezhidaili</pinyinfunc>
-        <ChinesePlugin>代理</ChinesePlugin>
-        <ChineseFunc>手动设置代理</ChineseFunc>
-        <EnglishFunc>Manual set proxy</EnglishFunc>
-    </plugin>
-    <plugin name="proxy">
-        <pinyinPlugin>daili</pinyinPlugin>
-        <pinyinfunc>kaiqishoudongdaili</pinyinfunc>
-        <ChinesePlugin>代理</ChinesePlugin>
-        <ChineseFunc>开启手动代理</ChineseFunc>
-        <EnglishFunc>Manual Proxy</EnglishFunc>
-    </plugin>
-    <plugin name="screenlock">
-        <pinyinPlugin>suoping</pinyinPlugin>
-        <pinyinfunc>suopingjiemian</pinyinfunc>
-        <ChinesePlugin>锁屏</ChinesePlugin>
-        <ChineseFunc>锁屏界面</ChineseFunc>
-        <EnglishFunc>Screenlock Interface</EnglishFunc>
-    </plugin>
-    <plugin name="screenlock">
-        <pinyinPlugin>suoping</pinyinPlugin>
-        <pinyinfunc>suopingshezhi</pinyinfunc>
-        <ChinesePlugin>锁屏</ChinesePlugin>
-        <ChineseFunc>锁屏设置</ChineseFunc>
-        <EnglishFunc>Screenlock</EnglishFunc>
-    </plugin>
-    <plugin name="screenlock">
-        <pinyinPlugin>suoping</pinyinPlugin>
-        <pinyinfunc>jihuopingbaoshisuodingpingmu</pinyinfunc>
-        <ChinesePlugin>锁屏</ChinesePlugin>
-        <ChineseFunc>激活屏保时锁定屏幕</ChineseFunc>
-        <EnglishFunc>Lock Screen on Screensaver Boot</EnglishFunc>
-    </plugin>
-    <plugin name="screenlock">
-        <pinyinPlugin>suoping</pinyinPlugin>
-        <pinyinfunc>xianshisuopingbizhizaidengluyemian</pinyinfunc>
-        <ChinesePlugin>锁屏</ChinesePlugin>
-        <ChineseFunc>显示锁屏壁纸在登录页面</ChineseFunc>
-        <EnglishFunc>Show Picture of Screenlock on Screenlogin</EnglishFunc>
-    </plugin>
-    <plugin name="screenlock">
-        <pinyinPlugin>suoping</pinyinPlugin>
-        <pinyinfunc>xuanzesuopingbeijing</pinyinfunc>
-        <ChinesePlugin>锁屏</ChinesePlugin>
-        <ChineseFunc>选择锁屏背景</ChineseFunc>
-        <EnglishFunc>Select Screenlock</EnglishFunc>
-    </plugin>
-    <plugin name="screensaver">
-        <pinyinPlugin>pingbao</pinyinPlugin>
-        <pinyinfunc>kaiqipingbao</pinyinfunc>
-        <ChinesePlugin>屏保</ChinesePlugin>
-        <ChineseFunc>开启屏保</ChineseFunc>
-        <EnglishFunc>Enable Screensaver</EnglishFunc>
-    </plugin>
-    <plugin name="screensaver">
-        <pinyinPlugin>pingbao</pinyinPlugin>
-        <pinyinfunc>pingmubaohuchengxu</pinyinfunc>
-        <ChinesePlugin>屏保</ChinesePlugin>
-        <ChineseFunc>屏幕保护程序</ChineseFunc>
-        <EnglishFunc>Screensaver Program</EnglishFunc>
-    </plugin>
-    <plugin name="screensaver">
-        <pinyinPlugin>pingbao</pinyinPlugin>
-        <pinyinfunc>xianshixiuxishijian</pinyinfunc>
-        <ChinesePlugin>屏保</ChinesePlugin>
-        <ChineseFunc>显示休息时间</ChineseFunc>
-        <EnglishFunc>Show rest time</EnglishFunc>
-    </plugin>
-    <plugin name="screensaver">
-        <pinyinPlugin>pingbao</pinyinPlugin>
-        <pinyinfunc>cishijianduanhoukaiqipingbao</pinyinfunc>
-        <ChinesePlugin>屏保</ChinesePlugin>
-        <ChineseFunc>此时间段后开启屏保</ChineseFunc>
-        <EnglishFunc>Idle time</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>xitongkuaijiejian</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>系统快捷键</ChineseFunc>
-        <EnglishFunc>System Shortcut</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>dakaiwenjianguanliqi</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>打开文件管理器</ChineseFunc>
-        <EnglishFunc>open file manager</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>suozhupingmu</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>锁住屏幕</ChineseFunc>
-        <EnglishFunc>Lock Screen</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>jietu</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>截图</ChineseFunc>
-        <EnglishFunc>screenshot</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>dakaizhongduan</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>打开终端</ChineseFunc>
-        <EnglishFunc>Open terminal</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>dakaikongzhimianban</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>打开控制面板</ChineseFunc>
-        <EnglishFunc>Open control center</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>xianshiquanjusousuo</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>显示全局搜索</ChineseFunc>
-        <EnglishFunc>Show global search</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>zhankaicebianlan</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>展开侧边栏</ChineseFunc>
-        <EnglishFunc>Expand sidebar</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>dakaixitongjianshiqi</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>打开系统监视器</ChineseFunc>
-        <EnglishFunc>Turn on the system monitor</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>dakaigongzuoqu</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>打开工作区</ChineseFunc>
-        <EnglishFunc>Open workspace</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>jiequchuangkoudejietu</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>截取窗口的截图</ChineseFunc>
-        <EnglishFunc>Screenshot of the capture window</EnglishFunc>
-    </plugin>
-    <plugin name="shortcut">
-        <pinyinPlugin>kuaijiejian</pinyinPlugin>
-        <pinyinfunc>zidingyikuaijiejian</pinyinfunc>
-        <ChinesePlugin>快捷键</ChinesePlugin>
-        <ChineseFunc>自定义快捷键</ChineseFunc>
-        <EnglishFunc>Customize Shortcut</EnglishFunc>
-    </plugin>
-    <plugin name="theme">
-        <pinyinPlugin>zhuti</pinyinPlugin>
-        <pinyinfunc>zhutimoshi</pinyinfunc>
-        <ChinesePlugin>主题</ChinesePlugin>
-        <ChineseFunc>主题模式</ChineseFunc>
-        <EnglishFunc>Theme Mode</EnglishFunc>
-    </plugin>
-    <plugin name="theme">
-        <pinyinPlugin>zhuti</pinyinPlugin>
-        <pinyinfunc>tubiaozhuti</pinyinfunc>
-        <ChinesePlugin>主题</ChinesePlugin>
-        <ChineseFunc>图标主题</ChineseFunc>
-        <EnglishFunc>Icon Theme</EnglishFunc>
-    </plugin>
-    <plugin name="theme">
-        <pinyinPlugin>zhuti</pinyinPlugin>
-        <pinyinfunc>guangbiaozhuti</pinyinfunc>
-        <ChinesePlugin>主题</ChinesePlugin>
-        <ChineseFunc>光标主题</ChineseFunc>
-        <EnglishFunc>Cursor Theme</EnglishFunc>
-    </plugin>
-    <plugin name="theme">
-        <pinyinPlugin>zhuti</pinyinPlugin>
-        <pinyinfunc>toumingdu</pinyinfunc>
-        <ChinesePlugin>主题</ChinesePlugin>
-        <ChineseFunc>透明度</ChineseFunc>
-        <EnglishFunc>Transparency</EnglishFunc>
-    </plugin>
-    <plugin name="theme">
-        <pinyinPlugin>zhuti</pinyinPlugin>
-        <pinyinfunc>xiaoguoshezhi</pinyinfunc>
-        <ChinesePlugin>主题</ChinesePlugin>
-        <ChineseFunc>效果设置</ChineseFunc>
-        <EnglishFunc>Effect setting</EnglishFunc>
-    </plugin>
-    <plugin name="theme">
-        <pinyinPlugin>zhuti</pinyinPlugin>
-        <pinyinfunc>texiaomoshi</pinyinfunc>
-        <ChinesePlugin>主题</ChinesePlugin>
-        <ChineseFunc>特效模式</ChineseFunc>
-        <EnglishFunc>Performance Mode</EnglishFunc>
-    </plugin>
-    <plugin name="touchpad">
-        <pinyinPlugin>chumoban</pinyinPlugin>
-        <pinyinfunc>chumobanshezhi</pinyinfunc>
-        <ChinesePlugin>触摸板</ChinesePlugin>
-        <ChineseFunc>触摸板设置</ChineseFunc>
-        <EnglishFunc>Touchpad Settings</EnglishFunc>
-    </plugin>
-    <plugin name="touchpad">
-        <pinyinPlugin>chumoban</pinyinPlugin>
-        <pinyinfunc>charushubiaoshijinyongchumoban</pinyinfunc>
-        <ChinesePlugin>触摸板</ChinesePlugin>
-        <ChineseFunc>插入鼠标时禁用触摸板</ChineseFunc>
-        <EnglishFunc>Disable touchpad when using the mouse</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>xuanzeshurushebei</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>选择输入设备</ChineseFunc>
-        <EnglishFunc>Input Device</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>yinliangdaxiao</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>音量大小</ChineseFunc>
-        <EnglishFunc>Volume</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>shurufankui</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>输入反馈</ChineseFunc>
-        <EnglishFunc>Input Level</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>xuanzeshuchushebei</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>选择输出设备</ChineseFunc>
-        <EnglishFunc>Output Device</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>zhuyinliangdaxiao</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>主音量大小</ChineseFunc>
-        <EnglishFunc>Master Volume</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>shengdaopingheng</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>声道平衡</ChineseFunc>
-        <EnglishFunc>Channel Balance</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>xitongyinxiao</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>系统音效</ChineseFunc>
-        <EnglishFunc>System Sound</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>tishiyin</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>提示音</ChineseFunc>
-        <EnglishFunc>Alert Sound</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>tishiyindaxiao</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>提示音大小</ChineseFunc>
-        <EnglishFunc>Alert Volume</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>kaiji</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>开机</ChineseFunc>
-        <EnglishFunc>Startup Music</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>guanji</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>关机</ChineseFunc>
-        <EnglishFunc>Poweroff Music</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>zhuxiao</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>注销</ChineseFunc>
-        <EnglishFunc>Logout Music</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>huanxing</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>唤醒</ChineseFunc>
-        <EnglishFunc>Wakeup Music</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>tishiyinliangkaiguan</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>提示音量开关</ChineseFunc>
-        <EnglishFunc>Beep Switch</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>xitongyinxiaozhuti</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>系统音效主题</ChineseFunc>
-        <EnglishFunc>Sound Theme</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>tongzhitishi</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>通知提示</ChineseFunc>
-        <EnglishFunc>Alert Sound</EnglishFunc>
-    </plugin>
-    <plugin name="audio">
-        <pinyinPlugin>shengyin</pinyinPlugin>
-        <pinyinfunc>yinliangtiaojie</pinyinfunc>
-        <ChinesePlugin>声音</ChinesePlugin>
-        <ChineseFunc>音量调节</ChineseFunc>
-        <EnglishFunc>Volume Change</EnglishFunc>
-    </plugin>
-    <plugin name="update">
-        <pinyinPlugin>gengxin</pinyinPlugin>
-        <pinyinfunc>xitonggengxin</pinyinfunc>
-        <ChinesePlugin>更新</ChinesePlugin>
-        <ChineseFunc>系统更新</ChineseFunc>
-        <EnglishFunc>Update</EnglishFunc>
-    </plugin>
-    <plugin name="update">
-        <pinyinPlugin>gengxin</pinyinPlugin>
-        <pinyinfunc>chakangengxinlishi</pinyinfunc>
-        <ChinesePlugin>更新</ChinesePlugin>
-        <ChineseFunc>查看更新历史</ChineseFunc>
-        <EnglishFunc>View history</EnglishFunc>
-    </plugin>
-    <plugin name="update">
-        <pinyinPlugin>gengxin</pinyinPlugin>
-        <pinyinfunc>gengxinshezhi</pinyinfunc>
-        <ChinesePlugin>更新</ChinesePlugin>
-        <ChineseFunc>更新设置</ChineseFunc>
-        <EnglishFunc>Update Settings</EnglishFunc>
-    </plugin>
-    <plugin name="update">
-        <pinyinPlugin>gengxin</pinyinPlugin>
-        <pinyinfunc>yunxugengxinkegengxindeyingyong</pinyinfunc>
-        <ChinesePlugin>更新</ChinesePlugin>
-        <ChineseFunc>允许通知可更新的应用</ChineseFunc>
-        <EnglishFunc>Allowed to renewable notice</EnglishFunc>
-    </plugin>
-    <plugin name="update">
-        <pinyinPlugin>gengxin</pinyinPlugin>
-        <pinyinfunc>zidongxiazaiheanzhuanggengxin</pinyinfunc>
-        <ChinesePlugin>更新</ChinesePlugin>
-        <ChineseFunc>自动下载和安装更新</ChineseFunc>
-        <EnglishFunc>Automatically download and install updates</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
-        <pinyinfunc>genggaimima</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
-        <ChineseFunc>更改密码</ChineseFunc>
-        <EnglishFunc>Change Password</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
-        <pinyinfunc>genggaiyonghuleixing</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
-        <ChineseFunc>更改用户类型</ChineseFunc>
-        <EnglishFunc>Change Type</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
-        <pinyinfunc>dangqianyonghu</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
-        <ChineseFunc>当前用户</ChineseFunc>
-        <EnglishFunc>CurrentUser</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
-        <pinyinfunc>mianmidenglu</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
-        <ChineseFunc>免密登录</ChineseFunc>
-        <EnglishFunc>Login without Password</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
-        <pinyinfunc>kaijizidongdenglu</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
-        <ChineseFunc>开机自动登录</ChineseFunc>
-        <EnglishFunc>Auto Login</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
-        <pinyinfunc>zidongdenglu</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
-        <ChineseFunc>其他用户</ChineseFunc>
-        <EnglishFunc>OthersUser</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>yonghuxinxi</pinyinPlugin>
-        <pinyinfunc>tianjiaxinyonghu</pinyinfunc>
-        <ChinesePlugin>用户信息</ChinesePlugin>
-        <ChineseFunc>添加新用户</ChineseFunc>
-        <EnglishFunc>Add new user</EnglishFunc>
-    </plugin>
-    <plugin name="vpn">
-        <pinyinPlugin>vpn</pinyinPlugin>
-        <pinyinfunc>tianjiavpnlianjie</pinyinfunc>
-        <ChinesePlugin>VPN</ChinesePlugin>
-        <ChineseFunc>添加VPN连接</ChineseFunc>
-        <EnglishFunc>Add Vpn Connection</EnglishFunc>
-    </plugin>
-    <plugin name="wallpaper">
-        <pinyinPlugin>beijing</pinyinPlugin>
-        <pinyinfunc>xuanzebeijingxingshi</pinyinfunc>
-        <ChinesePlugin>背景</ChinesePlugin>
-        <ChineseFunc>选择背景形式</ChineseFunc>
-        <EnglishFunc>Background Mode</EnglishFunc>
-    </plugin>
-    <plugin name="wallpaper">
-        <pinyinPlugin>beijing</pinyinPlugin>
-        <pinyinfunc>zhuomianbeijing</pinyinfunc>
-        <ChinesePlugin>背景</ChinesePlugin>
-        <ChineseFunc>桌面背景</ChineseFunc>
-        <EnglishFunc>Wallpaper</EnglishFunc>
-    </plugin>
-    <plugin name="wallpaper">
-        <pinyinPlugin>beijing</pinyinPlugin>
-        <pinyinfunc>liulanbendibizhi</pinyinfunc>
-        <ChinesePlugin>背景</ChinesePlugin>
-        <ChineseFunc>浏览本地壁纸</ChineseFunc>
-        <EnglishFunc>Browse Local Wallpaper</EnglishFunc>
-    </plugin>
-    <plugin name="wallpaper">
-        <pinyinPlugin>beijing</pinyinPlugin>
-        <pinyinfunc>huifumorenshezhi</pinyinfunc>
-        <ChinesePlugin>背景</ChinesePlugin>
-        <ChineseFunc>恢复默认设置</ChineseFunc>
-        <EnglishFunc>Reset Wallpaper</EnglishFunc>
-    </plugin>
-    <plugin name="wallpaper">
-        <pinyinPlugin>beijing</pinyinPlugin>
-        <pinyinfunc>liulanxianshangbizhi</pinyinfunc>
-        <ChinesePlugin>背景</ChinesePlugin>
-        <ChineseFunc>浏览线上壁纸</ChineseFunc>
-        <EnglishFunc>Browse Online Wallpaper</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>tongyishuchu</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>统一输出</ChineseFunc>
-        <EnglishFunc>Unify Output</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <Environment>v101</Environment>
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>yejianmoshi</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>夜间模式</ChineseFunc>
-        <EnglishFunc>Night Mode</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>fangxiang</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>方向</ChineseFunc>
-        <EnglishFunc>orientation</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>shuaxinlv</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>刷新率</ChineseFunc>
-        <EnglishFunc>frequency</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>suofangpingmu</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>缩放屏幕</ChineseFunc>
-        <EnglishFunc>screen zoom</EnglishFunc>
-    </plugin>
-    <plugin name="display">
-        <pinyinPlugin>xianshiqi</pinyinPlugin>
-        <pinyinfunc>liangdu</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>亮度</ChineseFunc>
-        <EnglishFunc>Brightness</EnglishFunc>
-    </plugin>
-    <plugin name="networkaccount">
-        <pinyinPlugin>yunzhanghu</pinyinPlugin>
-        <pinyinfunc>tongbunindeshezhi</pinyinfunc>
-        <ChinesePlugin>云帐户</ChinesePlugin>
-        <ChineseFunc>同步您的设置</ChineseFunc>
-        <EnglishFunc>Sync your settings</EnglishFunc>
-    </plugin>
-    <plugin name="networkaccount">
-        <pinyinPlugin>yunzhanghu</pinyinPlugin>
-        <pinyinfunc>zidongtongbu</pinyinfunc>
-        <ChinesePlugin>云帐户</ChinesePlugin>
-        <ChineseFunc>自动同步</ChineseFunc>
-        <EnglishFunc>Auto sync</EnglishFunc>
+        <ChineseFunc1>搜索</ChineseFunc1>
+        <ChineseFunc2>默认互联网搜索引擎</ChineseFunc2>
+        <EnglishFunc1>search</EnglishFunc1>
+        <EnglishFunc2>Default web searching engine</EnglishFunc2>
     </plugin>
     <plugin name="touchscreen">
         <pinyinPlugin>chumoping</pinyinPlugin>
@@ -1015,58 +1259,9 @@
     </plugin>
     <plugin name="touchscreen">
         <pinyinPlugin>chumoping</pinyinPlugin>
-        <pinyinfunc>chumopingbiaoshi</pinyinfunc>
-        <ChinesePlugin>触摸屏</ChinesePlugin>
-        <ChineseFunc>触摸屏标识</ChineseFunc>
-        <EnglishFunc>touch id</EnglishFunc>
-    </plugin>input device
-    <plugin name="touchscreen">
-        <pinyinPlugin>chumoping</pinyinPlugin>
         <pinyinfunc>chumoshebei</pinyinfunc>
         <ChinesePlugin>触摸屏</ChinesePlugin>
         <ChineseFunc>触摸设备</ChineseFunc>
         <EnglishFunc>input device</EnglishFunc>
-    </plugin>
-    <plugin name="Bluetooth">
-        <pinyinPlugin>lanya</pinyinPlugin>
-        <pinyinfunc>zairenwulanshangxianshilanyatubiao</pinyinfunc>
-        <ChinesePlugin>蓝牙</ChinesePlugin>
-        <ChineseFunc>在任务栏上显示蓝牙图标</ChineseFunc>
-        <EnglishFunc>Show icon on taskbar</EnglishFunc>
-    </plugin>
-    <plugin name="Bluetooth">
-        <pinyinPlugin>lanya</pinyinPlugin>
-        <pinyinfunc>kebeifujindelanyashebeifaxian</pinyinfunc>
-        <ChinesePlugin>蓝牙</ChinesePlugin>
-        <ChineseFunc>可被附近的蓝牙设备发现</ChineseFunc>
-        <EnglishFunc>Discoverable by nearby Bluetooth devices</EnglishFunc>
-    </plugin>
-    <plugin name="Bluetooth">
-        <pinyinPlugin>lanya</pinyinPlugin>
-        <pinyinfunc>lanyashebei</pinyinfunc>
-        <ChinesePlugin>蓝牙</ChinesePlugin>
-        <ChineseFunc>蓝牙设备</ChineseFunc>
-        <EnglishFunc>Other Devices</EnglishFunc>
-    </plugin>
-    <plugin name="vino">
-        <pinyinPlugin>zhuomiangongxiang</pinyinPlugin>
-        <pinyinfunc>gongxiang</pinyinfunc>
-        <ChinesePlugin>桌面共享</ChinesePlugin>
-        <ChineseFunc>共享</ChineseFunc>
-        <EnglishFunc>Remote</EnglishFunc>
-    </plugin>
-    <plugin name="vino">
-        <pinyinPlugin>zhuomiangongxiang</pinyinPlugin>
-        <pinyinfunc>yunxuqitarenyuanchenglianjienindezhuomian</pinyinfunc>
-        <ChinesePlugin>桌面共享</ChinesePlugin>
-        <ChineseFunc>允许其他人远程连接您的桌面</ChineseFunc>
-        <EnglishFunc>Allow others to view your desktop</EnglishFunc>
-    </plugin>
-    <plugin name="securitycenter">
-        <pinyinPlugin>anquanzhongxin</pinyinPlugin>
-        <pinyinfunc>dakaianquanzhongxin</pinyinfunc>
-        <ChinesePlugin>安全中心</ChinesePlugin>
-        <ChineseFunc>打开安全中心</ChineseFunc>
-        <EnglishFunc>Run Security Center</EnglishFunc>
     </plugin>
 </plugins>
