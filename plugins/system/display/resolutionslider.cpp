@@ -27,8 +27,9 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
        mExcludeModes.push_back(QSize(1152, 864));
     }
 
-    connect(output.data(), &KScreen::Output::currentModeIdChanged,
-            this, &ResolutionSlider::slotOutputModeChanged);
+      //outputconfig与unfiedoutputconfig中已经监听，这里不需要重复监听
+//    connect(output.data(), &KScreen::Output::currentModeIdChanged,
+//            this, &ResolutionSlider::slotOutputModeChanged);
 
     connect(output.data(), &KScreen::Output::modesChanged,
             this, &ResolutionSlider::init);
@@ -124,20 +125,6 @@ void ResolutionSlider::setResolution(const QSize &size)
     mComboBox->blockSignals(true);
     mComboBox->setCurrentIndex(mModes.indexOf(size));
     mComboBox->blockSignals(false);
-}
-
-void ResolutionSlider::slotOutputModeChanged()
-{
-    if (!mOutput->currentMode()) {
-        return;
-    }
-
-    if (mComboBox) {
-        mComboBox->blockSignals(true);
-        mComboBox->setCurrentIndex(mModes.indexOf(mOutput->currentMode()->size()));
-        mComboBox->blockSignals(false);
-        Q_EMIT resolutionsave(mModes.at(mComboBox->currentIndex()));
-    }
 }
 
 void ResolutionSlider::slotValueChanged(int value)

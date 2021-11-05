@@ -34,6 +34,7 @@ UnifiedOutputConfig::UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidg
     OutputConfig(parent),
     mConfig(config)
 {
+    mIsRestore = true;
 }
 
 UnifiedOutputConfig::~UnifiedOutputConfig()
@@ -66,6 +67,7 @@ void UnifiedOutputConfig::initUi()
     mResolution->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     mResolution->setMinimumSize(402, 30);
 
+    //监听，否则无法处理修改分辨率/刷新率未保存
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
             this, &UnifiedOutputConfig::slotRestoreResoltion);
 
@@ -92,7 +94,9 @@ void UnifiedOutputConfig::initUi()
 
     vbox->addWidget(resFrame);
     connect(mResolution, &ResolutionSlider::resolutionChanged,
-            this, &UnifiedOutputConfig::slotResolutionChanged);
+            this, [=](QSize size, bool emitFlag){
+                slotResolutionChanged(size, emitFlag);
+            });
 
     // 方向下拉框
     mRotation = new QComboBox(this);
@@ -144,8 +148,6 @@ void UnifiedOutputConfig::initUi()
     freshLabel->setMinimumSize(118, 30);
     freshLabel->setMaximumSize(118, 30);
 
-    mRefreshRate->addItem(tr("auto"), -1);
-
     QHBoxLayout *freshLayout = new QHBoxLayout();
     freshLayout->addWidget(freshLabel);
     freshLayout->addWidget(mRefreshRate);
@@ -160,7 +162,7 @@ void UnifiedOutputConfig::initUi()
     freshFrame->setMinimumWidth(552);
     freshFrame->setFixedHeight(50);
 
-    slotResolutionChanged(mResolution->currentResolution());
+    slotResolutionChanged(mResolution->currentResolution(), true);
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
         this, &UnifiedOutputConfig::slotRefreshRateChanged);
 
@@ -234,17 +236,16 @@ KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
     return fakeOutput;
 }
 
-void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
+void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 {
     // Ignore disconnected outputs
     if (!size.isValid()) {
         return;
     }
+    bool mIsModeInit = true;
     QVector<QString>Vrefresh;
     bool mIsCloneMode = isCloneMode();
-    for (int i = mRefreshRate->count(); i >= 0; --i) {
-        mRefreshRate->removeItem(i);
-    }
+    mRefreshRate->clear();
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         const QString &id = findBestMode(clone, size);
         if (id.isEmpty()) {
@@ -254,8 +255,12 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
         //本来就是镜像模式且当前分辨率就是选中分辨率，就不需要重新设置显示参数
         //用于镜像模式下刚打开控制面板时的显示，否则显示的不是实际刷新率而是findBestMode
         if (!mIsCloneMode || size != clone->currentMode()->size()) {
+            mIsModeInit = false;
+            clone->blockSignals(true); //必须加blockSignals，否则在这里就会触发currentModeIdChanged的信号
+            mIsRestore = false; //修改配置会触发currentModeIdChanged时，不运行slotRestoreResoltion
             clone->setCurrentModeId(id);
             clone->setPos(QPoint(0, 0));
+            clone->blockSignals(false);
         }
 
         QList<KScreen::ModePtr> modes;
@@ -314,7 +319,8 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
     if (mRefreshRate->count() == 0) {
         mRefreshRate->addItem(tr("auto"), -1);    
     }
-    Q_EMIT changed();
+    if (emitFlag && !mIsModeInit)
+        Q_EMIT changed();
 }
 
 void UnifiedOutputConfig::slotRefreshRateChanged(int index)
@@ -323,7 +329,10 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
             if (mode->size() == mResolution->currentResolution() && \
                     tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)) == mRefreshRate->itemText(index)) {
+                mIsRestore = false;
+                clone->blockSignals(true);
                 clone->setCurrentModeId(mode->id());
+                clone->blockSignals(false);
             }
         }
     }
@@ -359,9 +368,24 @@ void UnifiedOutputConfig::slotRotationChangedDerived(int index)
 }
 
 void UnifiedOutputConfig::slotRestoreResoltion()
-{    
-    if (!mOutput->currentMode().isNull() && !(mResolution->currentResolution() == mOutput->currentMode()->size())) {
-        mResolution->setResolution(mOutput->currentMode()->size());
+{
+    if (!mIsRestore || !mOutput->currentMode()) {
+        mIsRestore = true;
+        return;
+    }
+    if (mResolution->currentResolution() != mOutput->currentMode()->size()) { //分辨率改变时，触发该信号重新加载刷新率，用于修改分辨率之后但未保存
+        mResolution->setResolution(mOutput->currentMode()->size()); //这里面不会触发分辨率改变信号
+        slotResolutionChanged(mOutput->currentMode()->size(), false);
+    } else { //分辨率未修改，刷新率修改,用于修改刷新率之后但未保存
+        for (int i = 0; i < mRefreshRate->count(); i++) {
+           if (tr("%1 Hz").arg(QString::number(mOutput->currentMode()->refreshRate(),'f',2)) == mRefreshRate->itemText(i)\
+                   || mRefreshRate->count() == 1) {
+               mRefreshRate->blockSignals(true);
+               mRefreshRate->setCurrentIndex(i);
+               mRefreshRate->blockSignals(false);
+               break;
+           }
+        }
     }
 }
 
