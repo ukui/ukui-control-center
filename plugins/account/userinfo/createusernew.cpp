@@ -373,8 +373,8 @@ void CreateUserNew::nameLegalityCheck2(QString nickname){
         nickNameTip = tr("The nick name cannot be empty");
     }
 
-    if (QString::compare(nickname, usernameLineEdit->text()) == 0){
-        nickNameTip = tr("Nickname cannot same with username");
+    if (_allNames.contains(nickname)){
+        nickNameTip = tr("Name already in use, change another one.");
     } else {
         nickNameTip = tr("");
     }
@@ -390,6 +390,8 @@ void CreateUserNew::nameLegalityCheck2(QString nickname){
             setCunTextDynamic(tipLabel, surePwdTip);
         }
     }
+
+    refreshConfirmBtnStatus();
 
 }
 
@@ -437,10 +439,6 @@ void CreateUserNew::nameLegalityCheck(QString username){
 
     if (isHomeUserExists(username) && userNameTip.isEmpty()) {
         userNameTip = tr("Username's folder exists, change another one");
-    }
-
-    if (QString::compare(username, nicknameLineEdit->text()) == 0){
-        userNameTip = tr("Nickname cannot same with username");
     }
 
     setCunTextDynamic(tipLabel, userNameTip);

@@ -129,10 +129,11 @@ void ChangeUserNickname::initUI(){
     //中部输入区域
     contentVerLayout = new QVBoxLayout;
     contentVerLayout->setSpacing(10);
-    contentVerLayout->setContentsMargins(24, 0, 35, 24);
+    contentVerLayout->setContentsMargins(24, 0, 35, 0);
     contentVerLayout->addLayout(userNameHorLayout);
     contentVerLayout->addLayout(nickNameWithTipVerLayout);
     contentVerLayout->addLayout(computerNameHorLayout);
+    contentVerLayout->addStretch();
 
     //底部“取消”、“确定”按钮
     cancelBtn = new QPushButton();
