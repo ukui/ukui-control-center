@@ -22,7 +22,6 @@ SUBDIRS = \
           network/proxy \
           account/userinfo \
 #          account/userinfo_intel \
-          account/networkaccount \
           security-updates/backup \
           time-language/datetime \
           time-language/area
