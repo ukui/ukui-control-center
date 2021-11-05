@@ -166,8 +166,8 @@ void MouseUI::setDominantHandFrame()
     mDominantHandLabel->setMinimumWidth(140);
     mDominantHandLeftRadio = new QRadioButton(tr("Left hand"), this);
     mDominantHandRightRadio = new QRadioButton(tr("Right hand"), this);
-    mDominantHandLeftRadio->setProperty("dominatHand", "left-hand");
-    mDominantHandRightRadio->setProperty("dominatHand", "right-hand");
+    mDominantHandLeftRadio->setProperty("dominatHand", "left-key");
+    mDominantHandRightRadio->setProperty("dominatHand", "right-key");
     mDominantRadioGroup = new QButtonGroup(this);
     mDominantRadioGroup->addButton(mDominantHandLeftRadio);
     mDominantRadioGroup->addButton(mDominantHandRightRadio);
@@ -448,9 +448,9 @@ void MouseUI::gsettingConnection()
         if(key == "leftHanded") {
             int handHabit = mMouseGsetting->get(kDominantHandKey).toBool();
             if (handHabit == true) {
-                mDominantHandLeftRadio->setChecked(true);
-            } else {
                 mDominantHandRightRadio->setChecked(true);
+            } else {
+                mDominantHandLeftRadio->setChecked(true);
             }
         } else if(key == "wheelSpeed") {
             mWheelSpeedSlider->setValue(mMouseGsetting->get(kWheelSpeedKey).toInt());
@@ -500,13 +500,13 @@ void MouseUI::gsettingConnection()
 
 void MouseUI::initEnableStatus()
 {
-    //初始化惯用手
+    //初始化惯用手, 左手：右键为主键，右手：左键为主键
     mDominantRadioGroup->blockSignals(true);
     bool currentDominantHand = mMouseGsetting->get(kDominantHandKey).toBool();
     if (currentDominantHand == true) {
-        mDominantHandLeftRadio->setChecked(true);
-    } else {
         mDominantHandRightRadio->setChecked(true);
+    } else {
+        mDominantHandLeftRadio->setChecked(true);
     }
     mDominantRadioGroup->blockSignals(false);
 
@@ -567,10 +567,11 @@ void MouseUI::dominantHandSlot(QAbstractButton *button)
     QString dominantHand = button->property("dominatHand").toString();
     bool tmpLeftHand;
 
-    if (QString::compare(dominantHand, "left-hand") == 0) {
-        tmpLeftHand = true;
-    } else {
+    // 左键主键：右手、left-handed=false，右键主键：左手、left-handed=true
+    if (QString::compare(dominantHand, "left-key") == 0) {
         tmpLeftHand = false;
+    } else {
+        tmpLeftHand = true;
     }
 
     mMouseGsetting->set(kDominantHandKey, tmpLeftHand);
