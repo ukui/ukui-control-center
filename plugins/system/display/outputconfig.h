@@ -72,7 +72,7 @@ protected:
     bool mShowScaleOption = false;
     bool mIsWayland = false;
     bool mIsFirstLoad = true;
-    bool mIsRefreshChanged = false;
+    bool mIsRestore = true;  //非restore时不再去修改刷新率/分辨率，避免修改多次导致显示重复
 
     KScreen::ConfigPtr mConfig = nullptr;
 
