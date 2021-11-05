@@ -57,6 +57,68 @@ Provide an entry to add printers or scanners.
 
 ![Fig 8 Printer-big](image/8.png)
 
+### Projection
+ Projection provides the function of mirroring Android phones on KylinOS, and supports the control of return to facilitate the operation of mobile phones on the computer through the mouse and keyboard (supported by some mobile phones).
+
+ ![Fig 9 Projection main interface-big](image/48.png)
+
+ To use the projection function, you first need to turn on the projection switch.
+
+ ![Fig 10 Projection switch opening interface-big](image/49.png)
+
+ Select projection / wireless projection / mobile projection and other identification interfaces in the mobile phone drop-down menu (take Huawei mobile phone mate as an example).
+
+ ![Fig 11 Mobile terminal wireless projection opening interface-big](image/50.png)
+
+ Next, the mobile phone will automatically search and display the searched receiving device.
+
+ ![Fig 12 Mobile terminal wireless projection search interface-big](image/51.png)
+
+ Select your current KylinOS receiver device, such as my Kylin, etc.
+
+ ![Fig 13 Projection interface allowed at the receiving terminal-big](image/52.png)
+
+ Whether to allow projection will be displayed on the KylinOS receiving terminal, click allow.
+
+ ![Fig 14 The receiving terminal provides a pin code interface-big](image/53.png)
+
+ According to the pin code displayed at the KylinOS receiving terminal, enter the pin code at the mobile terminal and click connect.
+
+ ![Fig 15 Mobile terminal pin code input interface-big](image/54.png)
+
+ Next, the connection interface will be displayed at the KylinOS receiving terminal and projection terminal.
+
+ ![Fig 16 Mobile terminal connection interface-big](image/55.png)
+ ![Fig 17 Receiving terminal connection interface-big](image/56.png)
+
+ If the connection is successful, the screen of the mobile phone will be synchronously mirrored at the receiving terminal. Double click the screen to exit the full screen.
+
+ ![Fig 18 Vertical screen projection interface-big](image/57.png)
+ ![Fig 19 Horizontal screen projection interface-big](image/58.png)
+
+ To close the projection screen, double-click the screen to enter windowing, click "X" in the upper right corner to close it, or set the projection screen to gray (close) in the mobile phone drop-down menu to exit the wireless projection screen.
+
+**FAQ**
+
+1. If the screen is not successfully displayed, you can try to connect again. Usually, the mobile phone can be trusted after one connection. There is no need to enter the pin code for the next connection (also depends on the mobile phone design. Some mobile phones support credit without authentication connection).
+
+2. The name of the receiving device can be changed in the screen projection interface. Click the "pen" icon on the right side of the projection screen to enter the modification interface.
+
+![Fig 20 Projection terminal name modification interface-big](image/59.png)
+
+3. When the wireless network card is not inserted, or the wireless network card does not support the connection required for projection, it is necessary to insert the network card or replace the inserted network card.
+
+![Fig 21 Projection function unavailable interface(1)-big](image/60.png)
+
+4. When the background service is abnormal, the following prompt will appear. You can try to restart the system to solve this problem.
+
+![Fig 22 Projection function unavailable interface(2)-big](image/61.png)
+
+5. When the package with wireless projection is not installed or the package version is too low, the projection function will not be displayed in the control panel.
+
+![Fig 23 Projection function unavailable interface(3)-big](image/62.png)
+
+
 ### Mouse
 Customize the mouse key, pointer settings, and cursor settings.
 
