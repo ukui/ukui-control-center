@@ -206,8 +206,10 @@ void OutputConfig::initConnection()
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
             this, [=]() {
         mRefreshRate->blockSignals(true);
-        if (mOutput->currentMode())
+        if (mOutput->currentMode() && !mIsRefreshChanged) {
             slotResolutionChanged(mOutput->currentMode()->size(), false);
+            mIsRefreshChanged = false;
+        }
         mRefreshRate->blockSignals(false);
     });
 
@@ -335,8 +337,10 @@ void OutputConfig::slotRefreshRateChanged(int index)
         modeId = mRefreshRate->itemData(index).toString();
     }
     qDebug() << "modeId is:" << modeId << endl;
+    mOutput->blockSignals(true);
     mOutput->setCurrentModeId(modeId);
-
+    mOutput->blockSignals(false);
+    mIsRefreshChanged = true;
     Q_EMIT changed();
 }
 

@@ -72,12 +72,9 @@ protected:
     bool mShowScaleOption = false;
     bool mIsWayland = false;
     bool mIsFirstLoad = true;
+    bool mIsRefreshChanged = false;
 
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    KScreen::ConfigPtr mConfig;
-#else
     KScreen::ConfigPtr mConfig = nullptr;
-#endif
 
     QGSettings *mDpiSettings = nullptr;
 };
