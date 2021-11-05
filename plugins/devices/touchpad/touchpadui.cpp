@@ -147,9 +147,9 @@ void TouchpadUI::initUI()
      //~ contents_path /Touchpad/Scrolling area
     mScrollAreaLabel = new QLabel(tr("Scrolling area"), this);
     mScrollTypeComBox = new QComboBox;
-    mScrollTypeComBox->addItem(tr("Disable scrolling"), N_SCROLLING);
-    mScrollTypeComBox->addItem(tr("Edge scrolling"), V_EDGE_KEY);
     mScrollTypeComBox->addItem(tr("Two-finger scrolling in the middle area"), V_FINGER_KEY);
+    mScrollTypeComBox->addItem(tr("Edge scrolling"), V_EDGE_KEY);
+    mScrollTypeComBox->addItem(tr("Disable scrolling"), N_SCROLLING);
     ScrollAreaHLayout->addSpacing(7);
     ScrollAreaHLayout->addWidget(mScrollAreaLabel);
     ScrollAreaHLayout->addWidget(mScrollTypeComBox);
@@ -254,8 +254,10 @@ void TouchpadUI::initEnableStatus()
     mScrollTypeComBox->setCurrentIndex(mScrollTypeComBox->findData(_findKeyScrollingType()));
     mScrollTypeComBox->blockSignals(false);
 
-    // 默认水平双指滚动有效
-    mTouchpadGsetting->set(H_FINGER_KEY, true);
+    // 非禁用模式下默认水平双指滚动有效
+    if (QString::compare(N_SCROLLING, mScrollTypeComBox->currentData().toString()) != 0) {
+        mTouchpadGsetting->set(H_FINGER_KEY, true);
+    }
 }
 
 QString TouchpadUI::_findKeyScrollingType()
@@ -310,7 +312,13 @@ void TouchpadUI::scrolltypeSlot()
     QString data = mScrollTypeComBox->currentData().toString();
     if (QString::compare(data, N_SCROLLING) != 0) {
         mTouchpadGsetting->set(data, true);
+        mTouchpadGsetting->set(H_FINGER_KEY, true);
     }
+
+    if (QString::compare(data, N_SCROLLING) == 0) {
+        mTouchpadGsetting->set(V_EDGE_KEY, false);
+        mTouchpadGsetting->set(V_FINGER_KEY, false);
+        mTouchpadGsetting->set(H_FINGER_KEY, false);
+    }
+
 }
-
-
