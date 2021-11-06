@@ -28,6 +28,7 @@
 #include <QGridLayout>
 #include <QPluginLoader>
 #include <QEvent>
+#include <QMessageBox>
 #include <time.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -71,17 +72,17 @@ About::~About()
     }
 }
 
-QString About::get_plugin_name()
+QString About::plugini18nName()
 {
     return pluginName;
 }
 
-int About::get_plugin_type()
+int About::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *About::get_plugin_ui()
+QWidget *About::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -94,23 +95,37 @@ QWidget *About::get_plugin_ui()
         initActiveDbus();
 
         setupVersionCompenent();
+        setVersionNumCompenent();
+        setHostNameCompenet();
         setupSystemVersion();
         setupDesktopComponent();
         setupKernelCompenent();
         setupDiskCompenet();
         setupSerialComponent();
+        setPrivacyCompent();
     }
 
     return pluginWidget;
 }
 
-void About::plugin_delay_control()
-{
-}
-
 const QString About::name() const
 {
-    return QStringLiteral("about");
+    return QStringLiteral("About");
+}
+
+bool About::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon About::icon() const
+{
+    return QIcon();
+}
+
+bool About::isEnable() const
+{
+    return true;
 }
 
 /* 初始化整体UI布局 */
@@ -132,9 +147,7 @@ void About::initUI(QWidget *widget)
     AboutLayout->addWidget(mTitleLabel);
 
     mInformationFrame = new QFrame(Aboutwidget);
-    mInformationFrame->setMinimumSize(QSize(550, 0));
-    mInformationFrame->setMaximumSize(QSize(16777215, 16777215));
-    mInformationFrame->setFrameShape(QFrame::Box);
+    setFrame_Box(mInformationFrame);
 
     QVBoxLayout *mInformationLayout = new QVBoxLayout(mInformationFrame);
     mInformationLayout->setContentsMargins(16, 16, 16, 8);
@@ -144,11 +157,10 @@ void About::initUI(QWidget *widget)
 
     mInformationLayout->addWidget(mLogoLabel);
 
+     /* 版本名称 */
     mVersionFrame = new QFrame(mInformationFrame);
     mVersionFrame->installEventFilter(this);
-    mVersionFrame->setMinimumSize(QSize(550, 30));
-    mVersionFrame->setMaximumSize(QSize(16777215, 30));
-    mVersionFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mVersionFrame);
 
     QHBoxLayout *mVersionLayout = new QHBoxLayout(mVersionFrame);
     mVersionLayout->setContentsMargins(0, 0, 16, 0);
@@ -166,10 +178,49 @@ void About::initUI(QWidget *widget)
 
     mInformationLayout->addWidget(mVersionFrame);
 
+     /* 版本号 */
+    mVersionNumberFrame = new QFrame(mInformationFrame);
+    setFrame_NoFrame(mVersionNumberFrame);
+
+    QHBoxLayout *mVersionNumberLayout = new QHBoxLayout(mVersionNumberFrame);
+    mVersionNumberLayout->setContentsMargins(0, 0, 16, 0);
+
+    mVersionNumberLabel_1 = new QLabel(tr("Version Number") , mVersionNumberFrame);
+    mVersionNumberLabel_1->setFixedSize(80,30);
+
+    mVersionNumberLabel_2 = new QLabel(mVersionNumberFrame);
+    mVersionNumberLabel_2->setFixedHeight(30);
+
+    mVersionNumberLayout->addWidget(mVersionNumberLabel_1);
+    mVersionNumberLayout->addSpacing(80);
+    mVersionNumberLayout->addWidget(mVersionNumberLabel_2);
+    mVersionNumberLayout->addStretch();
+
+    mInformationLayout->addWidget(mVersionNumberFrame);
+
+    /* 内部版本 */
+    mInterVersionFrame = new QFrame(mInformationFrame);
+    setFrame_NoFrame(mInterVersionFrame);
+
+    QHBoxLayout *mInterVersionLayout = new QHBoxLayout(mInterVersionFrame);
+    mInterVersionLayout->setContentsMargins(0, 0, 16, 0);
+
+    mInterVersionLabel_1 = new FixLabel(tr("InterVersion") , mInterVersionFrame);
+    mInterVersionLabel_1->setFixedSize(80,30);
+
+    mInterVersionLabel_2 = new FixLabel(mInterVersionFrame);
+    mInterVersionLabel_2->setFixedHeight(30);
+
+    mInterVersionLayout->addWidget(mInterVersionLabel_1);
+    mInterVersionLayout->addSpacing(80);
+    mInterVersionLayout->addWidget(mInterVersionLabel_2);
+    mInterVersionLayout->addStretch();
+
+    mInformationLayout->addWidget(mInterVersionFrame);
+
+     /* Intel版本号 */
     mVersionNumFrame = new QFrame(mInformationFrame);
-    mVersionNumFrame->setMinimumSize(QSize(550, 30));
-    mVersionNumFrame->setMaximumSize(QSize(16777215, 30));
-    mVersionNumFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mVersionNumFrame);
 
     QHBoxLayout *mVersionNumLayout = new QHBoxLayout(mVersionNumFrame);
     mVersionNumLayout->setContentsMargins(0, 0, 16, 0);
@@ -187,10 +238,42 @@ void About::initUI(QWidget *widget)
 
     mInformationLayout->addWidget(mVersionNumFrame);
 
+    mHostNameFrame = new QFrame(mInformationFrame);
+    setFrame_NoFrame(mHostNameFrame);
+
+    QHBoxLayout *mHostNameLayout = new QHBoxLayout(mHostNameFrame);
+    mHostNameLayout->setContentsMargins(0, 0, 16, 0);
+
+    QHBoxLayout *mHostNameLayout_1 = new QHBoxLayout();
+    mHostNameLayout_1->setContentsMargins(0, 0, 0, 0);
+
+    mHostNameLabel_1 = new QLabel(tr("HostName") , mHostNameFrame);
+    mHostNameLabel_1->setFixedSize(80,30);
+
+    mHostNameLabel_2 = new QLabel(mHostNameFrame );
+    mHostNameLabel_2->setFixedHeight(30);
+
+    mHostNameLabel_3 = new QLabel(mHostNameFrame);
+    mHostNameLabel_3->setFixedSize(16 ,24);
+    mHostNameLabel_3->setProperty("useIconHighlightEffect", 0x8);
+    mHostNameLabel_3->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(mHostNameLabel_3->size()));
+
+    mHostNameLabel_2->installEventFilter(this);
+    mHostNameLabel_3->installEventFilter(this);
+
+    mHostNameLayout_1->setSpacing(4);
+    mHostNameLayout_1->addWidget(mHostNameLabel_2);
+    mHostNameLayout_1->addWidget(mHostNameLabel_3);
+
+    mHostNameLayout->addWidget(mHostNameLabel_1);
+    mHostNameLayout->addSpacing(80);
+    mHostNameLayout->addLayout(mHostNameLayout_1);
+    mHostNameLayout->addStretch();
+
+    mInformationLayout->addWidget(mHostNameFrame);
+
     mKernelFrame = new QFrame(mInformationFrame);
-    mKernelFrame->setMinimumSize(QSize(550, 30));
-    mKernelFrame->setMaximumSize(QSize(16777215, 30));
-    mKernelFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mKernelFrame);
 
     QHBoxLayout *mKernerLayout = new QHBoxLayout(mKernelFrame);
     mKernerLayout->setContentsMargins(0, 0, 16, 0);
@@ -209,9 +292,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mKernelFrame);
 
     mCpuFrame = new QFrame(mInformationFrame);
-    mCpuFrame->setMinimumSize(QSize(550, 30));
-    mCpuFrame->setMaximumSize(QSize(16777215, 30));
-    mCpuFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mCpuFrame);
 
     QHBoxLayout *mCpuLayout = new QHBoxLayout(mCpuFrame);
     mCpuLayout->setContentsMargins(0, 0, 16, 0);
@@ -230,9 +311,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mCpuFrame);
 
     mMemoryFrame = new QFrame(mInformationFrame);
-    mMemoryFrame->setMinimumSize(QSize(550, 30));
-    mMemoryFrame->setMaximumSize(QSize(16777215, 30));
-    mMemoryFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mMemoryFrame);
 
     QHBoxLayout *mMemoryLayout = new QHBoxLayout(mMemoryFrame);
     mMemoryLayout->setContentsMargins(0, 0, 16, 0);
@@ -251,9 +330,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mMemoryFrame);
 
     mDiskFrame = new QFrame(mInformationFrame);
-    mDiskFrame->setMinimumSize(QSize(550, 30));
-    mDiskFrame->setMaximumSize(QSize(16777215, 30));
-    mDiskFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mDiskFrame);
 
     mDiskLayout = new QHBoxLayout(mDiskFrame);
     mDiskLayout->setContentsMargins(0, 0, 16, 0);
@@ -272,9 +349,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mDiskFrame);
 
     mDesktopFrame = new QFrame(mInformationFrame);
-    mDesktopFrame->setMinimumSize(QSize(550, 30));
-    mDesktopFrame->setMaximumSize(QSize(16777215, 30));
-    mDesktopFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mDesktopFrame);
 
     QHBoxLayout *mDesktopLayout = new QHBoxLayout(mDesktopFrame);
     mDesktopLayout->setContentsMargins(0, 0, 16, 0);
@@ -293,9 +368,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->addWidget(mDesktopFrame);
 
     mUsernameFrame = new QFrame(mInformationFrame);
-    mUsernameFrame->setMinimumSize(QSize(550, 30));
-    mUsernameFrame->setMaximumSize(QSize(16777215, 30));
-    mUsernameFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_NoFrame(mUsernameFrame);
 
     QHBoxLayout *mUsernameLayout = new QHBoxLayout(mUsernameFrame);
     mUsernameLayout->setContentsMargins(0, 0, 16, 0);
@@ -313,10 +386,30 @@ void About::initUI(QWidget *widget)
 
     mInformationLayout->addWidget(mUsernameFrame);
 
+    mPriTitleLabel = new TitleLabel(Aboutwidget);
+    mPriTitleLabel->setText(tr("Privacy and agreement"));
+
+    mPrivacyFrame = new QFrame(Aboutwidget);
+    setFrame_Box(mPrivacyFrame);
+
+    QGridLayout *mPriLayout = new QGridLayout(mPrivacyFrame);
+    mPriLayout->setVerticalSpacing(8);
+    mPriLayout->setContentsMargins(16, 16, 16, 8);
+
+    QLabel *mPriLabel_1 = new QLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
+    mPriLabel_1->setFixedHeight(30);
+    QLabel *mPriLabel_2 = new QLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
+    mPriLabel_2->setFixedHeight(30);
+     mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
+
+    mPriBtn = new SwitchButton(mPrivacyFrame);
+
+    mPriLayout->addWidget(mPriLabel_1 , 0 , 0 , 3 , 4);
+    mPriLayout->addWidget(mPriLabel_2 , 3, 0 , 3 , 4);
+    mPriLayout->addWidget(mPriBtn , 1 , 4 , 4 , 4 ,Qt::AlignRight);
+
     mActivationFrame = new QFrame(Aboutwidget);
-    mActivationFrame->setMinimumSize(QSize(550, 0));
-    mActivationFrame->setMaximumSize(QSize(16777215, 16777215));
-    mActivationFrame->setFrameShape(QFrame::Box);
+    setFrame_Box(mActivationFrame);
 
     QGridLayout *mActivationLayout = new QGridLayout(mActivationFrame);
     mActivationLayout->setVerticalSpacing(8);
@@ -343,19 +436,29 @@ void About::initUI(QWidget *widget)
     mActivationLayout->addWidget(mTimeLabel_2, 4, 1, 2, 3,Qt::AlignLeft);
     mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1, Qt::AlignRight);
 
-    mTrialBtn = new QPushButton(Aboutwidget);
-    mTrialBtn->setFixedSize(200,40);
-    mTrialBtn->setStyleSheet("background: transparent;border-width:1px;"
+    mTipLabel = new QLabel(tr("Copyright © 2009-2021 KylinSoft. All rights reserved.") , Aboutwidget);
+    mTipLabel->setContentsMargins(16 , 0 , 0 , 0);
+
+    mBtnFrame = new QFrame(Aboutwidget);
+    mBtnFrame->setMinimumSize(QSize(550, 0));
+    mBtnFrame->setMaximumSize(QSize(16777215, 16777215));
+    mBtnFrame->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mBtnLyt = new QHBoxLayout(mBtnFrame);
+    mBtnLyt->setContentsMargins(16, 0, 0, 0);
+    mTrialLabel = new QLabel(tr("<<Protocol>>") , mBtnFrame);
+    mAndLabel = new QLabel(tr("and") , mBtnFrame);
+    mAgreeLabel = new QLabel(tr("<<Privacy>>") , mBtnFrame);
+    mTrialLabel->setStyleSheet("background: transparent;color:#2FB3E8;border-width:1px;"
                      "text-decoration:underline;border-style:none none none;");
-
-    QHBoxLayout *mTrialLayout = new QHBoxLayout(mTrialBtn);
-    mTrialLayout->setContentsMargins(0, 0, 0, 0);
-
-    mTrialLabel = new QLabel(mTrialBtn);
-    mTrialLabel->setContentsMargins(16, 0, 0, 0);
-
-    mTrialLayout->addWidget(mTrialLabel,Qt::AlignLeft);
-    mTrialLayout->addStretch();
+    mAgreeLabel->setStyleSheet("background: transparent;color:#2FB3E8;border-width:1px;"
+                     "text-decoration:underline;border-style:none none none;");
+    mTrialLabel->installEventFilter(this);
+    mAgreeLabel->installEventFilter(this);
+    mBtnLyt->addWidget(mTrialLabel);
+    mBtnLyt->addWidget(mAndLabel);
+    mBtnLyt->addWidget(mAgreeLabel);
+    mBtnLyt->addStretch();
 
     mHoldTitleLabel = new TitleLabel(Aboutwidget);
 
@@ -388,8 +491,12 @@ void About::initUI(QWidget *widget)
 
     AboutLayout->addWidget(mInformationFrame);
     AboutLayout->addWidget(mActivationFrame);
-    AboutLayout->addWidget(mTrialBtn);
-    AboutLayout->addSpacing(8);
+     AboutLayout->addWidget(mTipLabel);
+    AboutLayout->addSpacing(32);
+    AboutLayout->addWidget(mPriTitleLabel);
+    AboutLayout->addWidget(mPrivacyFrame);
+    AboutLayout->addSpacing(-8);
+    AboutLayout->addWidget(mBtnFrame);
     AboutLayout->addWidget(mHoldTitleLabel);
     AboutLayout->addWidget(mHoldWidget);
 
@@ -410,7 +517,7 @@ void About::retranslateUi()
     mHpLabel->setText(tr("Wechat code scanning obtains HP professional technical support"));
     mEducateLabel->setText(tr("See more about Kylin Tianqi edu platform"));
 
-    mTrialLabel->setText(tr("<<Protocol>>"));
+//    mTrialLabel->setText(tr("<<Protocol>>"));
 
 
     //Intel部分
@@ -452,19 +559,19 @@ void About::retranslateUi()
 /* 添加搜索索引 */
 void About::initSearchText()
 {
-    //~ contents_path /about/version
+    //~ contents_path /About/version
     mVersionLabel_1->setText(tr("Version"));
-    //~ contents_path /about/Kernel
+    //~ contents_path /About/Kernel
     mKernelLabel_1->setText(tr("Kernel"));
-    //~ contents_path /about/CPU
+    //~ contents_path /About/CPU
     mCpuLabel_1->setText(tr("CPU"));
-    //~ contents_path /about/Memory
+    //~ contents_path /About/Memory
     mMemoryLabel_1->setText(tr("Memory"));
-    //~ contents_path /about/Desktop
+    //~ contents_path /About/Desktop
     mDesktopLabel_1->setText(tr("Desktop"));
-    //~ contents_path /about/User
+    //~ contents_path /About/User
     mUsernameLabel_1->setText(tr("User"));
-     //~ contents_path /about/Status
+     //~ contents_path /About/Status
     mStatusLabel_1->setText(tr("Status"));
     mSequenceLabel_1->setText(tr("Serial"));
     mTimeLabel_1->setText(tr("DateRes"));
@@ -521,7 +628,8 @@ void About::setupSerialComponent()
         mActivationBtn->setText(tr("Active"));
     } else {    //已激活
         mActivationBtn->hide();
-        mTrialBtn->hide();
+        mTrialLabel->hide();
+        mAndLabel->hide();
         mStatusLabel_2->setText(tr("Activated"));
         mTimeLabel_2->setText(dateRes);
         QTimer::singleShot( 1, this, [=](){
@@ -529,6 +637,7 @@ void About::setupSerialComponent()
             if (s1.isNull()) {    //未连接上网络
                 mTimeLabel_2->setText(dateRes);
             } else {    //获取到网络时间
+                qDebug()<<"网络时间 : "<<s1;
                 QStringList list_1 = s1.split(" ");
                 QStringList list_2 = dateRes.split("-");
 
@@ -553,13 +662,51 @@ void About::setupSerialComponent()
         });
     }
     connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
-    connect(mTrialBtn, &QPushButton::clicked, this, [=](){
-        TrialDialog *mDialog = new TrialDialog(pluginWidget);
-        mDialog->show();
-    });
 }
 
-/* 获取logo图片 */
+/* 获取内部版本号 */
+void About::setVersionNumCompenent()
+{
+//    QString InterVersion = nullptr;
+//    QString VersionNumPath = "/etc/kylin-build";
+//    QStringList mCentent = readFile(VersionNumPath);
+//     for (QString str : mCentent) {
+//         if (str.contains("Build")) {
+//             QRegExp rx("^Build (.*)$");
+//             int pos = rx.indexIn(str);
+//             if (pos > -1) {
+//                 InterVersion = rx.cap(1);
+//                mInterVersionLabel_2->setText(InterVersion);
+//                mVersionNumberLabel_2->setText(InterVersion.mid(2 , 4));
+//                mInterVersionFrame->hide();
+//             }
+//         }
+//     }
+    mInterVersionFrame->hide();
+    QString InfoPath = "/etc/.kyinfo";
+     QFile file(InfoPath);
+     if (file.exists()) {
+         QStringList mCentent = readFile(InfoPath);
+          for (QString str : mCentent) {
+              if (str.contains("dist_id=")) {
+                  QRegExp rx("^(.*)Release-(.*)-(.*).iso$");
+                  int pos = rx.indexIn(str);
+//                  qDebug()<<rx.cap(1)<<"-----------"<<rx.cap(2)<<"---------------"<<rx.cap(3);
+                  if (pos > -1) {
+                      mVersionNumberLabel_2->setText(rx.cap(2));
+                  } else {
+                      mVersionNumberFrame->hide();
+                  }
+              }
+          }
+     } else {
+         mVersionNumberFrame->hide();
+     }
+
+
+}
+
+/* 获取logo图片和版本名称 */
 void About::setupVersionCompenent()
 {
     QString versionPath = "/etc/os-release";
@@ -603,9 +750,9 @@ void About::setupVersionCompenent()
     }
 
     if (!version.isEmpty()) {
-        setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+        setLabelText(mVersionLabel_2,version);
         connect(this,&About::resize,[=](){
-           setLabelText(mVersionLabel_2,version + "  " + tr("Copyright © 2009-2021 KylinSoft. All rights reserved."));
+           setLabelText(mVersionLabel_2,version);
         });
     }
 
@@ -629,7 +776,8 @@ void About::setupVersionCompenent()
        }
     } else {
         mActivationFrame->setVisible(false);
-        mTrialBtn->setVisible(false);
+        mTrialLabel->setVisible(false);
+        mAndLabel->setVisible(false);
         mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.svg"));
     }
 
@@ -755,8 +903,14 @@ void About::setupSystemVersion()
         mVersionNumFrame->hide();
         mDiskFrame->hide();
         mHoldWidget->hide();
-        mHoldTitleLabel->hide();
+        mHoldTitleLabel->hide();        
         return;
+    } else {
+        mPrivacyFrame->hide();
+        mHostNameFrame->hide();
+        mPriTitleLabel->hide();
+        mAndLabel->hide();
+        mAgreeLabel->hide();
     }
 
     file.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -775,11 +929,35 @@ void About::setupSystemVersion()
     mVersionNumLabel_2->setText(content2);
 }
 
+void About::setHostNameCompenet()
+{
+    mHostNameLabel_2->setText(Utils::getHostName());
+}
+
+void About::setPrivacyCompent()
+{
+    QDBusInterface *PriDBus = new QDBusInterface("com.kylin.daq",
+                                                             "/com/kylin/daq",
+                                                             "com.kylin.daq.interface",
+                                                             QDBusConnection::sessionBus(), this);
+    if (!PriDBus->isValid()) {
+        qDebug()<<"create pridbus error";
+        return;
+    }
+    QDBusReply<int> reply = PriDBus->call("getUploadState");
+    mPriBtn->setChecked(reply == 0 ? false : true);
+
+    connect(mPriBtn,&SwitchButton::checkedChanged ,this ,[=](bool status){
+         PriDBus->call("setUploadState" , (status ? 1 : 0));
+    } );
+}
+
 void About::showExtend(QString dateres)
 {
     mTimeLabel_2->setText(dateres+QString("(%1)").arg(tr("expired")));
     mActivationBtn->setVisible(true);
-    mTrialBtn->setVisible(true);
+    mTrialLabel->setVisible(true);
+    mAndLabel->setVisible(true);
     mActivationBtn->setText(tr("Extend"));
 }
 
@@ -871,6 +1049,18 @@ int About::getMonth(QString month)
     }
 }
 
+void About::reboot()
+{
+    QDBusInterface *rebootDbus = new QDBusInterface("org.gnome.SessionManager",
+                                                             "/org/gnome/SessionManager",
+                                                             "org.gnome.SessionManager",
+                                                             QDBusConnection::sessionBus());
+
+    rebootDbus->call("reboot");
+    delete rebootDbus;
+    rebootDbus = nullptr;
+}
+
 /* 处理文本宽度 */
 void About::setLabelText(QLabel *label, QString text)
 {
@@ -888,12 +1078,47 @@ void About::setLabelText(QLabel *label, QString text)
 /* 处理窗口缩放时的文本显示 */
 bool About::eventFilter(QObject *obj, QEvent *event)
 {
-    if (obj == mVersionFrame) {
+    if (obj == mVersionFrame ) {
         if (event->type() == QEvent::Resize) {
             mVersionLabel_2->setFixedWidth(mVersionFrame->width()-176);
             emit resize();
         }
         return false;
+    } else if (obj == mHostNameLabel_2 || obj == mHostNameLabel_3) {
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton ){
+                QString str = Utils::getHostName();
+                HostNameDialog *mdialog = new HostNameDialog(pluginWidget);
+                mdialog->exec();
+                if (str !=  Utils::getHostName()) {
+                    QMessageBox *mReboot = new QMessageBox(pluginWidget);
+                    mReboot->setIcon(QMessageBox::Warning);
+                    mReboot->setText(tr("The system needs to be restarted to set the HostName, whether to reboot"));
+                    mReboot->addButton(tr("Reboot Now"), QMessageBox::AcceptRole);
+                    mReboot->addButton(tr("Reboot Later"), QMessageBox::RejectRole);
+                    int ret = mReboot->exec();
+                    switch (ret) {
+                    case QMessageBox::AcceptRole:
+                        sleep(1);
+                        reboot();
+                        break;
+                    }
+                    mHostNameLabel_2->setText(Utils::getHostName());
+                }
+            }
+        }
+    } else if (obj == mTrialLabel) {
+         if (event->type() == QEvent::MouseButtonPress) {
+             TrialDialog *mDialog = new TrialDialog(pluginWidget);
+             mDialog->show();
+         }
+    } else if (obj == mAgreeLabel) {
+        if (event->type() == QEvent::MouseButtonPress) {
+            QDialog *mDialog = new QDialog(pluginWidget);
+            mDialog->setFixedSize(QSize(560 , 560));
+            mDialog->show();
+        }
     }
     return false;
 }
@@ -1005,6 +1230,20 @@ QString About::getTotalMemory()
     memtotal = pow(2.0, nPow);
 
     return QString::number(memtotal) + "GB (" + QString::number(memAvaliable, 'f', 1)+ "GB "+tr("avaliable") +")";
+}
+
+void About::setFrame_Box(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 0));
+    frame->setMaximumSize(QSize(16777215, 16777215));
+    frame->setFrameShape(QFrame::Box);
+}
+
+void About::setFrame_NoFrame(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 30));
+    frame->setMaximumSize(QSize(16777215, 30));
+    frame->setFrameShape(QFrame::NoFrame);
 }
 
 void About::activeSlot(int activeSignal)

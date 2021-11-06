@@ -59,15 +59,15 @@ QFrame * UtilsForUserinfo::buildItemForUsers(){
 
 
     subUserInfoVerLayout = new QVBoxLayout();
-    subUserInfoVerLayout->setSpacing(4);
+    subUserInfoVerLayout->setSpacing(0);
     subUserInfoVerLayout->setContentsMargins(0, 0, 0, 0);
-    subUserInfoVerLayout->addStretch();
+//    subUserInfoVerLayout->addStretch();
     subUserInfoVerLayout->addWidget(nickNameLabel, Qt::AlignHCenter);
     subUserInfoVerLayout->addWidget(typeLabel, Qt::AlignHCenter);
-    subUserInfoVerLayout->addStretch();
+//    subUserInfoVerLayout->addStretch();
 
     mUserInfoHorLayout = new QHBoxLayout();
-    mUserInfoHorLayout->setSpacing(16);
+    mUserInfoHorLayout->setSpacing(8);
     mUserInfoHorLayout->setContentsMargins(16, 0, 16, 0);
     mUserInfoHorLayout->addWidget(logoBtn);
     mUserInfoHorLayout->addLayout(subUserInfoVerLayout);

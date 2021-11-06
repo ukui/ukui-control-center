@@ -29,30 +29,42 @@ MouseControl::~MouseControl()
 {
 }
 
-QString MouseControl::get_plugin_name()
+QString MouseControl::plugini18nName()
 {
     return pluginName;
 }
 
-int MouseControl::get_plugin_type()
+int MouseControl::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *MouseControl::get_plugin_ui()
+QWidget *MouseControl::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new MouseUI;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     }
     return pluginWidget;
 }
 
-void MouseControl::plugin_delay_control()
-{
-}
-
 const QString MouseControl::name() const
 {
-    return QStringLiteral("mouse");
+    return QStringLiteral("Mouse");
+}
+
+bool MouseControl::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon MouseControl::icon() const
+{
+    return QIcon();
+}
+
+bool MouseControl::isEnable() const
+{
+    return true;
 }

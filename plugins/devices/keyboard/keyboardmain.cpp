@@ -46,7 +46,7 @@ void KeyboardMain::initUI()
 
     /* Input method */
     mInputMethodSetBtn = new QPushButton(this);
-    //~ contents_path /keyboard/Input settings
+    //~ contents_path /Keyboard/Input settings
     mInputMethodSetBtn->setText(tr("Input settings"));
     mInputMethodSetBtn->setFixedSize(QSize(160, 36));
 
@@ -84,7 +84,7 @@ void KeyboardMain::setKeyRepeatFrame()
 
     QHBoxLayout *KeyRepeatHLayout = new QHBoxLayout();
 
-    //~ contents_path /keyboard/Key repeat
+    //~ contents_path /Keyboard/Key repeat
     mKeyRepeatLabel = new QLabel(tr("Key repeat"), this);
     mKeyRepeatLabel->setMinimumWidth(140);
     mKeyRepeatBtn = new SwitchButton(this);
@@ -106,7 +106,7 @@ void KeyboardMain::setDelayFrame()
 
     QHBoxLayout *DelayHLayout = new QHBoxLayout();
 
-    //~ contents_path /keyboard/Delay
+    //~ contents_path /Keyboard/Delay
     mDelayLabel = new QLabel(tr("Delay"), this);
     mDelayLabel->setMinimumWidth(140);
     mDelayShortLabel =new QLabel(tr("Short"), this);
@@ -136,7 +136,7 @@ void KeyboardMain::setSpeedFrame()
 
     QHBoxLayout *SpeedHLayout = new QHBoxLayout();
 
-    //~ contents_path /keyboard/Speed
+    //~ contents_path /Keyboard/Speed
     mSpeedLabel = new QLabel(tr("Speed"), this);
     mSpeedLabel->setMinimumWidth(140);
     mSpeedSlowLabel = new QLabel(tr("Slow"), this);
@@ -144,7 +144,7 @@ void KeyboardMain::setSpeedFrame()
     mSpeedFastLabel = new QLabel(tr("Fast"), this);
     mSpeedFastLabel->setMinimumWidth(40);
     mSpeedSlider = new QSlider(Qt::Horizontal);
-    mSpeedSlider->setMaximum(10);
+    mSpeedSlider->setMinimum(10);
     mSpeedSlider->setMaximum(110);
     mSpeedSlider->setPageStep(1);
     SpeedHLayout->addSpacing(7);
@@ -166,7 +166,7 @@ void KeyboardMain::setInputTestFrame()
 
     QHBoxLayout *InputTestHLayout = new QHBoxLayout();
 
-     //~ contents_path /keyboard/Input test
+     //~ contents_path /Keyboard/Input test
     mInputTestLabel = new QLabel(tr("Input test"), this);
     mInputTestLabel->setMinimumWidth(140);
     mInputTestLine = new QLineEdit(this);
@@ -187,7 +187,7 @@ void KeyboardMain::setKeyTipsFrame()
 
     QHBoxLayout *KeyTipsHLayout = new QHBoxLayout;
 
-     //~ contents_path /keyboard/Key tips
+     //~ contents_path /Keyboard/Key tips
     mKeyTipsLabel = new QLabel(tr("Key tips"), this);
     mKeyTipsLabel->setMinimumWidth(140);
     mKeyTipsBtn = new SwitchButton(this);

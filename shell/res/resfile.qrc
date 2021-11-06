@@ -45,14 +45,6 @@
         <file>titlebar/back.svg</file>
         <file>plugins/netconnect/eth.svg</file>
         <file>plugins/netconnect/nonet.svg</file>
-        <file>plugins/securitycenter/kysec.png</file>
-        <file>plugins/securitycenter/kysecHover.png</file>
-        <file>plugins/securitycenter/net.png</file>
-        <file>plugins/securitycenter/netHover.png</file>
-        <file>plugins/securitycenter/protect.png</file>
-        <file>plugins/securitycenter/protectHover.png</file>
-        <file>plugins/securitycenter/user.png</file>
-        <file>plugins/securitycenter/userHover.png</file>
         <file>plugins/theme/selected.svg</file>
         <file>plugins/shortcut/up.svg</file>
         <file>plugins/shortcut/down.svg</file>
@@ -71,18 +63,6 @@
         <file>plugins/upgrade/refresh.png</file>
         <file>plugins/upgrade/update.png</file>
         <file>plugins/upgrade/normal.png</file>
-        <file>plugins/securitycenter/icon_scanning_b48@1x.png</file>
-        <file>plugins/securitycenter/icon_scanning_w48@1x.png</file>
-        <file>plugins/securitycenter/kysec_48_white.png</file>
-        <file>plugins/securitycenter/kysec_48.png</file>
-        <file>plugins/securitycenter/net_48_white.png</file>
-        <file>plugins/securitycenter/net_48.png</file>
-        <file>plugins/securitycenter/protect_48_white.png</file>
-        <file>plugins/securitycenter/protect_48.png</file>
-        <file>plugins/securitycenter/set2@2x_1.png</file>
-        <file>plugins/securitycenter/set2px.png</file>
-        <file>plugins/securitycenter/user_48_white.png</file>
-        <file>plugins/securitycenter/user_48.png</file>
         <file>plugins/upgrade/kylin-update-desktop-app.png</file>
         <file>plugins/upgrade/kylin-update-desktop-kernel-3a4000.png</file>
         <file>plugins/upgrade/kylin-update-desktop-security.png</file>
@@ -185,13 +165,60 @@
         <file>plugins/netconnect/7-black.png</file>
         <file>plugins/netconnect/8-black.png</file>
         <file>plugins/netconnect/6-black.png</file>
+        <file>plugins/securitycenter/icon_scanning_b48@1x.png</file>
+        <file>plugins/securitycenter/icon_scanning_w48@1x.png</file>
+        <file>plugins/securitycenter/kysec_48_white.png</file>
+        <file>plugins/securitycenter/kysec_48.png</file>
+        <file>plugins/securitycenter/kysec.png</file>
+        <file>plugins/securitycenter/kysecHover.png</file>
+        <file>plugins/securitycenter/net_48_white.png</file>
+        <file>plugins/securitycenter/net_48.png</file>
+        <file>plugins/securitycenter/net.png</file>
+        <file>plugins/securitycenter/netHover.png</file>
+        <file>plugins/securitycenter/protect_48_white.png</file>
+        <file>plugins/securitycenter/protect_48.png</file>
+        <file>plugins/securitycenter/protect.png</file>
+        <file>plugins/securitycenter/protectHover.png</file>
+        <file>plugins/securitycenter/set2@2x_1.png</file>
+        <file>plugins/securitycenter/set2px.png</file>
+        <file>plugins/securitycenter/user_48_white.png</file>
+        <file>plugins/securitycenter/user_48.png</file>
+        <file>plugins/securitycenter/user.png</file>
+        <file>plugins/securitycenter/userHover.png</file>
+        <file>plugins/securitycenter/ rectangle_bule.png</file>
+        <file>plugins/securitycenter/ rectangle_white.png</file>
+        <file>plugins/securitycenter/bai.png</file>
+        <file>plugins/securitycenter/bingdufanghu-white.png</file>
+        <file>plugins/securitycenter/bingdufanghu.png</file>
+        <file>plugins/securitycenter/lan.png</file>
+        <file>plugins/securitycenter/saomiao-white.png</file>
+        <file>plugins/securitycenter/saomiao.png</file>
+        <file>plugins/securitycenter/user_sercity_white.png</file>
+        <file>plugins/securitycenter/user_sercity.png</file>
+        <file>plugins/securitycenter/yingyongkongzhiyubaohu-white.png</file>
+        <file>plugins/securitycenter/yingyonkongzhiyubaohu.png</file>
+        <file>plugins/securitycenter/anquanfanghu_good_white.png</file>
+        <file>plugins/securitycenter/anquanfanghu_good.png</file>
+        <file>plugins/securitycenter/anquanfanghu_warning_white.png</file>
+        <file>plugins/securitycenter/anquanfanghu_warning.png</file>
+        <file>plugins/securitycenter/bingdufanghu_good_white.png</file>
+        <file>plugins/securitycenter/bingdufanghu_good.png</file>
+        <file>plugins/securitycenter/bingdufanghu_warning_white.png</file>
+        <file>plugins/securitycenter/bingdufanghu_warning.png</file>
+        <file>plugins/securitycenter/wangluobaohu_good_white.png</file>
+        <file>plugins/securitycenter/wangluobaohu_good.png</file>
+        <file>plugins/securitycenter/wangluobaohu_warning_white.png</file>
+        <file>plugins/securitycenter/wangluobaohu_warning.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_good_white.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_good.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_warning_white.png</file>
+        <file>plugins/securitycenter/zhanghuanquan_warning.png</file>
         <file>dropArrow/ukui-down-symbolic.svg</file>
         <file>secondaryleftmenu/About.svg</file>
         <file>secondaryleftmenu/AirplaneMode.svg</file>
         <file>secondaryleftmenu/Area.svg</file>
         <file>secondaryleftmenu/Audio.svg</file>
         <file>secondaryleftmenu/Autoboot.svg</file>
-        <file>secondaryleftmenu/Background.svg</file>
         <file>secondaryleftmenu/Backup.svg</file>
         <file>secondaryleftmenu/Biometrics.svg</file>
         <file>secondaryleftmenu/Bluetooth.svg</file>
@@ -203,13 +230,13 @@
         <file>secondaryleftmenu/Experienceplan.svg</file>
         <file>secondaryleftmenu/Fonts.svg</file>
         <file>secondaryleftmenu/Gesture.svg</file>
-        <file>secondaryleftmenu/MobileHotspot.svg</file>
+        <file>secondaryleftmenu/mobilehotspot.svg</file>
         <file>secondaryleftmenu/Keyboard.svg</file>
         <file>secondaryleftmenu/Mouse.svg</file>
         <file>secondaryleftmenu/Notice.svg</file>
         <file>secondaryleftmenu/Power.svg</file>
         <file>secondaryleftmenu/Printer.svg</file>
-        <file>secondaryleftmenu/Projection.svg</file>
+        <file>secondaryleftmenu/projection.svg</file>
         <file>secondaryleftmenu/Proxy.svg</file>
         <file>secondaryleftmenu/Screenlock.svg</file>
         <file>secondaryleftmenu/Screensaver.svg</file>
@@ -222,13 +249,14 @@
         <file>secondaryleftmenu/Userinfo.svg</file>
         <file>secondaryleftmenu/Vino.svg</file>
         <file>secondaryleftmenu/Vpn.svg</file>
-        <file>secondaryleftmenu/Wlanconnect.svg</file>
-        <file>secondaryleftmenu/WiredConnect.svg</file>
+        <file>secondaryleftmenu/wlanconnect.svg</file>
+        <file>secondaryleftmenu/netconnect.svg</file>
         <file>secondaryleftmenu/Theme.svg</file>
         <file>plugins/mobilehotspot/hide-pwd.png</file>
         <file>plugins/mobilehotspot/show-pwd.png</file>
         <file>secondaryleftmenu/Userinfointel.svg</file>
         <file>secondaryleftmenu/System Recovery.svg</file>
+        <file>secondaryleftmenu/Wallpaper.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

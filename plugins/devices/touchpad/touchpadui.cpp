@@ -38,13 +38,6 @@ void TouchpadUI::initUI()
     mTouchpadSetTitleLabel = new TitleLabel(this);
     mTouchpadSetTitleLabel->setText(tr("Touchpad Setting"));
 
-    /* Tip no touchpad found */
-    mTipHLayout = new QHBoxLayout();
-    mTipLabel = new QLabel(tr("No touchpad found"));
-    mTipHLayout->addStretch();
-    mTipHLayout->addWidget(mTipLabel);
-    mTipHLayout->addStretch();
-
     /* MouseDisable */
     mMouseDisableFrame = new QFrame(this);
     mMouseDisableFrame->setFrameShape(QFrame::Shape::Box);
@@ -54,7 +47,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *MouseDisableHLayout = new QHBoxLayout();
 
     mMouseDisableBtn = new SwitchButton(this);
-    //~ contents_path /touchpad/Disable touchpad when using the mouse
+    //~ contents_path /Touchpad/Disable touchpad when using the mouse
     mMouseDisableLabel = new QLabel(tr("Disable touchpad when using the mouse"), this);
     MouseDisableHLayout->addSpacing(7);
     MouseDisableHLayout->addWidget(mMouseDisableLabel);
@@ -71,7 +64,7 @@ void TouchpadUI::initUI()
 
     QHBoxLayout *CursorSpeedHLayout = new QHBoxLayout();
 
-     //~ contents_path /touchpad/Cursor Speed
+     //~ contents_path /Touchpad/Cursor Speed
     mCursorSpeedLabel = new QLabel(tr("Cursor Speed"), this);
     mCursorSpeedLabel->setMinimumWidth(200);
     mCursorSpeedSlowLabel = new QLabel(tr("Slow"), this);
@@ -98,7 +91,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *TypingDisableHLayout = new QHBoxLayout();
 
     mTypingDisableBtn = new SwitchButton(this);
-     //~ contents_path /touchpad/Disable touchpad when typing
+     //~ contents_path /Touchpad/Disable touchpad when typing
     mTypingDisableLabel = new QLabel(tr("Disable touchpad when typing"), this);
     TypingDisableHLayout->addSpacing(7);
     TypingDisableHLayout->addWidget(mTypingDisableLabel);
@@ -116,7 +109,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *ClickHLayout = new QHBoxLayout();
 
     mClickBtn = new SwitchButton(this);
-    //~ contents_path /touchpad/Touch and click on the touchpad
+    //~ contents_path /Touchpad/Touch and click on the touchpad
     mClickLabel = new QLabel(tr("Touch and click on the touchpad"), this);
     ClickHLayout->addSpacing(7);
     ClickHLayout->addWidget(mClickLabel);
@@ -134,7 +127,7 @@ void TouchpadUI::initUI()
     QHBoxLayout *ScrollSlideHLayout = new QHBoxLayout();
 
     mScrollSlideBtn = new SwitchButton(this);
-     //~ contents_path /touchpad/Scroll bar slides with finger
+     //~ contents_path /Touchpad/Scroll bar slides with finger
     mScrollSlideLabel = new QLabel(tr("Scroll bar slides with finger"), this);
     ScrollSlideHLayout->addSpacing(7);
     ScrollSlideHLayout->addWidget(mScrollSlideLabel);
@@ -151,12 +144,12 @@ void TouchpadUI::initUI()
 
     QHBoxLayout *ScrollAreaHLayout = new QHBoxLayout();
 
-     //~ contents_path /touchpad/Scrolling area
+     //~ contents_path /Touchpad/Scrolling area
     mScrollAreaLabel = new QLabel(tr("Scrolling area"), this);
     mScrollTypeComBox = new QComboBox;
-    mScrollTypeComBox->addItem(tr("Disable scrolling"), N_SCROLLING);
-    mScrollTypeComBox->addItem(tr("Edge scrolling"), V_EDGE_KEY);
     mScrollTypeComBox->addItem(tr("Two-finger scrolling in the middle area"), V_FINGER_KEY);
+    mScrollTypeComBox->addItem(tr("Edge scrolling"), V_EDGE_KEY);
+    mScrollTypeComBox->addItem(tr("Disable scrolling"), N_SCROLLING);
     ScrollAreaHLayout->addSpacing(7);
     ScrollAreaHLayout->addWidget(mScrollAreaLabel);
     ScrollAreaHLayout->addWidget(mScrollTypeComBox);
@@ -186,7 +179,6 @@ void TouchpadUI::initUI()
     mVlayout->addWidget(mTouchpadSetTitleLabel);
     mVlayout->setSpacing(8);
     mVlayout->addWidget(touchpadFrame);
-    mVlayout->addLayout(mTipHLayout);
     mVlayout->addStretch();
 }
 
@@ -199,7 +191,7 @@ void TouchpadUI::initConnection()
         mTouchpadGsetting = new QGSettings(kTouchpadSchemas, QByteArray(), this);
         mMouseGsetting = new QGSettings(kMouseSchemas, QByteArray(), this);
 
-        isTouchpadExist();
+        initEnableStatus();
 
         connect(mMouseDisableBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::mouseDisableSlot);
 
@@ -261,20 +253,10 @@ void TouchpadUI::initEnableStatus()
     mScrollTypeComBox->blockSignals(true);
     mScrollTypeComBox->setCurrentIndex(mScrollTypeComBox->findData(_findKeyScrollingType()));
     mScrollTypeComBox->blockSignals(false);
-}
 
-void TouchpadUI::isTouchpadExist()
-{
-    if (findSynaptics()) {
-        qDebug() << "Touch Devices Available";
-        setFrameVisible(true);
-        mTipLabel->hide();
-        initEnableStatus();
-
-        // 默认水平双指滚动有效
+    // 非禁用模式下默认水平双指滚动有效
+    if (QString::compare(N_SCROLLING, mScrollTypeComBox->currentData().toString()) != 0) {
         mTouchpadGsetting->set(H_FINGER_KEY, true);
-    } else {
-        setFrameVisible(false);
     }
 }
 
@@ -289,102 +271,6 @@ QString TouchpadUI::_findKeyScrollingType()
     }
 
     return N_SCROLLING;
-}
-
-void TouchpadUI::setFrameVisible(bool visible)
-{
-    mMouseDisableFrame->setVisible(visible);
-    mCursorSpeedFrame->setVisible(visible);
-    mTypingDisableFrame->setVisible(visible);
-    mClickFrame->setVisible(visible);
-    mScrollSlideFrame->setVisible(visible);
-    mScrollAreaFrame->setVisible(visible);
-}
-
-bool TouchpadUI::findSynaptics()
-{
-    XDeviceInfo *device_info;
-    int n_devices;
-    bool retval;
-
-    if (_supportsXinputDevices() == false) {
-        return true;
-    }
-
-    device_info = XListInputDevices (QX11Info::display(), &n_devices);
-    if (device_info == nullptr) {
-        return false;
-    }
-
-    retval = false;
-    for (int i = 0; i < n_devices; i++) {
-        XDevice *device;
-
-        device = _deviceIsTouchpad (&device_info[i]);
-        if (device != nullptr) {
-            retval = true;
-            break;
-        }
-    }
-    if (device_info != nullptr) {
-        XFreeDeviceList (device_info);
-    }
-
-    return retval;
-}
-
-bool TouchpadUI::_supportsXinputDevices()
-{
-    int op_code, event, error;
-
-    return XQueryExtension (QX11Info::display(),
-                            "XInputExtension",
-                            &op_code,
-                            &event,
-                            &error);
-}
-
-XDevice* TouchpadUI::_deviceIsTouchpad (XDeviceInfo *deviceinfo)
-{
-    XDevice *device;
-    if (deviceinfo->type != XInternAtom (QX11Info::display(), XI_TOUCHPAD, true)) {
-        return nullptr;
-    }
-
-    device = XOpenDevice (QX11Info::display(), deviceinfo->id);
-    if(device == nullptr) {
-        qDebug()<<"device== null";
-        return nullptr;
-    }
-
-    if (_deviceHasProperty(device, "libinput Tapping Enabled") ||
-            _deviceHasProperty(device, "Synaptics Off")) {
-        return device;
-    }
-    XCloseDevice (QX11Info::display(), device);
-    return nullptr;
-}
-
-bool TouchpadUI::_deviceHasProperty(XDevice *device, const char *property_name)
-{
-    Atom realtype, prop;
-    int realformat;
-    unsigned long nitems, bytes_after;
-    unsigned char *data;
-
-    prop = XInternAtom (QX11Info::display(), property_name, True);
-    if (!prop) {
-        return false;
-    }
-
-    if ((XGetDeviceProperty (QX11Info::display(), device, prop, 0, 1, False,
-                             XA_INTEGER, &realtype, &realformat, &nitems,
-                             &bytes_after, &data) == Success) && (realtype != None))
-    {
-        XFree (data);
-        return true;
-    }
-    return false;
 }
 
 /* slot functions */
@@ -426,7 +312,13 @@ void TouchpadUI::scrolltypeSlot()
     QString data = mScrollTypeComBox->currentData().toString();
     if (QString::compare(data, N_SCROLLING) != 0) {
         mTouchpadGsetting->set(data, true);
+        mTouchpadGsetting->set(H_FINGER_KEY, true);
     }
+
+    if (QString::compare(data, N_SCROLLING) == 0) {
+        mTouchpadGsetting->set(V_EDGE_KEY, false);
+        mTouchpadGsetting->set(V_FINGER_KEY, false);
+        mTouchpadGsetting->set(H_FINGER_KEY, false);
+    }
+
 }
-
-

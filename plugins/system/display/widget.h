@@ -51,9 +51,9 @@ typedef enum {
 
 typedef enum {
     FIRST,
+    VICE,
     CLONE,
     EXTEND,
-    VICE,
 }MULTISCREEN;
 
 namespace KScreen {
@@ -94,7 +94,7 @@ public:
     void initUiComponent();
     void setScreenKDS(QString kdsConfig);
     void setActiveScreen(QString status = "");
-    void addBrightnessFrame(QString name, bool openFlag, QString serialNum);
+    void addBrightnessFrame(QString name, bool openFlag, QString edidHash);
     void showBrightnessFrame(const int flag = 0);
 
     QList<ScreenConfig> getPreScreenCfg();
@@ -189,6 +189,8 @@ private:
 
     void setMulScreenVisiable();
     void initMultScreenStatus();
+
+    void showZoomtips();      // 缩放注销提示框
 
 private:
     Ui::DisplayWindow *ui;
@@ -287,6 +289,7 @@ private:
     bool mIsSCaleRes = false;
     bool mIsChange = false;
 
+    int outputnum = 0;
     QStringList mTimeModeStringList;
 
     QString firstAddOutputName;
@@ -297,6 +300,8 @@ private:
     QString     mKDSCfg;
     bool unifySetconfig = false;
     QString mOutputClickedName;
+    QDBusInterface *dbusEdid = nullptr;
+    QString cpuArchitecture = "";
 };
 
 #endif // WIDGET_H

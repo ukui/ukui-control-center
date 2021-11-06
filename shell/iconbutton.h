@@ -10,8 +10,7 @@ public:
     ~IconButton();
     QPixmap loadSvg(const QString &path, int size = 16);
     QPixmap drawSymbolicColoredPixmap(const QPixmap &source);
-protected:
-    void paintEvent(QPaintEvent *e);
+    void reLoadIcon();
 private:
     QString iconName;
 };

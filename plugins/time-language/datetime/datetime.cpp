@@ -96,17 +96,17 @@ DateTime::~DateTime()
     }
 }
 
-QString DateTime::get_plugin_name()
+QString DateTime::plugini18nName()
 {
     return pluginName;
 }
 
-int DateTime::get_plugin_type()
+int DateTime::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *DateTime::get_plugin_ui()
+QWidget *DateTime::pluginUi()
 {
     QTimer::singleShot(1, this, [=]() {
         if (mFirstLoad) {
@@ -132,15 +132,25 @@ QWidget *DateTime::get_plugin_ui()
     return pluginWidget;
 }
 
-void DateTime::plugin_delay_control()
-{
-
-}
-
 const QString DateTime::name() const
 {
 
-    return QStringLiteral("date");
+    return QStringLiteral("Date");
+}
+
+bool DateTime::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon DateTime::icon() const
+{
+    return QIcon();
+}
+
+bool DateTime::isEnable() const
+{
+    return true;
 }
 
 void DateTime::initTitleLabel()
@@ -148,7 +158,7 @@ void DateTime::initTitleLabel()
     QGSettings *m_fontSetting = new QGSettings("org.ukui.style");
     QFont font;
     ui->titleLabel_2->adjustSize();
-    //~ contents_path /date/Other Timezone
+    //~ contents_path /Date/Other Timezone
     ui->titleLabel_2->setText(tr("Other Timezone"));
     ui->timeClockLable->setObjectName("timeClockLable");
     font.setPixelSize(m_fontSetting->get("systemFontSize").toInt() * 28 / 11);
@@ -162,9 +172,9 @@ void DateTime::initTitleLabel()
 void DateTime::initUI()
 {
     m_formTimeBtn       = new SwitchButton(pluginWidget);
-    //~ contents_path /date/24-hour clock
+    //~ contents_path /Date/24-hour clock
     m_formTimeLabel     = new QLabel(tr("24-hour clock"), pluginWidget);
-    //~ contents_path /date/Sync time
+    //~ contents_path /Date/Sync time
     ui->syncLabel->setText(tr("Sync Time"));
     syncNetworkRetLabel = new QLabel(pluginWidget);
     syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");
@@ -184,7 +194,7 @@ void DateTime::initUI()
     Clock *m_clock = new Clock();
     //ui->clockFrame->setFrameShape(QFrame::Shape::Box);
     ui->clockLayout->addWidget(m_clock);
-    //~ contents_path /date/Manual Time
+    //~ contents_path /Date/Manual Time
     ui->timeLabel->setText(tr("Manual Time"));
     for (int m = 0; m < 60; m++) {
         ui->minComboBox->addItem(QString::number(m));
@@ -228,7 +238,7 @@ void DateTime::initComponent()
 {
     ui->timeClockLable->setContentsMargins(0,0,0,0);
 
-    //~ contents_path /date/Change time zone
+    //~ contents_path /Date/Change time zone
     ui->chgzonebtn->setText(tr("Change timezone"));
 
     ui->hourFrame->setVisible(false);  //移到area里面了
@@ -239,9 +249,9 @@ void DateTime::initComponent()
 
     ui->radioButton->adjustSize();
     ui->radioButton_2->adjustSize();
-    //~ contents_path /date/Auto Sync Time
+    //~ contents_path /Date/Auto Sync Time
     ui->radioButton->setText(tr("Auto Sync Time"));
-    //~ contents_path /date/Manual Time
+    //~ contents_path /Date/Manual Time
     ui->radioButton_2->setText(tr("Manual Time"));
 
     ui->syncHintFrame->adjustSize();
@@ -385,7 +395,7 @@ void DateTime::initNtp()
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
     ntpLayout->addWidget(ntpCombox);
-    //~ contents_path /date/Sync Server
+    //~ contents_path /Date/Sync Server
     ntpLabel->setText(tr("Sync Server"));
     ntpCombox->setFixedHeight(36);
     ntpCombox->addItem(tr("Default"));
@@ -412,15 +422,26 @@ void DateTime::initNtp()
         ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
 
     connect(ntpLineEdit, &QLineEdit::textChanged, this, [=](){
+        ntpLineEdit->blockSignals(true);
+        while (ntpLineEdit->text().front() == " ") {
+            ntpLineEdit->setText(ntpLineEdit->text().remove(0,1)); //去掉首空格
+        }
+        ntpLineEdit->blockSignals(false);
         saveBtn->setEnabled(!ntpLineEdit->text().isEmpty());   //为空时不允许保存
     });
 
     connect(saveBtn, &QPushButton::clicked, this, [=](){
+        ntpLineEdit->blockSignals(true);
+        while (ntpLineEdit->text().back() == " ") {
+            ntpLineEdit->setText(ntpLineEdit->text().remove(ntpLineEdit->text().size()-1,1)); //去掉尾空格
+        }
+        ntpLineEdit->blockSignals(false);
         QString setAddr = ntpLineEdit->text();
         if (!setNtpAddr(setAddr)) {   //失败or不修改
             if (m_formatsettings->keys().contains(NTP_KEY))
                 ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
         } else {
+            ntpComboxPreId = ntpCombox->currentIndex();
             if (m_formatsettings->keys().contains(NTP_KEY))
                 m_formatsettings->set(NTP_KEY, setAddr);
         }
@@ -454,10 +475,11 @@ void DateTime::initNtp()
 
     connect(ntpCombox, &QComboBox::currentTextChanged, this, [=](){
         ui->line_2->setVisible(false);
-        QString setAddr;
-        if (m_formatsettings->keys().contains(NTP_KEY))
-            setAddr = m_formatsettings->get(NTP_KEY).toString();
+        QString setAddr = "";
+//        if (m_formatsettings->keys().contains(NTP_KEY))
+//            setAddr = m_formatsettings->get(NTP_KEY).toString(); 应产品需求，每次重新选择自定义时清空
         if (ntpCombox->currentIndex() == (ntpCombox->count() - 1) && setAddr == "") { //自定义且为空
+            ntpLineEdit->setText("");
             ui->ntpFrame_2->setVisible(true);  //需要添加地址并点击保存再授权
             ui->line_2->setVisible(true);
         } else {
@@ -478,6 +500,10 @@ void DateTime::initNtp()
                 if (ntpComboxPreId == ntpCombox->count() - 1) {
                     ui->ntpFrame_2->setVisible(true);
                     ui->line_2->setVisible(true);
+                    ntpLineEdit->blockSignals(true);
+                    if (m_formatsettings->keys().contains(NTP_KEY)) //防止未保存的内容一直存在
+                        ntpLineEdit->setText(m_formatsettings->get(NTP_KEY).toString());
+                    ntpLineEdit->blockSignals(false);
                 } else {
                     ui->ntpFrame_2->setVisible(false);
                 }

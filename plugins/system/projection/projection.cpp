@@ -190,7 +190,7 @@ Projection::~Projection()
     delete m_pServiceInterface;
 }
 
-QString Projection::get_plugin_name(){
+QString Projection::plugini18nName(){
     QFile server("/usr/bin/miracle-wifid");
     QFile agent("/usr/bin/miracle-agent");
 
@@ -200,7 +200,7 @@ QString Projection::get_plugin_name(){
     return pluginName;
 }
 
-int Projection::get_plugin_type(){
+int Projection::pluginTypes(){
     return pluginType;
 }
 
@@ -226,7 +226,7 @@ void Projection::init_button_status(int status)
     }
 }
 
-QWidget *Projection::get_plugin_ui(){
+QWidget *Projection::pluginUi(){
     int res;
     int projectionstatus;
 
@@ -299,16 +299,27 @@ QWidget *Projection::get_plugin_ui(){
 void Projection::netPropertiesChangeSlot(QMap<QString, QVariant> property) {
     if (property.keys().contains("WirelessEnabled")) {
         qDebug()<<"WLAN status changed";
-        get_plugin_ui();
+        pluginUi();
     }
-}
-void Projection::plugin_delay_control(){
-
 }
 
 const QString Projection::name() const {
+    return QStringLiteral("Projection");
+}
 
-    return QStringLiteral("projection");
+bool Projection::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Projection::icon() const
+{
+    return QIcon();
+}
+
+bool Projection::isEnable() const
+{
+    return true;
 }
 
 void Projection::projectionPinSlots(QString type, QString pin) {

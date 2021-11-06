@@ -18,7 +18,7 @@
  *
  */
 #include "proxy.h"
-
+#include "aptproxydialog.h"
 #include <QDebug>
 
 #define PROXY_SCHEMA              "org.gnome.system.proxy"
@@ -51,15 +51,15 @@ Proxy::~Proxy()
 
 }
 
-QString Proxy::get_plugin_name() {
+QString Proxy::plugini18nName() {
     return pluginName;
 }
 
-int Proxy::get_plugin_type() {
+int Proxy::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Proxy::get_plugin_ui() {
+QWidget *Proxy::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new QWidget;
@@ -68,24 +68,34 @@ QWidget *Proxy::get_plugin_ui() {
         initUi(pluginWidget);
         retranslateUi();
 
+        mfileWatch_1 = new QFileSystemWatcher(this);
+        mfileWatch_2 = new QFileSystemWatcher(this);
+
+        QString dir_1("/etc/apt/apt.conf.d");
+        QString dir_2("/etc/profile.d");
+        mfileWatch_1->addPath(dir_1);
+        mfileWatch_2->addPath(dir_2);
+
         const QByteArray id(PROXY_SCHEMA);
         const QByteArray idd(HTTP_PROXY_SCHEMA);
         const QByteArray iddd(HTTPS_PROXY_SCHEMA);
         const QByteArray iid(FTP_PROXY_SCHEMA);
         const QByteArray iiid(SOCKS_PROXY_SCHEMA);
+         const QByteArray iVd(APT_PROXY_SCHEMA);
 
         initSearchText();
         setupComponent();
 
         if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
                 QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
-                QGSettings::isSchemaInstalled(iiid)){
+                QGSettings::isSchemaInstalled(iiid) && QGSettings::isSchemaInstalled(iVd)){
 
             proxysettings = new QGSettings(id,QByteArray(),this);
             httpsettings = new QGSettings(idd,QByteArray(),this);
             securesettings = new QGSettings(iddd,QByteArray(),this);
             ftpsettings = new QGSettings(iid,QByteArray(),this);
             sockssettings = new QGSettings(iiid,QByteArray(),this);
+            aptsettings = new QGSettings(iVd,QByteArray(),this);
 
             setupConnect();
             initProxyModeStatus();
@@ -99,13 +109,24 @@ QWidget *Proxy::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Proxy::plugin_delay_control(){
-
-}
-
 const QString Proxy::name() const {
 
-    return QStringLiteral("proxy");
+    return QStringLiteral("Proxy");
+}
+
+bool Proxy::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Proxy::icon() const
+{
+    return QIcon();
+}
+
+bool Proxy::isEnable() const
+{
+    return true;
 }
 
 void Proxy::initUi(QWidget *widget)
@@ -152,9 +173,7 @@ void Proxy::initUi(QWidget *widget)
     line_1 = setLine(mAutoFrame);
 
     mUrlFrame = new QFrame(mAutoFrame);
-    mUrlFrame->setMinimumSize(QSize(550, 60));
-    mUrlFrame->setMaximumSize(QSize(16777215, 60));
-    mUrlFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mUrlFrame);
 
     QHBoxLayout *mUrlLayout = new QHBoxLayout(mUrlFrame);
     mUrlLayout->setContentsMargins(16, 0, 16, 0);
@@ -296,9 +315,7 @@ void Proxy::initUi(QWidget *widget)
     line_3 = setLine(mManualFrame);
 
     mHTTPSFrame = new QFrame(mManualFrame);
-    mHTTPSFrame->setMinimumSize(QSize(550, 60));
-    mHTTPSFrame->setMaximumSize(QSize(16777215, 60));
-    mHTTPSFrame->setFrameShape(QFrame::NoFrame);
+   setFrame_Noframe(mHTTPSFrame);
 
     QHBoxLayout *mHTTPSLayout = new QHBoxLayout(mHTTPSFrame);
     mHTTPSLayout->setSpacing(8);
@@ -321,9 +338,7 @@ void Proxy::initUi(QWidget *widget)
     line_4 = setLine(mManualFrame);
 
     mFTPFrame = new QFrame(mManualFrame);
-    mFTPFrame->setMinimumSize(QSize(550, 60));
-    mFTPFrame->setMaximumSize(QSize(16777215, 60));
-    mFTPFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mFTPFrame);
 
     QHBoxLayout *mFTPLayout = new QHBoxLayout(mFTPFrame);
     mFTPLayout->setSpacing(8);
@@ -346,9 +361,7 @@ void Proxy::initUi(QWidget *widget)
     line_5 = setLine(mManualFrame);
 
     mSOCKSFrame = new QFrame(mManualFrame);
-    mSOCKSFrame->setMinimumSize(QSize(550, 60));
-    mSOCKSFrame->setMaximumSize(QSize(16777215, 60));
-    mSOCKSFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mSOCKSFrame);
 
     QHBoxLayout *mSOCKSLayout = new QHBoxLayout(mSOCKSFrame);
     mSOCKSLayout->setSpacing(8);
@@ -397,9 +410,64 @@ void Proxy::initUi(QWidget *widget)
     mManualLayout->addWidget(line_6);
     mManualLayout->addWidget(mIgnoreFrame);
 
+    //APT代理模块
+    mAptProxyLabel = new TitleLabel(widget);
+    mAPTFrame = new QFrame(widget);
+    mAPTFrame->setMinimumSize(QSize(550, 0));
+    mAPTFrame->setMaximumSize(QSize(16777215, 16777215));
+    mAPTFrame->setFrameShape(QFrame::Box);
+
+    QVBoxLayout *AptLayout = new QVBoxLayout(mAPTFrame);
+    AptLayout->setContentsMargins(0, 0, 0, 0);
+    AptLayout->setSpacing(0);
+
+    mAPTFrame_1 = new QFrame(mAPTFrame);
+    setFrame_Noframe(mAPTFrame_1);
+
+    QHBoxLayout *mAptLayout_1 = new QHBoxLayout(mAPTFrame_1);
+    mAptLayout_1->setContentsMargins(16, 0, 16, 0);
+    mAptLayout_1->setSpacing(8);
+
+    mAptLabel = new QLabel(mAPTFrame_1);
+    mAptLabel->setFixedWidth(200);
+    mAptBtn = new SwitchButton(mAPTFrame_1);
+    mAptLayout_1->addWidget(mAptLabel);
+    mAptLayout_1->addStretch();
+    mAptLayout_1->addWidget(mAptBtn);
+
+    mAPTFrame_2 = new QFrame(mAPTFrame);
+    setFrame_Noframe(mAPTFrame_2);
+
+    QHBoxLayout *mAptLayout_2 = new QHBoxLayout(mAPTFrame_2);
+    mAptLayout_2->setContentsMargins(16, 0, 16, 0);
+    mAptLayout_2->setSpacing(8);
+
+    mAPTHostLabel_1 = new QLabel(mAPTFrame_2);
+    mAPTHostLabel_2 = new QLabel(mAPTFrame_2);
+    mAPTPortLabel_1 = new QLabel(mAPTFrame_2);
+    mAPTPortLabel_2 = new QLabel(mAPTFrame_2);
+    mEditBtn = new QPushButton(mAPTFrame_2);
+    mEditBtn->setFixedWidth(80);
+    mAptLayout_2->addWidget(mAPTHostLabel_1);
+    mAptLayout_2->addWidget(mAPTHostLabel_2);
+    mAptLayout_2->addSpacing(100);
+    mAptLayout_2->addWidget(mAPTPortLabel_1);
+    mAptLayout_2->addWidget(mAPTPortLabel_2);
+    mAptLayout_2->addStretch();
+    mAptLayout_2->addWidget(mEditBtn,Qt::AlignRight);
+
+    line_7 = setLine(mAPTFrame);
+
+    AptLayout->addWidget(mAPTFrame_1);
+    AptLayout->addWidget(line_7);
+    AptLayout->addWidget(mAPTFrame_2);
+
     mverticalLayout->addWidget(mTitleLabel);
     mverticalLayout->addWidget(mAutoFrame);
     mverticalLayout->addWidget(mManualFrame);
+    mverticalLayout->addSpacing(24);
+    mverticalLayout->addWidget(mAptProxyLabel);
+    mverticalLayout->addWidget(mAPTFrame);
     mverticalLayout->addStretch();
 
 }
@@ -411,19 +479,19 @@ void Proxy::initSearchText() {
 void Proxy::retranslateUi()
 {
     mTitleLabel->setText(tr("System Proxy"));
-    //~ contents_path /proxy/Auto Proxy
+    //~ contents_path /Proxy/Auto Proxy
     mAutoProxyLabel->setText(tr("Auto Proxy"));
-    //~ contents_path /proxy/Auto url
+    //~ contents_path /Proxy/Auto url
     mUrlLabel->setText(tr("Auto url"));
-    //~ contents_path /proxy/Manual Proxy
+    //~ contents_path /Proxy/Manual Proxy
     mManualProxyLabel->setText(tr("Manual Proxy"));
-    //~ contents_path /proxy/Http Proxy
+    //~ contents_path /Proxy/Http Proxy
     mHTTPLabel->setText(tr("Http Proxy"));
-    //~ contents_path /proxy/Https Proxy
+    //~ contents_path /Proxy/Https Proxy
     mHTTPSLabel->setText(tr("Https Proxy"));
-    //~ contents_path /proxy/Ftp Proxy
+    //~ contents_path /Proxy/Ftp Proxy
     mFTPLabel->setText(tr("Ftp Proxy"));
-    //~ contents_path /proxy/Socks Proxy
+    //~ contents_path /Proxy/Socks Proxy
     mSOCKSLabel->setText(tr("Socks Proxy"));
     mHTTPPortLabel->setText(tr("Port"));
     mHTTPSPortLabel->setText(tr("Port"));
@@ -433,6 +501,13 @@ void Proxy::retranslateUi()
     mCertificationLabel->setText(tr("Enable Authentication"));
     mUserNameLabel->setText(tr("User Name"));
     mPwdLabel->setText(tr("Password"));
+
+    //~ contents_path /Proxy/Apt Proxy
+    mAptProxyLabel->setText(tr("Apt Proxy"));
+    mAptLabel->setText(tr("Open"));
+    mAPTHostLabel_1->setText(tr("Server Address : "));
+    mAPTPortLabel_1->setText(tr("Port : "));
+    mEditBtn->setText(tr("Edit"));
 }
 
 void Proxy::setupComponent(){
@@ -479,12 +554,53 @@ void Proxy::setupComponent(){
 }
 
 void Proxy::setupConnect(){
+    connect(mfileWatch_1, &QFileSystemWatcher::directoryChanged, this, [=](){
+        QFile file("/etc/apt/apt.conf.d/80apt-proxy");
+        if (mAptBtn->isChecked()) {
+            if (!file.exists()) {
+                mAptBtn->setChecked(false);
+                aptsettings->set(APT_PROXY_ENABLED , false);
+                line_7->hide();
+                mAPTFrame_2->hide();
+                setAptProxy("" ,0 ,false);
+            }
+        }
+    });
+
+    connect(mfileWatch_2, &QFileSystemWatcher::directoryChanged, this, [=](){
+        QFile file("/etc/profile.d/80apt-proxy.sh");
+        if (mAptBtn->isChecked()) {
+            qDebug()<<"-------------";
+            if (!file.exists()) {
+                qDebug()<<".................";
+                mAptBtn->setChecked(false);
+                aptsettings->set(APT_PROXY_ENABLED , false);
+                line_7->hide();
+                mAPTFrame_2->hide();
+                setAptProxy("" ,0 ,false);
+            }
+        }
+    });
+
     connect(mAutoProxyWidget,&HoverWidget::widgetClicked,[=](){
         emit mAutoBtn->click();
     });
 
     connect(mManualProxyWidget,&HoverWidget::widgetClicked,[=](){
         emit mManualBtn->click();
+    });
+
+    connect(mEditBtn ,&QPushButton::clicked, this, &Proxy::setAptProxySlot);
+
+    connect(mAptBtn, &SwitchButton::checkedChanged ,this ,[=](bool status) {
+       if (status) {
+           emit mEditBtn->click();
+       } else {  // 关闭APT代理，删除对应的配置文件
+           aptsettings->set(APT_PROXY_ENABLED , false);
+           line_7->hide();
+           mAPTFrame_2->hide();
+           setAptProxy("" ,0 ,false);
+       }
     });
 
     connect(mCertificationBtn, &QCheckBox::clicked, this, [=](){
@@ -554,6 +670,7 @@ void Proxy::initProxyModeStatus(){
     mAutoBtn->blockSignals(true);
     mManualBtn->blockSignals(true);
     mCertificationBtn->blockSignals(true);
+    mAptBtn->blockSignals(true);
 
     if (mode == AUTO){
         mAutoBtn->setChecked(true);
@@ -571,9 +688,16 @@ void Proxy::initProxyModeStatus(){
     mCertificationBtn->setChecked(httpsettings->get(HTTP_AUTH_KEY).toBool());
     mCertificationFrame_1->setEnabled(httpsettings->get(HTTP_AUTH_KEY).toBool());
 
+    if (aptsettings->get(APT_PROXY_HOST_KEY).toString().isEmpty()) {
+        aptsettings->set(APT_PROXY_ENABLED,false);
+    }
+    mAptBtn->setChecked(aptsettings->get(APT_PROXY_ENABLED).toBool());
+    getAptProxyInfo(aptsettings->get(APT_PROXY_ENABLED).toBool());
+
     mAutoBtn->blockSignals(false);
     mManualBtn->blockSignals(false);
     mCertificationBtn->blockSignals(false);
+    mAptBtn->blockSignals(false);
 
     _setSensitivity();
 }
@@ -671,6 +795,58 @@ void Proxy::_setSensitivity(){
 
 }
 
+bool Proxy::getAptProxyInfo(bool status)
+{
+    aptsettings->set(APT_PROXY_ENABLED,status);
+    if (status) {
+        if (aptsettings->get(APT_PROXY_HOST_KEY).toString().isEmpty()) {
+            emit mEditBtn->click();
+        } else {
+            line_7->show();
+            mAPTFrame_2->show();
+            mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
+            mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+            setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,true);
+        }
+    } else {
+        line_7->hide();
+        mAPTFrame_2->hide();
+        return false;
+    }
+    return true;
+}
+
+bool Proxy::setAptProxy(QString host, int port, bool status)
+{
+    QDBusInterface *setaptproxyDbus = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                             "/",
+                                                             "com.control.center.interface",
+                                                             QDBusConnection::systemBus());
+
+    QDBusReply<bool> reply = setaptproxyDbus->call("setaptproxy", host,QString::number(port) ,status);
+    delete setaptproxyDbus;
+    setaptproxyDbus = nullptr;
+}
+
+void Proxy::reboot()
+{
+    QDBusInterface *rebootDbus = new QDBusInterface("org.gnome.SessionManager",
+                                                             "/org/gnome/SessionManager",
+                                                             "org.gnome.SessionManager",
+                                                             QDBusConnection::sessionBus());
+
+    rebootDbus->call("reboot");
+    delete rebootDbus;
+    rebootDbus = nullptr;
+}
+
+void Proxy::setFrame_Noframe(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 60));
+    frame->setMaximumSize(QSize(16777215, 60));
+    frame->setFrameShape(QFrame::NoFrame);
+}
+
 QFrame *Proxy::setLine(QFrame *frame)
 {
     QFrame *line = new QFrame(frame);
@@ -680,6 +856,48 @@ QFrame *Proxy::setLine(QFrame *frame)
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
     return line;
+}
+
+void Proxy::setAptProxySlot()
+{
+    mAptBtn->blockSignals(true);
+    bool prestatus = aptsettings->get(APT_PROXY_ENABLED).toBool();
+    AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
+    mwindow->exec();
+    if (aptsettings->get(APT_PROXY_ENABLED).toBool()) { // enabled键值为true，用户点击了确定按钮，进行配置文件的写入，提示用户重启系统
+        QMessageBox *mReboot = new QMessageBox(pluginWidget);
+        mReboot->setIcon(QMessageBox::Warning);
+        mReboot->setText(tr("The system needs to be restarted to set the Apt proxy, whether to reboot"));
+        QPushButton *laterbtn =  mReboot->addButton(tr("Reboot Later"), QMessageBox::RejectRole);
+        QPushButton *nowbtn =   mReboot->addButton(tr("Reboot Now"), QMessageBox::AcceptRole);
+        mReboot->exec();
+        if (mReboot->clickedButton() == nowbtn) {  //选择了立即重启，一秒后系统会重启
+            setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+            sleep(1);
+            reboot();
+        } else if (mReboot->clickedButton() == laterbtn) {  //选择了稍后重启，配置文件已写入，但是/etc/profile.d目录下新增的脚本文件未执行
+            line_7->show();
+            mAPTFrame_2->show();
+            mAPTHostLabel_2->setText(aptsettings->get(APT_PROXY_HOST_KEY).toString());
+            mAPTPortLabel_2->setText(QString::number(aptsettings->get(APT_PROXY_PORT_KEY).toInt()));
+            mAptBtn->setChecked(true);
+             setAptProxy(aptsettings->get(APT_PROXY_HOST_KEY).toString() ,aptsettings->get(APT_PROXY_PORT_KEY).toInt() ,aptsettings->get(APT_PROXY_ENABLED).toBool());
+        } else { // 关闭按钮，删除已写入的配置文件，关闭APT代理
+            aptsettings->set(APT_PROXY_ENABLED , false);
+            mAptBtn->setChecked(false);
+            line_7->hide();
+            mAPTFrame_2->hide();
+        }
+    } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){  //点击了编辑按钮，且在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
+        aptsettings->set(APT_PROXY_ENABLED , true);
+        line_7->show();
+        mAPTFrame_2->show();
+        mAptBtn->setChecked(true);
+    } else if(!aptsettings->get(APT_PROXY_ENABLED).toBool() && !prestatus){ // 点击了APT开关按钮，但是在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
+        aptsettings->set(APT_PROXY_ENABLED , false);
+        mAptBtn->setChecked(false);
+    }
+    mAptBtn->blockSignals(false);
 }
 
 void Proxy::manualProxyTextChanged(QString txt){

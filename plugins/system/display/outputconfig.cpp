@@ -60,7 +60,7 @@ void OutputConfig::initUi()
     mResolution->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     QLabel *resLabel = new QLabel(this);
-    //~ contents_path /display/resolution
+    //~ contents_path /Display/resolution
     resLabel->setText(tr("resolution"));
     resLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     resLabel->setFixedSize(118, 30);
@@ -89,7 +89,7 @@ void OutputConfig::initUi()
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     QLabel *rotateLabel = new QLabel(this);
-    //~ contents_path /display/orientation
+    //~ contents_path /Display/orientation
     rotateLabel->setText(tr("orientation"));
     rotateLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     rotateLabel->setFixedSize(118, 30);
@@ -121,7 +121,7 @@ void OutputConfig::initUi()
     mRefreshRate = new QComboBox(this);
 
     QLabel *freshLabel = new QLabel(this);
-    //~ contents_path /display/frequency
+    //~ contents_path /Display/frequency
     freshLabel->setText(tr("frequency"));
     freshLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     freshLabel->setFixedSize(118, 30);
@@ -138,8 +138,6 @@ void OutputConfig::initUi()
     freshFrame->setMinimumWidth(550);
     freshFrame->setFixedHeight(50);
 
-
-    mRefreshRate->addItem(tr("auto"), -1);
     vbox->addWidget(freshFrame);
 
     slotResolutionChanged(mResolution->currentResolution(), true);
@@ -161,7 +159,7 @@ void OutputConfig::initUi()
     mScaleCombox->setObjectName("scaleCombox");
 
     QLabel *scaleLabel = new QLabel(this);
-    //~ contents_path /display/screen zoom
+    //~ contents_path /Display/screen zoom
     scaleLabel->setText(tr("screen zoom"));
     scaleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     scaleLabel->setFixedSize(118, 30);
@@ -202,13 +200,28 @@ void OutputConfig::initConnection()
         mRotation->setCurrentIndex(index);
         mRotation->blockSignals(false);
     });
-
-    connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
-            this, [=]() {
-        mRefreshRate->blockSignals(true);
-        if (mOutput->currentMode())
+    //监听，否则无法处理修改分辨率/刷新率未保存
+    connect(mOutput.data(), &KScreen::Output::currentModeIdChanged, this, [=]() {
+        if (!mIsRestore || !mOutput->currentMode()) {
+            mIsRestore = true;
+            return;
+        }
+        //分辨率改变时，触发该信号重新加载刷新率，用于修改分辨率之后但未保存
+        if (mResolution->currentResolution() != mOutput->currentMode()->size()) {
+            mResolution->setResolution(mOutput->currentMode()->size());
             slotResolutionChanged(mOutput->currentMode()->size(), false);
-        mRefreshRate->blockSignals(false);
+        } else {
+            //分辨率未修改，刷新率修改,用于修改刷新率之后但未保存
+            for (int i = 0; i < mRefreshRate->count(); i++) {
+                if (mRefreshRate->count() == 1 || \
+                        tr("%1 Hz").arg(QString::number(mOutput->currentMode()->refreshRate(),'f',2)) == mRefreshRate->itemText(i)) {
+                    mRefreshRate->blockSignals(true);
+                    mRefreshRate->setCurrentIndex(i);
+                    mRefreshRate->blockSignals(false);
+                    break;
+                }
+            }
+        }
     });
 
     connect(mOutput.data(), &KScreen::Output::isEnabledChanged,
@@ -247,32 +260,33 @@ KScreen::OutputPtr OutputConfig::output() const
     return mOutput;
 }
 
+//只修改刷新率时，不应该运行此函数
 void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 {
     // Ignore disconnected outputs
     if (!size.isValid()) {
         return;
     }
-
+    bool mIsModeInit = false;
     QString modeID;
+    KScreen::ModePtr selectMode;
     KScreen::ModePtr currentMode = mOutput->currentMode();
     QList<KScreen::ModePtr> modes;
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
+        if (currentMode && currentMode->size() == size) {  //初始化时
+            selectMode = currentMode;
+            mIsModeInit = true;
+        }
         if (mode->size() == size) {
+            if (!mIsModeInit) {
+                selectMode = mode;
+            }
             modes << mode;
         }
     }
 
-//    Q_ASSERT(currentMode);
-    if (!currentMode)
-        return;
-    modeID = currentMode->id();
-
-    // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
-    // when changing resolution
-    for (int i = mRefreshRate->count(); i >= 2; --i) {
-        mRefreshRate->removeItem(i - 1);
-    }
+    modeID = selectMode->id();
+    mRefreshRate->clear();
 
     for (int i = 0, total = modes.count(); i < total; ++i) {
         const KScreen::ModePtr mode = modes.at(i);
@@ -286,26 +300,36 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
             mRefreshRate->addItem(tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)), mode->id());
-        //    qDebug()<<QString::number(mode->refreshRate(),'f',2);
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
         // we stick with "Auto"
-        if (mode == currentMode && mRefreshRate->count() > 1) {
-            // i + 1 since 0 is auto
-            mRefreshRate->setCurrentIndex(i + 1);
+        if (mode == selectMode && mRefreshRate->count() > 0) {
+            mRefreshRate->setCurrentIndex(mRefreshRate->count() - 1);
         }
     }
 
-    if (-1 == mRefreshRate->currentIndex() || 0 == mRefreshRate->currentIndex()) {
-        modeID = mRefreshRate->itemData(1).toString();
+    if (mRefreshRate->count() == 0) {
+        mRefreshRate->addItem(tr("auto"), -1);
+    } else {
+        if (-1 == mRefreshRate->currentIndex()) {
+            modeID = mRefreshRate->itemData(0).toString();
+            // 避免选择50hz以下刷新率为空
+            mRefreshRate->blockSignals(true);
+            mRefreshRate->setCurrentIndex(0);
+            mRefreshRate->blockSignals(false);
+        }
     }
 
-    mOutput->setCurrentModeId(modeID);
-
-    if (emitFlag)
-        Q_EMIT changed();
+    if (!mIsModeInit) {
+        mIsRestore = false;
+        mOutput->blockSignals(true); //避免修改分辨率缩略图多次变化
+        mOutput->setCurrentModeId(modeID);
+        mOutput->blockSignals(false);
+        if (emitFlag)
+            Q_EMIT changed();
+    }
 }
 
 void OutputConfig::slotRotationChanged(int index)
@@ -322,17 +346,12 @@ void OutputConfig::slotRotationChanged(int index)
 void OutputConfig::slotRefreshRateChanged(int index)
 {
     QString modeId;
-    if (index == 0) {
-        // Item 0 is "Auto" - "Auto" is equal to highest refresh rate (at least
-        // that's how I understand it, and since the combobox is sorted in descending
-        // order, we just pick the second item from top
-        modeId = mRefreshRate->itemData(1).toString();
-    } else {
-        modeId = mRefreshRate->itemData(index).toString();
-    }
-    qDebug() << "modeId is:" << modeId << endl;
+    modeId = mRefreshRate->itemData(index).toString();
+    qDebug() << "(slotRefreshRateChanged)modeId is:" << modeId << endl;
+    mOutput->blockSignals(true);
+    mIsRestore = false;
     mOutput->setCurrentModeId(modeId);
-
+    mOutput->blockSignals(false);
     Q_EMIT changed();
 }
 

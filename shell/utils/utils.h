@@ -41,11 +41,13 @@ namespace Utils
     void setCLIName(QCommandLineParser &parser);
     QVariantMap getModuleHideStatus();
     QString getCpuInfo();
+    QString getCpuArchitecture();
     bool isExistEffect();
     bool isExitBattery();
     void setKwinMouseSize(int size);
     bool isWayland();
     bool isCommunity();
     bool isTablet();
+    QString getHostName();
 }
 #endif // UTILS_H

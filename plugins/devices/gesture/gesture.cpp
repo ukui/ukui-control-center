@@ -20,15 +20,15 @@ Gesture::~Gesture()
   }
   delete gesturesetting;
 }
-QString Gesture::get_plugin_name() {
+QString Gesture::plugini18nName() {
     return pluginName;
 }
 
-int Gesture::get_plugin_type() {
+int Gesture::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Gesture::get_plugin_ui() {
+QWidget *Gesture::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         ui = new Ui::Gesture;
@@ -44,13 +44,26 @@ QWidget *Gesture::get_plugin_ui() {
     }
     return pluginWidget;
 }
-void Gesture::plugin_delay_control() {
-
-}
 
 const QString Gesture::name() const {
-    return QStringLiteral("gesture");
+    return QStringLiteral("Gesture");
 }
+
+bool Gesture::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Gesture::icon() const
+{
+    return QIcon();
+}
+
+bool Gesture::isEnable() const
+{
+    return true;
+}
+
 void Gesture::init()
 {
     //标题

@@ -26,11 +26,16 @@
 #include <QFile>
 #include <QSettings>
 #include <QVector>
+#include <ddcutil_c_api.h>
+#include <ddcutil_types.h>
 
-struct brightInfo {
-    QString serialNum;
-    QString busType;
-    int     brightness;
+struct displayInfo {
+    bool   _DDC;           //是否采用DDC处理，当DDC失败时使用I2C
+    DDCA_Display_Handle ddca_dh_loc;   //显示器句柄
+    QString edidHash;      //edid信息的hash值(md5)
+
+    QString I2C_busType;       //兼容I2C处理亮度
+    int     I2C_brightness;
 };
 
 class SysdbusRegister : public QObject
@@ -49,14 +54,20 @@ public:
 private:
     QString mHibernateFile;
     QSettings *mHibernateSet;
-
-    QVector<struct brightInfo> brightInfo_V;
-    volatile bool runThreadFlag;
+    volatile bool exitFlag;
+    volatile bool toGetDisplayInfo;
+    QVector<struct displayInfo> displayInfo_V;
 
     qint64 _id;
 
 private:
     int _changeOtherUserPasswd(QString username, QString pwd);
+    void _getDisplayInfoThread();
+    // 通过I2C调节外接台式屏幕亮度
+    void _setI2CBrightness(QString brightness, QString type);
+
+    // 通过I2C获取外接台式屏幕亮度
+    int _getI2CBrightness(QString type);
 
 signals:
     Q_SCRIPTABLE void nameChanged(QString);
@@ -93,22 +104,23 @@ public slots:
     // 提权创建用户，避免两次验证弹窗
     Q_SCRIPTABLE int createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd);
 
-    // 调节外接台式屏幕亮度
-    Q_SCRIPTABLE void setDDCBrightness(QString brightness, QString type);
-
-    // 获取外接台式屏幕亮度
-    Q_SCRIPTABLE int getDDCBrightness(QString type);
-
     // 修改硬件时间
     Q_SCRIPTABLE int changeRTC();
 
     // 设置NTP授时服务器
     Q_SCRIPTABLE bool setNtpSerAddress(QString serverAddress);
 
-    //获取显示器i2c bus号
-    Q_SCRIPTABLE void getBrightnessInfo();
-    Q_SCRIPTABLE void setDDCBrightnessUkui(QString brightness, QString serialNum);
-    Q_SCRIPTABLE int  getDDCBrightnessUkui(QString serialNum);
+    //新亮度相关的接口
+    Q_SCRIPTABLE void getDisplayInfo();
+    Q_SCRIPTABLE QString showDisplayInfo();
+    Q_SCRIPTABLE void setDisplayBrightness(QString brightness, QString edidHash);
+    Q_SCRIPTABLE int getDisplayBrightness(QString edidHash);
+
+    //设置apt代理
+    Q_SCRIPTABLE bool setaptproxy(QString ip , QString port ,bool open);
+
+    //修改/etc/hosts文件内的主机名
+    Q_SCRIPTABLE void sethostname(QString hostname);
 
 };
 

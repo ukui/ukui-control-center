@@ -159,6 +159,8 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 
     parser.addOption(areaRoleOption);
 
+    parser.addOption(backupRoleOption);
+
     parser.addOption(noticeRoleOption);
     parser.addOption(aboutRoleOption);
     parser.addOption(searchRoleOption);
@@ -203,6 +205,36 @@ QString Utils::getCpuInfo() {
         }
     }
     return cpuType;
+}
+
+
+QString Utils::getCpuArchitecture()
+{
+    QString cpuArchitecture;
+    // 设置系统环境变量
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("lscpu");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+
+    delete process;
+    QString cpuinfo = QString(ba.data());
+    QStringList cpuinfo_list = cpuinfo.split("\n");
+    for (int i = 0; i < cpuinfo_list.count(); i++) {
+        QString mstring = cpuinfo_list.at(i);
+        if (mstring.contains("Architecture")) {
+            // 去除空格
+            mstring = mstring.remove(QRegExp("\\s"));
+            QStringList list = mstring.split(":");
+            cpuArchitecture = list.at(1);
+            break;
+        }
+    }
+    return cpuArchitecture;
 }
 
 bool Utils::isExistEffect() {
@@ -321,3 +353,23 @@ bool Utils::isExitBattery()
     return hasBat;
 }
 
+
+QString Utils::getHostName()
+{
+    QString hostname;
+    // 设置系统环境变量
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("hostname");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+
+    delete process;
+    hostname = ba.data();
+
+    hostname.replace(QString("\n"),QString(""));
+    return hostname;
+}

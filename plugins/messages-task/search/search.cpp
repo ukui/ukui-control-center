@@ -22,17 +22,17 @@ Search::~Search()
     }
 }
 
-QString Search::get_plugin_name()
+QString Search::plugini18nName()
 {
     return m_plugin_name;
 }
 
-int Search::get_plugin_type()
+int Search::pluginTypes()
 {
     return m_plugin_type;
 }
 
-QWidget *Search::get_plugin_ui()
+QWidget *Search::pluginUi()
 {
     ui = new Ui::Search;
     m_pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
@@ -88,14 +88,24 @@ QWidget *Search::get_plugin_ui()
     return m_pluginWidget;
 }
 
-void Search::plugin_delay_control()
-{
-
-}
-
 const QString Search::name() const
 {
-    return QStringLiteral("search");
+    return QStringLiteral("Search");
+}
+
+bool Search::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Search::icon() const
+{
+    return QIcon();
+}
+
+bool Search::isEnable() const
+{
+    return true;
 }
 
 /**

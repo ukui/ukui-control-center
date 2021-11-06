@@ -82,15 +82,15 @@ UserInfo::~UserInfo()
     }
 }
 
-QString UserInfo::get_plugin_name() {
+QString UserInfo::plugini18nName() {
     return pluginName;
 }
 
-int UserInfo::get_plugin_type() {
+int UserInfo::pluginTypes() {
     return pluginType;
 }
 
-QWidget *UserInfo::get_plugin_ui() {
+QWidget *UserInfo::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
 
@@ -122,23 +122,34 @@ QWidget *UserInfo::get_plugin_ui() {
     return pluginWidget2;
 }
 
-void UserInfo::plugin_delay_control() {
-
-}
-
 const QString UserInfo::name() const {
 
-    return QStringLiteral("userinfo");
+    return QStringLiteral("Userinfo");
+}
+
+bool UserInfo::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon UserInfo::icon() const
+{
+    return QIcon();
+}
+
+bool UserInfo::isEnable() const
+{
+    return true;
 }
 
 void UserInfo::initSearchText() {
-    //~ contents_path /userinfo/Password
+    //~ contents_path /Userinfo/Password
     ui->changePwdBtn->setText(tr("Password"));
-    //~ contents_path /userinfo/Type
+    //~ contents_path /Userinfo/Type
     ui->changeTypeBtn->setText(tr("Type"));
-    //~ contents_path /userinfo/Login no passwd
+    //~ contents_path /Userinfo/Login no passwd
     ui->loginpwdLabel->setText(tr("Login no passwd"));
-    //~ contents_path /userinfo/enable autoLogin
+    //~ contents_path /Userinfo/enable autoLogin
     ui->autologinLabel->setText(tr("enable autoLogin"));
 
 
@@ -204,7 +215,7 @@ void UserInfo::initUI(){
     currentUserinfoVerLayout->addStretch();
 
     currentUserHorLayout = new QHBoxLayout();
-    currentUserHorLayout->setSpacing(16);
+    currentUserHorLayout->setSpacing(8);
     currentUserHorLayout->setContentsMargins(16, 0, 16, 0);
     currentUserHorLayout->addWidget(currentUserlogoBtn);
     currentUserHorLayout->addLayout(currentUserinfoVerLayout);
@@ -494,6 +505,9 @@ void UserInfo::showChangeUserNicknameDialog(){
         for (; it != allUserInfoMap.end(); it++){
             UserInfomation user = it.value();
 
+            if (QString::compare(user.username, g_get_user_name()) == 0)
+                continue;
+
             names.append(user.username);
             names.append(user.realname);
         }
@@ -514,7 +528,7 @@ void UserInfo::showChangeUserLogoDialog(QString pName){
     if (allUserInfoMap.keys().contains(pName)){
         UserInfomation user = allUserInfoMap.value(pName);
 
-        ChangeUserLogo dialog(pName, user.objpath);
+        ChangeUserLogo dialog(pName, user.objpath, pluginWidget2);
         dialog.requireUserInfo(user.iconfile, _accountTypeIntToString(user.accounttype));
         dialog.exec();
 
@@ -529,7 +543,7 @@ void UserInfo::showChangeUserPwdDialog(QString pName){
     if (allUserInfoMap.keys().contains(pName)){
         UserInfomation user = allUserInfoMap.value(pName);
 
-        ChangeUserPwd dialog(pName);
+        ChangeUserPwd dialog(pName, pluginWidget2);
         dialog.exec();
 
     } else {
@@ -541,7 +555,7 @@ void UserInfo::showChangeUserTypeDialog(QString u){
     if (allUserInfoMap.keys().contains(u)){
         UserInfomation user = allUserInfoMap.value(u);
 
-        ChangeUserType dialog(user.objpath);
+        ChangeUserType dialog(user.objpath, pluginWidget2);
         dialog.requireUserInfo(user.iconfile, user.realname, user.accounttype, _accountTypeIntToString(user.accounttype));
         if (dialog.exec() == QDialog::Accepted){
             //告知有用户的类型发生变化
@@ -652,23 +666,46 @@ void UserInfo::setUserConnect(){
     connect(nopwdLoginSBtn, &SwitchButton::checkedChanged, [=](bool checked){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        QDBusInterface piface("com.control.center.qt.systemdbus",
-                              "/",
-                              "com.control.center.interface",
-                              QDBusConnection::systemBus());
+        bool result = authoriyLogin();
+        if (result == true) {
+            QDBusInterface piface("com.control.center.qt.systemdbus",
+                                  "/",
+                                  "com.control.center.interface",
+                                  QDBusConnection::systemBus());
 
-        if (piface.isValid()){
-            piface.call("setNoPwdLoginStatus", checked, user.username);
+            if (piface.isValid()){
+                piface.call("setNoPwdLoginStatus", checked, user.username);
+            } else {
+                qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+            }
         } else {
-            qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
-
+            nopwdLoginSBtn->blockSignals(true);
+            nopwdLoginSBtn->setChecked(!checked);
+            nopwdLoginSBtn->blockSignals(false);
         }
-
     });
 
     connect(addUserBtn, &AddBtn::clicked, [=]{
         showCreateUserNewDialog();
     });
+}
+
+bool UserInfo::authoriyLogin()
+{
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.login",
+                PolkitQt1::UnixProcessSubject(QCoreApplication::applicationPid()),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::Yes) { //认证通过
+        qDebug() << QString("operation authorized") << result;
+        return true;
+    } else {
+        qDebug() << QString("not authorized") << result;
+        return false;
+    }
 }
 
 void UserInfo::setUserDBusPropertyConnect(const QString pObjPath){

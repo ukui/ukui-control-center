@@ -50,17 +50,17 @@ Notice::~Notice()
     }
 }
 
-QString Notice::get_plugin_name()
+QString Notice::plugini18nName()
 {
     return pluginName;
 }
 
-int Notice::get_plugin_type()
+int Notice::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Notice::get_plugin_ui()
+QWidget *Notice::pluginUi()
 {
     if (mFirstLoad) {
         pluginWidget = new QWidget;
@@ -111,13 +111,24 @@ QWidget *Notice::get_plugin_ui()
     return pluginWidget;
 }
 
-void Notice::plugin_delay_control()
-{
-}
-
 const QString Notice::name() const
 {
-    return QStringLiteral("notice");
+    return QStringLiteral("Notice");
+}
+
+bool Notice::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Notice::icon() const
+{
+    return QIcon();
+}
+
+bool Notice::isEnable() const
+{
+    return true;
 }
 
 void Notice::initUi(QWidget *widget)

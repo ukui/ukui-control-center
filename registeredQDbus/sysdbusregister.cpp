@@ -28,7 +28,7 @@
 
 #include <QDBusInterface>
 #include <QDBusReply>
-
+#include <QCryptographicHash>
 #include <polkit-qt5-1/polkitqt1-authority.h>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -52,17 +52,21 @@ SysdbusRegister::SysdbusRegister()
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
     mHibernateSet->setIniCodec("UTF-8");
-    runThreadFlag = false;
-    getBrightnessInfo();
+    exitFlag = false;
+    toGetDisplayInfo = true;
+    _getDisplayInfoThread();
 
     _id = 0;
 }
 
 SysdbusRegister::~SysdbusRegister()
 {
+    exitFlag = true;
+
 }
 
 void SysdbusRegister::exitService() {
+    exitFlag = true;
     qApp->exit(0);
 }
 
@@ -259,7 +263,7 @@ bool SysdbusRegister::checkAuthorization(){
     }
 }
 
-void SysdbusRegister::setDDCBrightness(QString brightness, QString type) {
+void SysdbusRegister::_setI2CBrightness(QString brightness, QString type) {
     QString program = "/usr/sbin/i2ctransfer";
     QStringList arg;
     int br=brightness.toInt();
@@ -274,7 +278,7 @@ void SysdbusRegister::setDDCBrightness(QString brightness, QString type) {
     vcpPro->startDetached(program, arg);
 }
 
-int SysdbusRegister::getDDCBrightness(QString type) {
+int SysdbusRegister::_getI2CBrightness(QString type) {
     QString program = "/usr/sbin/i2ctransfer";
     QStringList arg;
     arg<<"-f"<<"-y"<<type<<"w5@0x37"<<"0x51"<<"0x82"<<"0x01"<<"0x10"<<"0xac";
@@ -339,84 +343,236 @@ bool SysdbusRegister::setNtpSerAddress(QString serverAddress)
 
 }
 
-void SysdbusRegister::getBrightnessInfo()
+bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
 {
-    if (true == runThreadFlag)
-        return;
+    QString content_http = QString("%1%2%3%4%5%6").arg("Acquire::http::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString profile_http = QString("%1%2%3%4%5").arg("export http_proxy=\"http://").arg(ip).arg(":").arg(port).arg("\"\n");
+    QString profile_https = QString("%1%2%3%4%5").arg("export https_proxy=\"https://").arg(ip).arg(":").arg(port).arg("\"\n");
 
-    QtConcurrent::run([=] {
-        runThreadFlag = true;
-        QString program = "/usr/bin/ddcutil";
-        QStringList arg;
-        arg << "detect";
-        QProcess *vcpPro = new QProcess();
-        vcpPro->start(program, arg);
-        vcpPro->waitForStarted();
-        vcpPro->waitForFinished();
-        QByteArray arr=vcpPro->readAll();
+    QString dirName  = "/etc/apt/apt.conf.d/";
+    QString fileName = "/etc/apt/apt.conf.d/80apt-proxy";
+    QString dirName_1  = "/etc/profile.d/";
+    QString fileName_1 = "/etc/profile.d/80apt-proxy.sh";
+    QDir AptDir(dirName);
+    QDir ProDir(dirName_1);
+    QFile AptProxyFile(fileName);
+    QFile AptProxyProFile(fileName_1);
 
-        char *re=arr.data();
-        char *p;
-        QList<QString> l;
-        while (*re) {
-            p=strpbrk(re,"\n");
-            *p=0;
-            QString s=re;
-            s=s.trimmed();
-            l.append(s);
-            re=++p;
-            if(*re=='\n')
-                re++;
-        }
-        
-        for (int i=0; i < l.count(); i=i+9) {
-            if (l.at(i).startsWith("Display") || l.at(i).startsWith("Invalid display")) {
-                if (i+5 >= l.count())
-                    break;
-                QString bus=l.at(i+1).split(":").at(1).trimmed();
-                QString serial=l.at(i+5).split(":").at(1).trimmed();
-                QString busType = bus.split("-").at(1);
-                bool existFlag = false;
-                for (int i = 0; i < brightInfo_V.size(); i++) {
-                    if (brightInfo_V[i].serialNum == serial) {
-                        brightInfo_V[i].brightness = getDDCBrightness(busType);
-                        existFlag = true;
-                        break;
-                    }
-                }
-                if (false == existFlag) {
-                    struct brightInfo  mBrightInfo;
-                    mBrightInfo.serialNum  = serial;
-                    mBrightInfo.busType    = busType;
-                    mBrightInfo.brightness = getDDCBrightness(busType);
-                    brightInfo_V.push_back(mBrightInfo);
-                }
+    if (AptDir.exists() && ProDir.exists()) {
+        if (open) {    //开关开启则创建对应文件，未开启则删掉对应文件
+            if (AptProxyFile.exists() && AptProxyProFile.exists()) {
+               AptProxyFile.remove();
+               AptProxyProFile.remove();
+            }
+            AptProxyFile.open(QIODevice::ReadWrite | QIODevice::Text);
+            AptProxyProFile.open(QIODevice::ReadWrite | QIODevice::Text);
+            //写入内容,这里需要转码，否则报错
+            QByteArray str = content_http.toUtf8();
+            QByteArray str_1 = content_https.toUtf8();
+            QByteArray str_2 = profile_http.toUtf8();
+            QByteArray str_3 = profile_https.toUtf8();
+            //写入QByteArray格式字符串
+            AptProxyFile.write(str);
+            AptProxyFile.write(str_1);
+            AptProxyProFile.write(str_2);
+            AptProxyProFile.write(str_3);
+        } else {
+            if (AptProxyFile.exists() && AptProxyProFile.exists()) {
+               AptProxyFile.remove();
+               AptProxyProFile.remove();
+               QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+               env.insert("LANG","en_US");
+               QProcess *process = new QProcess;
+               process->setProcessEnvironment(env);
+               process->start(QString("%1%2").arg("unset ").arg("http_proxy ").arg("https_proxy"));
+               process->waitForFinished();
+               delete process;
             }
         }
-        runThreadFlag = false;
-    });
+    }else {
+           return false;
+    }
+    return true;
+}
+
+void SysdbusRegister::sethostname(QString hostname)
+{
+    QString fileName = "/etc/hosts";
+    QString strAll;
+    QStringList strList;
+    QFile readFile(fileName);
+    if(readFile.open(QIODevice::ReadWrite | QIODevice::Text))
+    {
+        QTextStream stream(&readFile);
+        strAll = stream.readAll();
+    }
+    readFile.close();
+    QFile writeFile(fileName);
+    if(writeFile.open(QIODevice::ReadWrite|QIODevice::Text))
+    {
+            QTextStream stream(&writeFile);
+            strList=strAll.split("\n");
+            for(int i=0;i<strList.count();i++)
+            {
+                if(strList.at(i).contains("127.0.1.1"))
+                {
+                    QString tempStr = QString("%1%2").arg("127.0.1.1       ").arg(hostname);
+                    stream<<tempStr<<'\n';
+                    continue;
+                }
+                stream<<strList.at(i)<<'\n';
+            }
+    }
+}
+
+void SysdbusRegister::getDisplayInfo()
+{
+    toGetDisplayInfo = true;
     return;
 }
 
-void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum)
+void SysdbusRegister::_getDisplayInfoThread()
 {
-    for (int i = 0; i < brightInfo_V.size(); i++) {
-        if (brightInfo_V[i].serialNum == serialNum) {
-            setDDCBrightness(brightness, brightInfo_V[i].busType);
-            brightInfo_V[i].brightness = brightness.toInt();
-            return;
+    QtConcurrent::run([=] {  //运行独立线程去获取ddc信息，不能每次重新运行run，会导致获取的信息不对
+        while (true) {
+            if (exitFlag)
+                return;
+            if (!toGetDisplayInfo) {
+                sleep(1);
+                continue;
+            }
+            bool include_invalid_displays = true;
+            DDCA_Display_Info_List*  dlist_loc = nullptr;
+            ddca_get_display_info_list2(include_invalid_displays, &dlist_loc);
+            for(int i = 0; i < dlist_loc->ct; i++) {
+                QCryptographicHash Hash(QCryptographicHash::Md5);
+                Hash.reset();
+                Hash.addData(reinterpret_cast<const char *>(dlist_loc->info[i].edid_bytes), 128);
+                QByteArray md5 = Hash.result().toHex();
+                QString edidHash = QString(md5);
+
+                if (dlist_loc->info[i].dispno < 0) {  //this display is invalid for DDC.
+                    bool edidExist = false;
+                    for (int j = 0; j < displayInfo_V.size(); j++) {
+                        if (edidHash == displayInfo_V[j].edidHash) {
+                            if (false == displayInfo_V[j]._DDC) {
+                                edidExist = true;
+                                displayInfo_V[j].I2C_brightness = _getI2CBrightness(displayInfo_V[j].I2C_busType); //重新获取亮度
+                            } else { //有的显示器刚开始是valid
+                                displayInfo_V.remove(j);
+                                edidExist = false;
+                            }
+                            break;
+                        }
+                    }
+                    if (false == edidExist) {
+                        struct displayInfo display;
+                        display.edidHash = edidHash;
+                        display._DDC = false;
+                        display.I2C_busType = QString::number(dlist_loc->info[i].path.path.i2c_busno);
+                        display.I2C_brightness = _getI2CBrightness(display.I2C_busType);
+                        displayInfo_V.append(display);
+                    }
+                } else {  //this display is valid for DDC.
+                    bool edidExist = false;
+                    for (int j = 0; j < displayInfo_V.size(); j++) {
+                        if (edidHash == displayInfo_V[j].edidHash) {
+                            if (true == displayInfo_V[j]._DDC) {
+                                edidExist = true;
+                            } else { //有的显示器刚开始是invalid
+                                displayInfo_V.remove(j);
+                                edidExist = false;
+                            }
+                            break;
+                        }
+                    }
+                    if (!edidExist) {
+                        struct displayInfo display;
+                        DDCA_Display_Identifier did;
+                        DDCA_Display_Ref ddca_dref;
+                        display._DDC = true;
+                        display.edidHash = edidHash;
+                        display.I2C_busType = QString::number(dlist_loc->info[i].path.path.i2c_busno);
+                        ddca_create_edid_display_identifier(dlist_loc->info[i].edid_bytes,&did);
+                        ddca_create_display_ref(did,&ddca_dref);
+                        ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc);
+                        displayInfo_V.append(display);
+                    }
+                }
+            }
+            ddca_free_display_info_list(dlist_loc);
+            toGetDisplayInfo = false;
         }
-    }
+    });
 }
 
-int SysdbusRegister::getDDCBrightnessUkui(QString serialNum)
+void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash)
 {
-    for (int i = 0; i < brightInfo_V.size(); i++) {
-        if (brightInfo_V[i].serialNum == serialNum && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
-            return brightInfo_V[i].brightness;
+    bool edidExist = false;
+    for (int j = 0; j < displayInfo_V.size(); j++) {
+        if (displayInfo_V[j].edidHash == edidHash) {
+            edidExist = true;
+            if (true == displayInfo_V[j]._DDC) {
+                uint8_t new_sh = brightness.toUInt() >> 8;
+                uint8_t new_sl = brightness.toUInt() & 0xff;
+                ddca_set_non_table_vcp_value(displayInfo_V[j].ddca_dh_loc,0x10,new_sh,new_sl);
+            } else {
+                _setI2CBrightness(brightness, displayInfo_V[j].I2C_busType);
+                displayInfo_V[j].I2C_brightness = brightness.toInt();
+            }
         }
     }
-
-    getBrightnessInfo();
-    return -2;   //表示没有信息，需要隔3～5秒再次获取
+    if (!edidExist) {
+        getDisplayInfo();
+    }
+    return;
 }
+
+int SysdbusRegister::getDisplayBrightness(QString edidHash)
+{
+    bool edidExist = false;
+    for (int j = 0; j < displayInfo_V.size(); j++) {
+        if (displayInfo_V[j].edidHash == edidHash) {
+            edidExist = true;
+            if (true == displayInfo_V[j]._DDC) {
+                DDCA_Non_Table_Vcp_Value  valrec;
+                if (ddca_get_non_table_vcp_value(displayInfo_V[j].ddca_dh_loc,0x10,&valrec) == 0) {
+    //                uint16_t max_val = valrec.mh << 8 | valrec.ml; 暂未使用
+                    uint16_t cur_val = valrec.sh << 8 | valrec.sl;
+                    return cur_val;
+                } else {
+                    getDisplayInfo();
+                    return -2;
+                }
+            } else {
+                if (displayInfo_V[j].I2C_brightness >=0 && displayInfo_V[j].I2C_brightness <= 100) {
+                    return displayInfo_V[j].I2C_brightness;
+                } else {
+                    getDisplayInfo();
+                    return -2;
+                }
+            }
+        }
+    }
+    if (!edidExist) {
+        getDisplayInfo();
+    }
+    return -2;
+}
+
+QString SysdbusRegister::showDisplayInfo()
+{
+    QString retString = "";
+    for (int j = 0; j < displayInfo_V.size(); j++) {
+        if (true == displayInfo_V[j]._DDC) {
+            retString = retString + "<DDC>" + " bus=" + displayInfo_V[j].I2C_busType;
+        } else {
+            retString = retString + "<I2C>" + " bus=" + displayInfo_V[j].I2C_busType + "("+QString::number(displayInfo_V[j].I2C_brightness)+")";
+        }
+        retString = retString + " edidHash=" + displayInfo_V[j].edidHash + "\r\n";
+    }
+    return retString;
+}
+
+

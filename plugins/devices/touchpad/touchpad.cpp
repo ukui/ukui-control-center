@@ -36,32 +36,133 @@ Touchpad::~Touchpad()
 {
 }
 
-QString Touchpad::get_plugin_name()
+QString Touchpad::plugini18nName()
 {
     return pluginName;
 }
 
-int Touchpad::get_plugin_type()
+int Touchpad::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Touchpad::get_plugin_ui()
+QWidget *Touchpad::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
 
         pluginWidget = new TouchpadUI;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     }
 
     return pluginWidget;
 }
 
-void Touchpad::plugin_delay_control()
-{
-}
-
 const QString Touchpad::name() const
 {
-    return QStringLiteral("touchpad");
+    return QStringLiteral("Touchpad");
 }
+
+bool Touchpad::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Touchpad::icon() const
+{
+    return QIcon();
+}
+
+bool Touchpad::isEnable() const
+{
+    bool isFound = findSynaptics();
+    return isFound;
+}
+
+// 判断是否检测到触摸板设备
+bool Touchpad::findSynaptics() const
+{
+    XDeviceInfo *device_info;
+    int n_devices;
+    bool retval;
+
+    if (_supportsXinputDevices() == false) {
+        return true;
+    }
+
+    device_info = XListInputDevices (QX11Info::display(), &n_devices);
+    if (device_info == nullptr) {
+        return false;
+    }
+
+    retval = false;
+    for (int i = 0; i < n_devices; i++) {
+        XDevice *device;
+
+        device = _deviceIsTouchpad (&device_info[i]);
+        if (device != nullptr) {
+            retval = true;
+            break;
+        }
+    }
+    if (device_info != nullptr) {
+        XFreeDeviceList (device_info);
+    }
+
+    return retval;
+}
+
+bool Touchpad::_supportsXinputDevices() const
+{
+    int op_code, event, error;
+
+    return XQueryExtension (QX11Info::display(),
+                            "XInputExtension",
+                            &op_code,
+                            &event,
+                            &error);
+}
+
+XDevice* Touchpad::_deviceIsTouchpad (XDeviceInfo *deviceinfo) const
+{
+    XDevice *device;
+    if (deviceinfo->type != XInternAtom (QX11Info::display(), XI_TOUCHPAD, true)) {
+        return nullptr;
+    }
+
+    device = XOpenDevice (QX11Info::display(), deviceinfo->id);
+    if(device == nullptr) {
+        qDebug()<<"device== null";
+        return nullptr;
+    }
+
+    if (_deviceHasProperty(device, "libinput Tapping Enabled") ||
+            _deviceHasProperty(device, "Synaptics Off")) {
+        return device;
+    }
+    XCloseDevice (QX11Info::display(), device);
+    return nullptr;
+}
+
+bool Touchpad::_deviceHasProperty(XDevice *device, const char *property_name) const
+{
+    Atom realtype, prop;
+    int realformat;
+    unsigned long nitems, bytes_after;
+    unsigned char *data;
+
+    prop = XInternAtom (QX11Info::display(), property_name, True);
+    if (!prop) {
+        return false;
+    }
+
+    if ((XGetDeviceProperty (QX11Info::display(), device, prop, 0, 1, False,
+                             XA_INTEGER, &realtype, &realformat, &nitems,
+                             &bytes_after, &data) == Success) && (realtype != None))
+    {
+        XFree (data);
+        return true;
+    }
+    return false;
+}
+

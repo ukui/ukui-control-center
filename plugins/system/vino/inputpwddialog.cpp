@@ -5,6 +5,7 @@
 #include <QSpacerItem>
 #include <QLabel>
 #include <QPushButton>
+#include <QKeyEvent>
 #include "sharemain.h"
 #include "Label/fixlabel.h"
 
@@ -162,6 +163,14 @@ bool InputPwdDialog::eventFilter(QObject *wcg, QEvent *event)
                    }
                }
            }
+       }
+       // 回车键触发确定按钮点击事件
+       if (event->type() == QEvent::KeyPress) {
+           QKeyEvent *mEvent = static_cast<QKeyEvent *>(event);
+           if (mEvent->key() == Qt::Key_Enter || mEvent->key() == Qt::Key_Return) {
+               emit mConfirmBtn->clicked();
+           }
+
        }
        return QWidget::eventFilter(wcg,event);
 }

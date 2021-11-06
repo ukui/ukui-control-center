@@ -12,15 +12,15 @@ Upgrade::~Upgrade() {
 
 }
 
-QString Upgrade::get_plugin_name() {
+QString Upgrade::plugini18nName() {
     return pluginName;
 }
 
-int Upgrade::get_plugin_type() {
+int Upgrade::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Upgrade::get_plugin_ui() {
+QWidget *Upgrade::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         // will delete by takewidget
@@ -30,10 +30,21 @@ QWidget *Upgrade::get_plugin_ui() {
     return pluginWidget;
 }
 
-void Upgrade::plugin_delay_control() {
-
+const QString Upgrade::name() const {
+    return QStringLiteral("Upgrade");
 }
 
-const QString Upgrade::name() const {
-    return QStringLiteral("upgrade");
+bool Upgrade::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Upgrade::icon() const
+{
+    return QIcon();
+}
+
+bool Upgrade::isEnable() const
+{
+    return true;
 }

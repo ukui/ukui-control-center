@@ -54,17 +54,17 @@ Backup::~Backup()
     }
 }
 
-QString Backup::get_plugin_name()
+QString Backup::plugini18nName()
 {
     return pluginName;
 }
 
-int Backup::get_plugin_type()
+int Backup::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Backup::get_plugin_ui()
+QWidget *Backup::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -74,22 +74,33 @@ QWidget *Backup::get_plugin_ui()
     return pluginWidget;
 }
 
-void Backup::plugin_delay_control()
-{
-}
-
 const QString Backup::name() const
 {
-    return QStringLiteral("backup");
+    return QStringLiteral("Backup");
+}
+
+bool Backup::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Backup::icon() const
+{
+    return QIcon();
+}
+
+bool Backup::isEnable() const
+{
+    return true;
 }
 
 void Backup::initTitleLabel()
 {
     ui->titleLabel->setText(tr("Backup"));
     ui->title2Label->setText(tr("Restore"));
-     //~ contents_path /backup/Begin backup
+     //~ contents_path /Backup/Begin backup
     ui->backBtn->setText(tr("Begin backup"));
-     //~ contents_path /backup/Begin restore
+     //~ contents_path /Backup/Begin restore
     ui->restoreBtn->setText(tr("Begin restore"));
 }
 

@@ -133,37 +133,48 @@ Theme::~Theme()
     ui = nullptr;
 }
 
-QString Theme::get_plugin_name() {
+QString Theme::plugini18nName() {
     return pluginName;
 }
 
-int Theme::get_plugin_type() {
+int Theme::pluginTypes() {
     return pluginType;
 }
 
-QWidget *Theme::get_plugin_ui() {
+QWidget *Theme::pluginUi() {
     return pluginWidget;
-}
-
-void Theme::plugin_delay_control(){
-
 }
 
 const QString Theme::name() const {
 
-    return QStringLiteral("theme");
+    return QStringLiteral("Theme");
+}
+
+bool Theme::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Theme::icon() const
+{
+    return QIcon();
+}
+
+bool Theme::isEnable() const
+{
+    return true;
 }
 
 void Theme::initSearchText() {
-    //~ contents_path /theme/Theme Mode
+    //~ contents_path /Theme/Theme Mode
     ui->titleLabel->setText(tr("Theme Mode"));
-    //~ contents_path /theme/Icon theme
+    //~ contents_path /Theme/Icon theme
     ui->iconLabel->setText(tr("Icon theme"));
-    //~ contents_path /theme/Cursor theme
+    //~ contents_path /Theme/Cursor theme
     ui->cursorLabel->setText(tr("Cursor theme"));
-    //~ contents_path /theme/Performance mode
+    //~ contents_path /Theme/Performance mode
     ui->perforLabel->setText(tr("Performance mode"));
-    //~ contents_path /theme/Transparency
+    //~ contents_path /Theme/Transparency
     ui->transparencyLabel->setText(tr("Transparency"));
 }
 
@@ -420,8 +431,6 @@ void Theme::initThemeMode() {
 }
 
 void Theme::initIconTheme() {
-    // 获取当前图标主题(以QT为准，后续可以对比GTK两个值)
-    QString currentIconTheme = qtSettings->get(ICON_QT_KEY).toString();
 
     // 构建图标主题Widget Group，方便更新选中/非选中状态
     iconThemeWidgetGroup = new WidgetGroup;
@@ -442,56 +451,20 @@ void Theme::initIconTheme() {
     QStringList IconThemeList = themesDir.entryList(QDir::Dirs);
     int count = 0;
     foreach (QString themedir, IconThemeList) {
+        if ("ukui-icon-theme-default" == themedir) {
+            initIconThemeWidget(themedir , 0);
+            break;
+        }
+    }
+    foreach (QString themedir, IconThemeList) {
         count++;
         if ((Utils::isCommunity() && (!themedir.compare("ukui") || !themedir.compare("ukui-classical")))
                 || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-")) ||
                 (Utils::isTablet() && (themedir.startsWith("ukui-hp") || !themedir.compare("ukui") || themedir.startsWith("ukui-classical")))) {
-            QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
-            QDir placesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/places/");
-            QDir devicesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/devices/");
-            if ("ukui-icon-theme-basic" == themedir) {
+            if ("ukui-icon-theme-basic" == themedir  || "ukui-icon-theme-default" == themedir) {
                 continue;
             }
-            appsDir.setFilter(QDir::Files | QDir::NoSymLinks);
-            devicesDir.setFilter(QDir::Files | QDir::NoSymLinks);
-            placesDir.setFilter(QDir::Files | QDir::NoSymLinks);
-            QStringList showIconsList;
-            QStringList realIconsList;
-
-            if (!Utils::isTablet()) {
-                realIconsList = kIconsList;
-            } else {
-                realIconsList = kIntelIconList;
-            }
-
-            for (int i = 0; i < realIconsList.size(); i++) {
-                if (QFile(appsDir.path() + "/" + realIconsList.at(i)).exists()) {
-                    showIconsList.append(appsDir.path() + "/" + realIconsList.at(i));
-                } else if (QFile(devicesDir.path() + "/" + realIconsList.at(i)).exists()) {
-                    showIconsList.append(devicesDir.path() + "/" + realIconsList.at(i));
-                } else if (QFile(placesDir.path() + "/" + realIconsList.at(i)).exists()) {
-                    showIconsList.append(placesDir.path() + "/" + realIconsList.at(i));
-                }
-            }
-
-            ThemeWidget * widget = new ThemeWidget(QSize(48, 48), dullTranslation(themedir.section("-", -1, -1, QString::SectionSkipEmpty)), showIconsList, pluginWidget);
-            widget->setValue(themedir);
-
-            // 加入Layout
-            ui->iconThemeVerLayout->setSpacing(0);
-            ui->iconThemeVerLayout->addWidget(widget);
-            if (count != IconThemeList.count())
-                ui->iconThemeVerLayout->addWidget(setLine(ui->iconThemeFrame));
-
-            // 加入WidgetGround实现获取点击前Widget
-            iconThemeWidgetGroup->addWidget(widget);
-
-            if (themedir == currentIconTheme){
-                iconThemeWidgetGroup->setCurrentWidget(widget);
-                widget->setSelectedStatus(true);
-            } else {
-                widget->setSelectedStatus(false);
-            }
+            initIconThemeWidget(themedir , count);
         }
     }
 }
@@ -624,6 +597,60 @@ void Theme::initConnection() {
         ui->transFrame->setVisible(checked && !Utils::isTablet());
         writeKwinSettings(checked, currentThemeMode, true);
     });
+}
+
+void Theme::initIconThemeWidget(QString themedir , int count)
+{
+    // 获取当前图标主题(以QT为准，后续可以对比GTK两个值)
+    QString currentIconTheme = qtSettings->get(ICON_QT_KEY).toString();
+
+    QDir themesDir = QDir(ICONTHEMEPATH);
+    QStringList IconThemeList = themesDir.entryList(QDir::Dirs);
+
+    QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
+    QDir placesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/places/");
+    QDir devicesDir = QDir(ICONTHEMEPATH + themedir + "/48x48/devices/");
+    appsDir.setFilter(QDir::Files | QDir::NoSymLinks);
+    devicesDir.setFilter(QDir::Files | QDir::NoSymLinks);
+    placesDir.setFilter(QDir::Files | QDir::NoSymLinks);
+
+    QStringList showIconsList;
+    QStringList realIconsList;
+
+    if (!Utils::isTablet()) {
+        realIconsList = kIconsList;
+    } else {
+        realIconsList = kIntelIconList;
+    }
+
+    for (int i = 0; i < realIconsList.size(); i++) {
+        if (QFile(appsDir.path() + "/" + realIconsList.at(i)).exists()) {
+            showIconsList.append(appsDir.path() + "/" + realIconsList.at(i));
+        } else if (QFile(devicesDir.path() + "/" + realIconsList.at(i)).exists()) {
+            showIconsList.append(devicesDir.path() + "/" + realIconsList.at(i));
+        } else if (QFile(placesDir.path() + "/" + realIconsList.at(i)).exists()) {
+            showIconsList.append(placesDir.path() + "/" + realIconsList.at(i));
+        }
+    }
+
+    ThemeWidget * widget = new ThemeWidget(QSize(48, 48), dullTranslation(themedir.section("-", -1, -1, QString::SectionSkipEmpty)), showIconsList, pluginWidget);
+    widget->setValue(themedir);
+
+    // 加入Layout
+    ui->iconThemeVerLayout->setSpacing(0);
+    ui->iconThemeVerLayout->addWidget(widget);
+    if (count != IconThemeList.count())
+        ui->iconThemeVerLayout->addWidget(setLine(ui->iconThemeFrame));
+
+    // 加入WidgetGround实现获取点击前Widget
+    iconThemeWidgetGroup->addWidget(widget);
+
+    if (themedir == currentIconTheme){
+        iconThemeWidgetGroup->setCurrentWidget(widget);
+        widget->setSelectedStatus(true);
+    } else {
+        widget->setSelectedStatus(false);
+    }
 }
 
 QStringList Theme::_getSystemCursorThemes() {
@@ -766,6 +793,10 @@ QString Theme::dullTranslation(QString str) {
         return QObject::tr("hp");
     } else if (!QString::compare(str, "ukui")) {
         return QObject::tr("ukui");
+    } else if (!QString::compare(str, "lightseeking")) {
+        return QObject::tr("lightseeking");
+    } else if (!QString::compare(str, "HeYin")) {
+         return QObject::tr("HeYin");
     } else {
         return QObject::tr("default");
     }

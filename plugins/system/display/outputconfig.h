@@ -72,12 +72,9 @@ protected:
     bool mShowScaleOption = false;
     bool mIsWayland = false;
     bool mIsFirstLoad = true;
+    bool mIsRestore = true;  //非restore时不再去修改刷新率/分辨率，避免修改多次导致显示重复
 
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    KScreen::ConfigPtr mConfig;
-#else
     KScreen::ConfigPtr mConfig = nullptr;
-#endif
 
     QGSettings *mDpiSettings = nullptr;
 };

@@ -29,17 +29,17 @@ Vino::~Vino()
 {
 }
 
-QString Vino::get_plugin_name()
+QString Vino::plugini18nName()
 {
     return pluginName;
 }
 
-int Vino::get_plugin_type()
+int Vino::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Vino::get_plugin_ui()
+QWidget *Vino::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -50,11 +50,22 @@ QWidget *Vino::get_plugin_ui()
     return pluginWidget;
 }
 
-void Vino::plugin_delay_control()
-{
-}
-
 const QString Vino::name() const
 {
-    return QStringLiteral("vino");
+    return QStringLiteral("Vino");
+}
+
+bool Vino::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon Vino::icon() const
+{
+    return QIcon();
+}
+
+bool Vino::isEnable() const
+{
+    return true;
 }

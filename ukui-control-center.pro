@@ -10,6 +10,7 @@ SUBDIRS = \
     plugins\
     registeredSession \
     shell \
+    libukcc \
     group-manager-server \
 #    tastenbrett \
 
@@ -17,7 +18,6 @@ SUBDIRS = \
 TRANSLATIONS += \
     shell/res/i18n/zh_CN.ts \
     shell/res/i18n/tr.ts \
-    shell/res/i18n/bo.ts \
     shell/res/i18n/en_US.ts \
 
 

@@ -36,12 +36,16 @@
 #include <QThread>
 #include <QtConcurrent>
 #include <QFuture>
+#include <QMouseEvent>
 
 #include "HpQRCodeInterface.h"
 #include "shell/utils/utils.h"
+#include "hostnamedialog.h"
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
+#include "Label/fixlabel.h"
+#include "SwitchButton/switchbutton.h"
 
 namespace Ui {
 class About;
@@ -50,18 +54,20 @@ class About;
 class About : public QObject, CommonInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
+    Q_PLUGIN_METADATA(IID "org.ukcc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
     About();
     ~About();
 
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget *get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
+    QString plugini18nName() Q_DECL_OVERRIDE;
+    int pluginTypes() Q_DECL_OVERRIDE;
+    QWidget *pluginUi() Q_DECL_OVERRIDE;
     const QString name() const Q_DECL_OVERRIDE;
+    bool isShowOnHomePage() const Q_DECL_OVERRIDE;
+    QIcon icon() const Q_DECL_OVERRIDE;
+    bool isEnable() const Q_DECL_OVERRIDE;
 
 private:
     void initUI(QWidget *widget);
@@ -69,21 +75,27 @@ private:
     void initSearchText();
     void initActiveDbus();
     void setupSerialComponent();
+    void setVersionNumCompenent();
     void setupVersionCompenent();
     void setupDesktopComponent();
     void setupKernelCompenent();
     void setupDiskCompenet();
     void setupSystemVersion();
+    void setHostNameCompenet();
+    void setPrivacyCompent();
     void showExtend(QString dateres);
     char *ntpdate();
     int getMonth(QString month);
-
+    void reboot();
     void setLabelText(QLabel *label,QString text);
     bool eventFilter(QObject *obj, QEvent *event);
 
     QStringList getUserDefaultLanguage();
     QStringList  readFile(QString filepath);
     QString getTotalMemory();
+
+    void setFrame_NoFrame(QFrame *frame);
+    void setFrame_Box(QFrame *frame);
 private:
     QWidget *pluginWidget;
     QFrame *mHoldWidget;
@@ -92,24 +104,33 @@ private:
     int pluginType;
 
     TitleLabel *mTitleLabel;
+    TitleLabel *mPriTitleLabel;
     TitleLabel *mHoldTitleLabel;
 
     QFrame *mInformationFrame;
     QFrame *mActivationFrame;
     QFrame *mVersionFrame;
     QFrame *mVersionNumFrame;
+    QFrame *mVersionNumberFrame;
+    QFrame *mInterVersionFrame;
+    QFrame *mHostNameFrame;
     QFrame *mKernelFrame;
     QFrame *mCpuFrame;
     QFrame *mMemoryFrame;
     QFrame *mDiskFrame;
     QFrame *mDesktopFrame;
     QFrame *mUsernameFrame;
+    QFrame *mPrivacyFrame;
+    QFrame *mBtnFrame;
 
     QHBoxLayout *mDiskLayout;
 
     QLabel *mLogoLabel;
     QLabel *mVersionLabel_1;
     QLabel *mVersionNumLabel_1;
+    QLabel *mVersionNumberLabel_1;
+    FixLabel *mInterVersionLabel_1;
+    QLabel *mHostNameLabel_1;
     QLabel *mKernelLabel_1;
     QLabel *mCpuLabel_1;
     QLabel *mMemoryLabel_1;
@@ -118,6 +139,10 @@ private:
     QLabel *mUsernameLabel_1;
     QLabel *mVersionLabel_2;
     QLabel *mVersionNumLabel_2;
+    QLabel *mVersionNumberLabel_2;
+    FixLabel *mInterVersionLabel_2;
+    QLabel *mHostNameLabel_2;
+    QLabel *mHostNameLabel_3;
     QLabel *mKernelLabel_2;
     QLabel *mCpuLabel_2;
     QLabel *mMemoryLabel_2;
@@ -131,15 +156,20 @@ private:
     QLabel *mSequenceLabel_1;
     QLabel *mSequenceLabel_2;
     QLabel *mTrialLabel;
+    QLabel *mAndLabel;
+    QLabel *mAgreeLabel;
     QLabel *mHpLabel;
     QLabel *mEducateIconLabel;
     QLabel *mEducateLabel;
+    QLabel *mTipLabel;
+
 
 
     QPushButton *mActivationBtn;
     QPushButton *mTrialBtn;
     QPushButton *mHpBtn;
     QPushButton *mEducateBtn;
+    SwitchButton *mPriBtn;
 
     QStringList diskInfo;
     QMap<QString, QStringList> disk2; //disk2的结构 QMap<块设备名，总大小和可用大小>

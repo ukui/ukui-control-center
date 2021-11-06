@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QFileSystemWatcher>
 
 #include <QDialog>
 #include <QLineEdit>
@@ -34,11 +35,21 @@
 #include <QCheckBox>
 #include <QTextEdit>
 #include <QButtonGroup>
+#include <QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusError>
+#include <QDBusReply>
+#include <QMessageBox>
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
 #include "Label/titlelabel.h"
 #include "HoverWidget/hoverwidget.h"
+
+#define APT_PROXY_SCHEMA              "org.ukui.control-center.apt.proxy"
+#define APT_PROXY_ENABLED            "enabled"
+#define APT_PROXY_HOST_KEY         "host"
+#define APT_PROXY_PORT_KEY         "port"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -76,18 +87,20 @@ class Proxy;
 class Proxy : public QObject, CommonInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
+    Q_PLUGIN_METADATA(IID "org.ukcc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
     Proxy();
     ~Proxy();
 
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
+    QString plugini18nName() Q_DECL_OVERRIDE;
+    int pluginTypes() Q_DECL_OVERRIDE;
+    QWidget * pluginUi() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
+    bool isShowOnHomePage() const Q_DECL_OVERRIDE;
+    QIcon icon() const Q_DECL_OVERRIDE;
+    bool isEnable() const Q_DECL_OVERRIDE;
 
 public:
     void initUi(QWidget *widget);
@@ -103,7 +116,11 @@ public:
     void manualProxyTextChanged(QString txt);
     int _getCurrentProxyMode();
     void _setSensitivity();
+    bool getAptProxyInfo(bool status);
+    bool setAptProxy(QString host ,int port ,bool status); //  apt代理对应的配置文件的写入或删除
+    void reboot(); // 调用重启接口
 
+    void setFrame_Noframe(QFrame *frame);
     QFrame *setLine(QFrame *frame);
 
 private:
@@ -112,6 +129,7 @@ private:
     QWidget * pluginWidget;
 
     TitleLabel *mTitleLabel;
+    TitleLabel *mAptProxyLabel;
     QLabel *mAutoProxyLabel;
     QLabel *mUrlLabel;
     QLabel *mManualProxyLabel;
@@ -124,6 +142,11 @@ private:
     QLabel *mSOCKSLabel;
     QLabel *mSOCKSPortLabel;
     QLabel *mIgnoreLabel;
+    QLabel *mAptLabel;
+    QLabel *mAPTHostLabel_1;
+    QLabel *mAPTHostLabel_2;
+    QLabel *mAPTPortLabel_1;
+    QLabel *mAPTPortLabel_2;
 
     QLabel *mCertificationLabel;
     QLabel *mUserNameLabel;
@@ -143,15 +166,22 @@ private:
     QFrame *mIgnoreFrame;
     QFrame *mCertificationFrame_1;
 
+     QFrame *mAPTFrame;
+    QFrame *mAPTFrame_1;
+    QFrame *mAPTFrame_2;
+
     QFrame *line_1;
     QFrame *line_2;
     QFrame *line_3;
     QFrame *line_4;
     QFrame *line_5;
     QFrame *line_6;
+    QFrame *line_7;
 
     QRadioButton *mAutoBtn;
     QRadioButton *mManualBtn;
+    SwitchButton *mAptBtn;
+    QPushButton *mEditBtn;
     QCheckBox *mCertificationBtn;
 
     QButtonGroup *mProxyBtnGroup;
@@ -169,16 +199,22 @@ private:
     QLineEdit *mPwdLineEdit;
 
     QTextEdit *mIgnoreLineEdit;
-private:
+
     QGSettings * proxysettings;
     QGSettings * httpsettings;
     QGSettings * securesettings;
     QGSettings * ftpsettings;
     QGSettings * sockssettings;
+    QGSettings * aptsettings;
+
+    QFileSystemWatcher *mfileWatch_1;
+    QFileSystemWatcher *mfileWatch_2;
 
     bool settingsCreate;
     bool mFirstLoad;
 
+private slots:
+    void setAptProxySlot();  //处理apt代理前端交互逻辑
 };
 
 #endif // PROXY_H

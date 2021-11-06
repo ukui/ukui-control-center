@@ -259,7 +259,7 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
                 m_queryText->setParent(nullptr);
                 m_animation->stop();
                 int left = 0;
-                left = firstin ? (m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2 : -60;
+                left = firstin ? (m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2 : m_queryWid->x()-(m_queryIcon->width()+m_queryText->width()+8)/2 ;
                 if (firstin) {
                     firstin = false;
                 }

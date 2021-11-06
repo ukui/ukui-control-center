@@ -62,41 +62,59 @@ namespace Ui {
 class NetConnect;
 }
 
-typedef struct DeviceLanlistInfo_s
-{
-    QMap<QString, ItemFrame*> deviceLayoutMap;
-    QMap<QString, LanItem*> lanItemMap;
-}DeviceLanlistInfo;
-
 class NetConnect : public QObject, CommonInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
+    Q_PLUGIN_METADATA(IID "org.ukcc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
     NetConnect();
     ~NetConnect();
 
-    QString get_plugin_name() Q_DECL_OVERRIDE;
-    int get_plugin_type() Q_DECL_OVERRIDE;
-    QWidget * get_plugin_ui() Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
+    QString plugini18nName() Q_DECL_OVERRIDE;
+    int pluginTypes() Q_DECL_OVERRIDE;
+    QWidget * pluginUi() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
+    bool isShowOnHomePage() const Q_DECL_OVERRIDE;
+    QIcon icon() const Q_DECL_OVERRIDE;
+    bool isEnable() const Q_DECL_OVERRIDE;
+
 private:
     void initSearchText();
     void initComponent();
-    void rebuildDeviceComponent(ItemFrame *frame, QString deviceName, int count);
-    void rebuildAddComponent(ItemFrame *frame, QString deviceName);
-    void rebuildAvailComponent(ItemFrame *frame, QString iconpath, QString deviceName, QString name, QString ssid, QString path, bool status, int type);
     void runExternalApp();
+
+
+    //开关相关
     void setSwitchStatus();
-    void clearLayout(QVBoxLayout *layout);
+    void hideLayout(QVBoxLayout * layout);
+    void showLayout(QVBoxLayout * layout);
+
+    int getInsertPos(QString connName, QString deviceName);
+
+
     void deleteOneLan(QString ssid);
     void activeConnect(QString ssid, QString deviceName, int type);
     void deActiveConnect(QString ssid, QString deviceName, int type);
-    void getDeviceList();
+
+    //获取设备列表
+    void getDeviceStatusMap(QMap<QString, bool> &map);
     void initNet();
+    void initNetListFromDevice(QString deviceName);
+    //处理列表增加
+    void addLanItem(ItemFrame *frame, QString devName, QStringList infoList, bool isActived);
+    //增加设备
+    void addDeviceFrame(QString devName);
+    //减少设备
+    void removeDeviceFrame(QString devName);
+    //增加一项
+    void addOneLanFrame(ItemFrame *frame, QString devName, QStringList infoList);
+    //减少一项
+    void removeOneLanFrame(ItemFrame *frame, QString deviceName, QString uuid);
+
+    //单个lan连接状态变化
+    void itemActiveConnectionStatusChanged(LanItem *item, int status);
 
 protected:
     bool eventFilter(QObject *w,QEvent *e);
@@ -109,26 +127,23 @@ private:
     QWidget            *pluginWidget;
 
     QDBusInterface     *m_interface = nullptr;
-    QDBusInterface     *kdsDbus = nullptr;
     SwitchButton       *wiredSwitch;
 
     bool               mFirstLoad;
-
     QGSettings         *m_switchGsettings;
-    DeviceLanlistInfo   deviceLanlistInfo;
-    QMap<QString, bool> deviceListMap;
-    QMap<QString, bool> dropDownMap; //记录当前网卡下拉按钮状态
-    QMap<QString,QString> ssidDeviceMap;
+
+    QMap<QString, bool> deviceStatusMap;
     QMap<QString, ItemFrame *> deviceFrameMap;
-    QMap<QString, QString> pathSsidMap;
+
 private slots:
-    void getNetListFromDevice(QString deviceName, bool deviceStatus, QVBoxLayout *layout, int count);
-    void dropDownAnimation(DeviceFrame * deviceFrame, QString deviceName, QMap<QString, bool> deviceListMap);
-    void updateOneLanFrame(QString deviceName, QString uuid, int status);
-    void updateOneLanFrame(QString devicePath);
-    void updateOneLanFrame(QString deviceName, QStringList lanInfo);
     void updateLanInfo(QString deviceName, QStringList lanInfo);
-    void updateLanListWidget();
+
+    void onLanAdd(QString deviceName, QStringList lanInfo);
+    void onLanRemove(QString dbusPath);
+
+    void onActiveConnectionChanged(QString deviceName, QString uuid, int status);
+
+    void onDeviceStatusChanged();
 };
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>);

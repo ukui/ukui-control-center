@@ -88,88 +88,24 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::bootOptionsFilter(QString opt) {
-    if (opt == "--display" || opt == "-m") {
-        bootOptionsSwitch(SYSTEM, DISPLAY);
-    } else if (opt == "--audio" || opt == "-s") {
-        bootOptionsSwitch(SYSTEM, AUDIO);
-    } else if (opt == "--power" || opt == "-p") {
-        bootOptionsSwitch(SYSTEM, POWER);
-    } else if (opt == "--notice" || opt == "-n") {
-        bootOptionsSwitch(SYSTEM, NOTICE);
-    } else if (opt == "--vino") {
-        bootOptionsSwitch(SYSTEM, VINO);
-    } else if (opt == "--projection") {
-        bootOptionsSwitch(SYSTEM, PROJECTION);
-    } else if (opt == "--about" || opt == "-a") {
-        bootOptionsSwitch(SYSTEM, ABOUT);
-    } else if (opt == "--bluetooth") {
-        bootOptionsSwitch(DEVICES, BLUETOOTH);
-    } else if (opt == "--printer") {
-        bootOptionsSwitch(DEVICES, PRINTER);
-    } else if (opt == "--mouse") {
-        bootOptionsSwitch(DEVICES, MOUSE);
-    } else if (opt == "--touchpad") {
-        bootOptionsSwitch(DEVICES, TOUCHPAD);
-    } /*else if (opt == "--gesture") {
-        bootOptionsSwitch(DEVICES, GESTURE);
-    }*/ else if (opt == "--touchscreen") {
-        bootOptionsSwitch(DEVICES, TOUCHSCREEN);
-    } else if (opt == "--keyboard") {
-        bootOptionsSwitch(DEVICES, KEYBOARD);
-    } else if (opt == "--shortcut") {
-        bootOptionsSwitch(DEVICES, SHORTCUT);
-    } else if (opt == "--wiredconnect") {
-        bootOptionsSwitch(NETWORK, WIREDCONNECT);
-    } else if (opt == "--wlanconnect") {
-        bootOptionsSwitch(NETWORK, WLANCONNECT);
-    } else if (opt == "--mobilehotspot") {
-        bootOptionsSwitch(NETWORK, MOBILEHOTSPOT);
-    } else if (opt == "--vpn" || opt == "-g") {
-        bootOptionsSwitch(NETWORK, VPN);
-    } else if (opt == "--proxy") {
-        bootOptionsSwitch(NETWORK, PROXY);
-    } else if (opt == "--background" || opt == "-b") {
-        bootOptionsSwitch(PERSONALIZED, BACKGROUND);
-    } else if (opt == "--theme") {
-        bootOptionsSwitch(PERSONALIZED, THEME);
-    } else if (opt == "--screenlock") {
-        bootOptionsSwitch(PERSONALIZED, SCREENLOCK);
-    } else if (opt == "--screensaver") {
-        bootOptionsSwitch(PERSONALIZED, SCREENSAVER);
-    } else if (opt == "--fonts") {
-        bootOptionsSwitch(PERSONALIZED, FONTS);
-    } else if (opt == "--desktop" || opt == "-d") {
-        bootOptionsSwitch(PERSONALIZED, DESKTOP);
-    } else if (opt == "--userinfo" || opt == "-u") {
-        bootOptionsSwitch(ACCOUNT, USERINFO);
-    } else if (opt == "--cloudaccount") {
-        bootOptionsSwitch(ACCOUNT, NETWORKACCOUNT);
-    } else if (opt == "--datetime" || opt == "-t") {
-        bootOptionsSwitch(DATETIME, DAT);
-    } else if (opt == "--area") {
-        bootOptionsSwitch(DATETIME, AREA);
-    } /*else if (opt == "--updates") {
-        bootOptionsSwitch(UPDATE, UPDATES);
-    } */else if (opt == "--upgrade") {
-        bootOptionsSwitch(UPDATE, UPGRADE);
-    } else if (opt == "--backup") {
-        bootOptionsSwitch(UPDATE, BACKUP);
-    } /*else if (opt == "--securityCenter") {
-        bootOptionsSwitch(SECURITY, SECURITYCENTER);
-    } */else if (opt == "--defaultapp") {
-        bootOptionsSwitch(APPLICATION, DEFAULTAPP);
-    } else if (opt == "--autoboot") {
-        bootOptionsSwitch(APPLICATION, AUTOBOOT);
-    } else if (opt == "--search") {
-        bootOptionsSwitch(SEARCH_F, SEARCH);
+    int moduleNum;
+    bool isExitsModule = false;
+    QString funcStr;
+    QList<FuncInfo> pFuncStructList;
+    for (int i = 0; i < FunctionSelect::funcinfoList.size(); i++) {
+        for (int j = 0; j < FunctionSelect::funcinfoList[i].size(); j++) {
+            if (!FunctionSelect::funcinfoList[i][j].nameString.compare(opt, Qt::CaseInsensitive)) {
+                moduleNum = FunctionSelect::funcinfoList[i][j].type;
+                funcStr = FunctionSelect::funcinfoList[i][j].namei18nString;
+                pFuncStructList = FunctionSelect::funcinfoList[i];
+                isExitsModule = true;
+                break;
+            }
+        }
     }
-}
-
-void MainWindow::bootOptionsSwitch(int moduleNum, int funcNum){
-
-    QList<FuncInfo> pFuncStructList = FunctionSelect::funcinfoList[moduleNum];
-    QString funcStr = pFuncStructList.at(funcNum).namei18nString;
-    qDebug() << "moduleNum is" << moduleNum << " " << funcNum << " " << funcStr << endl;
+    if (!isExitsModule) {
+        return ;
+    }
 
     QMap<QString, QObject *> pluginsObjMap = modulesList.at(moduleNum);
 
@@ -190,10 +126,10 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
         QPoint  searchPoint      = searchParentWid->mapFromGlobal(mEvent->globalPos());
         //qDebug()<<m_searchWidget->geometry()<<  mWindowGlobalPoint << mouseGlobalPoint << tPoint;
         if (!m_searchWidget->geometry().contains(searchPoint)) {
-                if (m_isSearching == true) {
-                    m_searchWidget->setFocus();
-                    m_searchWidget->clearFocus();
-                }
+            if (m_isSearching == true) {
+                m_searchWidget->setFocus();
+                m_searchWidget->clearFocus();
+            }
         }
     }
 
@@ -376,8 +312,8 @@ void MainWindow::initUI() {
     });
 
     // 快捷参数
-    if (QApplication::arguments().length() > 1) {
-        bootOptionsFilter(QApplication::arguments().at(1));
+    if (QApplication::arguments().length() >= 2) {
+        bootOptionsFilter(QApplication::arguments().at(2));
     }
 
     //快捷键
@@ -562,7 +498,7 @@ void MainWindow::loadPlugins(){
         pluginsDir = QDir(qApp->applicationDirPath() + "/plugins");
     }
 
-    foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
+    foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
         //三权分立开启
 #ifdef WITHKYSEC
         if (!kysec_is_disabled() && kysec_get_3adm_status() && (getuid() || geteuid())){
@@ -575,64 +511,29 @@ void MainWindow::loadPlugins(){
 #endif
         qDebug() << "Scan Plugin: " << fileName;
 
-        if (!fileName.endsWith(".so")
-                || (fileName == "libexperienceplan.so")
-                || ("libnetworkaccount.so" == fileName && (!isExitsCloudAccount() || Utils::isTablet()))
-                || ("libmobilehotspot.so" == fileName && !isExitWirelessDevice())
-                || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
-                || ("libbluetooth.so" == fileName && !isExitBluetooth())
-                || ("libpower.so" == fileName && !isExitsPower())
-                || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
-                || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || (("libfonts.so" == fileName || "libuserinfo.so" == fileName ||
-                     "libshortcut.so" == fileName || "libdefaultapp.so" == fileName ||
-                     "libautoboot.so" == fileName || "libnotice.so" == fileName ||
-                     "libprojection.so" == fileName || "libtouchscreen.so" == fileName ||
-                     "libvino.so" == fileName || "libscreensaver.so" == fileName ||
-                     "libvpn.so" == fileName || "libmobilehotspot.so" == fileName ||
-                     "libbiometrics.so" == fileName || "libsecuritycenter.so" == fileName ||
-                     "libupgrade.so" == fileName || "libsearch.so" == fileName ||
-                     "libarea.so" == fileName || "libbackup.so" == fileName) && Utils::isTablet())
-                || ("libtouchpad.so" == fileName && !isfindSynaptics())
-                || (("libuserinfo_intel.so" == fileName || "libbackup_intel.so" == fileName ||
-                     "libgesture.so" == fileName) && !Utils::isTablet())) {
-            continue;
-        }
 
-
-
-        //ukui-session-manager
-        const char * sessionFile = "/usr/share/glib-2.0/schemas/org.ukui.session.gschema.xml";
-        //ukui-screensaver
-        const char * screensaverFile = "/usr/share/glib-2.0/schemas/org.ukui.screensaver.gschema.xml";
-
-        //屏保功能依赖ukui-session-manager
-        if ((!g_file_test(screensaverFile, G_FILE_TEST_EXISTS) ||
-             !g_file_test(sessionFile, G_FILE_TEST_EXISTS)) &&
-                (fileName == "libscreensaver.so" || fileName == "libscreenlock.so"))
-            continue;
 #ifdef __sw_64__
         if ("libpower.so" == fileName) {
             continue;
         }
 #endif
 
-        const char * securityCmd = "/usr/sbin/ksc-defender";
-
-        if ((!g_file_test(securityCmd, G_FILE_TEST_EXISTS)) && (fileName == "libsecuritycenter.so"))
-            continue;
-
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
         QObject * plugin = loader.instance();
         if (plugin) {
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
-            modulesList[pluginInstance->get_plugin_type()].insert(pluginInstance->get_plugin_name(), plugin);
+            // 插件是否启用
+            if (!pluginInstance->isEnable()) {
+                continue;
+            }
 
-            qDebug() << "Load Plugin :" << kvConverter->keycodeTokeyi18nstring(pluginInstance->get_plugin_type()) << "->" << pluginInstance->get_plugin_name() ;
+            modulesList[pluginInstance->pluginTypes()].insert(pluginInstance->plugini18nName(), plugin);
 
-            m_searchWidget->addModulesName(pluginInstance->name(), pluginInstance->get_plugin_name(), pluginInstance->translationPath());
+            qDebug() << "Load Plugin :" << kvConverter->keycodeTokeyi18nstring(pluginInstance->pluginTypes()) << "->" << pluginInstance->plugini18nName() ;
 
-            int moduletypeInt = pluginInstance->get_plugin_type();
+            m_searchWidget->addModulesName(pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->translationPath());
+
+            int moduletypeInt = pluginInstance->pluginTypes();
             if (!moduleIndexList.contains(moduletypeInt))
                 moduleIndexList.append(moduletypeInt);
         } else {
@@ -767,6 +668,15 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     iconBtn->setCheckable(true);
     iconBtn->setFixedSize(QSize(16, 16));
     iconBtn->setFocusPolicy(Qt::NoFocus);
+    iconBtn->reLoadIcon();
+    if (QGSettings::isSchemaInstalled("org.ukui.style")){
+       QGSettings *qtSettings = new QGSettings("org.ukui.style");
+       connect(qtSettings, &QGSettings::changed, this, [=](const QString &key) {
+            if (key == "styleName") {
+                iconBtn->reLoadIcon();
+            }
+       });
+    }
 
     QLabel * textLabel = new QLabel(leftsidebarBtn);
     textLabel->setFixedWidth(leftsidebarBtn->width() - 40);
@@ -875,12 +785,13 @@ bool MainWindow::isExitWirelessDevice()
         qDebug() << "/com/kylin/network is invalid";
         return false;
     }
+
     QDBusMessage result = interface->call(QStringLiteral("getDeviceListAndEnabled"),1);
-    if(result.type() == QDBusMessage::ErrorMessage)
-    {
+    if(result.type() == QDBusMessage::ErrorMessage) {
         qWarning() << "getWirelessDeviceList error:" << result.errorMessage();
         return false;
     }
+
     auto dbusArg =  result.arguments().at(0).value<QDBusArgument>();
     QMap<QString, bool> deviceListMap;
     dbusArg >> deviceListMap;
@@ -994,32 +905,21 @@ void MainWindow::functionBtnClicked(QObject *plugin) {
     modulepageWidget->switchPage(plugin);
 
     CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
-    int value = pluginInstance->pluginBtn->pos().y() + pluginInstance->pluginBtn->height() - scrollArea->verticalScrollBar()->pageStep();
-    value = value + scrollArea->height()/2; //尽量让选中的显示在中间位置
-    if (value <= 0) {
-        scrollArea->verticalScrollBar()->setValue(0);
-    } else if (value > scrollArea->verticalScrollBar()->maximum()){
-        scrollArea->verticalScrollBar()->setValue(scrollArea->verticalScrollBar()->maximum());
-    } else {
-        scrollArea->verticalScrollBar()->setValue(value);
-    }
+//    int value = pluginInstance->pluginBtn->pos().y() + pluginInstance->pluginBtn->height() - scrollArea->verticalScrollBar()->pageStep();
+//    value = value + scrollArea->height()/2; //尽量让选中的显示在中间位置
+//    if (value <= 0) {
+//        scrollArea->verticalScrollBar()->setValue(0);
+//    } else if (value > scrollArea->verticalScrollBar()->maximum()){
+//        scrollArea->verticalScrollBar()->setValue(scrollArea->verticalScrollBar()->maximum());
+//    } else {
+//        scrollArea->verticalScrollBar()->setValue(value);
+//    }
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
-    //    if (!this->isActiveWindow()) {
-    //        this->hide();
-    //        this->show();
-    //        showNormal();
-    //    }
     KWindowSystem::forceActiveWindow(this->winId());
     this->show();
     bootOptionsFilter(msg);
-
-    //Qt::WindowFlags flags = windowFlags();
-    //flags |= Qt::WindowStaysOnTopHint;
-    //setWindowFlags(flags);
-    //flags &= ~Qt::WindowStaysOnTopHint;
-    //setWindowFlags(flags);
 }
 
 void MainWindow::switchPage(QString moduleName, QString jumpMoudle) {

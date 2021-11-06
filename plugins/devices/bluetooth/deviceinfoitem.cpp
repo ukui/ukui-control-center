@@ -583,7 +583,7 @@ void DeviceInfoItem::MouseClickedFunc()
 }
 
 /************************************************
- * @brief  ???????????????????????????
+ * @brief  该函数意义是当设备为音频设备时，断开已经连接的音频设备
  * @param  null
  * @return null
 *************************************************/
@@ -610,10 +610,14 @@ void DeviceInfoItem::DevConnectFunc()
                                 _MDev.data()->connectToDevice();
                             }
                         });
+                        //如果有正在连接的音频设备，做完以上流程后，直接退出函数体
+                        //因为流程解决定了只有一个音频设备连接，而不需要判断后面是否有音频设备连接；提高代码执行效率
+                        return;
                     }
                 }
             }
-
+            //当没有任何音频设备连接，最后再连接目标设备
+            _MDev.data()->connectToDevice();
         } else {
             _MDev.data()->connectToDevice();
         }

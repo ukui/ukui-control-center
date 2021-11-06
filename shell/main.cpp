@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -91,8 +91,14 @@ int main(int argc, char *argv[])
         QCoreApplication::setApplicationVersion("2.0");
 
         QCommandLineParser parser;
-        Utils::setCLIName(parser);
+        QCommandLineOption moduleOption(QStringList() << "m", "display the specified module page", "module");
+
+        parser.addHelpOption();
+        parser.addVersionOption();
+        parser.addOption(moduleOption);
         parser.process(a);
+
+        const QString &reqModule = parser.value(moduleOption);
 
         MainWindow w;
         mainWindow = &w;

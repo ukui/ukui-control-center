@@ -29,30 +29,42 @@ KeyboardControl::~KeyboardControl()
 {
 }
 
-QString KeyboardControl::get_plugin_name()
+QString KeyboardControl::plugini18nName()
 {
     return pluginName;
 }
 
-int KeyboardControl::get_plugin_type() {
+int KeyboardControl::pluginTypes() {
     return pluginType;
 }
 
-QWidget *KeyboardControl::get_plugin_ui()
+QWidget *KeyboardControl::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new KeyboardMain;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
     }
     return pluginWidget;
 }
 
-void KeyboardControl::plugin_delay_control()
-{
-}
-
 const QString KeyboardControl::name() const
 {
-    return QStringLiteral("keyboard");
+    return QStringLiteral("Keyboard");
+}
+
+bool KeyboardControl::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon KeyboardControl::icon() const
+{
+    return QIcon();
+}
+
+bool KeyboardControl::isEnable() const
+{
+    return true;
 }
 

@@ -25,15 +25,15 @@ networkaccount::networkaccount() : mFirstLoad(true)
     pluginType = ACCOUNT;
 }
 
-QString networkaccount::get_plugin_name() {
+QString networkaccount::plugini18nName() {
     return pluginName;
 }
 
-int networkaccount::get_plugin_type() {
+int networkaccount::pluginTypes() {
     return pluginType;
 }
 
-QWidget * networkaccount::get_plugin_ui() {
+QWidget * networkaccount::pluginUi() {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new MainWidget();
@@ -42,11 +42,22 @@ QWidget * networkaccount::get_plugin_ui() {
     return pluginWidget;
 }
 
-void networkaccount::plugin_delay_control() {
-
-}
-
 const QString networkaccount::name() const {
 
-    return QStringLiteral("networkaccount");
+    return QStringLiteral("Cloud Account");
+}
+
+bool networkaccount::isShowOnHomePage() const
+{
+    return true;
+}
+
+QIcon networkaccount::icon() const
+{
+    return QIcon();
+}
+
+bool networkaccount::isEnable() const
+{
+    return true;
 }

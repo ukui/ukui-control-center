@@ -70,15 +70,15 @@ UserInfoIntel::~UserInfoIntel()
     }
 }
 
-QString UserInfoIntel::get_plugin_name(){
+QString UserInfoIntel::plugini18nName(){
     return pluginName;
 }
 
-int UserInfoIntel::get_plugin_type(){
+int UserInfoIntel::pluginTypes(){
     return pluginType;
 }
 
-QWidget *UserInfoIntel::get_plugin_ui(){
+QWidget *UserInfoIntel::pluginUi(){
     if (mFirstLoad) {
         mFirstLoad = false;
         ui = new Ui::UserInfoIntel;
@@ -120,29 +120,40 @@ QWidget *UserInfoIntel::get_plugin_ui(){
     return pluginWidget;
 }
 
-void UserInfoIntel::plugin_delay_control(){
-
-}
-
 const QString UserInfoIntel::name() const {
 
-    return QStringLiteral("userinfo");
+    return QStringLiteral("Userinfo");
+}
+
+bool UserInfoIntel::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon UserInfoIntel::icon() const
+{
+    return QIcon();
+}
+
+bool UserInfoIntel::isEnable() const
+{
+    return isIntel();
 }
 
 void UserInfoIntel::initSearchText() {
     ui->changePhoneBtn->setIcon(QIcon(":/img/plugins/userinfo_intel/phone.svg"));
-    //~ contents_path /userinfo/Current User
+    //~ contents_path /Userinfo/Current User
     ui->titleLabel->setText(tr("Current User"));
 
-    //~ contents_path /userinfo/Other Users
+    //~ contents_path /Userinfo/Other Users
     ui->title2Label->setText(tr("Other Users"));
 
-    //~ contents_path /userinfo/Change Tel
+    //~ contents_path /Userinfo/Change Tel
     ui->changePhoneBtn->setText(tr("Change Tel"));
 
     ui->changePwdBtn->setIcon(QIcon(":/img/plugins/userinfo_intel/password.svg"));
 
-    //~ contents_path /userinfo/Change pwd
+    //~ contents_path /Userinfo/Change pwd
     ui->changePwdBtn->setText(tr("Change pwd"));
 
 
@@ -165,7 +176,7 @@ void UserInfoIntel::initSearchText() {
     }
 
 
-    //~ contents_path /userinfo/Delete user
+    //~ contents_path /Userinfo/Delete user
     ui->delUserBtn->setText(tr("Delete user"));
 
     ui->frame->hide();
@@ -659,10 +670,6 @@ void UserInfoIntel::_refreshUserInfoUI(){
             ui->userNameLabel->installEventFilter(this);
 
             oldName = ui->userNameLabel->text();
-            QFont wordfont = ui->userNameLabel->font();
-            QFontMetrics fm(wordfont);
-            QRect rec = fm.boundingRect(ui->userNameLabel->text());
-            ui->userNameLabel->setFixedWidth(rec.width()+15);
             connect(ui->userNameLabel,&QLineEdit::textChanged, [=](QString text){
                     qDebug()<<text;
                     QString str =ui->userNameLabel->text();
@@ -677,10 +684,7 @@ void UserInfoIntel::_refreshUserInfoUI(){
                         ui->userNameLabel->setText(oldName);
                     } else {
                         oldName = text;
-                        QFont wordfont = ui->userNameLabel->font();
-                        QFontMetrics fm(wordfont);
-                        QRect rec = fm.boundingRect(ui->userNameLabel->text());
-                        ui->userNameLabel->setFixedWidth(rec.width()+15);
+                        ui->userNameLabel->setText(ui->userNameLabel->text());
                     }
             });
             connect(ui->editBtn,&QPushButton::clicked,[=](){

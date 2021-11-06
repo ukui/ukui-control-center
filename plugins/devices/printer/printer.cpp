@@ -40,24 +40,24 @@ Printer::~Printer()
     }
 }
 
-QString Printer::get_plugin_name()
+QString Printer::plugini18nName()
 {
     return pluginName;
 }
 
-int Printer::get_plugin_type()
+int Printer::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Printer::get_plugin_ui()
+QWidget *Printer::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
 
-//        //~ contents_path /printer/Add Printers And Scanners
+//        //~ contents_path /Printer/Add Printers And Scanners
 //        ui->titleLabel->setText(tr("Add Printers And Scanners"));
 
         initUi(pluginWidget);
@@ -73,13 +73,24 @@ QWidget *Printer::get_plugin_ui()
     return pluginWidget;
 }
 
-void Printer::plugin_delay_control()
-{
-}
-
 const QString Printer::name() const
 {
-    return QStringLiteral("printer");
+    return QStringLiteral("Printer");
+}
+
+bool Printer::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Printer::icon() const
+{
+    return QIcon();
+}
+
+bool Printer::isEnable() const
+{
+    return true;
 }
 
 void Printer::initUi(QWidget *widget)
@@ -161,7 +172,7 @@ void Printer::initPrinterUi()
 void Printer::initTitleLabel()
 {
     QLabel *AddLabel = new QLabel;
-    //~ contents_path /printer/Add
+    //~ contents_path /Printer/Add
     AddLabel->setText(tr("Add"));       // 用于添加搜索索引
     delete AddLabel;
 }

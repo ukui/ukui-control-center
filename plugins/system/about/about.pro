@@ -1,5 +1,6 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 QT       += widgets dbus KI18n KCoreAddons \
              widgets dbus concurrent
@@ -22,10 +23,12 @@ INCLUDEPATH   +=  \
 HEADERS += \
     HpQRCodeInterface.h \
     about.h \
+    hostnamedialog.h \
     trialdialog.h
 
 SOURCES += \
     about.cpp \
+    hostnamedialog.cpp \
     trialdialog.cpp
 
 FORMS +=

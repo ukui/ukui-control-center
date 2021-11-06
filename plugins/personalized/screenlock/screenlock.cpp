@@ -56,17 +56,17 @@ Screenlock::~Screenlock()
     }
 }
 
-QString Screenlock::get_plugin_name()
+QString Screenlock::plugini18nName()
 {
     return pluginName;
 }
 
-int Screenlock::get_plugin_type()
+int Screenlock::pluginTypes()
 {
     return pluginType;
 }
 
-QWidget *Screenlock::get_plugin_ui()
+QWidget *Screenlock::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
@@ -92,24 +92,34 @@ QWidget *Screenlock::get_plugin_ui()
     return pluginWidget;
 }
 
-void Screenlock::plugin_delay_control()
-{
-
-}
-
 const QString Screenlock::name() const
 {
-    return QStringLiteral("screenlock");
+    return QStringLiteral("Screenlock");
+}
+
+bool Screenlock::isShowOnHomePage() const
+{
+    return false;
+}
+
+QIcon Screenlock::icon() const
+{
+    return QIcon();
+}
+
+bool Screenlock::isEnable() const
+{
+    return true;
 }
 
 void Screenlock::initSearchText() {
-    //~ contents_path /screenlock/Show picture of screenlock on screenlogin
+    //~ contents_path /Screenlock/Show picture of screenlock on screenlogin
     ui->loginpicLabel->setText(tr("Show picture of screenlock on screenlogin"));
-    //~ contents_path /screenlock/Lock screen when screensaver boot
+    //~ contents_path /Screenlock/Lock screen when screensaver boot
     ui->activepicLabel->setText(tr("Lock screen when screensaver boot"));
-    //~ contents_path /screenlock/Browse
+    //~ contents_path /Screenlock/Browse
     ui->browserLocalwpBtn->setText(tr("Browse"));
-    //~ contents_path /screenlock/Online Picture
+    //~ contents_path /Screenlock/Online Picture
     ui->onlineBtn->setText(tr("Online Picture"));
     ui->onlineBtn->setFocusPolicy(Qt::NoFocus);
     ui->onlineBtn->setContentsMargins(0,0,0,0);
@@ -118,7 +128,7 @@ void Screenlock::initSearchText() {
     connect( ui->onlineBtn, &QPushButton::clicked, this,[=] {
         QDesktopServices::openUrl(QUrl(QLatin1String("https://www.ubuntukylin.com/wallpaper.html")));
     });
-    //~ contents_path /screenlock/Reset To Default
+    //~ contents_path /Screenlock/Reset To Default
     ui->resetBtn->setText(tr("Reset To Default"));
 }
 

@@ -42,7 +42,7 @@ class Power;
 class Power : public QObject, CommonInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
+    Q_PLUGIN_METADATA(IID "org.ukcc.CommonInterface")
     Q_INTERFACES(CommonInterface)
 
 public:
@@ -50,11 +50,13 @@ public:
     ~Power();
 
 public:
-    QString get_plugin_name()   Q_DECL_OVERRIDE;
-    int get_plugin_type()       Q_DECL_OVERRIDE;
-    QWidget *get_plugin_ui()   Q_DECL_OVERRIDE;
-    void plugin_delay_control() Q_DECL_OVERRIDE;
+    QString plugini18nName()   Q_DECL_OVERRIDE;
+    int pluginTypes()       Q_DECL_OVERRIDE;
+    QWidget *pluginUi()   Q_DECL_OVERRIDE;
     const QString name() const Q_DECL_OVERRIDE;
+    bool isShowOnHomePage() const Q_DECL_OVERRIDE;
+    QIcon icon() const Q_DECL_OVERRIDE;
+    bool isEnable() const Q_DECL_OVERRIDE;
 
 public:
     void InitUI(QWidget *widget);
@@ -71,8 +73,8 @@ public:
     double getBattery();
     bool QLabelSetText(QLabel *label, QString string);
     void clearAutoItem(QVBoxLayout *mLyt);
+    void setFrame_Noframe(QFrame *frame);
     QFrame *setLine(QFrame *frame);
-
 
 private:
 

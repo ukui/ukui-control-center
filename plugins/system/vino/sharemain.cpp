@@ -56,15 +56,13 @@ void ShareMain::initUI()
     mVinoTitleLabel = new TitleLabel(this);
     mVinoTitleLabel->setText(tr("Remote Desktop"));
     mEnableFrame = new QFrame(this);
-    mEnableFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mEnableFrame->setMinimumSize(550, 60);
-    mEnableFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mEnableFrame);
 
     QHBoxLayout *enableHLayout = new QHBoxLayout();
     enableHLayout->setContentsMargins(12, 0, 16, 0);
 
     mEnableBtn = new SwitchButton(this);
-     //~ contents_path /vino/Allow others to view your desktop
+     //~ contents_path /Vino/Allow others to view your desktop
     mEnableLabel = new QLabel(tr("Allow others to view your desktop"), this);
     enableHLayout->addWidget(mEnableLabel);
     enableHLayout->addStretch();
@@ -73,15 +71,13 @@ void ShareMain::initUI()
     mEnableFrame->setLayout(enableHLayout);
 
     mViewFrame = new QFrame(this);
-    mViewFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mViewFrame->setMinimumSize(550, 60);
-    mViewFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mViewFrame);
 
     QHBoxLayout *viewHLayout = new QHBoxLayout();
     viewHLayout->setContentsMargins(12, 0, 16, 0);
 
     mViewBtn = new SwitchButton(this);
-    //~ contents_path /vino/Allow connection to control screen
+    //~ contents_path /Vino/Allow connection to control screen
     mViewLabel = new QLabel(tr("Allow connection to control screen"), this);
     viewHLayout->addWidget(mViewLabel);
     viewHLayout->addStretch();
@@ -90,15 +86,13 @@ void ShareMain::initUI()
     mViewFrame->setLayout(viewHLayout);
 
     mSecurityFrame = new QFrame(this);
-    mSecurityFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mSecurityFrame->setMinimumSize(550, 60);
-    mSecurityFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mSecurityFrame);
 
     QHBoxLayout *secHLayout = new QHBoxLayout();
     secHLayout->setContentsMargins(12, 0, 16, 0);
 
     mAccessBtn = new SwitchButton(this);
-     //~ contents_path /vino/You must confirm every visit for this machine
+     //~ contents_path /Vino/You must confirm every visit for this machine
     mAccessLabel = new QLabel(tr("You must confirm every visit for this machine"), this);
     secHLayout->addWidget(mAccessLabel);
     secHLayout->addStretch();
@@ -107,15 +101,13 @@ void ShareMain::initUI()
     mSecurityFrame->setLayout(secHLayout);
 
     mSecurityPwdFrame = new QFrame(this);
-    mSecurityPwdFrame->setFrameShape(QFrame::Shape::NoFrame);
-    mSecurityPwdFrame->setMinimumSize(550, 60);
-    mSecurityPwdFrame->setMaximumSize(16777215, 60);
+    setFrame_Noframe(mSecurityPwdFrame);
 
     QHBoxLayout *pwdHLayout = new QHBoxLayout();
     pwdHLayout->setContentsMargins(12, 0, 16, 0);
 
     mPwdBtn = new SwitchButton(this);
-     //~ contents_path /vino/Require user to enter this password:
+     //~ contents_path /Vino/Require user to enter this password:
     mPwdsLabel = new QLabel(tr("Require user to enter this password: "), this);
 
     mPwdinputBtn = new QPushButton(this);
@@ -221,6 +213,13 @@ void ShareMain::setVinoService(bool status)
             vinoIfc.call("DisableService", "vino-server");
         }
     }
+}
+
+void ShareMain::setFrame_Noframe(QFrame *frame)
+{
+    frame->setMinimumSize(QSize(550, 60));
+    frame->setMaximumSize(QSize(16777215, 60));
+    frame->setFrameShape(QFrame::NoFrame);
 }
 
 QFrame *ShareMain::setLine(QFrame *frame)
