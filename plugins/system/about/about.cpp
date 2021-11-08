@@ -1115,8 +1115,7 @@ bool About::eventFilter(QObject *obj, QEvent *event)
          }
     } else if (obj == mAgreeLabel) {
         if (event->type() == QEvent::MouseButtonPress) {
-            QDialog *mDialog = new QDialog(pluginWidget);
-            mDialog->setFixedSize(QSize(560 , 560));
+            PrivacyDialog *mDialog = new PrivacyDialog(pluginWidget);
             mDialog->show();
         }
     }

@@ -41,6 +41,7 @@
 #include "HpQRCodeInterface.h"
 #include "shell/utils/utils.h"
 #include "hostnamedialog.h"
+#include "privacydialog.h"
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
