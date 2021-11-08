@@ -56,17 +56,17 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     //~ contents_path /audio/Sound Theme
     m_pSoundThemeLabel = new QLabel(tr("Sound Theme"),m_pThemeWidget);//提示音下的系统音效主题
     m_pSoundThemeCombobox = new QComboBox(m_pThemeWidget);
-    //~ contents_path /audio/Alert Sound
+    ////~ contents_path /audio/Alert Sound
     m_pShutdownlabel = new QLabel(tr("Alert Sound"),m_pAlertSoundWidget);//提示音下的通知提示
     m_pAlertSoundCombobox = new QComboBox(m_pAlertSoundWidget);
-    //~ contents_path /audio/Alert Volume
+    //~ contents_path /audio/Beep Switch
     m_pAlertSoundSwitchLabel = new QLabel(tr("Beep Switch"),m_pAlertSoundSwitchWidget);//提示音
     m_pPoweroffMusicLabel = new QLabel(tr("Poweroff Music"),m_pPoweroffMusicWidget);//关机
     m_pStartupMusicLabel = new QLabel(tr("Startup Music"),m_pStartupMusicWidget);//开机
     m_pWakeupMusicLabel = new QLabel(tr("Wakeup Music"),m_pWakeupMusicWidget);//唤醒
     m_pVolumeChangeLabel = new QLabel(tr("Volume Change"),m_pVolumeChangeWidget);//音量调节
     m_pLagoutLabel = new QLabel(tr("Logout Music"),m_pLagoutWidget);//注销
-
+    //~ contents_path /audio/Alert Volume
     m_pAlertSoundChangedLabel = new QLabel(tr("Alert Volume"),m_pAlertSoundChangedWidget);
     m_pAlertSoundMuteLabel = new QLabel(m_pAlertSoundChangedWidget);
     m_pAlertSoundVolumeLabel = new QLabel(m_pAlertSoundChangedWidget);

@@ -341,13 +341,13 @@ void DisplayWidget::initUI(){
     ui->darkLabel->setPixmap(QPixmap("://img/plugins/display/dark.svg"));
     ui->brightLabel->setPixmap(QPixmap("://img/plugins/display/bright.svg"));
 
-    //~ contents_path /display/unify output
+    //~ contents_path /display/Screen mirror
     ui->unifyLabel->setText(tr("Screen mirror"));
     ui->toolTip->setText(tr("Tablet mode only supports mirroring"));
     ui->toolTip->setEnabled(false);
     ui->label->setText(tr("Open this monitor"));
     lightLabel = new QLabel(tr("auto light"));
-    //~ contents_path /display/enable night Mode
+    ////~ contents_path /display/enable night Mode
     nightLabel = new QLabel(tr("enable night Mode"));
     //~ contents_path /display/screen brightness
     ui->birghtnessLabel->setText(tr("screen brightness"));
@@ -1534,7 +1534,7 @@ void DisplayWidget::setBrightnesSldierValue(QString name){
 }
 
 void DisplayWidget::initTemptSlider() {
-    ui->temptSlider->setRange(1.1*1000,6500);
+    ui->temptSlider->setRange(4500,6500);
     ui->temptSlider->setTracking(true);
 }
 
@@ -1592,14 +1592,15 @@ void DisplayWidget::initConfigFile() {
         atclmin = QString::number(autoclsMin);
     }
     qDebug()<<atophour<<atopmin<<atclhour<<atclmin;
-    //~ contents_path /display/follow the sunrise and sunset
+    ////~ contents_path /display/follow the sunrise and sunset
     QString autotime = tr("follow the sunrise and sunset");
     autotime = autotime + "("+atophour +":"+atopmin + "--" + atclhour + ":" + atclmin + ")";
+    //~ contents_path /display/Auto Switch
     ui->label_6->setText(tr("Auto Switch"));
 
 
     int value = m_colorSettings->get(NIGHT_TEMPERATURE_KEY).toInt();
-    ui->temptSlider->setValue(value);
+    ui->temptSlider->setValue(4500 + 6500 - value);
 
     bool nightmode = m_colorSettings->get(NIGHT_ENABLE_KEY).toBool();
     bool sunjudge = m_colorSettings->get(AUTO_KEY).toBool();
@@ -1624,7 +1625,7 @@ void DisplayWidget::initConfigFile() {
 
     connect(ui->temptSlider, &QSlider::valueChanged, [=](){
         int color_temperature = ui->temptSlider->value();
-        m_colorSettings->set(NIGHT_TEMPERATURE_KEY, color_temperature);
+        m_colorSettings->set(NIGHT_TEMPERATURE_KEY, 4500 + 6500 - color_temperature);
     });
 
     connect(m_gsettings, &QGSettings::changed, [=](const QString &key){
@@ -1660,7 +1661,7 @@ void DisplayWidget::initConfigFile() {
         if(key == "nightLightTemperature")
         {
             int value = m_colorSettings->get(NIGHT_TEMPERATURE_KEY).toInt();
-            ui->temptSlider->setValue(value);
+            ui->temptSlider->setValue(4500 + 6500 - value);
         }
         else if(key == "nightLightScheduleAutomatic" || key == "nightLightEnabled" || key == "nightLightAllday")
         {

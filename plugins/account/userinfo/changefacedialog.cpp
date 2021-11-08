@@ -40,6 +40,9 @@ ChangeFaceDialog::ChangeFaceDialog(QWidget *parent) :
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 
+    //~ contents_path /userinfo/Change User Face
+    ui->titleLabel->setText(tr("Change User Face"));
+
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     m_closeBtn = new QPushButton(this);
     m_closeBtn->setProperty("useIconHighlightEffect", true);

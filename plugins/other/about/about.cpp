@@ -39,6 +39,7 @@ const QString UbuntuVesionEnhance = "Ubuntu 20.04.1 LTS";
 
 About::About()  : mFirstLoad(true)
 {
+    //~ contents_path /about/About & Support
     pluginName = tr("About & Support");
     pluginType = OTHER;
 }

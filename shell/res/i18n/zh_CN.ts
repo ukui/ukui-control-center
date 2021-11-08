@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="97"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="570"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="571"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
         <extra-contents_path>/about/System Summary</extra-contents_path>
@@ -24,7 +24,7 @@
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="316"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="574"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="575"/>
         <source>Kernel</source>
         <translation>内核</translation>
     </message>
@@ -34,44 +34,44 @@
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="237"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="574"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="277"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="578"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="579"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="355"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="575"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="576"/>
         <source>CPU</source>
         <translation>CPU</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="412"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="576"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="577"/>
         <source>Memory</source>
         <translation>内存</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="465"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="362"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="363"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="578"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="512"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="580"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="581"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
         <location filename="../../../plugins/other/about/about.ui" line="542"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="581"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="582"/>
         <source>User</source>
         <translation>用户名</translation>
     </message>
@@ -118,12 +118,12 @@
         <translation type="obsolete">二维码已失效，点击刷新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="147"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="148"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation type="unfinished">了解更多 HP用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="81"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="82"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation type="unfinished">微信扫码获得HP专业技术支持</translation>
     </message>
@@ -132,37 +132,37 @@
         <translation type="vanished">Edu OS 用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="95"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="572"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="96"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="573"/>
         <source>Support</source>
         <translation>支持</translation>
         <extra-contents_path>/about/Support</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="428"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="429"/>
         <source>Kylin Linux Desktop(EDU) V10</source>
         <translation>银河麒麟桌面操作系统（教育学习版）V10</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="309"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="355"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="364"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="310"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="356"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="365"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="42"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="43"/>
         <source>About &amp; Support</source>
         <translation>关于与支持</translation>
         <extra-contents_path>/about/About &amp; Support</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="90"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="91"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation type="unfinished">查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="92"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="93"/>
         <source>See user manual&gt;&gt;</source>
         <translation type="unfinished">查看用户手册</translation>
     </message>
@@ -171,12 +171,12 @@
         <translation type="obsolete">二维码加载中......</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="534"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="535"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="536"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="537"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -646,19 +646,19 @@ you can restore them to ensure the integrity of your system.</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="243"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="244"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="263"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="264"/>
         <source>Other Devices</source>
         <translation>蓝牙列表</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="712"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="713"/>
         <source>Bluetooth adapter is not detected!</source>
         <translation>未检测到蓝牙适配器！</translation>
     </message>
@@ -771,48 +771,49 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>ChangeFaceDialog</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="352"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="355"/>
         <source>select custom face file</source>
         <translation>选择自定义头像文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="353"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="356"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="354"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="357"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="355"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="358"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="356"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="359"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="470"/>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="357"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="360"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="371"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="374"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="371"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="374"/>
         <source>The avatar is larger than 2M, please choose again</source>
         <translation>警告，头像大于2M请重新选择</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changefacedialog.ui" line="85"/>
+        <location filename="../../../plugins/account/userinfo/changefacedialog.cpp" line="44"/>
         <source>Change User Face</source>
         <translation>更改用户头像</translation>
         <extra-contents_path>/userinfo/Change User Face</extra-contents_path>
@@ -2416,7 +2417,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>跟随日出日落</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1598"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1599"/>
         <source>Auto Switch</source>
         <translation>自动切换</translation>
         <extra-contents_path>/display/Auto Switch</extra-contents_path>
@@ -2498,7 +2499,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/display.ui" line="405"/>
         <source>Screen mirror</source>
         <translation type="unfinished">屏幕镜像</translation>
-        <extra-contents_path>/display/Screen mirror</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/display.ui" line="428"/>
@@ -2522,13 +2522,21 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/devices/display/display.ui" line="1039"/>
-        <source>stronger</source>
-        <translation type="unfinished">较强</translation>
+        <source>colder</source>
+        <translation>较冷</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/display.ui" line="1124"/>
+        <source>warmer</source>
+        <translation>较暖</translation>
+    </message>
+    <message>
+        <source>stronger</source>
+        <translation type="obsolete">较强</translation>
+    </message>
+    <message>
         <source>weaker</source>
-        <translation type="unfinished">较弱</translation>
+        <translation type="obsolete">较弱</translation>
     </message>
     <message>
         <source>to</source>
@@ -2898,7 +2906,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/other/gesture/gesture.cpp" line="30"/>
-        <location filename="../../../plugins/other/gesture/gesture.cpp" line="64"/>
+        <location filename="../../../plugins/other/gesture/gesture.cpp" line="65"/>
         <source>Gesture Guidance</source>
         <translatorcomment>手势引导</translatorcomment>
         <translation type="unfinished">手势引导</translation>
@@ -3934,37 +3942,37 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="212"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="484"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="485"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="213"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="485"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="486"/>
         <source>90° arrow-right</source>
         <translation>90° 顺时针</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="214"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="486"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="487"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="215"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="487"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="488"/>
         <source>90° arrow-left</source>
         <translation>90° 逆时针</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="246"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="473"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="474"/>
         <source>fixed-rotation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="247"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="474"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="475"/>
         <source>auto-rotation</source>
         <translation type="unfinished">自动旋转</translation>
     </message>
@@ -4006,7 +4014,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="374"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="375"/>
         <source>screen zoom</source>
         <translation>屏幕缩放</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
@@ -4090,18 +4098,18 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <extra-contents_path>/pen/Stylus settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/pen/pen.cpp" line="61"/>
+        <location filename="../../../plugins/devices/pen/pen.cpp" line="62"/>
         <source>Use the side button 2 of the stylus to simulate Erase</source>
         <translation type="unfinished">使用手写笔的侧边按钮2模拟擦除</translation>
         <extra-contents_path>/pen/Use the side button 2 of the stylus to simulate Erase</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/pen/pen.cpp" line="62"/>
+        <location filename="../../../plugins/devices/pen/pen.cpp" line="63"/>
         <source>Handwriting anti touch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/pen/pen.cpp" line="64"/>
+        <location filename="../../../plugins/devices/pen/pen.cpp" line="65"/>
         <source>Please further configure the side button function of the stylus through other software</source>
         <translation type="unfinished">请通过其他软件进一步配置手写笔侧边按钮功能</translation>
     </message>
@@ -4516,12 +4524,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="101"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="104"/>
         <source>Add printers and scanners</source>
         <translation type="unfinished">添加可用设备</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/printer/printer.ui" line="102"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="92"/>
         <source>List Of Existing Printers</source>
         <translation type="unfinished">打印机与扫描仪</translation>
         <extra-contents_path>/printer/List Of Existing Printers</extra-contents_path>
@@ -4578,6 +4587,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/network/proxy/proxy.ui" line="823"/>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="1024"/>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="1225"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="139"/>
         <source>Port</source>
         <translation>端口</translation>
         <extra-contents_path>/proxy/Port</extra-contents_path>
@@ -4593,21 +4603,21 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="772"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="139"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="141"/>
         <source>Https Proxy</source>
         <translation>HTTPS代理</translation>
         <extra-contents_path>/proxy/Https Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="973"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="141"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="143"/>
         <source>Ftp Proxy</source>
         <translation>FTP代理</translation>
         <extra-contents_path>/proxy/Ftp Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="1174"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="143"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="145"/>
         <source>Socks Proxy</source>
         <translation>SOCKS代理</translation>
         <extra-contents_path>/proxy/Socks Proxy</extra-contents_path>
@@ -5879,7 +5889,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <extra-contents_path>/audio/Input Level</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="102"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="103"/>
         <source>Noise Reduction</source>
         <translation>智能降噪</translation>
         <extra-contents_path>/audio/Noise Reduction</extra-contents_path>

@@ -135,6 +135,8 @@ void Proxy::initSearchText() {
     ui->label_4->setText(tr("Auto url"));
     //~ contents_path /proxy/Http Proxy
     ui->label_6->setText(tr("Http Proxy"));
+    //~ contents_path /proxy/Port
+    ui->label_7->setText(tr("Port"));
     //~ contents_path /proxy/Https Proxy
     ui->label_8->setText(tr("Https Proxy"));
     //~ contents_path /proxy/Ftp Proxy

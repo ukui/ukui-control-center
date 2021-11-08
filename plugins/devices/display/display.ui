@@ -1036,7 +1036,7 @@
                 </size>
                </property>
                <property name="text">
-                <string>stronger</string>
+                <string>colder</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1121,7 +1121,7 @@ QSlider::handle:horizontal {
              <item>
               <widget class="QLabel" name="label_20">
                <property name="text">
-                <string>weaker</string>
+                <string>warmer</string>
                </property>
               </widget>
              </item>
