@@ -41,6 +41,7 @@
 #include "HpQRCodeInterface.h"
 #include "shell/utils/utils.h"
 #include "hostnamedialog.h"
+#include "privacydialog.h"
 
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
@@ -125,43 +126,43 @@ private:
 
     QHBoxLayout *mDiskLayout;
 
-    QLabel *mLogoLabel;
-    QLabel *mVersionLabel_1;
-    QLabel *mVersionNumLabel_1;
-    QLabel *mVersionNumberLabel_1;
+    FixLabel *mLogoLabel;
+    FixLabel *mVersionLabel_1;
+    FixLabel *mVersionNumLabel_1;
+    FixLabel *mVersionNumberLabel_1;
     FixLabel *mInterVersionLabel_1;
-    QLabel *mHostNameLabel_1;
-    QLabel *mKernelLabel_1;
-    QLabel *mCpuLabel_1;
-    QLabel *mMemoryLabel_1;
-    QLabel *mDiskLabel_1;
-    QLabel *mDesktopLabel_1;
-    QLabel *mUsernameLabel_1;
+    FixLabel *mHostNameLabel_1;
+    FixLabel *mKernelLabel_1;
+    FixLabel *mCpuLabel_1;
+    FixLabel *mMemoryLabel_1;
+    FixLabel *mDiskLabel_1;
+    FixLabel *mDesktopLabel_1;
+    FixLabel *mUsernameLabel_1;
     QLabel *mVersionLabel_2;
-    QLabel *mVersionNumLabel_2;
-    QLabel *mVersionNumberLabel_2;
+    FixLabel *mVersionNumLabel_2;
+    FixLabel *mVersionNumberLabel_2;
     FixLabel *mInterVersionLabel_2;
-    QLabel *mHostNameLabel_2;
-    QLabel *mHostNameLabel_3;
-    QLabel *mKernelLabel_2;
-    QLabel *mCpuLabel_2;
-    QLabel *mMemoryLabel_2;
-    QLabel *mDiskLabel_2;
-    QLabel *mDesktopLabel_2;
-    QLabel *mUsernameLabel_2;
-    QLabel *mStatusLabel_1;
-    QLabel *mStatusLabel_2;
-    QLabel *mTimeLabel_1;
-    QLabel *mTimeLabel_2;
-    QLabel *mSequenceLabel_1;
-    QLabel *mSequenceLabel_2;
-    QLabel *mTrialLabel;
-    QLabel *mAndLabel;
-    QLabel *mAgreeLabel;
-    QLabel *mHpLabel;
-    QLabel *mEducateIconLabel;
-    QLabel *mEducateLabel;
-    QLabel *mTipLabel;
+    FixLabel *mHostNameLabel_2;
+    FixLabel *mHostNameLabel_3;
+    FixLabel *mKernelLabel_2;
+    FixLabel *mCpuLabel_2;
+    FixLabel *mMemoryLabel_2;
+    FixLabel *mDiskLabel_2;
+    FixLabel *mDesktopLabel_2;
+    FixLabel *mUsernameLabel_2;
+    FixLabel *mStatusLabel_1;
+    FixLabel *mStatusLabel_2;
+    FixLabel *mTimeLabel_1;
+    FixLabel *mTimeLabel_2;
+    FixLabel *mSequenceLabel_1;
+    FixLabel *mSequenceLabel_2;
+    FixLabel *mTrialLabel;
+    FixLabel *mAndLabel;
+    FixLabel *mAgreeLabel;
+    FixLabel *mHpLabel;
+    FixLabel *mEducateIconLabel;
+    FixLabel *mEducateLabel;
+    FixLabel *mTipLabel;
 
 
 

@@ -77,11 +77,11 @@ void AptProxyDialog::initUi()
     mLyt_3->setSpacing(16);
 
     mCancelBtn = new QPushButton(mChooseFrame);
-    mCancelBtn->setFixedSize(96, 36);
+    mCancelBtn->setFixedSize(120, 36);
     mCancelBtn->setText(tr("Cancel"));
 
     mConfirmBtn = new QPushButton(mChooseFrame);
-    mConfirmBtn->setFixedSize(96, 36);
+    mConfirmBtn->setFixedSize(120, 36);
     mConfirmBtn->setText(tr("Confirm"));
 
     mLyt_3->addStretch();

@@ -24,11 +24,13 @@ HEADERS += \
     HpQRCodeInterface.h \
     about.h \
     hostnamedialog.h \
+    privacydialog.h \
     trialdialog.h
 
 SOURCES += \
     about.cpp \
     hostnamedialog.cpp \
+    privacydialog.cpp \
     trialdialog.cpp
 
 FORMS +=

@@ -74,11 +74,11 @@ void InputPwdDialog::setupInit()
     mLyt_1->addWidget(mpwd);
 
     mCancelBtn = new QPushButton(mInputPwdFrame_1);
-    mCancelBtn->setFixedSize(96, 36);
+    mCancelBtn->setFixedSize(120, 36);
     mCancelBtn->setText(tr("Cancel"));
 
     mConfirmBtn = new QPushButton(mInputPwdFrame_1);
-    mConfirmBtn->setFixedSize(96, 36);
+    mConfirmBtn->setFixedSize(120, 36);
     mConfirmBtn->setText(tr("Confirm"));
 
     mLyt_2->addStretch();
