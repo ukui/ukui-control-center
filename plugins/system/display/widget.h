@@ -284,6 +284,7 @@ private:
     bool mIsWayland = false;
     bool mIsBattery = false;
     bool mIsScreenAdd = false;
+    bool mIsScreenEnable = false;
     bool mIsRestore = false;
 
     bool mIsSCaleRes = false;

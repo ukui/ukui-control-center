@@ -83,7 +83,8 @@ void ControlPanel::addOutput(const KScreen::OutputPtr &output, bool connectChang
 void ControlPanel::removeOutput(int outputId)
 {
     if (mUnifiedOutputCfg) {
-        mUnifiedOutputCfg->setVisible(false);
+        mUnifiedOutputCfg->deleteLater(); //避免内存泄露，插拔时会一直new，所以这里delete掉
+        mUnifiedOutputCfg = nullptr;
     }
     for (OutputConfig *outputCfg : mOutputConfigs) {
         if (!outputCfg || !outputCfg->output()) {

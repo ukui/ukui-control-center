@@ -273,12 +273,15 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     KScreen::ModePtr currentMode = mOutput->currentMode();
     QList<KScreen::ModePtr> modes;
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
-        if (currentMode && currentMode->size() == size) {  //初始化时
-            selectMode = currentMode;
+        //初始化时,currentMode可能为空(比如刚插上屏幕)
+        if (!currentMode || (currentMode && currentMode->size() == size)) {
+            if (currentMode) {
+                selectMode = currentMode;
+            }
             mIsModeInit = true;
         }
         if (mode->size() == size) {
-            if (!mIsModeInit) {
+            if (!mIsModeInit || !currentMode) {
                 selectMode = mode;
             }
             modes << mode;
