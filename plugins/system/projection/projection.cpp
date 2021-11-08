@@ -46,7 +46,8 @@ enum {
 
 Projection::Projection()
 {
-    pluginType = DEVICES;
+    pluginName = tr("Projection");
+    pluginType = SYSTEM;
     ui = new Ui::Projection;
     pluginWidget = new QWidget;
     pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
