@@ -10330,14 +10330,12 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
         <source>The screen resolution has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
-        <translation>屏幕分辨率已修改，是否保存？
-系统将在14秒后自动保存。</translation>
+        <translation>屏幕分辨率已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在14秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="896"/>
         <source>The screen resolution has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %1 seconds&lt;/font&gt;</source>
-        <translation type="unfinished">屏幕分辨率已修改，是否保存？
-系统将在%1秒后自动保存。</translation>
+        <translation type="unfinished">屏幕分辨率已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在%1秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1393"/>
