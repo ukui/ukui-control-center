@@ -152,7 +152,7 @@ void About::initUI(QWidget *widget)
     QVBoxLayout *mInformationLayout = new QVBoxLayout(mInformationFrame);
     mInformationLayout->setContentsMargins(16, 16, 16, 8);
 
-    mLogoLabel = new QLabel(mInformationFrame);
+    mLogoLabel = new FixLabel(mInformationFrame);
     mLogoLabel->setFixedSize(140,64);
 
     mInformationLayout->addWidget(mLogoLabel);
@@ -165,7 +165,7 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mVersionLayout = new QHBoxLayout(mVersionFrame);
     mVersionLayout->setContentsMargins(0, 0, 16, 0);
 
-    mVersionLabel_1 = new QLabel(mVersionFrame);
+    mVersionLabel_1 = new FixLabel(mVersionFrame);
     mVersionLabel_1->setFixedSize(80,30);
 
     mVersionLabel_2 = new QLabel(mVersionFrame);
@@ -185,10 +185,10 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mVersionNumberLayout = new QHBoxLayout(mVersionNumberFrame);
     mVersionNumberLayout->setContentsMargins(0, 0, 16, 0);
 
-    mVersionNumberLabel_1 = new QLabel(tr("Version Number") , mVersionNumberFrame);
+    mVersionNumberLabel_1 = new FixLabel(tr("Version Number") , mVersionNumberFrame);
     mVersionNumberLabel_1->setFixedSize(80,30);
 
-    mVersionNumberLabel_2 = new QLabel(mVersionNumberFrame);
+    mVersionNumberLabel_2 = new FixLabel(mVersionNumberFrame);
     mVersionNumberLabel_2->setFixedHeight(30);
 
     mVersionNumberLayout->addWidget(mVersionNumberLabel_1);
@@ -225,10 +225,10 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mVersionNumLayout = new QHBoxLayout(mVersionNumFrame);
     mVersionNumLayout->setContentsMargins(0, 0, 16, 0);
 
-    mVersionNumLabel_1 = new QLabel(mVersionNumFrame);
+    mVersionNumLabel_1 = new FixLabel(mVersionNumFrame);
     mVersionNumLabel_1->setFixedSize(80,30);
 
-    mVersionNumLabel_2 = new QLabel(mVersionNumFrame);
+    mVersionNumLabel_2 = new FixLabel(mVersionNumFrame);
     mVersionNumLabel_2->setFixedHeight(30);
 
     mVersionNumLayout->addWidget(mVersionNumLabel_1);
@@ -247,13 +247,13 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mHostNameLayout_1 = new QHBoxLayout();
     mHostNameLayout_1->setContentsMargins(0, 0, 0, 0);
 
-    mHostNameLabel_1 = new QLabel(tr("HostName") , mHostNameFrame);
+    mHostNameLabel_1 = new FixLabel(tr("HostName") , mHostNameFrame);
     mHostNameLabel_1->setFixedSize(80,30);
 
-    mHostNameLabel_2 = new QLabel(mHostNameFrame );
+    mHostNameLabel_2 = new FixLabel(mHostNameFrame );
     mHostNameLabel_2->setFixedHeight(30);
 
-    mHostNameLabel_3 = new QLabel(mHostNameFrame);
+    mHostNameLabel_3 = new FixLabel(mHostNameFrame);
     mHostNameLabel_3->setFixedSize(16 ,24);
     mHostNameLabel_3->setProperty("useIconHighlightEffect", 0x8);
     mHostNameLabel_3->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(mHostNameLabel_3->size()));
@@ -278,10 +278,10 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mKernerLayout = new QHBoxLayout(mKernelFrame);
     mKernerLayout->setContentsMargins(0, 0, 16, 0);
 
-    mKernelLabel_1 = new QLabel(mKernelFrame);
+    mKernelLabel_1 = new FixLabel(mKernelFrame);
     mKernelLabel_1->setFixedSize(80,30);
 
-    mKernelLabel_2 = new QLabel(mKernelFrame);
+    mKernelLabel_2 = new FixLabel(mKernelFrame);
     mKernelLabel_2->setFixedHeight(30);
 
     mKernerLayout->addWidget(mKernelLabel_1);
@@ -297,10 +297,10 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mCpuLayout = new QHBoxLayout(mCpuFrame);
     mCpuLayout->setContentsMargins(0, 0, 16, 0);
 
-    mCpuLabel_1 = new QLabel(mCpuFrame);
+    mCpuLabel_1 = new FixLabel(mCpuFrame);
     mCpuLabel_1->setFixedSize(80,30);
 
-    mCpuLabel_2 = new QLabel(mCpuFrame);
+    mCpuLabel_2 = new FixLabel(mCpuFrame);
     mCpuLabel_2->setFixedHeight(30);
 
     mCpuLayout->addWidget(mCpuLabel_1);
@@ -316,10 +316,10 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mMemoryLayout = new QHBoxLayout(mMemoryFrame);
     mMemoryLayout->setContentsMargins(0, 0, 16, 0);
 
-    mMemoryLabel_1 = new QLabel(mMemoryFrame);
+    mMemoryLabel_1 = new FixLabel(mMemoryFrame);
     mMemoryLabel_1->setFixedSize(80,30);
 
-    mMemoryLabel_2 = new QLabel(mMemoryFrame);
+    mMemoryLabel_2 = new FixLabel(mMemoryFrame);
     mMemoryLabel_2->setFixedHeight(30);
 
     mMemoryLayout->addWidget(mMemoryLabel_1);
@@ -335,10 +335,10 @@ void About::initUI(QWidget *widget)
     mDiskLayout = new QHBoxLayout(mDiskFrame);
     mDiskLayout->setContentsMargins(0, 0, 16, 0);
 
-    mDiskLabel_1 = new QLabel(mDiskFrame);
+    mDiskLabel_1 = new FixLabel(mDiskFrame);
     mDiskLabel_1->setFixedSize(80,30);
 
-    mDiskLabel_2 = new QLabel(mDiskFrame);
+    mDiskLabel_2 = new FixLabel(mDiskFrame);
     mDiskLabel_2->setFixedHeight(30);
 
     mDiskLayout->addWidget(mDiskLabel_1);
@@ -354,10 +354,10 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mDesktopLayout = new QHBoxLayout(mDesktopFrame);
     mDesktopLayout->setContentsMargins(0, 0, 16, 0);
 
-    mDesktopLabel_1 = new QLabel(mDesktopFrame);
+    mDesktopLabel_1 = new FixLabel(mDesktopFrame);
     mDesktopLabel_1->setFixedSize(80,30);
 
-    mDesktopLabel_2 = new QLabel(mDesktopFrame);
+    mDesktopLabel_2 = new FixLabel(mDesktopFrame);
     mDesktopLabel_2->setFixedHeight(30);
 
     mDesktopLayout->addWidget(mDesktopLabel_1);
@@ -373,10 +373,10 @@ void About::initUI(QWidget *widget)
     QHBoxLayout *mUsernameLayout = new QHBoxLayout(mUsernameFrame);
     mUsernameLayout->setContentsMargins(0, 0, 16, 0);
 
-    mUsernameLabel_1 = new QLabel(mUsernameFrame);
+    mUsernameLabel_1 = new FixLabel(mUsernameFrame);
     mUsernameLabel_1->setFixedSize(80,30);
 
-    mUsernameLabel_2 = new QLabel(mUsernameFrame);
+    mUsernameLabel_2 = new FixLabel(mUsernameFrame);
     mUsernameLabel_2->setFixedHeight(30);
 
     mUsernameLayout->addWidget(mUsernameLabel_1);
@@ -396,9 +396,9 @@ void About::initUI(QWidget *widget)
     mPriLayout->setVerticalSpacing(8);
     mPriLayout->setContentsMargins(16, 16, 16, 8);
 
-    QLabel *mPriLabel_1 = new QLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
+    FixLabel *mPriLabel_1 = new FixLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
     mPriLabel_1->setFixedHeight(30);
-    QLabel *mPriLabel_2 = new QLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
+    FixLabel *mPriLabel_2 = new FixLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
     mPriLabel_2->setFixedHeight(30);
      mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
 
@@ -415,15 +415,15 @@ void About::initUI(QWidget *widget)
     mActivationLayout->setVerticalSpacing(8);
     mActivationLayout->setContentsMargins(16, 16, 16, 8);
 
-    mStatusLabel_1 = new QLabel(mActivationFrame);
+    mStatusLabel_1 = new FixLabel(mActivationFrame);
     mStatusLabel_1->setFixedSize(160,30);
-    mStatusLabel_2 = new QLabel(mActivationFrame);
-    mSequenceLabel_1 = new QLabel(mActivationFrame);
+    mStatusLabel_2 = new FixLabel(mActivationFrame);
+    mSequenceLabel_1 = new FixLabel(mActivationFrame);
     mSequenceLabel_1->setFixedSize(160,30);
-    mSequenceLabel_2 = new QLabel(mActivationFrame);
-    mTimeLabel_1 = new QLabel(mActivationFrame);
+    mSequenceLabel_2 = new FixLabel(mActivationFrame);
+    mTimeLabel_1 = new FixLabel(mActivationFrame);
     mTimeLabel_1->setFixedSize(160,30);
-    mTimeLabel_2 = new QLabel(mActivationFrame);
+    mTimeLabel_2 = new FixLabel(mActivationFrame);
     mActivationBtn = new QPushButton(mActivationFrame);
 
     mActivationBtn->setFixedSize(120,40);
@@ -436,7 +436,7 @@ void About::initUI(QWidget *widget)
     mActivationLayout->addWidget(mTimeLabel_2, 4, 1, 2, 3,Qt::AlignLeft);
     mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1, Qt::AlignRight);
 
-    mTipLabel = new QLabel(tr("Copyright © 2009-2021 KylinSoft. All rights reserved.") , Aboutwidget);
+    mTipLabel = new FixLabel(tr("Copyright © 2009-2021 KylinSoft. All rights reserved.") , Aboutwidget);
     mTipLabel->setContentsMargins(16 , 0 , 0 , 0);
 
     mBtnFrame = new QFrame(Aboutwidget);
@@ -446,9 +446,9 @@ void About::initUI(QWidget *widget)
 
     QHBoxLayout *mBtnLyt = new QHBoxLayout(mBtnFrame);
     mBtnLyt->setContentsMargins(16, 0, 0, 0);
-    mTrialLabel = new QLabel(tr("<<Protocol>>") , mBtnFrame);
-    mAndLabel = new QLabel(tr("and") , mBtnFrame);
-    mAgreeLabel = new QLabel(tr("<<Privacy>>") , mBtnFrame);
+    mTrialLabel = new FixLabel(tr("<<Protocol>>") , mBtnFrame);
+    mAndLabel = new FixLabel(tr("and") , mBtnFrame);
+    mAgreeLabel = new FixLabel(tr("<<Privacy>>") , mBtnFrame);
     mTrialLabel->setStyleSheet("background: transparent;color:#2FB3E8;border-width:1px;"
                      "text-decoration:underline;border-style:none none none;");
     mAgreeLabel->setStyleSheet("background: transparent;color:#2FB3E8;border-width:1px;"
@@ -474,10 +474,10 @@ void About::initUI(QWidget *widget)
     mQrCodeWidget = new QWidget(mHoldWidget);
     mQrCodeWidget->setFixedSize(64,64);
 
-    mHpLabel = new QLabel(mHoldWidget);
-    mEducateIconLabel = new QLabel(mHoldWidget);    
+    mHpLabel = new FixLabel(mHoldWidget);
+    mEducateIconLabel = new FixLabel(mHoldWidget);
     mEducateIconLabel->setFixedSize(64,64);
-    mEducateLabel = new QLabel(mHoldWidget);
+    mEducateLabel = new FixLabel(mHoldWidget);
 
     mHpBtn = new QPushButton(mHoldWidget);
     mEducateBtn = new QPushButton(mHoldWidget);
@@ -880,9 +880,9 @@ void About::setupDiskCompenet()
             mDiskLabel_1->hide();
             mDiskLabel_2->hide();
             QHBoxLayout * layout = new QHBoxLayout;
-            QLabel *label = new QLabel;
+            QLabel *label = new FixLabel;
             label->setText(tr("Disk") + QString::number(count + 1));
-            QLabel *diskLabel = new QLabel;
+            QLabel *diskLabel = new FixLabel;
             diskLabel->setText(iter.value().at(0) + "B (" + iter.value().at(1) + "B "+ tr("avaliable") +")");
 
             layout->addWidget(label);
