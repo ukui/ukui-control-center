@@ -880,10 +880,9 @@ bool Widget::isRestoreConfig()
     });
     if (mConfigChanged) {
         msg.setWindowTitle(tr("Hint"));
-        msg.setText(tr("After modifying the resolution or refresh rate, "
-                       "due to compatibility issues between the display device and the graphics card, "
-                       "the display may be abnormal or unable to display\n"
-                       "the settings will be saved after 14 seconds"));
+        msg.setText(tr("The screen resolution has been modified, whether to save it ? "
+                       "<br/>"
+                       "<font style= 'color:#626c6e'>the settings will be saved after 14 seconds</font>"));
         msg.addButton(tr("Save"), QMessageBox::RejectRole);
         msg.addButton(tr("Not Save"), QMessageBox::AcceptRole);
 
@@ -894,10 +893,9 @@ bool Widget::isRestoreConfig()
                 msg.hide();
                 msg.close();
             } else {
-                msg.setText(QString(tr("After modifying the resolution or refresh rate, "
-                                       "due to compatibility issues between the display device and the graphics card, "
-                                       "the display may be abnormal or unable to display \n"
-                                       "the settings will be saved after %1 seconds")).arg(cnt));
+                msg.setText(QString(tr("The screen resolution has been modified, whether to save it ? "
+                                       "<br/>"
+                                       "<font style= 'color:#626c6e'>the settings will be saved after %1 seconds</font>")).arg(cnt));
                 msg.show();
             }
         });

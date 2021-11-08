@@ -10157,7 +10157,7 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="325"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2105"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2103"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -10192,12 +10192,12 @@ Please retry or relogin!</source>
         <translation>第一屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="697"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="698"/>
         <source>Clone Screen</source>
         <translation>镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="698"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="697"/>
         <source>Extend Screen</source>
         <translation>扩展</translation>
     </message>
@@ -10222,60 +10222,58 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="882"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1058"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1056"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
-        <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
+        <translation type="vanished">是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="887"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="886"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="888"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="887"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="897"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
-        <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
+        <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1059"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1057"/>
         <source>The zoom function needs to log out to take effect</source>
         <translation>修改系统缩放后需要注销生效，是否注销？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1060"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1058"/>
         <source>Log out now</source>
         <translation>立即注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1061"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1059"/>
         <source>Later</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2105"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2103"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2105"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2103"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation>跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2378"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2392"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2376"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2390"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -10318,19 +10316,31 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1602"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1600"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1394"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1602"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1609"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1392"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1600"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1607"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1395"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
+        <source>The screen resolution has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
+        <translation>屏幕分辨率已修改，是否保存？
+系统将在14秒后自动保存。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="896"/>
+        <source>The screen resolution has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %1 seconds&lt;/font&gt;</source>
+        <translation type="unfinished">屏幕分辨率已修改，是否保存？
+系统将在%1秒后自动保存。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1393"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -10339,7 +10349,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1610"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1608"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
