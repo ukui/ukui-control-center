@@ -29,7 +29,6 @@
 #include <QMessageBox>
 #include "languageFrame.h"
 #include "Frame/hlineframe.h"
-#include "../../../shell/mainwindow.h"
 
 #define PANEL_GSCHEMAL   "org.ukui.control-center.panel.plugins"
 #define CALENDAR_KEY     "calendar"
@@ -484,8 +483,7 @@ void Area::timeFormatClicked(bool flag)
 
 void Area::showMessageBox(int flag)
 {
-    MainWindow *mainWindow = static_cast<MainWindow*>(pluginWidget->topLevelWidget());
-    QMessageBox msg(mainWindow);
+    QMessageBox msg(qApp->activeWindow());
     msg.setIcon(QMessageBox::Warning);
 
     if (flag == 1) {
