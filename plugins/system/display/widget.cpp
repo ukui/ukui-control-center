@@ -476,6 +476,11 @@ void Widget::slotFocusedOutputChangedNoParam()
 
 void Widget::slotOutputEnabledChanged()
 {
+    const KScreen::OutputPtr eOutput(qobject_cast<KScreen::Output *>(sender()), [](void *){});
+    if (!eOutput) {  //会有null但是触发该槽函数的情况，原因不明
+        return;
+    }
+
     // 点击禁用屏幕输出后的改变
     resetPrimaryCombo();
     setActiveScreen(mKDSCfg);
@@ -501,12 +506,19 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
     ui->unionframe->setVisible(false);
+    if (mUnifyButton->isChecked() != isCloneMode()) {
+        mIsScreenEnable = true; //一般是插拔导致获取的屏幕状态异常，才会出触发，所以这里不需要保存
+        mUnifyButton->setChecked(isCloneMode());
+    }
     showBrightnessFrame();
 }
 
 void Widget::slotOutputConnectedChanged()
 {
     const KScreen::OutputPtr output(qobject_cast<KScreen::Output *>(sender()), [](void *){});
+    if (!output) {
+        return;
+    }
 
     if (output->isConnected()) {
         outputAdded(output, true);
@@ -940,7 +952,8 @@ bool Widget::isCloneMode()
     }
     if (mConfig->connectedOutputs().count() >= 2) {
         foreach (KScreen::OutputPtr secOutput, mConfig->connectedOutputs()) {
-            if (secOutput->pos() != output->pos() || !secOutput->isEnabled() || secOutput->size() == QSize(-1, -1)) {
+            //不能用size为(-1,-1)进行判断，刚插拔时分辨率可能会是(-1,-1)
+            if (secOutput->pos() != output->pos() || !secOutput->isEnabled()) {
                 return false;
             }
         }
@@ -1556,11 +1569,12 @@ void Widget::delayApply()
 {
     QTimer::singleShot(200, this, [=]() {
         // kds与插拔不触发应用操作
-        if (mKDSCfg.isEmpty() && !mIsScreenAdd) {
+        if (mKDSCfg.isEmpty() && !mIsScreenAdd && !mIsScreenEnable) {
             save();
         }
         mKDSCfg.clear();
         mIsScreenAdd = false;
+        mIsScreenEnable = false;
     });
 }
 

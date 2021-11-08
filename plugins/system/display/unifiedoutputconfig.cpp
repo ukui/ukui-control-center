@@ -398,12 +398,23 @@ void UnifiedOutputConfig::slotRestoreRatation()
 
 bool UnifiedOutputConfig::isCloneMode()
 {
-    QSize cloneSize(mClones[0]->currentMode()->size());
-    QPoint clonePos(mClones[0]->pos());
-    Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
-        if (clone->currentMode()->size() != cloneSize || clone->pos() != clonePos) {
-            return false;
+    /*
+     *不能直接用isVisible判断是否为镜像模式
+     *设置镜像模式时，visiable总是true，但此时还未设置currentMode
+     *导致某些情况异常
+     */
+    //return this->isVisible();    //显示则表示是统一输出
+    if (!mClones.isEmpty() && mClones[0] && mClones[0]->currentMode()) {
+        QSize cloneSize(mClones[0]->currentMode()->size());
+        QPoint clonePos(mClones[0]->pos());
+        Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
+            if (clone->currentMode() && (clone->currentMode()->size() != cloneSize || clone->pos() != clonePos)) {
+                return false;
+            }
         }
+        return true;
+    } else {
+        return false;
     }
-    return true;
+
 }
