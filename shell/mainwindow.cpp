@@ -312,7 +312,7 @@ void MainWindow::initUI() {
     });
 
     // 快捷参数
-    if (QApplication::arguments().length() >= 2) {
+    if (QApplication::arguments().length() > 2) {
         bootOptionsFilter(QApplication::arguments().at(2));
     }
 
