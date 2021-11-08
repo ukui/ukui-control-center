@@ -694,8 +694,8 @@ void Widget::initComponent()
 
     mMultiScreenCombox->addItem(tr("First Screen"));
     mMultiScreenCombox->addItem(tr("Vice Screen"));
-    mMultiScreenCombox->addItem(tr("Clone Screen"));
     mMultiScreenCombox->addItem(tr("Extend Screen"));
+    mMultiScreenCombox->addItem(tr("Clone Screen"));
 
     multiScreenlay->addWidget(mMultiScreenLabel);
     multiScreenlay->addWidget(mMultiScreenCombox);

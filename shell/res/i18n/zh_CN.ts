@@ -53,7 +53,7 @@
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="208"/>
         <source>InterVersion</source>
-        <translation type="unfinished"></translation>
+        <translation>内部版本</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="390"/>
@@ -10194,12 +10194,12 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="697"/>
         <source>Clone Screen</source>
-        <translation>镜像屏</translation>
+        <translation>镜像</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="698"/>
         <source>Extend Screen</source>
-        <translation>拓展屏</translation>
+        <translation>扩展</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="696"/>

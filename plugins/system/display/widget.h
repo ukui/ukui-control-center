@@ -52,8 +52,8 @@ typedef enum {
 typedef enum {
     FIRST,
     VICE,
-    CLONE,
     EXTEND,
+    CLONE,
 }MULTISCREEN;
 
 namespace KScreen {
