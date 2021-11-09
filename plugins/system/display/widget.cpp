@@ -477,9 +477,6 @@ void Widget::slotFocusedOutputChangedNoParam()
 void Widget::slotOutputEnabledChanged()
 {
     const KScreen::OutputPtr eOutput(qobject_cast<KScreen::Output *>(sender()), [](void *){});
-    if (!eOutput) {  //会有null但是触发该槽函数的情况，原因不明
-        return;
-    }
 
     // 点击禁用屏幕输出后的改变
     resetPrimaryCombo();
@@ -506,11 +503,11 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
     ui->unionframe->setVisible(false);
-    if (mUnifyButton->isChecked() != isCloneMode()) {
+    if (eOutput && mUnifyButton->isChecked() != isCloneMode()) {
         mIsScreenEnable = true; //一般是插拔导致获取的屏幕状态异常，才会出触发，所以这里不需要保存
         mUnifyButton->setChecked(isCloneMode());
+        showBrightnessFrame();
     }
-    showBrightnessFrame();
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -2368,10 +2365,6 @@ void Widget::showBrightnessFrame(const int flag)
 {
     bool allShowFlag = true;
     allShowFlag = isCloneMode();
-    //mips机器，插拔信号不能及时反馈，在这里重新设置一遍，避免缩略图显示异常
-    if (cpuArchitecture.contains("mips", Qt::CaseInsensitive) && allShowFlag == true && !mUnifyButton->isChecked()) {
-        mUnifyButton->setChecked(true);
-    }
 
     ui->unifyBrightFrame->setFixedHeight(0);
     if (flag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式
