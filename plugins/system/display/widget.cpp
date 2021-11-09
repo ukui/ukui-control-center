@@ -189,6 +189,17 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
             this, [=](int outputId){
         outputRemoved(outputId, false);
     });
+    connect(mConfig.data(), &KScreen::Config::primaryOutputChanged,
+            this, [=](const KScreen::OutputPtr &output){
+        bool mCloneMode = isCloneMode();
+        if (output && mUnifyButton->isChecked() != mCloneMode) {
+            mUnifyButton->blockSignals(true);
+            mUnifyButton->setChecked(mCloneMode);
+            mUnifyButton->blockSignals(false);
+            slotUnifyOutputs();
+            showBrightnessFrame();
+        }
+    });
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (output->isConnected()) {
@@ -221,6 +232,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
                 this, &Widget::slotOutputConnectedChanged);
             connect(output.data(), &KScreen::Output::isEnabledChanged,
                 this, &Widget::slotOutputEnabledChanged);
+            connect(output.data(), &KScreen::Output::posChanged,
+                this, &Widget::slotOutputPosChanged);
             for (QMLOutput *mOutput: mScreen->outputs()) {
                 if (mOutput->outputPtr() = output) {
                     disconnect(mOutput, SIGNAL(clicked()),
@@ -474,6 +487,22 @@ void Widget::slotFocusedOutputChangedNoParam()
     mControlPanel->activateOutput(res);
 }
 
+void Widget::slotOutputPosChanged()
+{
+    //return:设置镜像非镜像时，也会导致坐标在一瞬间改变，从而导致缩略图重复改变
+    //插拔时坐标异常导致镜像判断不正确较为少见，只在MIPS上偶现过，因此暂不处理
+    return;
+    bool mCloneMode = isCloneMode();
+    const KScreen::OutputPtr eOutput(qobject_cast<KScreen::Output *>(sender()), [](void *){});
+    if (eOutput && mUnifyButton->isChecked() != mCloneMode) {
+        mUnifyButton->blockSignals(true);
+        mUnifyButton->setChecked(mCloneMode);
+        mUnifyButton->blockSignals(false);
+        slotUnifyOutputs();
+        showBrightnessFrame();
+    }
+}
+
 void Widget::slotOutputEnabledChanged()
 {
     const KScreen::OutputPtr eOutput(qobject_cast<KScreen::Output *>(sender()), [](void *){});
@@ -503,9 +532,12 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
     ui->unionframe->setVisible(false);
-    if (eOutput && mUnifyButton->isChecked() != isCloneMode()) {
-        mIsScreenEnable = true; //一般是插拔导致获取的屏幕状态异常，才会出触发，所以这里不需要保存
-        mUnifyButton->setChecked(isCloneMode());
+    bool mCloneMode = isCloneMode();
+    if (eOutput && mUnifyButton->isChecked() != mCloneMode) {
+        mUnifyButton->blockSignals(true);
+        mUnifyButton->setChecked(mCloneMode);
+        mUnifyButton->blockSignals(false);
+        slotUnifyOutputs();
         showBrightnessFrame();
     }
 }
@@ -1182,6 +1214,8 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
                 this, &Widget::slotOutputConnectedChanged);
         connect(output.data(), &KScreen::Output::isEnabledChanged,
                 this, &Widget::slotOutputEnabledChanged);
+        connect(output.data(), &KScreen::Output::posChanged,
+            this, &Widget::slotOutputPosChanged);
         for (QMLOutput *mOutput: mScreen->outputs()) {
             if (mOutput->outputPtr() = output) {
                 disconnect(mOutput, SIGNAL(clicked()),
@@ -1566,12 +1600,11 @@ void Widget::delayApply()
 {
     QTimer::singleShot(200, this, [=]() {
         // kds与插拔不触发应用操作
-        if (mKDSCfg.isEmpty() && !mIsScreenAdd && !mIsScreenEnable) {
+        if (mKDSCfg.isEmpty() && !mIsScreenAdd) {
             save();
         }
         mKDSCfg.clear();
         mIsScreenAdd = false;
-        mIsScreenEnable = false;
     });
 }
 
