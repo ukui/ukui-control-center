@@ -92,7 +92,7 @@
 
 ## 设 备
 
-设备设置提供了蓝牙、打印机、鼠标、触摸板、键盘、快捷键、键盘六个设置模块。
+设备设置提供了蓝牙、打印机、鼠标、触摸板、键盘、快捷键、键盘、投屏七个设置模块。
 
 ### 蓝牙
 
@@ -206,6 +206,53 @@ Tips：系统快捷键不允许修改。
 
 - 点击触摸校准按钮，启动工具对选定触摸屏进行校准
 
+### 投 屏
+无线投屏提供了在KylinOS上镜像安卓手机的功能，支持控制回传以方便在电脑端通过鼠标和键盘对手机端进行操作等行为（部分手机支持）
+![图 14 无线投屏主界面-big](image/mainInterface.png)
+
+要使用无线投屏功能，首先需要开启投屏开关
+![图 15 无线投屏开关开启界面-big](image/openInterface.png)
+
+在手机下拉菜单中选择 投屏/无线投屏/手机投屏 等标识界面（以华为手机Mate为例）
+![图 16 手机端无线投屏开启界面-big](image/phoneOpengInterface.png)
+
+接下来手机上会自动搜索并且显示搜索到的接收端设备
+![图 17 手机端无线投屏搜索界面-big](image/phoneSearchInterface.png)
+
+选择您当前KylinOS接收端的设备，如 我的麒麟 等
+![图 18 接收端允许投屏界面-big](image/accessInterface.png)
+
+在KylinOS接收端上会显示是否允许投屏，点击允许
+![图 19 接收端提供PIN码界面-big](image/accessPinInterface.png)
+
+根据KylinOS接收端显示出的PIN码 在手机端输入PIN码 并点击连接
+![图 20 手机端输入PIN码界面-big](image/phonePinInterface.png)
+
+接下来会在KylinOS接收端和投射端显示连接界面
+![图 21 手机端连接界面-big](image/phoneConnectionInterface.png)
+![图 22 接收端连接界面-big](image/receiverConnectionInterface.png)
+
+如成功连接，会在接收端同步镜像出手机端的屏幕，双击屏幕可退出全屏
+![图 23 竖屏投射界面-big](image/verProjectionInterface.png)
+![图 24 横屏投射界面-big](image/horProjectionInterface.png)
+
+如需关闭投屏，可双击屏幕进入窗口化，点击右上角的“X”进行关闭，也可以在手机下拉菜单中，将无线投屏置灰（关闭），即可退出无线投屏
+
+**FAQ**
+
+1.如未成功投屏，可重新尝试连接，通常情况下手机连接一次即可被信任，下次连接无需输入PIN码（也取决于手机设计，有的手机支持授信后，无认证连接）
+
+2.在投屏界面可以更改接收设备的名称，点击开启投屏右侧的“笔”图标，即可进入修改界面
+![图 25 投射端名称修改界面-big](image/nameChangeInterface.png)
+
+3.当未插入无线网卡，或无线网卡不支持建立投屏所需的连接时，需要插入网卡或者对已插入网卡进行更换处理
+![图 26 投屏功能不可用界面(1)-big](image/unUseInterface.png)
+
+4.当后台服务异常后，会有如下提示，可以尝试重启系统解决此问题
+![图 27 投屏功能不可用界面(2)-big](image/unUseInterface2.jpg)
+
+5.当未安装无线投屏的包或包版本过低时，在控制面板中不会显示投屏功能
+![图 28 投屏功能不可用界面(3)-big](image/unUseInterface3.png)
 
 <br>
 
