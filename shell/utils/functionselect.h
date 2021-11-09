@@ -56,13 +56,24 @@ public:
     static QList<QList<FuncInfo>> funcinfoListHomePage;
     static QList<QList<FuncInfo>> funcinfoList;
     static QStack<RecordFunc> recordFuncStack;
+    static QList<QString> systemPluginName;
+    static QList<QString> devicePluginName;
+    static QList<QString> networkPluginName;
+    static QList<QString> personalPluginName;
+    static QList<QString> accountPluginName;
+    static QList<QString> datePluginName;
+    static QList<QString> updatePluginName;
+    static QList<QString> securityPluginName;
+    static QList<QString> appPluginName;
+    static QList<QString> searchPluginName;
 
     static void initValue();
+    static void initPluginName();
     static void pushRecordValue(int type, QString name);
     static void popRecordValue();
 
     static void loadHomeModule();
-    static void loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow);
+    static void loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow, QList<QString> pluginName);
 };
 
 #endif // FUNCTIONSELECT_H
