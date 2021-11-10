@@ -528,7 +528,10 @@ void Widget::slotOutputConnectedChanged()
 
     resetPrimaryCombo();
 
-    setMulScreenVisiable();
+    // bug#89064
+    QTimer::singleShot(500, this, [=](){
+        setMulScreenVisiable();
+    });
 }
 
 void Widget::slotUnifyOutputs()
@@ -1047,6 +1050,7 @@ void Widget::initMultScreenStatus()
                 enableCount++;
             }
         }
+
         if (enableCount >= 2) {
             mMultiScreenCombox->setCurrentIndex(EXTEND);
         } else if (screens.count() > 0 && screens.begin().value()->isEnabled()) {
