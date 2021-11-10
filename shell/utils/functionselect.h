@@ -63,6 +63,8 @@ public:
 
     static void loadHomeModule();
     static void loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow);
+
+    static QList<char *> listExistsCustomNoticePath(const char* dir);   //获取动态路径
 };
 
 #endif // FUNCTIONSELECT_H

@@ -100,6 +100,7 @@ void HomePageWidget::initUI() {
 
     QSignalMapper * moduleSignalMapper = new QSignalMapper(this);
 
+    list_path = FunctionSelect::listExistsCustomNoticePath(PLUGINS_PATH);
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++) {
         //获取插件QMap
         QMap<QString, QObject *> moduleMap;
@@ -145,32 +146,6 @@ void HomePageWidget::initUI() {
         widget->setObjectName("itemWidget");
         widget->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
 
-        connect(widget, &QPushButton::clicked, [=]() {
-            int moduleIndex = kvConverter->keystringTokeycode(moduleName);
-
-            //获取模块的第一项跳转
-            QString firstFunc;
-            QList<FuncInfo> tmpList = FunctionSelect::funcinfoListHomePage[moduleIndex];
-            for (FuncInfo tmpStruct : tmpList) {
-                QString sysVersion = "/etc/apt/ota_version";
-                QFile file(sysVersion);
-                bool isIntel = file.exists();
-                if ((isIntel && tmpStruct.namei18nString == "User Info")
-                      || (!isIntel && tmpStruct.namei18nString == "User Info Intel")) {
-                    continue;
-                }
-
-                if (moduleMap.keys().contains(tmpStruct.namei18nString)) {
-                    if (mModuleMap.isEmpty() || mModuleMap[tmpStruct.nameString.toLower()].toBool()) {
-                        firstFunc = tmpStruct.namei18nString;
-                        //跳转
-                        pmainWindow->functionBtnClicked(moduleMap.value(firstFunc));
-                        break;
-                    }
-                }
-            }
-        });
-
         QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
         mainHorLayout->setMargin(16);
         mainHorLayout->setSpacing(16);
@@ -204,10 +179,12 @@ void HomePageWidget::initUI() {
         QList<FuncInfo> tmpList = FunctionSelect::funcinfoListHomePage[moduleIndex];
         for (int funcIndex = 0; funcIndex < tmpList.size(); funcIndex++){
             FuncInfo single = tmpList.at(funcIndex);
+
             //跳过插件不存在的功能项
             if (!moduleMap.contains(single.namei18nString)){
                 continue;
             }
+
             //跳过不在首页显示的功能
             if (!single.mainShow)
                 continue;
@@ -230,12 +207,54 @@ void HomePageWidget::initUI() {
                 continue;
             }
 
+            QGSettings *plugin_settings = setGsettingsPath(list_path ,  single.nameString);
+            vecGsettins.insert(single.nameString , plugin_settings);
+            label->setVisible(plugin_settings->get(SHOW_KEY).toBool());
 
+            // 监听该插件是否启用
+            connect(plugin_settings , &QGSettings::changed,[=](QString key){
+                if (key == SHOW_KEY) {
+                  label->setVisible( plugin_settings->get(SHOW_KEY).toBool());
+                }
+            });
             connect(label, SIGNAL(clicked()), moduleSignalMapper, SLOT(map()));
             moduleSignalMapper->setMapping(label, moduleMap[single.namei18nString]);
 
             funcHorLayout->addWidget(label);
         }
+        connect(widget, &QPushButton::clicked, [=]() {
+            int moduleIndex = kvConverter->keystringTokeycode(moduleName);
+
+            //获取模块的第一项跳转
+            QString firstFunc;
+            QList<FuncInfo> tmpList = FunctionSelect::funcinfoListHomePage[moduleIndex];
+            for (FuncInfo tmpStruct : tmpList) {
+                QString sysVersion = "/etc/apt/ota_version";
+                QFile file(sysVersion);
+                bool isIntel = file.exists();
+
+                if ((isIntel && tmpStruct.namei18nString == "User Info")
+                      || (!isIntel && tmpStruct.namei18nString == "User Info Intel")) {
+                    continue;
+                }
+                // 若该插件不启用，跳转为下一项
+                if (vecGsettins.contains(tmpStruct.nameString)) {
+                    QGSettings *msettings = vecGsettins[tmpStruct.nameString];
+                    if (!msettings->get(SHOW_KEY).toBool()) {
+                        continue;
+                    }
+                }
+
+                if (moduleMap.keys().contains(tmpStruct.namei18nString)) {
+                    if (mModuleMap.isEmpty() || mModuleMap[tmpStruct.nameString.toLower()].toBool()) {
+                        firstFunc = tmpStruct.namei18nString;
+                        //跳转
+                        pmainWindow->functionBtnClicked(moduleMap.value(firstFunc));
+                        break;
+                    }
+                }
+            }
+        });
 
         rightVerLayout->addStretch();
         rightVerLayout->addWidget(titleLabel);
@@ -258,9 +277,31 @@ void HomePageWidget::initUI() {
 
         flowLayout->addWidget(baseWidget);
 
-
     }
     connect(moduleSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(functionBtnClicked(QObject*)));
+}
+
+QGSettings *HomePageWidget::setGsettingsPath(QList<char *> list ,  QString name)
+{
+    // 为每个插件创建动态QGSettings对象，用于监听插件是否隐藏
+    QByteArray ba;
+    char *path;
+    ba = (QString("%1%2").arg(name).arg("/")).toUtf8();
+    path = ba.data();
+    const QByteArray id(PLUGINS_SCHEMA);
+    QGSettings *settings = nullptr;
+    QString plugin = QString("%1%2%3").arg(PLUGINS_PATH).arg(name).arg("/");
+    settings = new QGSettings(id, plugin.toUtf8().data(), this);
+
+    //判断是否已存在该路径,不存在则赋初值
+    for (int j = 0; j < list.count(); j++) {
+        if (!qstrcmp(path, list.at(j))){
+            return settings;
+        }
+    }
+    settings->set(PLUGIN_NAME , name);
+    settings->set(SHOW_KEY , true);
+    return settings;
 }
 
 const QPixmap HomePageWidget::loadSvg(const QString &fileName, COLOR color)

@@ -22,8 +22,7 @@ include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
 
 DEFINES += PLUGIN_INSTALL_DIRS='\\"$${PLUGIN_INSTALL_DIRS}\\"'
 
-
-LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi
+LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi -ldconf
 
 #LIBS += -L$$[QT_INSTALL_LIBS] -lkylinssoclient
 
@@ -75,7 +74,9 @@ INSTALLS +=  \
             imageformats \
             guideEN  \
 
-INCLUDEPATH += qtsingleapplication
+INCLUDEPATH += \
+                                    qtsingleapplication \
+                                    /usr/include/dconf
 DEPENDPATH += qtsingleapplication
 
 SOURCES += \
