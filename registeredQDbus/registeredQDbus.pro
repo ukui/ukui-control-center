@@ -11,7 +11,7 @@ CONFIG -= app_bundle
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0 \
 
-
+LIBS          += -lddcutil
 DESTDIR = .
 INCLUDEPATH += .
 
