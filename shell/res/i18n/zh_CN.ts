@@ -8754,7 +8754,7 @@ run start-pulseaudio-x11 manually.</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="610"/>
         <source>night mode</source>
-        <translation>夜间模式</translation>
+        <translation>色温</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
