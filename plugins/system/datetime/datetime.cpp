@@ -233,7 +233,7 @@ void DateTime::component_init(){
     ////~ contents_path /datetime/Sync system time
     ui->synsystimeBtn->setText(tr("Sync system time"));
     ui->chgtimebtn->setText(tr("Change time"));
-    //~ contents_path /datetime/Change time zone
+    ////~ contents_path /datetime/Change time zone
     ui->chgzonebtn->setText(tr("Change time..."));
     ui->chgzonebtn->setToolTip(tr("Change time zone"));
     //~ contents_path /datetime/calendar

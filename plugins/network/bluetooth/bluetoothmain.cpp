@@ -240,6 +240,7 @@ void BlueToothMain::InitMainMiddleUI()
     paired_dev_layout->setSpacing(2);
     paired_dev_layout->setContentsMargins(0,0,0,0);
 
+    //~ contents_path /bluetooth/My Devices
     QLabel *middle_label = new QLabel(tr("My Devices"),frame_middle);
     middle_label->setStyleSheet("QLabel{width: 72px;\
                                 height: 25px;\

@@ -88,6 +88,9 @@ void Printer::initComponent(){
 //    ui->addBtn->setIconSize(QSize(48, 48));
 //    ui->addBtn->setStyleSheet("QPushButton{background-color:transparent;}");
 
+    //~ contents_path /printer/List Of Existing Printers
+    ui->title2Label->setText(tr("List Of Existing Printers"));
+
     addWgt = new HoverWidget("");
     addWgt->setObjectName("addwgt");
     addWgt->setMinimumSize(QSize(580, 64));
@@ -97,7 +100,7 @@ void Printer::initComponent(){
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel * iconLabel = new QLabel();
-    //~ contents_path /printer/Add printers and scanners
+    ////~ contents_path /printer/Add printers and scanners
     QLabel * textLabel = new QLabel(tr("Add printers and scanners"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);

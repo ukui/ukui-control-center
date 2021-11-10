@@ -58,6 +58,7 @@ QWidget *Pen::get_plugin_ui(){
         //~ contents_path /pen/Stylus settings
         ui->label->setText(tr("Stylus settings"));
         ui->label->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
+        //~ contents_path /pen/Use the side button 2 of the stylus to simulate Erase
         ui->label_5->setText(tr("Use the side button 2 of the stylus to simulate Erase"));
         ui->label_6->setText(tr("Handwriting anti touch"));
         ui->label_2->setPixmap(QPixmap(":/img/plugins/pen/setting-illus-pen_small.png"));

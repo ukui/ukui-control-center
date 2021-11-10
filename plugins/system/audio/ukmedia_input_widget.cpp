@@ -99,6 +99,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pIpVolumeSlider->setRange(0,100);
     m_pInputIconBtn->setFocusPolicy(Qt::NoFocus);
 
+    //~ contents_path /audio/Noise Reduction
     m_pDnsNoiseReductionLabel = new QLabel(tr("Noise Reduction"),m_pDnsNoiseReductionWidget);
     m_pDnsNoiseReductionButton = new SwitchButton(m_pDnsNoiseReductionWidget);
 
