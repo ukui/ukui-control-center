@@ -650,6 +650,7 @@ void MainWindow::initLeftsideBar(){
                 if (homepageWidget->vecGsettins.contains(single.nameString)) {
                     msettings = homepageWidget->vecGsettins[single.nameString];
                     pluginBtn->setVisible(msettings->get(SHOW_KEY).toBool());
+                    m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
                 }
 
                 // 监听该插件是否启用
@@ -659,8 +660,10 @@ void MainWindow::initLeftsideBar(){
                             if ( !msettings->get(SHOW_KEY).toBool() && pluginBtn->isChecked()) {
                                 ui->stackedWidget->setCurrentIndex(0);
                             }
-                          pluginBtn->setVisible( msettings->get(SHOW_KEY).toBool());
-
+                            pluginBtn->setVisible( msettings->get(SHOW_KEY).toBool());
+                            m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
+                        } else {
+                             m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
                         }
                     });
                 }

@@ -1,5 +1,6 @@
 #include "searchwidget.h"
 #include "pinyin.h"
+#include "homepagewidget.h"
 
 #include <QDebug>
 #include <QKeyEvent>
@@ -462,6 +463,36 @@ void SearchWidget::clearSearchData() {
     m_searchBoxStruct.fullPagePath = "";
 }
 
+void SearchWidget::hiddenSearchItem(QString name, bool show)
+{
+    if (show && m_model->rowCount() == count) {
+            return;
+    }
+    bool exist = false;
+    for (int index = 0 ; index < m_model->rowCount() ; index++) {
+        if (m_model->item(index)->text().contains(name + " -->")) {
+            exist = true;
+            break;
+        }
+    }
+    if (!show) {//去掉需隐藏的搜索项
+         for (int index = 0 ; index < m_model->rowCount() ; index++) {
+             if (m_model->item(index)->text().contains(name + " -->")) {
+                 m_model->removeRow(index);
+                 index--;
+             }
+         }
+    } else if (show && exist){
+       return;
+    } else {//加入需展示的搜索项
+        for(SearchBoxStruct tmpStruct : m_EnterNewPagelist) {
+            if (tmpStruct.actualModuleName == name) {
+                appendChineseData(tmpStruct);
+            }
+        }
+     }
+}
+
 void SearchWidget::initExcludeSearch() {
     if (!Utils::isExistEffect()) {
         mCnExclude << "特效模式" << "透明度";
@@ -499,6 +530,8 @@ void SearchWidget::setLanguage(QString type) {
     }
 
     loadxml();
+    //记录搜索项总数
+   count = m_model->rowCount();
 }
 
 //save all modules moduleInteface name and actual moduleName
