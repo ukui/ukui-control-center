@@ -8,7 +8,6 @@
 #include "colorinfo.h"
 #include "scalesize.h"
 #include "../../../shell/utils/utils.h"
-#include "../../../shell/mainwindow.h"
 
 #include <QHBoxLayout>
 #include <QTimer>
@@ -189,6 +188,17 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
             this, [=](int outputId){
         outputRemoved(outputId, false);
     });
+    connect(mConfig.data(), &KScreen::Config::primaryOutputChanged,
+            this, [=](const KScreen::OutputPtr &output){
+        bool mCloneMode = isCloneMode();
+        if (output && mUnifyButton->isChecked() != mCloneMode) {
+            mUnifyButton->blockSignals(true);
+            mUnifyButton->setChecked(mCloneMode);
+            mUnifyButton->blockSignals(false);
+            slotUnifyOutputs();
+            showBrightnessFrame();
+        }
+    });
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (output->isConnected()) {
@@ -221,6 +231,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
                 this, &Widget::slotOutputConnectedChanged);
             connect(output.data(), &KScreen::Output::isEnabledChanged,
                 this, &Widget::slotOutputEnabledChanged);
+            connect(output.data(), &KScreen::Output::posChanged,
+                this, &Widget::slotOutputPosChanged);
             for (QMLOutput *mOutput: mScreen->outputs()) {
                 if (mOutput->outputPtr() = output) {
                     disconnect(mOutput, SIGNAL(clicked()),
@@ -474,12 +486,25 @@ void Widget::slotFocusedOutputChangedNoParam()
     mControlPanel->activateOutput(res);
 }
 
+void Widget::slotOutputPosChanged()
+{
+    //return:设置镜像非镜像时，也会导致坐标在一瞬间改变，从而导致缩略图重复改变
+    //插拔时坐标异常导致镜像判断不正确较为少见，只在MIPS上偶现过，因此暂不处理
+    return;
+    bool mCloneMode = isCloneMode();
+    const KScreen::OutputPtr eOutput(qobject_cast<KScreen::Output *>(sender()), [](void *){});
+    if (eOutput && mUnifyButton->isChecked() != mCloneMode) {
+        mUnifyButton->blockSignals(true);
+        mUnifyButton->setChecked(mCloneMode);
+        mUnifyButton->blockSignals(false);
+        slotUnifyOutputs();
+        showBrightnessFrame();
+    }
+}
+
 void Widget::slotOutputEnabledChanged()
 {
     const KScreen::OutputPtr eOutput(qobject_cast<KScreen::Output *>(sender()), [](void *){});
-    if (!eOutput) {  //会有null但是触发该槽函数的情况，原因不明
-        return;
-    }
 
     // 点击禁用屏幕输出后的改变
     resetPrimaryCombo();
@@ -506,11 +531,14 @@ void Widget::slotOutputEnabledChanged()
     }
     mUnifyButton->setEnabled(enabledOutputsCount > 1);
     ui->unionframe->setVisible(false);
-    if (mUnifyButton->isChecked() != isCloneMode()) {
-        mIsScreenEnable = true; //一般是插拔导致获取的屏幕状态异常，才会出触发，所以这里不需要保存
-        mUnifyButton->setChecked(isCloneMode());
+    bool mCloneMode = isCloneMode();
+    if (eOutput && mUnifyButton->isChecked() != mCloneMode) {
+        mUnifyButton->blockSignals(true);
+        mUnifyButton->setChecked(mCloneMode);
+        mUnifyButton->blockSignals(false);
+        slotUnifyOutputs();
+        showBrightnessFrame();
     }
-    showBrightnessFrame();
 }
 
 void Widget::slotOutputConnectedChanged()
@@ -882,17 +910,7 @@ bool Widget::isRestoreConfig()
 {
     int cnt = 15;
     int ret = -100;
-    MainWindow *mainWindow = static_cast<MainWindow*>(this->topLevelWidget());
     QMessageBox msg(qApp->activeWindow());
-    connect(mainWindow, &MainWindow::posChanged, this, [=,&msg]() {
-        QTimer::singleShot(8, this, [=,&msg]() { //窗管会移动窗口，等待8ms,确保在窗管移动之后再move，时间不能太长，否则会看到移动的路径
-            QRect rect = this->topLevelWidget()->geometry();
-            int msgX = 0, msgY = 0;
-            msgX = rect.x() + rect.width()/2 - 380/2;
-            msgY = rect.y() + rect.height()/2 - 130/2;
-            msg.move(msgX, msgY);
-        });
-    });
     if (mConfigChanged) {
         msg.setWindowTitle(tr("Hint"));
         msg.setText(tr("The screen resolution has been modified, whether to save it ? "
@@ -915,14 +933,8 @@ bool Widget::isRestoreConfig()
             }
         });
         cntDown.start(1000);
-        QRect rect = this->topLevelWidget()->geometry();
-        int msgX = 0, msgY = 0;
-        msgX = rect.x() + rect.width()/2 - 380/2;
-        msgY = rect.y() + rect.height()/2 - 130/2;
-        msg.move(msgX, msgY);
         ret = msg.exec();
     }
-    disconnect(mainWindow, &MainWindow::posChanged, 0, 0);
     bool res = false;
     switch (ret) {
     case QMessageBox::AcceptRole:
@@ -1189,6 +1201,8 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
                 this, &Widget::slotOutputConnectedChanged);
         connect(output.data(), &KScreen::Output::isEnabledChanged,
                 this, &Widget::slotOutputEnabledChanged);
+        connect(output.data(), &KScreen::Output::posChanged,
+            this, &Widget::slotOutputPosChanged);
         for (QMLOutput *mOutput: mScreen->outputs()) {
             if (mOutput->outputPtr() = output) {
                 disconnect(mOutput, SIGNAL(clicked()),
@@ -1573,12 +1587,11 @@ void Widget::delayApply()
 {
     QTimer::singleShot(200, this, [=]() {
         // kds与插拔不触发应用操作
-        if (mKDSCfg.isEmpty() && !mIsScreenAdd && !mIsScreenEnable) {
+        if (mKDSCfg.isEmpty() && !mIsScreenAdd) {
             save();
         }
         mKDSCfg.clear();
         mIsScreenAdd = false;
-        mIsScreenEnable = false;
     });
 }
 
@@ -2372,10 +2385,6 @@ void Widget::showBrightnessFrame(const int flag)
 {
     bool allShowFlag = true;
     allShowFlag = isCloneMode();
-    //mips机器，插拔信号不能及时反馈，在这里重新设置一遍，避免缩略图显示异常
-    if (cpuArchitecture.contains("mips", Qt::CaseInsensitive) && allShowFlag == true && !mUnifyButton->isChecked()) {
-        mUnifyButton->setChecked(true);
-    }
 
     ui->unifyBrightFrame->setFixedHeight(0);
     if (flag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式

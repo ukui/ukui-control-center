@@ -37,9 +37,18 @@ extern "C" {
 QList<QList<FuncInfo>> FunctionSelect::funcinfoList;
 QList<QList<FuncInfo>> FunctionSelect::funcinfoListHomePage;
 QStack<RecordFunc> FunctionSelect::recordFuncStack;
+QList<QString> FunctionSelect::systemPluginName;
+QList<QString> FunctionSelect::devicePluginName;
+QList<QString> FunctionSelect::networkPluginName;
+QList<QString> FunctionSelect::personalPluginName;
+QList<QString> FunctionSelect::accountPluginName;
+QList<QString> FunctionSelect::datePluginName;
+QList<QString> FunctionSelect::updatePluginName;
+QList<QString> FunctionSelect::securityPluginName;
+QList<QString> FunctionSelect::appPluginName;
+QList<QString> FunctionSelect::searchPluginName;
 
 //FuncInfo FunctionSelect::displayStruct;
-
 
 FunctionSelect::FunctionSelect()
 {
@@ -71,34 +80,34 @@ void FunctionSelect::loadHomeModule()
 
                 switch (pluginInstance->pluginTypes()) {
                 case FunType::SYSTEM:
-                    loadModule(systemList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(systemList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), systemPluginName);
                     break;
                 case FunType::DEVICES:
-                    loadModule(deviceList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(deviceList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), devicePluginName);
                     break;
                 case FunType::NETWORK:
-                    loadModule(networkList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(networkList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), networkPluginName);
                     break;
                 case FunType::PERSONALIZED:
-                    loadModule(personaliseList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(personaliseList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), personalPluginName);
                     break;
                 case FunType::ACCOUNT:
-                    loadModule(accountList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(accountList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), accountPluginName);
                     break;
                 case FunType::DATETIME:
-                    loadModule(datetimeList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(datetimeList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), datePluginName);
                     break;
                 case FunType::UPDATE:
-                    loadModule(updateList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(updateList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), updatePluginName);
                     break;
                 case FunType::SECURITY:
-                    loadModule(securityList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(securityList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), securityPluginName);
                     break;
                 case FunType::APPLICATION:
-                    loadModule(applicationList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(applicationList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), appPluginName);
                     break;
                 case FunType::SEARCH_F:
-                    loadModule(searchList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage());
+                    loadModule(searchList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), searchPluginName);
                     break;
                 default:
                     break;
@@ -121,17 +130,47 @@ void FunctionSelect::loadHomeModule()
     funcinfoList = funcinfoListHomePage;
 }
 
-void FunctionSelect::loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow)
+void FunctionSelect::loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow, QList<QString> pluginName)
 {
+    int i;
+    // 查找当前加载的插件序号i
+    for (i = 0; i < pluginName.size(); i++) {
+        if (name.compare(pluginName.at(i), Qt::CaseInsensitive) == 0) {
+            break;
+        }
+    }
     FuncInfo module;
     module.nameString = name;
     module.namei18nString = i18nName;
     module.type = type;
     module.mainShow = isShow;
-    systemList.append(module);
+    if (systemList.size() == 0) {
+        systemList.append(module);
+    } else {
+        bool isInsert = false;
+        // 遍历原有list，对比module的序号与list中每个元素序号的关系
+        for (int preItemIndex = systemList.size()-1; preItemIndex >= 0 ; preItemIndex--) {
+            int nItemIndex = 0;
+            for (nItemIndex = 0; nItemIndex < pluginName.count(); nItemIndex++) {
+                if (systemList[preItemIndex].nameString.compare(pluginName.at(nItemIndex), Qt::CaseInsensitive) == 0) {
+                    break;
+                }
+            }
+            // 原有list元素序号小于新的module序号，将module插入该元素之后
+            if (nItemIndex <= i) {
+                systemList.insert(preItemIndex+1, module);
+                isInsert = true;
+                break;
+            }
+        }
+        if (!isInsert) {
+            systemList.insert(0, module);
+        }
+    }
 }
 
 void FunctionSelect::initValue(){
+    initPluginName();
     loadHomeModule();
 }
 
@@ -174,3 +213,50 @@ QList<char *> FunctionSelect::listExistsCustomNoticePath(const char *dir)
     return vals;
 }
 
+void FunctionSelect::initPluginName()
+{
+    systemPluginName.insert(0, "Display");
+    systemPluginName.insert(1, "Audio");
+    systemPluginName.insert(2, "Power");
+    systemPluginName.insert(3, "Notice");
+    systemPluginName.insert(4, "Vino");
+    systemPluginName.insert(5, "Projection");
+    systemPluginName.insert(6, "About");
+
+    devicePluginName.insert(0, "BlueTooth");
+    devicePluginName.insert(1, "Printer");
+    devicePluginName.insert(2, "Mouse");
+    devicePluginName.insert(3, "Touchpad");
+    devicePluginName.insert(4, "Keyboard");
+    devicePluginName.insert(5, "Shortcut");
+
+    networkPluginName.insert(0, "netconnect");
+    networkPluginName.insert(1, "wlanconnect");
+    networkPluginName.insert(2, "");
+    networkPluginName.insert(3, "proxy");
+    networkPluginName.insert(4, "Vpn");
+    networkPluginName.insert(5, "mobilehotspot");
+
+    personalPluginName.insert(0, "Wallpaper");
+    personalPluginName.insert(1, "Theme");
+    personalPluginName.insert(2, "Screenlock");
+    personalPluginName.insert(3, "Screensaver");
+    personalPluginName.insert(4, "Fonts");
+
+    accountPluginName.insert(0, "Userinfo");
+    accountPluginName.insert(1, "Biometric");
+    accountPluginName.insert(2, "Networkaccount");
+
+    datePluginName.insert(0, "Date");
+    datePluginName.insert(1, "Area");
+
+    updatePluginName.insert(0, "Update");
+    updatePluginName.insert(1, "Backup");
+
+    securityPluginName.insert(0, "Securitycenter");
+
+    appPluginName.insert(0, "autoboot");
+    appPluginName.insert(1, "defaultapp");
+
+    searchPluginName.insert(0, "Search");
+}

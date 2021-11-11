@@ -19,20 +19,30 @@ extern "C" {
 #include <X11/extensions/XInput.h>
 #include <X11/Xatom.h>
 }
-
+//垂直边界
 #define V_EDGE_KEY               "vertical-edge-scrolling"
+//垂直中间
 #define V_FINGER_KEY             "vertical-two-finger-scrolling"
 #define N_SCROLLING              "none"
+//水平中间
 #define H_FINGER_KEY             "horizontal-two-finger-scrolling"
+//水平边界
+#define H_EDGE_KEY               "horizontal-edge-scrolling"
 
 const QByteArray kTouchpadSchemas = "org.ukui.peripherals-touchpad";
 const QString kMouseDisableKey = "disable-on-external-mouse";
 const QString kTypingDisableKey = "disable-while-typing";
 const QString kClickKey = "tap-to-click";
 const QString kScrollSlideKey = "natural-scroll";
+const QString kPointerSpeedKey = "motion-acceleration";
 
-const QByteArray kMouseSchemas = "org.ukui.peripherals-mouse";
-const QString kCursorSpeedKey = "motion-acceleration";
+/*
+*motion-acceleration
+* 0.1 --- 10
+*  快 --- 慢
+*/
+const double kPointerSpeedMin = 0.1;
+const double kPointerSpeedMax = 10;
 
 class TouchpadUI : public QWidget
 {
@@ -44,7 +54,7 @@ public:
 
 private:
     QFrame *mMouseDisableFrame;
-    QFrame *mCursorSpeedFrame;
+    QFrame *mPointerSpeedFrame;
     QFrame *mTypingDisableFrame;
     QFrame *mClickFrame;
     QFrame *mScrollSlideFrame;
@@ -54,15 +64,15 @@ private:
     SwitchButton *mTypingDisableBtn;    // 打字时禁用触摸板
     SwitchButton *mClickBtn;            // 触摸板轻触点击
     SwitchButton *mScrollSlideBtn;      // 滚动条跟随手指滑动
-    QSlider *mCursorSpeedSlider;        // 光标速度
+    QSlider *mPointerSpeedSlider;       // 指针速度
     QComboBox *mScrollTypeComBox;       // 滚动区域
 
     TitleLabel *mTouchpadSetTitleLabel; //触摸板设置
 
     QLabel *mMouseDisableLabel;
-    QLabel *mCursorSpeedLabel;
-    QLabel *mCursorSpeedSlowLabel;
-    QLabel *mCursorSpeedFastLabel;
+    QLabel *mPointerSpeedLabel;
+    QLabel *mPointerSpeedSlowLabel;
+    QLabel *mPointerSpeedFastLabel;
     QLabel *mTypingDisableLabel;
     QLabel *mClickLabel;
     QLabel *mScrollSlideLabel;
@@ -71,7 +81,6 @@ private:
     QVBoxLayout *mVlayout;
 
     QGSettings *mTouchpadGsetting;
-    QGSettings *mMouseGsetting;
 
 private:
     QFrame* myLine();
@@ -82,7 +91,7 @@ private:
     QString _findKeyScrollingType();
 
     void mouseDisableSlot(bool status);
-    void cursorSpeedSlot(int value);
+    void pointerSpeedSlot(int value);
     void typingDisableSlot(bool status);
     void clickSlot(bool status);
     void scrollSlideSlot(bool status);
