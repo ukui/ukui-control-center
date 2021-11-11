@@ -209,10 +209,10 @@ void HomePageWidget::initUI() {
 
             QGSettings *plugin_settings = setGsettingsPath(list_path ,  single.nameString);
             vecGsettins.insert(single.nameString , plugin_settings);
-            label->setVisible(plugin_settings->get(SHOW_KEY).toBool());
 
             // 监听该插件是否启用
             if (plugin_settings) {
+                label->setVisible(plugin_settings->get(SHOW_KEY).toBool());
                 connect(plugin_settings , &QGSettings::changed,[=](QString key){
                     if (key == SHOW_KEY) {
                       label->setVisible( plugin_settings->get(SHOW_KEY).toBool());
