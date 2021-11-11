@@ -38,10 +38,10 @@ enum COLOR{
 class MainWindow;
 class QListWidgetItem;
 
-#define PLUGIN_STATUS_SCHEMA  "org.ukui.control-center.pluginstatus"
-#define PLUGINS_SCHEMA                  "org.ukui.control-center.plugins"
-#define PLUGINS_PATH                         "/org/ukui/control-center/plugins/"
-#define PLUGIN_NAME                          "plugin-name"
+#define PLUGIN_STATUS_SCHEMA                     "org.ukui.control-center.pluginstatus"
+#define PLUGINS_SCHEMA                           "org.ukui.control-center.plugins"
+#define PLUGINS_PATH                             "/org/ukui/control-center/plugins/"
+#define PLUGIN_NAME                              "plugin-name"
 #define SHOW_KEY                                 "show"
 
 namespace Ui {

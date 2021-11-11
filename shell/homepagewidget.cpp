@@ -212,11 +212,13 @@ void HomePageWidget::initUI() {
             label->setVisible(plugin_settings->get(SHOW_KEY).toBool());
 
             // 监听该插件是否启用
-            connect(plugin_settings , &QGSettings::changed,[=](QString key){
-                if (key == SHOW_KEY) {
-                  label->setVisible( plugin_settings->get(SHOW_KEY).toBool());
-                }
-            });
+            if (plugin_settings) {
+                connect(plugin_settings , &QGSettings::changed,[=](QString key){
+                    if (key == SHOW_KEY) {
+                      label->setVisible( plugin_settings->get(SHOW_KEY).toBool());
+                    }
+                });
+            }
             connect(label, SIGNAL(clicked()), moduleSignalMapper, SLOT(map()));
             moduleSignalMapper->setMapping(label, moduleMap[single.namei18nString]);
 
@@ -240,8 +242,10 @@ void HomePageWidget::initUI() {
                 // 若该插件不启用，跳转为下一项
                 if (vecGsettins.contains(tmpStruct.nameString)) {
                     QGSettings *msettings = vecGsettins[tmpStruct.nameString];
-                    if (!msettings->get(SHOW_KEY).toBool()) {
-                        continue;
+                    if (msettings) {
+                        if (!msettings->get(SHOW_KEY).toBool()) {
+                            continue;
+                        }
                     }
                 }
 
@@ -289,6 +293,9 @@ QGSettings *HomePageWidget::setGsettingsPath(QList<char *> list ,  QString name)
     ba = (QString("%1%2").arg(name).arg("/")).toUtf8();
     path = ba.data();
     const QByteArray id(PLUGINS_SCHEMA);
+    if (!QGSettings::isSchemaInstalled(id)) {
+        return nullptr;
+    }
     QGSettings *settings = nullptr;
     QString plugin = QString("%1%2%3").arg(PLUGINS_PATH).arg(name).arg("/");
     settings = new QGSettings(id, plugin.toUtf8().data(), this);

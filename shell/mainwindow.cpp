@@ -649,8 +649,10 @@ void MainWindow::initLeftsideBar(){
                 QGSettings *msettings = nullptr;
                 if (homepageWidget->vecGsettins.contains(single.nameString)) {
                     msettings = homepageWidget->vecGsettins[single.nameString];
-                    pluginBtn->setVisible(msettings->get(SHOW_KEY).toBool());
-                    m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
+                    if (msettings) {
+                        pluginBtn->setVisible(msettings->get(SHOW_KEY).toBool());
+                        m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
+                    }
                 }
 
                 // 监听该插件是否启用
