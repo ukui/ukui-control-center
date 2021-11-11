@@ -49,6 +49,9 @@
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
+#define THEME_QT_SCHEMA  "org.ukui.style"
+
+
 #ifdef WITHKYSEC
 #include <kysec/libkysec.h>
 #include <kysec/status.h>
@@ -335,6 +338,14 @@ void MainWindow::initTileBar() {
     setLayout->addWidget(textSetLable);
     logoSetLabel->setFixedSize(24,24);
     logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+    const QByteArray id(THEME_QT_SCHEMA);
+    QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
+    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
+        if (key == "iconThemeName")
+            logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+    });
+
+
     textSetLable->setText(tr("Settings"));
     textSetLable->setAlignment(Qt::AlignLeft);
 
