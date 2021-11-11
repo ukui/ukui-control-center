@@ -57,30 +57,30 @@ void TouchpadUI::initUI()
     mMouseDisableFrame->setLayout(MouseDisableHLayout);
 
     /* CursorSpeed */
-    mCursorSpeedFrame = new QFrame(this);
-    mCursorSpeedFrame->setFrameShape(QFrame::Shape::Box);
-    mCursorSpeedFrame->setMinimumSize(550, 60);
-    mCursorSpeedFrame->setMaximumSize(16777215, 60);
+    mPointerSpeedFrame = new QFrame(this);
+    mPointerSpeedFrame->setFrameShape(QFrame::Shape::Box);
+    mPointerSpeedFrame->setMinimumSize(550, 60);
+    mPointerSpeedFrame->setMaximumSize(16777215, 60);
 
-    QHBoxLayout *CursorSpeedHLayout = new QHBoxLayout();
+    QHBoxLayout *pointerSpeedHLayout = new QHBoxLayout();
 
-     //~ contents_path /Touchpad/Cursor Speed
-    mCursorSpeedLabel = new QLabel(tr("Cursor Speed"), this);
-    mCursorSpeedLabel->setMinimumWidth(200);
-    mCursorSpeedSlowLabel = new QLabel(tr("Slow"), this);
-    mCursorSpeedFastLabel = new QLabel(tr("Fast"), this);
-    mCursorSpeedSlider = new QSlider(Qt::Horizontal);
-    mCursorSpeedSlider->setMinimum(100);
-    mCursorSpeedSlider->setMaximum(1000);
-    mCursorSpeedSlider->setSingleStep(50);
-    mCursorSpeedSlider->setPageStep(50);
-    CursorSpeedHLayout->addSpacing(7);
-    CursorSpeedHLayout->addWidget(mCursorSpeedLabel);
-    CursorSpeedHLayout->addWidget(mCursorSpeedSlowLabel);
-    CursorSpeedHLayout->addWidget(mCursorSpeedSlider);
-    CursorSpeedHLayout->addWidget(mCursorSpeedFastLabel);
+     //~ contents_path /Touchpad/Pointer Speed
+    mPointerSpeedLabel = new QLabel(tr("Pointer Speed"), this);
+    mPointerSpeedLabel->setMinimumWidth(200);
+    mPointerSpeedSlowLabel = new QLabel(tr("Slow"), this);
+    mPointerSpeedFastLabel = new QLabel(tr("Fast"), this);
+    mPointerSpeedSlider = new QSlider(Qt::Horizontal);
+    mPointerSpeedSlider->setMinimum(10);
+    mPointerSpeedSlider->setMaximum(1000);
+    mPointerSpeedSlider->setSingleStep(50);
+    mPointerSpeedSlider->setPageStep(50);
+    pointerSpeedHLayout->addSpacing(7);
+    pointerSpeedHLayout->addWidget(mPointerSpeedLabel);
+    pointerSpeedHLayout->addWidget(mPointerSpeedSlowLabel);
+    pointerSpeedHLayout->addWidget(mPointerSpeedSlider);
+    pointerSpeedHLayout->addWidget(mPointerSpeedFastLabel);
 
-    mCursorSpeedFrame->setLayout(CursorSpeedHLayout);
+    mPointerSpeedFrame->setLayout(pointerSpeedHLayout);
 
     /* TypingDisableFrame */
     mTypingDisableFrame = new QFrame(this);
@@ -165,7 +165,7 @@ void TouchpadUI::initUI()
 
     touchpadLyt->addWidget(mMouseDisableFrame);
     touchpadLyt->addWidget(mouseAndSpeedLine);
-    touchpadLyt->addWidget(mCursorSpeedFrame);
+    touchpadLyt->addWidget(mPointerSpeedFrame);
     touchpadLyt->addWidget(speedAndTypingLine);
     touchpadLyt->addWidget(mTypingDisableFrame);
     touchpadLyt->addWidget(typingAndClickLine);
@@ -185,17 +185,15 @@ void TouchpadUI::initUI()
 void TouchpadUI::initConnection()
 {
     QByteArray touchpadId(kTouchpadSchemas);
-    QByteArray mouseId(kMouseSchemas);
 
-    if (QGSettings::isSchemaInstalled(touchpadId) && QGSettings::isSchemaInstalled(mouseId)) {
+    if (QGSettings::isSchemaInstalled(touchpadId)) {
         mTouchpadGsetting = new QGSettings(kTouchpadSchemas, QByteArray(), this);
-        mMouseGsetting = new QGSettings(kMouseSchemas, QByteArray(), this);
 
         initEnableStatus();
 
         connect(mMouseDisableBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::mouseDisableSlot);
 
-        connect(mCursorSpeedSlider, &QSlider::valueChanged, this, &TouchpadUI::cursorSpeedSlot);
+        connect(mPointerSpeedSlider, &QSlider::valueChanged, this, &TouchpadUI::pointerSpeedSlot);
 
         connect(mTypingDisableBtn, &SwitchButton::checkedChanged, this, &TouchpadUI::typingDisableSlot);
 
@@ -212,12 +210,12 @@ void TouchpadUI::initConnection()
 
 void TouchpadUI::gsettingConnectUi()
 {
-    //命令行或鼠标设置指针速度时（共用一个key）改变 key 值，界面做出相应的改变
-    connect(mMouseGsetting, &QGSettings::changed, this, [=](const QString &key) {
+    //命令行指针速度改变 key 值，界面做出相应的改变
+    connect(mTouchpadGsetting, &QGSettings::changed, this, [=](const QString &key) {
        if (key == "motionAcceleration") {
-           mCursorSpeedSlider->blockSignals(true);
-           mCursorSpeedSlider->setValue(static_cast<int>(mMouseGsetting->get(kCursorSpeedKey).toDouble() * 100));
-           mCursorSpeedSlider->blockSignals(false);
+           mPointerSpeedSlider->blockSignals(true);
+           mPointerSpeedSlider->setValue((kPointerSpeedMin + kPointerSpeedMax - mTouchpadGsetting->get(kPointerSpeedKey).toDouble()) * 100);
+           mPointerSpeedSlider->blockSignals(false);
        }
     });
 }
@@ -230,9 +228,9 @@ void TouchpadUI::initEnableStatus()
     mMouseDisableBtn->blockSignals(false);
 
     // 初始化光标速度
-    mCursorSpeedSlider->blockSignals(true);
-    mCursorSpeedSlider->setValue(static_cast<int>(mMouseGsetting->get(kCursorSpeedKey).toDouble() * 100));
-    mCursorSpeedSlider->blockSignals(false);
+    mPointerSpeedSlider->blockSignals(true);
+    mPointerSpeedSlider->setValue((kPointerSpeedMin + kPointerSpeedMax - mTouchpadGsetting->get(kPointerSpeedKey).toDouble()) * 100);
+    mPointerSpeedSlider->blockSignals(false);
 
     // 初始化打字时禁用触摸板
     mTypingDisableBtn->blockSignals(true);
@@ -254,9 +252,18 @@ void TouchpadUI::initEnableStatus()
     mScrollTypeComBox->setCurrentIndex(mScrollTypeComBox->findData(_findKeyScrollingType()));
     mScrollTypeComBox->blockSignals(false);
 
-    // 非禁用模式下默认水平双指滚动有效
-    if (QString::compare(N_SCROLLING, mScrollTypeComBox->currentData().toString()) != 0) {
+    // 边界滚动默认水平边界有效
+    if (QString::compare(V_EDGE_KEY, mScrollTypeComBox->currentData().toString()) == 0) {
+        mTouchpadGsetting->set(H_EDGE_KEY, true);
+        mTouchpadGsetting->set(H_FINGER_KEY, false);
+    }
+    if (QString::compare(V_FINGER_KEY, mScrollTypeComBox->currentData().toString()) == 0) {
+        mTouchpadGsetting->set(H_EDGE_KEY, false);
         mTouchpadGsetting->set(H_FINGER_KEY, true);
+    }
+    if (QString::compare(N_SCROLLING, mScrollTypeComBox->currentData().toString()) == 0) {
+        mTouchpadGsetting->set(H_EDGE_KEY, false);
+        mTouchpadGsetting->set(H_FINGER_KEY, false);
     }
 }
 
@@ -274,15 +281,14 @@ QString TouchpadUI::_findKeyScrollingType()
 }
 
 /* slot functions */
-
 void TouchpadUI::mouseDisableSlot(bool status)
 {
     mTouchpadGsetting->set(kMouseDisableKey, status);
 }
 
-void TouchpadUI::cursorSpeedSlot(int value)
+void TouchpadUI::pointerSpeedSlot(int value)
 {
-    mMouseGsetting->set(kCursorSpeedKey, static_cast<double>(value) / mCursorSpeedSlider->maximum() * 10);
+    mTouchpadGsetting->set(kPointerSpeedKey, kPointerSpeedMin + kPointerSpeedMax-static_cast<double>(value) / mPointerSpeedSlider->maximum() * 10);
 }
 
 void TouchpadUI::typingDisableSlot(bool status)
@@ -302,23 +308,27 @@ void TouchpadUI::scrollSlideSlot(bool status)
 
 void TouchpadUI::scrolltypeSlot()
 {
-    //旧滚动类型设置为false,跳过N_SCROLLING
-    QString oldType = _findKeyScrollingType();
-    if (QString::compare(oldType, N_SCROLLING) != 0) {
-        mTouchpadGsetting->set(oldType, false);
-    }
-
-    //新滚动类型设置为true,跳过N_SCROLLING
+    //旧滚动类型设置为false，新滚动类型设置为true
     QString data = mScrollTypeComBox->currentData().toString();
-    if (QString::compare(data, N_SCROLLING) != 0) {
-        mTouchpadGsetting->set(data, true);
-        mTouchpadGsetting->set(H_FINGER_KEY, true);
-    }
-
+    // 禁用滚动
     if (QString::compare(data, N_SCROLLING) == 0) {
         mTouchpadGsetting->set(V_EDGE_KEY, false);
+        mTouchpadGsetting->set(H_EDGE_KEY, false);
         mTouchpadGsetting->set(V_FINGER_KEY, false);
         mTouchpadGsetting->set(H_FINGER_KEY, false);
     }
-
+    // 边界滚动:垂直边界+水平边界
+    if (QString::compare(data, V_EDGE_KEY) == 0) {
+        mTouchpadGsetting->set(V_EDGE_KEY, true);
+        mTouchpadGsetting->set(H_EDGE_KEY, true);
+        mTouchpadGsetting->set(V_FINGER_KEY, false);
+        mTouchpadGsetting->set(H_FINGER_KEY, false);
+    }
+    // 中间双指:垂直中间+水平中间
+    if (QString::compare(data, V_FINGER_KEY) == 0) {
+        mTouchpadGsetting->set(V_EDGE_KEY, false);
+        mTouchpadGsetting->set(H_EDGE_KEY, false);
+        mTouchpadGsetting->set(V_FINGER_KEY, true);
+        mTouchpadGsetting->set(H_FINGER_KEY, true);
+    }
 }
