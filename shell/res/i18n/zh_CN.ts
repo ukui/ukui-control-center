@@ -10057,12 +10057,12 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="172"/>
         <source>scaled</source>
-        <translation>比例放大</translation>
+        <translation>填充</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="172"/>
         <source>stretched</source>
-        <translation>伸展</translation>
+        <translation>拉伸</translation>
     </message>
     <message>
         <source>zoom</source>

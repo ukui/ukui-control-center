@@ -8,7 +8,6 @@
 #include "colorinfo.h"
 #include "scalesize.h"
 #include "../../../shell/utils/utils.h"
-#include "../../../shell/mainwindow.h"
 
 #include <QHBoxLayout>
 #include <QTimer>
@@ -911,17 +910,7 @@ bool Widget::isRestoreConfig()
 {
     int cnt = 15;
     int ret = -100;
-    MainWindow *mainWindow = static_cast<MainWindow*>(this->topLevelWidget());
     QMessageBox msg(qApp->activeWindow());
-    connect(mainWindow, &MainWindow::posChanged, this, [=,&msg]() {
-        QTimer::singleShot(8, this, [=,&msg]() { //窗管会移动窗口，等待8ms,确保在窗管移动之后再move，时间不能太长，否则会看到移动的路径
-            QRect rect = this->topLevelWidget()->geometry();
-            int msgX = 0, msgY = 0;
-            msgX = rect.x() + rect.width()/2 - 380/2;
-            msgY = rect.y() + rect.height()/2 - 130/2;
-            msg.move(msgX, msgY);
-        });
-    });
     if (mConfigChanged) {
         msg.setWindowTitle(tr("Hint"));
         msg.setText(tr("The screen resolution has been modified, whether to save it ? "
@@ -944,14 +933,8 @@ bool Widget::isRestoreConfig()
             }
         });
         cntDown.start(1000);
-        QRect rect = this->topLevelWidget()->geometry();
-        int msgX = 0, msgY = 0;
-        msgX = rect.x() + rect.width()/2 - 380/2;
-        msgY = rect.y() + rect.height()/2 - 130/2;
-        msg.move(msgX, msgY);
         ret = msg.exec();
     }
-    disconnect(mainWindow, &MainWindow::posChanged, 0, 0);
     bool res = false;
     switch (ret) {
     case QMessageBox::AcceptRole:

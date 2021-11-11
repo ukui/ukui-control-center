@@ -103,6 +103,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
             slider->setEnabled(true);
             labelMsg->hide();
             this->setFixedHeight(50);
+            this->adjustSize();
             disconnect(slider,&QSlider::valueChanged,this,0);
             connect(slider, &QSlider::valueChanged, this, [=](){
                  qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
@@ -124,6 +125,7 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                 slider->setEnabled(true);
                 labelMsg->hide();
                 this->setFixedHeight(50);
+                this->adjustSize();
                 disconnect(slider,&QSlider::valueChanged,this,0);
                 connect(slider, &QSlider::valueChanged, this, [=](){
                     qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
