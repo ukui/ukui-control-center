@@ -112,16 +112,20 @@ void addShortcutDialog::slotsSetup()
     connect(ui->nameLineEdit, &QLineEdit::textChanged, [=](){
         QStringList customName;
         QString text = ui->nameLineEdit->text();
-        if (customEntry.isEmpty()) {
-            nameIsAvailable = true;
+        if (text.isEmpty()) {
+            nameIsAvailable = false;
         } else {
-            for (KeyEntry *ckeyEntry : customEntry) {
-                customName << ckeyEntry->nameStr;
-                if (customName.contains(text) && text != editName) {
-                    nameIsAvailable = false;
-                } else {
-                    nameIsAvailable = true;
-                }
+            if (customEntry.isEmpty()) {
+                nameIsAvailable = true;
+            } else {
+                    for (KeyEntry *ckeyEntry : customEntry) {
+                        customName << ckeyEntry->nameStr;
+                        if (customName.contains(text) && text != editName) {
+                            nameIsAvailable = false;
+                        } else {
+                            nameIsAvailable = true;
+                        }
+                    }
             }
         }
         refreshCertainChecked(2);
@@ -278,7 +282,7 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
             }
             break;
         case 2:
-            if (!nameIsAvailable) {
+            if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
                 ui->label_4->setText(tr("Name repetition"));  //名称重复
             } else if (keyIsAvailable == 1 && !shortcutLine->text().isEmpty()) {
                 ui->label_4->setText(tr("Shortcut conflict"));  //快捷键冲突

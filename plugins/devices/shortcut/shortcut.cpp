@@ -419,6 +419,11 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     ClickFixLabel *nameLabel = new ClickFixLabel(frame);
     ClickFixLabel *bingdingLabel = new ClickFixLabel(frame);
 
+    // 大小写字母数字中文
+    QRegExp rx("[a-zA-Z0-9\u4e00-\u9fa5]+");
+    QRegExpValidator *regValidator = new QRegExpValidator(rx);
+    // 输入限制
+    nameLineEdit->setValidator(regValidator);
     nameLineEdit->setFixedHeight(36);
     bingdingLineEdit->setFixedHeight(36);
 
