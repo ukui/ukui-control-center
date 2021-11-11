@@ -39,7 +39,6 @@
 #define MATE_BACKGROUND_SCHEMAS "org.mate.background"
 #define FILENAME                "picture-filename"
 const QString kylinUrl        = "https://www.ubuntukylin.com/wallpaper.html";
-const QString kylinBackgroundName2 = "/usr/share/backgrounds/aurora.jpg";
 
 Screenlock::Screenlock() : mFirstLoad(true)
 {
@@ -538,7 +537,7 @@ void Screenlock::resetDefaultScreenLockSlot(){
     const char * dwp = g_variant_get_string(variant, &size);
     g_object_unref(wpgsettings);
     lSetting->set(SCREENLOCK_BG_KEY, QVariant(QString(dwp)));
-    setClickedPic(kylinBackgroundName2);//默认背景图片和aurora.jpg一样，暂时特殊标记
+    setClickedPic(QString(dwp));
 }
 
 void Screenlock::setClickedPic(QString fileName) {
