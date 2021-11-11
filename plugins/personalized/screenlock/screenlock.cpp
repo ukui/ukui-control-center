@@ -223,11 +223,16 @@ void Screenlock::setupConnect()
 void Screenlock::initScreenlockStatus()
 {
     // 获取当前锁屏壁纸
-    QString bgStr = lSetting->get(SCREENLOCK_BG_KEY).toString();
+    QString bgStr = "";
+    if (lSetting->keys().contains(SCREENLOCK_BG_KEY)) {
+        bgStr = lSetting->get(SCREENLOCK_BG_KEY).toString();
+    }
+
     if (bgStr.isEmpty()) {
         if (QGSettings::isSchemaInstalled(MATE_BACKGROUND_SCHEMAS)) {
             QGSettings * bgGsetting  = new QGSettings(MATE_BACKGROUND_SCHEMAS, QByteArray(), this);
-            bgStr = bgGsetting->get(FILENAME).toString();
+            if (bgGsetting->keys().contains("pictureFilename"))
+                bgStr = bgGsetting->get(FILENAME).toString();
         }
     }
 
@@ -265,7 +270,8 @@ void Screenlock::initScreenlockStatus()
             picUnit->setFrameShape(QFrame::Box);
             picUnit->setStyleSheet(picUnit->clickedStyleSheet);
             ui->previewLabel->setPixmap(QPixmap(filename).scaled(ui->previewLabel->size()));
-            lSetting->set(SCREENLOCK_BG_KEY, filename);
+            if (lSetting->keys().contains(SCREENLOCK_BG_KEY))
+                lSetting->set(SCREENLOCK_BG_KEY, filename);
             setLockBackground(loginbgSwitchBtn->isChecked());
         });
 
@@ -286,7 +292,10 @@ void Screenlock::initScreenlockStatus()
     pThread->start();
 
     // 设置锁屏时间，屏保激活后多久锁定屏幕
-    int lDelay = lSetting->get(SCREENLOCK_DELAY_KEY).toInt();
+    int lDelay = 0;
+    if (lSetting->keys().contains("idleLock")) {
+        lDelay = lSetting->get(SCREENLOCK_DELAY_KEY).toInt();
+    }
 
     uslider->blockSignals(true);
     uslider->setValue(lockConvertToSlider(lDelay));
@@ -376,7 +385,7 @@ void Screenlock::setLockBackground(bool status)
 {
     QString bgStr;
     struct stat fileStat;
-    if (lSetting && status) {
+    if (lSetting && status && lSetting->keys().contains(SCREENLOCK_BG_KEY)) {
         bgStr = lSetting->get(SCREENLOCK_BG_KEY).toString();
         stat(bgStr.toStdString().c_str(),&fileStat);
         if (fileStat.st_uid != 0) {  //在普通用户下
@@ -423,11 +432,14 @@ void Screenlock::keyChangedSlot(const QString &key)
     if(key == "ukui-screensaver") {
         if(!bIsCloudService)
             bIsCloudService = true;
-        QString bgStr = lSetting->get(SCREENLOCK_BG_KEY).toString();
+        QString bgStr = "";
+        if (lSetting->keys().contains(SCREENLOCK_BG_KEY))
+            bgStr = lSetting->get(SCREENLOCK_BG_KEY).toString();
         if (bgStr.isEmpty()) {
             if (QGSettings::isSchemaInstalled(MATE_BACKGROUND_SCHEMAS)) {
                 QGSettings * bgGsetting  = new QGSettings(MATE_BACKGROUND_SCHEMAS, QByteArray(), this);
-                bgStr = bgGsetting->get(FILENAME).toString();
+                if (bgGsetting->keys().contains("pictureFilename"))
+                    bgStr = bgGsetting->get(FILENAME).toString();
             }
         }
 
