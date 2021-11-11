@@ -86,7 +86,10 @@ Widget::Widget(QWidget *parent) :
 {
     qRegisterMetaType<QQuickView *>();
     gdk_init(NULL, NULL);
-
+    dbusEdid = new QDBusInterface("org.kde.KScreen",
+                "/backend",
+                "org.kde.kscreen.Backend",
+                QDBusConnection::sessionBus());
     ui->setupUi(this);
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
@@ -835,19 +838,25 @@ void Widget::clearOutputIdentifiers()
     mOutputIdentifiers.clear();
 }
 
-void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
+void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
 {
     if (mIsBattery && name != firstAddOutputName)  //笔记本非内置
         return;
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {  //已经有了
-        if (name == BrightnessFrameV[i]->getOutputName())
+        if (name == BrightnessFrameV[i]->getOutputName()) {
+            if (edidHash != BrightnessFrameV[i]->getEdidHash()) {//更换了同一接口的显示器
+                BrightnessFrameV[i]->updateEdidHash(edidHash);
+                BrightnessFrameV[i]->setSliderEnable(false);
+                BrightnessFrameV[i]->runConnectThread(openFlag);
+            }
             return;
+        }
     }
     BrightnessFrame *frame = nullptr;
     if (mIsBattery && name == firstAddOutputName) {
-        frame = new BrightnessFrame(name, true, serialNum);
+        frame = new BrightnessFrame(name, true);
     } else if(!mIsBattery) {
-        frame = new BrightnessFrame(name, false, serialNum);
+        frame = new BrightnessFrame(name, false, edidHash);
     }
     if (frame != nullptr) {
         BrightnessFrameV.push_back(frame);
@@ -864,8 +873,16 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
         firstAddOutputName = Utils::outputName(output);
     }
     if (output->isConnected()) {
+        QDBusReply<QByteArray> replyEdid = dbusEdid->call("getEdid",output->id());
+        const quint8 *edidData = reinterpret_cast<const quint8 *>(replyEdid.value().constData());
+        QCryptographicHash hash(QCryptographicHash::Md5);
+        hash.reset();
+        hash.addData(reinterpret_cast<const char *>(edidData), 128);
+        QString edidHash = QString::fromLatin1(hash.result().toHex());
+
         QString name = Utils::outputName(output);
-        addBrightnessFrame(name, output->isEnabled(), output->edid()->serial());
+        qDebug()<<"(outputAdded)  displayName:"<<name<<" ----> edidHash:"<<edidHash<<"  id:"<<output->id();
+        addBrightnessFrame(name, output->isEnabled(), edidHash);
     }
     if (!connectChanged) {
         connect(output.data(), &KScreen::Output::isConnectedChanged,
@@ -1898,16 +1915,29 @@ void Widget::showBrightnessFrame(const int flag)
     if (flag == 0 && allShowFlag == false && mUnifyButton->isChecked()) {  //选中了镜像模式，实际是扩展模式
 
     } else if ((allShowFlag == true && flag == 0) || flag == 1) { //镜像模式/即将成为镜像模式
-        ui->unifyBrightFrame->setFixedHeight(BrightnessFrameV.size() * (50 + 2 + 2));
+        int FrameHeight = -2;
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+            if (BrightnessFrameV[i]->getSliderEnable()) {
+                FrameHeight = FrameHeight + 54;
+            } else {
+                FrameHeight = FrameHeight + 84;
+            }
             BrightnessFrameV[i]->setOutputEnable(true);
             BrightnessFrameV[i]->setTextLabelName(tr("Brightness") + QString("(") + BrightnessFrameV[i]->getOutputName() + QString(")"));
             BrightnessFrameV[i]->setVisible(true);
         }
+        if (FrameHeight < 0)
+            FrameHeight = 0;
+        ui->unifyBrightFrame->setFixedHeight(FrameHeight);
     } else {
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
             if (ui->primaryCombo->currentText() == BrightnessFrameV[i]->getOutputName() && BrightnessFrameV[i]->getOutputEnable()) {
-                ui->unifyBrightFrame->setFixedHeight(52);
+                if (BrightnessFrameV[i]->getSliderEnable()) {
+                    ui->unifyBrightFrame->setFixedHeight(52);
+                } else {
+                    ui->unifyBrightFrame->setFixedHeight(82);
+                }
+                //~ contents_path /display/Brightness
                 BrightnessFrameV[i]->setTextLabelName(tr("Brightness"));
                 BrightnessFrameV[i]->setVisible(true);
                 //不能break，要把其他的frame隐藏

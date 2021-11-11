@@ -83,7 +83,7 @@ public:
     void initUiComponent();
     void setScreenKDS(QString kdsConfig);
     void setActiveScreen(QString status = "");
-    void addBrightnessFrame(QString name, bool openFlag, QString serialNum);
+    void addBrightnessFrame(QString name, bool openFlag, QString edidHash);
     void showBrightnessFrame(const int flag = 0);
 
     QList<ScreenConfig> getPreScreenCfg();
@@ -236,6 +236,7 @@ private:
     bool exitFlag = false;
     QString     mKDSCfg;
     bool unifySetconfig = false;
+    QDBusInterface *dbusEdid = nullptr;
 };
 
 #endif // WIDGET_H
