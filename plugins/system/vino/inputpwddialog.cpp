@@ -35,7 +35,7 @@ void InputPwdDialog::setupInit()
 
     QFrame *mInputPwdFrame = new QFrame(this);
     mInputPwdFrame->setFixedSize(432, 36);
-    mInputPwdFrame->setFrameShape(QFrame::Box);
+    mInputPwdFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mLyt_1= new QHBoxLayout(mInputPwdFrame);
     mLyt_1->setContentsMargins(0, 0, 0, 0);
