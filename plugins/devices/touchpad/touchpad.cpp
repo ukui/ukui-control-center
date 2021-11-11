@@ -185,8 +185,8 @@ void Touchpad::initSearch(){
     ui->label_3->setText(tr("Enable mouse clicks with touchpad"));
     //~ contents_path /touchpad/Scrolling
     ui->label_4->setText(tr("Scrolling"));
-    //~ contents_path /touchpad/Touchpad speed
-    ui->touchpadSpeedLabel->setText(tr("Touchpad speed"));
+    //~ contents_path /touchpad/Pointer speed
+    ui->touchpadSpeedLabel->setText(tr("Pointer speed"));
 }
 
 QString Touchpad::get_plugin_name(){
