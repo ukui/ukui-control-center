@@ -172,7 +172,7 @@ void UnifiedOutputConfig::initUi()
         KScreen::OutputPtr sOutput = sConfig -> primaryOutput();
 
         for (int i = 0; i < mRefreshRate->count(); ++i) {
-            if (!sOutput.isNull() && !sOutput->currentMode().isNull() && mRefreshRate->itemText(i) == tr("%1 Hz").arg(QLocale().toString(sOutput->currentMode()->refreshRate()))) {
+            if (!sOutput.isNull() && !sOutput->currentMode().isNull() && mRefreshRate->itemText(i) == refreshRateToText(sOutput->currentMode()->refreshRate())) {
                 mRefreshRate->setCurrentIndex(i);
             }
         }
@@ -276,13 +276,13 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
 
            bool alreadyExisted = false; //判断该显示器的刷新率是否有重复的，确保同一刷新率在一个屏幕上只出现一次
            for (int j = 0; j < VrefreshTemp.size(); ++j) {
-               if (tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)) == VrefreshTemp[j]) {
+               if (refreshRateToText(mode->refreshRate()) == VrefreshTemp[j]) {
                    alreadyExisted = true;
                    break;
                }
            }
            if (alreadyExisted == false) {   //不添加重复的项
-               VrefreshTemp.append(tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)));
+               VrefreshTemp.append(refreshRateToText(mode->refreshRate()));
            }
         }
 
@@ -309,7 +309,7 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
     if (mRefreshRate->count() > 1) {
         float currentRereshRate = mClones[0]->currentMode()->refreshRate();
         for (int i = 0; i < mRefreshRate->count(); i++) {
-            if (tr("%1 Hz").arg(QLocale().toString(currentRereshRate, 'f', 2)) == mRefreshRate->itemText(i)) {
+            if (refreshRateToText(currentRereshRate) == mRefreshRate->itemText(i)) {
                 mRefreshRate->setCurrentIndex(i);
                 break;
             }
@@ -328,7 +328,7 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
             if (mode->size() == mResolution->currentResolution() && \
-                    tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)) == mRefreshRate->itemText(index)) {
+                    refreshRateToText(mode->refreshRate()) == mRefreshRate->itemText(index)) {
                 mIsRestore = false;
                 clone->blockSignals(true);
                 clone->setCurrentModeId(mode->id());
@@ -378,7 +378,7 @@ void UnifiedOutputConfig::slotRestoreResoltion()
         slotResolutionChanged(mOutput->currentMode()->size(), false);
     } else { //分辨率未修改，刷新率修改,用于修改刷新率之后但未保存
         for (int i = 0; i < mRefreshRate->count(); i++) {
-           if (tr("%1 Hz").arg(QString::number(mOutput->currentMode()->refreshRate(),'f',2)) == mRefreshRate->itemText(i)\
+           if (refreshRateToText(mOutput->currentMode()->refreshRate()) == mRefreshRate->itemText(i)\
                    || mRefreshRate->count() == 1) {
                mRefreshRate->blockSignals(true);
                mRefreshRate->setCurrentIndex(i);
