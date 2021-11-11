@@ -556,9 +556,10 @@ void Widget::slotOutputConnectedChanged()
 
     resetPrimaryCombo();
 
-    // bug#89064
+    // bug#89064,bug#89174
     QTimer::singleShot(500, this, [=](){
         setMulScreenVisiable();
+        resetPrimaryCombo();
     });
 }
 
