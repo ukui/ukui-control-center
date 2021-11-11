@@ -1,0 +1,16 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center.pluginstatus" path="/org/ukui/control-center/pluginstatus/">
+  </schema>
+  <schema id="org.ukui.control-center.plugins">
+    <key name="plugin-name" type="s">
+      <default>''</default>
+      <summary>plugin's name</summary>
+      <description>the name to match status</description>
+    </key>
+    <key name="show" type="b">
+      <default>true</default>
+      <summary>whether the plugin's status</summary>
+      <description>.</description>
+    </key>
+  </schema>
+</schemalist>

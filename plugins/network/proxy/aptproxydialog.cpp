@@ -31,7 +31,7 @@ void AptProxyDialog::initUi()
 
     QFrame *mHostFrame = new QFrame(this);
     mHostFrame->setFixedSize(432, 36);
-    mHostFrame->setFrameShape(QFrame::Box);
+    mHostFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mLyt_1= new QHBoxLayout(mHostFrame);
     mLyt_1->setContentsMargins(0, 0, 0, 0);
@@ -51,7 +51,7 @@ void AptProxyDialog::initUi()
 
     QFrame *mPortFrame = new QFrame(this);
     mPortFrame->setFixedSize(432, 36);
-    mPortFrame->setFrameShape(QFrame::Box);
+    mPortFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mLyt_2= new QHBoxLayout(mPortFrame);
     mLyt_2->setContentsMargins(0, 0, 0, 0);

@@ -44,6 +44,7 @@ public:
     bool jumpContentPathWidget(QString path);
     void setLanguage(QString type);
     void addModulesName(QString moduleName, QString searchName, QString translation = "");
+    void hiddenSearchItem(QString name , bool show);
 
 private Q_SLOTS:
     void onCompleterActivated(QString value);
@@ -60,7 +61,6 @@ private:
     QString containTxtData(QString txt);
     void appendChineseData(SearchBoxStruct data);
     void clearSearchData();
-
     void initExcludeSearch();
 
 private:
@@ -81,5 +81,6 @@ private:
 
     QStringList mCnExclude;
     QStringList mEnExclude;
+    int count;
 };
 #endif // SEARCHWIDGET_H

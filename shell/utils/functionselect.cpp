@@ -22,6 +22,18 @@
 
 #include <QDebug>
 
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+#include <dconf/dconf.h>
+}
+
 QList<QList<FuncInfo>> FunctionSelect::funcinfoList;
 QList<QList<FuncInfo>> FunctionSelect::funcinfoListHomePage;
 QStack<RecordFunc> FunctionSelect::recordFuncStack;
@@ -65,6 +77,7 @@ void FunctionSelect::loadHomeModule()
             QObject * plugin = loader.instance();
             if (plugin) {
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
+
                 switch (pluginInstance->pluginTypes()) {
                 case FunType::SYSTEM:
                     loadModule(systemList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), systemPluginName);
@@ -177,6 +190,27 @@ void FunctionSelect::popRecordValue() {
     if (!recordFuncStack.isEmpty()) {
         recordFuncStack.pop();
     }
+}
+
+QList<char *> FunctionSelect::listExistsCustomNoticePath(const char *dir)
+{
+    char ** childs;
+    int len;
+
+    DConfClient * client = dconf_client_new();
+    childs = dconf_client_list (client, dir, &len);
+    g_object_unref (client);
+
+    QList<char *> vals;
+
+    for (int i = 0; childs[i] != NULL; i++){
+        if (dconf_is_rel_dir (childs[i], NULL)){
+            char * val = g_strdup (childs[i]);
+            vals.append(val);
+        }
+    }
+    g_strfreev (childs);
+    return vals;
 }
 
 void FunctionSelect::initPluginName()

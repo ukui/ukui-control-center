@@ -245,7 +245,7 @@ void MainWindow::initUI() {
     kvConverter = new KeyValueConverter(); //继承QObject，No Delete
 
     //加载插件
-    loadPlugins();
+     loadPlugins();
 
     connect(minBtn, SIGNAL(clicked()), this, SLOT(showMinimized()));
     connect(maxBtn, &QPushButton::clicked, this, [=] {
@@ -287,12 +287,12 @@ void MainWindow::initUI() {
         ui->centralWidget->setVisible(true);
     });
 
-    //加载左侧边栏一级菜单
-    initLeftsideBar();
-
     //加载首页Widget
     homepageWidget = new HomePageWidget(this);
     ui->stackedWidget->addWidget(homepageWidget);
+
+    //加载左侧边栏一级菜单
+    initLeftsideBar();
 
     //加载功能页Widget
     modulepageWidget = new ModulePageWidget(this);
@@ -321,6 +321,22 @@ void MainWindow::initUI() {
 }
 
 void MainWindow::initTileBar() {
+
+    QHBoxLayout *setLayout = new QHBoxLayout();
+    QLabel  *logoSetLabel  = new QLabel(this);
+    QLabel  *textSetLable  = new QLabel(this);
+    QWidget *setWidget     = new QWidget(this);
+    ui->leftTopLayout->setContentsMargins(8,8,8,0);
+    setLayout->setContentsMargins(0,0,0,0);
+    ui->leftTopLayout->addWidget(setWidget);
+    ui->leftTopLayout->addStretch();
+    setWidget->setLayout(setLayout);
+    setLayout->addWidget(logoSetLabel);
+    setLayout->addWidget(textSetLable);
+    logoSetLabel->setFixedSize(24,24);
+    logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+    textSetLable->setText(tr("Settings"));
+    textSetLable->setAlignment(Qt::AlignLeft);
 
     titleLayout = new QHBoxLayout(ui->titleWidget);
     ui->titleWidget->setLayout(titleLayout);
@@ -499,6 +515,7 @@ void MainWindow::loadPlugins(){
     }
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
+
         //三权分立开启
 #ifdef WITHKYSEC
         if (!kysec_is_disabled() && kysec_get_3adm_status() && (getuid() || geteuid())){
@@ -550,11 +567,6 @@ void MainWindow::initLeftsideBar(){
     leftBtnGroup = new QButtonGroup();
     leftMicBtnGroup = new QButtonGroup();
 
-    QHBoxLayout *setLayout = new QHBoxLayout();
-    QLabel  *logoSetLabel  = new QLabel(this);
-    QLabel  *textSetLable  = new QLabel(this);
-    QWidget *setWidget     = new QWidget(this);
-
     scrollArea = new QScrollArea(ui->leftBotWidget);
     scrollArea->horizontalScrollBar()->setVisible(false);
     // scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -568,17 +580,7 @@ void MainWindow::initLeftsideBar(){
     scrollArea->viewport()->setStyleSheet("background-color: transparent;");
     scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
 
-    ui->leftTopLayout->setContentsMargins(8,8,8,0);
-    setLayout->setContentsMargins(0,0,0,0);
-    ui->leftTopLayout->addWidget(setWidget);
-    ui->leftTopLayout->addStretch();
-    setWidget->setLayout(setLayout);
-    setLayout->addWidget(logoSetLabel);
-    setLayout->addWidget(textSetLable);
-    logoSetLabel->setFixedSize(24,24);
-    logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
-    textSetLable->setText(tr("Settings"));
-    textSetLable->setAlignment(Qt::AlignLeft);
+
 
     for(int type = 0; type < TOTALMODULES; type++) {
         //循环构建左侧边栏一级菜单按钮
@@ -622,7 +624,6 @@ void MainWindow::initLeftsideBar(){
                         continue;
                     }
                 }
-
                 // intel与sp1做区分
                 if ((Utils::isTablet() && single.nameString == "Userinfo")
                     || (!Utils::isTablet() && single.nameString == "Userinfointel")) {
@@ -632,7 +633,6 @@ void MainWindow::initLeftsideBar(){
                 //填充左侧菜单
 
                 QPushButton *pluginBtn = buildLeftsideBtn(single.nameString, single.namei18nString);
-
                 leftBtnGroup->addButton(pluginBtn, type);
                 pluginBtn->setProperty("useButtonPalette", true);
 
@@ -645,13 +645,38 @@ void MainWindow::initLeftsideBar(){
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
                 pluginInstance->pluginBtn = pluginBtn;
 
+                // 初始化插件状态
+                QGSettings *msettings = nullptr;
+                if (homepageWidget->vecGsettins.contains(single.nameString)) {
+                    msettings = homepageWidget->vecGsettins[single.nameString];
+                    if (msettings) {
+                        pluginBtn->setVisible(msettings->get(SHOW_KEY).toBool());
+                        m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
+                    }
+                }
+
+                // 监听该插件是否启用
+                if (msettings) {
+                    connect(msettings , &QGSettings::changed,[=](QString key){
+                        if (key == SHOW_KEY) {
+                            if ( !msettings->get(SHOW_KEY).toBool() && pluginBtn->isChecked()) {
+                                ui->stackedWidget->setCurrentIndex(0);
+                            }
+                            pluginBtn->setVisible( msettings->get(SHOW_KEY).toBool());
+                            m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
+                        } else {
+                             m_searchWidget->hiddenSearchItem(QLocale::system().name() == "zh_CN" ? single.namei18nString : single.nameString , msettings->get(SHOW_KEY).toBool());
+                        }
+                    });
+                }
+
                 connect(pluginBtn, &QPushButton::clicked, this, [=](){
                     modulepageWidget->refreshPluginWidget(pluginInstance);
                 });
             }
         }
     }
-
+    menuLayout->addStretch();
     scrollArea->setWidget(menuWidget);
     ui->leftBotLayout->addWidget(scrollArea);
 }
@@ -905,15 +930,15 @@ void MainWindow::functionBtnClicked(QObject *plugin) {
     modulepageWidget->switchPage(plugin);
 
     CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
-//    int value = pluginInstance->pluginBtn->pos().y() + pluginInstance->pluginBtn->height() - scrollArea->verticalScrollBar()->pageStep();
-//    value = value + scrollArea->height()/2; //尽量让选中的显示在中间位置
-//    if (value <= 0) {
-//        scrollArea->verticalScrollBar()->setValue(0);
-//    } else if (value > scrollArea->verticalScrollBar()->maximum()){
-//        scrollArea->verticalScrollBar()->setValue(scrollArea->verticalScrollBar()->maximum());
-//    } else {
-//        scrollArea->verticalScrollBar()->setValue(value);
-//    }
+    int value = pluginInstance->pluginBtn->pos().y() + pluginInstance->pluginBtn->height() - scrollArea->verticalScrollBar()->pageStep();
+    value = value + scrollArea->height()/2; //尽量让选中的显示在中间位置
+    if (value <= 0) {
+        scrollArea->verticalScrollBar()->setValue(0);
+    } else if (value > scrollArea->verticalScrollBar()->maximum()){
+        scrollArea->verticalScrollBar()->setValue(scrollArea->verticalScrollBar()->maximum());
+    } else {
+        scrollArea->verticalScrollBar()->setValue(value);
+    }
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {

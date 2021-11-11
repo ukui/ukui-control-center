@@ -73,6 +73,8 @@ public:
     static void popRecordValue();
 
     static void loadHomeModule();
+
+    static QList<char *> listExistsCustomNoticePath(const char* dir);   //获取动态路径
     static void loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow, QList<QString> pluginName);
 };
 
