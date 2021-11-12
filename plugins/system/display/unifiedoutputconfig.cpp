@@ -165,8 +165,7 @@ void UnifiedOutputConfig::initUi()
     slotResolutionChanged(mResolution->currentResolution(), true);
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
         this, &UnifiedOutputConfig::slotRefreshRateChanged);
-
-    QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
+    QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this,
                          [&](KScreen::ConfigOperation *op) {
         KScreen::ConfigPtr sConfig = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
         KScreen::OutputPtr sOutput = sConfig -> primaryOutput();
