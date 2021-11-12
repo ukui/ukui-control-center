@@ -1,5 +1,6 @@
 #include "unifiedoutputconfig.h"
 #include "resolutionslider.h"
+#include "scalesize.h"
 #include "utils.h"
 
 #include <QComboBox>
@@ -318,8 +319,10 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
     if (mRefreshRate->count() == 0) {
         mRefreshRate->addItem(tr("auto"), -1);    
     }
-    if (emitFlag && !mIsModeInit)
+    if (emitFlag && !mIsModeInit){
+        changeItm = RESOLUTION;
         Q_EMIT changed();
+    }
 }
 
 void UnifiedOutputConfig::slotRefreshRateChanged(int index)
@@ -335,6 +338,7 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
             }
         }
     }
+    changeItm = FREQUENCY;
     Q_EMIT changed();
 }
 
@@ -363,6 +367,7 @@ void UnifiedOutputConfig::slotRotationChangedDerived(int index)
             clone->blockSignals(false);
         }
     }
+    changeItm = ORIENTATION;
     Q_EMIT changed();
 }
 
