@@ -77,7 +77,8 @@ void FunctionSelect::loadHomeModule()
             QObject * plugin = loader.instance();
             if (plugin) {
                 CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
-
+                if (!pluginInstance)
+                    continue;
                 switch (pluginInstance->pluginTypes()) {
                 case FunType::SYSTEM:
                     loadModule(systemList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), systemPluginName);

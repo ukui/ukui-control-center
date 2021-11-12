@@ -551,7 +551,7 @@ void MainWindow::loadPlugins(){
         if (plugin) {
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
             // 插件是否启用
-            if (!pluginInstance->isEnable()) {
+            if (!pluginInstance || !pluginInstance->isEnable()) {
                 continue;
             }
 

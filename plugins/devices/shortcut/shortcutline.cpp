@@ -34,7 +34,7 @@ int numKey[] = {
 
 
 ShortcutLine::ShortcutLine(QList<KeyEntry *> generalEntries,
-                           QList<KeyEntry *> customEntries, QWidget *parent) :
+                           QList<KeyEntry *> *customEntries, QWidget *parent) :
                            QLineEdit(parent),
                            systemEntry(generalEntries),
                            customEntry(customEntries)
@@ -282,7 +282,7 @@ bool ShortcutLine::conflictWithCustomShortcuts(const QKeySequence &seq)
     if (customKeyStr.contains("Meta")) {
         customKeyStr.replace("Meta", "Win");
     }
-    for (KeyEntry *ckeyEntry : customEntry) {
+    for (KeyEntry *ckeyEntry : *customEntry) {
         QString ckeyString = ckeyEntry->bindingStr;
         if (ckeyString.contains("Control")) {
             ckeyString.replace("Control", "Ctrl");
@@ -325,10 +325,6 @@ QString ShortcutLine::keyToLib(QString key)
 
 void ShortcutLine::setKeySequence(QKeySequence setSeq){
     this->seq = setSeq;
-}
-
-void ShortcutLine::updateCustomEntry(QList<KeyEntry *> customEntries) {
-    //this->customEntry = customEntries;  //传的地址，不需要多次更新
 }
 
 QString ShortcutLine::keyToString(int keyValue)

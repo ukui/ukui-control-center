@@ -414,11 +414,16 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     ui->verticalLayout_3->addWidget(frame);
     QHBoxLayout *layout = new QHBoxLayout(frame);
     QHBoxLayout *lineEditLayout = new QHBoxLayout;
-    DoubleClickLineEdit *nameLineEdit = new DoubleClickLineEdit(customEntries,frame);
-    DoubleClickShortCut *bingdingLineEdit = new DoubleClickShortCut(generalEntries, customEntries);
+    DoubleClickLineEdit *nameLineEdit = new DoubleClickLineEdit(&customEntries,frame);
+    DoubleClickShortCut *bingdingLineEdit = new DoubleClickShortCut(generalEntries, &customEntries);
     ClickFixLabel *nameLabel = new ClickFixLabel(frame);
     ClickFixLabel *bingdingLabel = new ClickFixLabel(frame);
 
+    // 大小写字母数字中文
+    QRegExp rx("[a-zA-Z0-9\u4e00-\u9fa5]+");
+    QRegExpValidator *regValidator = new QRegExpValidator(rx);
+    // 输入限制
+    nameLineEdit->setValidator(regValidator);
     nameLineEdit->setFixedHeight(36);
     bingdingLineEdit->setFixedHeight(36);
 
@@ -459,9 +464,8 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
 
         connect(addDialog, &addShortcutDialog::shortcutInfoSignal,
                 [=](QString path, QString name, QString exec, QString key){
-            deleteCustomShortcut(nkeyEntry->gsPath);
-            customEntries.removeOne(nkeyEntry);    //移除旧的
-            createNewShortcut(path, name, exec, key, false); //创建新的
+            Q_UNUSED(path)
+            createNewShortcut(nkeyEntry->gsPath, name, exec, key, false);
             nkeyEntry->actionStr = exec;
             nkeyEntry->nameStr   = name;
             nkeyEntry->bindingStr= key;
@@ -554,17 +558,19 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     connect(nameLineEdit, &DoubleClickLineEdit::strChanged, this, [=](){
         createNewShortcut(nkeyEntry->gsPath, nameLineEdit->text(), nkeyEntry->actionStr, nkeyEntry->bindingStr, false, false); //只修改
         nameLabel->setText(nameLineEdit->text());
+        nkeyEntry->nameStr = nameLineEdit->text();
     });
 
     connect(bingdingLineEdit, &DoubleClickShortCut::shortcutChanged, this, [=](){
         createNewShortcut(nkeyEntry->gsPath, nkeyEntry->nameStr, nkeyEntry->actionStr, bingdingLineEdit->keySequence().toString(), false, true); //只修改
         bingdingLabel->setText(bingdingLineEdit->text());
-    });
-
-    connect(this, &Shortcut::updateCustomShortcut, this, [=](){
-        nameLineEdit->updateCustomEntry(customEntries);
-        bingdingLineEdit->updateCustomEntry(customEntries);
-    });
+        for (int i = 0; i < customEntries.count(); i++) {
+            if (customEntries[i]->nameStr == nkeyEntry->nameStr) {
+                nkeyEntry->keyStr = customEntries[i]->keyStr;
+                break;
+            }
+        }
+    });;
 
     return;
 

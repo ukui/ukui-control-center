@@ -214,7 +214,7 @@ void OutputConfig::initConnection()
             //分辨率未修改，刷新率修改,用于修改刷新率之后但未保存
             for (int i = 0; i < mRefreshRate->count(); i++) {
                 if (mRefreshRate->count() == 1 || \
-                        tr("%1 Hz").arg(QString::number(mOutput->currentMode()->refreshRate(),'f',2)) == mRefreshRate->itemText(i)) {
+                        refreshRateToText(mOutput->currentMode()->refreshRate()) == mRefreshRate->itemText(i)) {
                     mRefreshRate->blockSignals(true);
                     mRefreshRate->setCurrentIndex(i);
                     mRefreshRate->blockSignals(false);
@@ -296,13 +296,13 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 
         bool alreadyExisted = false;
         for (int j = 0; j < mRefreshRate->count(); ++j) {
-            if (tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)) == mRefreshRate->itemText(j)) {
+            if (refreshRateToText(mode->refreshRate()) == mRefreshRate->itemText(j)) {
                 alreadyExisted = true;
                 break;
             }
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
-            mRefreshRate->addItem(tr("%1 Hz").arg(QString::number(mode->refreshRate(),'f',2)), mode->id());
+            mRefreshRate->addItem(refreshRateToText(mode->refreshRate()), mode->id());
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
@@ -402,4 +402,11 @@ bool OutputConfig::showScaleOption() const
 void OutputConfig::initConfig(const KScreen::ConfigPtr &config)
 {
     mConfig = config;
+}
+
+QString OutputConfig::refreshRateToText(float refreshRate)
+{
+    QRegExp rx;
+    rx.setPattern("(\\.){0,1}0+$");
+    return tr("%1 Hz").arg((QString::number(refreshRate,'f',2)).replace(rx,""));
 }

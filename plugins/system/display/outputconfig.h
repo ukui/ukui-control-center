@@ -51,6 +51,7 @@ Q_SIGNALS:
 protected:
     virtual void initUi();
     double getScreenScale();
+    QString refreshRateToText(float refreshRate);
 
 private:
     void initConnection();

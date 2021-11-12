@@ -11,7 +11,7 @@ class ShortcutLine : public QLineEdit
 {
     Q_OBJECT
 public:
-    ShortcutLine(QList<KeyEntry *> generalEntries, QList<KeyEntry *> customEntries,
+    ShortcutLine(QList<KeyEntry *> generalEntries, QList<KeyEntry *>* customEntries,
                  QWidget *parent = nullptr);
     ~ShortcutLine();
 protected:
@@ -24,7 +24,7 @@ private:
     QString firstKey, secondKey, thirdKey, forthKey;
     bool shortCutObtainedFlag;
     QList<KeyEntry *> systemEntry;
-    QList<KeyEntry *> customEntry;
+    QList<KeyEntry *> *customEntry;
     QKeySequence seq;
     bool isShortCutObtained = false;
 
@@ -40,7 +40,6 @@ public:
     QString keyToString(int keyValue);
     QKeySequence keySequence();
     void setKeySequence(QKeySequence setSeq);
-    void updateCustomEntry(QList<KeyEntry *> customEntries);
 
 Q_SIGNALS:
     void shortCutAvailable(const int &flag); //0:success, -1:shortcut invalid, -2:shortcut conflict

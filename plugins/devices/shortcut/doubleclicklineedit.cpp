@@ -1,7 +1,7 @@
 #include "doubleclicklineedit.h"
 #include <QDebug>
 
-DoubleClickLineEdit::DoubleClickLineEdit(QList<KeyEntry *> customEntries,QWidget *parent):
+DoubleClickLineEdit::DoubleClickLineEdit(QList<KeyEntry *> *customEntries,QWidget *parent):
     QLineEdit(parent),
     customEntry(customEntries){
     //this->setStyleSheet("QLineEdit {background-color : palette(base);}");
@@ -60,10 +60,10 @@ void DoubleClickLineEdit::changeName() {
          strIsAvailable = false;
          return;
     }
-    if (customEntry.isEmpty()) {
+    if (customEntry->isEmpty()) {
         strIsAvailable = true;
     } else {
-        for (KeyEntry *ckeyEntry : customEntry) {
+        for (KeyEntry *ckeyEntry : *customEntry) {
             customName << ckeyEntry->nameStr;
             if (customName.contains(text) && text != validStr) {
                 strIsAvailable = false;
@@ -74,13 +74,9 @@ void DoubleClickLineEdit::changeName() {
     }
 }
 
-void DoubleClickLineEdit::updateCustomEntry(QList<KeyEntry *> customEntries) {
-    //this->customEntry = customEntries;   //传的地址，不需要多次更新
-}
-
 /*-----------------------------------------DoubleClickShortCut-----------------------------------------------*/
 
-DoubleClickShortCut::DoubleClickShortCut(QList<KeyEntry *> generalEntries, QList<KeyEntry *> customEntries,
+DoubleClickShortCut::DoubleClickShortCut(QList<KeyEntry *> generalEntries, QList<KeyEntry *> *customEntries,
                                          QWidget *parent) :
     ShortcutLine(generalEntries,customEntries,parent){
     this->customEntry = customEntries;
