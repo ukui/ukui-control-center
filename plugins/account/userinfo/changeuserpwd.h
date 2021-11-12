@@ -71,6 +71,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
+    void keyPressEvent(QKeyEvent *);
 
 private:
     QString name;

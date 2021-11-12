@@ -503,6 +503,25 @@ bool ChangeUserPwd::setTextDynamicInPwd(QLabel *label, QString string){
 
 }
 
+
+void ChangeUserPwd::keyPressEvent(QKeyEvent * event){
+    switch (event->key())
+    {
+    case Qt::Key_Escape:
+        break;
+    case Qt::Key_Enter:
+        if (confirmBtn->isEnabled())
+            confirmBtn->clicked();
+        break;
+    case Qt::Key_Return:
+        if (confirmBtn->isEnabled())
+            confirmBtn->clicked();
+        break;
+    default:
+        QDialog::keyPressEvent(event);
+    }
+}
+
 void ChangeUserPwd::paintEvent(QPaintEvent *event){
     Q_UNUSED(event);
     QPainter p(this);
