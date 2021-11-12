@@ -1571,6 +1571,7 @@ void Widget::setMultiScreenSlot(int index)
     } else if (CLONE == index) {
         setScreenKDS("clone");
         mUnifyButton->setChecked(true);
+        delayApply();
     } else if (EXTEND == index) {
         setScreenKDS("expand");
         mUnifyButton->setChecked(false);
