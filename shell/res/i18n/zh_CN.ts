@@ -5773,6 +5773,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <extra-contents_path>/touchpad/Enabled touchpad</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="242"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="189"/>
+        <source>Pointer speed</source>
+        <translation>指针速度</translation>
+        <extra-contents_path>/touchpad/Pointer speed</extra-contents_path>
+    </message>
+    <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="369"/>
         <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="183"/>
         <source>Disable touchpad while typing</source>
@@ -5794,10 +5801,8 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <extra-contents_path>/touchpad/Scrolling</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="242"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="189"/>
         <source>Touchpad speed</source>
-        <translation>触摸板速度</translation>
+        <translation type="vanished">触摸板速度</translation>
         <extra-contents_path>/touchpad/Touchpad speed</extra-contents_path>
     </message>
     <message>
