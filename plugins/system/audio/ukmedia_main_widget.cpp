@@ -617,10 +617,6 @@ void UkmediaMainWidget::switchNoiseReductionButton(bool status)
 {
     if (status) {
         system("pacmd switch-on-dns-global inteldns_source 1");
-        system("amixer sset ‘Dmic0’ 52");
-        system("amixer sset ‘Dmic1 2nd’ 60");
-
-        m_pInputWidget->m_pIpVolumeSlider->setValue(50);
         m_pInputWidget->m_pIpVolumeSlider->setStyleSheet( "QSlider::groove:horizontal {"
                                            "border: 0px none;"
                                            "background: palette(button);"
