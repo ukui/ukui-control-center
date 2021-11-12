@@ -533,7 +533,9 @@ void MainWindow::loadPlugins(){
             //时间和日期 | 用户帐户 | 电源管理 |网络连接 |网络代理
             if (fileName.contains("datetime") || fileName.contains("userinfo") || fileName.contains("power") || \
                     fileName.contains("netconnect") || fileName.contains("proxy") || fileName.contains("update") || \
-                    fileName.contains("upgrade") || fileName.contains("backup"))
+                    fileName.contains("upgrade") || fileName.contains("backup") || fileName.contains("vino") ||
+                    fileName.contains("printer") || fileName.contains("bluetooth", Qt::CaseInsensitive) || fileName.contains("mobilehotspot") ||
+                    fileName.contains("vpn") || fileName.contains("backup") || fileName.contains("autoboot"))
                 continue;
         }
 #endif
