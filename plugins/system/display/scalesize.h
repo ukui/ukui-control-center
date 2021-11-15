@@ -3,6 +3,12 @@
 
 #include <QSize>
 
+typedef enum{
+    RESOLUTION,
+    ORIENTATION,
+    FREQUENCY
+}CONFIG;
+
 const QSize KRsolution(1920, 1080);
 
 const QVector<QSize> k150Scale{QSize(1280, 1024), QSize(1440, 900),  QSize(1600, 900),
@@ -26,5 +32,7 @@ const QVector<QSize> k275Scale{QSize(3840, 2160)};
 extern QSize mScaleSize;
 
 extern double mScaleres;
+
+extern int changeItm;
 
 #endif // SCALESIZE_H

@@ -23,6 +23,7 @@
 #include "ComboBox/combobox.h"
 
 double mScaleres = 0;
+int changeItm = -1;
 
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),
@@ -331,6 +332,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         mOutput->setCurrentModeId(modeID);
         mOutput->blockSignals(false);
         if (emitFlag)
+            changeItm = RESOLUTION;
             Q_EMIT changed();
     }
 }
@@ -343,6 +345,7 @@ void OutputConfig::slotRotationChanged(int index)
     mOutput->setRotation(rotation);
     mOutput->blockSignals(false);
 
+    changeItm = ORIENTATION;
     Q_EMIT changed();
 }
 
@@ -355,6 +358,7 @@ void OutputConfig::slotRefreshRateChanged(int index)
     mIsRestore = false;
     mOutput->setCurrentModeId(modeId);
     mOutput->blockSignals(false);
+    changeItm = FREQUENCY;
     Q_EMIT changed();
 }
 
