@@ -1587,14 +1587,18 @@ void Widget::save()
             enableScreenCount++;
         }
     }
-
-    if (isRestoreConfig()) {
-        auto *op = new KScreen::SetConfigOperation(mPrevConfig);
-        op->exec();
-
-    } else {
-        mPrevConfig = mConfig->clone();
+    int delayTime = 0;
+    if (changeItm == 0 || changeItm == 1) {
+        delayTime = 900; //修改分辨率，为了保证弹出框居中，延时900ms
     }
+    QTimer::singleShot(delayTime, this, [=]() {
+        if (isRestoreConfig()) {
+            auto *op = new KScreen::SetConfigOperation(mPrevConfig);
+            op->exec();
+        } else {
+            mPrevConfig = mConfig->clone();
+        }
+    });
 }
 
 QVariantMap metadata(const KScreen::OutputPtr &output)
