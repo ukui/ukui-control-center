@@ -31,6 +31,8 @@
 #include "Label/fixlabel.h"
 #include "Uslider/uslider.h"
 
+#define USD_CLONE_MODE 1
+
 class QLabel;
 class QMLOutput;
 class QMLScreen;
@@ -72,7 +74,7 @@ public:
     explicit Widget(QWidget *parent = nullptr);
     ~Widget() override;
 
-    void setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFrameFlag = false);
+    void setConfig(const KScreen::ConfigPtr &config);
     KScreen::ConfigPtr currentConfig() const;
 
     void initNightModeUi();
@@ -115,7 +117,6 @@ private Q_SLOTS:
 
     void slotOutputEnabledChanged();
     void slotOutputConnectedChanged();
-    void slotOutputPosChanged();
 
     void slotUnifyOutputs();
 
@@ -144,7 +145,7 @@ private Q_SLOTS:
 
     void callMethod(QRect geometry, QString name);// 设置wayland主屏幕
     QString getPrimaryWaylandScreen();
-    void kdsScreenchangeSlot(QString status);
+    void usdScreenModeChangedSlot(int status);
 
     void setMultiScreenSlot(int index);
 
@@ -303,6 +304,7 @@ private:
     QString mOutputClickedName;
     QDBusInterface *dbusEdid = nullptr;
     QString cpuArchitecture = "";
+    bool mIscloneMode = false;
 };
 
 #endif // WIDGET_H
