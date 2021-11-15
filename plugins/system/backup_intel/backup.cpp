@@ -126,12 +126,12 @@ QIcon Backup::icon() const
 
 bool Backup::isShowOnHomePage() const
 {
-    return true;
+    return false;
 }
 
 bool Backup::isEnable() const
 {
-    return true;
+    return false;
 }
 
 void Backup::btnClicked(){

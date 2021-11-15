@@ -12,7 +12,7 @@ SUBDIRS = \
           system/display \
           system/notice \
           system/vino \
-#          system/backup_intel \
+          system/backup_intel \
           personalized/wallpaper \
           personalized/theme \
           personalized/screenlock \
@@ -21,7 +21,7 @@ SUBDIRS = \
           network/vpn \
           network/proxy \
           account/userinfo \
-#          account/userinfo_intel \
+          account/userinfo_intel \
           security-updates/backup \
           time-language/datetime \
           time-language/area
