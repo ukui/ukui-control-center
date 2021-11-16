@@ -115,6 +115,7 @@ Widget::Widget(QWidget *parent) :
 
     QDBusReply<int> reply = usdDbus->call("getScreenMode", "ukui-control-center");
     (reply == USD_CLONE_MODE) ? mIscloneMode = true : mIscloneMode = false;
+    usdDbus->deleteLater();
 
     cpuArchitecture = Utils::getCpuArchitecture();
     qRegisterMetaType<QQuickView *>();
@@ -1484,21 +1485,24 @@ void Widget::setMultiScreenSlot(int index)
             setPreScreenCfg(mConfig->connectedOutputs());
         }
         mIscloneMode = false;
+        slotUnifyOutputs();
         setScreenKDS("first");
     } else if (CLONE == index) {
-        setScreenKDS("clone");
         mIscloneMode = true;
+        slotUnifyOutputs();
+        setScreenKDS("clone");
     } else if (EXTEND == index) {
-        setScreenKDS("expand");
         mIscloneMode = false;
+        slotUnifyOutputs();
+        setScreenKDS("expand");
     } else {
         if (!mIscloneMode) {
             setPreScreenCfg(mConfig->connectedOutputs());
         }
         mIscloneMode = false;
+        slotUnifyOutputs();
         setScreenKDS("second");
     }
-    slotUnifyOutputs();
     delayApply();
 }
 
