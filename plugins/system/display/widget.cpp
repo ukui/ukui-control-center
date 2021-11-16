@@ -1228,7 +1228,7 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
         }
         qmlOutput->setIsCloneMode(false, false);
     }
-
+    mIscloneMode = false;
     mainScreenButtonSelect(ui->primaryCombo->currentIndex());
 }
 
