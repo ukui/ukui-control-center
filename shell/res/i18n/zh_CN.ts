@@ -9112,7 +9112,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="39"/>
         <source>Touchpad Setting</source>
-        <translation>触控板设置</translation>
+        <translation>触控板</translation>
     </message>
     <message>
         <source>No touchpad found</source>
