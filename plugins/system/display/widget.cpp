@@ -1228,7 +1228,7 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
         }
         qmlOutput->setIsCloneMode(false, false);
     }
-
+    mIscloneMode = false;
     mainScreenButtonSelect(ui->primaryCombo->currentIndex());
 }
 
@@ -1872,9 +1872,11 @@ void Widget::usdScreenModeChangedSlot(int status)
     if (status == USD_CLONE_MODE && !mIscloneMode) {
         mIscloneMode = true;
         slotUnifyOutputs();
+        initMultScreenStatus();
     } else if (status != USD_CLONE_MODE && mIscloneMode) {
         mIscloneMode = false;
         slotUnifyOutputs();
+        initMultScreenStatus();
     }
     showBrightnessFrame();
 }
