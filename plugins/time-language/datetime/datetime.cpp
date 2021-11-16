@@ -104,29 +104,29 @@ int DateTime::pluginTypes()
 
 QWidget *DateTime::pluginUi()
 {
-    QTimer::singleShot(1, this, [=]() {
-        if (mFirstLoad) {          
-            mFirstLoad = false;
-            ui = new Ui::DateTime;
-            pluginWidget = new QWidget;
-            pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-            ui->setupUi(pluginWidget);
-            initUI();
-            qApp->processEvents();
-            initTitleLabel();
-            qApp->processEvents();
-            initStatus();
-            qApp->processEvents();
-            initComponent();
-            qApp->processEvents();
-            initConnect();
-            qApp->processEvents();
-            connectToServer();
-            qApp->processEvents();
-            initTimeShow();
-            qApp->processEvents();
-        }
-    });
+    if (mFirstLoad) {  
+        pluginWidget = new QWidget;    
+        QTimer::singleShot(1, this, [=]() {    
+        mFirstLoad = false;
+        ui = new Ui::DateTime;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+        initUI();
+        qApp->processEvents();
+        initTitleLabel();
+        qApp->processEvents();
+        initStatus();
+        qApp->processEvents();
+        initComponent();
+        qApp->processEvents();
+        initConnect();
+        qApp->processEvents();
+        connectToServer();
+        qApp->processEvents();
+        initTimeShow();
+        qApp->processEvents(); 
+        });
+    }
     return pluginWidget;
 }
 
