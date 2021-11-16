@@ -328,9 +328,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 
     if (!mIsModeInit) {
         mIsRestore = false;
-        mOutput->blockSignals(true); //避免修改分辨率缩略图多次变化
         mOutput->setCurrentModeId(modeID);
-        mOutput->blockSignals(false);
         if (emitFlag) {
             changeItm = RESOLUTION;
             Q_EMIT changed();
