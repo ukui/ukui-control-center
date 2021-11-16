@@ -396,7 +396,7 @@ void Wallpaper::initBgOption()
     int index = ui->showModeComboBox->findData(option);
     ui->showModeComboBox->setCurrentIndex(index);
     connect(ui->showModeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
-        bgsettings->set(OPTIONS, ui->showModeComboBox->currentData(index).toString());
+        bgsettings->set(OPTIONS, ui->showModeComboBox->itemData(index).toString());
     });
 }
 
