@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTabWidget>
 #include <QLabel>
+#include <QSpinBox>
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -12,6 +13,8 @@
 #include <QListWidgetItem>
 #include <QCheckBox>
 #include <QFont>
+#include <QProgressBar>
+#include <QComboBox>
 
 #include "appupdate.h"
 //#include "switchbutton.h"
@@ -21,8 +24,12 @@
 #include "backup.h"
 #include "checkbutton.h"
 #include "SwitchButton/switchbutton.h"
+
+#include "qwidget.h"
+
 #define CRUCIAL_FILE_PATH "/var/lib/kylin-software-properties/template/crucial.list"
 #define IMPORTANT_FIEL_PATH "/var/lib/kylin-software-properties/template/important.list"
+
 
 const int needBack = 99;
 
@@ -67,6 +74,8 @@ public:
     //三种状态下的版本信息   显示当前版本、可更新版本、或最新版本
     QLabel *versionInformationLab;
     QLabel *lastRefreshTime;
+    QProgressBar *allProgressBar;
+    QLabel *progressLabel;
     QPushButton *historyUpdateLog;  //历史更新日志界面
     QVBoxLayout *inforLayout;
 
@@ -82,11 +91,31 @@ public:
     QHBoxLayout *isAutoBackupLayout;
     QLabel *isAutoBackupLab;
     SwitchButton *isAutoBackupSBtn;
+    //download limit widgets
+    QFrame *DownloadHWidget;
+    QFrame *DownloadVWidget;
+    //QFrame *isDownloadWidget;
+    QHBoxLayout *DownloadHLayout;
+    QVBoxLayout *DownloadVLayout;
+    QLabel *DownloadHLab;
+    QLabel *DownloadVLab;
+    SwitchButton *DownloadHBtn;
+    QComboBox *DownloadHValue;
 
+    QFrame *isAutoUpgradeWidget;
+    QVBoxLayout *isAutoUpgradeLayout;
+    QHBoxLayout *autoUpgradeBtnLayout;
+    QLabel *isAutoUpgradeLab;
+    QLabel *autoUpgradeLab;
+    SwitchButton *isAutoUpgradeSBtn;
 
     QWidget *allUpdateWid;
     QVBoxLayout *allUpdateLayout;
 
+    QList<AppUpdateWid *> widgetList;
+
+    bool isAllUpgrade = false;
+    bool isAutoUpgrade = false;
     int inumber = 0;
     int retryTimes = 0;
     m_updatelog *historyLog;
@@ -97,8 +126,13 @@ public:
     //源管理器Dbus对象
     UpdateSource *updateSource;
 
+    int allProgress = 0;
+    int allUpgradeNum = 0;
 
-    void disconnectSource();
+
+    QList<pkgProgress> pkgList;
+
+    void disconnectSource(bool isTimeOut);
 signals:
 //    void send_Signal();
 //    void parameterSignal(int i);
@@ -106,14 +140,20 @@ signals:
 public slots:
     void showHistoryWidget();
     void isAutoCheckedChanged();
+    void isAutoUpgradeChanged();
+    void DownloadLimitChanged();
     void slotCancelDownload();
     void loadingOneUpdateMsgSlot(AppAllMsg msg); //逐个加载更新
     void loadingFinishedSlot(int size); //加载完毕信号
     void waitCrucialInstalled();  //等待静默更新安装完的消息提示
 
     void hideUpdateBtnSlot(bool isSucceed);
-    void changeUpdateAllSlot();
+    void changeUpdateAllSlot(bool isUpdate);
 
+    void DownloadLimitSwitchChanged();
+    void DownloadLimitValueChanged(const QString &);
+
+    void getAllProgress(QString pkgName, int Progress, QString type);
     //调用源管理器相关
     void slotUpdateTemplate(QString status);
     void slotUpdateCache(QVariantList sta);
@@ -123,14 +163,15 @@ public slots:
     //DBus单独初始化
     void initDbus();
 
+    void slotReconnTimes(int times);
 
 private:
-    QList<AppUpdateWid *> widgetList;
     UKSCConn *ukscConnect;
     bool isConnectSourceSignal = false;
+
     void unableToConnectSource();
 //备份还原相关
-    void bacupInit(bool isBack);
+    void bacupInit(bool isConnect);
     void backupDelete();
     void backupCore();
     BackUp *backup = nullptr;
@@ -138,6 +179,14 @@ private:
 
     void backupMessageBox(QString str);
     void backupHideUpdateBtn(int result);
+
+    void getAutoUpgradeStatus();
+    bool get_battery();
+    bool autoUpdateLoadUpgradeList(bool isBackUp);
+
+    void fileLock();
+    void fileUnLock();
+
 signals:
     int needBackUp();
     void startBackUp(int);
@@ -148,7 +197,9 @@ public slots:
     void isAutoBackupChanged();
 
     void getReplyFalseSlot();
+    
     void dbusFinished();
+
 private slots:
     void receiveBackupStartResult(int result);
     void whenStateIsDuing();
