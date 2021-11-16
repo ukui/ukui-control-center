@@ -116,7 +116,7 @@ const QString Proxy::name() const {
 
 bool Proxy::isShowOnHomePage() const
 {
-    return false;
+    return true;
 }
 
 QIcon Proxy::icon() const

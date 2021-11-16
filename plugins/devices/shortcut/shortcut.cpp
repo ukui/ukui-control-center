@@ -129,7 +129,7 @@ const QString Shortcut::name() const
 
 bool Shortcut::isShowOnHomePage() const
 {
-    return true;
+    return false;
 }
 
 QIcon Shortcut::icon() const

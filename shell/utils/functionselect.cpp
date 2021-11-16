@@ -221,8 +221,7 @@ void FunctionSelect::initPluginName()
     systemPluginName.insert(2, "Power");
     systemPluginName.insert(3, "Notice");
     systemPluginName.insert(4, "Vino");
-    systemPluginName.insert(5, "Projection");
-    systemPluginName.insert(6, "About");
+    systemPluginName.insert(5, "About");
 
     devicePluginName.insert(0, "BlueTooth");
     devicePluginName.insert(1, "Printer");
@@ -230,6 +229,8 @@ void FunctionSelect::initPluginName()
     devicePluginName.insert(3, "Touchpad");
     devicePluginName.insert(4, "Keyboard");
     devicePluginName.insert(5, "Shortcut");
+    devicePluginName.insert(6, "");
+    devicePluginName.insert(7, "projection");
 
     networkPluginName.insert(0, "netconnect");
     networkPluginName.insert(1, "wlanconnect");
@@ -251,7 +252,7 @@ void FunctionSelect::initPluginName()
     datePluginName.insert(0, "Date");
     datePluginName.insert(1, "Area");
 
-    updatePluginName.insert(0, "Update");
+    updatePluginName.insert(0, "Upgrade");
     updatePluginName.insert(1, "Backup");
 
     securityPluginName.insert(0, "Securitycenter");
