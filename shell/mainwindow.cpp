@@ -534,8 +534,9 @@ void MainWindow::loadPlugins(){
             if (fileName.contains("datetime") || fileName.contains("userinfo") || fileName.contains("power") || \
                     fileName.contains("netconnect") || fileName.contains("proxy") || fileName.contains("update") || \
                     fileName.contains("upgrade") || fileName.contains("backup") || fileName.contains("vino") ||
-                    fileName.contains("printer") || fileName.contains("bluetooth", Qt::CaseInsensitive) || fileName.contains("mobilehotspot") ||
-                    fileName.contains("vpn") || fileName.contains("backup") || fileName.contains("autoboot"))
+                    fileName.contains("printer") || fileName.contains("bluetooth", Qt::CaseInsensitive) || fileName.contains("mobilehotspot", Qt::CaseInsensitive) ||
+                    fileName.contains("vpn") || fileName.contains("autoboot") || fileName.contains("wlanconnect") ||
+                    fileName.contains("miracastsource") || fileName.contains("area"))
                 continue;
         }
 #endif
