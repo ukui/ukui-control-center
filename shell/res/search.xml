@@ -726,7 +726,7 @@
         <ChinesePlugin>网络</ChinesePlugin>
         <ChineseFunc1>网络连接</ChineseFunc1>
         <ChineseFunc2>网络状态</ChineseFunc2>
-        <EnglishFunc1>vpn</EnglishFunc1>
+        <EnglishFunc1>netconnect</EnglishFunc1>
         <EnglishFunc2>Netconnect Status</EnglishFunc2>
     </plugin>
     <plugin name="network">
@@ -736,7 +736,7 @@
         <ChinesePlugin>网络</ChinesePlugin>
         <ChineseFunc1>网络连接</ChineseFunc1>
         <ChineseFunc2>可用网络</ChineseFunc2>
-        <EnglishFunc1>vpn</EnglishFunc1>
+        <EnglishFunc1>netconnect</EnglishFunc1>
         <EnglishFunc2>Available Network</EnglishFunc2>
     </plugin>
     <plugin name="personalize">
@@ -1066,7 +1066,7 @@
         <ChinesePlugin>时间语言</ChinesePlugin>
         <ChineseFunc1>时间日期</ChineseFunc1>
         <ChineseFunc2>当前时间</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Date</EnglishFunc1>
         <EnglishFunc2>current date</EnglishFunc2>
     </plugin>
     <plugin name="time-language">
@@ -1076,7 +1076,7 @@
         <ChinesePlugin>时间语言</ChinesePlugin>
         <ChineseFunc1>时间日期</ChineseFunc1>
         <ChineseFunc2>24小时制</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Date</EnglishFunc1>
         <EnglishFunc2>24-hour Clock</EnglishFunc2>
     </plugin>
     <plugin name="time-language">
@@ -1086,7 +1086,7 @@
         <ChinesePlugin>时间语言</ChinesePlugin>
         <ChineseFunc1>时间日期</ChineseFunc1>
         <ChineseFunc2>同步网络时间</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Date</EnglishFunc1>
         <EnglishFunc2>Sync Network Time</EnglishFunc2>
     </plugin>
     <plugin name="time-language">
@@ -1096,7 +1096,7 @@
         <ChinesePlugin>时间语言</ChinesePlugin>
         <ChineseFunc1>时间日期</ChineseFunc1>
         <ChineseFunc2>时间服务器</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Date</EnglishFunc1>
         <EnglishFunc2>Sever</EnglishFunc2>
     </plugin>
     <plugin name="time-language">
@@ -1106,7 +1106,7 @@
         <ChinesePlugin>时间语言</ChinesePlugin>
         <ChineseFunc1>时间日期</ChineseFunc1>
         <ChineseFunc2>其他时区</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Date</EnglishFunc1>
         <EnglishFunc2>Other Timezone</EnglishFunc2>
     </plugin>
     <plugin name="time-language">
@@ -1116,7 +1116,7 @@
         <ChinesePlugin>时间语言</ChinesePlugin>
         <ChineseFunc1>时间日期</ChineseFunc1>
         <ChineseFunc2>添加时区</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Date</EnglishFunc1>
         <EnglishFunc2>Add Timezone</EnglishFunc2>
     </plugin>
     <plugin name="security-updates">
@@ -1126,7 +1126,7 @@
         <ChinesePlugin>更新</ChinesePlugin>
         <ChineseFunc1>备份</ChineseFunc1>
         <ChineseFunc2>开始备份</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Backup</EnglishFunc1>
         <EnglishFunc2>Backup</EnglishFunc2>
     </plugin>
     <plugin name="security-updates">
@@ -1136,7 +1136,7 @@
         <ChinesePlugin>更新</ChinesePlugin>
         <ChineseFunc1>备份</ChineseFunc1>
         <ChineseFunc2>开始还原</ChineseFunc2>
-        <EnglishFunc1>datetime</EnglishFunc1>
+        <EnglishFunc1>Backup</EnglishFunc1>
         <EnglishFunc2>Restore</EnglishFunc2>
     </plugin>
     <plugin name="application">
