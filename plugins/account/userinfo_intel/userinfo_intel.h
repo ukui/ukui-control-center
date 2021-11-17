@@ -30,6 +30,7 @@
 #include <QMouseEvent>
 #include <QSettings>
 #include <QProcess>
+#include <QPainterPath>
 
 #include "shell/interface.h"
 

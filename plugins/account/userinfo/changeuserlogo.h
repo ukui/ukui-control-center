@@ -2,6 +2,7 @@
 #define CHANGEUSERLOGO_H
 
 #include <QDialog>
+#include <QPainterPath>
 
 class QVBoxLayout;
 class QHBoxLayout;

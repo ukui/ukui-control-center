@@ -2,6 +2,7 @@
 #define INFOBUTTON_H
 #include <QPushButton>
 #include <QIcon>
+#include <QPainterPath>
 
 #include "libukcc_global.h"
 

@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QPaintEvent>
 #include <QPainter>
+#include <QPainterPath>
 #include <QMouseEvent>
 #include <QSharedPointer>
 #include <QVBoxLayout>

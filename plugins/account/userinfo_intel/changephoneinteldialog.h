@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QDialog>
 #include <QStackedWidget>
+#include <QPainterPath>
 #include "QGSettings/QGSettings"
 #include "digitalauthinteldialog.h"
 #include "phoneauthinteldialog.h"

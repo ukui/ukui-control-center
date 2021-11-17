@@ -6,6 +6,7 @@
 #include <QTranslator>
 #include <QDesktopWidget>
 #include <QPainter>
+#include <QPainterPath>
 #include <QStyleOption>
 #include <QLabel>
 #include <QVBoxLayout>

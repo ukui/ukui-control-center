@@ -21,6 +21,7 @@
 
 #include "display.h"
 #include "ui_display.h"
+#include "../../../shell/utils/utils.h"
 
 #include <KF5/KScreen/kscreen/getconfigoperation.h>
 #include <KF5/KScreen/kscreen/output.h>
@@ -70,7 +71,7 @@ const QString DisplaySet::name() const
 
 bool DisplaySet::isShowOnHomePage() const
 {
-    return true;
+    !Utils::isCommunity() && !Utils::isWayland();
 }
 
 QIcon DisplaySet::icon() const
@@ -80,7 +81,7 @@ QIcon DisplaySet::icon() const
 
 bool DisplaySet::isEnable() const
 {
-    return true;
+    return !Utils::isCommunity() && !Utils::isWayland();
 }
 
 void DisplaySet::requestBackend()
