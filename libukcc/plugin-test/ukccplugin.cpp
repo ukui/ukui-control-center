@@ -2,7 +2,7 @@
 
 #include <ukcc/widgets/switchbutton.h>
 
-UkccPlugin::UkccPlugin()
+UkccPlugin::UkccPlugin() : mFirstLoad(true)
 {
     QTranslator *translator = new QTranslator(this);
     translator->load("/usr/share/plugin-test/translations/" + QLocale::system().name());
@@ -29,7 +29,11 @@ int UkccPlugin::pluginTypes()
 
 QWidget *UkccPlugin::pluginUi()
 {
-    widget = new QWidget;
+    // 需要加上这个判断标志位，否则每次点击都会新建一个QWidget(只加载一次)
+    if (mFirstLoad) {
+        widget = new QWidget;
+        mFirstLoad = false;
+    }
     return widget;
 }
 

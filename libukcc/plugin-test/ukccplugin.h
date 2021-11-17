@@ -34,6 +34,7 @@ private:
     QString pluginName;
     int pluginType;
     QWidget *widget;
+    bool mFirstLoad;
 
 private:
     void initSearchText();      // 搜索翻译
