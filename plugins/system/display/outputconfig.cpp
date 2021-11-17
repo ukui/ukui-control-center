@@ -112,7 +112,7 @@ void OutputConfig::initUi()
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
     mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
     mRotation->addItem(tr("arrow-down"), KScreen::Output::Inverted);
-    connect(mRotation, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRotation, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 
@@ -142,7 +142,7 @@ void OutputConfig::initUi()
     vbox->addWidget(freshFrame);
 
     slotResolutionChanged(mResolution->currentResolution(), true);
-    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRefreshRateChanged);
 
     // 缩放率下拉框
@@ -290,7 +290,9 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     }
 
     modeID = selectMode->id();
+    mRefreshRate->blockSignals(true);
     mRefreshRate->clear();
+    mRefreshRate->blockSignals(false);
 
     for (int i = 0, total = modes.count(); i < total; ++i) {
         const KScreen::ModePtr mode = modes.at(i);
@@ -303,19 +305,25 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
             }
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
+            mRefreshRate->blockSignals(true);
             mRefreshRate->addItem(refreshRateToText(mode->refreshRate()), mode->id());
+            mRefreshRate->blockSignals(false);
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
         // we stick with "Auto"
         if (mode == selectMode && mRefreshRate->count() > 0) {
+            mRefreshRate->blockSignals(true);
             mRefreshRate->setCurrentIndex(mRefreshRate->count() - 1);
+            mRefreshRate->blockSignals(false);
         }
     }
 
     if (mRefreshRate->count() == 0) {
+        mRefreshRate->blockSignals(true);
         mRefreshRate->addItem(tr("auto"), -1);
+        mRefreshRate->blockSignals(false);
     } else {
         if (-1 == mRefreshRate->currentIndex()) {
             modeID = mRefreshRate->itemData(0).toString();

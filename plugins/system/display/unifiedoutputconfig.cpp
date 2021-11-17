@@ -164,7 +164,7 @@ void UnifiedOutputConfig::initUi()
     freshFrame->setFixedHeight(50);
 
     slotResolutionChanged(mResolution->currentResolution(), true);
-    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         this, &UnifiedOutputConfig::slotRefreshRateChanged);
     QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this,
                          [&](KScreen::ConfigOperation *op) {
@@ -245,7 +245,9 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
     bool mIsModeInit = true;
     QVector<QString>Vrefresh;
     bool mIsCloneMode = isCloneMode();
+    mRefreshRate->blockSignals(true);
     mRefreshRate->clear();
+    mRefreshRate->blockSignals(false);
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         const QString &id = findBestMode(clone, size);
         if (id.isEmpty()) {
@@ -301,7 +303,9 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
                 }
             }
             if (existFlag == false) {  //不存在添加到容器中
+                mRefreshRate->blockSignals(true);
                 mRefreshRate->addItem(Vrefresh[i]);
+                mRefreshRate->blockSignals(false);
             }
         }
     }
@@ -310,14 +314,18 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
         float currentRereshRate = mClones[0]->currentMode()->refreshRate();
         for (int i = 0; i < mRefreshRate->count(); i++) {
             if (refreshRateToText(currentRereshRate) == mRefreshRate->itemText(i)) {
+                mRefreshRate->blockSignals(true);
                 mRefreshRate->setCurrentIndex(i);
+                mRefreshRate->blockSignals(false);
                 break;
             }
         }
     }
 
     if (mRefreshRate->count() == 0) {
-        mRefreshRate->addItem(tr("auto"), -1);    
+        mRefreshRate->blockSignals(true);
+        mRefreshRate->addItem(tr("auto"), -1);
+        mRefreshRate->blockSignals(false);
     }
     if (emitFlag && !mIsModeInit){
         changeItm = RESOLUTION;
