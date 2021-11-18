@@ -20,7 +20,23 @@ AddBtn::AddBtn(QWidget *parent):
 
     QIcon mAddIcon = QIcon::fromTheme("list-add-symbolic");
     iconLabel->setPixmap(mAddIcon.pixmap(mAddIcon.actualSize(QSize(24, 24))));
-    iconLabel->setProperty("useIconHighlightEffect", true);
+    const QByteArray idd(THEME_QT_SCHEMA);
+    QGSettings *qtSettings  = new QGSettings(idd, QByteArray(), this);
+    QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
+    if ("ukui-dark" == currentThemeMode || "ukui-black" == currentThemeMode){
+        iconLabel->setProperty("useIconHighlightEffect", true);
+    }
+    connect(qtSettings, &QGSettings::changed, this, [=](const QString &key) {
+        if (key == "styleName") {
+            QString currentThemeMode = qtSettings->get(key).toString();
+            if ("ukui-black" == currentThemeMode || "ukui-dark" == currentThemeMode) {
+                iconLabel->setProperty("useIconHighlightEffect", true);
+            } else if("ukui-white" == currentThemeMode || "ukui-default" == currentThemeMode) {
+                iconLabel->setProperty("useIconHighlightEffect", false);
+            }
+        }
+    });
+
     iconLabel->setProperty("iconHighlightEffectMode", 1);
 
     addLyt->addStretch();
