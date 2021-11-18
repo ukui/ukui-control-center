@@ -1298,19 +1298,21 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
         }
 
         QSize deviceSize, logicalSize;
+        QPoint outputPos;
         if (output->isHorizontal()) {
             deviceSize = mode->size();
         } else {
             deviceSize = QSize(mode->size().height(), mode->size().width());
         }
-
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
 #else
         if (config->supportedFeatures() & KScreen::Config::Feature::PerOutputScaling) {
             // no scale adjustment needed on Wayland
             logicalSize = deviceSize;
+            outputPos = output->pos();
         } else {
             logicalSize = deviceSize / devicePixelRatioF();
+            outputPos = output->pos() / devicePixelRatioF();
         }
 #endif
 
@@ -1320,7 +1322,7 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
         view->setProperty("screenSize", QRect(output->pos(), deviceSize));
 #else
-        view->setProperty("screenSize", QRect(output->pos(), logicalSize));
+        view->setProperty("screenSize", QRect(outputPos, logicalSize));
 #endif
 
         mOutputIdentifiers << view;
