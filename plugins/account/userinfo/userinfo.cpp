@@ -654,6 +654,7 @@ void UserInfo::_refreshUserInfoUI(){
 
             ui->userNameLabel->setStyleSheet("QLineEdit{color: palette(windowText);}");
             ui->userNameLabel->setText(user.realname);
+            ui->userNameLabel->setCursorPosition(0);
             ui->userNameLabel->setReadOnly(true);
             ui->userNameLabel->installEventFilter(this);
 
@@ -672,7 +673,6 @@ void UserInfo::_refreshUserInfoUI(){
                         ui->userNameLabel->setText(oldName);
                     } else {
                         oldName = text;
-                        ui->userNameLabel->setText(ui->userNameLabel->text());
                     }
             });
             connect(ui->editBtn,&QPushButton::clicked,[=](){
@@ -1193,6 +1193,8 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                                             userpath,
                                             "org.freedesktop.Accounts.User",
                                             QDBusConnection::systemBus());
+
+                    ui->userNameLabel->setCursorPosition(0);
                     if (str_name != NULL) {
 
                         userreal.call("SetRealName",ui->userNameLabel->text());
@@ -1228,7 +1230,7 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                                         "org.freedesktop.Accounts.User",
                                         QDBusConnection::systemBus());
                 if (str_name != NULL) {
-
+                    ui->userNameLabel->setCursorPosition(0);
                     userreal.call("SetRealName",ui->userNameLabel->text());
                     allUserInfoMap.find(my_name).value().realname = ui->userNameLabel->text();
                     ui->editBtn->show();
@@ -1236,6 +1238,7 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                     ui->userNameLabel->deselect();
                 } else {
                     qDebug()<<"失去焦点";
+                    ui->userNameLabel->setCursorPosition(0);
                     if (enter) {
                         enter = false;
                     } else {
