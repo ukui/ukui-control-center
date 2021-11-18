@@ -10,6 +10,7 @@ SUBDIRS = \
           system/about \
           system/power \
           system/display \
+          system/display_hw \
           system/notice \
           system/vino \
           system/backup_intel \
