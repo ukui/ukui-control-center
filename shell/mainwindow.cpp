@@ -261,7 +261,7 @@ void MainWindow::initUI() {
         }
     });
     connect(closeBtn, &QPushButton::clicked, this, [=] {
-        close();
+        qApp->quit();
     });
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
