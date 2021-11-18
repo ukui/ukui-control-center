@@ -81,34 +81,34 @@ void FunctionSelect::loadHomeModule()
                     continue;
                 switch (pluginInstance->pluginTypes()) {
                 case FunType::SYSTEM:
-                    loadModule(systemList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), systemPluginName);
+                    loadModule(systemList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), systemPluginName);
                     break;
                 case FunType::DEVICES:
-                    loadModule(deviceList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), devicePluginName);
+                    loadModule(deviceList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), devicePluginName);
                     break;
                 case FunType::NETWORK:
-                    loadModule(networkList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), networkPluginName);
+                    loadModule(networkList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), networkPluginName);
                     break;
                 case FunType::PERSONALIZED:
-                    loadModule(personaliseList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), personalPluginName);
+                    loadModule(personaliseList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), personalPluginName);
                     break;
                 case FunType::ACCOUNT:
-                    loadModule(accountList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), accountPluginName);
+                    loadModule(accountList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), accountPluginName);
                     break;
                 case FunType::DATETIME:
-                    loadModule(datetimeList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), datePluginName);
+                    loadModule(datetimeList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), datePluginName);
                     break;
                 case FunType::UPDATE:
-                    loadModule(updateList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), updatePluginName);
+                    loadModule(updateList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), updatePluginName);
                     break;
                 case FunType::SECURITY:
-                    loadModule(securityList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), securityPluginName);
+                    loadModule(securityList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), securityPluginName);
                     break;
                 case FunType::APPLICATION:
-                    loadModule(applicationList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), appPluginName);
+                    loadModule(applicationList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), appPluginName);
                     break;
                 case FunType::SEARCH_F:
-                    loadModule(searchList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), searchPluginName);
+                    loadModule(searchList, pluginInstance->name(), pluginInstance->plugini18nName(), pluginInstance->pluginTypes(), pluginInstance->isShowOnHomePage(), pluginInstance->isEnable(), searchPluginName);
                     break;
                 default:
                     break;
@@ -131,7 +131,7 @@ void FunctionSelect::loadHomeModule()
     funcinfoList = funcinfoListHomePage;
 }
 
-void FunctionSelect::loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow, QList<QString> pluginName)
+void FunctionSelect::loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow, bool isEnable, QList<QString> pluginName)
 {
     int i;
     // 查找当前加载的插件序号i
@@ -145,6 +145,7 @@ void FunctionSelect::loadModule(QList<FuncInfo> &systemList, QString name, QStri
     module.namei18nString = i18nName;
     module.type = type;
     module.mainShow = isShow;
+    module.isEnable = isEnable;
     if (systemList.size() == 0) {
         systemList.append(module);
     } else {

@@ -71,7 +71,7 @@ const QString DisplaySet::name() const
 
 bool DisplaySet::isShowOnHomePage() const
 {
-    !Utils::isCommunity() && !Utils::isWayland();
+    return !Utils::isCommunity() && !Utils::isWayland();
 }
 
 QIcon DisplaySet::icon() const

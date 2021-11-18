@@ -630,8 +630,9 @@ void MainWindow::initLeftsideBar(){
             for (int funcIndex = 0; funcIndex < functionStructList.size(); funcIndex++) {
                 FuncInfo single = functionStructList.at(funcIndex);
                 //跳过插件不存在的功能项
-                if (!moduleMap.contains(single.namei18nString))
+                if (!moduleMap.contains(single.namei18nString) || !single.isEnable) {
                     continue;
+                }
 
                 if (mModuleMap.keys().contains(single.nameString.toLower())) {
                     if (!mModuleMap[single.nameString.toLower()].toBool()) {

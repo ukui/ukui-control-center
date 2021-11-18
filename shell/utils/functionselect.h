@@ -32,6 +32,7 @@ typedef struct _FuncInfo
     int type;
     int index;
     bool mainShow;
+    bool isEnable;
     QString nameString;
     QString namei18nString;
 }FuncInfo;
@@ -75,7 +76,7 @@ public:
     static void loadHomeModule();
 
     static QList<char *> listExistsCustomNoticePath(const char* dir);   //获取动态路径
-    static void loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow, QList<QString> pluginName);
+    static void loadModule(QList<FuncInfo> &systemList, QString name, QString i18nName, int type, bool isShow, bool isEnable, QList<QString> pluginName);
 };
 
 #endif // FUNCTIONSELECT_H
