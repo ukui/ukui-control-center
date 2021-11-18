@@ -215,7 +215,7 @@ void PrivacyDialog::initUi()
                                "   We may update this Statement at any time, and shall display the updated statement to you through the product installation process or the company’s"
                                " website at the time of updating. After such updates take effect, if you use such services or any software permitted according to such clauses, you "
                                "shall be deemed to agree on the new clauses. If you disagree on the new clauses, then you must stop using this product, and please close the "
-                               "account created by you in this product; if you are a parent or guardian, please help your minor child to close the account created by him/her"
+                               "account created by you in this product; if you are a  guardian, please help your minor child to close the account created by him/her"
                                " in this product.\n\n   VII. 	How to contact us\n\n  If you have any question, or any complaints or opinions on this Statement, you may seek "
                                "advice through our customer service hotline 400-089-1870, or the official website (www.kylinos.cn), or “service and support” application "
                                "in this product. You may also contact us by E-mail (market@kylinos.cn).\n   We shall timely and properly deal with them. Generally, a reply "

@@ -15,6 +15,7 @@
 #include <QListWidgetItem>
 #include <QStandardItemModel>
 #include <QXmlStreamReader>
+#include <QtConcurrent>
 
 const QString XML_Source       = "source";
 const QString XML_Title        = "translation";

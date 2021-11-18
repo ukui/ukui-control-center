@@ -202,7 +202,7 @@ void ShareMain::setFrameVisible(bool visible)
 
 void ShareMain::setVinoService(bool status)
 {
-    QDBusInterface vinoIfc("org.ukui.SettingsDaemon.Sharing",
+    QDBusInterface vinoIfc("org.ukui.SettingsDaemon",
                            "/org/ukui/SettingsDaemon/Sharing",
                            "org.ukui.SettingsDaemon.Sharing",
                            QDBusConnection::sessionBus());

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network x11extras svg xml dbus KWindowSystem
+QT       += core gui network x11extras svg xml dbus KWindowSystem concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 

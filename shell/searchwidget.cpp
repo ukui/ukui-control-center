@@ -528,10 +528,11 @@ void SearchWidget::setLanguage(QString type) {
     } else {
         m_completer->setCompletionRole(Qt::DisplayRole);
     }
-
-    loadxml();
-    //记录搜索项总数
-   count = m_model->rowCount();
+    QtConcurrent::run([=]() {
+        loadxml();
+        //记录搜索项总数
+       count = m_model->rowCount();
+    });
 }
 
 //save all modules moduleInteface name and actual moduleName

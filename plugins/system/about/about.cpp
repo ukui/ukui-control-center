@@ -394,18 +394,20 @@ void About::initUI(QWidget *widget)
 
     QGridLayout *mPriLayout = new QGridLayout(mPrivacyFrame);
     mPriLayout->setVerticalSpacing(8);
-    mPriLayout->setContentsMargins(16, 16, 16, 8);
+    mPriLayout->setContentsMargins(16, 16, 16, 16);
 
     FixLabel *mPriLabel_1 = new FixLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
-    mPriLabel_1->setFixedHeight(30);
+    mPriLabel_1->setFixedHeight(24);
+    mPriLabel_1->setAlignment(Qt::AlignBottom);
     FixLabel *mPriLabel_2 = new FixLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
-    mPriLabel_2->setFixedHeight(30);
+    mPriLabel_2->setFixedHeight(24);
+    mPriLabel_1->setAlignment(Qt::AlignTop);
      mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
 
     mPriBtn = new SwitchButton(mPrivacyFrame);
 
-    mPriLayout->addWidget(mPriLabel_1 , 0 , 0 , 3 , 4);
-    mPriLayout->addWidget(mPriLabel_2 , 3, 0 , 3 , 4);
+    mPriLayout->addWidget(mPriLabel_1 , 0 , 0 , 3 , 4 , Qt::AlignBottom);
+    mPriLayout->addWidget(mPriLabel_2 , 3, 0 , 3 , 4 , Qt::AlignTop);
     mPriLayout->addWidget(mPriBtn , 1 , 4 , 4 , 4 ,Qt::AlignRight);
 
     mActivationFrame = new QFrame(Aboutwidget);
@@ -495,7 +497,7 @@ void About::initUI(QWidget *widget)
     AboutLayout->addSpacing(32);
     AboutLayout->addWidget(mPriTitleLabel);
     AboutLayout->addWidget(mPrivacyFrame);
-    AboutLayout->addSpacing(-8);
+    AboutLayout->addSpacing(0);
     AboutLayout->addWidget(mBtnFrame);
     AboutLayout->addWidget(mHoldTitleLabel);
     AboutLayout->addWidget(mHoldWidget);

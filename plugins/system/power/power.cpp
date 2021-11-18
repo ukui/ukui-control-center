@@ -789,7 +789,11 @@ void Power::setupConnect()
 
     if (mKeys.contains("powerPolicyAc") && mKeys.contains("powerPolicyBattery")) {
         connect(mPowerComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
-            settings->set(POWER_POLICY_AC, index + 1);
+            if (index == 0) {
+                settings->set(POWER_POLICY_AC, 1);
+            } else {
+                settings->set(POWER_POLICY_AC, -1);
+            }
         });
 
         connect(mBatteryComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
@@ -799,7 +803,11 @@ void Power::setupConnect()
                     mLowSaveBtn->setChecked(false);
                 }
             }
-            settings->set(POWER_POLICY_BATTARY, index + 1);
+            if (index == 0) {
+                settings->set(POWER_POLICY_BATTARY, 1);
+            } else {
+                settings->set(POWER_POLICY_BATTARY, -1);
+            }
         });
     }
 
