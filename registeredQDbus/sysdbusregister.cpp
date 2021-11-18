@@ -38,11 +38,9 @@
 #undef signals
 #endif
 
-extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
 
-}
 #include <QtConcurrent/QtConcurrent>
 
 QStringList ddcProIdList;

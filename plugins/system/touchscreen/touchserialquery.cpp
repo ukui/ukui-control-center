@@ -1,10 +1,8 @@
-extern "C"{
 #include <libudev.h>
 #include <X11/extensions/XInput2.h>
 #include <X11/extensions/XInput.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-}
 
 static int find_event_from_touchId(int pId ,char *_event,char *devnode,int max_len)
 {

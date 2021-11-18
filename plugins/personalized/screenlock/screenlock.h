@@ -41,10 +41,8 @@
 #undef signals
 #endif
 
-extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
-}
 
 namespace Ui {
 class Screenlock;

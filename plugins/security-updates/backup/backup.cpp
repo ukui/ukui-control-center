@@ -30,10 +30,8 @@
 #undef signals
 #endif
 
-extern "C" {
 #include <gio/gdesktopappinfo.h>
 #include <glib.h>
-}
 
 Backup::Backup() : mFirstLoad(true)
 {

@@ -11,9 +11,7 @@
 #include <QRegularExpression>
 #include <mainwindow.h>
 
-extern "C" {
 #include <glib.h>
-}
 
 class ukCompleter : public QCompleter
 {

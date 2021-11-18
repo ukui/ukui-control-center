@@ -21,10 +21,8 @@
 
 #include <QDebug>
 
-extern "C" {
 #include <libxklavier/xklavier.h>
 #include <libmatekbd/matekbd-keyboard-config.h>
-}
 
 XklEngine * engine;
 XklConfigRegistry * config_registry;

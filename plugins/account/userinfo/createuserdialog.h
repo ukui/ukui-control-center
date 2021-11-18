@@ -29,11 +29,8 @@
 #include <QStyledItemDelegate>
 
 #ifdef ENABLEPQ
-extern "C" {
-
 #include <pwquality.h>
 
-}
 #define PWCONF "/etc/security/pwquality.conf"
 #define RFLAG 0x1
 #define CFLAG 0x2

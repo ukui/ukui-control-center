@@ -31,11 +31,7 @@
 #include "pwdcheckthread.h"
 
 #ifdef ENABLEPQ
-extern "C" {
-
 #include <pwquality.h>
-
-}
 
 #define PWCONF "/etc/security/pwquality.conf"
 #define RFLAG 0x1

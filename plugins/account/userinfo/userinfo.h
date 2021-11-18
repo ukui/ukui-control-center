@@ -51,9 +51,7 @@
 #include "pwdchangethread.h"
 
 #ifdef ENABLEPQ
-extern "C" {
 #include <pwquality.h>
-}
 #endif
 
 enum {

@@ -48,11 +48,9 @@
 #undef signals
 #endif
 
-extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
 #include <gio/gdesktopappinfo.h>
-}
 
 typedef struct _SSThemeInfo{
     QString name;
