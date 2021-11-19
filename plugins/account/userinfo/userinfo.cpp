@@ -514,7 +514,7 @@ void UserInfo::showChangeUserNicknameDialog(){
 
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        ChangeUserNickname dialog(user.realname, names, user.objpath);
+        ChangeUserNickname dialog(user.realname, names, user.objpath , pluginWidget2);
         dialog.exec();
 
     } else {

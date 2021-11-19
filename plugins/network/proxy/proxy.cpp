@@ -865,7 +865,7 @@ void Proxy::setAptProxySlot()
     AptProxyDialog *mwindow = new AptProxyDialog(aptsettings ,pluginWidget);
     mwindow->exec();
     if (aptsettings->get(APT_PROXY_ENABLED).toBool()) { // enabled键值为true，用户点击了确定按钮，进行配置文件的写入，提示用户重启系统
-        QMessageBox *mReboot = new QMessageBox(pluginWidget);
+        QMessageBox *mReboot = new QMessageBox(pluginWidget->topLevelWidget());
         mReboot->setIcon(QMessageBox::Warning);
         mReboot->setText(tr("The system needs to be restarted to set the Apt proxy, whether to reboot"));
         QPushButton *laterbtn =  mReboot->addButton(tr("Reboot Later"), QMessageBox::RejectRole);
@@ -888,7 +888,8 @@ void Proxy::setAptProxySlot()
             line_7->hide();
             mAPTFrame_2->hide();
         }
-    } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){  //点击了编辑按钮，且在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
+    }
+    if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){  //点击了编辑按钮，且在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
         aptsettings->set(APT_PROXY_ENABLED , true);
         line_7->show();
         mAPTFrame_2->show();

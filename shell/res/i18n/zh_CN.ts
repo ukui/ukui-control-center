@@ -2205,32 +2205,36 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserNickname</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="68"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="31"/>
+        <source>Set Nickname</source>
+        <translation>修改用户昵称</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="54"/>
         <source>UserName</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="84"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="70"/>
         <source>NickName</source>
         <translation>用户昵称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="88"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="74"/>
         <source>Name already in use, change another one.</source>
         <translation>该用户名已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="116"/>
         <source>ComputerName</source>
-        <translation>计算机名</translation>
+        <translation type="vanished">计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="141"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="110"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="144"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="113"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
@@ -4562,7 +4566,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="14"/>
         <source>Set HostName</source>
-        <translation>设置计算机名</translation>
+        <translation>计算机名</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="43"/>
@@ -6310,7 +6314,7 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="318"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="325"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
@@ -6321,7 +6325,7 @@ Please retry or relogin!</source>
         <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="414"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="422"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="281"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="288"/>
         <source>%1 Hz</source>
@@ -10613,7 +10617,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="320"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="327"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="146"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="312"/>
         <source>auto</source>
@@ -11263,7 +11267,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="326"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2052"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -11398,18 +11402,18 @@ the settings will be saved after %1 seconds</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2052"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2052"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation>跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2319"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2333"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2321"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2335"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2142"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2149"/>
         <source>Brightness</source>
@@ -11480,15 +11484,15 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1554"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1379"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1554"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1561"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1381"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1563"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1500"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
         <source>Warning</source>
@@ -11503,7 +11507,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">屏幕分辨率已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在%1秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1380"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1382"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1501"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
@@ -11513,7 +11517,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1562"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1564"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1511"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>

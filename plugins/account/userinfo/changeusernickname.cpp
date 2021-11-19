@@ -26,9 +26,9 @@ ChangeUserNickname::ChangeUserNickname(QString nn, QStringList ns, QString op, Q
     namesIsExists(ns),
     realname(nn)
 {
-    setFixedSize(QSize(480, 296));
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
-    setAttribute(Qt::WA_TranslucentBackground);
+    setFixedSize(QSize(480, 216));
+    this->setWindowFlags(Qt::Dialog);
+    setWindowTitle(tr("Set Nickname"));
 
     cniface = new QDBusInterface("org.freedesktop.Accounts",
                                   op,
@@ -47,20 +47,6 @@ ChangeUserNickname::~ChangeUserNickname()
 }
 
 void ChangeUserNickname::initUI(){
-
-    //右上角关闭按钮
-    closeBtn = new QPushButton();
-    closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    closeBtn->setFlat(true);
-    closeBtn->setFixedSize(QSize(30, 30));
-    closeBtn->setProperty("isWindowButton", 0x2);
-    closeBtn->setProperty("useIconHighlightEffect", 0x08);
-
-    titleHorLayout = new QHBoxLayout;
-    titleHorLayout->setSpacing(0);
-    titleHorLayout->setContentsMargins(0, 0, 14, 0);
-    titleHorLayout->addStretch();
-    titleHorLayout->addWidget(closeBtn);
 
     //用户名
     userNameLabel = new QLabel();
@@ -110,29 +96,12 @@ void ChangeUserNickname::initUI(){
     nickNameWithTipVerLayout->addLayout(nickNameHorLayout);
     nickNameWithTipVerLayout->addLayout(tipHorLayout);
 
-    //计算机名
-    computerNameLabel = new QLabel();
-    computerNameLabel->setFixedWidth(100);
-    setTextDynamicInNick(computerNameLabel, tr("ComputerName"));
-
-    computerNameLineEdit = new QLineEdit();
-    computerNameLineEdit->setFixedSize(QSize(300, 36));
-    computerNameLineEdit->setPlaceholderText(QString(g_get_host_name()));
-    computerNameLineEdit->setReadOnly(true);
-
-    computerNameHorLayout = new QHBoxLayout;
-    computerNameHorLayout->setSpacing(25);
-    computerNameHorLayout->setContentsMargins(0, 0, 0, 0);
-    computerNameHorLayout->addWidget(computerNameLabel);
-    computerNameHorLayout->addWidget(computerNameLineEdit);
-
     //中部输入区域
     contentVerLayout = new QVBoxLayout;
-    contentVerLayout->setSpacing(10);
-    contentVerLayout->setContentsMargins(24, 0, 35, 0);
+    contentVerLayout->setSpacing(24);
+    contentVerLayout->setContentsMargins(0, 0, 0, 0);
     contentVerLayout->addLayout(userNameHorLayout);
     contentVerLayout->addLayout(nickNameWithTipVerLayout);
-    contentVerLayout->addLayout(computerNameHorLayout);
     contentVerLayout->addStretch();
 
     //底部“取消”、“确定”按钮
@@ -145,17 +114,16 @@ void ChangeUserNickname::initUI(){
 
     bottomBtnsHorLayout = new QHBoxLayout;
     bottomBtnsHorLayout->setSpacing(16);
-    bottomBtnsHorLayout->setContentsMargins(0, 0, 25, 0);
+    bottomBtnsHorLayout->setContentsMargins(0, 0, 0, 0);
     bottomBtnsHorLayout->addStretch();
     bottomBtnsHorLayout->addWidget(cancelBtn);
     bottomBtnsHorLayout->addWidget(confirmBtn);
 
     //主布局
     mainVerLayout = new QVBoxLayout;
-    mainVerLayout->setSpacing(20);
-    mainVerLayout->setContentsMargins(0, 14, 0, 24);
-    mainVerLayout->addLayout(titleHorLayout);
+    mainVerLayout->setContentsMargins(24, 24, 24, 24);
     mainVerLayout->addLayout(contentVerLayout);
+    mainVerLayout->addStretch();
     mainVerLayout->addLayout(bottomBtnsHorLayout);
 
     setLayout(mainVerLayout);
@@ -179,13 +147,6 @@ void ChangeUserNickname::setConnect(){
             tipLabel->hide();
             confirmBtn->setEnabled(true);
         }
-    });
-
-    connect(closeBtn, &QPushButton::clicked, this, [=]{
-        close();
-    });
-    connect(cancelBtn, &QPushButton::clicked, this, [=]{
-        close();
     });
 
     connect(confirmBtn, &QPushButton::clicked, this, [=]{
@@ -250,42 +211,3 @@ bool ChangeUserNickname::eventFilter(QObject *watched, QEvent *event){
     }
 }
 
-void ChangeUserNickname::paintEvent(QPaintEvent *event){
-    Q_UNUSED(event);
-    QPainter p(this);
-    p.setRenderHint(QPainter::Antialiasing);
-    QPainterPath rectPath;
-    rectPath.addRoundedRect(this->rect().adjusted(10, 10, -10, -10), 6, 6);
-
-    // 画一个黑底
-    QPixmap pixmap(this->rect().size());
-    pixmap.fill(Qt::transparent);
-    QPainter pixmapPainter(&pixmap);
-    pixmapPainter.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter.setPen(Qt::transparent);
-    pixmapPainter.setBrush(Qt::black);
-    pixmapPainter.setOpacity(0.65);
-    pixmapPainter.drawPath(rectPath);
-    pixmapPainter.end();
-
-    // 模糊这个黑底
-    QImage img = pixmap.toImage();
-    qt_blurImage(img, 10, false, false);
-
-    // 挖掉中心
-    pixmap = QPixmap::fromImage(img);
-    QPainter pixmapPainter2(&pixmap);
-    pixmapPainter2.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter2.setCompositionMode(QPainter::CompositionMode_Clear);
-    pixmapPainter2.setPen(Qt::transparent);
-    pixmapPainter2.setBrush(Qt::transparent);
-    pixmapPainter2.drawPath(rectPath);
-
-    // 绘制阴影
-    p.drawPixmap(this->rect(), pixmap, pixmap.rect());
-
-    // 绘制一个背景
-    p.save();
-    p.fillPath(rectPath,palette().color(QPalette::Base));
-    p.restore();
-}
