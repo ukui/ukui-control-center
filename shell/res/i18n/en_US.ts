@@ -4,59 +4,59 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="512"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="514"/>
         <source>System Summary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="563"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="565"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/About/version</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="439"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="441"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="565"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="567"/>
         <source>Kernel</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="567"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="569"/>
         <source>CPU</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="569"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
         <source>Memory</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="515"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="884"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="517"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="886"/>
         <source>Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
         <source>Desktop</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
         <source>User</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/About/User</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="576"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="578"/>
         <source>Serial</source>
         <translation type="unfinished"></translation>
     </message>
@@ -66,39 +66,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="513"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="515"/>
         <source>Support</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="188"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="514"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="516"/>
         <source>Version Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
         <source>DateRes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="517"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="519"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="518"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="449"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,74 +123,74 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="401"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="402"/>
         <source>By sending us diagnostic data, improve the system experience and solve your problems faster</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="450"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="452"/>
         <source>and</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="453"/>
         <source>&lt;&lt;Privacy&gt;&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="539"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="541"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="549"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="551"/>
         <source>See user manual&gt;&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="628"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="630"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="633"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="635"/>
         <source>Activated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="957"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="959"/>
         <source>expired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="961"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="963"/>
         <source>Extend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1097"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1099"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1098"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1100"/>
         <source>Reboot Now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1099"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1101"/>
         <source>Reboot Later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="626"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="628"/>
         <source>Inactivated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="877"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="886"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1231"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="879"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="888"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1233"/>
         <source>avaliable</source>
         <translation type="unfinished"></translation>
     </message>
@@ -308,135 +308,135 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="169"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="352"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="156"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="353"/>
         <source>Current Region</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Area/Current Region</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="363"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="350"/>
         <source>First Day Of The Week</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="277"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="354"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="264"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="355"/>
         <source>Calendar</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Area/Calendar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="56"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="59"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="159"/>
         <source>Language Format</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Area/Regional Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="446"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="358"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="433"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="359"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Area/Date</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="529"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="360"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="516"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="361"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Area/Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="568"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="555"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="161"/>
         <source>System Language</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Area/system language</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="602"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="589"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="365"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="366"/>
         <source>lunar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="368"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="369"/>
         <source>monday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="216"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="217"/>
         <source>US</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="217"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="218"/>
         <source>CN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="164"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="165"/>
         <source>Language for system windows,menus and web pages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="356"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="357"/>
         <source>First Day Of Week</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Area/First Day Of Week</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="362"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="363"/>
         <source>solar calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="369"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="370"/>
         <source>sunday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="380"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="381"/>
         <source>12 Hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="381"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="382"/>
         <source>24 Hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="490"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="491"/>
         <source>Modify the current region need to logout to take effect, whether to logout?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="491"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="492"/>
         <source>Logout later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="492"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="493"/>
         <source>Logout now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="494"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="495"/>
         <source>Modify the first language need to reboot to take effect, whether to reboot?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="495"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="496"/>
         <source>Reboot later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="496"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="497"/>
         <source>Reboot now</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1015,32 +1015,32 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>ChangeUserNickname</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="68"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="31"/>
+        <source>Set Nickname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="54"/>
         <source>UserName</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="84"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="70"/>
         <source>NickName</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="88"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="74"/>
         <source>Name already in use, change another one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="116"/>
-        <source>ComputerName</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="141"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="110"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="144"/>
+        <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="113"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1566,37 +1566,37 @@ change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="62"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="65"/>
         <source>current date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="318"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="240"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="321"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="241"/>
         <source>Change timezone</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Date/Change time zone</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="441"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="602"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="444"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="620"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="472"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="479"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="481"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="510"/>
         <source>RadioButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="694"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="726"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="712"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="744"/>
         <source>:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="934"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="952"/>
         <source>titleLabel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1606,91 +1606,96 @@ change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="160"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="153"/>
         <source>Other Timezone</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Date/Other Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="174"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="167"/>
         <source>24-hour clock</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Date/24-hour clock</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="575"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="573"/>
         <source>Add Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="176"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="252"/>
         <source>Sync Time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/Date/Sync time</extra-contents_path>
+        <extra-contents_path>/Date/Sync Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="196"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="253"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="169"/>
+        <source>Set Time</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/Date/Set Time</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="197"/>
+        <source>Set Date Manually</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/Date/Set Date Manually</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="254"/>
         <source>Manual Time</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Date/Manual Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="251"/>
-        <source>Auto Sync Time</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/Date/Auto Sync Time</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="397"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="396"/>
         <source>Sync Server</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Date/Sync Server</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="399"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="398"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="401"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="400"/>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="411"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="410"/>
         <source>Server Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="416"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="415"/>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="417"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="416"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="564"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="563"/>
         <source>change time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="577"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="575"/>
         <source>Change Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="770"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="768"/>
         <source>  </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="771"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="780"/>
-        <source>Sync from network failed</source>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="769"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="778"/>
+        <source>Sync failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2558,7 +2563,7 @@ change system settings</source>
     <message>
         <location filename="../../mainwindow.cpp" line="349"/>
         <location filename="../../mainwindow.cpp" line="398"/>
-        <location filename="../../mainwindow.cpp" line="865"/>
+        <location filename="../../mainwindow.cpp" line="867"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2603,12 +2608,12 @@ change system settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="978"/>
+        <location filename="../../mainwindow.cpp" line="980"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="978"/>
+        <location filename="../../mainwindow.cpp" line="980"/>
         <source>This function has been controlled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2942,7 +2947,7 @@ change system settings</source>
         <extra-contents_path>/Display/frequency</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="318"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="325"/>
         <source>auto</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2953,7 +2958,7 @@ change system settings</source>
         <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="414"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="422"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="281"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="288"/>
         <source>%1 Hz</source>
@@ -3505,7 +3510,7 @@ We attach great importance to personal information and privacy protection. In or
 
    VI. 	How to update this Statement
 
-   We may update this Statement at any time, and shall display the updated statement to you through the product installation process or the company’s website at the time of updating. After such updates take effect, if you use such services or any software permitted according to such clauses, you shall be deemed to agree on the new clauses. If you disagree on the new clauses, then you must stop using this product, and please close the account created by you in this product; if you are a parent or guardian, please help your minor child to close the account created by him/her in this product.
+   We may update this Statement at any time, and shall display the updated statement to you through the product installation process or the company’s website at the time of updating. After such updates take effect, if you use such services or any software permitted according to such clauses, you shall be deemed to agree on the new clauses. If you disagree on the new clauses, then you must stop using this product, and please close the account created by you in this product; if you are a  guardian, please help your minor child to close the account created by him/her in this product.
 
    VII. 	How to contact us
 
@@ -4123,45 +4128,45 @@ E-mail: support@kylinos.cn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="77"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="80"/>
         <source>Screenlock Interface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="208"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="211"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="116"/>
         <source>Show picture of screenlock on screenlogin</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Screenlock/Show picture of screenlock on screenlogin</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="278"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="281"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
         <source>Lock screen when screensaver boot</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Screenlock/Lock screen when screensaver boot</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="361"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="364"/>
         <source>Lock screen delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="445"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="448"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="120"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Screenlock/Browse</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="452"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="455"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="122"/>
         <source>Online Picture</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="484"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="487"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="131"/>
         <source>Reset To Default</source>
         <translation type="unfinished"></translation>
@@ -4614,32 +4619,32 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>TimeZoneChooser</name>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="34"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="36"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="45"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="44"/>
         <source>Change time zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="69"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="68"/>
         <source>Search Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="98"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="105"/>
         <source>Change Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="124"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="132"/>
         <source>To select a time zone, please click where near you on the map and select a city from the nearest city</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4820,7 +4825,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="320"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="327"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="146"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="312"/>
         <source>auto</source>
@@ -5139,78 +5144,78 @@ E-mail: support@kylinos.cn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="154"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="152"/>
         <source>picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="154"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="152"/>
         <source>color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>scaled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>centered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>stretched</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="479"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="477"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="479"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="477"/>
         <source>allFiles(*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="517"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="559"/>
+        <source>select custom wallpaper file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="518"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="560"/>
+        <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="519"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="561"/>
-        <source>select custom wallpaper file</source>
+        <source>Position: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="520"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="562"/>
-        <source>Select</source>
+        <source>FileName: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="521"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="563"/>
-        <source>Position: </source>
+        <source>FileType: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="522"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
-        <source>FileName: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="523"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="565"/>
-        <source>FileType: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="524"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="566"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5286,18 +5291,18 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2052"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
         <source>All Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2052"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2319"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2333"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2321"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2335"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2142"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2149"/>
         <source>Brightness</source>
@@ -5311,22 +5316,22 @@ the settings will be saved after %1 seconds</source>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1379"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1554"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1561"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1381"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1563"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1500"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1554"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1380"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1382"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1501"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
@@ -5348,7 +5353,7 @@ the settings will be saved after %1 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="326"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2052"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5448,7 +5453,7 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1562"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1564"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1511"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
@@ -5463,92 +5468,93 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="103"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="155"/>
         <source>Exec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="154"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="193"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="174"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="225"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="214"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="264"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="352"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="359"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="72"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="392"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="411"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="422"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="252"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="461"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="260"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="441"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="480"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="65"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="73"/>
         <source>Add custom shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="79"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="87"/>
         <source>Please enter a shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="244"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="252"/>
         <source>Desktop files(*.desktop)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="251"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="259"/>
         <source>select desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="273"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="292"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="303"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="281"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="300"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="311"/>
         <source>Invalid application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="275"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="288"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="299"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="283"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="296"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="307"/>
         <source>Shortcut conflict</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="277"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="290"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="301"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="285"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="298"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="309"/>
         <source>Invalid shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="279"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="286"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="305"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="287"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="294"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="313"/>
         <source>Name repetition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="311"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="319"/>
         <source>Unknown error</source>
         <translation type="unfinished"></translation>
     </message>

@@ -43,6 +43,14 @@ addShortcutDialog::addShortcutDialog(QList<KeyEntry *> generalEntries,
     keyIsAvailable  = 0;
     execIsAvailable = false;
     nameIsAvailable = false;
+
+    ui->m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+    const QByteArray id("org.ukui.style");
+    QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
+    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
+        if (key == "iconThemeName")
+            ui->m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+    });
     initSetup();
     slotsSetup();
     limitInput();
@@ -64,7 +72,6 @@ void addShortcutDialog::initSetup()
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("Add custom shortcut"));
 
-    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
     ui->noteLabel->setPixmap(QPixmap("://img/plugins/shortcut/note.png"));
     ui->execLineEdit->setReadOnly(true);
 
@@ -75,7 +82,8 @@ void addShortcutDialog::initSetup()
     ui->certainBtn->setDisabled(true);
     shortcutLine = new ShortcutLine(systemEntry, &customEntry);
     ui->horizontalLayout_2->addWidget(shortcutLine);
-    shortcutLine->setFixedWidth(326);
+    shortcutLine->setMinimumWidth(280);
+    shortcutLine->setFixedHeight(36);
     shortcutLine->setPlaceholderText(tr("Please enter a shortcut"));
 
     connect(shortcutLine, &ShortcutLine::shortCutAvailable, this, [=](const int &flag){

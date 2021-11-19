@@ -112,19 +112,12 @@ QWidget *DateTime::pluginUi()
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
         initUI();
-        qApp->processEvents();
         initTitleLabel();
-        qApp->processEvents();
         initStatus();
-        qApp->processEvents();
         initComponent();
-        qApp->processEvents();
         initConnect();
-        qApp->processEvents();
         connectToServer();
-        qApp->processEvents();
         initTimeShow();
-        qApp->processEvents(); 
         });
     }
     return pluginWidget;
@@ -172,16 +165,24 @@ void DateTime::initUI()
     m_formTimeBtn       = new SwitchButton(pluginWidget);
     //~ contents_path /Date/24-hour clock
     m_formTimeLabel     = new QLabel(tr("24-hour clock"), pluginWidget);
-    //~ contents_path /Date/Sync time
-    ui->syncLabel->setText(tr("Sync Time"));
-    syncNetworkRetLabel = new QLabel(pluginWidget);
-    syncNetworkRetLabel->setStyleSheet("QLabel{font-size: 15px; color: #D9F82929;}");
+    //~ contents_path /Date/Set Time
+    ui->syncLabel->setText(tr("Set Time"));
+    syncNetworkRetLabel = new FixLabel(pluginWidget);
+    syncNetworkRetLabel->setStyleSheet("QLabel{color: #D9F82929;}");
     CustomCalendarWidget* calendarWidget = new CustomCalendarWidget;
     ui->dateEdit->setCalendarWidget(calendarWidget);
     m_zoneinfo          = new ZoneInfo;
     m_timezone          = new TimeZoneChooser(pluginWidget);
     m_itimer            = new QTimer(this);
     m_itimer->start(1000);
+
+    int timezone_x = pluginWidget->topLevelWidget()->x() + (pluginWidget->topLevelWidget()->width() - m_timezone->width())/2;
+    int timezone_y = pluginWidget->topLevelWidget()->y() + (pluginWidget->topLevelWidget()->height() - m_timezone->height())/2;
+    timezone_x = timezone_x > 0 ? timezone_x : 0;
+    timezone_y = timezone_y > 0 ? timezone_y : 0;
+
+    m_timezone->move(timezone_x, timezone_y);
+
 
     ui->frame_7->adjustSize();
     ui->showFrame->adjustSize();
@@ -192,8 +193,8 @@ void DateTime::initUI()
     Clock *m_clock = new Clock();
     //ui->clockFrame->setFrameShape(QFrame::Shape::Box);
     ui->clockLayout->addWidget(m_clock);
-    //~ contents_path /Date/Manual Time
-    ui->timeLabel->setText(tr("Manual Time"));
+    //~ contents_path /Date/Set Date Manually
+    ui->timeLabel->setText(tr("Set Date Manually"));
     for (int m = 0; m < 60; m++) {
         ui->minComboBox->addItem(QString::number(m));
     }
@@ -247,12 +248,11 @@ void DateTime::initComponent()
 
     ui->radioButton->adjustSize();
     ui->radioButton_2->adjustSize();
-    //~ contents_path /Date/Auto Sync Time
-    ui->radioButton->setText(tr("Auto Sync Time"));
+    //~ contents_path /Date/Sync Time
+    ui->radioButton->setText(tr("Sync Time"));
     //~ contents_path /Date/Manual Time
     ui->radioButton_2->setText(tr("Manual Time"));
 
-    ui->syncHintFrame->adjustSize();
     ui->hintLayout->addWidget(syncNetworkRetLabel);
 
     QButtonGroup *timeGroupBtn = new QButtonGroup(this);
@@ -264,7 +264,7 @@ void DateTime::initComponent()
             synctimeFormatSlot(true, true);
         } else {
             synctimeFormatSlot(false, true);
-            syncNetworkRetLabel->clear();
+            syncNetworkRetLabel->setText("");
         }
     });
 
@@ -334,7 +334,6 @@ void DateTime::initTimeShow()
 
         for (int i = 0; i < timesNum; ++i) {
             newTimeshow(timezonesList[i]);
-            qApp->processEvents();
         }
      }
 }
@@ -570,7 +569,6 @@ void DateTime::changetimeSlot()
 
 void DateTime::changezoneSlot(int flag)
 {
-    m_timezone->setFixedSize(1000,720);
     if (flag == 1) {
         m_timezone->setTitle(tr("Add Timezone"));
     } else {
@@ -768,7 +766,7 @@ void DateTime::synctimeFormatSlot(bool status,bool outChange)
         setNtpFrame(true);
         if (retDBus.type() == QDBusMessage::ReplyMessage) {
             QString successMSG = tr("  ");
-            QString failMSG = tr("Sync from network failed");
+            QString failMSG = tr("Sync failed");
             CGetSyncRes *syncThread = new CGetSyncRes(this,successMSG,failMSG);
             connect(syncThread, &CGetSyncRes::finished, this, [=](){
                 syncThread->deleteLater();
@@ -777,7 +775,7 @@ void DateTime::synctimeFormatSlot(bool status,bool outChange)
             syncThread->start();
             ui->radioButton_2->setEnabled(false);
         } else {
-            syncNetworkRetLabel->setText(tr("Sync from network failed"));
+            syncNetworkRetLabel->setText(tr("Sync failed"));
         }
     } else {
         initSetTime();
@@ -888,7 +886,7 @@ void CGetSyncRes::run()
 {
     for(qint8 i = 0; i < 80; ++i) {
         if (this->dataTimeUI->getSyncStatus() == false) {
-            this->dataTimeUI->syncNetworkRetLabel->clear();
+            this->dataTimeUI->syncNetworkRetLabel->setText("");
             return;
         }
         struct timex txc = {};

@@ -90,6 +90,7 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     delete(ui->scrollArea->widget());
 
     QWidget *pluginwidget =  plu->pluginUi();
+    pluginwidget->setContentsMargins(40,0,20,40);
     pluginwidget->setObjectName("widget");
     pluginwidget->setStyleSheet("QWidget#widget{background  :  palette(window);}");
     ui->scrollArea->setWidget(pluginwidget);

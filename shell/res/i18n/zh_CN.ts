@@ -620,47 +620,47 @@
         <translation type="vanished">区域格式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="169"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="352"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="156"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="353"/>
         <source>Current Region</source>
         <translation>显示日期、时间和货币格式的区域</translation>
         <extra-contents_path>/Area/Current Region</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="363"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="350"/>
         <source>First Day Of The Week</source>
         <translation>一周的第一天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="277"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="354"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="264"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="355"/>
         <source>Calendar</source>
         <translation>日历</translation>
         <extra-contents_path>/Area/Calendar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="56"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="59"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="159"/>
         <source>Language Format</source>
         <translation>语言格式</translation>
         <extra-contents_path>/Area/Regional Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="446"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="358"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="433"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="359"/>
         <source>Date</source>
         <translation>日期</translation>
         <extra-contents_path>/Area/Date</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="529"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="360"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="516"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="361"/>
         <source>Time</source>
         <translation>时间</translation>
         <extra-contents_path>/Area/Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="602"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="589"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -673,7 +673,7 @@
         <translation type="vanished">区域格式数据</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="365"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="366"/>
         <source>lunar</source>
         <translation>农历</translation>
     </message>
@@ -698,12 +698,12 @@
         <translation type="vanished">显示日期、时间、货币格式的区域</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="216"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="217"/>
         <source>US</source>
         <translation>美国</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="164"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="165"/>
         <source>Language for system windows,menus and web pages</source>
         <translation>显示在系统窗口、菜单和网页的语言</translation>
     </message>
@@ -712,7 +712,7 @@
         <translation type="vanished">添加首语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.ui" line="568"/>
+        <location filename="../../../plugins/time-language/area/area.ui" line="555"/>
         <location filename="../../../plugins/time-language/area/area.cpp" line="161"/>
         <source>System Language</source>
         <translation>系统语言</translation>
@@ -723,48 +723,48 @@
         <translation type="vanished">简体中文</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="356"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="357"/>
         <source>First Day Of Week</source>
         <translation>一周的第一天</translation>
         <extra-contents_path>/Area/First Day Of Week</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="380"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="381"/>
         <source>12 Hours</source>
         <translation>12小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="381"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="382"/>
         <source>24 Hours</source>
         <translation>24小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="490"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="491"/>
         <source>Modify the current region need to logout to take effect, whether to logout?</source>
         <translation>修改当前区域需要注销后生效，是否注销?</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="491"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="492"/>
         <source>Logout later</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="492"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="493"/>
         <source>Logout now</source>
         <translation>立即注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="494"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="495"/>
         <source>Modify the first language need to reboot to take effect, whether to reboot?</source>
         <translation>修改首选语言需要重启后生效，是否重启?</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="495"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="496"/>
         <source>Reboot later</source>
         <translation>稍后重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="496"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="497"/>
         <source>Reboot now</source>
         <translation>立即重启</translation>
     </message>
@@ -805,7 +805,7 @@
         <translation type="vanished">显示语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="217"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="218"/>
         <source>CN</source>
         <translation>中国</translation>
     </message>
@@ -842,17 +842,17 @@
         <translation type="vanished">添加首语言</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="362"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="363"/>
         <source>solar calendar</source>
         <translation>公历</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="368"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="369"/>
         <source>monday</source>
         <translation>星期一</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="369"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="370"/>
         <source>sunday</source>
         <translation>星期天</translation>
     </message>
@@ -3042,37 +3042,37 @@ change system settings</source>
         <translation>时间日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="62"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="65"/>
         <source>current date</source>
         <translation>当前时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="318"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="240"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="321"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="241"/>
         <source>Change timezone</source>
         <translation>修改时区</translation>
         <extra-contents_path>/Date/Change time zone</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="441"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="602"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="444"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="620"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="472"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="479"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="481"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="510"/>
         <source>RadioButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="694"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="726"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="712"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="744"/>
         <source>:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="934"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.ui" line="952"/>
         <source>titleLabel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3089,10 +3089,8 @@ change system settings</source>
         <translation type="vanished">时间同步成功</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="771"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="780"/>
         <source>Sync from network failed</source>
-        <translation>时间同步失败</translation>
+        <translation type="vanished">时间同步失败</translation>
     </message>
     <message>
         <source>Change time</source>
@@ -3124,13 +3122,13 @@ change system settings</source>
         <translation>时间和日期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="160"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="153"/>
         <source>Other Timezone</source>
         <translation>其他时区时间</translation>
         <extra-contents_path>/Date/Other Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="174"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="167"/>
         <source>24-hour clock</source>
         <translation>24小时制</translation>
         <extra-contents_path>/Date/24-hour clock</extra-contents_path>
@@ -3148,13 +3146,13 @@ change system settings</source>
         <translation type="vanished">添加时区，最多添加５个</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="397"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="396"/>
         <source>Sync Server</source>
         <translation>同步服务器</translation>
         <extra-contents_path>/Date/Sync Server</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="575"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="573"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
@@ -3163,22 +3161,20 @@ change system settings</source>
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="196"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="253"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="254"/>
         <source>Manual Time</source>
         <translation>手动设置时间</translation>
         <extra-contents_path>/Date/Manual Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="176"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="252"/>
         <source>Sync Time</source>
-        <translation>同步时间</translation>
-        <extra-contents_path>/Date/Sync time</extra-contents_path>
+        <translation>自动同步时间</translation>
+        <extra-contents_path>/Date/Sync Time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="251"/>
         <source>Auto Sync Time</source>
-        <translation>自动同步时间</translation>
+        <translation type="vanished">自动同步时间</translation>
         <extra-contents_path>/Date/Auto Sync Time</extra-contents_path>
     </message>
     <message>
@@ -3186,46 +3182,69 @@ change system settings</source>
         <translation type="vanished">服务器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="399"/>
+        <source>Network</source>
+        <translation type="obsolete">网络</translation>
+        <extra-contents_path>/Date/Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="169"/>
+        <source>Set Time</source>
+        <translation>设置时间</translation>
+        <extra-contents_path>/Date/Set Time</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="197"/>
+        <source>Set Date Manually</source>
+        <translation>手动设置日期</translation>
+        <extra-contents_path>/Date/Set Date Manually</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="398"/>
         <source>Default</source>
         <translation>系统默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="401"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="400"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="411"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="410"/>
         <source>Server Address</source>
         <translation>服务器地址</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="416"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="415"/>
         <source>Required</source>
         <translation>必需</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="417"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="416"/>
         <source>Save</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="577"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="575"/>
         <source>Change Timezone</source>
-        <translation>更改时区</translation>
+        <translation>修改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="770"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="768"/>
         <source>  </source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="769"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="778"/>
+        <source>Sync failed</source>
+        <translation>同步失败</translation>
     </message>
     <message>
         <source>Sync network time</source>
         <translation type="vanished">同步网络时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="564"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="563"/>
         <source>change time</source>
         <translation>更改时间</translation>
     </message>
@@ -5535,7 +5554,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../mainwindow.cpp" line="349"/>
         <location filename="../../mainwindow.cpp" line="398"/>
-        <location filename="../../mainwindow.cpp" line="865"/>
+        <location filename="../../mainwindow.cpp" line="867"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -5579,12 +5598,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="978"/>
+        <location filename="../../mainwindow.cpp" line="980"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="978"/>
+        <location filename="../../mainwindow.cpp" line="980"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -8729,26 +8748,26 @@ E-mail: support@kylinos.cn</source>
         <translation>锁屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="77"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="80"/>
         <source>Screenlock Interface</source>
         <translation>锁屏界面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="445"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="448"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="120"/>
         <source>Browse</source>
         <translation>浏览</translation>
         <extra-contents_path>/Screenlock/Browse</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="452"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="455"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="122"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
         <extra-contents_path>/Screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="484"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="487"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="131"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
@@ -8759,14 +8778,14 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">锁屏设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="278"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="281"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
         <source>Lock screen when screensaver boot</source>
         <translation>激活屏保时锁定屏幕</translation>
         <extra-contents_path>/Screenlock/Lock screen when screensaver boot</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="361"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="364"/>
         <source>Lock screen delay</source>
         <translation>此时间段后锁屏</translation>
     </message>
@@ -8787,7 +8806,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">浏览本地壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="208"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="211"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="116"/>
         <source>Show picture of screenlock on screenlogin</source>
         <translation>显示锁屏壁纸在登录页面</translation>
@@ -10042,22 +10061,22 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>TimeZoneChooser</name>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="34"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="36"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="45"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="44"/>
         <source>Change time zone</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="69"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="68"/>
         <source>Search Timezone</source>
         <translation>搜索时区</translation>
     </message>
@@ -10066,7 +10085,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">搜索时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="124"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="132"/>
         <source>To select a time zone, please click where near you on the map and select a city from the nearest city</source>
         <translation>若要选择时区，请点击地图上靠近你所在的位置，从最接近的城市中选取一个城市</translation>
     </message>
@@ -10079,7 +10098,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="98"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="105"/>
         <source>Change Timezone</source>
         <translation>更改时区</translation>
     </message>
@@ -11137,12 +11156,12 @@ E-mail: support@kylinos.cn</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="154"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="152"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="154"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="152"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
@@ -11155,22 +11174,22 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">自定义颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>wallpaper</source>
         <translation>平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>scaled</source>
         <translation>填充</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
         <source>stretched</source>
         <translation>拉伸</translation>
     </message>
@@ -11183,48 +11202,48 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="479"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="477"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="479"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="477"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="519"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="561"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="517"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="559"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="520"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="562"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="518"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="560"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="521"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="563"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="519"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="561"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="522"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="520"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="562"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="523"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="565"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="521"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="563"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="524"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="566"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="522"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -11604,28 +11623,29 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">快捷键程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="103"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="155"/>
         <source>Exec</source>
-        <translation>打开程序</translation>
+        <translation>程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="154"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="193"/>
         <source>Open</source>
         <translation>浏览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="174"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="225"/>
         <source>Name</source>
-        <translation>快捷键名称</translation>
+        <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="214"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="264"/>
         <source>Key</source>
-        <translation>快捷按键</translation>
+        <translation>按键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="352"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="359"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="72"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="392"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="411"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11634,13 +11654,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">无效的可执行程序，请重新选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="422"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="252"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="461"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="260"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="441"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="480"/>
         <source>Save</source>
         <translation>确定</translation>
     </message>
@@ -11649,7 +11669,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="65"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="73"/>
         <source>Add custom shortcut</source>
         <translation>添加自定义快捷键</translation>
     </message>
@@ -11666,50 +11686,50 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">快捷键名称重复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="79"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="87"/>
         <source>Please enter a shortcut</source>
         <translation>请输入快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="244"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="252"/>
         <source>Desktop files(*.desktop)</source>
         <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="251"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="259"/>
         <source>select desktop</source>
         <translation>选择桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="273"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="292"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="303"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="281"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="300"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="311"/>
         <source>Invalid application</source>
         <translation>该应用不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="275"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="288"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="299"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="283"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="296"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="307"/>
         <source>Shortcut conflict</source>
         <translation>该快捷键组合已被占用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="277"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="290"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="301"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="285"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="298"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="309"/>
         <source>Invalid shortcut</source>
         <translation>该快捷键组合不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="279"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="286"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="305"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="287"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="294"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="313"/>
         <source>Name repetition</source>
         <translation>该快捷键名称重复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="311"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="319"/>
         <source>Unknown error</source>
         <translation>未知错误</translation>
     </message>

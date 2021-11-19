@@ -139,8 +139,6 @@ void Wallpaper::initSearchText() {
 
 void Wallpaper::setupComponent(){
 
-    ui->line_2->setHidden(true);
-
     QString name = qgetenv("USER");
     if (name.isEmpty()) {
         name = qgetenv("USERNAME");
