@@ -43,6 +43,7 @@ protected Q_SLOTS:
     void slotRotationChanged(int index);
     void slotRefreshRateChanged(int index);
     void slotScaleChanged(int index);
+    void slotEnableWidget();
 
 Q_SIGNALS:
     void changed();
