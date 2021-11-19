@@ -89,7 +89,8 @@ HomePageWidget::~HomePageWidget()
 }
 
 void HomePageWidget::initUI() {
-    FlowLayout * flowLayout = new FlowLayout(ui->scrollAreaWidgetContents_5, true,0);
+    FlowLayout * flowLayout = new FlowLayout(ui->scrollAreaWidgetContents_5, true, 0);
+    flowLayout->setContentsMargins(70, 0, 70, 0);
     mModuleMap = Utils::getModuleHideStatus();
 
     //构建枚举键值转换对象
@@ -133,8 +134,8 @@ void HomePageWidget::initUI() {
         QPushButton * widget = new QPushButton();
         QString moduleName = modulenameString;
         QString picModuleName = modulenameString;
-        widget->setMinimumWidth(320);
-        widget->setMinimumHeight(100);
+        widget->setMinimumWidth(300);
+        widget->setMinimumHeight(88);
         widget->setAttribute(Qt::WA_DeleteOnClose);
         widget->setProperty("useButtonPalette", true);
 
@@ -280,7 +281,6 @@ void HomePageWidget::initUI() {
         baseWidget->setLayout(baseVerLayout);
 
         flowLayout->addWidget(baseWidget);
-
     }
     connect(moduleSignalMapper, SIGNAL(mapped(QObject*)), pmainWindow, SLOT(functionBtnClicked(QObject*)));
 }
