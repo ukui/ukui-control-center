@@ -888,7 +888,8 @@ void Proxy::setAptProxySlot()
             line_7->hide();
             mAPTFrame_2->hide();
         }
-    } else if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){  //点击了编辑按钮，且在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
+    }
+    if (!aptsettings->get(APT_PROXY_ENABLED).toBool() && prestatus){  //点击了编辑按钮，且在设置IP和端口号的弹窗中，点击了取消或者关闭按钮
         aptsettings->set(APT_PROXY_ENABLED , true);
         line_7->show();
         mAPTFrame_2->show();
