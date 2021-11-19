@@ -613,9 +613,9 @@ void MainWindow::initLeftsideBar(){
             QLabel *typeLabel       = new QLabel(typeWidget);
             typeLabel->setStyleSheet("color: #818181");
             if (type != 0) {
-                typeLayout->setContentsMargins(28,20,0,0);
+                typeLayout->setContentsMargins(18,20,0,0);
             } else {
-                typeLayout->setContentsMargins(28,0,0,0);
+                typeLayout->setContentsMargins(18,0,0,0);
             }
             typeLayout->addWidget(typeLabel);
             typeLabel->setText(mnamei18nString);
@@ -653,7 +653,7 @@ void MainWindow::initLeftsideBar(){
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(14, 0, 0, 0);
+                pluginLayout->setContentsMargins(4, 0, 16, 0);
 //                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
@@ -702,13 +702,14 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     QPushButton * leftsidebarBtn = new QPushButton();
     leftsidebarBtn->setAttribute(Qt::WA_DeleteOnClose);
     leftsidebarBtn->setCheckable(true);
-    leftsidebarBtn->setFixedSize(200,40);  //一级菜单按钮显示的宽度
+    leftsidebarBtn->setFixedSize(220,40);  //一级菜单按钮显示的宽度
 
     IconButton * iconBtn = new IconButton(bname,leftsidebarBtn);
     iconBtn->setCheckable(true);
     iconBtn->setFixedSize(QSize(16, 16));
     iconBtn->setFocusPolicy(Qt::NoFocus);
     iconBtn->reLoadIcon();
+
     if (QGSettings::isSchemaInstalled("org.ukui.style")){
        QGSettings *qtSettings = new QGSettings("org.ukui.style");
        connect(qtSettings, &QGSettings::changed, this, [=](const QString &key) {
@@ -755,6 +756,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     leftMicBtnGroup->addButton(iconBtn, itype);
 
     connect(iconBtn, &QPushButton::toggled, this, [=] (bool checked) {
+        iconBtn->reLoadIcon();
         if (checked) {
             textLabel->setStyleSheet("color:white");
         } else {
