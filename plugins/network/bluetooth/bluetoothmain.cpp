@@ -83,7 +83,7 @@ void BlueToothMain::InitMainTopUI()
                            font-size: 18px;\
                            font-weight: 500;\
                            line-height: 25px;}");
-
+    label_1->setContentsMargins(16,0,0,0);
     QVBoxLayout *top_layout = new QVBoxLayout();
     top_layout->setSpacing(8);
     top_layout->setContentsMargins(0,0,0,0);
@@ -106,7 +106,7 @@ void BlueToothMain::InitMainTopUI()
     frame_1_layout->setContentsMargins(16,0,16,0);
 
     //~ contents_path /bluetooth/Turn on Bluetooth
-    label_2 = new QLabel(tr("Turn on :"),frame_1);
+    label_2 = new QLabel(tr("Local device :"),frame_1);
     label_2->setStyleSheet("QLabel{\
                            width: 56px;\
                            height: 20px;\
@@ -247,7 +247,7 @@ void BlueToothMain::InitMainMiddleUI()
                                 font-size: 18px;\
                                 font-weight: 500;\
                                 line-height: 25px;}");
-
+    middle_label->setContentsMargins(16,0,0,0);
     middle_layout->addWidget(middle_label,Qt::AlignTop);
     middle_layout->addLayout(paired_dev_layout,Qt::AlignTop);
 
@@ -268,7 +268,7 @@ void BlueToothMain::InitMainbottomUI()
                           font-size: 18px;\
                           font-weight: 500;\
                           line-height: 25px;}");
-
+    label_1->setContentsMargins(16,0,0,0);
     loadLabel = new QLabel(frame_bottom);
     loadLabel->setFixedSize(18,18);
 
@@ -841,8 +841,14 @@ void BlueToothMain::setTipTextSlot(int i)
 {
     if (i == 1) {
         tipTextLabel->setText(_tip1);
+        QPalette textLabelColor;
+        textLabelColor.setColor(QPalette::WindowText,Qt::red);
+        tipTextLabel->setPalette(textLabelColor);
     } else if (i == 2){
         tipTextLabel->setText(_tip2);
+        QPalette textLabelColor;
+        textLabelColor.setColor(QPalette::WindowText,Qt::red);
+        tipTextLabel->setPalette(textLabelColor);
     } else {
         tipTextLabel->clear();
     }

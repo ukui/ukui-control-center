@@ -71,3 +71,15 @@ HEADERS += \
 #        bluetooth.ui
 
 INSTALLS += target
+
+DISTFILES += \
+    icon-bluetooth/help.png \
+    icon-bluetooth/ukui-bluetooth-delete-selected.svg \
+    icon-bluetooth/ukui-bluetooth-delete.png \
+    icon-bluetooth/ukui-bluetooth-delete.svg \
+    icon-bluetooth/ukui-bluetooth-send-file-selected.svg \
+    icon-bluetooth/ukui-bluetooth-send-file.png \
+    icon-bluetooth/ukui-bluetooth-send-file.svg
+
+RESOURCES += \
+    image.qrc
