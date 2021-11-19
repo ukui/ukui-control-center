@@ -108,14 +108,13 @@ Widget::Widget(QWidget *parent) :
             "org.kde.kscreen.Backend",
             QDBusConnection::sessionBus());
 
-    QDBusInterface *usdDbus = new QDBusInterface("org.ukui.SettingsDaemon",
-                                       "/org/ukui/SettingsDaemon/xrandr",
-                                       "org.ukui.SettingsDaemon.xrandr",
-                                       QDBusConnection::sessionBus());
+    mUsdDbus = new QDBusInterface("org.ukui.SettingsDaemon",
+                                  "/org/ukui/SettingsDaemon/xrandr",
+                                  "org.ukui.SettingsDaemon.xrandr",
+                                  QDBusConnection::sessionBus(), this);
 
-    QDBusReply<int> reply = usdDbus->call("getScreenMode", "ukui-control-center");
+    QDBusReply<int> reply = mUsdDbus->call("getScreenMode", "ukui-control-center");
     (reply == USD_CLONE_MODE) ? mIscloneMode = true : mIscloneMode = false;
-    usdDbus->deleteLater();
 
     cpuArchitecture = Utils::getCpuArchitecture();
     qRegisterMetaType<QQuickView *>();
@@ -1021,24 +1020,23 @@ void Widget::setMulScreenVisiable()
 void Widget::initMultScreenStatus()
 {
     mMultiScreenCombox->blockSignals(true);
-    if (mIscloneMode) {
+    QDBusReply<int> reply = mUsdDbus->call("getScreenMode", "ukui-control-center");
+    int mode = reply.value();
+    switch (mode) {
+    case 0:
+        mMultiScreenCombox->setCurrentIndex(FIRST);
+        break;
+    case 1:
         mMultiScreenCombox->setCurrentIndex(CLONE);
-    } else {
-        int enableCount = 0;
-        KScreen::OutputList screens = mConfig->connectedOutputs();
-        Q_FOREACH(KScreen::OutputPtr output, screens) {
-            if (output->isEnabled()) {
-                enableCount++;
-            }
-        }
-
-        if (enableCount >= 2) {
-            mMultiScreenCombox->setCurrentIndex(EXTEND);
-        } else if (screens.count() > 0 && screens.begin().value()->isEnabled()) {
-            mMultiScreenCombox->setCurrentIndex(FIRST);
-        } else {
-            mMultiScreenCombox->setCurrentIndex(VICE);
-        }
+        break;
+    case 2:
+        mMultiScreenCombox->setCurrentIndex(EXTEND);
+        break;
+    case 3:
+        mMultiScreenCombox->setCurrentIndex(VICE);
+        break;
+    default:
+        break;
     }
     mMultiScreenCombox->blockSignals(false);
 }
@@ -1482,30 +1480,24 @@ void Widget::setActiveScreen(QString status)
 
 void Widget::setMultiScreenSlot(int index)
 {
-    if (FIRST == index) {
-        if (!mIscloneMode) {
-            setPreScreenCfg(mConfig->connectedOutputs());
-        }
-        mIscloneMode = false;
-        slotUnifyOutputs();
-        setScreenKDS("first");
-    } else if (CLONE == index) {
-        mIscloneMode = true;
-        slotUnifyOutputs();
-        setScreenKDS("clone");
-    } else if (EXTEND == index) {
-        mIscloneMode = false;
-        slotUnifyOutputs();
-        setScreenKDS("expand");
-    } else {
-        if (!mIscloneMode) {
-            setPreScreenCfg(mConfig->connectedOutputs());
-        }
-        mIscloneMode = false;
-        slotUnifyOutputs();
-        setScreenKDS("second");
+    QString mode;
+    switch (index) {
+    case 0:
+        mode = "firstScreenMode";
+        break;
+    case 1:
+        mode = "secondScreenMode";
+        break;
+    case 2:
+        mode = "extendScreenMode";
+        break;
+    case 3:
+        mode = "cloneScreenMode";
+        break;
+    default:
+        break;
     }
-    delayApply();
+    mUsdDbus->call("setScreenMode", mode, "ukui-control-center");
 }
 
 void Widget::delayApply()
@@ -1527,6 +1519,7 @@ void Widget::save()
     }
 
     const KScreen::ConfigPtr &config = this->currentConfig();
+    qDebug() << Q_FUNC_INFO << config->connectedOutputs();
 
     bool atLeastOneEnabledOutput = false;
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {

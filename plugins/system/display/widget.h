@@ -267,6 +267,7 @@ private:
 
     QSharedPointer<QDBusInterface> mUPowerInterface;
     QSharedPointer<QDBusInterface> mUkccInterface;
+    QDBusInterface *mUsdDbus;
 
     QHash<QString, QVariant> mNightConfig;
 
@@ -304,6 +305,7 @@ private:
     QString mOutputClickedName;
     QDBusInterface *dbusEdid = nullptr;
     QString cpuArchitecture = "";
+    int mUDStatus;
     bool mIscloneMode = false;
 };
 
