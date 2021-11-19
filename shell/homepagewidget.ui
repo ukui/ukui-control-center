@@ -44,7 +44,7 @@
        <height>16777215</height>
       </size>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,22,1">
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="22">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -61,23 +61,13 @@
        <number>0</number>
       </property>
       <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="maximumSize">
          <size>
-          <width>70</width>
-          <height>20</height>
+          <width>1500</width>
+          <height>16777215</height>
          </size>
         </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QScrollArea" name="scrollArea">
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
@@ -86,7 +76,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>751</width>
+           <width>819</width>
            <height>511</height>
           </rect>
          </property>
@@ -98,22 +88,6 @@
          </property>
         </widget>
        </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>70</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </widget>
