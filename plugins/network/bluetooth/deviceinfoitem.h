@@ -44,7 +44,7 @@ public:
         Nomal,
 
     };
-    Q_ENUM(Status);
+    Q_ENUM(Status)
 
     enum DEVSTATUS{
         Connected,
@@ -55,7 +55,7 @@ public:
         NoPaired,
         Paired,
     };
-    Q_ENUM(DEVSTATUS);
+    Q_ENUM(DEVSTATUS)
 
     DeviceInfoItem(QWidget *parent = nullptr,BluezQt::DevicePtr dev = nullptr);
     ~DeviceInfoItem();

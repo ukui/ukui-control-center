@@ -1,6 +1,8 @@
 #include "deviceinfoitem.h"
 #include <QStyle>
 
+#include "msgbox.h"
+
 DeviceInfoItem::DeviceInfoItem(QWidget *parent, BluezQt::DevicePtr dev):
     QFrame(parent),
     _MDev(dev)
@@ -124,36 +126,14 @@ void DeviceInfoItem::MenuSignalDeviceFunction(QAction *action)
     }
     else if(action->text() == tr("Remove"))
     {
-        QPushButton * cancel_btn = new QPushButton(tr("cancel"));
-        QPushButton * remove_btn = new QPushButton(tr("remove"));
-        QMessageBox * removeBox = new QMessageBox;
-        QIcon icon;
-        icon = QIcon::fromTheme("bluetooth");
-        removeBox->setIcon(QMessageBox::Warning);
-        removeBox->setWindowIcon(icon);
-
-        QString title_text = tr("Sure to remove,")+devName+"?";
-        removeBox->setWindowTitle(title_text);
-        removeBox->setText(tr("After removal, the next connection requires matching PIN code!"));
-        removeBox->addButton(cancel_btn,QMessageBox::ButtonRole::RejectRole);
-        removeBox->addButton(remove_btn,QMessageBox::ButtonRole::AcceptRole);
-
-
-
-        removeBox->show();
-        removeBox->exec();
-
-        if (removeBox->clickedButton() == remove_btn)
-        {
+        MsgBox *box = new MsgBox(this,devName);
+        connect(box,&MsgBox::accepted,this,[=]{
             qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Remove" << __LINE__;
-//            emit devRemove(_MDev.data()->address());
             BluezQt::AdapterPtr ptr = _MDev.data()->adapter();
             ptr.data()->removeDevice(_MDev);
-        }
-        else
-        {
-            qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Cancel" << __LINE__;
-        }
+        });
+
+        box->exec();
     }
 }
 

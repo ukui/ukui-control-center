@@ -51,19 +51,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     bluetooth.cpp \
     bluetoothmain.cpp \
-    bluetoothnamelabel.cpp \
+#    bluetoothnamelabel.cpp \
     customizenamelabel.cpp \
     deviceinfoitem.cpp \
-    loadinglabel.cpp
+    loadinglabel.cpp \
+    msgbox.cpp
 
 HEADERS += \
     bluetooth.h \
     bluetoothmain.h \
-    bluetoothnamelabel.h \
+#    bluetoothnamelabel.h \
     config.h \
     customizenamelabel.h \
     deviceinfoitem.h \
-    loadinglabel.h \
+    loadinglabel.h \ \
+    msgbox.h
 
 #RESOURCES += \
 #    res/img.qrc
