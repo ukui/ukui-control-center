@@ -137,12 +137,7 @@ void InternalStyle::polish(QWidget *widget)
         auto pal = qApp->palette();
         pal.setColor(QPalette::Base, pal.alternateBase().color());
         widget->setPalette(pal);
-    }
-
-    // 跳过左侧边栏处理
-    if (widget && widget->objectName() == "leftsidebarWidget") {
-
-    } else if (widget){
+    } else if (qobject_cast<QDialog *>(widget)) {
         QPalette paltte = widget->palette();
         paltte.setColor(QPalette::Window, paltte.base().color());
         widget->setPalette(paltte);
