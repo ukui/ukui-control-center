@@ -423,14 +423,32 @@ void DeviceInfoItem::MouseClickedDevFunc()
     dev_Menu->setMinimumWidth(180);
 
     if (-1 != _MDev.data()->uuids().indexOf(BluezQt::Services::ObexObjectPush)) {
-        QAction *sendfile = new QAction(dev_Menu);
-        sendfile->setText(tr("Send files"));
+        QAction *sendfile = nullptr;
+        if (_themeIsBlack) {
+            QIcon sendfileIcon;
+            sendfileIcon.addFile(":/image/icon-bluetooth/ukui-bluetooth-send-file.png");
+            sendfile= new QAction(sendfileIcon.pixmap(18,18),tr("Send files"),dev_Menu);
+        } else {
+            QIcon sendfileIcon;
+            sendfileIcon.addFile(":/image/icon-bluetooth/ukui-bluetooth-send-file.png");
+            sendfile= new QAction(sendfileIcon.pixmap(18,18),tr("Send files"),dev_Menu);
+
+        }
         dev_Menu->addAction(sendfile);
         dev_Menu->addSeparator();
     }
 
-    QAction *remove = new QAction(dev_Menu);
-    remove->setText(tr("Remove"));
+    QAction *remove = nullptr;
+    if (_themeIsBlack) {
+        QIcon sendfileIcon;
+        sendfileIcon.addFile(":/image/icon-bluetooth/ukui-bluetooth-delete-selected.svg");
+        remove= new QAction(sendfileIcon.pixmap(18,18),tr("remove"),dev_Menu);
+    } else {
+        QIcon sendfileIcon;
+        sendfileIcon.addFile(":/image/icon-bluetooth/ukui-bluetooth-delete.png");
+        remove= new QAction(sendfileIcon.pixmap(18,18),tr("remove"),dev_Menu);
+    }
+    //remove->setText(tr("Remove"));
     dev_Menu->addAction(remove);
 
     dev_Menu->move(qAbs(sreenPoint.x())+this->width()-200,qAbs(sreenPoint.y())+this->y()+40);

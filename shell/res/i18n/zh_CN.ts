@@ -619,9 +619,14 @@ you can restore them to ensure the integrity of your system.</source>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="109"/>
         <source>Turn on :</source>
-        <translation>开启</translation>
+        <translation type="vanished">开启</translation>
+        <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="109"/>
+        <source>Local device :</source>
+        <translation>本机设备：</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
@@ -1925,13 +1930,13 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="120"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="427"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="430"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="434"/>
         <source>Send files</source>
         <translation>发送文件</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="125"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="433"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
@@ -1942,6 +1947,8 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="128"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="445"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="449"/>
         <source>remove</source>
         <translation>移除</translation>
     </message>
@@ -5947,10 +5954,10 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">加载声音失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2547"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2735"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2820"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2829"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2543"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2731"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2816"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2825"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
