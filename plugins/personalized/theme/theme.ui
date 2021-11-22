@@ -73,7 +73,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Theme Mode</string>
+           <string>Window Theme</string>
           </property>
          </widget>
         </item>

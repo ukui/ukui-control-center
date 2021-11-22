@@ -166,8 +166,8 @@ bool Theme::isEnable() const
 }
 
 void Theme::initSearchText() {
-    //~ contents_path /Theme/Theme Mode
-    ui->titleLabel->setText(tr("Theme Mode"));
+    //~ contents_path /Theme/Window Theme
+    ui->titleLabel->setText(tr("Window Theme"));
     //~ contents_path /Theme/Icon theme
     ui->iconLabel->setText(tr("Icon theme"));
     //~ contents_path /Theme/Cursor theme
