@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>1049</height>
+    <width>684</width>
+    <height>552</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -42,10 +42,10 @@
     <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>24</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>16</number>
+    <number>0</number>
    </property>
    <item>
     <widget class="TitleLabel" name="titleLabel">
@@ -500,22 +500,6 @@
      </layout>
     </widget>
    </item>
-   <item>
-    <spacer name="verticalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Expanding</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
@@ -526,15 +510,15 @@
    <header>Label/titlelabel.h</header>
   </customwidget>
   <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>Label/fixlabel.h</header>
+  </customwidget>
+  <customwidget>
    <class>PreviewWidget</class>
    <extends>QWidget</extends>
    <header>screensaver.h</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>FixLabel</class>
-   <extends>QLabel</extends>
-   <header>Label/fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

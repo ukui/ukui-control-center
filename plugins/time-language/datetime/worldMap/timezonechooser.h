@@ -43,6 +43,7 @@ private:
     TimezoneMap* m_map;
     QLineEdit* m_searchInput;
     QLabel      *m_title;
+    QLabel      *m_logo;
     QPushButton *m_cancelBtn;
     QPushButton *m_confirmBtn;
     QPushButton *m_closeBtn;

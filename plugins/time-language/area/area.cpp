@@ -161,6 +161,7 @@ void Area::initUI() {
     ui->title3Label->setText(tr("System Language"));
 
     ui->summaryLabel->setContentsMargins(16,0,0,0);
+    ui->summaryLabel->setEnabled(false);
     ui->summaryLabel->setText(tr("Language for system windows,menus and web pages"));
     ui->summaryLabel->setVisible(true);
 

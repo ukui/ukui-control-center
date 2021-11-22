@@ -68,10 +68,9 @@ void TimezoneMap::initUI() {
     m_dot = new QLabel(this->parentWidget());
     QPixmap dotPixmap(dotFile);
     Q_ASSERT(!dotPixmap.isNull());
+    m_dot->setPixmap(dotPixmap.scaled(8,8,Qt::KeepAspectRatio));
 
-
-    m_dot->setPixmap(dotPixmap);
-    m_dot->setFixedSize(dotPixmap.size());
+    m_dot->setFixedSize(8, 8);
     m_dot->hide();
 
 

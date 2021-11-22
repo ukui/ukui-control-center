@@ -14,7 +14,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QtCore/qmath.h>
 #include <QDialog>
-
+#include <QGSettings>
 #include "ImageUtil/imageutil.h"
 
 const QString kcnBj = "北京";
@@ -26,15 +26,14 @@ extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int tran
 TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
 {
     m_map = new TimezoneMap(this);
-    m_map->show();
+//    m_map->show();
     m_zoneinfo = new ZoneInfo;
     m_searchInput = new QLineEdit(this);
     m_title = new QLabel(this);
+    m_logo = new QLabel(this);
     m_closeBtn = new QPushButton(this);
     m_cancelBtn = new QPushButton(tr("Cancel"));
     m_confirmBtn = new QPushButton(tr("Confirm"));
-
-
 
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);//无边框
     setAttribute(Qt::WA_DeleteOnClose);
@@ -94,6 +93,14 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     m_closeBtn->setProperty("isWindowButton", 0x2);
     m_closeBtn->setProperty("useIconHighlightEffect", 0x08);
 
+    m_logo->setFixedSize(24,24);
+    m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+    const QByteArray id("org.ukui.style");
+    QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
+    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
+        if (key == "iconThemeName")
+            m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+    });
     m_title->setObjectName("titleLabel");
     m_title->setText(tr("Change Timezone"));
     m_title->setAlignment(Qt::AlignTop);
@@ -105,6 +112,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
 
     QHBoxLayout *wbLayout = new QHBoxLayout(wbFrame);
     wbLayout->setContentsMargins(16,15,16,0);
+    wbLayout->addWidget(m_logo);
     wbLayout->addWidget(m_title);
     wbLayout->addStretch();
     wbLayout->addWidget(m_closeBtn);
@@ -114,7 +122,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     btnlayout->addWidget(m_cancelBtn);
     btnlayout->addSpacing(5);
     btnlayout->addWidget(m_confirmBtn);
-    btnlayout->addStretch();
+    btnlayout->addSpacing(36);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setContentsMargins(0,0,0,0);
@@ -294,13 +302,13 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
 
 //获取适合屏幕的地图大小
 QSize TimeZoneChooser::getFitSize(){
-    const QDesktopWidget *desktop = QApplication::desktop();
-    const QRect primaryRect = desktop->availableGeometry(desktop->primaryScreen());
+    // const QDesktopWidget *desktop = QApplication::desktop();
+    // const QRect primaryRect = desktop->availableGeometry(desktop->primaryScreen());
 
-    double width = primaryRect.width() - 360/* dcc */ - 20 * 2;
-    double height = primaryRect.height() - 70/* dock */ - 20 * 2;
+    // double width = primaryRect.width() - 360/* dcc */ - 20 * 2;
+    // double height = primaryRect.height() - 70/* dock */ - 20 * 2;
 
-    return QSize(width,height);
+    return QSize(980, 660);
 }
 
 
@@ -312,7 +320,7 @@ void TimeZoneChooser::initSize(){
     double MapPictureHeight = 500.0;
 
     const QSize fitSize = getFitSize();
-    setFixedSize(fitSize.width(), fitSize.height());
+   setFixedSize(fitSize.width(), fitSize.height());
 
     const float mapWidth = qMin(MapPixWidth, fitSize.width() - 20 * 2.0);
     const float mapHeight = qMin(MapPixHeight, fitSize.height() - 20 * 2/*paddings*/ - 36 * 2/*buttons*/ - 10/*button spacing*/ - 40 * 3.0 /*spacings*/ - 30/*title*/ -  20 * 2/*top bottom margin*/);

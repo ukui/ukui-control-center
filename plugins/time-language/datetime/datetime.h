@@ -104,7 +104,7 @@ public:
     bool getSyncStatus();
 
 public:
-    QLabel       *syncNetworkRetLabel = nullptr;
+    FixLabel       *syncNetworkRetLabel = nullptr;
     SwitchButton *syncTimeBtn         = nullptr; //网络时间同步按钮
 
 private:
