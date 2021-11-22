@@ -135,7 +135,7 @@ void HomePageWidget::initUI() {
         QString moduleName = modulenameString;
         QString picModuleName = modulenameString;
         widget->setMinimumWidth(300);
-        widget->setMinimumHeight(88);
+        widget->setMinimumHeight(97);
         widget->setAttribute(Qt::WA_DeleteOnClose);
         widget->setProperty("useButtonPalette", true);
 
