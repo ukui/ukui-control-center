@@ -758,8 +758,8 @@ void TabWid::allComponents()
     //    updatesettingLayout->setSpacing(2);
     //    updatesettingLayout->setMargin(0);
 //    updatesettingLayout->addWidget(DownloadVWidget);
-    updatesettingLayout->setSpacing(2);
-    updatesettingLayout->setMargin(0);
+//    updatesettingLayout->setSpacing(2);
+//    updatesettingLayout->setMargin(0);
 
     AppMessage->addWidget(labUpdate);
     AppMessage->addWidget(systemWidget);
