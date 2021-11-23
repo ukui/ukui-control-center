@@ -52,7 +52,7 @@ void HostNameDialog::InitUi()
 
 
     QFrame *mInputPwdFrame_1 = new QFrame(this);
-    mInputPwdFrame_1->setFixedSize(432, 36);
+    mInputPwdFrame_1->setFixedWidth(432);
     mInputPwdFrame_1->setFrameShape(QFrame::Box);
 
     QHBoxLayout *mLyt_2= new QHBoxLayout(mInputPwdFrame_1);
@@ -60,11 +60,11 @@ void HostNameDialog::InitUi()
     mLyt_2->setSpacing(16);
 
     mCancelBtn = new QPushButton(mInputPwdFrame_1);
-    mCancelBtn->setFixedSize(120, 36);
+    mCancelBtn->setMinimumWidth(96);
     mCancelBtn->setText(tr("Cancel"));
 
     mConfirmBtn = new QPushButton(mInputPwdFrame_1);
-    mConfirmBtn->setFixedSize(120, 36);
+    mConfirmBtn->setMinimumWidth(96);
     mConfirmBtn->setText(tr("Confirm"));
 
     mLyt_2->addStretch();
