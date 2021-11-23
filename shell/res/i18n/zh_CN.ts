@@ -6948,7 +6948,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/about/privacydialog.cpp" line="11"/>
         <source>Set</source>
-        <translation type="unfinished">系统设置</translation>
+        <translation>系统设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/privacydialog.cpp" line="26"/>
