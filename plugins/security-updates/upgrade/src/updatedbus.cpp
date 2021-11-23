@@ -48,12 +48,45 @@ UpdateDbus::UpdateDbus(QObject *parent)
     setImportantStatus(true);
 
 }
-
-bool UpdateDbus::Check_Authority(QString msg)
+void UpdateDbus::disconnectDbusSignal()
 {
-    replyBool = interface->call("check_authority",msg);
-    qDebug()<<"check authority result:"<<replyBool.value();
-    return replyBool.value();
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("kum_apt_signal"), this, SLOT(getAptSignal(QString, QMap<QString, QVariant>)));
+
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("important_app_message_signal"), this, SLOT(getAppMessageSignal(QMap<QString, QVariant>, QStringList, QStringList, QStringList, QStringList, QString, bool)));
+
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("get_message_finished_signal"), this, SLOT(slotFinishGetMessage(QString)));
+
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("copy_finish"), this, SLOT(slotCopyFinished(QString)));
+}
+void UpdateDbus::SetDownloadLimit(QString value,bool whetherlimit)
+{
+    interface->call("set_downloadspeed_max",value,whetherlimit);
+}
+
+int UpdateDbus::GetDownloadLimit(void)
+{
+    QDBusPendingReply<int> reply = interface->call("get_downloadspeed_limit_value");
+    if (!reply.isValid())
+    {
+        qDebug()<<"error getting download speed limit value";
+        return -1;
+    }
+    if (reply.argumentAt(0)==true)
+    {
+        return reply.argumentAt(1).toInt();
+    }
+    else
+    {
+        return -2;
+    }
 }
 
 void UpdateDbus::onRequestSendDesktopNotify(QString message)
@@ -62,8 +95,12 @@ void UpdateDbus::onRequestSendDesktopNotify(QString message)
                          "/org/freedesktop/Notifications",
                          "org.freedesktop.Notifications",
                          QDBusConnection::sessionBus());
+    if (!notifyMsg.compare(message)) {
+        return ;
+    }
+    notifyMsg = message;
     QList<QVariant> args;
-    args<<(tr("ukui-control-center"))
+    args<<(tr("System-Upgrade"))
        <<((unsigned int) 0)
       <<("ukui-control-center")
      <<tr("ukui-control-center-update") //显示的是什么类型的信息  控制面板-更新提示
@@ -128,6 +165,7 @@ void UpdateDbus::fileUnLock()
         return;
     }
     flock(fd, LOCK_UN);
+    system("rm /tmp/lock/kylin-update.lock");
 }
 
 void UpdateDbus::slotFinishGetMessage(QString num)
@@ -311,7 +349,6 @@ void UpdateDbus::getAptSignal(QString arg, QMap<QString, QVariant> map)
     aptStatus = arg;
 
     qDebug() << "安装状态" << arg;
-
 
     QVariantMap::Iterator it;
     for (it = map.begin(); it != map.end(); ++it) {

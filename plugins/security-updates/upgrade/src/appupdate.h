@@ -54,9 +54,7 @@ public:
     QString setDefaultDescription(QString str); //将虚包包名汉化
     void updateOneApp();  //控制更新单个app
     QString dispalyName;
-    AppAllMsg appAllMsg;
 private:
-    bool isUpdateAll =false;
     bool isCancel = true;
     bool firstDownload = true;
     long downSize = 0;
@@ -70,6 +68,7 @@ private:
     QString currentPackage;
     QStringList downloadList;
     QStringList downloadPackages;
+    AppAllMsg appAllMsg;
     QProcess *downloadProcess;
     QProcess *workProcess;
     QTimer *timer;
@@ -78,11 +77,17 @@ private:
 
     bool execFun = true;
 
+public:
+    bool isUpdateAll = false;
+    bool isAutoUpgrade = false;
+    bool haveThemeIcon = false;
+
+
 public slots:
     void showDetails();
     void showUpdateLog();
     void cancelOrUpdate();
-    void pre_update();
+
     void showInstallStatues(QString status, QString appAptName, float progress, QString errormsg);
     void showDownloadStatues(QString downloadSpeed, int progress);
 
@@ -104,6 +109,8 @@ private:
     QStringList analysis_config_file(char *p_file_path);
     void remove_last_enter(char *p_src_in_out);
 
+    QMap<QString, QString> getNameAndIconFromJson(QString pkgname);
+
     enum Environment{
         en,
         zh_cn
@@ -113,10 +120,11 @@ signals:
     void startWork(QString appName);
     void startMove(QStringList list, QString appName);
     void hideUpdateBtnSignal(bool isSucceed);
-    void changeUpdateAllSignal();
+    void changeUpdateAllSignal(bool isUpdate);
     void downloadFailedSignal(int exitCode);  //网络异常或者其他情况下下载失败时
     void filelockedSignal();
     void cancel();
+    void sendProgress(QString pkgName, int Progress, QString type);
 
 
 //    void aptFinish();
@@ -124,6 +132,7 @@ private:
     void updateAppUi(QString name);
     QString translationVirtualPackage(QString str);
     QString pkgIconPath = "";
+    bool get_battery();
 };
 
 #endif // APPUPDATE_H

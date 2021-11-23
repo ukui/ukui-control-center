@@ -34,6 +34,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include<sys/file.h>
 #include <pwd.h>
 #include "traybusthread.h"
 
@@ -59,8 +60,7 @@ public:
     QDBusReply<QStringList> replyStrList;
     QDBusReply<int> replyInt; //int类型的返回值
     QDBusInterface *interface1;
-    //check authority
-    bool Check_Authority(QString);
+
     //拷贝软件包到安装目录
     void copyFinsh(QStringList srcPath,QString appName);
     //创建root目录
@@ -82,6 +82,8 @@ public:
 //    bool makeDirs(QString path);
 //dbus接口函数定义完毕
     //
+    void SetDownloadLimit(QString,bool);
+    int GetDownloadLimit(void);
     void onRequestSendDesktopNotify(QString message);
     QStringList inameList;  //重要更新列表
     QStringList importantList;
@@ -89,11 +91,14 @@ public:
     int importantSize = 0;
     bool isPointOutNotBackup = true; //是否在单包更新时弹出提示未备份
 
+    QString notifyMsg = "";
+
 
     bool fileLock();
     void fileUnLock();
     //调用接口插入数据库
     void insertInstallStates(QString item, QString info);
+    void disconnectDbusSignal();
 signals:
     void copyFinish(QString appName);
     void transferAptProgress(QString status,QString appName,float aptPercent,QString errormsg);
@@ -101,6 +106,7 @@ signals:
     void sendAppMessageSignal(AppAllMsg msg);
 //    void emitInameList(QStringList list);
     void sendFinishGetMsgSignal(int size);
+    void sendUpdateSize(long size);
 
 public slots:
     void getAptSignal(QString arg, QMap<QString, QVariant> map);

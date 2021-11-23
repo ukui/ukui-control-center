@@ -84,13 +84,15 @@ int BackUp::needBacdUp()
 
 void BackUp::sendRate(int sta,int pro)
 {
+    qDebug() << "-------------------正在备份！！！！";
+    qDebug()<<"状态码:"<<sta<<"  进度："<<pro<<"%";
+
     if (sta == int(backuptools::backup_state::DU_ING)) {
         emit calCapacity();
         return;
     }
     if(!setProgress)
         return;
-    qDebug()<<"状态码:"<<sta<<"  进度："<<pro<<"%";
     if(sta!=int(backuptools::backup_state::FULL_BACKUP_SYS)
             &&sta!=int(backuptools::backup_state::FULL_BACKUP_SYSUPDATE)
             &&sta!=int(backuptools::backup_state::INC_BACKUP_SYS)
@@ -101,7 +103,6 @@ void BackUp::sendRate(int sta,int pro)
         emit bakeupFinish(sta);
         return;
     }
-
 #if 1
     //rsync进程未正常完成(比如被强制中断)
     if (pro == -1) {
@@ -120,6 +121,7 @@ void BackUp::sendRate(int sta,int pro)
 
 void BackUp::receiveStartBackupResult(int result)
 {
+
     if (result == int(backuptools::backup_result::BACKUP_START_SUCCESS))
         setProgress = true;
     emit backupStartRestult(result);
@@ -138,6 +140,7 @@ void BackUp::startBackUp(int num)
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(timeStamp) << QVariant::fromValue(create_note) << QVariant::fromValue(inc_note)
                      << QVariant::fromValue(userName) << QVariant::fromValue(uid);
+        qDebug() << argumentList;
         interface->asyncCallWithArgumentList(QStringLiteral("autoBackUpForSystemUpdate_noreturn"), argumentList);
     }
 }
@@ -219,7 +222,7 @@ bool BackUp::readBackToolInfo()
     {
         qDebug()<<"备份还原接口异常";
     }
-    if(list.at(0).toString()!=timeStamp)
+    if(list.at(0).toString()!= timeStamp)
     {
         qDebug()<<"未找到相同版本备份镜像，需要备份";
         return true;
