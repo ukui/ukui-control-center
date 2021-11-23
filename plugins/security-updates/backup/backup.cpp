@@ -37,21 +37,13 @@ extern "C" {
 
 Backup::Backup() : mFirstLoad(true)
 {
-    ui = new Ui::Backup;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-
     pluginName = tr("Backup");
     pluginType = UPDATE;
 }
 
 Backup::~Backup()
 {
-    if (!mFirstLoad) {
-        delete ui;
-        ui = nullptr;
-    }
+
 }
 
 QString Backup::plugini18nName()
@@ -68,6 +60,9 @@ QWidget *Backup::pluginUi()
 {
     if (mFirstLoad) {
         mFirstLoad = false;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        initUi(pluginWidget);
         initTitleLabel();
         initConnection();
     }
@@ -94,35 +89,94 @@ bool Backup::isEnable() const
     return true;
 }
 
+void Backup::initUi(QWidget *widget)
+{
+    QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
+    mverticalLayout->setSpacing(8);
+
+    mTitleLabel = new TitleLabel(widget);
+
+    QFrame *mBackFrame = new QFrame(widget);
+    mBackFrame->setMinimumSize(QSize(550, 80));
+    mBackFrame->setMaximumSize(QSize(16777215, 80));
+    mBackFrame->setFrameShape(QFrame::Box);
+    QHBoxLayout *mBackLayout = new QHBoxLayout(mBackFrame);
+    mBackLayout->setContentsMargins(16, 0, 16, 0);
+    mBackLayout->setSpacing(48);
+    mBackBtn = new QPushButton(mBackFrame);
+    mBackBtn->setFixedWidth(120);
+    FixLabel *mBackLabel_1 = new FixLabel(tr("Backup") , mBackFrame);
+    mBackLabel_1->setContentsMargins(0 , 12 , 0 , 0);
+    FixLabel *mBackLabel_2 = new FixLabel(tr("Back up your files to other drives and restore them when the source files are lost, "
+                                                                                             "damaged, or deleted to ensure the integrity of the system.") , mBackFrame);
+    mBackLabel_2->setContentsMargins(0 , 0 , 0 , 12);
+    mBackLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
+    QVBoxLayout *mverticalLayout_1 = new QVBoxLayout;
+    mverticalLayout_1->setSpacing(0);
+    mverticalLayout_1->setContentsMargins(0 , 0 , 0 , 0);
+    mverticalLayout_1->addWidget(mBackLabel_1);
+    mverticalLayout_1->addWidget(mBackLabel_2 );
+
+    mBackLayout->addLayout(mverticalLayout_1);
+    mBackLayout->addWidget(mBackBtn);
+
+    QFrame *mRestoreFrame = new QFrame(widget);
+    mRestoreFrame->setMinimumSize(QSize(550, 80));
+    mRestoreFrame->setMaximumSize(QSize(16777215, 80));
+    mRestoreFrame->setFrameShape(QFrame::Box);
+    QHBoxLayout *mRestoreLayout = new QHBoxLayout(mRestoreFrame);
+    mRestoreLayout->setContentsMargins(16, 0, 16, 0);
+    mRestoreLayout->setSpacing(48);
+    mRestoreBtn = new QPushButton(mRestoreFrame);
+    mRestoreBtn->setFixedWidth(120);
+    FixLabel *mRestoreLabel_1 = new FixLabel(tr("Restore") , mRestoreFrame);
+    mRestoreLabel_1->setContentsMargins(0 , 12 , 0 , 0);
+    FixLabel *mRestoreLabel_2 = new FixLabel(tr("View the backup list and restore the backup file to the system") , mRestoreFrame);
+    mRestoreLabel_2->setContentsMargins(0 , 0 , 0 , 12);
+    mRestoreLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
+    QVBoxLayout *mverticalLayout_2 = new QVBoxLayout;
+    mverticalLayout_2->setSpacing(0);
+    mverticalLayout_2->setContentsMargins(0 , 0 , 0 , 0);
+    mverticalLayout_2->addWidget(mRestoreLabel_1);
+    mverticalLayout_2->addWidget(mRestoreLabel_2 );
+
+    mRestoreLayout->addLayout(mverticalLayout_2);
+    mRestoreLayout->addWidget(mRestoreBtn);
+
+    mverticalLayout->addWidget(mTitleLabel);
+    mverticalLayout->addWidget(mBackFrame);
+    mverticalLayout->addWidget(mRestoreFrame);
+    mverticalLayout->addStretch();
+}
+
 void Backup::initTitleLabel()
 {
-    ui->titleLabel->setText(tr("Backup"));
-    ui->title2Label->setText(tr("Restore"));
+    mTitleLabel->setText(tr("Backup and Restore"));
      //~ contents_path /Backup/Begin backup
-    ui->backBtn->setText(tr("Begin backup"));
+    mBackBtn->setText(tr("Begin backup"));
      //~ contents_path /Backup/Begin restore
-    ui->restoreBtn->setText(tr("Begin restore"));
+    mRestoreBtn->setText(tr("Begin restore"));
 }
 
 void Backup::initConnection()
 {
     if (Utils::isCommunity()) {
-        connect(ui->backBtn, &QPushButton::clicked, this, [=](bool checked){
+        connect(mBackBtn, &QPushButton::clicked, this, [=](bool checked){
             Q_UNUSED(checked)
             communitySlot();
         });
 
-        connect(ui->restoreBtn, &QPushButton::clicked, this, [=](bool checked){
+        connect(mRestoreBtn, &QPushButton::clicked, this, [=](bool checked){
             Q_UNUSED(checked)
             communitySlot();
         });
     } else {
-        connect(ui->backBtn, &QPushButton::clicked, this, [=](bool checked){
+        connect(mBackBtn, &QPushButton::clicked, this, [=](bool checked){
             Q_UNUSED(checked)
             btnClickedSlot();
         });
 
-        connect(ui->restoreBtn, &QPushButton::clicked, this, [=](bool checked){
+        connect(mRestoreBtn, &QPushButton::clicked, this, [=](bool checked){
             Q_UNUSED(checked)
             restoreSlot();
         });

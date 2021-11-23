@@ -402,7 +402,7 @@ void About::initUI(QWidget *widget)
     FixLabel *mPriLabel_2 = new FixLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
     mPriLabel_2->setFixedHeight(24);
     mPriLabel_1->setAlignment(Qt::AlignTop);
-     mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
+    mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
 
     mPriBtn = new SwitchButton(mPrivacyFrame);
 

@@ -717,13 +717,15 @@ void Power::setupComponent()
     mSleepComboBox->insertItem(6, sleepStringList.at(6), QVariant::fromValue(0));
 
     //电源计划
-    PowerplanStringList << tr("Balance Model") << tr("Save Model");
+    PowerplanStringList << tr("Balance Model") << tr("Save Model")<<tr("Performance Model");
     mPowerComboBox->insertItem(0, PowerplanStringList.at(0), "Balance Model");
     mPowerComboBox->insertItem(1, PowerplanStringList.at(1), "Save Model");
+    mPowerComboBox->insertItem(2, PowerplanStringList.at(2), "Performance Model");
 
-    BatteryplanStringList << tr("Balance Model") << tr("Save Model");
+    BatteryplanStringList << tr("Balance Model") << tr("Save Model")<<tr("Performance Model");
     mBatteryComboBox->insertItem(0, BatteryplanStringList.at(0), "Balance Model");
     mBatteryComboBox->insertItem(1, BatteryplanStringList.at(1), "Save Model");
+     mBatteryComboBox->insertItem(2, BatteryplanStringList.at(2), "Performance Model");
 
     //变暗
     DarkenStringList << tr("1min") << tr("5min") << tr("10min") << tr("20min") << tr("never");
@@ -791,8 +793,10 @@ void Power::setupConnect()
         connect(mPowerComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
             if (index == 0) {
                 settings->set(POWER_POLICY_AC, 1);
-            } else {
+            }  else if (index == 1) {
                 settings->set(POWER_POLICY_AC, -1);
+            } else {
+                settings->set(POWER_POLICY_AC, 0);
             }
         });
 
@@ -805,8 +809,10 @@ void Power::setupConnect()
             }
             if (index == 0) {
                 settings->set(POWER_POLICY_BATTARY, 1);
-            } else {
+            } else if (index == 1) {
                 settings->set(POWER_POLICY_BATTARY, -1);
+            } else {
+                settings->set(POWER_POLICY_BATTARY, 0);
             }
         });
     }
@@ -944,14 +950,18 @@ void Power::initCustomPlanStatus()
 
     if (mKeys.contains("powerPolicyAc") && mKeys.contains("powerPolicyBattery")) {
         if (1 == settings->get(POWER_POLICY_AC).toInt()) {
-            mPowerComboBox->setCurrentIndex(mPowerComboBox->findData("Balance Model"));
+            mPowerComboBox->setCurrentIndex(0);
+        } else if (-1 == settings->get(POWER_POLICY_AC).toInt()){
+            mPowerComboBox->setCurrentIndex(1);
         } else {
-            mPowerComboBox->setCurrentIndex(mPowerComboBox->findData("Save Model"));
+            mPowerComboBox->setCurrentIndex(2);
         }
         if (1 == settings->get(POWER_POLICY_BATTARY).toInt()) {
-            mBatteryComboBox->setCurrentIndex(mBatteryComboBox->findData("Balance Model"));
+            mBatteryComboBox->setCurrentIndex(0);
+        } else if (-1 == settings->get(POWER_POLICY_BATTARY).toInt()) {
+            mBatteryComboBox->setCurrentIndex(1);
         } else {
-            mBatteryComboBox->setCurrentIndex(mBatteryComboBox->findData("Save Model"));
+            mBatteryComboBox->setCurrentIndex(2);
         }
     } else {
         mPowerComboBox->setEnabled(false);
