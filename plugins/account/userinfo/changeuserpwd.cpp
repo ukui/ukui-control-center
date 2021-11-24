@@ -161,7 +161,7 @@ void ChangeUserPwd::initUI(){
     surePwdHorLayout->addWidget(surePwdLineEdit);
 
     tipLabel = new QLabel();
-    tipLabel->setFixedSize(QSize(300, 24));
+    tipLabel->setFixedSize(QSize(300, 30));
     tipLabel->setStyleSheet("color:red;");
 
     tipHorLayout = new QHBoxLayout;

@@ -10,8 +10,10 @@ AddBtn::AddBtn(QWidget *parent):
     this->setObjectName("this");
     this->setMinimumSize(QSize(580, 60));
     this->setMaximumSize(QSize(16777215, 60));
-    this->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
-    this->setProperty("useButtonPalette", true);
+    this->setStyleSheet("QPushButton{background: palette(base);}"
+                        "QPushButton:hover:!pressed{background:#3790FA;}"
+                        "QPushButton:pressed{background:#3790FA;}");
+//    this->setProperty("useButtonPalette", true);
 
     QHBoxLayout *addLyt = new QHBoxLayout;
 
