@@ -6475,7 +6475,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">Deneyim planı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="969"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1022"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
@@ -6483,7 +6483,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="979"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1032"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
@@ -6491,7 +6491,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="988"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1041"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
@@ -6499,7 +6499,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="997"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1050"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
@@ -6507,7 +6507,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1006"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1059"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
@@ -6515,7 +6515,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1016"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1069"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
@@ -6523,7 +6523,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1025"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1078"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
@@ -6531,7 +6531,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1034"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1087"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
@@ -6539,7 +6539,7 @@ E-mail: support@kylinos.cn</source>
 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1043"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1096"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -8381,7 +8381,7 @@ dosya sisteminde geçersiz!</translation>
         <translation type="vanished">Yönetici</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="838"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="891"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
@@ -8390,12 +8390,12 @@ dosya sisteminde geçersiz!</translation>
         <translation type="vanished">Sil</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="834"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="887"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="836"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="889"/>
         <source>Admin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8441,6 +8441,26 @@ dosya sisteminde geçersiz!</translation>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="489"/>
         <source>The user is logged in, please delete the user after logging out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="859"/>
+        <source>Hint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="860"/>
+        <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="863"/>
+        <source>Trun on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
+        <source>Close on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8861,7 +8881,7 @@ dosya sisteminde geçersiz!</translation>
         <translation type="obsolete">Çıktıyı Birleştir</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="820"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="819"/>
         <source>night mode</source>
         <translation>Gece Modu</translation>
         <extra-contents_path>/Display/night mode</extra-contents_path>
@@ -8905,73 +8925,73 @@ the settings will be saved after 29 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="275"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="274"/>
         <source>Night Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="295"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="294"/>
         <source>Open</source>
         <translation type="unfinished">Aç</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="310"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="309"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="326"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="325"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
         <source>Custom Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="337"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="336"/>
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="363"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="362"/>
         <source>Color Temperature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="366"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="365"/>
         <source>Warmer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="369"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="368"/>
         <source>Colder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="692"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="691"/>
         <source>Multi-screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="697"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="696"/>
         <source>First Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="700"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="699"/>
         <source>Clone Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="699"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="698"/>
         <source>Extend Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="698"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="697"/>
         <source>Vice Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="720"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="719"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="538"/>
         <source>monitor</source>
         <translation type="unfinished">Ekran:</translation>
@@ -8983,25 +9003,25 @@ the settings will be saved after 29 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="828"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="827"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="644"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="884"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1054"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1052"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="666"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="888"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="887"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="889"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="888"/>
         <source>Not Save</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9012,80 +9032,80 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
         <source>All Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2054"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2321"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2335"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2314"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2328"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2142"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2149"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
         <source>please insure at least one output!</source>
         <translation>Lütfen en az bir çıktı alın!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="875"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="874"/>
         <source>resolution</source>
         <translation type="unfinished">Çözünürlük:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="878"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="877"/>
         <source>orientation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="881"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="880"/>
         <source>frequency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="885"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="884"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="898"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="897"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %2 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1055"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1053"/>
         <source>The zoom function needs to log out to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1056"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1054"/>
         <source>Log out now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1057"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1055"/>
         <source>Later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1381"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1379"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1563"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1500"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1382"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1380"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1501"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
@@ -9095,7 +9115,7 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">Sabah vakti akşam saatinden daha erken olmalı!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1564"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1557"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1511"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>

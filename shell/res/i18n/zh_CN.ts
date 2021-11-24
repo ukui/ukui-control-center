@@ -8642,63 +8642,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="969"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1022"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="979"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1032"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="988"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1041"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="997"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1050"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1006"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1059"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1016"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1069"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1025"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1078"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1034"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1087"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1043"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1096"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -10761,25 +10761,29 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="838"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="891"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="859"/>
         <source>Hint</source>
-        <translation type="vanished">提示</translation>
+        <translation>提示</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="860"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
-        <translation type="vanished">系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
+        <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="863"/>
         <source>Trun on</source>
-        <translation type="vanished">开启</translation>
+        <translation>开启</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
         <source>Close on</source>
-        <translation type="vanished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Add biometric feature</source>
@@ -10798,12 +10802,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="834"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="887"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="836"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="889"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>

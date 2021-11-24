@@ -173,6 +173,7 @@ public:
     void setUserConnect();
     void setUserDBusPropertyConnect(const QString pObjPath);
     bool authoriyLogin();
+    QString getAutomaticLogin();
 
     void showChangeUserTypeDialog(QString u);
     void showChangeUserNicknameDialog();
@@ -190,6 +191,7 @@ protected:
 
 private:
     bool isLastAdmin(QString uname);
+    bool openAutoLoginMsg(const QString &userName);
 
 
 public slots:
