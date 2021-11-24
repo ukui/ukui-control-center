@@ -62,7 +62,7 @@ void InputPwdDialog::setupInit()
     mHintLabel->setStyleSheet("color:red;");
 
     QFrame *mInputPwdFrame_1 = new QFrame(this);
-    mInputPwdFrame_1->setFixedSize(432, 36);
+    mInputPwdFrame_1->setFixedSize(432, 48);
     mInputPwdFrame_1->setFrameShape(QFrame::Box);
 
     QHBoxLayout *mLyt_2= new QHBoxLayout(mInputPwdFrame_1);
@@ -74,11 +74,11 @@ void InputPwdDialog::setupInit()
     mLyt_1->addWidget(mpwd);
 
     mCancelBtn = new QPushButton(mInputPwdFrame_1);
-    mCancelBtn->setFixedSize(120, 36);
+    mCancelBtn->setFixedWidth(96);
     mCancelBtn->setText(tr("Cancel"));
 
     mConfirmBtn = new QPushButton(mInputPwdFrame_1);
-    mConfirmBtn->setFixedSize(120, 36);
+    mConfirmBtn->setFixedWidth(96);
     mConfirmBtn->setText(tr("Confirm"));
 
     mLyt_2->addStretch();

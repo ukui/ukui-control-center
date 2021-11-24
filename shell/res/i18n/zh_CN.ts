@@ -924,8 +924,8 @@
     <name>Backup</name>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="53"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="45"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="99"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="40"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="108"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
@@ -947,14 +947,14 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="102"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="156"/>
         <source>Begin backup</source>
         <translation>开始备份</translation>
         <extra-contents_path>/Backup/Begin backup</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="157"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="100"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="132"/>
         <source>Restore</source>
         <translation>还原</translation>
     </message>
@@ -969,7 +969,7 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="213"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="104"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="158"/>
         <source>Begin restore</source>
         <translation>开始还原</translation>
         <extra-contents_path>/Backup/Begin restore</extra-contents_path>
@@ -1000,6 +1000,21 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/system/backup_intel/backup.cpp" line="42"/>
         <source>System Recovery</source>
         <translation>系统还原</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="110"/>
+        <source>Back up your files to other drives and restore them when the source files are lost, damaged, or deleted to ensure the integrity of the system.</source>
+        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="134"/>
+        <source>View the backup list and restore the backup file to the system</source>
+        <translation>查看备份列表，将备份文件还原至系统。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="154"/>
+        <source>Backup and Restore</source>
+        <translation>备份还原</translation>
     </message>
 </context>
 <context>
@@ -6598,7 +6613,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="700"/>
         <location filename="../../../plugins/system/power/power.cpp" line="710"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
@@ -6746,27 +6761,27 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>blank</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
         <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>suspend</source>
         <translation>睡眠</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="686"/>
         <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="743"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="745"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
@@ -6777,12 +6792,18 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="720"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
+        <source>Performance Model</source>
+        <translation>性能模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>20min</source>
         <translation>20分钟</translation>
     </message>
@@ -6817,7 +6838,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="700"/>
         <location filename="../../../plugins/system/power/power.cpp" line="710"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
@@ -6828,18 +6849,18 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="720"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="724"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
         <source>Balance Model</source>
         <translation>平衡模式</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="720"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="724"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
         <source>Save Model</source>
         <translation>节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
@@ -6850,7 +6871,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
         <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
@@ -6927,7 +6948,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/system/about/privacydialog.cpp" line="11"/>
         <source>Set</source>
-        <translation>设置</translation>
+        <translation>系统设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/privacydialog.cpp" line="26"/>

@@ -69,7 +69,7 @@ void AptProxyDialog::initUi()
     mLyt_2->addWidget(mPortEdit);
 
     QFrame *mChooseFrame = new QFrame(this);
-    mChooseFrame->setFixedSize(432, 36);
+    mChooseFrame->setFixedWidth(432);
     mChooseFrame->setFrameShape(QFrame::Box);
 
     QHBoxLayout *mLyt_3= new QHBoxLayout(mChooseFrame);
@@ -77,11 +77,11 @@ void AptProxyDialog::initUi()
     mLyt_3->setSpacing(16);
 
     mCancelBtn = new QPushButton(mChooseFrame);
-    mCancelBtn->setFixedSize(120, 36);
+    mCancelBtn->setMinimumWidth(96);
     mCancelBtn->setText(tr("Cancel"));
 
     mConfirmBtn = new QPushButton(mChooseFrame);
-    mConfirmBtn->setFixedSize(120, 36);
+    mConfirmBtn->setMinimumWidth(96);
     mConfirmBtn->setText(tr("Confirm"));
 
     mLyt_3->addStretch();

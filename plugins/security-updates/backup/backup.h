@@ -24,6 +24,8 @@
 #include <QtPlugin>
 
 #include "shell/interface.h"
+#include "Label/titlelabel.h"
+#include "Label/fixlabel.h"
 
 namespace Ui {
 class Backup;
@@ -48,6 +50,7 @@ public:
     bool isEnable() const Q_DECL_OVERRIDE;
 
 private:
+    void initUi(QWidget *widget);
     void initTitleLabel();
     void initConnection();
 
@@ -57,12 +60,14 @@ private slots:
     void communitySlot();
 
 private:
-    Ui::Backup *ui;
-
     QString pluginName;
     int pluginType;
     QWidget *pluginWidget;
     bool mFirstLoad;
+
+    TitleLabel *mTitleLabel;
+    QPushButton *mBackBtn;
+    QPushButton *mRestoreBtn;
 };
 
 #endif // BACKUP_H
