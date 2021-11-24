@@ -104,7 +104,7 @@ void OutputConfig::initUi()
 
     resFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     resFrame->setMinimumSize(552, 50);
-    resFrame->setMaximumSize(960, 50);
+    resFrame->setMaximumSize(16777215, 50);
 
     vbox->addWidget(resFrame);
 
@@ -134,7 +134,7 @@ void OutputConfig::initUi()
 
     rotateFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     rotateFrame->setMinimumSize(550, 50);
-    rotateFrame->setMaximumSize(960, 50);
+    rotateFrame->setMaximumSize(16777215, 50);
 
     mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
@@ -165,7 +165,7 @@ void OutputConfig::initUi()
 
     freshFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     freshFrame->setMinimumSize(550, 50);
-    freshFrame->setMaximumSize(960, 50);
+    freshFrame->setMaximumSize(16777215, 50);
 
     vbox->addWidget(freshFrame);
 
@@ -201,7 +201,7 @@ void OutputConfig::initUi()
 
     scaleFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     scaleFrame->setMinimumSize(550, 50);
-    scaleFrame->setMaximumSize(960, 50);
+    scaleFrame->setMaximumSize(16777215, 50);
     vbox->addWidget(scaleFrame);
     scaleFrame->hide();
 

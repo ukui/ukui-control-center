@@ -175,6 +175,11 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
     mConfig = config;
     mPrevConfig = config->clone();
     mPreScreenConfig = config->clone();
+    for (int i = 0; i < BrightnessFrameV.size(); i = 0) {
+        BrightnessFrameV[BrightnessFrameV.size() - 1]->deleteLater();
+        BrightnessFrameV[BrightnessFrameV.size() - 1] = nullptr;
+        BrightnessFrameV.pop_back();
+    }
 
     changescale();
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
@@ -875,7 +880,7 @@ void Widget::clearOutputIdentifiers()
     mOutputIdentifiers.clear();
 }
 
-void Widget::addBrightnessFrame(QString name, bool openFlag)
+void Widget::addBrightnessFrame(QString name, bool openFlag, const KScreen::OutputPtr &output)
 {
     if (mIsBattery && name != "eDP")  //笔记本非内置
         return;
@@ -905,12 +910,12 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
             mPowerGSettings->set(POWER_KEY, frame->slider->value());
             frame->setTextLableValue(QString::number(mPowerGSettings->get(POWER_KEY).toInt()));
         });
-    } else if(!mIsBattery) {
+    } else if(!mIsBattery && output && output->supportBrightness()) {
         frame->outputName = name;
         ui->unifyBrightLayout->addWidget(frame);
         frame->slider->setValue(10);
         QtConcurrent::run([=]{
-            int initValue = getDDCBrighthess(frame->outputName);
+            int initValue = output->brightness();
             if (initValue == -1 || frame == nullptr)
                 return;
             frame->slider->setValue(initValue);
@@ -918,10 +923,10 @@ void Widget::addBrightnessFrame(QString name, bool openFlag)
             connect(frame->slider, &QSlider::valueChanged, this, [=](){
                                  qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
                                  frame->setTextLableValue(QString::number(frame->slider->value()));
-                                 setDDCBrightnessN(frame->slider->value(), name);
+                                 output->setBrightness(frame->slider->value());
+                                 setKscreenConfig(this->currentConfig());
             });
         });
-
     }
 }
 
@@ -929,7 +934,7 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
 {
     mPreScreenConfig = mConfig->clone();
     QString name = Utils::outputName(output);
-    addBrightnessFrame(name, output->isEnabled());
+    addBrightnessFrame(name, output->isEnabled(), output);
     // 刷新缩放选项，监听新增显示屏的mode变化
     changescale();
     if (output->isConnected()) {
@@ -1464,6 +1469,18 @@ void Widget::enableChangedSlot()
     }
 }
 
+void Widget::setKscreenConfig(const KScreen::ConfigPtr &config)
+{
+    /* Store the current config, apply settings */
+    auto *op = new KScreen::SetConfigOperation(config);
+
+    /* Block until the operation is completed, otherwise KCMShell will terminate
+     * before we get to execute the Operation */
+    op->exec();
+    op->deleteLater();
+    op = nullptr;
+}
+
 void Widget::save()
 {
     qDebug() << Q_FUNC_INFO << "apply config";
@@ -1521,12 +1538,7 @@ void Widget::save()
         }
     }
 
-    /* Store the current config, apply settings */
-    auto *op = new KScreen::SetConfigOperation(config);
-
-    /* Block until the operation is completed, otherwise KCMShell will terminate
-     * before we get to execute the Operation */
-    op->exec();
+    setKscreenConfig(config);
 
     // The 1000ms is a bit "random" here, it's what works on the systems I've tested, but ultimately, this is a hack
     // due to the fact that we just can't be sure when xrandr is done changing things, 1000 doesn't seem to get in the way
@@ -1880,7 +1892,6 @@ void Widget::initConnection()
         slotUnifyOutputs();
         setScreenIsApply(true);
         delayApply();
-        showBrightnessFrame();
     });
 
     QDBusConnection::sessionBus().connect(QString(),
@@ -2100,13 +2111,13 @@ void Widget::nightChangedSlot(QHash<QString, QVariant> nightArg)
 
 void Widget::showBrightnessFrame(const int flag)
 {
-    QTimer::singleShot(100, this, [=]{
+    QTimer::singleShot(0, this, [=]{
         int *pFlag = new int(flag);
         QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
                          [&, pFlag](KScreen::ConfigOperation *op) {
             bool allShowFlag = true;
 
-            KScreen::ConfigPtr config = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
+            KScreen::ConfigPtr config = this->currentConfig();
 
             KScreen::OutputPtr output = config->primaryOutput();
             if (mConfig->connectedOutputs().count() >= 2 && !output.isNull()) {
@@ -2114,22 +2125,22 @@ void Widget::showBrightnessFrame(const int flag)
                     if (secOutput->geometry() != output->geometry() || !secOutput->isEnabled()) {
                         allShowFlag = false;
                     }
-//                    for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
-//                            if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput) && *pFlag != 10){
-//                                if (!secOutput->isEnabled())
-//                                    BrightnessFrameV[i]->openFlag = false;
-//                                else
-//                                    BrightnessFrameV[i]->openFlag = true;
-//                        }
-//                    }
+                    for (int i = 0; i < BrightnessFrameV.size(); ++i) { //检查其它显示屏是否实际打开，否则关闭，适用于显示器插拔
+                            if (BrightnessFrameV[i]->outputName == Utils::outputName(secOutput)){
+                                if (!secOutput->isEnabled())
+                                    BrightnessFrameV[i]->openFlag = false;
+                                else
+                                    BrightnessFrameV[i]->openFlag = true;
+                        }
+                    }
                 }
             } else {  //只有一个屏幕，把它亮度条打开，防止remove出问题
                 allShowFlag = false;
-//                for (int i = 0; i < BrightnessFrameV.size(); ++i) {
-//                    if (BrightnessFrameV[i]->outputName == Utils::outputName(output)) {
-//                        BrightnessFrameV[i]->openFlag = true;
-//                    }
-//                }
+                for (int i = 0; i < BrightnessFrameV.size(); ++i) {
+                    if (BrightnessFrameV[i]->outputName == Utils::outputName(output)) {
+                        BrightnessFrameV[i]->openFlag = true;
+                    }
+                }
             }
 
             ui->unifyBrightFrame->setFixedHeight(0);

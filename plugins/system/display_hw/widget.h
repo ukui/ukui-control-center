@@ -81,10 +81,11 @@ public:
     int scaleToSlider(const float value);
 
     void initUiComponent();
-    void addBrightnessFrame(QString name, bool openFlag);
+    void addBrightnessFrame(QString name, bool openFlag, const KScreen::OutputPtr &output = nullptr);
     void showBrightnessFrame(const int flag = 0);
 
     void changescale();
+    void setKscreenConfig(const KScreen::ConfigPtr &config);
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
