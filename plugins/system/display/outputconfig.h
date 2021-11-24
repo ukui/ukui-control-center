@@ -56,6 +56,9 @@ private:
     void initConnection();
     QString scaleToString(double scale);
 
+    void initRadeon();
+    bool mIsRadeon;
+
 protected:
     KScreen::OutputPtr mOutput;
     QLabel *mTitle = nullptr;

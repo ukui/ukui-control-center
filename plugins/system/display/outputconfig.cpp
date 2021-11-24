@@ -16,6 +16,7 @@
 #include <QComboBox>
 #include <QGSettings>
 #include <QDBusInterface>
+#include <QProcess>
 
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
@@ -24,12 +25,13 @@
 
 double mScaleres = 0;
 const float kExcludeRate = 50.00;
+const float kRadeonRate = 59.9402;
 
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),
     mOutput(nullptr)
 {
-
+    initRadeon();
 }
 
 OutputConfig::OutputConfig(const KScreen::OutputPtr &output, QWidget *parent) :
@@ -213,6 +215,17 @@ QString OutputConfig::scaleToString(double scale)
     return QString::number(scale * 100) + "%";
 }
 
+void OutputConfig::initRadeon()
+{
+    QProcess process;
+    process.start("lspci -v");
+    process.waitForFinished();
+    QString output = process.readAll();
+    output = output.simplified();
+    mIsRadeon = output.contains("radeon", Qt::CaseInsensitive);
+    qDebug() << Q_FUNC_INFO << mIsRadeon;
+}
+
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
 {
     mOutput = output;
@@ -231,6 +244,8 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         return;
     }
 
+    bool isRadeonRate = false;
+    QString radeonID;
     QString modeID;
     KScreen::ModePtr selectMode;
     KScreen::ModePtr currentMode = mOutput->currentMode();
@@ -263,16 +278,23 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
                 break;
             }
         }
-        if (alreadyExisted == false && mode->refreshRate() >= kExcludeRate) {   //不添加已经存在的项
+
+        if ((mIsRadeon && qFuzzyCompare(mode->refreshRate(), kRadeonRate))) {
+            isRadeonRate = true;
+            radeonID = modeID;
+        }
+
+        if ((alreadyExisted == false && mode->refreshRate() >= kExcludeRate) && !isRadeonRate) {   //不添加已经存在的项
             mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())), mode->id());
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
         // we stick with "Auto"
-        if (mode == selectMode && mRefreshRate->count() > 1 && emitFlag) {
+        if (mode == selectMode && mRefreshRate->count() > 1 && emitFlag || modeID == radeonID) {
             // i + 1 since 0 is auto
             mRefreshRate->setCurrentIndex(mRefreshRate->count() - 1);
+            modeID = mRefreshRate->itemData(mRefreshRate->count() - 1).toString();
         }
     }
 
