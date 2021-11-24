@@ -101,6 +101,7 @@ public:
     void newTimeshow(const QString& timezone);
     void initSetTime();
     void setTime();
+    void fillTimeCombox(bool format24 = true);
     bool getSyncStatus();
 
 public:

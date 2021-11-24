@@ -214,7 +214,7 @@ void DateTime::initUI()
         connect(m_formatsettings, &QGSettings::changed, this, [=](QString key) {
             Q_UNUSED(key);
             QString hourFormat = m_formatsettings->get(TIME_FORMAT_KEY).toString();
-            bool status = ("24" == hourFormat ? false : true);
+            bool status = ("24" != hourFormat ? false : true);
             timeFormatClickedSlot(status, true);
         });
     }
@@ -588,18 +588,20 @@ void DateTime::changezoneSlot(QString zone)
 
 void DateTime::timeFormatClickedSlot(bool flag, bool outChange)
 {
+    Q_UNUSED(outChange);
     if (!m_formatsettings) {
         qDebug()<<"org.ukui.control-center.panel.plugins not installed"<<endl;
         return;
     }
-    QStringList keys = m_formatsettings->keys();
-    if (keys.contains("hoursystem") && !outChange) {
-        if (flag == true) {
-            m_formatsettings->set(TIME_FORMAT_KEY, "24");
-        } else {
-            m_formatsettings->set(TIME_FORMAT_KEY, "12");
-        }
-    }
+    fillTimeCombox(flag);
+//    QStringList keys = m_formatsettings->keys();
+//    if (keys.contains("hoursystem") && !outChange) {
+//        if (flag == true) {
+//            m_formatsettings->set(TIME_FORMAT_KEY, "24");
+//        } else {
+//            m_formatsettings->set(TIME_FORMAT_KEY, "12");
+//        }
+//    }
     //重置时间格式
     m_itimer->stop();
     m_itimer->start(1000);
@@ -624,8 +626,10 @@ void DateTime::loadHour()
 
     if (format == "24") {
         m_formTimeBtn->setChecked(true);
+        fillTimeCombox(true);
     } else {
         m_formTimeBtn->setChecked(false);
+        fillTimeCombox(false);
     }
 
     setCurrentTime();
@@ -713,7 +717,9 @@ void DateTime::initConnect()
         if (key == "hoursystem") {
             QString value = m_formatsettings->get(TIME_FORMAT_KEY).toString();
             bool checked = (value == "24" ? true : false);
+            m_formTimeBtn->blockSignals(true); //另一个地方监听执行了槽函数
             m_formTimeBtn->setChecked(checked);
+            m_formTimeBtn->blockSignals(false);
         }
     });
 
@@ -869,6 +875,25 @@ void DateTime::setTime() {
 
 bool DateTime::getSyncStatus() {
     return ui->radioButton->isChecked();
+}
+
+void DateTime::fillTimeCombox(bool format24)
+{
+    ui->hourComboBox->clear();
+    if (!format24) {
+        ui->hourComboBox->addItem(tr("AM ") + QString::number(12));
+        for (int i = 1 ; i <= 11; i++) {
+            ui->hourComboBox->addItem(tr("AM ") + QString::number(i));
+        }
+        ui->hourComboBox->addItem(tr("PM ") + QString::number(12));
+        for (int i = 1 ; i <= 11; i++) {
+            ui->hourComboBox->addItem(tr("PM ") + QString::number(i));
+        }
+    } else {
+        for (int h = 0; h < 24; h++){
+            ui->hourComboBox->addItem(QString::number(h));
+        }
+    }
 }
 
 CGetSyncRes::CGetSyncRes(DateTime *dataTimeUI,QString successMSG,QString failMSG)
