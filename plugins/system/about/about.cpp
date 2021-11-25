@@ -392,23 +392,24 @@ void About::initUI(QWidget *widget)
     mPrivacyFrame = new QFrame(Aboutwidget);
     setFrame_Box(mPrivacyFrame);
 
-    QGridLayout *mPriLayout = new QGridLayout(mPrivacyFrame);
-    mPriLayout->setVerticalSpacing(8);
-    mPriLayout->setContentsMargins(16, 16, 16, 16);
-
-    FixLabel *mPriLabel_1 = new FixLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
-    mPriLabel_1->setFixedHeight(24);
-    mPriLabel_1->setAlignment(Qt::AlignBottom);
-    FixLabel *mPriLabel_2 = new FixLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
-    mPriLabel_2->setFixedHeight(24);
-    mPriLabel_1->setAlignment(Qt::AlignTop);
-    mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
-
+    QHBoxLayout *mPrivacyLayout = new QHBoxLayout(mPrivacyFrame);
+    mPrivacyLayout->setContentsMargins(16, 0, 16, 0);
+    mPrivacyLayout->setSpacing(48);
     mPriBtn = new SwitchButton(mPrivacyFrame);
 
-    mPriLayout->addWidget(mPriLabel_1 , 0 , 0 , 3 , 4 , Qt::AlignBottom);
-    mPriLayout->addWidget(mPriLabel_2 , 3, 0 , 3 , 4 , Qt::AlignTop);
-    mPriLayout->addWidget(mPriBtn , 1 , 4 , 4 , 4 ,Qt::AlignRight);
+    FixLabel *mPriLabel_1 = new FixLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
+    mPriLabel_1->setContentsMargins(0 , 12 , 0 , 0);
+    FixLabel *mPriLabel_2 = new FixLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
+    mPriLabel_2->setContentsMargins(0 , 0 , 0 , 12);
+    mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
+    QVBoxLayout *mverticalLayout_2 = new QVBoxLayout;
+    mverticalLayout_2->setSpacing(0);
+    mverticalLayout_2->setContentsMargins(0 , 0 , 0 , 0);
+    mverticalLayout_2->addWidget(mPriLabel_1);
+    mverticalLayout_2->addWidget(mPriLabel_2 );
+
+    mPrivacyLayout->addLayout(mverticalLayout_2);
+    mPrivacyLayout->addWidget(mPriBtn);
 
     mActivationFrame = new QFrame(Aboutwidget);
     setFrame_Box(mActivationFrame);
