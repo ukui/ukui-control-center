@@ -134,7 +134,7 @@ void AutoBoot::initUI(QWidget *widget)
 
     QVBoxLayout *AutobootLayout = new QVBoxLayout(AutobootWidget);
     AutobootLayout->setContentsMargins(0, 0, 0, 0);
-    AutobootLayout->setSpacing(8);
+    AutobootLayout->setSpacing(0);
 
     mTitleLabel = new TitleLabel(AutobootWidget);
 
@@ -150,6 +150,7 @@ void AutoBoot::initUI(QWidget *widget)
     initAddBtn();
 
     AutobootLayout->addWidget(mTitleLabel);
+    AutobootLayout->addSpacing(8);
     AutobootLayout->addWidget(mAutoBootFrame);
     AutobootLayout->addWidget(addWgt);
 
@@ -246,9 +247,7 @@ void AutoBoot::initAutoUI()
         line->setFrameShadow(QFrame::Sunken);
 
         baseVerLayout->addWidget(widget);
-        if (index == statusMaps.count() - 1) {
-            line->hide();
-        }
+
         baseVerLayout->addWidget(line);
 
         baseWidget->setLayout(baseVerLayout);
