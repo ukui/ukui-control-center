@@ -37,14 +37,15 @@ public:
                         QWidget *parent = nullptr);
     ~DoubleClickShortCut();
     void setText(const QString &str);
-
+    void setShortcutIsAvailable(bool value);
 protected:
     void mouseDoubleClickEvent(QMouseEvent *e);
     void focusOutEvent(QFocusEvent *e);
+    void focusInEvent(QFocusEvent *e);
 
 private:
     QString validShortcut;
-    bool shortcutIsAvailable;
+    bool shortcutIsAvailable = false;
     QList<KeyEntry *> *customEntry;
     QString defaultQss;
 

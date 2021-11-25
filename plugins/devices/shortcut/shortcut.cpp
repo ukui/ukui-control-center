@@ -475,7 +475,11 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
             nameLineEdit->setText(name);
             nameLineEdit->blockSignals(false);
             bingdingLineEdit->blockSignals(true);
-            bingdingLineEdit->setText(getShowShortcutString(addDialog->keyToLib(key)));
+            QString mKey = getShowShortcutString(addDialog->keyToLib(key));
+            if (mKey.contains("Meta")) {
+                mKey.replace("Meta", "Win");
+            }
+            bingdingLineEdit->setText(mKey);
             bingdingLineEdit->blockSignals(false);
             nameLabel->setText(name);
             bingdingLabel->setText(bingdingLineEdit->text());
@@ -563,6 +567,9 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
 
     connect(bingdingLineEdit, &DoubleClickShortCut::shortcutChanged, this, [=](){
         createNewShortcut(nkeyEntry->gsPath, nkeyEntry->nameStr, nkeyEntry->actionStr, bingdingLineEdit->keySequence().toString(), false, true); //只修改
+        bingdingLineEdit->blockSignals(true);
+        bingdingLineEdit->setText(getShowShortcutString(bingdingLineEdit->text()));
+        bingdingLineEdit->blockSignals(false);
         bingdingLabel->setText(bingdingLineEdit->text());
         for (int i = 0; i < customEntries.count(); i++) {
             if (customEntries[i]->nameStr == nkeyEntry->nameStr) {
