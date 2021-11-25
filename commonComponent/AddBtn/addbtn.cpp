@@ -21,7 +21,7 @@ AddBtn::AddBtn(QWidget *parent):
     QLabel *textLabel = new QLabel(tr("Add"));
 
     QIcon mAddIcon = QIcon::fromTheme("list-add-symbolic");
-    iconLabel->setPixmap(mAddIcon.pixmap(mAddIcon.actualSize(QSize(24, 24))));
+    iconLabel->setPixmap(mAddIcon.pixmap(mAddIcon.actualSize(QSize(16, 16))));
     const QByteArray idd(THEME_QT_SCHEMA);
     QGSettings *qtSettings  = new QGSettings(idd, QByteArray(), this);
     QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();

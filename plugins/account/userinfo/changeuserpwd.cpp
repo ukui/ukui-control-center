@@ -121,6 +121,7 @@ void ChangeUserPwd::initUI(){
     currentPwdLineEdit->setFixedSize(QSize(300, 36));
     currentPwdLineEdit->setPlaceholderText(tr("Current Pwd"));
     currentPwdLineEdit->setEchoMode(QLineEdit::Password);
+    currentPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 
     currentPwdHorLayout = new QHBoxLayout;
     currentPwdHorLayout->setSpacing(25);
@@ -137,6 +138,7 @@ void ChangeUserPwd::initUI(){
     newPwdLineEdit->setFixedSize(QSize(300, 36));
     newPwdLineEdit->setPlaceholderText(tr("New Pwd"));
     newPwdLineEdit->setEchoMode(QLineEdit::Password);
+    newPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 
     newPwdHorLayout = new QHBoxLayout;
     newPwdHorLayout->setSpacing(25);
@@ -153,6 +155,7 @@ void ChangeUserPwd::initUI(){
     surePwdLineEdit->setFixedSize(QSize(300, 36));
     surePwdLineEdit->setPlaceholderText(tr("Sure Pwd"));
     surePwdLineEdit->setEchoMode(QLineEdit::Password);
+    surePwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 
     surePwdHorLayout = new QHBoxLayout;
     surePwdHorLayout->setSpacing(25);
