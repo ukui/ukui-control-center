@@ -400,7 +400,7 @@
 <context>
     <name>AddBtn</name>
     <message>
-        <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="19"/>
+        <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="21"/>
         <location filename="../../../libukcc/widgets/AddBtn/addbtn.cpp" line="19"/>
         <source>Add</source>
         <translation>添加</translation>
@@ -3244,15 +3244,27 @@ change system settings</source>
         <translation>修改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="768"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="774"/>
         <source>  </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="769"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="778"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="775"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="784"/>
         <source>Sync failed</source>
         <translation>同步失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="884"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="886"/>
+        <source>AM </source>
+        <translation>上午</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="888"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="890"/>
+        <source>PM </source>
+        <translation>下午</translation>
     </message>
     <message>
         <source>Sync network time</source>
@@ -11295,7 +11307,7 @@ E-mail: support@kylinos.cn</source>
         <extra-contents_path>/Display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="552"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="557"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
@@ -11377,19 +11389,19 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="719"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="538"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="543"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="551"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="556"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="827"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="644"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="649"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
@@ -11411,7 +11423,7 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1052"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="666"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="671"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
@@ -11463,8 +11475,8 @@ the settings will be saved after %1 seconds</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="2314"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="2328"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2142"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2149"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2153"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2160"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -11489,41 +11501,41 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在9秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="541"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="546"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="632"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="637"/>
         <source>Mirror Display</source>
         <translation>镜像模式</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="667"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="672"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 29 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在29秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="671"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="676"/>
         <source>Save Config</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="672"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="677"/>
         <source>Restore Config</source>
         <translation>恢复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="680"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="685"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1510"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1527"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
@@ -11534,7 +11546,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1813"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
@@ -11542,8 +11554,8 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="1379"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1500"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1517"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1813"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -11557,7 +11569,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1380"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1501"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1518"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -11567,7 +11579,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1557"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1511"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1528"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

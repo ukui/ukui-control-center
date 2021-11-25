@@ -369,7 +369,7 @@
 <context>
     <name>AddBtn</name>
     <message>
-        <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="19"/>
+        <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="21"/>
         <location filename="../../../libukcc/widgets/AddBtn/addbtn.cpp" line="19"/>
         <source>Add</source>
         <translation type="unfinished">Ekle</translation>
@@ -733,8 +733,8 @@
     <name>Backup</name>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="53"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="45"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="99"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="40"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="108"/>
         <source>Backup</source>
         <translation>Yedekle</translation>
     </message>
@@ -753,14 +753,14 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="102"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="156"/>
         <source>Begin backup</source>
         <translation>Yedekleme Başlat</translation>
         <extra-contents_path>/Backup/Begin backup</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="157"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="100"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="132"/>
         <source>Restore</source>
         <translation>Geri Yükle</translation>
     </message>
@@ -775,7 +775,7 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="213"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="104"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="158"/>
         <source>Begin restore</source>
         <translation>Yükleme Başlat</translation>
         <extra-contents_path>/Backup/Begin restore</extra-contents_path>
@@ -800,6 +800,21 @@ sisteminizin bütünlüğünü sağlamak için bunları geri yükleyebilirsiniz.
     <message>
         <location filename="../../../plugins/system/backup_intel/backup.cpp" line="42"/>
         <source>System Recovery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="110"/>
+        <source>Back up your files to other drives and restore them when the source files are lost, damaged, or deleted to ensure the integrity of the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="134"/>
+        <source>View the backup list and restore the backup file to the system</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="154"/>
+        <source>Backup and Restore</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2502,14 +2517,26 @@ sistem ayarlarını değiştir</translation>
         <translation type="unfinished">Zaman Dilimini Değiştir</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="768"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="774"/>
         <source>  </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="769"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="778"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="775"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="784"/>
         <source>Sync failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="884"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="886"/>
+        <source>AM </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="888"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="890"/>
+        <source>PM </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5475,7 +5502,7 @@ Lütfen giriş için tekrar deneyin!</translation>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="700"/>
         <location filename="../../../plugins/system/power/power.cpp" line="710"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>never</source>
         <translation>Asla</translation>
     </message>
@@ -5623,27 +5650,27 @@ Lütfen giriş için tekrar deneyin!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>nothing</source>
         <translation>Hiçbiri</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>blank</source>
         <translation>Boş</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
         <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>suspend</source>
         <translation>Askıya Al</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="686"/>
         <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="743"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="745"/>
         <source>hibernate</source>
         <translation>Beklemeye Al</translation>
     </message>
@@ -5654,14 +5681,14 @@ Lütfen giriş için tekrar deneyin!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>5min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="700"/>
         <location filename="../../../plugins/system/power/power.cpp" line="710"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>10min</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5696,30 +5723,36 @@ Lütfen giriş için tekrar deneyin!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="720"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="724"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
         <source>Balance Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="720"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="724"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
         <source>Save Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="720"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
+        <source>Performance Model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>1min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="729"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
         <source>20min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="680"/>
         <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="737"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
         <source>shutdown</source>
         <translation>Kapat</translation>
     </message>
@@ -7692,10 +7725,8 @@ dosya sisteminde geçersiz!</translation>
 <context>
     <name>Theme</name>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="76"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="170"/>
         <source>Theme Mode</source>
-        <translation>Tema Modu</translation>
+        <translation type="vanished">Tema Modu</translation>
         <extra-contents_path>/Theme/Theme Mode</extra-contents_path>
     </message>
     <message>
@@ -7721,6 +7752,13 @@ dosya sisteminde geçersiz!</translation>
     <message>
         <source>Middle</source>
         <translation type="vanished">Orta</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="76"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="170"/>
+        <source>Window Theme</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/Theme/Window Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.ui" line="361"/>
@@ -8887,40 +8925,40 @@ dosya sisteminde geçersiz!</translation>
         <extra-contents_path>/Display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="541"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="546"/>
         <source>screen zoom</source>
         <translation type="unfinished">Ekran Yakınlaştırma:</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="552"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="557"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>Bazı uygulamaların aktif olması için oturum açılması gerekir</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="632"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="637"/>
         <source>Mirror Display</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="667"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="672"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 29 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="671"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="676"/>
         <source>Save Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="672"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="677"/>
         <source>Restore Config</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1510"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1527"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8992,26 +9030,26 @@ the settings will be saved after 29 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="719"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="538"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="543"/>
         <source>monitor</source>
         <translation type="unfinished">Ekran:</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="551"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="556"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="827"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="644"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="649"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1052"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="666"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="671"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9026,7 +9064,7 @@ the settings will be saved after 29 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="680"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="685"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
@@ -9044,14 +9082,14 @@ the settings will be saved after %1 seconds</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="2314"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="2328"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2142"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2149"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2153"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2160"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1813"/>
         <source>please insure at least one output!</source>
         <translation>Lütfen en az bir çıktı alın!</translation>
     </message>
@@ -9099,14 +9137,14 @@ the settings will be saved after %1 seconds</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="1379"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1500"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1801"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1517"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1813"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1380"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1501"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1518"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9116,7 +9154,7 @@ the settings will be saved after %1 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1557"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1511"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1528"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>Maalesef, yapılandırmanız uygulanamadı. 
