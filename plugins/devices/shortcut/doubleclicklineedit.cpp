@@ -111,6 +111,10 @@ void DoubleClickShortCut::mouseDoubleClickEvent(QMouseEvent *e) {
     return;
 }
 
+void DoubleClickShortCut::focusInEvent(QFocusEvent *e) {
+    setShortcutIsAvailable(false);
+    ShortcutLine::focusInEvent(e);
+}
 void DoubleClickShortCut::focusOutEvent(QFocusEvent *e) {
     //this->setStyleSheet("QLineEdit {background-color : palette(base);}");
 
@@ -135,4 +139,9 @@ void DoubleClickShortCut::focusOutEvent(QFocusEvent *e) {
 void DoubleClickShortCut::setText(const QString &str) {
     validShortcut = str;
     QLineEdit::setText(str);
+}
+
+void DoubleClickShortCut::setShortcutIsAvailable(bool value)
+{
+    this->shortcutIsAvailable = value;
 }
