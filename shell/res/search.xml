@@ -10,49 +10,49 @@
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>suofangpingmu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-	<ChnieseFunc>缩放屏幕</ChineseFunc>	
+        <ChineseFunc>缩放屏幕</ChineseFunc>
         <EnglishFunc>Screen Zoom</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmujingxiang</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-	<ChnieseFunc>屏幕镜像</ChineseFunc>	
+        <ChineseFunc>屏幕镜像</ChineseFunc>
         <EnglishFunc>Screen mirror</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmuliangdu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-	<ChnieseFunc>屏幕亮度</ChineseFunc>	
+        <ChineseFunc>屏幕亮度</ChineseFunc>
         <EnglishFunc>Screen brightness</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>yejianmoshi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-	<ChnieseFunc>夜间模式</ChineseFunc>	
+        <ChineseFunc>夜间模式</ChineseFunc>
         <EnglishFunc>night mode</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>zidongqiehuan</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-	<ChnieseFunc>自动切换</ChineseFunc>	
+        <ChineseFunc>自动切换</ChineseFunc>
         <EnglishFunc>Auto Switch</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>quantiankaiqi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-	<ChnieseFunc>全天开启</ChineseFunc>	
+        <ChineseFunc>全天开启</ChineseFunc>
         <EnglishFunc>all time</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>sewen</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-	<ChnieseFunc>色温</ChineseFunc>	
+        <ChineseFunc>色温</ChineseFunc>
         <EnglishFunc>color temperature</EnglishFunc>
     </plugin>
     <plugin name="power">
