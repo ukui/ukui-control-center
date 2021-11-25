@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "vino.h"
+#include "vino_hw.h"
 #include "../../../shell/utils/utils.h"
 
 Vino::Vino() : mFirstLoad(true)
@@ -51,6 +51,7 @@ QWidget *Vino::pluginUi()
     return pluginWidget;
 }
 
+
 const QString Vino::name() const
 {
     return QStringLiteral("Vino");
@@ -58,7 +59,7 @@ const QString Vino::name() const
 
 bool Vino::isShowOnHomePage() const
 {
-    return !Utils::isCommunity() && !Utils::isWayland();
+    return Utils::isWayland();
 }
 
 QIcon Vino::icon() const
@@ -68,5 +69,5 @@ QIcon Vino::icon() const
 
 bool Vino::isEnable() const
 {
-    return !Utils::isCommunity() && !Utils::isWayland();
+    return Utils::isWayland();
 }

@@ -17,56 +17,39 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#include "vino.h"
-#include "../../../shell/utils/utils.h"
+#ifndef VINO_H
+#define VINO_H
 
-Vino::Vino() : mFirstLoad(true)
+#include <QWidget>
+#include <QSharedPointer>
+#include <QStringLiteral>
+
+#include "shell/interface.h"
+#include "sharemain.h"
+
+class Vino : public QObject, CommonInterface
 {
-    pluginName = tr("Vino");
-    pluginType = SYSTEM;
-}
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kycc.CommonInterface")
+    Q_INTERFACES(CommonInterface)
 
-Vino::~Vino()
-{
-}
+public:
+    Vino();
+    ~Vino();
 
-QString Vino::plugini18nName()
-{
-    return pluginName;
-}
+    QString plugini18nName() Q_DECL_OVERRIDE;
+    int pluginTypes() Q_DECL_OVERRIDE;
+    QWidget * pluginUi() Q_DECL_OVERRIDE;
+    const QString name() const  Q_DECL_OVERRIDE;
+    bool isShowOnHomePage() const Q_DECL_OVERRIDE;
+    QIcon icon() const Q_DECL_OVERRIDE;
+    bool isEnable() const Q_DECL_OVERRIDE;
 
-int Vino::pluginTypes()
-{
-    return pluginType;
-}
+private:
+    QString pluginName;
+    int pluginType;
+    ShareMain* pluginWidget;
+    bool mFirstLoad;
 
-QWidget *Vino::pluginUi()
-{
-    if (mFirstLoad) {
-        mFirstLoad = false;
-        // will delete by takewidget
-        pluginWidget = new ShareMain;
-    }
-
-    return pluginWidget;
-}
-
-const QString Vino::name() const
-{
-    return QStringLiteral("Vino");
-}
-
-bool Vino::isShowOnHomePage() const
-{
-    return !Utils::isCommunity() && !Utils::isWayland();
-}
-
-QIcon Vino::icon() const
-{
-    return QIcon();
-}
-
-bool Vino::isEnable() const
-{
-    return !Utils::isCommunity() && !Utils::isWayland();
-}
+};
+#endif // VINO_H

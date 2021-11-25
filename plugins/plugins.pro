@@ -13,6 +13,7 @@ SUBDIRS = \
           system/display_hw \
           system/notice \
           system/vino \
+          system/vino_hw \
           system/backup_intel \
           personalized/wallpaper \
           personalized/theme \
