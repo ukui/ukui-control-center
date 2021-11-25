@@ -70,8 +70,8 @@ void ChangeUserNickname::initUI(){
     setTextDynamicInNick(nickNameLabel, tr("NickName"));
 
     tipLabel = new QLabel();
-    tipLabel->setFixedSize(QSize(300, 24));
-    QString tipinfo = tr("Name already in use, change another one.");
+    tipLabel->setFixedSize(QSize(300, 36));
+    QString tipinfo = tr("nickName already in use.");
     setTextDynamicInNick(tipLabel, tipinfo);
 
     nickNameLineEdit = new QLineEdit();

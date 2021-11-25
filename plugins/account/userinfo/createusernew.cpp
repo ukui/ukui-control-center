@@ -55,7 +55,7 @@ void CreateUserNew::initUI(){
     surePwdLabel->setFixedSize(100, 24);
     surePwdLabel->setText(tr("SurePwd"));
     tipLabel = new QLabel;
-    tipLabel->setFixedSize(340, 24);
+    tipLabel->setFixedSize(340, 36);
 
     usernameLineEdit = new QLineEdit;
     usernameLineEdit->setFixedWidth(340);
@@ -374,7 +374,7 @@ void CreateUserNew::nameLegalityCheck2(QString nickname){
     }
 
     if (_allNames.contains(nickname)){
-        nickNameTip = tr("Name already in use, change another one.");
+        nickNameTip = tr("nickName already in use.");
     } else {
         nickNameTip = tr("");
     }
@@ -425,7 +425,7 @@ void CreateUserNew::nameLegalityCheck(QString username){
             pclose(stream);
 
             if (_allNames.contains(username)){
-                userNameTip = tr("Name already in use, change another one.");
+                userNameTip = tr("Name already in use.");
             } else if (!output.isEmpty()) {
                 userNameTip = tr("Name corresponds to group already exists.");
             }else {
