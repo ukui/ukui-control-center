@@ -1,3 +1,10 @@
+ukui-control-center (3.0.1-1-95.33) v101; urgency=medium
+
+  * 提交commit:fb6426b
+  * bug#92073 【前线】【浪潮信息】-【3A5000】-【CE520L】-【Kylin-Desktop-V10-SP1-OEM-LC-CE520L-20211113-LoongArch64】【6388】系统下调整刷新率为59.9402，显示器直接黑屏无显示
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 24 Nov 2021 10:38:11 +0800
+
 ukui-control-center (3.0.1-1-95.27) v101; urgency=medium
 
   * 提交commit:7d96c1fe
