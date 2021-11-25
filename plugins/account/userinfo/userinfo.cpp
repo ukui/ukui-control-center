@@ -647,6 +647,20 @@ void UserInfo::setUserConnect(){
     connect(autoLoginSBtn, &SwitchButton::checkedChanged, autoLoginSBtn, [=](bool checked){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
+        QString autoUser = getAutomaticLogin();
+        qDebug() << "Current Auto User:" << autoUser;
+
+        //冲突，弹出提示窗口由用户选择
+        if (checked && !autoUser.isEmpty()){
+
+            if (!openAutoLoginMsg(user.username)){
+                autoLoginSBtn->blockSignals(true);
+                autoLoginSBtn->setChecked(false);
+                autoLoginSBtn->blockSignals(false);
+                return;
+            }
+        }
+
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
                                                               user.objpath,
                                                               "org.freedesktop.Accounts.User",
@@ -822,6 +836,46 @@ bool UserInfo::isLastAdmin(QString uname){
     } else {
         return false;
     }
+}
+
+QString UserInfo::getAutomaticLogin() {
+
+    QString filename = "/etc/lightdm/lightdm.conf";
+    autoSettings = new QSettings(filename, QSettings::IniFormat);
+    autoSettings->beginGroup("SeatDefaults");
+
+    QString autoUser = autoSettings->value("autologin-user", "").toString();
+
+    autoSettings->endGroup();
+
+    return autoUser;
+}
+
+bool UserInfo::openAutoLoginMsg(const QString &userName){
+    QString autoLoginedUser = this->getAutomaticLogin();
+    bool res = true;
+    int  ret;
+    if (!autoLoginedUser.isEmpty() && userName != autoLoginedUser) {
+        QMessageBox msg(this->pluginWidget2);
+        msg.setWindowTitle(tr("Hint"));
+        msg.setText(tr("The system only allows one user to log in automatically."
+                       "After it is turned on, the automatic login of other users will be turned off."
+                       "Is it turned on?"));
+        msg.addButton(tr("Trun on"), QMessageBox::AcceptRole);
+        msg.addButton(tr("Close on"), QMessageBox::RejectRole);
+
+        ret = msg.exec();
+
+        switch (ret) {
+          case QMessageBox::AcceptRole:
+              res = true;
+              break;
+          case QMessageBox::RejectRole:
+              res = false;
+              break;
+        }
+    }
+    return res;
 }
 
 
