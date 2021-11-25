@@ -153,6 +153,10 @@ void ChangeUserNickname::setConnect(){
         cniface->call("SetRealName", nickNameLineEdit->text());
         close();
     });
+
+    connect(cancelBtn, &QPushButton::clicked, this, [=]{
+        close();
+    });
 }
 
 void ChangeUserNickname::setupStatus(){
