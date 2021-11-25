@@ -2236,8 +2236,12 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changeusernickname.cpp" line="74"/>
+        <source>nickName already in use.</source>
+        <translation>该用户昵称已存在。</translation>
+    </message>
+    <message>
         <source>Name already in use, change another one.</source>
-        <translation>该用户名已存在，请更改。</translation>
+        <translation type="vanished">该用户名已存在，请更改。</translation>
     </message>
     <message>
         <source>ComputerName</source>
@@ -2259,49 +2263,49 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="118"/>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="122"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="395"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="398"/>
         <source>Current Pwd</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="134"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="138"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="396"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="404"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="135"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="139"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="399"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="407"/>
         <source>New Pwd</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="150"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="154"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="397"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="405"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="152"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="156"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="400"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="408"/>
         <source>Sure Pwd</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="192"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="195"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="195"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="198"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="239"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="469"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="242"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="472"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="289"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="292"/>
         <source>Authentication failed, input authtok again!</source>
         <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="430"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="433"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
@@ -2936,6 +2940,16 @@ change system settings</source>
         <translation>用户昵称不能为空</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="377"/>
+        <source>nickName already in use.</source>
+        <translation>该用户昵称已存在。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="428"/>
+        <source>Name already in use.</source>
+        <translation>该用户名已存在。</translation>
+    </message>
+    <message>
         <source>Nickname cannot same with username</source>
         <translation type="vanished">用户昵称和用户名不能相同</translation>
     </message>
@@ -2955,10 +2969,8 @@ change system settings</source>
         <translation>用户名不能包含大写字母！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="377"/>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="428"/>
         <source>Name already in use, change another one.</source>
-        <translation>该用户名已存在，请更改。</translation>
+        <translation type="vanished">该用户名已存在，请更改。</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="430"/>
@@ -8654,63 +8666,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1022"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1023"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1032"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1033"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1041"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1042"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1050"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1051"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1059"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1060"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1069"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1070"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1078"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1079"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1087"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1088"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1096"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1097"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -10773,27 +10785,27 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="891"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="892"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="859"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="860"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="860"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="861"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="863"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="865"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
@@ -10814,12 +10826,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="887"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="888"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="889"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="890"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
@@ -10858,12 +10870,12 @@ E-mail: support@kylinos.cn</source>
         <translation>免密登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="489"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="490"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="489"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="490"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
