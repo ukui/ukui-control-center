@@ -82,7 +82,7 @@ QWidget *Notice::pluginUi()
         whitelist.append("peony.desktop");
         whitelist.append("kylin-nm.desktop");
         whitelist.append("ukui-flash-disk.desktop");
-        whitelist.append("ukui-power-manager.desktop");
+        whitelist.append("ukui-powermanagement-daemon.desktop");
         whitelist.append("kylin-system-update.desktop");
         whitelist.append("ukui-bluetooth.desktop");
         initOriNoticeStatus();
