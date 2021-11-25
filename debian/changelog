@@ -1,3 +1,9 @@
+ukui-control-center (3.0.4-2) unstable; urgency=medium
+
+  * Add missing depends: libglib2.0-bin.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 25 Nov 2021 14:10:52 +0800
+
 ukui-control-center (3.0.4-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #997137)
