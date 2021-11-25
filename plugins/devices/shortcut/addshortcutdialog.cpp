@@ -159,6 +159,7 @@ void addShortcutDialog::slotsSetup()
 
 void addShortcutDialog::setTitleText(QString text)
 {
+    ui->titleLabel->setContentsMargins(0,0,0,0);
     ui->titleLabel->setText(text);
 }
 

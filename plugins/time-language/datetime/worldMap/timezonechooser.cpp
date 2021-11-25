@@ -114,6 +114,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     wbLayout->setContentsMargins(16,15,16,0);
     wbLayout->addWidget(m_logo);
     wbLayout->addWidget(m_title);
+    m_title->setAlignment(Qt::AlignCenter);
     wbLayout->addStretch();
     wbLayout->addWidget(m_closeBtn);
 
