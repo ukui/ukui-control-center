@@ -55,6 +55,8 @@ extern "C" {
 }
 #endif
 
+#define STYLE_FONT_SCHEMA  "org.ukui.style"
+
 enum {
     STANDARDUSER,
     ADMINISTRATOR,
@@ -252,6 +254,7 @@ private:
 
 private:
     bool getNoPwdStatus();
+    void fontSizeChange(UserInfomation user, UtilsForUserinfo * utils);
 
 };
 

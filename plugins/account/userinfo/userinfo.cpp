@@ -375,7 +375,7 @@ void UserInfo::buildAndSetupUsers(){
             if (setTextDynamic(currentUserTypeLabel, cType)){
                 currentUserTypeLabel->setToolTip(cType);
             }
-
+            fontSizeChange(user, nullptr);
             if (user.accounttype){
                 changeCurrentTypeBtn->setEnabled(!isLastAdmin(user.username));
             }
@@ -418,6 +418,7 @@ void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
     utils->refreshUserNickname(user.realname);
     utils->refreshUserType(user.accounttype);
     utils->setObjectPathData(user.objpath);
+    fontSizeChange(user, utils);
 
     if (user.accounttype){
         utils->refreshDelStatus(!isLastAdmin(user.username));
@@ -607,7 +608,6 @@ bool UserInfo::setTextDynamic(QLabel *label, QString string){
     bool isOverLength = false;
     QFontMetrics fontMetrics(label->font());
     int fontSize = fontMetrics.width(string);
-
     QString str = string;
     if (fontSize > 80) {
         label->setFixedWidth(80);
@@ -1186,4 +1186,27 @@ bool UserInfo::getNoPwdStatus() {
     }
     return (noPwdres.value().contains(mUserName) ? true : false);
 
+}
+
+void UserInfo::fontSizeChange(UserInfomation user, UtilsForUserinfo * utils)
+{
+    const QByteArray styleID(STYLE_FONT_SCHEMA);
+    QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
+    connect(stylesettings, &QGSettings::changed, this, [=](){
+        if (utils == nullptr) {
+            //设置用户昵称
+            if (setTextDynamic(currentNickNameLabel, user.realname)){
+                currentNickNameLabel->setToolTip(user.realname);
+            }
+
+            //用户类型
+            QString cType = _accountTypeIntToString(user.accounttype);
+            if (setTextDynamic(currentUserTypeLabel, cType)){
+                currentUserTypeLabel->setToolTip(cType);
+            }
+        } else {
+            utils->refreshUserNickname(user.realname);
+            utils->refreshUserType(user.accounttype);
+        }
+    });
 }
