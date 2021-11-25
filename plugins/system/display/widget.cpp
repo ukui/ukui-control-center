@@ -730,16 +730,13 @@ bool Widget::isCloneMode()
 
 bool Widget::isBacklight()
 {
-    QString cmd = "ukui-power-backlight-helper --get-max-brightness";
-    QProcess process;
-    process.start(cmd);
-    process.waitForFinished();
-    QString result = process.readAllStandardOutput().trimmed();
+    QDBusInterface powerIfc("org.freedesktop.UPower",
+                            "/org/freedesktop/UPower",
+                            "org.freedesktop.Properties",
+                            QDBusConnection::systemBus());
 
-    QString pattern("^[0-9]*$");
-    QRegExp reg(pattern);
-
-    return reg.exactMatch(result);
+    QDBusReply<bool> reply = powerIfc.call("Get", "org.freedesktop.UPower", "LidIsPresent");
+    return reply.value();
 }
 
 QString Widget::getMonitorType()
