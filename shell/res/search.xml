@@ -55,14 +55,14 @@
         <ChineseFunc>色温</ChineseFunc>
         <EnglishFunc>color temperature</EnglishFunc>
     </plugin>
-    <plugin name="power">
+    <plugin name="battery">
         <pinyinPlugin>dianyuan</pinyinPlugin>
         <pinyinfunc>pingheng</pinyinfunc>
         <ChinesePlugin>电源</ChinesePlugin>
         <ChineseFunc>平衡（推荐）</ChineseFunc>
         <EnglishFunc>Balance (suggest)</EnglishFunc>
     </plugin>
-    <plugin name="power">
+    <plugin name="battery">
         <pinyinPlugin>dianyuan</pinyinPlugin>
         <pinyinfunc>jieneng</pinyinfunc>
         <ChinesePlugin>电源</ChinesePlugin>
