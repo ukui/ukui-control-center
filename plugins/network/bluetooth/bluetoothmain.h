@@ -46,6 +46,7 @@
 #include "deviceinfoitem.h"
 #include "bluetoothnamelabel.h"
 #include "customizenamelabel.h"
+#include "config.h"
 
 class BlueToothMain : public QMainWindow
 {
@@ -53,6 +54,7 @@ class BlueToothMain : public QMainWindow
 public:
     BlueToothMain(QWidget *parent = nullptr);
     ~BlueToothMain();
+    static bool m_device_check ;
     void InitMainTopUI();
     void InitMainMiddleUI();
     void InitMainbottomUI();

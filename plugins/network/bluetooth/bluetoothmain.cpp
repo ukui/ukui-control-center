@@ -11,6 +11,8 @@
 #include <QPalette>
 #include <QMessageLogger>
 
+bool BlueToothMain::m_device_check = false;
+
 BlueToothMain::BlueToothMain(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -613,6 +615,8 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         connect(item,SIGNAL(devSendFiles(QString)),this,SLOT(receiveSendFileSignal(QString)));
         connect(item,&DeviceInfoItem::devConnectComplete,this,[=]
         {
+            qDebug() << Q_FUNC_INFO << "devConnectComplete" << BlueToothMain::m_device_check;
+            BlueToothMain::m_device_check = false;
             this->startDiscovery();
         });
 
@@ -955,6 +959,8 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
         connect(item,SIGNAL(devSendFiles(QString)),this,SLOT(receiveSendFileSignal(QString)));
         connect(item,&DeviceInfoItem::devConnectComplete,this,[=]
         {
+            qDebug() << Q_FUNC_INFO << "devConnectComplete" << BlueToothMain::m_device_check;
+            BlueToothMain::m_device_check = false;
             this->startDiscovery();
         });
 
