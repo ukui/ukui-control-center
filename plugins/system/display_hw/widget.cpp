@@ -1372,7 +1372,6 @@ int Widget::screenEnableCount()
 
 void Widget::setExtendPrimaryScreen()
 {
-    /*
     QVector<KScreen::Output *> outputs;
     Q_FOREACH (const auto &output, mConfig->outputs()) {
         outputs << output.data();
@@ -1394,7 +1393,6 @@ void Widget::setExtendPrimaryScreen()
             output->setPrimary(true);
         }
     }
-    */
 }
 
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
