@@ -8754,6 +8754,11 @@ E-mail: support@kylinos.cn</source>
         <source>system upgrade increment backup</source>
         <translation type="vanished">系统升级增量备份</translation>
     </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="659"/>
+        <source>xxx客户端</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RegDialog</name>
@@ -9447,8 +9452,89 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>ShareMain</name>
     <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="240"/>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="240"/>
+        <source>please select an output</source>
+        <translation>请选择一个输出设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="302"/>
+        <source>Input Password</source>
+        <translation>输入密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="303"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="419"/>
         <source>Share</source>
-        <translation type="vanished">共享</translation>
+        <translation>共享</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="473"/>
+        <source>Output</source>
+        <translation>输出</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="485"/>
+        <source>Input</source>
+        <translation>输入</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="495"/>
+        <source>Point</source>
+        <translation>鼠标</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="497"/>
+        <source>Keyboard</source>
+        <translation>键盘</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="499"/>
+        <source>Clipboard</source>
+        <translation>剪切板</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="525"/>
+        <source>Close</source>
+        <translation>关闭</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="527"/>
+        <source>ViewOnly</source>
+        <translation>仅查看</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="535"/>
+        <source>Client Setting</source>
+        <translation>客户端配置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="546"/>
+        <source>Client Number</source>
+        <translation>客户端数量</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="560"/>
+        <source>Client IP：</source>
+        <translation>客户端IP地址：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="691"/>
+        <source>退出程序</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="691"/>
+        <source>确认退出程序！</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="57"/>
@@ -9457,6 +9543,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="66"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="435"/>
         <source>Allow others to view your desktop</source>
         <translation>允许其他人远程连接您的桌面</translation>
         <extra-contents_path>/Vino/Allow others to view your desktop</extra-contents_path>
@@ -9468,8 +9555,9 @@ E-mail: support@kylinos.cn</source>
         <extra-contents_path>/Vino/Allow connection to control screen</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="446"/>
         <source>Security</source>
-        <translation type="vanished">安全</translation>
+        <translation>安全</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="96"/>
@@ -9479,17 +9567,22 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="111"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="455"/>
         <source>Require user to enter this password: </source>
         <translation>要求用户输入此密码: </translation>
         <extra-contents_path>/Vino/Require user to enter this password:</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="402"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="457"/>
         <source>Password can not be blank</source>
-        <translation type="vanished">密码不能为空</translation>
+        <translation>密码不能为空</translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="395"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="410"/>
         <source>Password length must be less than or equal to 8</source>
-        <translation type="vanished">密码长度需小于等于8</translation>
+        <translation>密码长度需小于等于8</translation>
     </message>
     <message>
         <source>Password length is greater than 8</source>
@@ -11127,7 +11220,8 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>Vino</name>
     <message>
-        <location filename="../../../plugins/system/vino/vino.cpp" line="24"/>
+        <location filename="../../../plugins/system/vino/vino.cpp" line="25"/>
+        <location filename="../../../plugins/system/vino_hw/vino_hw.cpp" line="25"/>
         <source>Vino</source>
         <translation>远程桌面</translation>
     </message>

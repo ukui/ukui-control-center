@@ -4020,63 +4020,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1022"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1023"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1032"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1033"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1041"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1042"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1050"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1051"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1059"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1060"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1069"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1070"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1078"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1079"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1087"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1088"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1096"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1097"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -4141,6 +4141,11 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="34"/>
         <source>December</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="659"/>
+        <source>xxx客户端</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4477,6 +4482,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="66"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="435"/>
         <source>Allow others to view your desktop</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Vino/Allow others to view your desktop</extra-contents_path>
@@ -4495,9 +4501,112 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/vino/sharemain.cpp" line="111"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="455"/>
         <source>Require user to enter this password: </source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/Vino/Require user to enter this password:</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="240"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="240"/>
+        <source>please select an output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="302"/>
+        <source>Input Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="303"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="395"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="410"/>
+        <source>Password length must be less than or equal to 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="402"/>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="457"/>
+        <source>Password can not be blank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="419"/>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="446"/>
+        <source>Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="473"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="485"/>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="495"/>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="497"/>
+        <source>Keyboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="499"/>
+        <source>Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="525"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="527"/>
+        <source>ViewOnly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="535"/>
+        <source>Client Setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="546"/>
+        <source>Client Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="560"/>
+        <source>Client IP：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="691"/>
+        <source>退出程序</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino_hw/sharemain.cpp" line="691"/>
+        <source>确认退出程序！</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4929,37 +5038,37 @@ E-mail: support@kylinos.cn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="859"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="860"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="860"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="861"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="863"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
         <source>Trun on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="865"/>
         <source>Close on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="887"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="888"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="889"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="890"/>
         <source>Admin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="891"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="892"/>
         <source>root</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4994,12 +5103,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="489"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="490"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="489"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="490"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5132,7 +5241,8 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>Vino</name>
     <message>
-        <location filename="../../../plugins/system/vino/vino.cpp" line="24"/>
+        <location filename="../../../plugins/system/vino/vino.cpp" line="25"/>
+        <location filename="../../../plugins/system/vino_hw/vino_hw.cpp" line="25"/>
         <source>Vino</source>
         <translation type="unfinished"></translation>
     </message>
