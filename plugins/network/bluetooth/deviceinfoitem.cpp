@@ -2,6 +2,7 @@
 #include <QStyle>
 
 #include "msgbox.h"
+#include "bluetoothmain.h"
 
 DeviceInfoItem::DeviceInfoItem(QWidget *parent, BluezQt::DevicePtr dev):
     QFrame(parent),
@@ -105,7 +106,6 @@ void DeviceInfoItem::InitMemberVariables()
         });
 
         update();
-
         emit devConnectComplete();
     });
 
@@ -443,8 +443,12 @@ void DeviceInfoItem::mouseReleaseEvent(QMouseEvent *event)
             MouseClickedDevFunc();
             _pressBtnFlag = false;
         } else {
-            MouseClickedFunc();
-            _pressFlag = false;
+            qDebug() << Q_FUNC_INFO << BlueToothMain::m_device_check ;
+            if (!BlueToothMain::m_device_check)
+            {
+                MouseClickedFunc();
+                _pressFlag = false;
+            }
         }
     }
 }
@@ -717,6 +721,8 @@ void DeviceInfoItem::MouseClickedFunc()
     _pressFlag = false;
 
     update();
+
+    BlueToothMain::m_device_check = true;
 
     if (_MDev) {
         if (_MDev.data()->isConnected()) {
