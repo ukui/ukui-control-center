@@ -427,7 +427,7 @@
         <ChineseFunc1>鼠标</ChineseFunc1>
         <ChineseFunc2>鼠标键设置</ChineseFunc2>
         <EnglishFunc1>mouse</EnglishFunc1>
-        <EnglishFunc2>Hand Habit</EnglishFunc2>
+        <EnglishFunc2>Mouse button settings</EnglishFunc2>
     </plugin>
     <plugin name="devices">
         <pinyinPlugin>shebei</pinyinPlugin>
@@ -1128,6 +1128,46 @@
         <ChineseFunc2>开始备份</ChineseFunc2>
         <EnglishFunc1>Backup</EnglishFunc1>
         <EnglishFunc2>Backup</EnglishFunc2>
+    </plugin>
+    <plugin name="security-updates">
+        <pinyinPlugin>gengxin</pinyinPlugin>
+        <pinyinfunc1>gengxin</pinyinfunc1>
+        <pinyinfunc2>chakangengxinlishi</pinyinfunc2>
+        <ChinesePlugin>更新</ChinesePlugin>
+        <ChineseFunc1>更新</ChineseFunc1>
+        <ChineseFunc2>查看更新历史</ChineseFunc2>
+        <EnglishFunc1>upgrade</EnglishFunc1>
+        <EnglishFunc2>View history</EnglishFunc2>
+    </plugin>
+    <plugin name="security-updates">
+        <pinyinPlugin>gengxin</pinyinPlugin>
+        <pinyinfunc1>gengxin</pinyinfunc1>
+        <pinyinfunc2>gengxinshezhi</pinyinfunc2>
+        <ChinesePlugin>更新</ChinesePlugin>
+        <ChineseFunc1>更新</ChineseFunc1>
+        <ChineseFunc2>更新设置</ChineseFunc2>
+        <EnglishFunc1>upgrade</EnglishFunc1>
+        <EnglishFunc2>Update Settings</EnglishFunc2>
+    </plugin>
+    <plugin name="security-updates">
+        <pinyinPlugin>gengxin</pinyinPlugin>
+        <pinyinfunc1>gengxin</pinyinfunc1>
+        <pinyinfunc2>yunxutongzhikegengxindeyingyong</pinyinfunc2>
+        <ChinesePlugin>更新</ChinesePlugin>
+        <ChineseFunc1>更新</ChineseFunc1>
+        <ChineseFunc2>允许通知可更新的应用</ChineseFunc2>
+        <EnglishFunc1>upgrade</EnglishFunc1>
+        <EnglishFunc2>Allowed to renewable notice</EnglishFunc2>
+    </plugin>
+    <plugin name="security-updates">
+        <pinyinPlugin>gengxin</pinyinPlugin>
+        <pinyinfunc1>gengxin</pinyinfunc1>
+        <pinyinfunc2>zidongxiazaiheanzhuanggengxin</pinyinfunc2>
+        <ChinesePlugin>更新</ChinesePlugin>
+        <ChineseFunc1>更新</ChineseFunc1>
+        <ChineseFunc2>自动下载和安装更新</ChineseFunc2>
+        <EnglishFunc1>upgrade</EnglishFunc1>
+        <EnglishFunc2>Automatically download and install updates</EnglishFunc2>
     </plugin>
     <plugin name="security-updates">
         <pinyinPlugin>gengxin</pinyinPlugin>
