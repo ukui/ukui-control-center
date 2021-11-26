@@ -218,6 +218,14 @@
     </message>
 </context>
 <context>
+    <name>AddNetBtn</name>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/addnetbtn.cpp" line="18"/>
+        <source>Add WiredNetork</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AppDetail</name>
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="32"/>
@@ -3337,64 +3345,64 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="383"/>
+        <location filename="../../mainwindow.cpp" line="387"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="403"/>
-        <location filename="../../mainwindow.cpp" line="616"/>
-        <location filename="../../mainwindow.cpp" line="794"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <location filename="../../mainwindow.cpp" line="798"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="412"/>
+        <location filename="../../mainwindow.cpp" line="416"/>
         <source>Main menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="413"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
         <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="414"/>
+        <location filename="../../mainwindow.cpp" line="418"/>
         <source>Maximize/Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="415"/>
+        <location filename="../../mainwindow.cpp" line="419"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="473"/>
+        <location filename="../../mainwindow.cpp" line="477"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="475"/>
+        <location filename="../../mainwindow.cpp" line="479"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="477"/>
+        <location filename="../../mainwindow.cpp" line="481"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="621"/>
+        <location filename="../../mainwindow.cpp" line="625"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="903"/>
+        <location filename="../../mainwindow.cpp" line="907"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="903"/>
+        <location filename="../../mainwindow.cpp" line="907"/>
         <source>This function has been controlled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3623,6 +3631,21 @@ Please retry or relogin!</source>
         <source>Refreshing...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.ui" line="47"/>
+        <source>Wired Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.ui" line="109"/>
+        <source>open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.ui" line="192"/>
+        <source>Advanced settings</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NetDetail</name>
@@ -3694,6 +3717,57 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="104"/>
         <source>Mac:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NetconnectICBC</name>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="60"/>
+        <source>ukui control center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="63"/>
+        <source>ukui control center desktop message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="77"/>
+        <source>NetconnectICBC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="188"/>
+        <source>Advanced settings</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/netconnect/Advanced settings&quot;</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="189"/>
+        <source>Wired Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="191"/>
+        <source>open</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/netconnect/open</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="211"/>
+        <source>No ethernet device avaliable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="460"/>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="869"/>
+        <source>connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="524"/>
+        <source>card</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4351,12 +4425,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="154"/>
+        <location filename="../../utils/functionselect.cpp" line="159"/>
         <source>User Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="188"/>
+        <location filename="../../utils/functionselect.cpp" line="193"/>
         <source>Security Center</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4371,52 +4445,62 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="156"/>
+        <location filename="../../utils/functionselect.cpp" line="141"/>
+        <source>Netconnect-icbc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="143"/>
+        <source>Wlanconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="161"/>
         <source>Cloud Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="171"/>
+        <location filename="../../utils/functionselect.cpp" line="176"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="173"/>
+        <location filename="../../utils/functionselect.cpp" line="178"/>
         <source>Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="190"/>
+        <location filename="../../utils/functionselect.cpp" line="195"/>
         <source>Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="192"/>
+        <location filename="../../utils/functionselect.cpp" line="197"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="194"/>
+        <location filename="../../utils/functionselect.cpp" line="199"/>
         <source>Upgrade</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="209"/>
+        <location filename="../../utils/functionselect.cpp" line="214"/>
         <source>Notice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="211"/>
+        <location filename="../../utils/functionselect.cpp" line="216"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="213"/>
+        <location filename="../../utils/functionselect.cpp" line="218"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="215"/>
+        <location filename="../../utils/functionselect.cpp" line="220"/>
         <source>Experienceplan</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4777,66 +4861,72 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../utils/utils.cpp" line="67"/>
+        <location filename="../../utils/utils.cpp" line="68"/>
         <source>Go to netconnect settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="68"/>
+        <location filename="../../utils/utils.cpp" line="69"/>
+        <source>Go to wlanconnect settings page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../utils/utils.cpp" line="70"/>
         <source>Go to vpn settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="69"/>
+        <location filename="../../utils/utils.cpp" line="71"/>
         <source>Go to proxy settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="71"/>
+        <location filename="../../utils/utils.cpp" line="73"/>
         <source>Go to userinfo settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="72"/>
+        <location filename="../../utils/utils.cpp" line="74"/>
         <source>Go to cloudaccount settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="74"/>
+        <location filename="../../utils/utils.cpp" line="76"/>
         <source>Go to datetime settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="75"/>
+        <location filename="../../utils/utils.cpp" line="77"/>
         <source>Go to area settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="77"/>
+        <location filename="../../utils/utils.cpp" line="79"/>
         <source>Go to update settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="78"/>
+        <location filename="../../utils/utils.cpp" line="80"/>
         <source>Go to backup settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="79"/>
+        <location filename="../../utils/utils.cpp" line="81"/>
         <source>Go to upgrade settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="81"/>
+        <location filename="../../utils/utils.cpp" line="83"/>
         <source>Go to notice settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="82"/>
+        <location filename="../../utils/utils.cpp" line="84"/>
         <source>Go to about settings page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="83"/>
+        <location filename="../../utils/utils.cpp" line="85"/>
         <source>Go to search settings page</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6729,14 +6819,14 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1274"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1275"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1104"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1274"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1281"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1275"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1282"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6768,14 +6858,14 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1926"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1941"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1927"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1942"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1282"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1283"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
@@ -6783,6 +6873,62 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="457"/>
         <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WlanConnect</name>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="14"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="89"/>
+        <source>WlanConnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="35"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="198"/>
+        <source>WLAN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="94"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="200"/>
+        <source>open</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/wlanconnect/open</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="147"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="197"/>
+        <source>Advanced settings</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/wlanconnect/Advanced settings&quot;</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="72"/>
+        <source>ukui control center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="75"/>
+        <source>ukui control center desktop message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="220"/>
+        <source>No wireless network card detected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="357"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="946"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="1008"/>
+        <source>connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="899"/>
+        <source>card</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -72,6 +72,8 @@ enum NetworkIndex{
     VPN,
     PROXY,
     VINO,
+    NETCONNECT_ICBC,
+    WLANCONNECT,
     TOTALNETFUNC,
 };
 

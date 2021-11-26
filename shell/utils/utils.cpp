@@ -65,6 +65,8 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     QCommandLineOption desktopRoleOption(QStringList() << "d" << "desktop", QObject::tr("Go to desktop settings page"));
 
     QCommandLineOption netconnectRoleOption("netconnect", QObject::tr("Go to netconnect settings page"));
+    QCommandLineOption netconnectICBCRoleOption("netconnect-icbc", QObject::tr("Go to netconnect settings page"));
+    QCommandLineOption wlanconnectRoleOption("wlanconnect", QObject::tr("Go to wlanconnect settings page"));
     QCommandLineOption vpnRoleOption(QStringList() << "g" << "vpn", QObject::tr("Go to vpn settings page"));
     QCommandLineOption proxyRoleOption("proxy", QObject::tr("Go to proxy settings page"));
 
@@ -92,6 +94,8 @@ void Utils::setCLIName(QCommandLineParser &parser) {
             //时间和日期 | 用户账户 | 电源管理 |网络连接 |网络代理|更新
             parser.addOption(powerRoleOption);
             parser.addOption(netconnectRoleOption);
+            parser.addOption(netconnectICBCRoleOption);
+            parser.addOption(wlanconnectRoleOption);
             parser.addOption(vpnRoleOption);
             parser.addOption(proxyRoleOption);
             parser.addOption(userinfoRoleOption);
@@ -104,6 +108,8 @@ void Utils::setCLIName(QCommandLineParser &parser) {
     } else {
         parser.addOption(powerRoleOption);
         parser.addOption(netconnectRoleOption);
+        parser.addOption(netconnectICBCRoleOption);
+        parser.addOption(wlanconnectRoleOption);
         parser.addOption(vpnRoleOption);
         parser.addOption(proxyRoleOption);
         parser.addOption(userinfoRoleOption);

@@ -125,6 +125,10 @@ void MainWindow::bootOptionsFilter(QString opt) {
         bootOptionsSwitch(PERSONALIZED, DESKTOP);
     } else if (opt == "--netconnect") {
         bootOptionsSwitch(NETWORK, NETCONNECT);
+    } else if (opt == "--wlanconnect") {
+        bootOptionsSwitch(NETWORK, WLANCONNECT);
+    } else if (opt == "--netconnect-icbc") {
+        bootOptionsSwitch(NETWORK, NETCONNECT_ICBC);
     } else if (opt == "--vpn" || opt == "-g") {
         bootOptionsSwitch(NETWORK, VPN);
     } else if (opt == "--proxy") {

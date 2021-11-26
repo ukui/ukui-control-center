@@ -23,6 +23,8 @@ SUBDIRS = \
           personalized/screensaver \
           personalized/desktop \
           network/netconnect \
+          network/netconnect-icbc \
+          network/wlanconnect-icbc \
           network/vpn \
           network/proxy \
           account/userinfo \
