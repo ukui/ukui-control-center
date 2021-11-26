@@ -76,6 +76,13 @@
         <ChineseFunc>打印机和扫描仪</ChineseFunc>
         <EnglishFunc>List of Existing Printers</EnglishFunc>
     </plugin>
+    <plugin name="printer">
+        <pinyinPlugin>dayinji</pinyinPlugin>
+        <pinyinfunc>tianjiakeyongshebei</pinyinfunc>
+        <ChinesePlugin>打印机</ChinesePlugin>
+        <ChineseFunc>添加可用设备</ChineseFunc>
+        <EnglishFunc>Add printers and scanners</EnglishFunc>
+    </plugin>
     <plugin name="mouse">
         <pinyinPlugin>shubiao</pinyinPlugin>
         <pinyinfunc>shubiaojianshezhi</pinyinfunc>
@@ -539,16 +546,16 @@
         <EnglishFunc>Erase and Restore</EnglishFunc>
     </plugin>
     <plugin name="gesture">
-        <pinyinPlugin>qita</pinyinPlugin>
+        <pinyinPlugin>shoushiyindao</pinyinPlugin>
         <pinyinfunc>shoushiyindao</pinyinfunc>
-        <ChinesePlugin>其他</ChinesePlugin>
+        <ChinesePlugin>手势引导</ChinesePlugin>
         <ChineseFunc>手势引导</ChineseFunc>
         <EnglishFunc>Gesture Guidance</EnglishFunc>
     </plugin>
     <plugin name="about">
-        <pinyinPlugin>qita</pinyinPlugin>
+        <pinyinPlugin>guanyuyuzhichi</pinyinPlugin>
         <pinyinfunc>guanyuyuzhichi</pinyinfunc>
-        <ChinesePlugin>其他</ChinesePlugin>
+        <ChinesePlugin>关于与支持</ChinesePlugin>
         <ChineseFunc>关于与支持</ChineseFunc>
         <EnglishFunc>About and Support</EnglishFunc>
     </plugin>
