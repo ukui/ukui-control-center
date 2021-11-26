@@ -16,6 +16,7 @@
 #include <QMouseEvent>
 
 #define USER_LENGTH 32
+#define NICKNAME_LENGTH 32
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
 
 CreateUserNew::CreateUserNew(QStringList allUsers, QWidget *parent) :
@@ -371,10 +372,10 @@ bool CreateUserNew::nameTraverse(QString username){
 void CreateUserNew::nameLegalityCheck2(QString nickname){
     if (nickname.isEmpty()){
         nickNameTip = tr("The nick name cannot be empty");
-    }
-
-    if (_allNames.contains(nickname)){
+    } else if (_allNames.contains(nickname)){
         nickNameTip = tr("nickName already in use.");
+    } else if(nickname.length() >= NICKNAME_LENGTH) {
+        nickNameTip = tr("nickName length must less than %1 letters!").arg(NICKNAME_LENGTH);
     } else {
         nickNameTip = tr("");
     }
