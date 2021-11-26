@@ -73,7 +73,7 @@ const QString kDefCursor =           "DMZ-White";
 const QString UbuntuVesionEnhance =  "20.10";
 const QString kXder =                "XRender";
 
-const int transparency = 75;
+const int transparency = 85;
 //保存关闭特效模式之前的透明度
 int save_trans = 0;
 
@@ -839,7 +839,7 @@ void Theme::resetBtnClickSlot() {
         qtSettings->reset(THEME_TRAN_KEY);
         qtSettings->reset(PEONY_TRAN_KEY);
         gtkSettings->reset(ICON_GTK_KEY);
-        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);
+        personliseGsettings->set(PERSONALSIE_TRAN_KEY, 0.85);
         ui->tranSlider->setValue(transparency);
     }
 

@@ -774,17 +774,28 @@ void Power::setupConnect()
 
     connect(mCloseComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
         Q_UNUSED(index)
-        settings->set(SLEEP_DISPLAY_AC_KEY, QVariant(mCloseComboBox->currentData(Qt::UserRole).toInt() * 60));
-        settings->set(SLEEP_DISPLAY_BATT_KEY, QVariant(mCloseComboBox->currentData(Qt::UserRole).toInt() * 60));
+        if (mCloseComboBox->currentData(Qt::UserRole).toInt() == 0) {
+            settings->set(SLEEP_DISPLAY_AC_KEY, -1);
+            settings->set(SLEEP_DISPLAY_BATT_KEY, -1);
+        } else {
+            settings->set(SLEEP_DISPLAY_AC_KEY, QVariant(mCloseComboBox->currentData(Qt::UserRole).toInt() * 60));
+            settings->set(SLEEP_DISPLAY_BATT_KEY, QVariant(mCloseComboBox->currentData(Qt::UserRole).toInt() * 60));
+        }
     });
 
     connect(mSleepComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
         Q_UNUSED(index)
-        settings->set(SLEEP_COMPUTER_AC_KEY, QVariant(mSleepComboBox->currentData(Qt::UserRole).toInt() * 60));
-        settings->set(SLEEP_COMPUTER_BATT_KEY, QVariant(mSleepComboBox->currentData(Qt::UserRole).toInt() * 60));
+        if (mSleepComboBox->currentData(Qt::UserRole).toInt() == 0) {
+            settings->set(SLEEP_COMPUTER_AC_KEY, -1);
+            settings->set(SLEEP_COMPUTER_BATT_KEY, -1);
+        } else {
+            settings->set(SLEEP_COMPUTER_AC_KEY, QVariant(mSleepComboBox->currentData(Qt::UserRole).toInt() * 60));
+            settings->set(SLEEP_COMPUTER_BATT_KEY, QVariant(mSleepComboBox->currentData(Qt::UserRole).toInt() * 60));
+        }
+
     });
 
-    connect(mCloseLidComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
+    connect(mCloseLidComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) { 
         settings->set(BUTTON_LID_AC_KEY, mCloseLidComboBox->itemData(index));
         settings->set(BUTTON_LID_BATT_KET, mCloseLidComboBox->itemData(index));
     });
@@ -794,7 +805,7 @@ void Power::setupConnect()
             if (index == 0) {
                 settings->set(POWER_POLICY_AC, 1);
             }  else if (index == 1) {
-                settings->set(POWER_POLICY_AC, -1);
+                settings->set(POWER_POLICY_AC, 2);
             } else {
                 settings->set(POWER_POLICY_AC, 0);
             }
@@ -810,7 +821,7 @@ void Power::setupConnect()
             if (index == 0) {
                 settings->set(POWER_POLICY_BATTARY, 1);
             } else if (index == 1) {
-                settings->set(POWER_POLICY_BATTARY, -1);
+                settings->set(POWER_POLICY_BATTARY, 2);
             } else {
                 settings->set(POWER_POLICY_BATTARY, 0);
             }
@@ -819,7 +830,11 @@ void Power::setupConnect()
 
     connect(mDarkenComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
         Q_UNUSED(index)
-        settings->set(IDLE_DIM_TIME_KEY, QVariant(mDarkenComboBox->currentData(Qt::UserRole).toInt() * 60));
+        if (mSleepComboBox->currentData(Qt::UserRole).toInt() == 0) {
+            settings->set(IDLE_DIM_TIME_KEY, -1);
+        } else {
+            settings->set(IDLE_DIM_TIME_KEY, QVariant(mDarkenComboBox->currentData(Qt::UserRole).toInt() * 60));
+        }
     });
 
     connect(mLowpowerComboBox1, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
@@ -944,21 +959,37 @@ void Power::initCustomPlanStatus()
     mBalanceBtn->blockSignals(true);
 
     mPowerKeyComboBox->setCurrentIndex(mPowerKeyComboBox->findData(settings->get(BUTTON_POWER_KEY).toString()));
-    mSleepComboBox->setCurrentIndex(mSleepComboBox->findData(settings->get(SLEEP_COMPUTER_AC_KEY).toInt() / FIXES));
-    mCloseComboBox->setCurrentIndex(mCloseComboBox->findData(settings->get(SLEEP_DISPLAY_AC_KEY).toInt() / FIXES));
+    if (settings->get(SLEEP_COMPUTER_AC_KEY).toInt() == -1) {
+        mSleepComboBox->setCurrentIndex(mSleepComboBox->findData(0));
+    } else {
+          mSleepComboBox->setCurrentIndex(mSleepComboBox->findData(settings->get(SLEEP_COMPUTER_AC_KEY).toInt() / FIXES));
+    }
+
+    if (settings->get(SLEEP_DISPLAY_AC_KEY).toInt() == -1) {
+        mCloseComboBox->setCurrentIndex(mCloseComboBox->findData(0));
+    } else {
+         mCloseComboBox->setCurrentIndex(mCloseComboBox->findData(settings->get(SLEEP_DISPLAY_AC_KEY).toInt() / FIXES));;
+    }
+
+    if (settings->get(IDLE_DIM_TIME_KEY).toInt() == -1) {
+        mDarkenComboBox->setCurrentIndex(mDarkenComboBox->findData(0));
+    } else {
+          mDarkenComboBox->setCurrentIndex(mDarkenComboBox->findData(settings->get(IDLE_DIM_TIME_KEY).toInt() / FIXES));
+    }
+
     mCloseLidComboBox->setCurrentIndex(mCloseLidComboBox->findData(settings->get(BUTTON_LID_AC_KEY).toString()));
 
     if (mKeys.contains("powerPolicyAc") && mKeys.contains("powerPolicyBattery")) {
         if (1 == settings->get(POWER_POLICY_AC).toInt()) {
             mPowerComboBox->setCurrentIndex(0);
-        } else if (-1 == settings->get(POWER_POLICY_AC).toInt()){
+        } else if (2 == settings->get(POWER_POLICY_AC).toInt()){
             mPowerComboBox->setCurrentIndex(1);
         } else {
             mPowerComboBox->setCurrentIndex(2);
         }
         if (1 == settings->get(POWER_POLICY_BATTARY).toInt()) {
             mBatteryComboBox->setCurrentIndex(0);
-        } else if (-1 == settings->get(POWER_POLICY_BATTARY).toInt()) {
+        } else if (2 == settings->get(POWER_POLICY_BATTARY).toInt()) {
             mBatteryComboBox->setCurrentIndex(1);
         } else {
             mBatteryComboBox->setCurrentIndex(2);
@@ -968,8 +999,6 @@ void Power::initCustomPlanStatus()
         mBatteryComboBox->setEnabled(false);
     }
 
-
-    mDarkenComboBox->setCurrentIndex(mDarkenComboBox->findData(settings->get(IDLE_DIM_TIME_KEY).toInt() / FIXES));
     mLowpowerComboBox1->setCurrentIndex(settings->get(PER_ACTION_KEY).toInt() - 5);
     mLowpowerComboBox2->setCurrentIndex(mLowpowerComboBox2->findData(settings->get(ACTION_CRI_BTY).toString()));
     mNoticeComboBox->setCurrentIndex(settings->get(PERCENTAGE_LOW).toInt()/10 - 1);
