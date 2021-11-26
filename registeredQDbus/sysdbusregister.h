@@ -105,6 +105,9 @@ public slots:
     Q_SCRIPTABLE QString showDisplayInfo();
     Q_SCRIPTABLE void setDisplayBrightness(QString brightness, QString edidHash);
     Q_SCRIPTABLE int getDisplayBrightness(QString edidHash);
+
+    // dmidecode解析id屏蔽电源功能
+    Q_SCRIPTABLE QString getVerionsId();
 };
 
 #endif // SYSDBUSREGISTER_H

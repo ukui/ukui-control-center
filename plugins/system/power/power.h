@@ -95,6 +95,7 @@ private:
     bool isExitHibernate;
 
     bool hasBat;
+    bool mIsLenovoId = false;
 
     ComboxFrame *mHibernate;
     ComboxFrame *mPowerBtn;
@@ -108,6 +109,7 @@ private:
     QString  getHibernateTime();
     void initDbus();
     void initDeviceStatus();
+    void initLenovoId();
 
 private slots:
     void setIdleTime(int idleTime);

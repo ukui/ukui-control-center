@@ -394,6 +394,17 @@ int SysdbusRegister::getDisplayBrightness(QString edidHash)
     return -2;
 }
 
+QString SysdbusRegister::getVerionsId()
+{
+    QString cmd = "/usr/sbin/dmidecode";
+    QProcess process;
+    QStringList arg {"-s", "system-version"};
+    process.start(cmd, arg);
+    process.waitForFinished();
+    QByteArray result = process.readAllStandardOutput().trimmed();
+    return result;
+}
+
 QString SysdbusRegister::showDisplayInfo()
 {
     QString retString = "";

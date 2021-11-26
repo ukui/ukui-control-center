@@ -102,6 +102,7 @@ QWidget * Power::get_plugin_ui() {
         const QByteArray personalizeId(PERSONALSIE_SCHEMA);
 
         initDbus();
+        initLenovoId();
         initDeviceStatus();
         isPowerSupply();
         isLidPresent();
@@ -268,7 +269,9 @@ void Power::setupComponent() {
 
     // 合盖
     closeLidStringList << tr("nothing") << tr("blank") << tr("suspend") << tr("shutdown");
-    ui->closeLidCombo->insertItem(0, closeLidStringList.at(0), "nothing");
+    if (!mIsLenovoId) {
+        ui->closeLidCombo->insertItem(0, closeLidStringList.at(0), "nothing");
+    }
     ui->closeLidCombo->insertItem(1, closeLidStringList.at(1), "blank");
     ui->closeLidCombo->insertItem(2, closeLidStringList.at(2), "suspend");
     ui->closeLidCombo->insertItem(3, closeLidStringList.at(3), "shutdown");
@@ -317,6 +320,19 @@ void Power::initDeviceStatus(){
     }
     g_ptr_array_unref (devices);
 
+}
+
+void Power::initLenovoId()
+{
+    QStringList lenovoId{"ZhaoYangN4620Z", "ZhaoYangN4629T", "ZhaoYangCF4620Z", "ZhaoYangCF4629T"};
+    QDBusReply<QString> reply = mUkccInterface->call("getVerionsId");
+    QString res = reply.value();
+    for (QString str : lenovoId) {
+        if (str.contains(res, Qt::CaseInsensitive)){
+            mIsLenovoId = true;
+        }
+    }
+    qDebug() << Q_FUNC_INFO  << mIsLenovoId;
 }
 
 void Power::setupConnect() {
