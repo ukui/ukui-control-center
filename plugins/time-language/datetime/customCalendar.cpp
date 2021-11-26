@@ -25,6 +25,7 @@ CustomCalendarWidget::CustomCalendarWidget(QWidget *parent)
     this->setMinimumHeight(230);
     this->setMinimumWidth(350);
     this->setContentsMargins(12,12,12,12);
+    this->setDateEditEnabled(false);
     QToolButton *left_button = this->findChild<QToolButton *>("qt_calendar_prevmonth");
     QToolButton *right_button = this->findChild<QToolButton *>("qt_calendar_nextmonth");
     left_button->setIcon(QIcon::fromTheme("ukui-start-symbolic"));
@@ -70,25 +71,22 @@ void CustomCalendarWidget::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);  // 反锯齿;
     QColor color = palette().color(QPalette::Dark);
+    QColor color2 = palette().color(QPalette::Base);
     QRect rectBoxt = this->rect();
     painter.setBrush(Qt::NoBrush);
     painter.translate(1, 1);
 
-    color.setAlpha(20);
-    painter.setPen(color);
-    painter.drawRoundedRect(rectBoxt.adjusted(0, +2, -2, -2), 6, 6);
-
-    color.setAlpha(60);
-    painter.setPen(color);
-    painter.drawRoundedRect(rectBoxt.adjusted(+1, +3, -3, -3), 6, 6);
+    color2.setAlpha(255);
+    painter.setPen(QPen(color2,12));
+    painter.drawRoundedRect(rectBoxt.adjusted(+8, +10, -10, -10), 6, 6);
 
     color.setAlpha(80);
-    painter.setPen(color);
-    painter.drawRoundedRect(rectBoxt.adjusted(+2, +4, -4, -4), 6, 6);
+    painter.setPen(QPen(color,1));
+    painter.drawRoundedRect(rectBoxt.adjusted(0, +2, -2, -2), 6, 6);
 
-    color.setAlpha(100);
+    color.setAlpha(160);
     painter.setPen(color);
-    painter.drawRoundedRect(rectBoxt.adjusted(+3, +5, -5, -5), 6, 6);
+    painter.drawRoundedRect(rectBoxt.adjusted(+1, +3, -3, -3), 6, 6);
 }
 
 void CustomCalendarWidget::mouseMoveEvent(QMouseEvent *e)
