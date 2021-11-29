@@ -73,7 +73,7 @@ const QString kDefCursor =           "DMZ-White";
 const QString UbuntuVesionEnhance =  "20.10";
 const QString kXder =                "XRender";
 
-const int transparency = 75;
+const int transparency = 85;
 //保存关闭特效模式之前的透明度
 int save_trans = 0;
 
@@ -522,10 +522,6 @@ void Theme::initCursorTheme(){
 
     QStringList cursorThemes = _getSystemCursorThemes();
 
-    // 获取当前指针主题
-    QString currentCursorTheme;
-    currentCursorTheme = curSettings->get(CURSOR_THEME_KEY).toString();
-
     cursorThemeWidgetGroup = new WidgetGroup(this);
     connect(cursorThemeWidgetGroup, &WidgetGroup::widgetChanged, [=](ThemeWidget * preWidget, ThemeWidget * curWidget){
         if (preWidget) {
@@ -541,38 +537,17 @@ void Theme::initCursorTheme(){
 
     int count = 0;
     for (QString cursor : cursorThemes){
-        count++;
-        QList<QPixmap> cursorVec;
-        QString path = CURSORS_THEMES_PATH + cursor;
-        XCursorTheme *cursorTheme = new XCursorTheme(path);
-
-        for(int i = 0; i < numCursors; i++){
-            int size = qApp->devicePixelRatio() * 8;
-            QImage image = cursorTheme->loadImage(cursor_names[i],size);
-            cursorVec.append(QPixmap::fromImage(image));
+        if (cursor == "dark-sense") {
+            initCursorThemeWidget(cursor , 0);
+             count++;
         }
-
-        ThemeWidget * widget  = new ThemeWidget(QSize(24, 24), dullCursorTranslation(cursor), cursorVec, pluginWidget);
-        widget->setValue(cursor);
-        // 加入Layout
-        ui->cursorVerLayout->addWidget(widget);
-        if (Utils::isTablet()) {
-            widget->setVisible(false);
+     }
+    for (QString cursor : cursorThemes){
+        if (cursor != "dark-sense") {
+            initCursorThemeWidget(cursor , count);
+             count++;
         }
-
-        // 加入WidgetGround实现获取点击前Widget
-        cursorThemeWidgetGroup->addWidget(widget);
-        if (count != cursorThemes.count())
-             ui->cursorVerLayout->addWidget(setLine(ui->cursorFrame));
-
-        //初始化指针主题选中界面
-        if (currentCursorTheme == cursor || (currentCursorTheme.isEmpty() && cursor == kDefCursor)){
-            cursorThemeWidgetGroup->setCurrentWidget(widget);
-            widget->setSelectedStatus(true);
-        } else {
-            widget->setSelectedStatus(false);
-        }
-    }
+     }
 }
 
 void Theme::initConnection() {
@@ -647,6 +622,45 @@ void Theme::initIconThemeWidget(QString themedir , int count)
 
     if (themedir == currentIconTheme){
         iconThemeWidgetGroup->setCurrentWidget(widget);
+        widget->setSelectedStatus(true);
+    } else {
+        widget->setSelectedStatus(false);
+    }
+}
+
+void Theme::initCursorThemeWidget(QString themedir, int count)
+{
+    QStringList cursorThemes = _getSystemCursorThemes();
+    // 获取当前指针主题
+    QString currentCursorTheme;
+    currentCursorTheme = curSettings->get(CURSOR_THEME_KEY).toString();
+
+    QList<QPixmap> cursorVec;
+    QString path = CURSORS_THEMES_PATH + themedir;
+    XCursorTheme *cursorTheme = new XCursorTheme(path);
+
+    for(int i = 0; i < numCursors; i++){
+        int size = qApp->devicePixelRatio() * 8;
+        QImage image = cursorTheme->loadImage(cursor_names[i],size);
+        cursorVec.append(QPixmap::fromImage(image));
+    }
+
+    ThemeWidget * widget  = new ThemeWidget(QSize(24, 24), dullCursorTranslation(themedir), cursorVec, pluginWidget);
+    widget->setValue(themedir);
+    // 加入Layout
+    ui->cursorVerLayout->addWidget(widget);
+    if (Utils::isTablet()) {
+        widget->setVisible(false);
+    }
+
+    // 加入WidgetGround实现获取点击前Widget
+    cursorThemeWidgetGroup->addWidget(widget);
+    if (count != cursorThemes.count()-1)
+         ui->cursorVerLayout->addWidget(setLine(ui->cursorFrame));
+
+    //初始化指针主题选中界面
+    if (currentCursorTheme == themedir || (currentCursorTheme.isEmpty() && themedir == kDefCursor)){
+        cursorThemeWidgetGroup->setCurrentWidget(widget);
         widget->setSelectedStatus(true);
     } else {
         widget->setSelectedStatus(false);
@@ -825,7 +839,7 @@ void Theme::resetBtnClickSlot() {
         qtSettings->reset(THEME_TRAN_KEY);
         qtSettings->reset(PEONY_TRAN_KEY);
         gtkSettings->reset(ICON_GTK_KEY);
-        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);
+        personliseGsettings->set(PERSONALSIE_TRAN_KEY, 0.85);
         ui->tranSlider->setValue(transparency);
     }
 
