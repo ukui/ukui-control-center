@@ -840,7 +840,9 @@ void Theme::resetBtnClickSlot() {
         qtSettings->reset(PEONY_TRAN_KEY);
         gtkSettings->reset(ICON_GTK_KEY);
         personliseGsettings->set(PERSONALSIE_TRAN_KEY, 0.85);
+        ui->tranSlider->blockSignals(true);
         ui->tranSlider->setValue(transparency);
+        ui->tranSlider->blockSignals(false);
     }
 
     QString icoName = qtSettings->get(ICON_QT_KEY).toString();
