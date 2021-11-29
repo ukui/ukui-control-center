@@ -398,6 +398,23 @@ Tips：系统至少需要存在一个管理员用户。
 
 ### 登录选项
 
+可对登录选项进行配置。
+
+- 关闭生物识别：登录时禁用生物识别。
+
+![图 27-1 关闭生物识别-big](image/login-options-close.png)
+
+- 打开生物识别：登录时可以使用生物识别，可以对生物特征进行录入、重命名、删除。
+
+![图 27-2 打开生物识别-big](image/login-options-open.png)
+
+- 录入新特征
+
+![图 27-3 录入新特征-big](image/login-options-scroll.png)
+
+- 修改特征名
+
+![图 27-4 修改特征名-big](image/login-options-rename.png)
 
 
 ### 云帐户
