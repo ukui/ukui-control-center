@@ -592,8 +592,8 @@ void Widget::slotUnifyOutputs()
         }
 
         for (QMLOutput *output: mScreen->outputs()) {
-            if (output != mScreen->primaryOutput()) {
-                output->output()->setRotation(mScreen->primaryOutput()->output()->rotation());
+            if (output != base) {
+                output->output()->setRotation(base->output()->rotation());
             }
 
             if (!output->output()->isConnected()) {
