@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>710</width>
-    <height>1090</height>
+    <height>1098</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -185,7 +185,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
-           <string>set as home screen</string>
+           <string>as main</string>
           </property>
          </widget>
         </item>
