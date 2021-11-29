@@ -1103,6 +1103,15 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
 {
     if (mIsBattery && name != firstAddOutputName)  //笔记本非内置
         return;
+
+    if (mIsBattery) { //移除之前的亮度条，适用于kscreen返回当前为笔记本屏幕，但之前已经把第一个屏幕当做笔记本屏幕的情况
+        for (int i = 0; i < BrightnessFrameV.size(); i = 0) {
+            BrightnessFrameV[BrightnessFrameV.size() - 1]->deleteLater();
+            BrightnessFrameV[BrightnessFrameV.size() - 1] = nullptr;
+            BrightnessFrameV.pop_back();
+        }
+    }
+
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {  //已经有了
         if (name == BrightnessFrameV[i]->getOutputName()) {
             if (edidHash != BrightnessFrameV[i]->getEdidHash()) {//更换了同一接口的显示器
@@ -1135,6 +1144,9 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
         firstAddOutputName = Utils::outputName(output);
     }
 
+    if (output->type() == 7 && output->isConnected()) { //kscreen返回为笔记本屏幕,此时不再把第一个屏幕作为笔记本屏幕
+        firstAddOutputName = Utils::outputName(output);
+    }
     if (output->isConnected()) {
         QDBusReply<QByteArray> replyEdid = dbusEdid->call("getEdid",output->id());
         const quint8 *edidData = reinterpret_cast<const quint8 *>(replyEdid.value().constData());
