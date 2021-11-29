@@ -220,5 +220,6 @@ bool ChangeUserNickname::eventFilter(QObject *watched, QEvent *event){
             }
         }
     }
+    return QObject::eventFilter(watched, event);
 }
 
