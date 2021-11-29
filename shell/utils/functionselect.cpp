@@ -228,10 +228,11 @@ void FunctionSelect::initPluginName()
     devicePluginName.insert(1, "Printer");
     devicePluginName.insert(2, "Mouse");
     devicePluginName.insert(3, "Touchpad");
-    devicePluginName.insert(4, "Keyboard");
-    devicePluginName.insert(5, "Shortcut");
-    devicePluginName.insert(6, "");
-    devicePluginName.insert(7, "projection");
+    devicePluginName.insert(4, "TouchScreen");
+    devicePluginName.insert(5, "Keyboard");
+    devicePluginName.insert(6, "Shortcut");
+    devicePluginName.insert(7, "");
+    devicePluginName.insert(8, "projection");
 
     networkPluginName.insert(0, "netconnect");
     networkPluginName.insert(1, "wlanconnect");
