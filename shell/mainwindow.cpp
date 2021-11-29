@@ -273,7 +273,7 @@ void MainWindow::initUI() {
             ui->leftsidebarWidget->setMaximumWidth(width * 10 + 20);
         }
     });
-
+    initNMIcbc();
     initTileBar();
     m_queryWid->setGeometry(QRect((m_searchWidget->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
                                         m_queryIcon->width()+m_queryText->width()+10,(m_searchWidget->height()+36)/2));
@@ -560,7 +560,9 @@ void MainWindow::loadPlugins(){
                 || ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libpower.so" == fileName && !isExitsPower())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
-                || ("libtouchpad.so" == fileName && !isfindSynaptics())) {
+                || ("libnetconnect-icbc.so" == fileName && !mIsNmIcbc)
+                || ("libwlanconnect-icbc.so" == fileName && !mIsNmIcbc)
+                || ("libnetconnect.so" == fileName && mIsNmIcbc)) {
             continue;
         }
 
@@ -909,6 +911,17 @@ bool MainWindow::isExitBluetooth() {
 void MainWindow::changeSearchSlot() {
     int fontSize = m_fontSetting->get("system-font-size").toInt();
     m_searchWidget->setFixedHeight((fontSize - 11) * 2 + 32);
+}
+
+void MainWindow::initNMIcbc()
+{
+    QDBusInterface nmIfc("com.kylin.network",
+                         "/com/kylin/network",
+                         "com.kylin.network",
+                         QDBusConnection::sessionBus());
+
+    QDBusMessage msg = nmIfc.call("requestRefreshWifiList");
+    mIsNmIcbc = msg.errorMessage().isEmpty();
 }
 
 void MainWindow::setModuleBtnHightLight(int id) {

@@ -103,6 +103,8 @@ private:
 
     QHBoxLayout     *titleLayout;
 
+    bool mIsNmIcbc;
+
 private:
     void initUI();
     void initTileBar();
@@ -110,11 +112,14 @@ private:
     void loadPlugins();
     void initLeftsideBar();
     QPushButton * buildLeftsideBtn(QString bname, QString tipName);
+
     bool isExitsCloudAccount();
     bool isExitsPower();
     bool dblOnEdge(QMouseEvent *event);
+
     void initStyleSheet();
     void changeSearchSlot();
+    void initNMIcbc();
 
 public slots:
     void functionBtnClicked(QObject * plugin);
