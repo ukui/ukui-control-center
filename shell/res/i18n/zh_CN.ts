@@ -298,6 +298,14 @@
     </message>
 </context>
 <context>
+    <name>AddNetBtn</name>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/addnetbtn.cpp" line="18"/>
+        <source>Add WiredNetork</source>
+        <translation>添加有线网络</translation>
+    </message>
+</context>
+<context>
     <name>AppDetail</name>
     <message>
         <location filename="../../../plugins/messages-task/notice/appdetail.ui" line="32"/>
@@ -4365,7 +4373,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="383"/>
+        <location filename="../../mainwindow.cpp" line="387"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4374,44 +4382,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="403"/>
-        <location filename="../../mainwindow.cpp" line="616"/>
-        <location filename="../../mainwindow.cpp" line="794"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="620"/>
+        <location filename="../../mainwindow.cpp" line="798"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="412"/>
+        <location filename="../../mainwindow.cpp" line="416"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="413"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="414"/>
+        <location filename="../../mainwindow.cpp" line="418"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="415"/>
+        <location filename="../../mainwindow.cpp" line="419"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="473"/>
+        <location filename="../../mainwindow.cpp" line="477"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="475"/>
+        <location filename="../../mainwindow.cpp" line="479"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="477"/>
+        <location filename="../../mainwindow.cpp" line="481"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4420,17 +4428,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="903"/>
+        <location filename="../../mainwindow.cpp" line="907"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="903"/>
+        <location filename="../../mainwindow.cpp" line="907"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="621"/>
+        <location filename="../../mainwindow.cpp" line="625"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -4698,12 +4706,12 @@ Please retry or relogin!</source>
         <translation>刷新中...</translation>
     </message>
     <message>
-        <source>connected</source>
-        <translation type="vanished">已连接</translation>
+        <source>ukui control center</source>
+        <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <source>No network</source>
-        <translation type="vanished">无网络连接</translation>
+        <source>ukui control center desktop message</source>
+        <translation type="vanished">控制面板桌面通知</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/netconnect/netconnect.cpp" line="62"/>
@@ -4712,8 +4720,85 @@ Please retry or relogin!</source>
         <translation>网络连接</translation>
     </message>
     <message>
+        <source>No ethernet device avaliable</source>
+        <translation type="vanished">未检测到有线设备</translation>
+    </message>
+    <message>
+        <source>connected</source>
+        <translation type="vanished">已连接</translation>
+    </message>
+    <message>
+        <source>card</source>
+        <translation type="vanished">网卡</translation>
+    </message>
+    <message>
+        <source>No network</source>
+        <translation type="vanished">无网络连接</translation>
+    </message>
+    <message>
         <source>Disconnect</source>
         <translation type="vanished">未连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.ui" line="47"/>
+        <source>Wired Network</source>
+        <translation>有线网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.ui" line="109"/>
+        <source>open</source>
+        <translation>开启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.ui" line="192"/>
+        <source>Advanced settings</source>
+        <translatorcomment>高级设置</translatorcomment>
+        <translation>高级设置</translation>
+    </message>
+</context>
+<context>
+    <name>NetConnectICBC</name>
+    <message>
+        <source>ukui control center</source>
+        <translation type="vanished">控制面板</translation>
+    </message>
+    <message>
+        <source>ukui control center desktop message</source>
+        <translation type="vanished">控制面板桌面通知</translation>
+    </message>
+    <message>
+        <source>Netconnect</source>
+        <translation type="vanished">有线网络</translation>
+    </message>
+    <message>
+        <source>NetconnectICBC</source>
+        <translation type="vanished">有线网络</translation>
+    </message>
+    <message>
+        <source>Advanced settings</source>
+        <translation type="vanished">高级设置</translation>
+        <extra-contents_path>/netconnect/Advanced settings&quot;</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">有线网络</translation>
+    </message>
+    <message>
+        <source>open</source>
+        <translation type="vanished">开启</translation>
+        <extra-contents_path>/netconnect/open</extra-contents_path>
+    </message>
+    <message>
+        <source>No ethernet device avaliable</source>
+        <translation type="vanished">未检测到有线设备</translation>
+    </message>
+    <message>
+        <source>connected</source>
+        <translation type="vanished">已连接</translation>
+    </message>
+    <message>
+        <source>card</source>
+        <translation type="vanished">网卡</translation>
     </message>
 </context>
 <context>
@@ -4791,6 +4876,57 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/network/netconnect/netdetail.cpp" line="104"/>
         <source>Mac:</source>
         <translation>物理地址：</translation>
+    </message>
+</context>
+<context>
+    <name>NetconnectICBC</name>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="60"/>
+        <source>ukui control center</source>
+        <translation>控制面板</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="63"/>
+        <source>ukui control center desktop message</source>
+        <translation>控制面板桌面通知</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="77"/>
+        <source>NetconnectICBC</source>
+        <translation>有线网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="188"/>
+        <source>Advanced settings</source>
+        <translation>高级设置</translation>
+        <extra-contents_path>/netconnect/Advanced settings&quot;</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="189"/>
+        <source>Wired Network</source>
+        <translation>有线网络</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="191"/>
+        <source>open</source>
+        <translation>开启</translation>
+        <extra-contents_path>/netconnect/open</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="211"/>
+        <source>No ethernet device avaliable</source>
+        <translation>未检测到有线设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="460"/>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="869"/>
+        <source>connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/netconnect-icbc/netconnect.cpp" line="524"/>
+        <source>card</source>
+        <translation>网卡</translation>
     </message>
 </context>
 <context>
@@ -5692,12 +5828,21 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>桌面共享</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="154"/>
+        <location filename="../../utils/functionselect.cpp" line="141"/>
+        <source>Netconnect-icbc</source>
+        <translation>有线网络</translation>
+    </message>
+    <message>
+        <source>WlanConnect</source>
+        <translation type="obsolete">无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="159"/>
         <source>User Info</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="171"/>
+        <location filename="../../utils/functionselect.cpp" line="176"/>
         <source>Date</source>
         <translation>时间日期</translation>
     </message>
@@ -5706,7 +5851,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="188"/>
+        <location filename="../../utils/functionselect.cpp" line="193"/>
         <source>Security Center</source>
         <translation>安全中心</translation>
     </message>
@@ -5729,7 +5874,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="156"/>
+        <location filename="../../utils/functionselect.cpp" line="161"/>
         <source>Cloud Account</source>
         <translation>云账户</translation>
     </message>
@@ -5738,7 +5883,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="173"/>
+        <location filename="../../utils/functionselect.cpp" line="178"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -5747,37 +5892,42 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">安全中心</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="192"/>
+        <location filename="../../utils/functionselect.cpp" line="197"/>
         <source>Update</source>
         <translation>安全与更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="190"/>
+        <location filename="../../utils/functionselect.cpp" line="195"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="194"/>
+        <location filename="../../utils/functionselect.cpp" line="143"/>
+        <source>Wlanconnect</source>
+        <translation type="unfinished">无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="199"/>
         <source>Upgrade</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="209"/>
+        <location filename="../../utils/functionselect.cpp" line="214"/>
         <source>Notice</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="211"/>
+        <location filename="../../utils/functionselect.cpp" line="216"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="213"/>
+        <location filename="../../utils/functionselect.cpp" line="218"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="215"/>
+        <location filename="../../utils/functionselect.cpp" line="220"/>
         <source>Experienceplan</source>
         <translation>体验计划</translation>
     </message>
@@ -6039,51 +6189,57 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../utils/utils.cpp" line="67"/>
+        <location filename="../../utils/utils.cpp" line="68"/>
         <source>Go to netconnect settings page</source>
         <translation>网络连接</translation>
     </message>
     <message>
         <location filename="../../utils/utils.cpp" line="69"/>
+        <source>Go to wlanconnect settings page</source>
+        <translation>无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../utils/utils.cpp" line="71"/>
         <source>Go to proxy settings page</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="71"/>
+        <location filename="../../utils/utils.cpp" line="73"/>
         <source>Go to userinfo settings page</source>
         <translation>管理用户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="72"/>
+        <location filename="../../utils/utils.cpp" line="74"/>
         <source>Go to cloudaccount settings page</source>
         <translation>配置您的网络账户</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="75"/>
+        <location filename="../../utils/utils.cpp" line="77"/>
         <source>Go to area settings page</source>
         <translation>区域语言</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="77"/>
+        <location filename="../../utils/utils.cpp" line="79"/>
         <source>Go to update settings page</source>
         <translation>更新管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="78"/>
+        <location filename="../../utils/utils.cpp" line="80"/>
         <source>Go to backup settings page</source>
         <translation>备份管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="79"/>
+        <location filename="../../utils/utils.cpp" line="81"/>
         <source>Go to upgrade settings page</source>
         <translation>更新设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="82"/>
+        <location filename="../../utils/utils.cpp" line="84"/>
         <source>Go to about settings page</source>
         <translation>此系统的信息</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="83"/>
+        <location filename="../../utils/utils.cpp" line="85"/>
         <source>Go to search settings page</source>
         <translation>搜索</translation>
     </message>
@@ -6093,7 +6249,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>配置电源管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="74"/>
+        <location filename="../../utils/utils.cpp" line="76"/>
         <source>Go to datetime settings page</source>
         <translation>管理日期和时间</translation>
     </message>
@@ -6108,12 +6264,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>音量设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="81"/>
+        <location filename="../../utils/utils.cpp" line="83"/>
         <source>Go to notice settings page</source>
         <translation>通知管理模块</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="68"/>
+        <location filename="../../utils/utils.cpp" line="70"/>
         <source>Go to vpn settings page</source>
         <translation>VPN模块</translation>
     </message>
@@ -8808,8 +8964,8 @@ the settings will be saved after 14 seconds</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1926"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1941"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1927"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1942"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -8854,14 +9010,14 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1274"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1275"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1104"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1274"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1281"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1275"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1282"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -8879,7 +9035,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1282"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1283"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
@@ -8897,6 +9053,62 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/touchscreen/widget.cpp" line="457"/>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+</context>
+<context>
+    <name>WlanConnect</name>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="14"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="89"/>
+        <source>WlanConnect</source>
+        <translation>无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="35"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="198"/>
+        <source>WLAN</source>
+        <translation>无线局域网</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="94"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="200"/>
+        <source>open</source>
+        <translation>开启</translation>
+        <extra-contents_path>/wlanconnect/open</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.ui" line="147"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="197"/>
+        <source>Advanced settings</source>
+        <translation>高级设置</translation>
+        <extra-contents_path>/wlanconnect/Advanced settings&quot;</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="72"/>
+        <source>ukui control center</source>
+        <translation>控制面板</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="75"/>
+        <source>ukui control center desktop message</source>
+        <translation>控制面板桌面通知</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="220"/>
+        <source>No wireless network card detected</source>
+        <translation>未检测到无线网卡</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="357"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="946"/>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="1008"/>
+        <source>connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/wlanconnect-icbc/wlanconnect.cpp" line="899"/>
+        <source>card</source>
+        <translation>网卡</translation>
     </message>
 </context>
 <context>

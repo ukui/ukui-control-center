@@ -210,6 +210,10 @@
         <file>plugins/securitycenter/user_sercity.png</file>
         <file>plugins/securitycenter/yingyongkongzhiyubaohu-white.png</file>
         <file>plugins/securitycenter/yingyonkongzhiyubaohu.png</file>
+        <file>secondaryleftmenu/WlanconnectWhite.svg</file>
+        <file>secondaryleftmenu/Wlanconnect.svg</file>
+        <file>secondaryleftmenu/NetconnectICBC.svg</file>
+        <file>secondaryleftmenu/NetconnectICBCWhite.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
