@@ -19,82 +19,102 @@ As shown in Fig 2.
 
 - night mode has the functions of adjusting color temperature and customizing the night mode time period.
 
-### Touchscreen
+### Audio
 As shown in Fig 3.
 
-![Fig 3 Touchscreen](image/3.png)
-
-- monitor: Select the screen that you want to map to.
-
-- device: The name of the chosen touchscreen.
-
-### Defaultapp
-As shown in Fig 4, browser, mail, image viewer, audio player, video player, text editor can be changed.
-
-![Fig 4 Defaultapp-big](image/4.png)
+![Fig 3 Audio-big](image/3.png)
 
 ### Power
-- Provide "Balance", "Saving", "Custom" modes.
+As shown in Fig 4.
 
-![Fig 5 Power-big](image/5.png)
+![Fig 4 Audio-big](image/4.png)
 
-- "Custom" includes "PC sleep time" and "DP close time".
+### Notice
+As shown in Fig 5.
 
-![Fig 6 Custom mode](image/6.png)
+![Fig 5 Notice-big](image/5.png)
 
-### Auto Boot
-List shows the existed autoboot applications.
+### Vino
+As shown in Fig 6.
 
-![Fig 7 Auto boot-big](image/7.png)
+![Fig 6 Vino](image/6.png)
 
-Click "+" can add apps.
+### About
+As shown in Fig 4.
+
+![Fig 7 About-big](image/7.png)
 
 <br>
 
 ## Devices
+### Bluetooth
+Provide the functions like those: open the bluetooth, rename the device, show/hide the icon of the bluetooth, find the nearby devices, etc.. As shown in Fig 8.
+
+![Fig 8 Bluetooth-big](image/8.png)
+
 ### Printer
 Provide an entry to add printers or scanners. 
 
-![Fig 8 Printer-big](image/8.png)
+![Fig 9 Printer-big](image/9.png)
+
+### Mouse
+As shown in Fig 10.
+
+![Fig 10 Mouse-big](image/10.png)
+
+### Touchpad
+As shown in Fig 11.
+
+![Fig 11 Touchpad-big](image/11.png)
+
+### Keyboard
+As shown in Fig 12.
+
+![Fig 12 Keyboard-big](image/12.png)
+
+### Shortcut
+As shown in Fig 13.
+
+![Fig 13 Shortcut-big](image/13.png)
 
 ### Projection
  Projection provides the function of mirroring Android phones on KylinOS, and supports the control of return to facilitate the operation of mobile phones on the computer through the mouse and keyboard (supported by some mobile phones).
 
- ![Fig 9 Projection main interface-big](image/48.png)
+ ![Fig 14-1 Projection main interface-big](image/48.png)
 
  To use the projection function, you first need to turn on the projection switch.
 
- ![Fig 10 Projection switch opening interface-big](image/49.png)
+ ![Fig 14-2 Projection switch opening interface-big](image/49.png)
 
  Select projection / wireless projection / mobile projection and other identification interfaces in the mobile phone drop-down menu (take Huawei mobile phone mate as an example).
 
- ![Fig 11 Mobile terminal wireless projection opening interface-big](image/50.png)
+ ![Fig 14-3 Mobile terminal wireless projection opening interface-big](image/50.png)
 
  Next, the mobile phone will automatically search and display the searched receiving device.
 
- ![Fig 12 Mobile terminal wireless projection search interface-big](image/51.png)
+ ![Fig 4-4 Mobile terminal wireless projection search interface-big](image/51.png)
 
  Select your current KylinOS receiver device, such as my Kylin, etc.
 
- ![Fig 13 Projection interface allowed at the receiving terminal-big](image/52.png)
+ ![Fig 14-5 Projection interface allowed at the receiving terminal-big](image/52.png)
 
  Whether to allow projection will be displayed on the KylinOS receiving terminal, click allow.
 
- ![Fig 14 The receiving terminal provides a pin code interface-big](image/53.png)
+ ![Fig 14-6 The receiving terminal provides a pin code interface-big](image/53.png)
 
  According to the pin code displayed at the KylinOS receiving terminal, enter the pin code at the mobile terminal and click connect.
 
- ![Fig 15 Mobile terminal pin code input interface-big](image/54.png)
+ ![Fig 14-7 Mobile terminal pin code input interface-big](image/54.png)
 
  Next, the connection interface will be displayed at the KylinOS receiving terminal and projection terminal.
 
- ![Fig 16 Mobile terminal connection interface-big](image/55.png)
- ![Fig 17 Receiving terminal connection interface-big](image/56.png)
+ ![Fig 14-8 Mobile terminal connection interface-big](image/55.png)
+ ![Fig 14-9 Receiving terminal connection interface-big](image/56.png)
 
  If the connection is successful, the screen of the mobile phone will be synchronously mirrored at the receiving terminal. Double click the screen to exit the full screen.
 
- ![Fig 18 Vertical screen projection interface-big](image/57.png)
- ![Fig 19 Horizontal screen projection interface-big](image/58.png)
+ ![Fig 14-10 Vertical screen projection interface-big](image/57.png)
+ ![Fig 14-11 Horizontal screen projection interface-big](image/58.png)
 
  To close the projection screen, double-click the screen to enter windowing, click "X" in the upper right corner to close it, or set the projection screen to gray (close) in the mobile phone drop-down menu to exit the wireless projection screen.
 
@@ -104,179 +124,118 @@ Provide an entry to add printers or scanners.
 
 2. The name of the receiving device can be changed in the screen projection interface. Click the "pen" icon on the right side of the projection screen to enter the modification interface.
 
-![Fig 20 Projection terminal name modification interface-big](image/59.png)
+![Fig 14-12 Projection terminal name modification interface-big](image/59.png)
 
 3. When the wireless network card is not inserted, or the wireless network card does not support the connection required for projection, it is necessary to insert the network card or replace the inserted network card.
 
-![Fig 21 Projection function unavailable interface(1)-big](image/60.png)
+![Fig 14-13 Projection function unavailable interface(1)-big](image/60.png)
 
 4. When the background service is abnormal, the following prompt will appear. You can try to restart the system to solve this problem.
 
-![Fig 22 Projection function unavailable interface(2)-big](image/61.png)
+![Fig 14-13 Projection function unavailable interface(2)-big](image/61.png)
 
 5. When the package with wireless projection is not installed or the package version is too low, the projection function will not be displayed in the control panel.
 
-![Fig 23 Projection function unavailable interface(3)-big](image/62.png)
+![Fig 14-14 Projection function unavailable interface(3)-big](image/62.png)
 
+<br>
 
-### Mouse
-Customize the mouse key, pointer settings, and cursor settings.
+## Network
+### WiredConnect
+As shown in Fig 15.
 
-![Fig 9 Mouse-big](image/9.png)
+![Fig 15 WiredConnect-big](image/37.png)
 
-### Touchpad
-Touchpad provides the settings as shown in Fig 10.
+### WlanConnect
+As shown in Fig 16.
 
-![Fig 10 Touchpad-big](image/10.png)
+![Fig 16 WlanConnect-big](image/38.png)
 
-### Keyboard
-Set the keyboard's general items, and adjust the layout by the language.
+### Proxy
+As shown in Fig 17.
 
-![Fig 11 Keyboard-big](image/11.png)
+![Fig 17 Proxy-big](image/14.png)
 
-- Enable repeat key: Long press one button will be recognized to repeat input.
+### Vpn
+As shown in Fig 18.
 
-- Delay: The time between press button and receive input.
+![Fig 18 Vpn-big](image/15.png)
 
-- Speed: The time between repeat input.
+### MobileHotspot
+As shown in Fig 19.
 
-- Layout: Up to 4 layouts can be added.
+![Fig 19 MobileHotspot-big](image/39.png)
 
-### Shortcut
-View all the system shortcuts and customize shortcut.
-
-![Fig 12 Shortcut-big](image/12.png)
-
-Tips: System shortcuts are not allowed to be modified.
-
-Click "Add custom shortcut" and the popup as shown in Fig 13.
-
-![Fig 13 Add shortcut](image/13.png)
-
-### Audio
-Settings for output, input and system sound, as shown in Fig 14.
-
-![Fig 14 Audio-big](image/14.png)
-
-### Bluetooth
-Provide the functions like those: open the bluetooth, rename the device, show/hide the icon of the bluetooth, find the nearby devices, etc.. As shown in Fig 15.
-
-![Fig 15 Bluetooth-big](image/15.png)
 <br>
 
 ## Personalized
 ### Background
-Here are "picture" and "color" can be selected.
+As shown in Fig 20.
 
-![Fig 16 Background-big](image/16.png)
+![Fig 20 Background-big](image/16.png)
 
 ### Theme
 - Theme Mode:
 
-![Fig 17 Theme mode](image/17.png)
+![Fig 21-1 Theme mode](image/17.png)
 
 - Icon theme and cursor theme:
 
-![Fig 18 Icon&cursor theme](image/18.png)
+![Fig 21-2 Icon&cursor theme](image/18.png)
 
 - Effect settings (some machines do not support this function):
 
-![Fig 19 Effect settings](image/19.png)
+![Fig 21-3 Effect settings](image/19.png)
 
 ### Screenlock
-Select the background image that shows in login interface.
+As shown in Fig 22.
 
-![Fig 20 Screenlock-big](image/20.png)
-
-### Fonts
-Settings for font, size, mono font.
-
-Click "Reset to default" to restore the settings to default status.
-
-![Fig 21 Fonts-big](image/21.png)
+![Fig 22 Screenlock-big](image/20.png)
 
 ### Screensaver
-Set the screensaver program and idle time.
+As shown in Fig 23.
 
-![Fig 22 Screensaver-big](image/22.png)
+![Fig 23 Screensaver-big](image/21.png)
 
-### Desktop
-Set the icons lock on Start Menu and Tray Menu.
+### Fonts
+As shown in Fig 24.
 
-![Fig 23 Desktop-big](image/23.png)
-<br>
+![Fig 24 Fonts-big](image/22.png)
 
-## Network
-It includes "Connect", "Vpn", "Proxy", and "Vino".
-
-![Fig 24 Network-big](image/24.png)
-
-### Connect
-Show the available network, open wifi, etc..
-
-#### Set Wired Connection
-1) Click "Networking settings" to open the setting window.
-
-2) Click "+" and choose "Ethernet". In the "Ethernet" tab can select device.
-
-![Fig 25 Select device-big](image/25.png)
-
-3) In the "IPv4 Settings" tab can edit the net configuration.
-
-![Fig 26 Configuration-big](image/26.png)
-
-4) Click "Save", and the system will use this connection automatically.
-
-### Vpn
-Open the settings of VPN.
-
-![Fig 27 Vpn-big](image/27.png)
-
-### Proxy
-Auto proxy, manual proxy (including HTTP, HTTPS, FTP, SOCKS).
-
-![Fig 28 Proxy-big](image/28.png)
-
-### Vino
-Users can set that confirm when conect or enter specified password after checking "Allow others to view your desktop".
-
-![Fig 29 Vino-big](image/29.png)
 <br>
 
 ## Account
-Manage all the system users, create/delete users, and modify users' informations.
-
-![Fig 30 Account-big](image/30.png)
-
 ### User Info
+![Fig 25-1 Account-big](image/23.png)
 #### Current User
 - Change User Face: Click user's face can change it.
 
-![Fig 31 Change face](image/31.png)
+![Fig 25-2 Change face](image/24.png)
 
 - Change Password: Click "Password" to modify the current user's password.
 
-![Fig 32 Change password](image/32.png)
+![Fig 25-3 Change password](image/25.png)
 
 - Change Account Type: administrator -- can elevated permission temporarily; standard user -- can't elevated permission.
 
-![Fig 33 Change password](image/33.png)
+![Fig 25-4 Change password](image/26.png)
 
 #### Other Users
 Administrator can modify other user's information, add new user, etc..
 
 - Add new user
 
-![Fig 34 Add new user](image/34.png)
+![Fig 25-5 Add new user](image/27.png)
 
-- Edit
+### Biometrics
+As shown in Fig 26.
 
-![Fig 35 Edit user](image/35.png)
+![Fig 26 Biometrics-big](image/40.png)
 
 ### Cloud Account
 Synchronize personalized settings and data, and this function needs to sign in.
 
-![Fig 36 Cloud account-big](image/36.png)
+![Fig 27 Cloud account-big](image/28.png)
 
 #### Sign In
 Login through Kylin ID login Center.
@@ -306,47 +265,19 @@ Login through Kylin ID login Center.
 <br>
 
 ## Datetime
-As shown in Fig 37:
+### Date
+As shown in Fig 28:
 
-![Fig 37 Datetime-big](image/37.png)
-
-- Sync from network: Sync the time on the Internet NTP server.
-
-- Change time: Manual set the time and date.
-
-![Fig 38 Change time](image/38.png)
-
-- Change time zone:
-
-![Fig 39 Time zone-big](image/39.png)
+![Fig 28 Datetime-big](image/29.png)
 
 ### Area
+As shown in Fig 29:
 
-![Fig 40 Area-big](image/40.png)
-
-- change format of data: Customize calendar, first day of week, date, time.
-
-![Fig 41 Change format of data](image/41.png)
-
-- first language: Language in system windows, menus and website. 
-
-- Click "Add main language" to add others.
+![Fig 29 Area-big](image/30.png)
 
 <br>
 
 ## Update
-### Security Center
-An access of security center.
-
-![Fig 42 Security center-big](image/42.png)
-
-### Backup
-- Begin backup: Back up files to other devices.
-
-- Begin restore: View backup list and restore the system to one of them.
-
-![Fig 43 Backup-big](image/43.png)
-
 ### Upgrade
 Check whether the system has available updates.
 
@@ -356,40 +287,39 @@ Check whether the system has available updates.
 
 - Update Settings: Whether allow to renewable notice and backup before updating.
 
-![Fig 44 Upgrade-big](image/44.png)
+![Fig 30 Upgrade-big](image/31.png)
 
-The update history can be seen here.
+### Backup
+- Begin backup: Back up files to other devices.
 
-![Fig 45 History-big](image/45.png)
+- Begin restore: View backup list and restore the system to one of them.
 
- 
+![Fig 31 Backup-big](image/32.png)
 
-### Background update
-
-Background update is mainly used for important update operations in the background, and to remind users of available update content.
 <br>
 
-- When there is an important update, the update will be silently in the background, and the user will receive the notification information before and after the upgrade.
+## Security
+### Security Center
+As shown in Fig 32.
 
-![图 44 后台更新-big](image/notiffirst.png)
+![Fig 32 SecurityCenter-big](image/33.png)
 
-![图 45 后台更新-big](image/notiend.png)
+<br>
 
-- When there are available updates, the selection interface will pop up for users to select.
+## Application
+### Auto Boot 
+As shown in Fig 33:
 
-![图 47 后台更新-big](image/choicewidget.png)
+![Fig 33 Autoboot-big](image/34.png)
 
-- After the user selects immediate update, the Settings > update interface will pop up to check the update
+### Default App
+As shown in Fig 34:
 
-- When the user chooses to delay, the record sets the delay time and exits the background update program
+![Fig 34 Defaultapp-big](image/35.png)
 
-## Messages
-### Notice
-As shown in Fig 46.
+## Search
 
-![Fig 46 Notice-big](image/46.png)
+### Search
+As shown in Fig 35:
 
-### About
-Show the system version, authentication, etc..
-
-![Fig 47 About-big](image/47.png)
+![Fig 35 Search-big](image/36.png)
