@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>594</width>
-    <height>303</height>
+    <height>336</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -105,7 +105,7 @@
             <number>0</number>
            </property>
            <property name="leftMargin">
-            <number>16</number>
+            <number>12</number>
            </property>
            <property name="rightMargin">
             <number>16</number>

@@ -35,7 +35,7 @@ ChangeUserLogo::ChangeUserLogo(QString n, QString op, QWidget *parent) :
     QDialog(parent),
     name(n)
 {
-    setFixedSize(QSize(400, 462));
+    setFixedSize(QSize(400, 430));
 
     culiface = new QDBusInterface("org.freedesktop.Accounts",
                                   op,
@@ -58,7 +58,8 @@ ChangeUserLogo::~ChangeUserLogo()
 
 void ChangeUserLogo::loadSystemLogo(){
 
-    logosFlowLayout = new FlowLayout(0, 5, 10);
+    logosFlowLayout = new FlowLayout(10, -1, -1);
+    logosFlowLayout->setContentsMargins(0, 0, 0, 10);
 
     // 遍历头像目录
     QDir facesDir = QDir(FACEPATH);
@@ -76,18 +77,10 @@ void ChangeUserLogo::loadSystemLogo(){
 
         logosBtnGroup->addButton(button);
 
-        QHBoxLayout *mainHorLayout = new QHBoxLayout(button);
-        mainHorLayout->setSpacing(0);
-        mainHorLayout->setMargin(0);
-        QLabel *iconLabel = new QLabel(button);
-//        iconLabel->setFixedSize(QSize(64, 64));
-//        iconLabel->setPixmap(makeRoundLogo(fullface, iconLabel->width(), iconLabel->height(), iconLabel->width()/2));
-        iconLabel->setScaledContents(true);
-        iconLabel->setPixmap(QPixmap(fullface));
-
-        mainHorLayout->addWidget(iconLabel);
-
-        button->setLayout(mainHorLayout);
+        button->setIcon(QIcon(fullface));
+        button->setIconSize(QSize(59,59));
+        ElipseMaskWidget * currentElipseMaskWidget = new ElipseMaskWidget(button);
+        currentElipseMaskWidget->setGeometry(0, 0, button->width(), button->height());
 
         connect(button, &QPushButton::clicked, [=]{
             // show dialog更新头像
@@ -167,16 +160,17 @@ void ChangeUserLogo::initUI(){
     culBottomBtnsHorLayout->addWidget(culConfirmBtn);
 
     culMainVerLayout = new QVBoxLayout;
-    culMainVerLayout->setSpacing(0);
-    culMainVerLayout->setContentsMargins(24, 0, 24, 24);
+    culMainVerLayout->setContentsMargins(24, 0, 24, 0);
+    culMainVerLayout->addSpacing(26);
     culMainVerLayout->addLayout(culUserHorLayout);
-//    culMainVerLayout->addSpacing(35);
+    culMainVerLayout->addSpacing(26);
     culMainVerLayout->addLayout(culLogoNoteHorLayout);
     culMainVerLayout->addWidget(logosFrame);
+    culMainVerLayout->addSpacing(24);
     culMainVerLayout->addLayout(culMoreLogoHorLayout);
-    culMainVerLayout->addSpacing(40);
+    culMainVerLayout->addSpacing(25);
     culMainVerLayout->addLayout(culBottomBtnsHorLayout);
-
+    culMainVerLayout->addSpacing(24);
 
     setLayout(culMainVerLayout);
 }

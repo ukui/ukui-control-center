@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QPainterPath>
+#include "elipsemaskwidget.h"
 
 class QVBoxLayout;
 class QHBoxLayout;
