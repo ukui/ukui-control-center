@@ -87,9 +87,6 @@ void ChangeUserLogo::loadSystemLogo(){
             refreshUserLogo(fullface);
 
             selected = fullface;
-
-            if (!culConfirmBtn->isEnabled())
-                culConfirmBtn->setEnabled(true);
         });
 
         logosFlowLayout->addWidget(button);
@@ -150,7 +147,6 @@ void ChangeUserLogo::initUI(){
     culCancelBtn->setText(tr("Cancel"));
     culConfirmBtn = new QPushButton;
     culConfirmBtn->setText(tr("Confirm"));
-    culConfirmBtn->setEnabled(false);
 
     culBottomBtnsHorLayout = new QHBoxLayout;
     culBottomBtnsHorLayout->setSpacing(16);
@@ -226,7 +222,9 @@ void ChangeUserLogo::setupConnect(){
         close();
     });
     connect(culConfirmBtn, &QPushButton::clicked, this, [=]{
-        culiface->call("SetIconFile", selected);
+        if (selected != "") {
+            culiface->call("SetIconFile", selected);
+        }
         close();
     });
 
@@ -305,9 +303,6 @@ void ChangeUserLogo::showLocalFaceDialog(){
     refreshUserLogo(selectedfile);
 
     selected = selectedfile;
-
-    if (!culConfirmBtn->isEnabled())
-        culConfirmBtn->setEnabled(true);
 }
 
 bool ChangeUserLogo::setCulTextDynamic(QLabel *label, QString string){
