@@ -2266,56 +2266,55 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserPwd</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="100"/>
         <source>Change password</source>
-        <translation>修改密码</translation>
+        <translation type="vanished">修改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="105"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="109"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="379"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="118"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="122"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="398"/>
         <source>Current Pwd</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="122"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="126"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="380"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="388"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="135"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="139"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="399"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="407"/>
         <source>New Pwd</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="139"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="143"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="381"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="389"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="152"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="156"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="400"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="408"/>
         <source>Sure Pwd</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="182"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="195"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="185"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="198"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="223"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="453"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="242"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="472"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="273"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="292"/>
         <source>Authentication failed, input authtok again!</source>
         <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="414"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="433"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
@@ -4107,10 +4106,8 @@ folder will be deleted!</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="188"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="185"/>
         <source>set as home screen</source>
-        <translation>设为主屏</translation>
+        <translation type="vanished">设为主屏</translation>
     </message>
     <message>
         <source>close monitor</source>
@@ -4137,6 +4134,12 @@ folder will be deleted!</source>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="32"/>
         <source>Display</source>
         <translation>显示器</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/display.ui" line="188"/>
+        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="185"/>
+        <source>as main</source>
+        <translation>设为主屏</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="241"/>
@@ -8033,63 +8036,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="757"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="771"/>
         <source>blue-crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="759"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="773"/>
         <source>dark-sense</source>
         <translation>深色质感</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="761"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="775"/>
         <source>DMZ-Black</source>
         <translation>DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="763"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="777"/>
         <source>DMZ-White</source>
         <translation>DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="785"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="799"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="787"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="801"/>
         <source>classical</source>
         <translation>经典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="789"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="801"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="803"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="815"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="791"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="805"/>
         <source>fashion</source>
         <translation>时尚</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="793"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="807"/>
         <source>hp</source>
         <translation>惠普</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="795"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="809"/>
         <source>ukui</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="797"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="811"/>
         <source>lightseeking</source>
         <translation>寻光</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="799"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="813"/>
         <source>HeYin</source>
         <translation>和印</translation>
     </message>
