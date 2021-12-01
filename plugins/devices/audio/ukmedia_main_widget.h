@@ -36,6 +36,7 @@
 #include <gobject/gparamspecs.h>
 #include <glib/gstdio.h>
 #include <dconf/dconf.h>
+#include <dconf/common/dconf-paths.h>
 #include <canberra.h>
 #include <glib/gmain.h>
 #include <pulse/ext-stream-restore.h>
