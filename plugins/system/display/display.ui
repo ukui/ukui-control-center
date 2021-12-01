@@ -87,7 +87,11 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="multiscreenLyt"/>
+    <layout class="QHBoxLayout" name="multiscreenLyt">
+     <property name="leftMargin">
+      <number>6</number>
+     </property>
+    </layout>
    </item>
    <item>
     <widget class="QFrame" name="frame">
@@ -131,6 +135,9 @@
          <enum>QFrame::NoFrame</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="leftMargin">
+          <number>16</number>
+         </property>
          <item>
           <widget class="QLabel" name="primaryLabel">
            <property name="minimumSize">
@@ -229,6 +236,9 @@
         <property name="sizeConstraint">
          <enum>QLayout::SetNoConstraint</enum>
         </property>
+        <property name="leftMargin">
+         <number>6</number>
+        </property>
        </layout>
       </item>
       <item>
@@ -274,6 +284,9 @@
          <enum>QFrame::Plain</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="leftMargin">
+          <number>16</number>
+         </property>
          <item>
           <widget class="QLabel" name="scaleLabel">
            <property name="minimumSize">
@@ -363,6 +376,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <layout class="QHBoxLayout" name="showScreenLayout">
+           <property name="leftMargin">
+            <number>6</number>
+           </property>
            <item>
             <widget class="QLabel" name="label">
              <property name="minimumSize">
@@ -459,6 +475,9 @@
           <layout class="QVBoxLayout" name="unifyBrightLayout">
            <property name="spacing">
             <number>2</number>
+           </property>
+           <property name="leftMargin">
+            <number>6</number>
            </property>
           </layout>
          </item>
