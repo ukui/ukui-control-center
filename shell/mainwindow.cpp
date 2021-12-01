@@ -870,7 +870,7 @@ void MainWindow::initNMIcbc()
                          QDBusConnection::sessionBus());
 
     QDBusMessage msg = nmIfc.call("requestRefreshWifiList");
-    mIsNmIcbc = msg.errorMessage().isEmpty();
+    mIsNmIcbc = !msg.errorMessage().isEmpty();
 }
 
 void MainWindow::setModuleBtnHightLight(int id) {
