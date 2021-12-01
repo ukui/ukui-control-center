@@ -91,27 +91,37 @@
         <translation>查看用户手册</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="960"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="644"/>
+        <source>Not activated (trial period)</source>
+        <translation>未激活(试用期)</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="646"/>
+        <source>Trial expiration time</source>
+        <translation>试用到期时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="977"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="964"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="982"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1100"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1118"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1101"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1119"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1102"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1120"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -124,9 +134,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="880"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="889"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1234"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="897"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="906"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1252"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -181,7 +191,7 @@
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="518"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="887"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="904"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
@@ -219,7 +229,8 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="631"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="642"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="648"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -253,12 +264,12 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="629"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="640"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="636"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="653"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -2130,58 +2141,58 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserLogo</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="139"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="129"/>
         <source>System Logos</source>
         <translation>系统头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="148"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="138"/>
         <source>Local Logo</source>
         <translation>本地头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="157"/>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="291"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="147"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="283"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="159"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="149"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="286"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="278"/>
         <source>select custom face file</source>
         <translation>选择自定义头像文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="287"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="279"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="288"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="280"/>
         <source>Position: </source>
         <translation>位置：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="289"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="281"/>
         <source>FileName: </source>
         <translation>文件名：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="290"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="282"/>
         <source>FileType: </source>
         <translation>文件类型：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="306"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="298"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="307"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="299"/>
         <source>The avatar is larger than 1M, please choose again</source>
         <translation>警告，头像大于1M请重新选择</translation>
     </message>
@@ -4001,85 +4012,71 @@ folder will be deleted!</source>
     <name>DisplayPerformanceDialog</name>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="26"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="26"/>
         <source>Dialog</source>
         <translation>更改时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="214"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="214"/>
         <source>Display Advanced Settings</source>
         <translation>显示高级设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="297"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="297"/>
         <source>Performance</source>
         <translation>性能模式</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="376"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="376"/>
         <source>Applicable to machine with discrete graphics, which can accelerate the rendering of 3D graphics.</source>
         <translation>适用于具有独立显卡的机器，能够充分发挥显卡的性能，对3D图形绘制进行加速。</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="392"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="392"/>
         <source>(Note: not support connect graphical with xmanager on windows.)</source>
         <translation>（注意：本模式不支持Windows上个使用Xmanager等工具连接图形显示）</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="462"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="462"/>
         <source>Compatible</source>
         <translation>兼容模式</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="538"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="538"/>
         <source>Applicable to machine with integrated graphics,  there is no 3D graphics acceleration. </source>
         <translation>适用于集成显卡，BMC显卡等只具备基础显示功能，无3D图形绘制加速。</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="554"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="554"/>
         <source>(Note: need connect graphical with xmanager on windows, use this option.)</source>
         <translation>（注意：需要使用Windows上Xmanager等工具连接图形的机器请选择本项）</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="624"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="624"/>
         <source>Automatic</source>
         <translation>自动检测</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="700"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="700"/>
         <source>Auto select according to environment, delay the login time (about 0.5 sec).</source>
         <translation>自动检测显示环境，会增加登录延时（0.5秒左右）</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="721"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="721"/>
         <source>Threshold:</source>
         <translation>阈值设置：</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="744"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="744"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="757"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="757"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/displayperformancedialog.ui" line="772"/>
-        <location filename="../../../plugins/system/display_hw/displayperformancedialog.ui" line="772"/>
         <source>(Note: select this option to use 3D graphics acceleration and xmanager.)</source>
         <translation>（注意：使用3D图形加速，且用Xmanager连接图形时选择本项）</translation>
     </message>
@@ -4092,7 +4089,6 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.cpp" line="34"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.cpp" line="34"/>
         <source>Display</source>
         <translation>显示器</translation>
     </message>
@@ -4101,7 +4097,6 @@ folder will be deleted!</source>
     <name>DisplayWindow</name>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="142"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="139"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
@@ -4119,37 +4114,31 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="308"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="299"/>
         <source>open monitor</source>
         <translation>打开显示器</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="14"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="14"/>
         <source>Form</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="32"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="32"/>
         <source>Display</source>
         <translation>显示器</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="188"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="185"/>
         <source>as main</source>
         <translation>设为主屏</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="241"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="238"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="362"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="353"/>
         <source>Advanced</source>
         <translation>高级显示</translation>
     </message>
@@ -4167,43 +4156,36 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="501"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="537"/>
         <source>follow the sunrise and sunset(17:55-05:04)</source>
         <translation>跟随日落日出（17:55-05:04）</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="565"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="601"/>
         <source>custom time</source>
         <translation>自定义时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="629"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="665"/>
         <source>opening time</source>
         <translation>开启时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="712"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="748"/>
         <source>closing time</source>
         <translation>关闭时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="807"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="843"/>
         <source>color temperature</source>
         <translation>色温</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="814"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="850"/>
         <source>warm</source>
         <translation>暖</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/display.ui" line="837"/>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="873"/>
         <source>cold</source>
         <translation>冷</translation>
     </message>
@@ -4212,9 +4194,8 @@ folder will be deleted!</source>
         <translation type="vanished">应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/display_hw.ui" line="395"/>
         <source>Mirror Display</source>
-        <translation>镜像模式</translation>
+        <translation type="vanished">镜像模式</translation>
     </message>
 </context>
 <context>
@@ -4467,34 +4448,34 @@ folder will be deleted!</source>
 <context>
     <name>Fonts</name>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="47"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="38"/>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="64"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="169"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="246"/>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="141"/>
         <source>Fonts select</source>
         <translation>字体选择</translation>
         <extra-contents_path>/Fonts/Fonts select</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="119"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="134"/>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="139"/>
         <source>Font size</source>
         <translation>字体大小</translation>
         <extra-contents_path>/Fonts/Font size</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="238"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="346"/>
         <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="143"/>
         <source>Mono font</source>
         <translation>等宽字体</translation>
         <extra-contents_path>/Fonts/Mono font</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="302"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="397"/>
         <source>Reset to default</source>
         <translation>恢复默认设置</translation>
     </message>
@@ -6341,26 +6322,22 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="94"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="122"/>
         <source>orientation</source>
         <translation>方向</translation>
         <extra-contents_path>/Display/orientation</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="111"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="139"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="112"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="140"/>
         <source>90° arrow-right</source>
         <translation>90° 顺时针</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="114"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="142"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
@@ -6374,13 +6351,11 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="113"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="141"/>
         <source>90° arrow-left</source>
         <translation>90° 逆时针</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="126"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="154"/>
         <source>frequency</source>
         <translation>刷新率</translation>
         <extra-contents_path>/Display/frequency</extra-contents_path>
@@ -6402,8 +6377,6 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/outputconfig.cpp" line="422"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="281"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="288"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8802,9 +8775,8 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">(推荐)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/resolutionslider.cpp" line="111"/>
         <source>No available resolutions</source>
-        <translation>没有合适的分辨率</translation>
+        <translation type="vanished">没有合适的分辨率</translation>
     </message>
 </context>
 <context>
@@ -10752,43 +10724,36 @@ E-mail: support@kylinos.cn</source>
     <name>UnifiedOutputConfig</name>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="79"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="75"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="110"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="104"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="115"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="109"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="116"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="110"/>
         <source>90° arrow-right</source>
         <translation>90°顺时针</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="117"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="111"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="118"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="112"/>
         <source>90° arrow-left</source>
         <translation>90°逆时针</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="147"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="141"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
@@ -10798,18 +10763,8 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="327"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="146"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="312"/>
         <source>auto</source>
         <translation>自动</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="172"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="282"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="288"/>
-        <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="325"/>
-        <source>%1 Hz</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -11431,9 +11386,8 @@ E-mail: support@kylinos.cn</source>
         <extra-contents_path>/Display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="557"/>
         <source>Some applications need to be logouted to take effect</source>
-        <translation>部分程序需要注销生效</translation>
+        <translation type="vanished">部分程序需要注销生效</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="274"/>
@@ -11452,7 +11406,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="325"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2059"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -11513,19 +11467,15 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="719"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="543"/>
         <source>monitor</source>
         <translation>显示器</translation>
-        <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="556"/>
         <source>Information</source>
-        <translation>信息</translation>
+        <translation type="vanished">信息</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="827"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="649"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
@@ -11547,7 +11497,6 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="883"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="1052"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="671"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
@@ -11587,20 +11536,18 @@ the settings will be saved after %1 seconds</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2059"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2047"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2059"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
         <translation>跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2314"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2328"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2153"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2160"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2326"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2340"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -11625,43 +11572,36 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在9秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="546"/>
         <source>screen zoom</source>
-        <translation>缩放屏幕</translation>
+        <translation type="vanished">缩放屏幕</translation>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="637"/>
         <source>Mirror Display</source>
-        <translation>镜像模式</translation>
+        <translation type="vanished">镜像模式</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="672"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 29 seconds</source>
-        <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在29秒后保存配置</translation>
+        <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在29秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="676"/>
         <source>Save Config</source>
-        <translation>保存</translation>
+        <translation type="vanished">保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="677"/>
         <source>Restore Config</source>
-        <translation>恢复</translation>
+        <translation type="vanished">恢复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="685"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
-        <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置 </translation>
+        <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1527"/>
         <source>Warnning</source>
-        <translation>警告</translation>
+        <translation type="vanished">警告</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
@@ -11669,17 +11609,14 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1813"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1561"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1379"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1549"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1556"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1517"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1813"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1391"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1561"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1568"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -11692,8 +11629,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">屏幕分辨率已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在%1秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1380"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1518"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1392"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -11702,8 +11638,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1557"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="1528"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1569"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
