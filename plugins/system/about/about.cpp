@@ -704,20 +704,22 @@ void About::setVersionNumCompenent()
     mInterVersionFrame->hide();
     QString InfoPath = "/etc/.kyinfo";
      QFile file(InfoPath);
+      int pos = -1;
      if (file.exists()) {
          QStringList mCentent = readFile(InfoPath);
           for (QString str : mCentent) {
               if (str.contains("dist_id=")) {
                   QRegExp rx("^(.*)Release-(.*)-(.*).iso$");
-                  int pos = rx.indexIn(str);
+                  pos = rx.indexIn(str);
 //                  qDebug()<<rx.cap(1)<<"-----------"<<rx.cap(2)<<"---------------"<<rx.cap(3);
                   if (pos > -1) {
                       mVersionNumberLabel_2->setText(rx.cap(2));
-                  } else {
-                      mVersionNumberFrame->hide();
+                      break;
                   }
               }
           }
+          if (pos == -1)
+              mVersionNumberFrame->hide();
      } else {
          mVersionNumberFrame->hide();
      }
