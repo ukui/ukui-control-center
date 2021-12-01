@@ -5,6 +5,7 @@
 #-------------------------------------------------
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/button.pri)
 QT       += widgets
 
 TEMPLATE = lib

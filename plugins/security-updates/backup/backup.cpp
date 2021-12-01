@@ -103,7 +103,7 @@ void Backup::initUi(QWidget *widget)
     QHBoxLayout *mBackLayout = new QHBoxLayout(mBackFrame);
     mBackLayout->setContentsMargins(16, 0, 16, 0);
     mBackLayout->setSpacing(48);
-    mBackBtn = new QPushButton(mBackFrame);
+    mBackBtn = new FixButton(widget);
     mBackBtn->setFixedWidth(120);
     FixLabel *mBackLabel_1 = new FixLabel(tr("Backup") , mBackFrame);
     mBackLabel_1->setContentsMargins(0 , 12 , 0 , 0);
@@ -127,7 +127,7 @@ void Backup::initUi(QWidget *widget)
     QHBoxLayout *mRestoreLayout = new QHBoxLayout(mRestoreFrame);
     mRestoreLayout->setContentsMargins(16, 0, 16, 0);
     mRestoreLayout->setSpacing(48);
-    mRestoreBtn = new QPushButton(mRestoreFrame);
+    mRestoreBtn = new FixButton(widget);
     mRestoreBtn->setFixedWidth(120);
     FixLabel *mRestoreLabel_1 = new FixLabel(tr("Restore") , mRestoreFrame);
     mRestoreLabel_1->setContentsMargins(0 , 12 , 0 , 0);

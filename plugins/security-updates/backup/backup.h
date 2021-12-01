@@ -26,6 +26,7 @@
 #include "shell/interface.h"
 #include "Label/titlelabel.h"
 #include "Label/fixlabel.h"
+#include "Button/fixbutton.h"
 
 namespace Ui {
 class Backup;
@@ -66,8 +67,8 @@ private:
     bool mFirstLoad;
 
     TitleLabel *mTitleLabel;
-    QPushButton *mBackBtn;
-    QPushButton *mRestoreBtn;
+    FixButton *mBackBtn;
+    FixButton *mRestoreBtn;
 };
 
 #endif // BACKUP_H
