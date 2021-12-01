@@ -27,6 +27,7 @@ public:
     explicit OutputConfig(const KScreen::OutputPtr &output, QWidget *parent = nullptr);
     ~OutputConfig() override;
 
+    QFrame *setLine(QFrame *frame);
     virtual void setOutput(const KScreen::OutputPtr &output);
     KScreen::OutputPtr output() const;
 
