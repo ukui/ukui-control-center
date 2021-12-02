@@ -135,7 +135,7 @@ void Notice::initUi(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(0);
-    mverticalLayout->setContentsMargins(0, 0, 40, 100);
+    mverticalLayout->setContentsMargins(0, 0, 0, 0);
 
     QWidget *Noticewidget = new QWidget(widget);
     Noticewidget->setMinimumSize(QSize(550, 0));

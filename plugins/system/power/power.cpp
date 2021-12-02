@@ -149,7 +149,7 @@ void Power::InitUI(QWidget *widget)
     // 整体布局
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(8);
-    mverticalLayout->setContentsMargins(0, 0, 40, 40);
+    mverticalLayout->setContentsMargins(0, 0, 0, 0);
 
     CustomTitleLabel = new TitleLabel(widget);
 

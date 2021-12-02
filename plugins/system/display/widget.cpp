@@ -130,8 +130,6 @@ Widget::Widget(QWidget *parent) :
     setHideModuleInfo();
     initNightUI();
 
-    initAdvanceScreen();
-
     setTitleLabel();
     initGSettings();
     setNightComponent();
@@ -581,6 +579,7 @@ void Widget::slotUnifyOutputs()
         ui->primaryCombo->setEnabled(true);
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
+        ui->frame_5->setVisible(true);
         ui->primaryCombo->setEnabled(true);
     } else if (mIscloneMode) {
         // Clone the current config, so that we can restore it in case user
@@ -625,6 +624,7 @@ void Widget::slotUnifyOutputs()
         // 关闭开关
         mCloseScreenButton->setEnabled(false);
         ui->showMonitorframe->setVisible(false);
+        ui->frame_5->setVisible(false);
         ui->primaryCombo->setEnabled(false);
         ui->mainScreenButton->setVisible(false);
         mControlPanel->setUnifiedOutput(base->outputPtr());
@@ -840,27 +840,7 @@ QFrame *Widget::setLine(QFrame *frame)
     return line;
 }
 
-void Widget::initAdvanceScreen()
-{
-    QProcess *process = new QProcess;
-    process->start("lsb_release -r");
-    process->waitForFinished();
 
-    QByteArray ba = process->readAllStandardOutput();
-    QString osReleaseCrude = QString(ba.data());
-    QStringList res = osReleaseCrude.split(":");
-    QString osRelease = res.length() >= 2 ? res.at(1) : "";
-    osRelease = osRelease.simplified();
-
-    const QByteArray idd(ADVANCED_SCHEMAS);
-    if (QGSettings::isSchemaInstalled(idd) && osRelease == "V10") {
-        ui->advancedBtn->show();
-        ui->advancedHorLayout->setContentsMargins(9, 8, 9, 32);
-    } else {
-        ui->advancedBtn->hide();
-        ui->advancedHorLayout->setContentsMargins(9, 0, 9, 0);
-    }
-}
 
 bool Widget::isRestoreConfig()
 {
@@ -1814,6 +1794,7 @@ void Widget::mainScreenButtonSelect(int index)
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
     ui->showMonitorframe->setVisible(connectCount > 1 && !mIscloneMode);
+    ui->frame_5->setVisible(connectCount > 1 && !mIscloneMode);
 
     // 初始化时不要发射信号
     mCloseScreenButton->blockSignals(true);
@@ -1911,11 +1892,6 @@ void Widget::initConnection()
     connect(mControlPanel, &ControlPanel::scaleChanged, this, &Widget::scaleChangedSlot);
 
     ui->controlPanelLayout->addWidget(mControlPanel);
-
-    connect(ui->advancedBtn, &QPushButton::clicked, this, [=] {
-        DisplayPerformanceDialog *dialog = new DisplayPerformanceDialog(this);
-        dialog->exec();
-    });
 
     connect(mCloseScreenButton, &SwitchButton::checkedChanged,
             this, [=](bool checked) {

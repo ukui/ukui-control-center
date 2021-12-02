@@ -35,7 +35,7 @@ ShareMain::ShareMain(QWidget *parent) :
     mNeedPwd(1)
 {    
     mVlayout = new QVBoxLayout(this);
-    mVlayout->setContentsMargins(0, 0, 32, 0);
+    mVlayout->setContentsMargins(0, 0, 0, 0);
     initUI();
     krd = new ComKylinRemoteDesktopInterface("com.kylin.RemoteDesktop",
                                              "/com/kylin/RemoteDesktop",
