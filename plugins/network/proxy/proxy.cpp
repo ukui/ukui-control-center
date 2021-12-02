@@ -133,7 +133,7 @@ void Proxy::initUi(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(8);
-    mverticalLayout->setContentsMargins(0, 0, 40, 40);
+    mverticalLayout->setContentsMargins(0, 0, 0, 0);
 
     mProxyBtnGroup = new QButtonGroup(this);
 

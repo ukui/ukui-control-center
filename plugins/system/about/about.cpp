@@ -133,7 +133,7 @@ void About::initUI(QWidget *widget)
 {
     QVBoxLayout *mverticalLayout = new QVBoxLayout(widget);
     mverticalLayout->setSpacing(0);
-    mverticalLayout->setContentsMargins(0, 0, 40, 100);
+    mverticalLayout->setContentsMargins(0, 0, 0, 0);
 
     QWidget *Aboutwidget = new QWidget(widget);
     Aboutwidget->setMinimumSize(QSize(550, 0));
