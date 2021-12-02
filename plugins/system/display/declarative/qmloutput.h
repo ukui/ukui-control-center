@@ -105,6 +105,11 @@ class QMLOutput : public QQuickItem
                WRITE setOutputY
                NOTIFY outputYChanged)
 
+    Q_PROPERTY(bool allowResetSize
+               READ allowResetSize
+               WRITE setAllowResetSize
+               NOTIFY allowResetSizeChanged)
+
 public:
     enum {        
         ModeRole = Qt::UserRole,
@@ -154,6 +159,9 @@ public:
     int outputY() const;
     void setOutputY(int y);
 
+    bool allowResetSize() const;
+    void setAllowResetSize(bool t_allowResetSize);
+
     void setIsCloneMode(bool isCloneMode, bool cloneModeShow = false);
     bool isCloneMode() const;
     bool isCloneModeShow() const;
@@ -181,6 +189,7 @@ Q_SIGNALS:
 
     void outputYChanged();
     void outputXChanged();
+    void allowResetSizeChanged();
 
     void isCloneModeChanged();
 
@@ -205,6 +214,7 @@ private:
 
     bool m_isCloneMode;
     bool m_cloneModeShow;
+    int m_allowResetSize;
 };
 
 #endif // QMLOUTPUT_H

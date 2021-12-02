@@ -16,7 +16,6 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
     QFrame(parent)
 {
     this->setFixedHeight(80);
-    this->setMinimumWidth(550);
     this->setFrameShape(QFrame::Shape::Box);
 
     QHBoxLayout *layout = new QHBoxLayout;
