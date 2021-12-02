@@ -47,7 +47,6 @@ public:
     void refreshCloseBtnStatus();
 public:
     QVBoxLayout * mainVerLayout;
-    QHBoxLayout * titleHorLayout;
     QVBoxLayout * contentVerLayout;
     QHBoxLayout * currentPwdHorLayout;
     QHBoxLayout * newPwdHorLayout;
@@ -56,7 +55,6 @@ public:
     QHBoxLayout * surePwdHorLayout;
     QHBoxLayout * bottomBtnsHorLayout;
 
-    QPushButton * closeBtn;
     QPushButton * cancelBtn;
     QPushButton * confirmBtn;
 
@@ -69,8 +67,11 @@ public:
     QLineEdit * newPwdLineEdit;
     QLineEdit * surePwdLineEdit;
 
+    QPushButton *currentPwdEyeBtn;
+    QPushButton *newPwdEyeBtn;
+    QPushButton *surePwdEyeBtn;
+
 protected:
-    void paintEvent(QPaintEvent *event);
     void keyPressEvent(QKeyEvent *);
 
 private:

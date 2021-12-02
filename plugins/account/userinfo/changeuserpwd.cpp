@@ -36,9 +36,6 @@ ChangeUserPwd::ChangeUserPwd(QString n, QWidget *parent) :
     QDialog(parent),
     name(n)
 {
-    setFixedSize(QSize(480, 296));
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
-    setAttribute(Qt::WA_TranslucentBackground);
 
     //判断是否是当前用户
     if (QString::compare(name, QString(g_get_user_name())) == 0){
@@ -99,18 +96,8 @@ void ChangeUserPwd::makeSurePwqualityEnabled(){
 
 void ChangeUserPwd::initUI(){
 
-    closeBtn = new QPushButton();
-    closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    closeBtn->setFlat(true);
-    closeBtn->setFixedSize(QSize(30, 30));
-    closeBtn->setProperty("isWindowButton", 0x2);
-    closeBtn->setProperty("useIconHighlightEffect", 0x08);
-
-    titleHorLayout = new QHBoxLayout;
-    titleHorLayout->setSpacing(0);
-    titleHorLayout->setContentsMargins(0, 0, 14, 0);
-    titleHorLayout->addStretch();
-    titleHorLayout->addWidget(closeBtn);
+    setFixedSize(QSize(480, 242));
+    setWindowTitle(tr("Change password"));
 
     //当前密码
     currentPwdLabel = new QLabel();
@@ -118,13 +105,26 @@ void ChangeUserPwd::initUI(){
     setTextDynamicInPwd(currentPwdLabel, tr("Current Pwd"));
 
     currentPwdLineEdit = new QLineEdit();
-    currentPwdLineEdit->setFixedSize(QSize(300, 36));
+    currentPwdLineEdit->setFixedSize(QSize(322, 36));
     currentPwdLineEdit->setPlaceholderText(tr("Current Pwd"));
     currentPwdLineEdit->setEchoMode(QLineEdit::Password);
     currentPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 
+    currentPwdEyeBtn = new QPushButton;
+    currentPwdEyeBtn->setFixedSize(QSize(24, 24));
+    currentPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
+    currentPwdEyeBtn->setCursor(Qt::PointingHandCursor);
+    currentPwdEyeBtn->setFlat(true);
+    currentPwdEyeBtn->setStyleSheet("QPushButton::pressed{border:none;background-color:transparent}"
+                                    "QPushButton::hover::!pressed{border:none;background-color:transparent}");
+    QHBoxLayout *currentPwdEyeBtnHLayout = new QHBoxLayout;
+    currentPwdEyeBtnHLayout->addStretch();
+    currentPwdEyeBtnHLayout->addWidget(currentPwdEyeBtn);
+    currentPwdEyeBtnHLayout->setContentsMargins(0,0,8,0);
+    currentPwdLineEdit->setLayout(currentPwdEyeBtnHLayout);
+
     currentPwdHorLayout = new QHBoxLayout;
-    currentPwdHorLayout->setSpacing(25);
+    currentPwdHorLayout->setSpacing(8);
     currentPwdHorLayout->setContentsMargins(0, 0, 0, 0);
     currentPwdHorLayout->addWidget(currentPwdLabel);
     currentPwdHorLayout->addWidget(currentPwdLineEdit);
@@ -135,13 +135,26 @@ void ChangeUserPwd::initUI(){
     setTextDynamicInPwd(newPwdLabel, tr("New Pwd"));
 
     newPwdLineEdit = new QLineEdit();
-    newPwdLineEdit->setFixedSize(QSize(300, 36));
+    newPwdLineEdit->setFixedSize(QSize(322, 36));
     newPwdLineEdit->setPlaceholderText(tr("New Pwd"));
     newPwdLineEdit->setEchoMode(QLineEdit::Password);
     newPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 
+    newPwdEyeBtn = new QPushButton;
+    newPwdEyeBtn->setFixedSize(QSize(24, 24));
+    newPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
+    newPwdEyeBtn->setCursor(Qt::PointingHandCursor);
+    newPwdEyeBtn->setFlat(true);
+    newPwdEyeBtn->setStyleSheet("QPushButton::pressed{border:none;background-color:transparent}"
+                                "QPushButton::hover::!pressed{border:none;background-color:transparent}");
+    QHBoxLayout *newPwdEyeBtnHLayout = new QHBoxLayout;
+    newPwdEyeBtnHLayout->addStretch();
+    newPwdEyeBtnHLayout->addWidget(newPwdEyeBtn);
+    newPwdEyeBtnHLayout->setContentsMargins(0,0,8,0);
+    newPwdLineEdit->setLayout(newPwdEyeBtnHLayout);
+
     newPwdHorLayout = new QHBoxLayout;
-    newPwdHorLayout->setSpacing(25);
+    newPwdHorLayout->setSpacing(8);
     newPwdHorLayout->setContentsMargins(0, 0, 0, 0);
     newPwdHorLayout->addWidget(newPwdLabel);
     newPwdHorLayout->addWidget(newPwdLineEdit);
@@ -152,19 +165,32 @@ void ChangeUserPwd::initUI(){
     setTextDynamicInPwd(surePwdLabel, tr("Sure Pwd"));
 
     surePwdLineEdit = new QLineEdit();
-    surePwdLineEdit->setFixedSize(QSize(300, 36));
+    surePwdLineEdit->setFixedSize(QSize(322, 36));
     surePwdLineEdit->setPlaceholderText(tr("Sure Pwd"));
     surePwdLineEdit->setEchoMode(QLineEdit::Password);
     surePwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 
+    surePwdEyeBtn = new QPushButton;
+    surePwdEyeBtn->setFixedSize(QSize(24, 24));
+    surePwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
+    surePwdEyeBtn->setCursor(Qt::PointingHandCursor);
+    surePwdEyeBtn->setFlat(true);
+    surePwdEyeBtn->setStyleSheet("QPushButton::pressed{border:none;background-color:transparent}"
+                                 "QPushButton::hover::!pressed{border:none;background-color:transparent}");
+    QHBoxLayout *surePwdEyeBtnHLayout = new QHBoxLayout;
+    surePwdEyeBtnHLayout->addStretch();
+    surePwdEyeBtnHLayout->addWidget(surePwdEyeBtn);
+    surePwdEyeBtnHLayout->setContentsMargins(0,0,8,0);
+    surePwdLineEdit->setLayout(surePwdEyeBtnHLayout);
+
     surePwdHorLayout = new QHBoxLayout;
-    surePwdHorLayout->setSpacing(25);
+    surePwdHorLayout->setSpacing(8);
     surePwdHorLayout->setContentsMargins(0, 0, 0, 0);
     surePwdHorLayout->addWidget(surePwdLabel);
     surePwdHorLayout->addWidget(surePwdLineEdit);
 
     tipLabel = new QLabel();
-    tipLabel->setFixedSize(QSize(300, 30));
+    tipLabel->setFixedSize(QSize(322, 30));
     tipLabel->setStyleSheet("color:red;");
 
     tipHorLayout = new QHBoxLayout;
@@ -181,8 +207,8 @@ void ChangeUserPwd::initUI(){
 
     //中部输入区域
     contentVerLayout = new QVBoxLayout;
-    contentVerLayout->setSpacing(10);
-    contentVerLayout->setContentsMargins(24, 0, 35, 24);
+    contentVerLayout->setSpacing(16);
+    contentVerLayout->setContentsMargins(24, 0, 35, 0);
     if (isCurrentUser){
         contentVerLayout->addLayout(currentPwdHorLayout);
     }
@@ -205,10 +231,7 @@ void ChangeUserPwd::initUI(){
     bottomBtnsHorLayout->addWidget(confirmBtn);
 
     mainVerLayout = new QVBoxLayout;
-    mainVerLayout->setSpacing(0);
-    mainVerLayout->setContentsMargins(0, 14, 0, 24);
-    mainVerLayout->addLayout(titleHorLayout);
-    mainVerLayout->addSpacing(16);
+    mainVerLayout->setContentsMargins(0, 10, 0, 24);
     mainVerLayout->addLayout(contentVerLayout);
     mainVerLayout->addStretch();
     mainVerLayout->addLayout(bottomBtnsHorLayout);
@@ -223,9 +246,6 @@ void ChangeUserPwd::test(){
 void ChangeUserPwd::setupConnect(){
 
     //通用的connect
-    connect(closeBtn, &QPushButton::clicked, this, [=]{
-        close();
-    });
 
     connect(cancelBtn, &QPushButton::clicked, this, [=]{
         close();
@@ -256,6 +276,39 @@ void ChangeUserPwd::setupConnect(){
 
         refreshConfirmBtnStatus();
     });
+
+    connect(currentPwdEyeBtn, &QPushButton::clicked, this, [=](){
+        if (currentPwdLineEdit->echoMode() == QLineEdit::Password) {
+            currentPwdLineEdit->setEchoMode(QLineEdit::Normal);
+            currentPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-display-symbolic"));
+        } else {
+            currentPwdLineEdit->setEchoMode(QLineEdit::Password);
+            currentPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
+        }
+    });
+
+    connect(newPwdEyeBtn, &QPushButton::clicked, this, [=](){
+        if (newPwdLineEdit->echoMode() == QLineEdit::Password) {
+            newPwdLineEdit->setEchoMode(QLineEdit::Normal);
+            newPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-display-symbolic"));
+        } else {
+            newPwdLineEdit->setEchoMode(QLineEdit::Password);
+            newPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
+        }
+
+    });
+
+    connect(surePwdEyeBtn, &QPushButton::clicked, this, [=](){
+        if (surePwdLineEdit->echoMode() == QLineEdit::Password) {
+            surePwdLineEdit->setEchoMode(QLineEdit::Normal);
+            surePwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-display-symbolic"));
+        } else {
+            surePwdLineEdit->setEchoMode(QLineEdit::Password);
+            surePwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
+        }
+
+    });
+
 
     //需要区分的connect
     if (isCurrentUser){
@@ -383,10 +436,10 @@ void ChangeUserPwd::updateTipLableInfo(QString info){
 
 void ChangeUserPwd::refreshCloseBtnStatus(){
     if (isChecking){
-        closeBtn->setEnabled(false);
+//        closeBtn->setEnabled(false);
         cancelBtn->setEnabled(false);
     } else {
-        closeBtn->setEnabled(true);
+//        closeBtn->setEnabled(true);
         cancelBtn->setEnabled(true);
     }
 }
@@ -523,44 +576,4 @@ void ChangeUserPwd::keyPressEvent(QKeyEvent * event){
     default:
         QDialog::keyPressEvent(event);
     }
-}
-
-void ChangeUserPwd::paintEvent(QPaintEvent *event){
-    Q_UNUSED(event);
-    QPainter p(this);
-    p.setRenderHint(QPainter::Antialiasing);
-    QPainterPath rectPath;
-    rectPath.addRoundedRect(this->rect().adjusted(10, 10, -10, -10), 6, 6);
-
-    // 画一个黑底
-    QPixmap pixmap(this->rect().size());
-    pixmap.fill(Qt::transparent);
-    QPainter pixmapPainter(&pixmap);
-    pixmapPainter.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter.setPen(Qt::transparent);
-    pixmapPainter.setBrush(Qt::black);
-    pixmapPainter.setOpacity(0.65);
-    pixmapPainter.drawPath(rectPath);
-    pixmapPainter.end();
-
-    // 模糊这个黑底
-    QImage img = pixmap.toImage();
-    qt_blurImage(img, 10, false, false);
-
-    // 挖掉中心
-    pixmap = QPixmap::fromImage(img);
-    QPainter pixmapPainter2(&pixmap);
-    pixmapPainter2.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter2.setCompositionMode(QPainter::CompositionMode_Clear);
-    pixmapPainter2.setPen(Qt::transparent);
-    pixmapPainter2.setBrush(Qt::transparent);
-    pixmapPainter2.drawPath(rectPath);
-
-    // 绘制阴影
-    p.drawPixmap(this->rect(), pixmap, pixmap.rect());
-
-    // 绘制一个背景
-    p.save();
-    p.fillPath(rectPath,palette().color(QPalette::Base));
-    p.restore();
 }

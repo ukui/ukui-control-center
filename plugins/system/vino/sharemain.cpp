@@ -34,7 +34,7 @@ ShareMain::ShareMain(QWidget *parent) :
     QWidget(parent)
 {
     mVlayout = new QVBoxLayout(this);
-    mVlayout->setContentsMargins(0, 0, 40, 0);
+    mVlayout->setContentsMargins(0, 0, 0, 0);
     initUI();
     initConnection();
 }

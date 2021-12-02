@@ -323,7 +323,7 @@ void UserInfo::initUI(){
     //界面主布局
     mainVerLayout = new QVBoxLayout(pluginWidget2);
     mainVerLayout->setSpacing(8);
-    mainVerLayout->setContentsMargins(0, 0, 40, 40);
+    mainVerLayout->setContentsMargins(0, 0, 0, 0);
 
     mainVerLayout->addWidget(currentLabel);
     mainVerLayout->addWidget(currentFrame);

@@ -43,6 +43,17 @@ OutputConfig::~OutputConfig()
 {
 }
 
+QFrame *OutputConfig::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
+}
+
 void OutputConfig::setTitle(const QString &title)
 {
     mTitle->setText(title);
@@ -70,15 +81,19 @@ void OutputConfig::initUi()
     resLayout->addWidget(resLabel);
     resLayout->addWidget(mResolution);
 
+
     QFrame *resFrame = new QFrame(this);
-    resFrame->setFrameShape(QFrame::Shape::Box);
+    resFrame->setFrameShape(QFrame::Shape::NoFrame);
     resFrame->setLayout(resLayout);
 
     resFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     resFrame->setMinimumWidth(552);
     resFrame->setFixedHeight(50);
 
+    QFrame *line1 = setLine(resFrame);
+
     vbox->addWidget(resFrame);
+    vbox->addWidget(line1);
 
     connect(mResolution, &ResolutionSlider::resolutionChanged,
             this, [=](QSize size, bool emitFlag){
@@ -116,7 +131,9 @@ void OutputConfig::initUi()
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 
+    QFrame *line2 = setLine(rotateFrame);
     vbox->addWidget(rotateFrame);
+    vbox->addWidget(line2);
 
     // 刷新率下拉框
     mRefreshRate = new QComboBox(this);
