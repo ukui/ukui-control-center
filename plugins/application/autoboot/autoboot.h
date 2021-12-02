@@ -101,6 +101,8 @@ private:
 
     QGSettings *mQtSettings;
 
+    QStringList whitelist;
+
 public slots:
     void checkbox_changed_cb(QString bname);
     void keyChangedSlot(const QString &key);

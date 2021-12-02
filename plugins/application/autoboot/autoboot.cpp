@@ -91,6 +91,8 @@ QWidget *AutoBoot::pluginUi()
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
 
+        whitelist.append("sogouImeService.desktop");
+        whitelist.append("kylin-weather.desktop");
         initConfig();
         connectToServer();
         initUI(pluginWidget);
@@ -281,6 +283,9 @@ AutoApp AutoBoot::setInformation(QString filepath)
        only_showin = desktopFile->value(QString("Desktop Entry/OnlyShowIn")).toString();
        not_show_in = desktopFile->value(QString("Desktop Entry/NotShowIn")).toString();
        bool mshow = true;
+       if (app.bname == "sogouImeService.desktop") {
+           icon = "/opt/sogouimebs/files/share/resources/skin/logo/logo.png";
+       }
        if (only_showin != nullptr) {
            if (!only_showin.contains("UKUI")) {
                mshow = false;
@@ -572,13 +577,20 @@ void AutoBoot::initStatus()
 
     //将系统目录下的应用加入appMaps
     appMaps.clear();
-    for (int i = 0; i < systemdir.count(); i++) {
-        QString file_name = systemdir[i];  // 文件名称
+
+    for( QString file_name : whitelist) {
         AutoApp app;
         app = setInformation(SYSTEM_CONFIG_DIR+file_name);
         app.xdg_position = SYSTEMPOS;
         appMaps.insert(app.bname, app);
     }
+//    for (int i = 0; i < systemdir.count(); i++) {
+//        QString file_name = systemdir[i];  // 文件名称
+//        AutoApp app;
+//        app = setInformation(SYSTEM_CONFIG_DIR+file_name);
+//        app.xdg_position = SYSTEMPOS;
+//        appMaps.insert(app.bname, app);
+//    }
 
     //将本地配置目录下的应用加入localappMaps
     localappMaps.clear();
@@ -595,21 +607,15 @@ void AutoBoot::initStatus()
 
     QMap<QString, AutoApp>::iterator it = appMaps.begin();
     for (; it != appMaps.end(); it++) {
-        if (/*it.value().hidden || */ it.value().no_display || !it.value().shown
-            || it.value().bname == "browser360-cn_preheat.desktop"
-            || it.value().bname == "vmware-user.desktop"
-
-            || it.value().exec == "/usr/bin/ukui-settings-daemon")  // gtk控制面板屏蔽ukui-settings-daemon,猜测禁止用户关闭
-            continue;
         statusMaps.insert(it.key(), it.value());
     }
 
     QMap<QString, AutoApp>::iterator localit = localappMaps.begin();
     for (; localit != localappMaps.end(); localit++) {
-        if (/*localit.value().hidden || */ localit.value().no_display || !localit.value().shown) {
-            statusMaps.remove(localit.key());
-            continue;
-        }
+//        if (/*localit.value().hidden || */ localit.value().no_display || !localit.value().shown) {
+//            statusMaps.remove(localit.key());
+//            continue;
+//        }
 
         if (statusMaps.contains(localit.key())) {
             // 整合状态
