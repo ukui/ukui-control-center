@@ -4662,8 +4662,8 @@ void UkmediaMainWidget::onInputSwitchActiveOptionNotify (MateMixerSwitch *swtch,
     MateMixerStream *inputStream = mate_mixer_context_get_default_input_stream(w->m_pContext);
     QListWidgetItem *inputCurrrentItem = w->m_pInputWidget->m_pInputListWidget->currentItem();
     UkuiListWidgetItem *inputWid = (UkuiListWidgetItem *)w->m_pInputWidget->m_pInputListWidget->itemWidget(inputCurrrentItem);
-    //如果不相等需要设置inputListWidget row
-    if (inputWid->portLabel->text() != inputPortLabel) {
+
+    if (inputWid && w->m_pInputWidget->m_pInputListWidget->count()>0 && inputWid->portLabel->text() != inputPortLabel) {
         MateMixerDevice *device = mate_mixer_stream_get_device(inputStream);
          QString devName = mate_mixer_device_get_name(device);
         QString streamName = mate_mixer_stream_get_name(inputStream);
@@ -4684,7 +4684,7 @@ void UkmediaMainWidget::onOutputSwitchActiveOptionNotify (MateMixerSwitch *swtch
     QListWidgetItem *outputCurrrentItem = w->m_pOutputWidget->m_pOutputListWidget->currentItem();
     UkuiListWidgetItem *outputWid = (UkuiListWidgetItem *)w->m_pOutputWidget->m_pOutputListWidget->itemWidget(outputCurrrentItem);
     //如果不相等需要设置inputListWidget row
-    if (outputWid->portLabel->text() != outputPortLabel) {
+    if (outputWid && w->m_pOutputWidget->m_pOutputListWidget->count() > 0 && outputWid->portLabel->text() != outputPortLabel) {
         MateMixerDevice *device = mate_mixer_stream_get_device(outputStream);
          QString devName = mate_mixer_device_get_name(device);
         QString streamName = mate_mixer_stream_get_name(outputStream);
