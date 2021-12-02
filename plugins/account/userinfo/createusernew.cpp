@@ -277,6 +277,9 @@ void CreateUserNew::setConnect(){
                                        "com.control.center.interface",
                                        QDBusConnection::systemBus());
 
+        //底层创建用户存在延时，先隐藏掉创建用户界面
+        this->hide();
+
         if (tmpSysinterface.isValid()){
 
             tmpSysinterface.call("setPid", QCoreApplication::applicationPid());
