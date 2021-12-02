@@ -7892,17 +7892,24 @@ E-mail: support@kylinos.cn</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="870"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="607"/>
+        <source>The apt proxy  has been turned off and needs to be restarted to take effect</source>
+        <translation>apt代理功能已关闭 需重启后生效</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="892"/>
         <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
         <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="872"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="609"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="894"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="871"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="608"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="893"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
