@@ -44,7 +44,7 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
 
     labelValue = new QLabel(this);
     labelValue->setFixedWidth(35);
-    labelValue->setAlignment(Qt::AlignRight);
+    labelValue->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     layout->addWidget(labelName);
     layout->addWidget(slider);

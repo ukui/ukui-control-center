@@ -474,7 +474,7 @@ void Wallpaper::resetDefaultWallpaperSlot(){
 
 void Wallpaper::showLocalWpDialog(){
     QStringList filters;
-    filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)")<<tr("allFiles(*.*)");
+    filters<<tr("Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)");
     QFileDialog fd(pluginWidget);
     QList<QUrl> usb_list = fd.sidebarUrls();
     int sidebarNum = 8;// 最大添加U盘数，可以自己定义
