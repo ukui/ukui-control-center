@@ -335,8 +335,6 @@ void DisplayWidget::m_unifybuttonChanged() {
     slotUnifyOutputs();
 }
 void DisplayWidget::initUI(){
-    ui->label_2->setText(tr("Display"));
-    ui->label_2->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
 
     ui->darkLabel->setPixmap(QPixmap("://img/plugins/display/dark.svg"));
     ui->brightLabel->setPixmap(QPixmap("://img/plugins/display/bright.svg"));
@@ -366,6 +364,7 @@ void DisplayWidget::initUI(){
                                       "QRadioButton::indicator:unchecked:hover {image: url(:/img/plugins/theme/selected_hover.svg);}"
                                       "QRadioButton::indicator:unchecked:pressed {image: url(:/img/plugins/theme/selected_default.svg);}"
                                       "QRadioButton::indicator:checked {image: url(:/img/plugins/theme/selected_click.svg);}");
+    ui->brightnessSlider->setFixedHeight(60);
     ui->brightnessSlider->setStyleSheet( "QSlider::groove:horizontal {"
                                        "border: 0px none;"
                                        "background: palette(button);"
@@ -375,11 +374,11 @@ void DisplayWidget::initUI(){
 
                                        "QSlider::handle:horizontal {"
 
-                                       "height: 24px;"
-                                       "width: 32px;"
+                                       "height: 40px;"
+                                       "width: 36px;"
                                        "margin: 30px;"
                                        "border-image: url(://img/plugins/mouse/slider.svg);"
-                                       "margin: -8 -4px;"
+                                       "margin: -20 -4px;"
                                        "}"
 
                                        "QSlider::add-page:horizontal {"
@@ -391,6 +390,7 @@ void DisplayWidget::initUI(){
                                        "background: #2FB3E8;"
                                        "border-radius: 5px;"
                                        "}");
+    ui->temptSlider->setFixedHeight(60);
     ui->temptSlider->setStyleSheet( "QSlider::groove:horizontal {"
                                     "border: 0px none;"
                                     "background: palette(button);"
@@ -400,11 +400,11 @@ void DisplayWidget::initUI(){
 
                                     "QSlider::handle:horizontal {"
 
-                                    "height: 24px;"
-                                    "width: 32px;"
+                                    "height: 40px;"
+                                    "width: 36px;"
                                     "margin: 30px;"
                                     "border-image: url(://img/plugins/mouse/slider.svg);"
-                                    "margin: -8 -4px;"
+                                    "margin: -20 -4px;"
                                     "}"
 
                                     "QSlider::add-page:horizontal {"
