@@ -49,6 +49,7 @@ public:
     ~SysdbusRegister();
 
 public:
+    bool checkCreateAuthorization();
     bool checkAuthorization();
 
 private:

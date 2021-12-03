@@ -209,7 +209,7 @@ int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
 int SysdbusRegister::createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd){
 
     //密码校验
-    if (!checkAuthorization()){
+    if (!checkCreateAuthorization()){
         return 0;
     }
 
@@ -240,6 +240,28 @@ int SysdbusRegister::createUser(QString name, QString fullname, int accounttype,
 
     return 1;
 
+}
+
+bool SysdbusRegister::checkCreateAuthorization()
+{
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.create",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No) {
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
 }
 
 bool SysdbusRegister::checkAuthorization(){
