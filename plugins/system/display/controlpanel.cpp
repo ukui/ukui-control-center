@@ -71,6 +71,11 @@ void ControlPanel::addOutput(const KScreen::OutputPtr &output, bool connectChang
     connect(outputCfg, &OutputConfig::scaleChanged,
             this, &ControlPanel::scaleChanged);
 
+    connect(outputCfg, &OutputConfig::toSetScreenPos,
+            this, [=](){
+        Q_EMIT this->toSetScreenPos(output);
+    });
+
     mLayout->addWidget(outputCfg);
 
     mOutputConfigs << outputCfg;

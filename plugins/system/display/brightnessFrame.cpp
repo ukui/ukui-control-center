@@ -16,7 +16,6 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
     QFrame(parent)
 {
     this->setFixedHeight(80);
-    this->setMinimumWidth(550);
     this->setFrameShape(QFrame::Shape::Box);
 
     QHBoxLayout *layout = new QHBoxLayout;
@@ -45,7 +44,7 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
 
     labelValue = new QLabel(this);
     labelValue->setFixedWidth(35);
-    labelValue->setAlignment(Qt::AlignRight);
+    labelValue->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     layout->addWidget(labelName);
     layout->addWidget(slider);
