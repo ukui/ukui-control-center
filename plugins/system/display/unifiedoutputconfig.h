@@ -16,7 +16,8 @@ public:
     ~UnifiedOutputConfig() override;
 
     void setOutput(const KScreen::OutputPtr &output) override;
-
+    bool isCloneMode();
+    void addRefreshRate(const QSize &size, const float refreshRate);
 private Q_SLOTS:
     void slotResolutionChanged(const QSize &size);
 

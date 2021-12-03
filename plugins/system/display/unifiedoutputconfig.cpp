@@ -242,17 +242,22 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
     }
     QVector<QString>Vrefresh;
     for (int i = mRefreshRate->count(); i >= 0; --i) {
-            mRefreshRate->removeItem(i);
+        mRefreshRate->removeItem(i);
     }
+    bool mIsCloneMode = isCloneMode();
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         const QString &id = findBestMode(clone, size);
         if (id.isEmpty()) {
             // FIXME: Error?
             return;
         }
+        //本来就是镜像模式且当前分辨率就是选中分辨率，就不需要重新设置显示参数
+        //用于镜像模式下刚打开控制面板时的显示，否则显示的不是实际刷新率而是findBestMode
 
-        clone->setCurrentModeId(id);
-        clone->setPos(QPoint(0, 0));
+        if (!mIsCloneMode || size != clone->currentMode()->size()) {
+          clone->setCurrentModeId(id);
+          clone->setPos(QPoint(0, 0));
+        }
 
         QList<KScreen::ModePtr> modes;
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
@@ -296,6 +301,17 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
             }
         }
     }
+
+    if (mRefreshRate->count() > 1) {
+        float currentRereshRate = mClones[0]->currentMode()->refreshRate();
+        for (int i = 0; i < mRefreshRate->count(); i++) {
+            if (tr("%1 Hz").arg(QLocale().toString(currentRereshRate, 'f', 2)) == mRefreshRate->itemText(i)) {
+                mRefreshRate->setCurrentIndex(i);
+                break;
+            }
+        }
+    }
+
     if (mRefreshRate->count() == 0) {
         mRefreshRate->addItem(tr("auto"), -1);    
     }
@@ -304,17 +320,15 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size)
 
 void UnifiedOutputConfig::slotRefreshRateChanged(int index)
 {
-    if (index == 0) {
-        index = 1;
-    }
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
             if (mode->size() == mResolution->currentResolution() && \
-                    tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())) == mRefreshRate->itemText(index)) {
+                    tr("%1 Hz").arg(QLocale().toString(mode->refreshRate(), 'f', 2)) == mRefreshRate->itemText(index)) {
                 clone->setCurrentModeId(mode->id());
             }
         }
     }
+    Q_EMIT changed();
 }
 
 QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size)
@@ -347,8 +361,11 @@ void UnifiedOutputConfig::slotRotationChangedDerived(int index)
 
 void UnifiedOutputConfig::slotRestoreResoltion()
 {    
-    if (!mOutput->currentMode().isNull() && !(mResolution->currentResolution() == mOutput->currentMode()->size())) {
-        mResolution->setResolution(mOutput->currentMode()->size());
+    if (!mOutput->currentMode().isNull()) {
+        if (!(mResolution->currentResolution() == mOutput->currentMode()->size())) {
+            mResolution->setResolution(mOutput->currentMode()->size());
+        }
+        addRefreshRate(mOutput->currentMode()->size(), mOutput->currentMode()->refreshRate());
     }
 }
 
@@ -357,4 +374,99 @@ void UnifiedOutputConfig::slotRestoreRatation()
     mRotation->blockSignals(true);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
     mRotation->blockSignals(false);
+}
+
+bool UnifiedOutputConfig::isCloneMode()
+{
+    if (!mClones[0])
+        return false;
+    QSize cloneSize(mClones[0]->currentMode()->size());
+    QPoint clonePos(mClones[0]->pos());
+    Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
+        if (!clone || clone->currentMode()->size() != cloneSize || clone->pos() != clonePos) {
+            return false;
+        }
+    }
+    return true;
+}
+
+//重复代码，0610分支，不进行代码优化，只解决实际问题
+void UnifiedOutputConfig::addRefreshRate(const QSize &size, const float refreshRate)
+{
+    mRefreshRate->blockSignals(true);
+    QVector<QString>Vrefresh;
+    for (int i = mRefreshRate->count(); i >= 0; --i) {
+        mRefreshRate->removeItem(i);
+    }
+
+    if (!size.isValid()) {
+        mRefreshRate->addItem(tr("auto"), -1);
+        mRefreshRate->blockSignals(false);
+        return;
+    }
+
+    Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
+        const QString &id = findBestMode(clone, size);
+        if (id.isEmpty()) {
+            // FIXME: Error?
+            break;
+        }
+
+        QList<KScreen::ModePtr> modes;
+        Q_FOREACH (const KScreen::ModePtr &mode, clone->modes()) {
+            if (mode->size() == size) {
+                modes << mode;
+            }
+        }
+
+        QVector<QString>VrefreshTemp;
+        for (int i = 0, total = modes.count(); i < total; ++i) {
+           const KScreen::ModePtr mode = modes.at(i);
+
+           bool alreadyExisted = false; //判断该显示器的刷新率是否有重复的，确保同一刷新率在一个屏幕上只出现一次
+           for (int j = 0; j < VrefreshTemp.size(); ++j) {
+               if (tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())) == VrefreshTemp[j]) {
+                   alreadyExisted = true;
+                   break;
+               }
+           }
+           if (alreadyExisted == false) {   //不添加重复的项
+               VrefreshTemp.append(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate(), 'f', 2)));
+           }
+        }
+
+        for (int i = 0; i < VrefreshTemp.size(); ++i) {
+            Vrefresh.append(VrefreshTemp[i]);
+        }
+    }
+
+    for (int i = 0; i < Vrefresh.size(); ++i) {
+        if (Vrefresh.count(Vrefresh[i]) == mClones.size()) { //该刷新率出现次数等于屏幕数，即每个屏幕都有该刷新率
+            bool existFlag = false;
+            for (int j = 0; j < mRefreshRate->count(); ++j) {  //已经存在就不再添加
+                if (Vrefresh[i] == mRefreshRate->itemText(j)) {
+                    existFlag = true;
+                    break;
+                }
+            }
+            if (existFlag == false) {  //不存在添加到容器中
+                mRefreshRate->addItem(Vrefresh[i]);
+            }
+        }
+    }
+
+    if (mRefreshRate->count() > 1) {
+        for (int i = 0; i < mRefreshRate->count(); i++) {
+            if (tr("%1 Hz").arg(QLocale().toString(refreshRate, 'f', 2)) == mRefreshRate->itemText(i)) {
+                mRefreshRate->setCurrentIndex(i);
+                break;
+            }
+        }
+    }
+
+    if (mRefreshRate->count() == 0) {
+        mRefreshRate->addItem(tr("auto"), -1);
+    }
+    mRefreshRate->blockSignals(false);
+    return;
 }
