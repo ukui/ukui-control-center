@@ -226,6 +226,10 @@ void SearchWidget::loadxml() {
                         m_searchBoxStruct.actualModuleName =
                                 getModulesName(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
 
+                        // 插件不存在，跳过该插件的搜索项
+                        if ( m_searchBoxStruct.actualModuleName.isEmpty())
+                            continue;
+
                         if (!isChineseFunc(m_searchBoxStruct.translateContent)) {
                             if (!m_TxtList.contains(m_searchBoxStruct.translateContent)) {
                                 m_TxtList.append(m_searchBoxStruct.translateContent);

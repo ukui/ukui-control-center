@@ -104,7 +104,6 @@ QWidget *About::pluginUi()
         setupSerialComponent();
         setPrivacyCompent();
     }
-
     return pluginWidget;
 }
 
@@ -607,6 +606,11 @@ void About::setupSerialComponent()
     if (activeReply.type() == QDBusMessage::ReplyMessage) {
         status = activeReply.arguments().at(0).toInt();
     }
+    int trial_status = 0;
+    QDBusMessage trialReply = activeInterface.get()->call("trial_status");
+    if (trialReply.type() == QDBusMessage::ReplyMessage) {
+        trial_status = activeReply.arguments().at(0).toInt();
+    }
 
     QString serial;
     QDBusReply<QString> serialReply;
@@ -621,6 +625,12 @@ void About::setupSerialComponent()
     if (dateReply.type() == QDBusMessage::ReplyMessage) {
         dateRes = dateReply.arguments().at(0).toString();
     }
+
+    QDBusMessage trial_dateReply = activeInterface.get()->call("trial_date");
+    QString trial_dateRes;
+    if (trial_dateReply.type() == QDBusMessage::ReplyMessage) {
+        trial_dateRes = trial_dateReply.arguments().at(0).toString();
+    }
     mSequenceLabel_2->setText(serial);
 
     if (dateRes.isEmpty()) {  //未激活
@@ -628,6 +638,12 @@ void About::setupSerialComponent()
         mTimeLabel_2->hide();
         mStatusLabel_2->setText(tr("Inactivated"));
         mStatusLabel_2->setStyleSheet("color : red ");
+        mActivationBtn->setText(tr("Active"));
+    }  else if (dateRes.isEmpty() && trial_status == 1) {  //试用期
+        mStatusLabel_2->setText(tr("Not activated (trial period)"));
+        mStatusLabel_2->setStyleSheet("color : red ");
+        mTimeLabel_1->setText(tr("Trial expiration time"));
+        mTimeLabel_2->setText(trial_dateRes);
         mActivationBtn->setText(tr("Active"));
     } else {    //已激活
         mActivationBtn->hide();
@@ -644,9 +660,9 @@ void About::setupSerialComponent()
                 QStringList list_1 = s1.split(" ");
                 QStringList list_2 = dateRes.split("-");
 
-                if (QString(list_2.at(0)).toInt() > QString(list_1.at(4)).toInt() ) { //未到服务到期时间
+                if (QString(list_2.at(0)).toInt() > QString(list_1.at(5)).toInt() ) { //未到服务到期时间
                     mTimeLabel_2->setText(dateRes);
-                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(4)).toInt()) {
+                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(5)).toInt()) {
                     if (QString(list_2.at(1)).toInt() > getMonth(list_1.at(1))) {
                         mTimeLabel_2->setText(dateRes);
                     } else if (QString(list_2.at(1)).toInt() == getMonth(list_1.at(1))) {
@@ -688,20 +704,22 @@ void About::setVersionNumCompenent()
     mInterVersionFrame->hide();
     QString InfoPath = "/etc/.kyinfo";
      QFile file(InfoPath);
+      int pos = -1;
      if (file.exists()) {
          QStringList mCentent = readFile(InfoPath);
           for (QString str : mCentent) {
               if (str.contains("dist_id=")) {
                   QRegExp rx("^(.*)Release-(.*)-(.*).iso$");
-                  int pos = rx.indexIn(str);
+                  pos = rx.indexIn(str);
 //                  qDebug()<<rx.cap(1)<<"-----------"<<rx.cap(2)<<"---------------"<<rx.cap(3);
                   if (pos > -1) {
                       mVersionNumberLabel_2->setText(rx.cap(2));
-                  } else {
-                      mVersionNumberFrame->hide();
+                      break;
                   }
               }
           }
+          if (pos == -1)
+              mVersionNumberFrame->hide();
      } else {
          mVersionNumberFrame->hide();
      }
@@ -958,6 +976,7 @@ void About::setPrivacyCompent()
 void About::showExtend(QString dateres)
 {
     mTimeLabel_2->setText(dateres+QString("(%1)").arg(tr("expired")));
+    mTimeLabel_2->setStyleSheet("color : red ");
     mActivationBtn->setVisible(true);
     mTrialLabel->setVisible(true);
     mAndLabel->setVisible(true);
