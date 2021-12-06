@@ -59,7 +59,7 @@ const QString Vino::name() const
 
 bool Vino::isShowOnHomePage() const
 {
-    return Utils::isWayland();
+    return false;
 }
 
 QIcon Vino::icon() const
