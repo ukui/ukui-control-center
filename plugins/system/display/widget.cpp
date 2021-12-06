@@ -748,10 +748,9 @@ void Widget::writeScale(double scale)
             cursorSettings.set(CURSOR_SIZE_KEY, cursize);
             Utils::setKwinMouseSize(cursize);
         }
-        if (!mIsChange) {
+        if (!mIsChange) {  //主动切换缩放率，直接提示注销
             showZoomtips();
         } else {
-            // 非主动切换缩放率，则不弹提示弹窗
             mIsChange = false;
         }
     } else {
@@ -887,6 +886,11 @@ bool Widget::isRestoreConfig()
     switch (ret) {
     case QMessageBox::AcceptRole:
         res = false;
+        //若 点击保存后，因分辨率导致缩放发生了变化，则提示注销
+        if (mIsSCaleRes) {
+            showZoomtips();
+        }
+        mIsSCaleRes = false;
         break;
     case QMessageBox::RejectRole:
         if (mIsSCaleRes) {

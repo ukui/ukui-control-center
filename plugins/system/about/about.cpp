@@ -703,9 +703,9 @@ void About::setVersionNumCompenent()
 //     }
     mInterVersionFrame->hide();
     QString InfoPath = "/etc/.kyinfo";
-     QFile file(InfoPath);
-      int pos = -1;
-     if (file.exists()) {
+    QFile file(InfoPath);
+    int pos = -1;
+    if (file.exists()) {
          QStringList mCentent = readFile(InfoPath);
           for (QString str : mCentent) {
               if (str.contains("dist_id=")) {

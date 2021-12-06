@@ -194,14 +194,11 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
 }
 
 void MainWindow::initUI() {
-    QRect screenSize = Utils::sizeOnCursor();
-    if (screenSize.width() <= 1440) {
-        this->setMinimumSize(978, 630);
-    } else {
-        this->setMinimumSize(1160, 720);
-    }
-
     ui->setupUi(this);
+    QRect screenSize = Utils::sizeOnCursor();
+    this->setMinimumSize(978, 630);
+    if (screenSize.width() > 1440)
+        this->resize(1160,720);
     ui->centralWidget->setStyleSheet("QWidget#centralWidget{background: palette(base); border-radius: 6px;}");
 
     m_ModuleMap = Utils::getModuleHideStatus();
