@@ -67,12 +67,6 @@ UkmediaVolumeSlider::UkmediaVolumeSlider(QWidget *parent,bool needTip)
 
 void UkmediaVolumeSlider::mousePressEvent(QMouseEvent *ev)
 {
-    mousePress = true;
-    Q_EMIT silderPressedSignal();
-    if (state) {
-        m_pTiplabel->show();
-    }
-
     int value = 0;
     int currentX = ev->pos().x();
     double per = currentX * 1.0 / this->width();
@@ -89,7 +83,6 @@ void UkmediaVolumeSlider::mousePressEvent(QMouseEvent *ev)
         value = qRound(per*(this->maximum() - this->minimum())) + this->minimum();
     }
     this->setValue(value);
-
     QSlider::mousePressEvent(ev);
 }
 void UkmediaVolumeSlider::mouseReleaseEvent(QMouseEvent *e)
@@ -108,8 +101,6 @@ void UkmediaVolumeSlider::initStyleOption(QStyleOptionSlider *option)
 
 void UkmediaVolumeSlider::leaveEvent(QEvent *e)
 {
-    if (mousePress)
-        mousePress = false;
     if (state) {
         m_pTiplabel->hide();
     }
