@@ -100,8 +100,8 @@ void HostNameDialog::initConnect()
 
 void HostNameDialog::setEdit()
 {
-    mHostNameEdit->setMaxLength(32);
-    QRegExp rx("[a-z_][a-zA-Z0-9_-]*[$]");
+    mHostNameEdit->setMaxLength(64);
+    QRegExp rx("[a-z][a-zA-Z0-9.-]*");
     QRegExpValidator *validator = new QRegExpValidator(rx , this);
     mHostNameEdit->setValidator(validator);
 }
