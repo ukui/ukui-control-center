@@ -839,7 +839,7 @@ void Theme::resetBtnClickSlot() {
         qtSettings->reset(THEME_TRAN_KEY);
         qtSettings->reset(PEONY_TRAN_KEY);
         gtkSettings->reset(ICON_GTK_KEY);
-        personliseGsettings->set(PERSONALSIE_TRAN_KEY, 0.85);
+        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);
         ui->tranSlider->blockSignals(true);
         ui->tranSlider->setValue(transparency);
         ui->tranSlider->blockSignals(false);

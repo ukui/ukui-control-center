@@ -1,7 +1,7 @@
 <schemalist gettext-domain="ukui-control-center">
   <schema id="org.ukui.control-center.personalise" path="/org/ukui/control-center/personalise/">
     <key type="d" name="transparency">
-      <default>1.0</default>
+      <default>0.85</default>
       <summary>Control the transparency of all components</summary>
       <description>Control the transparency of all components</description>
 	 </key>
