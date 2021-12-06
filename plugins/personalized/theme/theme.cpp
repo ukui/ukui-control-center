@@ -152,6 +152,10 @@ Theme::Theme()
             });
         }
     }
+    ui->defaultRadioBtn->installEventFilter(this);
+    ui->darkRadioBtn->installEventFilter(this);
+    ui->lightRadioBtn->installEventFilter(this);
+
     initSearchText();
     //设置组件
     setupComponent();
@@ -316,7 +320,7 @@ void Theme::monitorThemeChanges(){
 }
 void Theme::buildThemeModeLabel(){
     ui->systemDefaultLabel->setScaledContents(true);
-    QString fullicon_1 = QString("://img/plugins/theme/system default.png");
+    QString fullicon_1 = QString("://img/plugins/theme/auto.png");
     ui->systemDefaultLabel->setFixedSize(144,88);
     ui->systemDefaultLabel->setPixmap(QPixmap(fullicon_1));
     ui->darkModeLabel->setScaledContents(true);
@@ -325,7 +329,7 @@ void Theme::buildThemeModeLabel(){
     ui->darkModeLabel->setPixmap(QPixmap(fullicon_2));
 
     ui->lightLabel->setScaledContents(true);
-    QString fullicon_3 = QString("://img/plugins/theme/Light color.png");
+    QString fullicon_3 = QString("://img/plugins/theme/light mode.png");
     ui->lightLabel->setFixedSize(144,88);
     ui->lightLabel->setPixmap(QPixmap(fullicon_3));
     QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
@@ -764,4 +768,23 @@ int Theme::tranConvertToSlider(const double value)
     } else {
         return 5;
     }
+}
+
+
+bool Theme::eventFilter(QObject *w, QEvent *e)
+{
+    if(w == ui->defaultRadioBtn && ui->defaultRadioBtn->isChecked()){
+        ui->systemDefaultLabel->setPixmap(QPixmap(QString("://img/plugins/theme/auto-selected.png" )));
+        ui->darkModeLabel->setPixmap(QPixmap(QString("://img/plugins/theme/dark mode.png" )));
+        ui->lightLabel->setPixmap(QPixmap(QString("://img/plugins/theme/light mode.png" )));
+    } else if (w == ui->darkRadioBtn && ui->darkRadioBtn->isChecked()) {
+        ui->systemDefaultLabel->setPixmap(QPixmap(QString("://img/plugins/theme/auto.png" )));
+        ui->darkModeLabel->setPixmap(QPixmap(QString("://img/plugins/theme/dark mode-selected.png" )));
+        ui->lightLabel->setPixmap(QPixmap(QString("://img/plugins/theme/light mode.png" )));
+    } else if (w == ui->lightRadioBtn && ui->lightRadioBtn->isChecked()) {
+        ui->systemDefaultLabel->setPixmap(QPixmap(QString("://img/plugins/theme/auto.png" )));
+        ui->darkModeLabel->setPixmap(QPixmap(QString("://img/plugins/theme/dark mode.png" )));
+        ui->lightLabel->setPixmap(QPixmap(QString("://img/plugins/theme/light mode-selected.png" )));
+    }
+    return QObject::eventFilter(w,e);
 }
