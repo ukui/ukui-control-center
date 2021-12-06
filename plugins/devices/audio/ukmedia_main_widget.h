@@ -35,6 +35,7 @@
 #include <glib/gi18n.h>
 #include <gobject/gparamspecs.h>
 #include <glib/gstdio.h>
+extern "C" {
 #include <dconf/dconf.h>
 #include <dconf/common/dconf-paths.h>
 #include <canberra.h>
@@ -44,6 +45,7 @@
 #include <pulse/error.h>
 #include <pulse/subscribe.h>
 #include <pulse/introspect.h>
+}
 #include <utime.h>
 #include <a.out.h>
 #include <QScreen>

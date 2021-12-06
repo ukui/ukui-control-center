@@ -30,10 +30,12 @@
 #undef signals
 #endif
 
+extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
 #include <dconf/dconf.h>
 #include <dconf/common/dconf-paths.h>
+}
 
 #define KEYBINDINGS_DESKTOP_SCHEMA "org.ukui.SettingsDaemon.plugins.media-keys"
 #define KEYBINDINGS_SYSTEM_SCHEMA "org.gnome.desktop.wm.keybindings"

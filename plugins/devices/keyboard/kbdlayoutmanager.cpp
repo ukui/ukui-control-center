@@ -27,8 +27,10 @@
 
 #include <QDebug>
 
+extern "C" {
 #include <libxklavier/xklavier.h>
 #include <libmatekbd/matekbd-keyboard-config.h>
+}
 
 #define MAXNUM 4
 #define KBD_LAYOUTS_SCHEMA "org.mate.peripherals-keyboard-xkb.kbd"
