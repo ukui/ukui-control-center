@@ -78,11 +78,11 @@ Touchpad::Touchpad()
 
                                        "QSlider::handle:horizontal {"
 
-                                       "height: 24px;"
-                                       "width: 32px;"
+                                       "height: 40px;"
+                                       "width: 36px;"
                                        "margin: 30px;"
                                        "border-image: url(://img/plugins/mouse/slider.svg);"
-                                       "margin: -8 -4px;"
+                                       "margin: -20 -4px;"
                                        "}"
 
                                        "QSlider::add-page:horizontal {"
