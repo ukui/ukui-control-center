@@ -1398,7 +1398,7 @@ void Widget::setScreenKDS(QString kdsConfig)
         KScreen::OutputPtr preIt = mainScreen;
         QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
 
-        while (nowIt != screensPre.end()) {
+        while (nowIt != screensPre.end() && !preIt.isNull()) {
             if (nowIt.value() != mainScreen && !nowIt.value().isNull()) {
                 nowIt.value()->setPos(QPoint(preIt->pos().x() + preIt->size().width(), 0));
                 KScreen::ModeList modes = preIt->modes();
