@@ -31,6 +31,7 @@ private:
     void initUi() override;
     KScreen::OutputPtr createFakeOutput();
     QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
+    QFrame *setLine(QFrame *frame);
 
 private:
     KScreen::ConfigPtr mConfig;

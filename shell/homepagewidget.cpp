@@ -115,6 +115,11 @@ void HomePageWidget::initUI() {
             continue;
         }
 
+        // pangw 无安全模块 不显示
+        if (modulenameString == "security" && Utils::isWayland()) {
+            continue;
+        }
+
         //构建首页10个模块
         //基础Widget
         QWidget * baseWidget = new QWidget();
