@@ -103,13 +103,13 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>0</height>
+            <height>210</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>16777215</height>
+            <height>210</height>
            </size>
           </property>
           <property name="frameShape">
@@ -154,7 +154,7 @@
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>16</width>
-                 <height>10</height>
+                 <height>13</height>
                 </size>
                </property>
               </spacer>
@@ -178,7 +178,7 @@
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="0,0,0">
                  <item>
                   <widget class="QLineEdit" name="userNameLabel">
                    <property name="minimumSize">
@@ -216,6 +216,19 @@
                     <string/>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>0</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
                  </item>
                 </layout>
                </item>

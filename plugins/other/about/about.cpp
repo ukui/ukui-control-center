@@ -78,6 +78,10 @@ void About::initUI(){
 //    ui->pushButton_2->setText(tr("Learn more HP user manual>>"));
 //    ui->pushButton_2->setStyleSheet("background: transparent;color:#2FB3E8;font-size:16px;font-family:Microsoft YaHei;"
 //                  "border-width:1px;border-style:none none solid none;border-color:#2FB3E8;");
+    ui->frame->setObjectName("frame");
+    ui->frame->setStyleSheet("QFrame#frame{border-radius:12px;background-color:palette(base)}");
+    ui->frame_2->setObjectName("frame2");
+    ui->frame_2->setStyleSheet("QFrame#frame2{border-radius:12px;background-color:palette(base)}");
     ui->label_9->setStyleSheet("background:transparent");
     ui->label_9->setText(tr("Wechat code scanning obtains HP professional technical support"));
     ui->label_9->setWordWrap(true);

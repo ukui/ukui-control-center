@@ -111,8 +111,6 @@
         <file>plugins/power/Supply.svg</file>
         <file>plugins/power/SupplyWhite.svg</file>
         <file>plugins/proxy/icon.png</file>
-        <file>plugins/theme/Light color.png</file>
-        <file>plugins/theme/system default.png</file>
         <file>plugins/theme/dark mode.png</file>
         <file>plugins/netconnect/info.svg</file>
         <file>secondaryleftmenu/SafeeyeWhite.svg</file>
@@ -248,6 +246,11 @@
         <file>plugins/bluetooth/not-connected.svg</file>
         <file>plugins/bluetooth/edit.svg</file>
         <file>plugins/bluetooth/edit-blue.svg</file>
+        <file>plugins/theme/light mode.png</file>
+        <file>plugins/theme/auto.png</file>
+        <file>plugins/theme/dark mode-selected.png</file>
+        <file>plugins/theme/auto-selected.png</file>
+        <file>plugins/theme/light mode-selected.png</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

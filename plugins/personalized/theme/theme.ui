@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
-    <height>1162</height>
+    <width>882</width>
+    <height>637</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -32,6 +32,9 @@
    <property name="topMargin">
     <number>0</number>
    </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QWidget" name="widget" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -39,6 +42,9 @@
        <number>0</number>
       </property>
       <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
        <number>0</number>
       </property>
       <item>
@@ -537,7 +543,7 @@ font-size: 14px;</string>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
-              <height>20</height>
+              <height>0</height>
              </size>
             </property>
            </spacer>
@@ -549,13 +555,13 @@ font-size: 14px;</string>
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>66</height>
+            <height>0</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>66</height>
+            <height>16777215</height>
            </size>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -625,7 +631,7 @@ font-size: 14px;</string>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
-              <height>20</height>
+              <height>0</height>
              </size>
             </property>
            </spacer>
@@ -868,7 +874,7 @@ font-size: 16px;</string>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>32</height>
+            <height>0</height>
            </size>
           </property>
          </spacer>
@@ -902,7 +908,7 @@ font-size: 16px;</string>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
-              <height>20</height>
+              <height>0</height>
              </size>
             </property>
            </spacer>
@@ -922,7 +928,7 @@ font-size: 16px;</string>
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>396</height>
+       <height>0</height>
       </size>
      </property>
     </spacer>

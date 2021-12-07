@@ -230,6 +230,7 @@ void MouseControl::setupComponent(){
     ui->cursorWeightFrame->hide();
 
     // 设置Slider样式
+    pointerSpeedSlider->setFixedHeight(60);
     pointerSpeedSlider->setStyleSheet( "QSlider::groove:horizontal {"
                                        "border: 0px none;"
                                        "background: palette(button);"
@@ -239,11 +240,11 @@ void MouseControl::setupComponent(){
 
                                        "QSlider::handle:horizontal {"
 
-                                       "height: 24px;"
-                                       "width: 32px;"
+                                       "height: 40px;"
+                                       "width: 36px;"
                                        "margin: 30px;"
                                        "border-image: url(://img/plugins/mouse/slider.svg);"
-                                       "margin: -8 -4px;"
+                                       "margin: -20 -4px;"
                                        "}"
 
                                        "QSlider::add-page:horizontal {"
@@ -256,12 +257,14 @@ void MouseControl::setupComponent(){
                                        "border-radius: 5px;"
                                        "}");
 
+
     ui->horizontalLayout_3->addWidget(Slow1);
     ui->horizontalLayout_3->addItem(new QSpacerItem(16, 4));
     ui->horizontalLayout_3->addWidget(pointerSpeedSlider);
     ui->horizontalLayout_3->addItem(new QSpacerItem(16, 4));
     ui->horizontalLayout_3->addWidget(Fast1);
 
+    cursorSpeedSlider->setFixedHeight(60);
     cursorSpeedSlider->setStyleSheet( "QSlider::groove:horizontal {"
                                        "border: 0px none;"
                                        "background: #F5F5F5;"
@@ -271,11 +274,11 @@ void MouseControl::setupComponent(){
 
                                        "QSlider::handle:horizontal {"
 
-                                       "height: 24px;"
-                                       "width: 32px;"
-                                       "margin: 30px;"
+                                      "height: 40px;"
+                                      "width: 36px;"
+                                      "margin: 30px;"
                                        "border-image: url(://img/plugins/mouse/slider.svg);"
-                                       "margin: -8 -4px;"
+                                       "margin: -20 -4px;"
                                        "}"
 
                                        "QSlider::add-page:horizontal {"
