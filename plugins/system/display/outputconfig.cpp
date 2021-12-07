@@ -78,6 +78,7 @@ void OutputConfig::initUi()
     resLabel->setFixedSize(118, 30);
 
     QHBoxLayout *resLayout = new QHBoxLayout();
+    resLayout->addSpacing(6);
     resLayout->addWidget(resLabel);
     resLayout->addWidget(mResolution);
 
@@ -111,6 +112,7 @@ void OutputConfig::initUi()
     rotateLabel->setFixedSize(118, 30);
 
     QHBoxLayout *rotateLayout = new QHBoxLayout();
+    rotateLayout->addSpacing(6);
     rotateLayout->addWidget(rotateLabel);
 
     rotateLayout->addWidget(mRotation);
@@ -145,6 +147,7 @@ void OutputConfig::initUi()
     freshLabel->setFixedSize(118, 30);
 
     QHBoxLayout *freshLayout = new QHBoxLayout();
+    freshLayout->addSpacing(6);
     freshLayout->addWidget(freshLabel);
     freshLayout->addWidget(mRefreshRate);
 

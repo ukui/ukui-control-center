@@ -698,6 +698,7 @@ void Widget::initComponent()
     mMultiScreenCombox->addItem(tr("Extend Screen"));
     mMultiScreenCombox->addItem(tr("Clone Screen"));
 
+    multiScreenlay->addSpacing(6);
     multiScreenlay->addWidget(mMultiScreenLabel);
     multiScreenlay->addWidget(mMultiScreenCombox);
 

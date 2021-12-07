@@ -82,6 +82,7 @@ void UnifiedOutputConfig::initUi()
     resLabel->setMaximumSize(118, 30);
 
     QHBoxLayout *resLayout = new QHBoxLayout();
+    resLayout->addSpacing(6);
     resLayout->addWidget(resLabel);
     resLayout->addWidget(mResolution);
 
@@ -93,7 +94,10 @@ void UnifiedOutputConfig::initUi()
     resFrame->setMinimumWidth(552);
     resFrame->setFixedHeight(50);
 
+    QFrame *line1 = setLine(resFrame);
     vbox->addWidget(resFrame);
+    vbox->addWidget(line1);
+
     connect(mResolution, &ResolutionSlider::resolutionChanged,
             this, [=](QSize size, bool emitFlag){
                 slotResolutionChanged(size, emitFlag);
@@ -124,6 +128,7 @@ void UnifiedOutputConfig::initUi()
             this, &UnifiedOutputConfig::slotRotationChangedDerived);
 
     QHBoxLayout *roatateLayout = new QHBoxLayout();
+    roatateLayout->addSpacing(6);
     roatateLayout->addWidget(rotateLabel);
     roatateLayout->addWidget(mRotation);
 
@@ -135,7 +140,9 @@ void UnifiedOutputConfig::initUi()
     rotateFrame->setMinimumWidth(552);
     rotateFrame->setFixedHeight(50);
 
+    QFrame *line2 = setLine(rotateFrame);
     vbox->addWidget(rotateFrame);
+    vbox->addWidget(line2);
 
     // 统一输出刷新率下拉框
     mRefreshRate = new QComboBox(this);
@@ -150,6 +157,7 @@ void UnifiedOutputConfig::initUi()
     freshLabel->setMaximumSize(118, 30);
 
     QHBoxLayout *freshLayout = new QHBoxLayout();
+    freshLayout->addSpacing(6);
     freshLayout->addWidget(freshLabel);
     freshLayout->addWidget(mRefreshRate);
 
@@ -429,4 +437,15 @@ bool UnifiedOutputConfig::isCloneMode()
         return false;
     }
 
+}
+
+QFrame *UnifiedOutputConfig::setLine(QFrame *frame)
+{
+    QFrame *line = new QFrame(frame);
+    line->setMinimumSize(QSize(0, 1));
+    line->setMaximumSize(QSize(16777215, 1));
+    line->setLineWidth(0);
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
+    return line;
 }

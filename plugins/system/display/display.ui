@@ -101,7 +101,7 @@
    <item>
     <layout class="QHBoxLayout" name="multiscreenLyt">
      <property name="leftMargin">
-      <number>6</number>
+      <number>0</number>
      </property>
     </layout>
    </item>
@@ -243,13 +243,13 @@
       <item>
        <layout class="QVBoxLayout" name="controlPanelLayout">
         <property name="spacing">
-         <number>1</number>
+         <number>0</number>
         </property>
         <property name="sizeConstraint">
          <enum>QLayout::SetNoConstraint</enum>
         </property>
         <property name="leftMargin">
-         <number>6</number>
+         <number>0</number>
         </property>
        </layout>
       </item>
