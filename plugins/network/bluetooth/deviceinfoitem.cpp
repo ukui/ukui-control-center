@@ -470,7 +470,6 @@ void DeviceInfoItem::mouseMoveEvent(QMouseEvent *event)
 void DeviceInfoItem::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
-
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(QColor(Qt::transparent));
@@ -508,7 +507,14 @@ QColor DeviceInfoItem::getPainterBrushColor()
 
         break;
     case Status::Hover:
-        color = QColor("#D7D7D7");
+        if (_inBtn) {
+            if(_themeIsBlack)
+                color = QColor("#1F2022");//("#EBEBEB");
+            else
+                color = QColor(Qt::white);//("#EBEBEB");
+        } else {
+            color = QColor("#D7D7D7");
+        }
         break;
 
     default:
