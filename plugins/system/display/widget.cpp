@@ -196,8 +196,10 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
         outputRemoved(outputId, false);
     });
 
+    int outputNum = 0;
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (output->isConnected()) {
+            mMultiScreenCombox->setItemText(outputNum++, Utils::outputName(output));
             connect(output.data(), &KScreen::Output::currentModeIdChanged,
                     this, [=]() {
                 if (output->currentMode()) {
@@ -1143,8 +1145,6 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
         QString name = Utils::outputName(output);
         qDebug()<<"(outputAdded)  displayName:"<<name<<" ----> edidHash:"<<edidHash<<"  id:"<<output->id();
         addBrightnessFrame(name, output->isEnabled(), edidHash);
-        mMultiScreenCombox->setItemText(outputnum++ , name);
-        qDebug()<<"conected output = "<<outputnum;
     }
     // 刷新缩放选项，监听新增显示屏的mode变化
     changescale();
@@ -1201,7 +1201,6 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
             output->disconnect(this);
         }
     }
-    outputnum--;
 
     const int index = ui->primaryCombo->findData(outputId);
     if (index != -1) {

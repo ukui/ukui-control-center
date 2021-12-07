@@ -292,7 +292,6 @@ private:
     bool mIsSCaleRes = false;
     bool mIsChange = false;
 
-    int outputnum = 0;
     QStringList mTimeModeStringList;
 
     QString firstAddOutputName;
