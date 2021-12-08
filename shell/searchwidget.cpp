@@ -176,7 +176,6 @@ void SearchWidget::loadxml() {
         return rex_expression.match(str).hasMatch();
     };
 
-
     for (const QString i : m_xmlFilePath) {
 
         QString xmlPath = i.arg(m_lang);
@@ -235,7 +234,7 @@ void SearchWidget::loadxml() {
                                 m_TxtList.append(m_searchBoxStruct.translateContent);
                             }
                         }
-                       
+
                         if ((!g_file_test("/usr/sbin/ksc-defender", G_FILE_TEST_EXISTS) && m_searchBoxStruct.fullPagePath.contains("securitycenter",Qt::CaseInsensitive))
                                 || (!MainWindow::isExitBluetooth() && m_searchBoxStruct.fullPagePath.contains("bluetooth",Qt::CaseInsensitive))
                                 || (!Utils::isCommunity() && m_searchBoxStruct.fullPagePath.contains("update")) ) {
@@ -532,10 +531,12 @@ void SearchWidget::setLanguage(QString type) {
     } else {
         m_completer->setCompletionRole(Qt::DisplayRole);
     }
-    QtConcurrent::run([=]() {
-        loadxml();
-        //记录搜索项总数
-       count = m_model->rowCount();
+    QTimer::singleShot(1, this, [=]() {
+        QtConcurrent::run([=]() {
+            loadxml();
+            //记录搜索项总数
+           count = m_model->rowCount();
+        });
     });
 }
 
