@@ -44,13 +44,6 @@ addShortcutDialog::addShortcutDialog(QList<KeyEntry *> generalEntries,
     execIsAvailable = false;
     nameIsAvailable = false;
 
-    ui->m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
-    const QByteArray id("org.ukui.style");
-    QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
-    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
-        if (key == "iconThemeName")
-            ui->m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
-    });
     initSetup();
     slotsSetup();
     limitInput();
@@ -67,15 +60,11 @@ void addShortcutDialog::initSetup()
 {
     ui->cancelBtn->setProperty("useButtonPalette", true);
     ui->certainBtn->setProperty("useButtonPalette", true);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
-    setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
-    setWindowTitle(tr("Add custom shortcut"));
+    setWindowTitle(tr("Add Shortcut"));
 
-    ui->noteLabel->setPixmap(QPixmap("://img/plugins/shortcut/note.png"));
     ui->execLineEdit->setReadOnly(true);
 
-    ui->noteLabel->setVisible(false);
     ui->label_4->setStyleSheet("color: red");
     ui->label_4->setText("");
 
@@ -159,8 +148,7 @@ void addShortcutDialog::slotsSetup()
 
 void addShortcutDialog::setTitleText(QString text)
 {
-    ui->titleLabel->setContentsMargins(0,0,0,0);
-    ui->titleLabel->setText(text);
+
 }
 
 void addShortcutDialog::setUpdateEnv(QString path, QString name, QString exec)
@@ -206,48 +194,6 @@ QString addShortcutDialog::keyToLib(QString key)
     return key;
 }
 
-void addShortcutDialog::paintEvent(QPaintEvent *event)
-{
-    Q_UNUSED(event);
-    QPainter p(this);
-    p.setRenderHint(QPainter::Antialiasing);
-    QPainterPath rectPath;
-    rectPath.addRoundedRect(this->rect().adjusted(10, 10, -10, -10), 6, 6);
-
-    // 画一个黑底
-    QPixmap pixmap(this->rect().size());
-    pixmap.fill(Qt::transparent);
-    QPainter pixmapPainter(&pixmap);
-    pixmapPainter.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter.setPen(Qt::transparent);
-    pixmapPainter.setBrush(Qt::black);
-    pixmapPainter.setOpacity(0.65);
-
-    pixmapPainter.drawPath(rectPath);
-    pixmapPainter.end();
-
-    // 模糊这个黑底
-    QImage img = pixmap.toImage();
-    qt_blurImage(img, 10, false, false);
-
-    // 挖掉中心
-    pixmap = QPixmap::fromImage(img);
-    QPainter pixmapPainter2(&pixmap);
-    pixmapPainter2.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter2.setCompositionMode(QPainter::CompositionMode_Clear);
-    pixmapPainter2.setPen(Qt::transparent);
-    pixmapPainter2.setBrush(Qt::transparent);
-    pixmapPainter2.drawPath(rectPath);
-
-    // 绘制阴影
-    p.drawPixmap(this->rect(), pixmap, pixmap.rect());
-
-    // 绘制一个背景
-    p.save();
-    p.fillPath(rectPath, palette().color(QPalette::Base));
-    p.restore();
-}
-
 void addShortcutDialog::openProgramFileDialog()
 {
     QString filters = tr("Desktop files(*.desktop)");
@@ -273,7 +219,6 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
 {
     ui->label_4->setText("");
     if (!execIsAvailable || keyIsAvailable != 3 || !nameIsAvailable) {
-        ui->noteLabel->setVisible(true);
         ui->certainBtn->setDisabled(true);
 
         switch (triggerFlag) {
@@ -287,7 +232,7 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
             } else if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
                 ui->label_4->setText(tr("Name repetition"));  //名称重复
             } else {
-                ui->noteLabel->setVisible(false);
+
             }
             break;
         case 2:
@@ -300,7 +245,7 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
             } else if (!execIsAvailable && !ui->execLineEdit->text().isEmpty()) {
                 ui->label_4->setText(tr("Invalid application"));  //程序无效
             } else {
-                ui->noteLabel->setVisible(false);
+
             }
             break;
         case 3:
@@ -313,7 +258,7 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
             } else if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
                 ui->label_4->setText(tr("Name repetition"));  //名称重复
             } else {
-                ui->noteLabel->setVisible(false);
+
             }
             break;
         default:
@@ -322,7 +267,6 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
         }
 
     } else {
-        ui->noteLabel->setVisible(false);
         ui->certainBtn->setDisabled(false);
     }
 }

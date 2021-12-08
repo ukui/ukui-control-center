@@ -65,8 +65,6 @@ public:
     void setKeyText(const QString  &text);
     void setSourceEnable(bool enabled);
     void setKeyIsAvailable(const int key);
-protected:
-    void paintEvent(QPaintEvent *);
 
 private:
     Ui::addShortcutDialog *ui;
