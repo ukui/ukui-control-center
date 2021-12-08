@@ -82,9 +82,6 @@ private:
     int tranConvertToSlider(const double value);
     void monitorThemeChanges();
 
-protected:
-    bool eventFilter(QObject *w, QEvent *e);
-
 private:
     Ui::Theme *ui;
     double currentTran;

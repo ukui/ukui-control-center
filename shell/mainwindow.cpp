@@ -59,6 +59,8 @@ extern "C" {
 #include <gio/gio.h>
 }
 
+#define THEME_QT_SCHEMA "org.ukui.style"
+
 
 const int dbWitdth = 50;
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
@@ -568,9 +570,18 @@ void MainWindow::initTileBar() {
     titleLabel->setStyleSheet("QLabel{font-weight: 400;line-height: 24px;font-size: 16px;}");
 
     icon =new QLabel(this);
-    icon->setPixmap(QString("://img/dropArrow/LOGO.png"));
+    icon->setPixmap(QIcon::fromTheme("ukui-control-center").pixmap(QSize(32, 32)));
     icon->setStyleSheet("border-radius:8px;background:transparent;");
     icon->resize(32,32);
+
+    const QByteArray id(THEME_QT_SCHEMA);
+    QGSettings *mQtGsetting = new QGSettings(id, QByteArray(), this);
+    connect(mQtGsetting, &QGSettings::changed, this, [=](QString key) {
+        if (key == "iconThemeName") {
+            icon->setPixmap(QIcon::fromTheme("ukui-control-center").pixmap(QSize(32, 32)));
+        }
+    });
+
 
 
     queryWidLayout->addStretch();
