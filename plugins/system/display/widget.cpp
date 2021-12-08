@@ -1880,12 +1880,11 @@ void Widget::usdScreenModeChangedSlot(int status)
     if (status == USD_CLONE_MODE && !mIscloneMode) {
         mIscloneMode = true;
         slotUnifyOutputs();
-        initMultScreenStatus();
     } else if (status != USD_CLONE_MODE && mIscloneMode) {
         mIscloneMode = false;
         slotUnifyOutputs();
-        initMultScreenStatus();
     }
+    initMultScreenStatus();
     showBrightnessFrame();
 }
 
