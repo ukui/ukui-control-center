@@ -851,9 +851,9 @@ void Screensaver::initShowTextFrame() {
     showLabel->setFixedWidth(220);
     if (qScreensaverDefaultSetting != nullptr && \
         qScreensaverDefaultSetting->keys().contains(CONTAIN_MYTEXT_KEY, Qt::CaseSensitive)) { //存在【文本设置】
+        inputText->setMaxLength(30);
         inputText->setText(qScreensaverDefaultSetting->get(MYTEXT_KEY).toString());     //初始化文本
         connect(inputText,&QLineEdit::textChanged, this, [=]{
-            inputText->setText(inputText->text().mid(0, 30));
             qScreensaverDefaultSetting->set(MYTEXT_KEY, inputText->text());
         });
     } else {//不存在【文本设置】
