@@ -586,7 +586,10 @@ void Widget::slotUnifyOutputs()
     } else if (mIscloneMode) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
-        mPrevConfig = mConfig->clone();
+        auto *preOp = new KScreen::GetConfigOperation();
+        preOp->exec();
+        mPrevConfig = preOp->config()->clone();  //重新获取屏幕当前状态，通过mconfig未必能获取到正确的状态
+        preOp->deleteLater();
 
         if (!mFirstLoad) {
             setPreScreenCfg(mPrevConfig->connectedOutputs());
@@ -1117,6 +1120,9 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
         frame = new BrightnessFrame(name, false, edidHash);
     }
     if (frame != nullptr) {
+        connect(frame, &BrightnessFrame::sliderEnableChanged, this, [=](){
+           showBrightnessFrame();
+        });
         BrightnessFrameV.push_back(frame);
         ui->unifyBrightLayout->addWidget(frame);
         frame->runConnectThread(openFlag);
@@ -1514,6 +1520,12 @@ void Widget::save()
         return;
     }
 
+
+    auto *preOp = new KScreen::GetConfigOperation();
+    preOp->exec();
+    mPrevConfig = preOp->config()->clone();  //重新获取屏幕当前状态
+    preOp->deleteLater();
+
     const KScreen::ConfigPtr &config = this->currentConfig();
     qDebug() << Q_FUNC_INFO << config->connectedOutputs();
 
@@ -1596,7 +1608,7 @@ void Widget::save()
             auto *op = new KScreen::SetConfigOperation(mPrevConfig);
             op->exec();
         } else {
-            mPrevConfig = mConfig->clone();
+
         }
     });
 }
@@ -1608,7 +1620,6 @@ QVariantMap metadata(const KScreen::OutputPtr &output)
     if (!output->edid() || !output->edid()->isValid()) {
         return metadata;
     }
-
     metadata[QStringLiteral("fullname")] = output->edid()->deviceId();
     return metadata;
 }

@@ -248,8 +248,7 @@ void Proxy::initUi(QWidget *widget)
     mHTTPPortLabel->setFixedWidth(100);
     mHTTPPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     mHTTPLineEdit_1 = new QLineEdit(mHTTPFrame_1);
-    mHTTPLineEdit_1->setMinimumWidth(300);
-    mHTTPLineEdit_1->setFixedHeight(36);
+    mHTTPLineEdit_1->resize(300, 36);
     mHTTPLineEdit_2 = new QLineEdit(mHTTPFrame_1);
     mHTTPLineEdit_2->setFixedHeight(36);
     mHTTPLayout_1->addWidget(mHTTPLabel);
@@ -326,8 +325,7 @@ void Proxy::initUi(QWidget *widget)
     mHTTPSPortLabel->setFixedWidth(100);
     mHTTPSPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     mHTTPSLineEdit_1 = new QLineEdit(mHTTPSFrame);
-    mHTTPSLineEdit_1->setMinimumWidth(300);
-    mHTTPSLineEdit_1->setFixedHeight(36);
+    mHTTPSLineEdit_1->resize(300, 36);
     mHTTPSLineEdit_2 = new QLineEdit(mHTTPSFrame);
     mHTTPSLineEdit_2->setFixedHeight(36);
     mHTTPSLayout->addWidget(mHTTPSLabel);
@@ -349,8 +347,7 @@ void Proxy::initUi(QWidget *widget)
     mFTPPortLabel->setFixedWidth(100);
     mFTPPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     mFTPLineEdit_1 = new QLineEdit(mFTPFrame);
-    mFTPLineEdit_1->setMinimumWidth(300);
-    mFTPLineEdit_1->setFixedHeight(36);
+    mFTPLineEdit_1->resize(300, 36);
     mFTPLineEdit_2 = new QLineEdit(mFTPFrame);
     mFTPLineEdit_2->setFixedHeight(36);
     mFTPLayout->addWidget(mFTPLabel);
@@ -372,8 +369,7 @@ void Proxy::initUi(QWidget *widget)
     mSOCKSPortLabel->setFixedWidth(100);
     mSOCKSPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     mSOCKSLineEdit_1 = new QLineEdit(mSOCKSFrame);
-    mSOCKSLineEdit_1->setMinimumWidth(300);
-    mSOCKSLineEdit_1->setFixedHeight(36);
+    mSOCKSLineEdit_1->resize(300, 36);
     mSOCKSLineEdit_2 = new QLineEdit(mSOCKSFrame);
     mSOCKSLineEdit_2->setFixedHeight(36);
     mSOCKSLayout->addWidget(mSOCKSLabel);

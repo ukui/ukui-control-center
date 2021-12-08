@@ -28,6 +28,10 @@ public:
     void updateEdidHash(const QString &edid);
     QString getEdidHash();
     QString getOutputName();
+
+Q_SIGNALS:
+    void sliderEnableChanged();
+
 private:
     FixLabel *labelName = nullptr;
     QLabel *labelValue = nullptr;
