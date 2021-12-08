@@ -119,7 +119,10 @@ QWidget *DateTime::pluginUi()
         connectToServer();
         initTimeShow();
         });
+    } else {
+        fillTimeCombox(m_formTimeBtn->isChecked());
     }
+
     return pluginWidget;
 }
 
@@ -268,10 +271,7 @@ void DateTime::initComponent()
         }
     });
 
-
-
-    QDateTime currentime = QDateTime::currentDateTime();
-    QString timeAndWeek = currentime.toString("yyyy/MM/dd  ddd").replace("周","星期");
+    QString timeAndWeek = getTimeAndWeek(current);
     QTimeZone localTimezone = QTimeZone(localZone.toLatin1().data());
 
     int utcOff = localTimezone.offsetFromUtc(QDateTime::currentDateTime())/3600;
@@ -281,7 +281,7 @@ void DateTime::initComponent()
     } else {
         gmData = QString("(GMT%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(utcOff / 60, 2, 10, QLatin1Char('0'));
     }
-    ui->dateLabel->setText(timeAndWeek + "       " + gmData + "  " + localizedTimezone);
+    ui->dateLabel->setText(timeAndWeek + "  " + gmData + " " + localizedTimezone);
 
     QFile tzfile("://zoneUtc");
     if (!tzfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -554,7 +554,7 @@ void DateTime::datetimeUpdateSlot()
     } else {
         gmData = QString("(GMT%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(utcOff / 60, 2, 10, QLatin1Char('0'));
     }
-    ui->dateLabel->setText(timeAndWeek + "       " + gmData + "  " + localizedTimezone);
+    ui->dateLabel->setText(timeAndWeek + "  " + gmData + " " + localizedTimezone);
 }
 
 void DateTime::changetimeSlot()
@@ -666,9 +666,9 @@ QString  DateTime::getTimeAndWeek(const QDateTime timeZone)
     }
     QString timeAndWeek;
     if ("cn" == dateformat) {
-       timeAndWeek = timeZone.toString("yyyy/MM/dd  ddd").replace("周","星期");
+       timeAndWeek = timeZone.toString("yyyy/MM/dd ddd").replace("周","星期");
     } else {
-       timeAndWeek = timeZone.toString("yyyy-MM-dd  ddd");
+       timeAndWeek = timeZone.toString("yyyy-MM-dd ddd");
     }
     return timeAndWeek;
 }
@@ -879,21 +879,60 @@ bool DateTime::getSyncStatus() {
 
 void DateTime::fillTimeCombox(bool format24)
 {
+    QString AMname = "AM ";
+    QString PMname = "PM ";
+    int formatIndex = getRegionFormat();
+
+    if (formatIndex == 1) {
+        AMname = "上午";
+        PMname = "下午";
+    }
+
     ui->hourComboBox->clear();
     if (!format24) {
-        ui->hourComboBox->addItem(tr("AM ") + QString::number(12));
+        ui->hourComboBox->addItem(AMname + QString::number(12));
         for (int i = 1 ; i <= 11; i++) {
-            ui->hourComboBox->addItem(tr("AM ") + QString::number(i));
+            ui->hourComboBox->addItem(AMname + QString::number(i));
         }
-        ui->hourComboBox->addItem(tr("PM ") + QString::number(12));
+        ui->hourComboBox->addItem(PMname + QString::number(12));
         for (int i = 1 ; i <= 11; i++) {
-            ui->hourComboBox->addItem(tr("PM ") + QString::number(i));
+            ui->hourComboBox->addItem(PMname + QString::number(i));
         }
     } else {
         for (int h = 0; h < 24; h++){
             ui->hourComboBox->addItem(QString::number(h));
         }
     }
+}
+
+int DateTime::getRegionFormat()
+{
+    QString formats;
+    QString language;
+    QStringList result;
+    unsigned int uid = getuid();
+    QString objpath = "/org/freedesktop/Accounts/User"+QString::number(uid);
+    QDBusInterface iproperty("org.freedesktop.Accounts",
+                             objpath,
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::systemBus());
+    QDBusReply<QMap<QString, QVariant> > reply = iproperty.call("GetAll", "org.freedesktop.Accounts.User");
+    if (reply.isValid()){
+        QMap<QString, QVariant> propertyMap;
+        propertyMap = reply.value();
+        if (propertyMap.keys().contains("FormatsLocale")) {
+            formats = propertyMap.find("FormatsLocale").value().toString();
+        }
+        if(language.isEmpty() && propertyMap.keys().contains("Language")) {
+            language = propertyMap.find("Language").value().toString();
+        }
+    } else {
+        qDebug() << "reply failed";
+    }
+    result.append(formats);
+    result.append(language);
+    int formatIndex = result.at(0) == "zh_CN.UTF-8" ? 1 : 0;
+    return formatIndex;
 }
 
 CGetSyncRes::CGetSyncRes(DateTime *dataTimeUI,QString successMSG,QString failMSG)

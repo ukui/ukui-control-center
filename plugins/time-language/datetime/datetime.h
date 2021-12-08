@@ -103,6 +103,7 @@ public:
     void setTime();
     void fillTimeCombox(bool format24 = true);
     bool getSyncStatus();
+    int getRegionFormat();
 
 public:
     FixLabel       *syncNetworkRetLabel = nullptr;
