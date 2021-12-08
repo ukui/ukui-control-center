@@ -581,7 +581,7 @@ void Widget::slotUnifyOutputs()
         ui->primaryCombo->setEnabled(true);
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
-        ui->frame_5->setVisible(true);
+        ui->frame_4->setVisible(true);
         ui->primaryCombo->setEnabled(true);
     } else if (mIscloneMode) {
         // Clone the current config, so that we can restore it in case user
@@ -626,7 +626,7 @@ void Widget::slotUnifyOutputs()
         // 关闭开关
         mCloseScreenButton->setEnabled(false);
         ui->showMonitorframe->setVisible(false);
-        ui->frame_5->setVisible(false);
+        ui->frame_4->setVisible(false);
         ui->primaryCombo->setEnabled(false);
         ui->mainScreenButton->setVisible(false);
         mControlPanel->setUnifiedOutput(base->outputPtr());
@@ -1803,7 +1803,7 @@ void Widget::mainScreenButtonSelect(int index)
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
     ui->showMonitorframe->setVisible(connectCount > 1 && !mIscloneMode);
-    ui->frame_5->setVisible(connectCount > 1 && !mIscloneMode);
+    ui->frame_4->setVisible(connectCount > 1 && !mIscloneMode);
 
     // 初始化时不要发射信号
     mCloseScreenButton->blockSignals(true);
@@ -2343,8 +2343,10 @@ void Widget::showBrightnessFrame(const int flag)
     }
     if (ui->unifyBrightFrame->height() > 0) {
         ui->unifyBrightFrame->setVisible(true);
+        ui->frame_5->setVisible(true);
     } else {
         ui->unifyBrightFrame->setVisible(false);
+        ui->frame_5->setVisible(false);
     }
 }
 
