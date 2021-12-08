@@ -1118,31 +1118,31 @@ void Widget::setScreenKDS(QString kdsConfig)
             }
         }
 
-        // KScreen::OutputList screensPre = mPrevConfig->connectedOutputs();
+         KScreen::OutputList screensPre = mPrevConfig->connectedOutputs();
 
-        // KScreen::OutputPtr mainScreen = mPrevConfig->primaryOutput();
-        // mainScreen->setPos(QPoint(0, 0));
+         KScreen::OutputPtr mainScreen = mPrevConfig->primaryOutput();
+         mainScreen->setPos(QPoint(0, 0));
 
-        // KScreen::OutputPtr preIt = mainScreen;
-        // QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
+         KScreen::OutputPtr preIt = mainScreen;
+         QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
 
-        // while (nowIt != screensPre.end()) {
-        //     if (nowIt.value() != mainScreen) {
-        //         nowIt.value()->setPos(QPoint(preIt->pos().x() + preIt->size().width(), 0));
-        //         KScreen::ModeList modes = preIt->modes();
-        //         Q_FOREACH (const KScreen::ModePtr &mode, modes) {
-        //             if (preIt->currentModeId() == mode->id()) {
-        //                 if (preIt->rotation() != KScreen::Output::Rotation::Left && preIt->rotation() != KScreen::Output::Rotation::Right) {
-        //                     nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().width(), 0));
-        //                 } else {
-        //                     nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().height(), 0));
-        //                 }
-        //             }
-        //         }
-        //         preIt = nowIt.value();
-        //     }
-        //     nowIt++;
-        // }
+         while (nowIt != screensPre.end()) {
+             if (nowIt.value() != mainScreen) {
+                 nowIt.value()->setPos(QPoint(preIt->pos().x() + preIt->size().width(), 0));
+                 KScreen::ModeList modes = preIt->modes();
+                 Q_FOREACH (const KScreen::ModePtr &mode, modes) {
+                     if (preIt->currentModeId() == mode->id()) {
+                         if (preIt->rotation() != KScreen::Output::Rotation::Left && preIt->rotation() != KScreen::Output::Rotation::Right) {
+                             nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().width(), 0));
+                         } else {
+                             nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().height(), 0));
+                         }
+                     }
+                 }
+                 preIt = nowIt.value();
+             }
+             nowIt++;
+         }
     } else if (kdsConfig == "first") {
         for (int i = 0; i < screens.size(); i++) {
             if (!screens[i].isNull()) {
