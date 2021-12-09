@@ -455,7 +455,7 @@ void Shortcut::buildCustomItem(KeyEntry *nkeyEntry)
     connect(edit, &QAction::triggered, this, [=](){
         addShortcutDialog *addDialog = new addShortcutDialog(generalEntries, customEntries, pluginWidget);
         addDialog->setSourceEnable(false);
-        addDialog->setTitleText(QObject::tr("Edit Shortcut"));
+        addDialog->setWindowTitle(QObject::tr("Edit Shortcut"));
 
         addDialog->setExecText(nkeyEntry->actionStr);
         addDialog->setNameText(nkeyEntry->nameStr);
