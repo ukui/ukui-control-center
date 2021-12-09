@@ -218,6 +218,7 @@ void TabWid::bakeupFinish(int result)
 
 void TabWid::backupHideUpdateBtn(int result)
 {
+    bacupInit(false);
     if(result == 99)
     {
         checkUpdateBtn->start();
