@@ -79,7 +79,6 @@ QWidget * Power::get_plugin_ui() {
         isExitBattery();
         initSearText();
         resetui();
-        setupComponent();
 
         const QByteArray styleID(STYLE_FONT_SCHEMA);
         const QByteArray id(POWERMANAGER_SCHEMA);
@@ -92,6 +91,7 @@ QWidget * Power::get_plugin_ui() {
             stylesettings = new QGSettings(styleID, QByteArray(), this);
             sessionsettings = new QGSettings(iid, QByteArray(), this);
             screensettings = new QGSettings(iiid, QByteArray(), this);
+            setupComponent();
             initCustomPlanStatus();
             setupConnect();
             connect(stylesettings,&QGSettings::changed,[=](QString key)
@@ -642,6 +642,12 @@ void Power::setupComponent()
     for (int i = 1; i < 5; i++) {
         mNoticeComboBox->insertItem(i-1, QString("%1%").arg(i*10));
     }
+
+    //电池低电量范围
+    int batteryRemain = settings->get(PER_ACTION_CRI).toInt();
+    for(int i = 5; i < batteryRemain; i++) {
+        mLowpowerComboBox1->insertItem(i - 5, QString("%1%").arg(i));
+    }
 }
 
 void Power::setupConnect()
@@ -732,11 +738,6 @@ void Power::setupConnect()
 
 void Power::initCustomPlanStatus()
 {
-    //电池低电量范围
-    int batteryRemain = settings->get(PER_ACTION_CRI).toInt();
-    for(int i = 5; i < batteryRemain; i++) {
-        mLowpowerComboBox1->insertItem(i - 5, QString("%1%").arg(i));
-    }
     // 信号阻塞
     mPowerKeyComboBox->blockSignals(true);
     mCloseComboBox->blockSignals(true);
@@ -906,7 +907,3 @@ bool Power::QLabelSetText(QLabel *label, QString string)
     label->setText(str);
     return is_over_length;
 }
-
-
-
-
