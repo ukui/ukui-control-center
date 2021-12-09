@@ -161,6 +161,7 @@ void ModulePageWidget::initUI(){
     //关闭菜单响应
     leftListWidget->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftListWidget->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++){
         QString titleString = mkvConverter->keycodeTokeyi18nstring(moduleIndex);
         QString titleString_1 ="    "+titleString;
