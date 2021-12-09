@@ -16,7 +16,7 @@ UtilsForUserinfo::UtilsForUserinfo(QObject *parent) : QObject(parent)
     mainItemFrame = new QFrame();
 
     logoBtn = new QPushButton();
-    logoBtn->setFixedSize(QSize(54, 54));
+    logoBtn->setFixedSize(QSize(48, 48));
     logoBtn->setIconSize(QSize(48, 48));
 
     nickNameLabel = new QLabel();

@@ -60,6 +60,7 @@ void UnifiedOutputConfig::initUi()
 {
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0, 0, 0, 0);
+    vbox->setSpacing(0);
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
     KScreen::OutputPtr fakeOutput = createFakeOutput();
