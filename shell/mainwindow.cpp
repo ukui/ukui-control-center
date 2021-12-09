@@ -533,7 +533,7 @@ void MainWindow::loadPlugins(){
                     fileName.contains("upgrade") || fileName.contains("backup") || fileName.contains("vino") ||
                     fileName.contains("printer") || fileName.contains("bluetooth", Qt::CaseInsensitive) || fileName.contains("mobilehotspot", Qt::CaseInsensitive) ||
                     fileName.contains("vpn") || fileName.contains("autoboot") || fileName.contains("wlanconnect") ||
-                    fileName.contains("miracastsource") || fileName.contains("area"))
+                    fileName.contains("projection") || fileName.contains("area"))
                 continue;
         }
 #endif
