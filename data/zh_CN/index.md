@@ -215,53 +215,78 @@ Tips：系统快捷键不允许修改。
 
 - 点击触摸校准按钮，启动工具对选定触摸屏进行校准
 
-### 投 屏接收端
-无线投屏提供了在KylinOS上镜像安卓手机的功能，支持控制回传以方便在电脑端通过鼠标和键盘对手机端进行操作等行为（部分手机支持）
-![图 15-1 无线投屏主界面-big](image/mainInterface.png)
+### 多端协同
+多端协同是一款在KyLin-OS桌面环境下允许被手机以及其它Kylin-OS进行投射且可投射到其它Kylin-OS的软件，分为接收端和投射端两部分，主界面如图所示。
+![图 15-1 多屏协同主界面-big](image/mainInterface.png)
 
-要使用无线投屏功能，首先需要开启投屏开关
-![图 15-2 无线投屏开关开启界面-big](image/openInterface.png)
+接收端的功能按钮在主界面的上半部分，由上到下依次为：
 
-在手机下拉菜单中选择 投屏/无线投屏/手机投屏 等标识界面（以华为手机Mate为例）
-![图 15-3 手机端无线投屏开启界面-big](image/phoneOpengInterface.png)
+1）接收端开/关按钮：按钮开启后，当前Kylin-OS设备可被手机设备或其它Kylin-OS设备搜索到；
 
-接下来手机上会自动搜索并且显示搜索到的接收端设备
-![图 15-4 手机端无线投屏搜索界面-big](image/phoneSearchInterface.png)
+2）PIN码功能开/关按钮：按钮开启后，在连接过程中，需要输入PIN码；
+![图 15-2 带PIN码的弹窗提示-big](image/PINCodeinterface.png)
 
-选择您当前KylinOS接收端的设备，如 我的麒麟 等
-![图 15-5 接收端允许投屏界面-big](image/accessInterface.png)
+![图 15-3 不带PIN码的弹窗提示-big](image/withoutPINCodeinterface.png)
 
-在KylinOS接收端上会显示是否允许投屏，点击允许
-![图 15-6 接收端提供PIN码界面-big](image/accessPinInterface.png)
+3）历史设备显示/隐藏按钮：按钮箭头指向下时，可看见与曾经当前Kylin-OS设备连接过的相关设备。
+![图 15-4 历史设备界面-big](image/deviceInterface.png)
 
-根据KylinOS接收端显示出的PIN码 在手机端输入PIN码 并点击连接
-![图 15-7 手机端输入PIN码界面-big](image/phonePinInterface.png)
+投射端的功能按钮在主界面的下半部分，包括：
 
-接下来会在KylinOS接收端和投射端显示连接界面
-![图 15-8 手机端连接界面-big](image/phoneConnectionInterface.png)
-![图 15-9 接收端连接界面-big](image/receiverConnectionInterface.png)
+投射端开/关按钮：此按钮与接收端开/关按钮互斥，当接收端开/关按钮开启时，需要先关闭接收端开/关按钮，才能开启投射端开/关按钮（开启接收端开/关按钮时同理）。开启此按钮后，点击查找设备会弹出搜索窗口，窗口中会显示可搜索到的接收端Kylin-OS设备。
 
-如成功连接，会在接收端同步镜像出手机端的屏幕，双击屏幕可退出全屏
-![图 15-10 竖屏投射界面-big](image/verProjectionInterface.png)
-![图 15-11 横屏投射界面-big](image/horProjectionInterface.png)
+手机与Kylin-OS连接过程:
 
-如需关闭投屏，可双击屏幕进入窗口化，点击右上角的“X”进行关闭，也可以在手机下拉菜单中，将无线投屏置灰（关闭），即可退出无线投屏
+1）开启接收端开/关按钮（需先关闭接收端开/关按钮）；
+
+2）手机下拉菜单打开投屏（也可能是手机投屏/多屏协同）；
+
+![图 15-5 手机开启投屏界面-big](image/phoneOpenProjectionInterface.png)
+
+3）在手机搜索设备列表里选择要投射到的Kylin-OS设备；
+
+![图 15-6 手机搜索设备界面-big](image/phoneSearchInterface.png)
+
+4）进行连接（分为需要PIN码和不需要PIN码两种）；
+
+![图 15-7 手机输入PIN码界面-big](image/phonePINcodeInterface.png)
+
+5）选择手机型号（目前分为华为、小米、其它）；
+
+![图 15-8 选择手机型号界面-big](image/chooseTypeInterface.png)
+
+6）投屏界面，在界面的中央显示手机屏幕，界面右侧有5个按钮，有上到下依次为：软/硬解码切换按钮；全屏/窗口切换按钮；返回上级目录按钮；返回主界面按钮；显示应用进程按钮。
+
+![图 15-9 接收端投屏界面-big](image/receiverConnectInterface.png)
+
+Kylin-OS与Kylin-OS连接过程：
+
+1）开启投射端开/关按钮（需提前将接收端开/关按钮关闭）；
+
+2）在弹出的搜索窗口中点击“查找设备”；
+
+![图 15-10 查找设备界面-big](image/searchDeviceInterface.png)
+
+3）在弹出的搜索窗口中选择要投射到的Kylin-OS设备；
+
+![图 15-11 选择设备界面-big](image/chooseDevice.png)
+
+4）投屏界面
+
+![图 15-12 投射端投射界面-big](image/senderConnectInterface.png)
 
 **FAQ**
 
 1.如未成功投屏，可重新尝试连接，通常情况下手机连接一次即可被信任，下次连接无需输入PIN码（也取决于手机设计，有的手机支持授信后，无认证连接）
 
 2.在投屏界面可以更改接收设备的名称，点击开启投屏右侧的“笔”图标，即可进入修改界面
-![图 15-12 投射端名称修改界面-big](image/nameChangeInterface.png)
+![图 15-13 投射端名称修改界面-big](image/nameChangeInterface.png)
 
 3.当未插入无线网卡，或无线网卡不支持建立投屏所需的连接时，需要插入网卡或者对已插入网卡进行更换处理
-![图 15-13 投屏功能不可用界面(1)-big](image/unUseInterface.png)
+![图 15-14 投屏功能不可用界面(1)-big](image/unUseInterface.png)
 
-4.当后台服务异常后，会有如下提示，可以尝试重启系统解决此问题
-![图 15-14 投屏功能不可用界面(2)-big](image/unUseInterface2.jpg)
-
-5.当未安装无线投屏的包或包版本过低时，在控制面板中不会显示投屏功能
-![图 15-15 投屏功能不可用界面(3)-big](image/unUseInterface3.png)
+4.当未安装无线投屏的包或包版本过低时，在控制面板中不会显示投屏功能
+![图 15-15 投屏功能不可用界面(2)-big](image/unUseInterface2.png)
 
 <br>
 
