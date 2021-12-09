@@ -21,6 +21,12 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
@@ -99,7 +105,10 @@
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_7">
                  <property name="topMargin">
-                  <number>9</number>
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
                  </property>
                 </layout>
                </widget>
