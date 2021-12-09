@@ -29,6 +29,7 @@
 #include <QDebug>
 #include "keyentry.h"
 #include "shortcutline.h"
+#include <QLabel>
 
 namespace Ui {
 class addShortcutDialog;
@@ -65,6 +66,7 @@ public:
     void setKeyText(const QString  &text);
     void setSourceEnable(bool enabled);
     void setKeyIsAvailable(const int key);
+    void setIcon(const QString &iconname);
 
 private:
     Ui::addShortcutDialog *ui;
@@ -80,6 +82,9 @@ private:
     int keyIsAvailable;         //快捷键有冲突/不可用/正常三种情况，1：冲突，2：不可用，3：正常
     bool nameIsAvailable;
     bool execIsAvailable;
+    QLabel *execIcon = nullptr;
+    QString mExec = "";
+
 Q_SIGNALS:
     void shortcutInfoSignal(QString path, QString name, QString exec, QString key);
 };

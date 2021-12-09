@@ -22,6 +22,12 @@
 #include "ui_addshortcutdialog.h"
 #include "CloseButton/closebutton.h"
 #include "realizeshortcutwheel.h"
+#include <QApplication>
+extern "C" {
+#include <glib.h>
+#include <gio/gio.h>
+#include <gio/gdesktopappinfo.h>
+}
 
 #define DEFAULTPATH "/usr/share/applications/"
 
@@ -37,13 +43,17 @@ addShortcutDialog::addShortcutDialog(QList<KeyEntry *> generalEntries,
     keyIsAvailable(false)
 {
     ui->setupUi(this);
-
     editSeq  = QKeySequence("");
     editName = "";
     keyIsAvailable  = 0;
     execIsAvailable = false;
     nameIsAvailable = false;
-
+    execIcon = new QLabel(ui->execLineEdit);
+    execIcon->move(execIcon->x() + 8, execIcon->y());
+    execIcon->setFixedSize(24,36);
+    ui->execLineEdit->setTextMargins(32,ui->execLineEdit->textMargins().top(),\
+                                        ui->execLineEdit->textMargins().right(),\
+                                        ui->execLineEdit->textMargins().bottom());
     initSetup();
     slotsSetup();
     limitInput();
@@ -95,10 +105,10 @@ void addShortcutDialog::slotsSetup()
     });
 
     connect(ui->execLineEdit, &QLineEdit::textChanged, [=](QString text){
-        if (text.endsWith("desktop")
-            || (!g_file_test(text.toLatin1().data(),
+        if (mExec.endsWith("desktop")
+            || (!g_file_test(mExec.toLatin1().data(),
                              G_FILE_TEST_IS_DIR)
-                && g_file_test(text.toLatin1().data(), G_FILE_TEST_IS_EXECUTABLE))) {
+                && g_file_test(mExec.toLatin1().data(), G_FILE_TEST_IS_EXECUTABLE))) {
             execIsAvailable = true;
         } else {
             execIsAvailable = false;
@@ -212,7 +222,14 @@ void addShortcutDialog::openProgramFileDialog()
     selectedfile = fd.selectedFiles().first();
 
     QString exec = selectedfile.section("/", -1, -1);
-    ui->execLineEdit->setText(exec);
+
+    GDesktopAppInfo * textinfo = g_desktop_app_info_new_from_filename(selectedfile.toUtf8().constData());
+    QString appname = g_app_info_get_name(G_APP_INFO(textinfo));
+    const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(textinfo)));
+    setIcon(QString(QLatin1String(iconname)));
+
+    mExec = exec;
+    ui->execLineEdit->setText(appname);
 }
 
 void addShortcutDialog::refreshCertainChecked(int triggerFlag)
@@ -372,7 +389,14 @@ void addShortcutDialog::setExecText(const QString &text)
 {
     selectedfile = text;
     QString exec = selectedfile.section("/", -1, -1);
-    ui->execLineEdit->setText(exec);
+
+    GDesktopAppInfo * textinfo = g_desktop_app_info_new_from_filename(selectedfile.toUtf8().constData());
+    QString appname = g_app_info_get_name(G_APP_INFO(textinfo));
+    const char * iconname = g_icon_to_string(g_app_info_get_icon(G_APP_INFO(textinfo)));
+    setIcon(QString(QLatin1String(iconname)));
+
+    mExec = exec;
+    ui->execLineEdit->setText(appname);
 }
 
 void addShortcutDialog::setNameText(const QString &text)
@@ -403,4 +427,25 @@ void addShortcutDialog::setSourceEnable(bool enabled) {
 
 void addShortcutDialog::setKeyIsAvailable(const int key) {
     keyIsAvailable = key;
+}
+
+void addShortcutDialog::setIcon(const QString &iconname)
+{
+    QString iconPath = iconname;
+    QFileInfo iconFile = QFileInfo(iconPath);
+    QIcon appicon;
+
+    if (appicon.hasThemeIcon(iconname)) {
+        appicon = QIcon::fromTheme(iconname);
+        execIcon->setPixmap(QPixmap::fromImage(appicon.pixmap(24,24).toImage()));
+    } else {
+        if (!iconFile.exists()) {
+            iconPath  = QString("/usr/share/pixmaps/" + iconname + ".png");
+            iconFile = QFileInfo(iconPath);
+            if (!iconFile.exists()) {
+                iconPath = QString(":/img/plugins/autoboot/desktop.png");
+            }
+        }
+        execIcon->setPixmap(QPixmap(iconPath).scaled(QSize(24,24), Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+    }
 }
