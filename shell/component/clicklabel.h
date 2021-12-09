@@ -35,7 +35,7 @@ public:
 
 protected:
     void mousePressEvent(QMouseEvent * event);
-
+    void paintEvent(QPaintEvent *event);
 signals:
     void clicked();
 };

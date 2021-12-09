@@ -24,6 +24,7 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
 
 LIBS += -L$$[QT_INSTALL_DIRS] -lgsettings-qt
+LIBS += -l -lukcc
 
 INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \

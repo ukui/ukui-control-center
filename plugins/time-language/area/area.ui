@@ -572,7 +572,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="summaryLabel">
+    <widget class="LightLabel" name="summaryLabel">
      <property name="minimumSize">
       <size>
        <width>550</width>
@@ -642,14 +642,19 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>Label/fixlabel.h</header>
+  </customwidget>
+  <customwidget>
    <class>TitleLabel</class>
    <extends>QLabel</extends>
    <header>Label/titlelabel.h</header>
   </customwidget>
   <customwidget>
-   <class>FixLabel</class>
+   <class>LightLabel</class>
    <extends>QLabel</extends>
-   <header>Label/fixlabel.h</header>
+   <header>/usr/include/ukcc/widgets/lightlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

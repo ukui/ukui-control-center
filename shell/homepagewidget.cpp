@@ -204,7 +204,6 @@ void HomePageWidget::initUI() {
             QString textName = single.namei18nString;
 
             ClickLabel * label = new ClickLabel(textName, widget);
-            label->setStyleSheet("color: palette(Shadow)");
 
             AllWidth += label->width();
             if (AllWidth > 200) {

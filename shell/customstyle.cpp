@@ -111,10 +111,6 @@ void InternalStyle::drawComplexControl(QStyle::ComplexControl control, const QSt
 {
     switch (control) {
     case CC_ComboBox: {
-        const QStyleOptionComboBox *tmp = qstyleoption_cast<const QStyleOptionComboBox *>(option);
-        QStyleOptionComboBox combobox = *tmp;
-        combobox.palette.setColor(QPalette::Button, combobox.palette.base().color());
-        return QProxyStyle::drawComplexControl(control, &combobox, painter, widget);
         break;
     }
     default:
