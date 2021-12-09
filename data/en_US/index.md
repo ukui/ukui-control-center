@@ -128,7 +128,7 @@ Kylin-OS and Kylin-OS connection process:
 
 1) Open the on / off button at the sending terminal (close the on / off button at the receiving terminal in advance).
 
-2) Click "search device" in the pop-up search window.
+2) Click the search device on the left side of the switch button;
 
  ![Fig 14-10 Find device interface-big](image/57.png)
 
@@ -142,17 +142,23 @@ Kylin-OS and Kylin-OS connection process:
 
 **FAQ**
 
-1. If the screen is not successfully displayed, you can try to connect again. Usually, the mobile phone can be trusted after one connection. There is no need to enter the pin code for the next connection (also depends on the mobile phone design. Some mobile phones support credit without authentication connection).
+1. If the projection is unsuccessful, you can try to connect again, and the device connected once will be automatically recorded in the history device.
 
-2. The name of the receiving device can be changed in the screen projection interface. Click the "pen" icon on the right side of the projection screen to enter the modification interface.
+2. Kylin OS and some phones support the control return function (that is, the receiving terminal can indirectly affect the sending terminal by operating the mouse or keyboard).
+
+3. At present only some Huawei phones and Xiaomi phones support Android three button function (the last three buttons on the interface on the right side of the screen). For other models, clicking these buttons may cause unknown problems.
+
+4. The system will use soft decoding by default. At this time, you can manually switch to hard decoding (use hardware to decode video, reduce CPU occupation, and need hardware support).
+
+5. The name of the receiving device can be changed in the screen projection interface. Click the "pen" icon on the right side of the projection screen to enter the modification interface.
 
 ![Fig 14-9 Sending terminal name modification interface-big](image/60.png)
 
-3. When the wireless network card is not inserted, or the wireless network card does not support the connection required for projection, it is necessary to insert the network card or replace the inserted network card.
+6. When the wireless network card is not inserted, or the wireless network card does not support the connection required for projection, it is necessary to insert the network card or replace the inserted network card.
 
 ![Fig 14-10 Projection function unavailable interface(1)-big](image/61.png)
 
-4. When the package with wireless projection is not installed or the package version is too low, the projection function will not be displayed in the control panel.
+7. When the package with wireless projection is not installed or the package version is too low, the projection function will not be displayed in the control panel.
 
 ![Fig 14-11 Projection function unavailable interface(2)-big](image/62.png)
 
