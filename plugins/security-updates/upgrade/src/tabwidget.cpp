@@ -667,7 +667,8 @@ void TabWid::checkUpdateBtnClicked()
             switch (ret) {
             case QMessageBox::Yes:
                 qDebug() << "是，继续更新";
-                //                checkUpdateBtn->setText("正在更新...");
+                versionInformationLab->setText(tr("Being updated..."));
+                checkUpdateBtn->setText("");
                 checkUpdateBtn->setEnabled(false);
                 checkUpdateBtn->start();
                 updateMutual->isPointOutNotBackup = false;   //全部更新时不再弹出单个更新未备份提示
@@ -768,15 +769,15 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
 
 void TabWid::changeUpdateAllSlot(bool isUpdate)
 {
-
     if (updateMutual->importantList.size() == 0)
         return ;
 
     if (isUpdate) {
-        checkUpdateBtn->setText(tr("UpdateAll"));
-        checkUpdateBtn->setEnabled(true);
+//        checkUpdateBtn->setText(tr("UpdateAll"));
+        if (updateMutual->importantList.size() == 0)
+            checkUpdateBtn->setEnabled(true);
     }else {
-        checkUpdateBtn->setText(tr("UpdateAll"));
+//        checkUpdateBtn->setText(tr("UpdateAll"));
         checkUpdateBtn->setEnabled(false);
     }
 }
