@@ -653,16 +653,17 @@ void About::setupSerialComponent()
         mTimeLabel_2->setText(dateRes);
         QTimer::singleShot( 1, this, [=](){
             QString s1(ntpdate());
+            s1.remove(QChar('\n'), Qt::CaseInsensitive);
+            s1.replace(QRegExp("[\\s]+"), " ");   //把所有的多余的空格转为一个空格
             if (s1.isNull()) {    //未连接上网络
                 mTimeLabel_2->setText(dateRes);
             } else {    //获取到网络时间
                 qDebug()<<"网络时间 : "<<s1;
                 QStringList list_1 = s1.split(" ");
                 QStringList list_2 = dateRes.split("-");
-
-                if (QString(list_2.at(0)).toInt() > QString(list_1.at(5)).toInt() ) { //未到服务到期时间
+                if (QString(list_2.at(0)).toInt() > QString(list_1.at(list_1.count() -1)).toInt() ) { //未到服务到期时间
                     mTimeLabel_2->setText(dateRes);
-                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(5)).toInt()) {
+                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(list_1.count() -1)).toInt()) {
                     if (QString(list_2.at(1)).toInt() > getMonth(list_1.at(1))) {
                         mTimeLabel_2->setText(dateRes);
                     } else if (QString(list_2.at(1)).toInt() == getMonth(list_1.at(1))) {
