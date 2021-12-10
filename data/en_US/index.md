@@ -78,65 +78,89 @@ As shown in Fig 13.
 ![Fig 13 Shortcut-big](image/13.png)
 
 ### Projection
- Projection provides the function of mirroring Android phones on KylinOS, and supports the control of return to facilitate the operation of mobile phones on the computer through the mouse and keyboard (supported by some mobile phones).
+Projection is a software that is allowed to be projected by mobile phones and other Kylin-OS and can be projected to other Kylin OS in Kylin OS desktop environment. It is divided into two parts: receiving terminal and sending terminal. The main interface is shown in Figure.
 
  ![Fig 14-1 Projection main interface-big](image/48.png)
 
- To use the projection function, you first need to turn on the projection switch.
+ The function buttons at the receiving terminal are in the upper part of the main interface, from top to bottom:
 
- ![Fig 14-2 Projection switch opening interface-big](image/49.png)
+1) Receiving terminal on / off button: after the button is turned on, the current Kylin-OS device can be searched by mobile phone device or other Kylin-OS devices.
 
- Select projection / wireless projection / mobile projection and other identification interfaces in the mobile phone drop-down menu (take Huawei mobile phone mate as an example).
+2) PIN code function on / off button: after the button is turned on, the PIN code needs to be entered during connection.
 
- ![Fig 14-3 Mobile terminal wireless projection opening interface-big](image/50.png)
+ ![Fig 14-2 Enter PIN code interface-big](image/49.png)
 
- Next, the mobile phone will automatically search and display the searched receiving device.
+ ![Fig 14-3 Without PIN code interface-big](image/50.png)
 
- ![Fig 4-4 Mobile terminal wireless projection search interface-big](image/51.png)
+3) Historical device show / hide button: when the button arrow points down, you can see the relevant devices connected to the current Kylin-OS device.
 
- Select your current KylinOS receiver device, such as my Kylin, etc.
+ ![Fig 14-4 Historical device interface-big](image/51.png)
 
- ![Fig 14-5 Projection interface allowed at the receiving terminal-big](image/52.png)
+The function buttons at the sending terminal are in the lower part of the main interface, including: 
 
- Whether to allow projection will be displayed on the KylinOS receiving terminal, click allow.
+Receiving terminal on / off button: this button is mutually exclusive with the sending terminal on / off button. When the receiving terminal on / off button is turned on, the receiving terminal on / off button needs to be turned off before the sending terminal on / off button can be turned on (the same is true for the receiving terminal turn on / off button). After opening this button, click Find device to pop up the search window, in which the searchable Kylin-OS device at the receiving terminal will be displayed.
 
- ![Fig 14-6 The receiving terminal provides a pin code interface-big](image/53.png)
+ Connection process between mobile phone and Kylin-OS:
+ 
+1) Open the receiving terminal on / off button (close the sending terminal on / off button first).
 
- According to the pin code displayed at the KylinOS receiving terminal, enter the pin code at the mobile terminal and click connect.
+2) The mobile phone drop-down menu opens the projection (or mobile phone projection / multi screen collaboration).
 
- ![Fig 14-7 Mobile terminal pin code input interface-big](image/54.png)
+ ![Fig 14-5 Phone open projection interface-big](image/52.png)
 
- Next, the connection interface will be displayed at the KylinOS receiving terminal and projection terminal.
+3) Select the Kylin-OS device to be projected in the mobile search device list.
 
- ![Fig 14-8 Mobile terminal connection interface-big](image/55.png)
- ![Fig 14-9 Receiving terminal connection interface-big](image/56.png)
+ ![Fig 14-6 Phone search device interface-big](image/53.png)
 
- If the connection is successful, the screen of the mobile phone will be synchronously mirrored at the receiving terminal. Double click the screen to exit the full screen.
+4) Connect (there are two types: PIN code required and PIN code not required).
 
- ![Fig 14-10 Vertical screen projection interface-big](image/57.png)
- ![Fig 14-11 Horizontal screen projection interface-big](image/58.png)
+![Fig 14-7 Phone enter pin code interface-big](image/54.png)
 
- To close the projection screen, double-click the screen to enter windowing, click "X" in the upper right corner to close it, or set the projection screen to gray (close) in the mobile phone drop-down menu to exit the wireless projection screen.
+5) Select the mobile phone model (currently divided into Huawei, Xiaomi and others).
+
+ ![Fig 14-8 Select phone model interface-big](image/55.png)
+
+6) Projection interface: the mobile phone screen is displayed in the center of the interface. There are 5 buttons on the right side of the interface, from top to bottom: soft / hard decoding switching button; Full screen / window switching button; Return to parent directory button; Return to the main interface button; Display the application process button;
+
+ ![Fig 14-9 Receiving terminal projection interface-big](image/56.png)
+
+Kylin-OS and Kylin-OS connection process:
+
+1) Open the on / off button at the sending terminal (close the on / off button at the receiving terminal in advance).
+
+2) Click the search device on the left side of the switch button;
+
+ ![Fig 14-10 Find device interface-big](image/57.png)
+
+3) In the pop-up search window, select the Kylin-OS device to project to.
+
+ ![Fig 14-11 Choose device interface-big](image/58.png)
+
+4) Projection interface.
+
+ ![Fig 14-12 Sending terminal projection interface-big](image/59.png)
 
 **FAQ**
 
-1. If the screen is not successfully displayed, you can try to connect again. Usually, the mobile phone can be trusted after one connection. There is no need to enter the pin code for the next connection (also depends on the mobile phone design. Some mobile phones support credit without authentication connection).
+1. If the projection is unsuccessful, you can try to connect again, and the device connected once will be automatically recorded in the history device.
 
-2. The name of the receiving device can be changed in the screen projection interface. Click the "pen" icon on the right side of the projection screen to enter the modification interface.
+2. Kylin OS and some phones support the control return function (that is, the receiving terminal can indirectly affect the sending terminal by operating the mouse or keyboard).
 
-![Fig 14-12 Projection terminal name modification interface-big](image/59.png)
+3. At present only some Huawei phones and Xiaomi phones support Android three button function (the last three buttons on the interface on the right side of the screen). For other models, clicking these buttons may cause unknown problems.
 
-3. When the wireless network card is not inserted, or the wireless network card does not support the connection required for projection, it is necessary to insert the network card or replace the inserted network card.
+4. The system will use soft decoding by default. At this time, you can manually switch to hard decoding (use hardware to decode video, reduce CPU occupation, and need hardware support).
 
-![Fig 14-13 Projection function unavailable interface(1)-big](image/60.png)
+5. The name of the receiving device can be changed in the screen projection interface. Click the "pen" icon on the right side of the projection screen to enter the modification interface.
 
-4. When the background service is abnormal, the following prompt will appear. You can try to restart the system to solve this problem.
+![Fig 14-9 Sending terminal name modification interface-big](image/60.png)
 
-![Fig 14-13 Projection function unavailable interface(2)-big](image/61.png)
+6. When the wireless network card is not inserted, or the wireless network card does not support the connection required for projection, it is necessary to insert the network card or replace the inserted network card.
 
-5. When the package with wireless projection is not installed or the package version is too low, the projection function will not be displayed in the control panel.
+![Fig 14-10 Projection function unavailable interface(1)-big](image/61.png)
 
-![Fig 14-14 Projection function unavailable interface(3)-big](image/62.png)
+7. When the package with wireless projection is not installed or the package version is too low, the projection function will not be displayed in the control panel.
+
+![Fig 14-11 Projection function unavailable interface(2)-big](image/62.png)
 
 <br>
 
