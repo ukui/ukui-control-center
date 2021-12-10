@@ -6408,7 +6408,7 @@ Please retry or relogin!</source>
         <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="443"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="445"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="281"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="288"/>
         <source>%1 Hz</source>
@@ -7775,7 +7775,7 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>Proxy</name>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="483"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="479"/>
         <source>Auto Proxy</source>
         <translation>自动代理</translation>
         <extra-contents_path>/Proxy/Auto Proxy</extra-contents_path>
@@ -7785,13 +7785,13 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">开启自动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="485"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="481"/>
         <source>Auto url</source>
         <translation>配置URL</translation>
         <extra-contents_path>/Proxy/Auto url</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="487"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="483"/>
         <source>Manual Proxy</source>
         <translation>手动代理</translation>
         <extra-contents_path>/Proxy/Manual Proxy</extra-contents_path>
@@ -7801,16 +7801,16 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">开启手动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="489"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="485"/>
         <source>Http Proxy</source>
         <translation>HTTP代理</translation>
         <extra-contents_path>/Proxy/Http Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="496"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="497"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="498"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="499"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="492"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="493"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="494"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="495"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
@@ -7819,93 +7819,93 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="481"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="477"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="491"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="487"/>
         <source>Https Proxy</source>
         <translation>HTTPS代理</translation>
         <extra-contents_path>/Proxy/Https Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="493"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="489"/>
         <source>Ftp Proxy</source>
         <translation>FTP代理</translation>
         <extra-contents_path>/Proxy/Ftp Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="495"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="491"/>
         <source>Socks Proxy</source>
         <translation>SOCKS代理</translation>
         <extra-contents_path>/Proxy/Socks Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="500"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="496"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
         <translation>忽略的主机列表，请使用英文分号（;）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="501"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="497"/>
         <source>Enable Authentication</source>
         <translation>启用认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="502"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="498"/>
         <source>User Name</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="503"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="499"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="506"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="502"/>
         <source>Apt Proxy</source>
         <translation>APT代理</translation>
         <extra-contents_path>/Proxy/Apt Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="507"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="503"/>
         <source>Open</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="508"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="504"/>
         <source>Server Address : </source>
         <translation>服务器地址：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="509"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="505"/>
         <source>Port : </source>
         <translation>端口：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="510"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="506"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="607"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="603"/>
         <source>The apt proxy  has been turned off and needs to be restarted to take effect</source>
         <translation>apt代理功能已关闭 需重启后生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="892"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="888"/>
         <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
         <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="609"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="894"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="605"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="890"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="608"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="893"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="604"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="889"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -8657,63 +8657,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1025"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1027"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1035"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1037"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1044"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1046"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1053"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1055"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1062"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1064"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1072"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1074"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1081"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1083"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1090"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1092"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1099"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1101"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -10723,43 +10723,43 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>UnifiedOutputConfig</name>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="79"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="80"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="75"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="114"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="115"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="104"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="119"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="120"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="109"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="120"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="121"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="110"/>
         <source>90° arrow-right</source>
         <translation>90°顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="121"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="122"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="111"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="122"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="123"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="112"/>
         <source>90° arrow-left</source>
         <translation>90°逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="154"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="155"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="141"/>
         <source>frequency</source>
         <translation>刷新率</translation>
@@ -10769,7 +10769,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="335"/>
+        <location filename="../../../plugins/system/display/unifiedoutputconfig.cpp" line="336"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="146"/>
         <location filename="../../../plugins/system/display_hw/unifiedoutputconfig.cpp" line="312"/>
         <source>auto</source>
@@ -10868,27 +10868,27 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="894"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="896"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="862"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="863"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="865"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="866"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="868"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="867"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="869"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
@@ -10909,12 +10909,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="890"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="892"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="892"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="894"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
@@ -11423,7 +11423,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="325"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2066"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2065"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -11471,6 +11471,11 @@ E-mail: support@kylinos.cn</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="882"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %2 seconds&lt;/font&gt;</source>
         <translation>屏幕%1已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在%2秒后自动保存。&lt;/font&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2065"/>
+        <source>Follow the sunrise and sunset</source>
+        <translation>跟随日出日落</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="703"/>
@@ -11558,18 +11563,17 @@ the settings will be saved after %1 seconds</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2066"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2065"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2066"/>
         <source>Follow the sunrise and sunset(17:55-06:23)</source>
-        <translation>跟随日出日落(17:55-06:23)</translation>
+        <translation type="vanished">跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2333"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2347"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2332"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2346"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2151"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2158"/>
         <source>Brightness</source>
@@ -11790,7 +11794,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="359"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="207"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="217"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -11824,55 +11828,55 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">添加快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="64"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="74"/>
         <source>Add Shortcut</source>
         <translation>添加快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="76"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="86"/>
         <source>Please enter a shortcut</source>
         <translation>请输入快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="199"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="209"/>
         <source>Desktop files(*.desktop)</source>
         <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="206"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="216"/>
         <source>select desktop</source>
         <translation>选择桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="227"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="246"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="257"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="244"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="263"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="274"/>
         <source>Invalid application</source>
         <translation>该应用不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="229"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="242"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="253"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="246"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="259"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="270"/>
         <source>Shortcut conflict</source>
         <translation>该快捷键组合已被占用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="231"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="244"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="255"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="248"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="261"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="272"/>
         <source>Invalid shortcut</source>
         <translation>该快捷键组合不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="233"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="240"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="259"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="250"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="257"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="276"/>
         <source>Name repetition</source>
         <translation>该快捷键名称重复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="265"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="282"/>
         <source>Unknown error</source>
         <translation>未知错误</translation>
     </message>

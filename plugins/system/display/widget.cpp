@@ -2062,7 +2062,7 @@ void Widget::initConnection()
 void Widget::setNightComponent()
 {
     /* 设置时间模式 */
-    mTimeModeStringList << tr("All Day") << tr("Follow the sunrise and sunset(17:55-06:23)") << tr("Custom Time");
+    mTimeModeStringList << tr("All Day") << tr("Follow the sunrise and sunset") << tr("Custom Time");
     mTimeModeCombox->insertItem(0, mTimeModeStringList.at(0));
     mTimeModeCombox->insertItem(1, mTimeModeStringList.at(1));
     mTimeModeCombox->insertItem(2, mTimeModeStringList.at(2));
