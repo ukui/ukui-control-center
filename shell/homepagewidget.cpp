@@ -217,7 +217,9 @@ void HomePageWidget::initUI() {
 
             // 监听该插件是否启用
             if (plugin_settings) {
-                label->setVisible(plugin_settings->get(SHOW_KEY).toBool());
+                // 插件未启用直接隐藏该label
+               if (!plugin_settings->get(SHOW_KEY).toBool())
+                   label->setVisible(false);
                 connect(plugin_settings , &QGSettings::changed,[=](QString key){
                     if (key == SHOW_KEY) {
                       label->setVisible( plugin_settings->get(SHOW_KEY).toBool());
