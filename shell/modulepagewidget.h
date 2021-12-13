@@ -53,6 +53,9 @@ public:
 private:
     void getModuleStatus();
 
+public:
+    QString mCurrentPluName = "";
+
 private:
     Ui::ModulePageWidget *ui;
 

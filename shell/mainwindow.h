@@ -114,6 +114,8 @@ private:
     void initStyleSheet();
     void changeSearchSlot();
 
+    void showGuide(QString pluName);
+
 public slots:
     void functionBtnClicked(QObject * plugin);
     void sltMessageReceived(const QString &msg);

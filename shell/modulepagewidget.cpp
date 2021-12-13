@@ -212,6 +212,7 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     delete(ui->scrollArea->widget());
 
     ui->scrollArea->setWidget(plu->get_plugin_ui());
+    mCurrentPluName = plu->name();
 
     //延迟操作
     plu->plugin_delay_control();
