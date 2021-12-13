@@ -34,9 +34,9 @@
 #include <QString>
 
 #include "shell/interface.h"
-#include "FlowLayout/flowlayout.h"
-#include "HoverWidget/hoverwidget.h"
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/flowlayout.h>
+#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/imageutil.h>
 #include "xmlhandle.h"
 #include "component/custdomitemmodel.h"
 #include "simplethread.h"

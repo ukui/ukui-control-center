@@ -27,12 +27,12 @@
 #include <QListWidget>
 
 #include "shell/interface.h"
-#include "HoverWidget/hoverwidget.h"
-#include "ImageUtil/imageutil.h"
-#include "HoverBtn/hoverbtn.h"
-#include "Label/titlelabel.h"
-#include "Label/fixlabel.h"
-#include "AddBtn/addbtn.h"
+#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/imageutil.h>
+#include <ukcc/widgets/hoverbtn.h>
+#include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/fixlabel.h>
+#include <ukcc/widgets/addbtn.h>
 
 namespace Ui {
 class Printer;

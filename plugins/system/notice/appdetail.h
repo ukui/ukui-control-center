@@ -5,7 +5,7 @@
 #include <QGSettings>
 #include <QPainter>
 
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/switchbutton.h>
 
 #define MESSAGES_KEY            "messages"
 #define VOICE_KEY               "voice"

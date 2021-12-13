@@ -5,7 +5,7 @@
 #include <QSet>
 
 #include <KF5/KScreen/kscreen/output.h>
-#include "Uslider/uslider.h"
+#include <ukcc/widgets/uslider.h>
 
 class QSlider;
 class QLabel;

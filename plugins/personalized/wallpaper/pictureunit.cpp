@@ -19,7 +19,7 @@
  */
 #include "pictureunit.h"
 
-#include "MaskWidget/maskwidget.h"
+#include <ukcc/widgets/maskwidget.h>
 
 PictureUnit::PictureUnit()
 {

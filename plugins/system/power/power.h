@@ -30,10 +30,10 @@
 #include <QButtonGroup>
 
 #include "shell/interface.h"
-#include "Label/titlelabel.h"
+#include <ukcc/widgets/titlelabel.h>
 
-#include "commonComponent/ComboxFrame/comboxframe.h"
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/comboxframe.h>
+#include <ukcc/widgets/switchbutton.h>
 
 namespace Ui {
 class Power;

@@ -5,8 +5,6 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/uslider.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets dbus
 
@@ -26,7 +24,6 @@ PKGCONFIG     += gio-2.0 \
                  gsettings-qt \
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 LIBS += -L$$[QT_INSTALL_LIBS] -lgsettings-qt

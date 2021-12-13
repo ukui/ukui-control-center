@@ -28,7 +28,8 @@
 #include <QGSettings>
 #include <QMessageBox>
 #include "languageFrame.h"
-#include "Frame/hlineframe.h"
+//#include "Frame/hlineframe.h"
+#include <ukcc/widgets/hlineframe.h>
 
 #define PANEL_GSCHEMAL   "org.ukui.control-center.panel.plugins"
 #define CALENDAR_KEY     "calendar"

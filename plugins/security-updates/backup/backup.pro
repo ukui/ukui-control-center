@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/button.pri)
+
 QT       += widgets
 
 TEMPLATE = lib
@@ -18,7 +17,7 @@ INSTALLS += target
 
 INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \
-                 $$PROJECT_COMPONENTSOURCE
+
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
                  C++11

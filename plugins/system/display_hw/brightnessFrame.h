@@ -5,7 +5,7 @@
 #include <QLabel>
 #include <QWidget>
 #include <QLabel>
-#include "Uslider/uslider.h"
+#include <ukcc/widgets/uslider.h>
 
 class BrightnessFrame : public QFrame
 {

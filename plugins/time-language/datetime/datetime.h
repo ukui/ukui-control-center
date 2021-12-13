@@ -43,12 +43,12 @@
 #include <QComboBox>
 
 #include "timeBtn.h"
-#include "Label/fixlabel.h"
+#include <ukcc/widgets/fixlabel.h>
 #include "worldMap/timezonechooser.h"
 #include "worldMap/zoneinfo.h"
-#include "SwitchButton/switchbutton.h"
-#include "HoverWidget/hoverwidget.h"
-#include "AddBtn/addbtn.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/addbtn.h>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可

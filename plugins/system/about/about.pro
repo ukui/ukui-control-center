@@ -1,6 +1,4 @@
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 
 QT       += widgets dbus KI18n KCoreAddons \
              widgets dbus concurrent
@@ -10,14 +8,13 @@ CONFIG += plugin \
 
 PKGCONFIG     += gsettings-qt
 
-
 TARGET = $$qtLibraryTarget(about)
 DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \
-                 $$PROJECT_COMPONENTSOURCE
+
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \

@@ -37,7 +37,7 @@
 #include "utils/functionselect.h"
 #include "component/hoverwidget.h"
 #include "./utils/utils.h"
-#include "../commonComponent/FlowLayout/flowlayout.h"
+#include <ukcc/widgets/flowlayout.h>
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 

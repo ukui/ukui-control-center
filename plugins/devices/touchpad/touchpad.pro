@@ -5,8 +5,6 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets x11extras dbus
 
@@ -20,7 +18,6 @@ DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 #LIBS          +=  -L$$[QT_INSTALL_LIBS] -ltouchpadclient -lXi -lgsettings-qt

@@ -34,8 +34,8 @@
 #include <QByteArray>
 
 
-#include "SwitchButton/switchbutton.h"
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/imageutil.h>
 #include "elipsemaskwidget.h"
 #include "passwdcheckutil.h"
 

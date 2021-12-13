@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QDialog>
 #include <QTextBrowser>
-#include "Label/titlelabel.h"
+#include <ukcc/widgets/titlelabel.h>
 
 class PrivacyDialog  : public QDialog
 {

@@ -390,7 +390,7 @@
   <customwidget>
    <class>FixLabel</class>
    <extends>QLabel</extends>
-   <header>Label/fixlabel.h</header>
+   <header>/usr/include/ukcc/widgets/fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

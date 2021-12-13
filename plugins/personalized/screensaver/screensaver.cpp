@@ -25,12 +25,12 @@
 #include <QTextBrowser>
 #include <QFileDialog>
 #include <QLineEdit>
-#include "ComboBox/combobox.h"
+#include <ukcc/widgets/combobox.h>
 #include <QListView>
-#include "Frame/hlineframe.h"
+#include <ukcc/widgets/hlineframe.h>
 #include <QRadioButton>
 #include <QButtonGroup>
-#include "Label/fixlabel.h"
+#include <ukcc/widgets/fixlabel.h>
 
 #define SSTHEMEPATH                 "/usr/share/applications/screensavers/"
 #define ID_PREFIX                   "screensavers-ukui-"

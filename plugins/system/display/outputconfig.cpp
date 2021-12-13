@@ -20,7 +20,7 @@
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
 
-#include "ComboBox/combobox.h"
+#include <ukcc/widgets/combobox.h>
 
 double mScaleres = 0;
 int changeItm = -1;

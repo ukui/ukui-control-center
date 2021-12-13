@@ -15,7 +15,7 @@
 #include <QtCore/qmath.h>
 #include <QDialog>
 #include <QGSettings>
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/imageutil.h>
 
 const QString kcnBj = "北京";
 const QString kenBj = "Asia/Beijing";

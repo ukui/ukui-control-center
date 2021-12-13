@@ -19,7 +19,7 @@
  */
 #include "pictureunit.h"
 #include <QColor>
-#include "MaskWidget/maskwidget.h"
+#include <ukcc/widgets/maskwidget.h>
 #include <QDebug>
 PictureUnit::PictureUnit()
 {

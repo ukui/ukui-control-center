@@ -24,12 +24,12 @@
 #include <KF5/KScreen/kscreen/config.h>
 
 #include "outputconfig.h"
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/switchbutton.h>
 #include "brightnessFrame.h"
 #include "screenConfig.h"
-#include "Label/titlelabel.h"
-#include "Label/fixlabel.h"
-#include "Uslider/uslider.h"
+#include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/fixlabel.h>
+#include <ukcc/widgets/uslider.h>
 
 #define USD_CLONE_MODE 1
 

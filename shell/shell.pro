@@ -17,12 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 include(../env.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
 
 DEFINES += PLUGIN_INSTALL_DIRS='\\"$${PLUGIN_INSTALL_DIRS}\\"'
 
-LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi -ldconf -lkysec -lukui-log4qt
+LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi -ldconf -lkysec -lukui-log4qt -lukcc
+#LIBS += -l -lukcc
 DEFINES+=WITHKYSEC KYDEBUG
 
 #LIBS += -L$$[QT_INSTALL_LIBS] -lkylinssoclient

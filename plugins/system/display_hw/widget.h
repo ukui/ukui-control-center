@@ -24,7 +24,7 @@
 #include <unistd.h>
 
 #include "outputconfig.h"
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/switchbutton.h>
 #include "brightnessFrame.h"
 #include "screenConfig.h"
 #include "scalesize.h"

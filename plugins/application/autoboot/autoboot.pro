@@ -4,12 +4,6 @@
 #
 #-------------------------------------------------
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
 
 QT       += widgets svg dbus
 TEMPLATE = lib
@@ -21,7 +15,6 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 ##加载gio库和gio-unix库，用于处理desktop文件

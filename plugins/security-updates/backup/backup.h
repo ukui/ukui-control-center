@@ -24,9 +24,9 @@
 #include <QtPlugin>
 
 #include "shell/interface.h"
-#include "Label/titlelabel.h"
-#include "Label/fixlabel.h"
-#include "Button/fixbutton.h"
+#include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/fixlabel.h>
+#include <ukcc/widgets/fixbutton.h>
 
 namespace Ui {
 class Backup;

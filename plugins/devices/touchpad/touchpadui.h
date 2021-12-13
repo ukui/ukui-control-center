@@ -11,8 +11,8 @@
 #include <QByteArray>
 #include <QDebug>
 
-#include "SwitchButton/switchbutton.h"
-#include "Label/titlelabel.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/titlelabel.h>
 
 #include <QX11Info>
 extern "C" {

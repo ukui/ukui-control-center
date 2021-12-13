@@ -5,11 +5,6 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverbtn.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
 
 QT       += widgets printsupport
 
@@ -23,7 +18,6 @@ DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH += \
-               $$PROJECT_COMPONENTSOURCE \
                $$PROJECT_ROOTDIR \
 
 #DEFINES += QT_DEPRECATED_WARNINGS

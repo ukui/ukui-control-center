@@ -33,8 +33,8 @@
 
 
 #include "shell/interface.h"
-#include "Label/fixlabel.h"
-#include "Label/titlelabel.h"
+#include <ukcc/widgets/fixlabel.h>
+#include <ukcc/widgets/titlelabel.h>
 #include "shell/utils/mthread.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏

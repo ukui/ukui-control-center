@@ -20,7 +20,7 @@
 #include "kbdlayoutmanager.h"
 #include "ui_layoutmanager.h"
 #include "preview/keyboardpainter.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/closebutton.h>
 
 #include <QPainter>
 #include <QPainterPath>

@@ -35,7 +35,7 @@
 #include <QCoreApplication>
 #include <polkit-qt5-1/polkitqt1-authority.h>
 
-#include "HoverWidget/hoverwidget.h"
+#include <ukcc/widgets/hoverwidget.h>
 
 struct custom_struct
 {

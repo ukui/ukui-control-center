@@ -22,7 +22,7 @@
 #include "utils/keyvalueconverter.h"
 #include "utils/functionselect.h"
 #include "utils/utils.h"
-#include "../commonComponent/ImageUtil/imageutil.h"
+#include <ukcc/widgets/imageutil.h>
 #include "ukccabout.h"
 #include "devicesmonitor.h"
 

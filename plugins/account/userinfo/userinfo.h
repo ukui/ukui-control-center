@@ -20,9 +20,9 @@
 #ifndef USERINFO_H
 #define USERINFO_H
 
-#include "Label/titlelabel.h"
-#include "AddBtn/addbtn.h"
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/addbtn.h>
+#include <ukcc/widgets/switchbutton.h>
 
 #include <QFrame>
 #include <QPushButton>

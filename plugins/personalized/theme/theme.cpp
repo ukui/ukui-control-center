@@ -26,8 +26,8 @@
 #include <QtConcurrent>
 #include <QRadioButton>
 
-#include "SwitchButton/switchbutton.h"
-#include "Label/iconlabel.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/iconlabel.h>
 #include "myqradiobutton.h"
 #include "cursor/xcursortheme.h"
 #include "../../../shell/customstyle.h"
