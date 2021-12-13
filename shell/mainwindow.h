@@ -119,6 +119,8 @@ private:
     void changeSearchSlot();
     void initNMIcbc();
 
+     void showGuide(QString pluName);
+
 public slots:
     void functionBtnClicked(QObject * plugin);
     void sltMessageReceived(const QString &msg);
