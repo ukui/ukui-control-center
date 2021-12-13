@@ -55,7 +55,7 @@ private:
     Ui::ModulePageWidget *ui;
 
 public:
-    QString mCurrentPluName = nullptr;
+    QString mCurrentPluName = "";
 
 private:
     MainWindow * pmainWindow;
