@@ -479,13 +479,13 @@ void Theme::initIconTheme(){
     QDir themesDir = QDir(ICONTHEMEPATH);
 
     foreach (QString themedir, themesDir.entryList(QDir::Dirs)) {
-        //Intel三套图标主题分别位于/usr/share/icon/ukui、ukui-hp、ukui-classical,需要暂时隐藏ukui-light这套主题
+        //Intel三套图标主题分别位于/usr/share/icons/ukui、ukui-hp、ukui-classical,需要暂时隐藏ukui-light这套主题
         if (themedir == "ukui" || themedir == "ukui-hp" || themedir == "ukui-classical") {
             QDir appsDir = QDir(ICONTHEMEPATH + themedir + "/48x48/apps/");
             appsDir.setFilter(QDir::Files | QDir::NoSymLinks);
             QStringList appIconsList;
             appIconsList << "devices/computer.png" << "apps/ukui-control-center.png" << "apps/system-file-manager.png"
-                         << "status/user-trash-full.png" << "apps/indicator-china-weather.png" << "apps/kylin-video.png" << "apps/ubuntu-kylin-software-center.png";
+                         << "status/user-trash-full.png" << "apps/indicator-china-weather.png" << "apps/kylin-video.png" << "apps/kylin-software-center.png";
             QStringList showIconsList;
             for (int i = 0; i < appIconsList.size(); i++){
                 showIconsList.append(QDir(ICONTHEMEPATH + themedir + "/48x48/").path() + "/" + appIconsList.at(i));
