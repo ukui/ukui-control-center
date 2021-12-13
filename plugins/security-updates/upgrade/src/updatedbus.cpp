@@ -165,6 +165,8 @@ void UpdateDbus::fileUnLock()
         return;
     }
     flock(fd, LOCK_UN);
+    close(fd);
+    system("rm /tmp/lock/kylin-update.lock");
 }
 
 void UpdateDbus::slotFinishGetMessage(QString num)

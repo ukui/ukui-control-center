@@ -318,6 +318,7 @@ void TabWid::getAllProgress (QString pkgName, int Progress, QString type)
         checkUpdateBtn->hide();
         allProgressBar->hide();
         versionInformationLab->setText(tr("Your system is the latest!"));
+        updateMutual->fileUnLock();
     }
 }
 void TabWid::backupProgress(int progress)
@@ -1019,6 +1020,7 @@ void TabWid::hideUpdateBtnSlot(bool isSucceed)
         else {
             versionInformationLab->setText(tr("Part of the update failed!"));
             allProgressBar->hide();
+            updateMutual->fileUnLock();
         }
         QString updatetime = tr("No Information!");
         QSqlQuery queryInstall(QSqlDatabase::database("A"));
