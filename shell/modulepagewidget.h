@@ -54,7 +54,7 @@ private:
     void getModuleStatus();
 
 public:
-    QString mCurrentPluName = nullptr;
+    QString mCurrentPluName = "";
 
 private:
     Ui::ModulePageWidget *ui;

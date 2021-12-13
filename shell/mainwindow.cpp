@@ -348,7 +348,7 @@ void MainWindow::initUI() {
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
         if (index == 0) {
-            modulepageWidget->mCurrentPluName = nullptr;
+            modulepageWidget->mCurrentPluName = "";
         }
     });
     // 快捷参数
