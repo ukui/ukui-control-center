@@ -63,6 +63,7 @@ public:
     void switchPage(QObject * plugin, bool recorded = true);
     void refreshPluginWidget(CommonInterface * plu);
     void highlightItem(QString text);
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     Ui::ModulePageWidget *ui;
@@ -70,6 +71,7 @@ private:
 private:
     MainWindow * pmainWindow;
     KeyValueConverter * mkvConverter;
+    LeftWidget * leftListWidget;
 
 private:
     QMap<QString, CommonInterface*> pluginInstanceMap;

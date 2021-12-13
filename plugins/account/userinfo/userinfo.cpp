@@ -86,9 +86,12 @@ QWidget *UserInfo::get_plugin_ui(){
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
         ui->titleLabel->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
+
         //构建System dbus调度对象
         sysdispatcher = new SystemDbusDispatcher;
 
+        ui->changeGroupBtn->setStyleSheet("QPushButton{background:palette(base);}"
+                                          "QPushButton:hover:!pressed{background:#2FB3E8;}");
         ui->changeGroupBtn->hide();
     //    ui->changeValidBtn->hide();
 
@@ -130,6 +133,8 @@ const QString UserInfo::name() const {
 
 void UserInfo::initSearchText() {
     ui->changePhoneBtn->setIcon(QIcon(":/img/plugins/userinfo/phone.svg"));
+    ui->changePhoneBtn->setStyleSheet("QPushButton{background:palette(base);}"
+                                      "QPushButton:hover:!pressed{background:#2FB3E8;}");
     //~ contents_path /userinfo/Current User
     ui->titleLabel->setText(tr("Current User"));
 
@@ -140,12 +145,16 @@ void UserInfo::initSearchText() {
     ui->changePhoneBtn->setText(tr("Change Tel"));
 
     ui->changePwdBtn->setIcon(QIcon(":/img/plugins/userinfo/password.svg"));
+    ui->changePwdBtn->setStyleSheet("QPushButton{background:palette(base);}"
+                                    "QPushButton:hover:!pressed{background:#2FB3E8;}");
 
     //~ contents_path /userinfo/Change pwd
     ui->changePwdBtn->setText(tr("Change pwd"));
 
 
     ui->delUserBtn->setIcon(QIcon(":/img/plugins/userinfo/delete.svg"));
+    ui->delUserBtn->setStyleSheet("QPushButton{background:palette(base);}"
+                                  "QPushButton:hover:!pressed{background:#2FB3E8;}");
     m_pPictureToWhite = new PictureToWhite();
     ui->editBtn->setIcon(QIcon(m_pPictureToWhite->drawSymbolicColoredPixmap(QPixmap(":/img/plugins/userinfo/settingedit.svg"))));
     const QByteArray id(ORG_UKUI_STYLE);

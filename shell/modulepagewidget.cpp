@@ -121,6 +121,18 @@ ModulePageWidget::~ModulePageWidget()
         delete qtSettings;
 }
 
+bool ModulePageWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseMove) {
+        if (leftListWidget->geometry().contains(this->mapFromGlobal(QCursor::pos()))) {
+            leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        } else {
+            leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        }
+    }
+    return QObject::eventFilter(watched,event);
+}
+
 void ModulePageWidget::initUI(){
     //初始化控制面板打开的首页
     QString firstFunc;
@@ -142,14 +154,14 @@ void ModulePageWidget::initUI(){
 
     ui->leftbarWidget->setSizePolicy(leftSizePolicy);
     ui->widget->setSizePolicy(rightSizePolicy);
-    LeftWidget * leftListWidget = new LeftWidget(this);
+    leftListWidget = new LeftWidget(this);
     leftListWidget->setItemDelegate(new Delegate(this));
     leftListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //关闭菜单响应
     leftListWidget->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftListWidget->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-        leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++){
         QString titleString = mkvConverter->keycodeTokeyi18nstring(moduleIndex);
         QString titleString_1 ="    "+titleString;
@@ -263,6 +275,7 @@ void ModulePageWidget::initUI(){
     qDebug()<<name;
     firstItem=currentItemList.at(1);
     currentLeftitemChanged(currentItemList.at(1),nullptr);
+    qApp->installEventFilter(this);
 }
 
 void ModulePageWidget::switchPage(QObject *plugin, bool recorded){

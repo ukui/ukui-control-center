@@ -65,7 +65,7 @@ LeftWidgetItem::LeftWidgetItem(QWidget *parent) :
     mainlayout->setSpacing(8);
     mainlayout->setContentsMargins(16, 0, 0, 0);
     mainlayout->addWidget(iconLabel, Qt::AlignVCenter);
-    mainlayout->addItem(new QSpacerItem(16,1,QSizePolicy::Fixed));
+    mainlayout->addItem(new QSpacerItem(8,1,QSizePolicy::Fixed));
     mainlayout->addWidget(textLabel, Qt::AlignVCenter);
     mainlayout->addStretch();
     mainlayout->addWidget(arrows);
