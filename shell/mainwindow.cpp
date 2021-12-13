@@ -57,6 +57,10 @@
 
 const QByteArray kVinoSchemas    = "org.gnome.Vino";
 
+#define KYLIN_USER_GUIDE_PATH                    "/"
+#define KYLIN_USER_GUIDE_SERVICE              "com.kylinUserGuide.hotel"
+#define KYLIN_USER_GUIDE_INTERFACE         "com.guide.hotel"
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -342,6 +346,11 @@ void MainWindow::initUI() {
         }
     });
 
+    connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
+        if (index == 0) {
+            modulepageWidget->mCurrentPluName = nullptr;
+        }
+    });
     // 快捷参数
     if (QApplication::arguments().length() > 1) {
         bootOptionsFilter(QApplication::arguments().at(1));
@@ -448,17 +457,12 @@ void MainWindow::animationFinishedSlot()
 }
 
 void MainWindow::onF1ButtonClicked() {
-    qDebug() << "onF1ButtonClicked";
-    QString command = "kylin-user-guide";
-
-    QProcess p(0);
-    QStringList args;
-
-    args.append("-A");
-    args.append("ukui-control-center");
-
-    p.startDetached(command,args);//command是要执行的命令,args是参数
-    p.waitForFinished(-1);
+    QString pluName = "ukui-control-center";
+    if (!modulepageWidget->mCurrentPluName.isEmpty()) {
+        pluName = QString("%1%2%3").arg(pluName).arg("/").arg(modulepageWidget->mCurrentPluName);
+    }
+    qDebug()<<pluName;
+    showGuide(pluName);
 }
 
 void MainWindow::showUkccAboutSlot() {
@@ -480,10 +484,7 @@ void MainWindow::showUkccAboutSlot() {
         ukcc->exec();
     });
 
-    connect(ukccHelp, &QAction::triggered, this, [=] {
-        QProcess process(this);
-        process.startDetached("kylin-user-guide -A ukui-control-center");
-    });
+    connect(ukccHelp, &QAction::triggered, this, &MainWindow::onF1ButtonClicked);
 
     ukccMain->exec(this->mapToGlobal(pt));
 }
@@ -840,6 +841,18 @@ void MainWindow::changeSearchSlot() {
     m_searchWidget->setFixedHeight((fontSize - 11) * 2 + 32);
 }
 
+void MainWindow::showGuide(QString pluName)
+{
+    QString service_name = "com.kylinUserGuide.hotel_" + QString::number(getuid());
+    qDebug()<<service_name<<"---------------"<<pluName;
+    QDBusInterface *interface = new QDBusInterface(service_name,
+                                                   KYLIN_USER_GUIDE_PATH,
+                                                   KYLIN_USER_GUIDE_INTERFACE,
+                                                   QDBusConnection::sessionBus(),
+                                                   this);
+    QDBusMessage msg = interface->call("showGuide" , pluName);
+}
+
 void MainWindow::setModuleBtnHightLight(int id) {
     leftBtnGroup->button(id)->setChecked(true);
     leftMicBtnGroup->button(id)->setChecked(true);
@@ -899,3 +912,4 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     QMainWindow::resizeEvent(event);
     Q_EMIT posChanged();
 }
+
