@@ -56,7 +56,7 @@ void Uslider::paintEvent(QPaintEvent *e)
         QRect fontRect = fontMetrics.boundingRect(scaleList.at(i));
         total += fontRect.width();
     }
-    const int interval = (rect.width() - total) / numTicks;
+    const float interval = (rect.width() - 16) / float(numTicks);
 
     if (this->orientation() == Qt::Horizontal) {
         int fontHeight = fontMetrics.height();
