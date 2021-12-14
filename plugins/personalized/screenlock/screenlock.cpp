@@ -179,17 +179,24 @@ void Screenlock::setupComponent()
     connect(lSetting, &QGSettings::changed, this, [=](QString key) {
         if ("idleActivationEnabled" == key) {
             bool judge = lSetting->get(key).toBool();
-            if (!judge) {
-                if (lockSwitchBtn->isChecked()) {
-                    lockSwitchBtn->setChecked(judge);
-                }
+            if (lockSwitchBtn->isChecked() != judge) {
+                lockSwitchBtn->blockSignals(true);
+                lockSwitchBtn->setChecked(judge);
+                lockSwitchBtn->blockSignals(false);
             }
         } else if ("lockEnabled" == key) {
             bool status = lSetting->get(key).toBool();
+            lockSwitchBtn->blockSignals(true);
             lockSwitchBtn->setChecked(status);
+            lockSwitchBtn->blockSignals(false);
         } else if ("background" == key) {
             QString filename = lSetting->get(key).toString();
             ui->previewLabel->setPixmap(QPixmap(filename).scaled(ui->previewLabel->size()));
+            setClickedPic(filename);
+        } else if ("idleLock" == key) {
+            uslider->blockSignals(true);
+            uslider->setValue(lockConvertToSlider(lSetting->get(SCREENLOCK_DELAY_KEY).toInt()));
+            uslider->blockSignals(false);
         }
     });
 
