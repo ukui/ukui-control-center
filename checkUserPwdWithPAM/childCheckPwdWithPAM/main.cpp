@@ -156,7 +156,7 @@ int main(int argc, char **argv)
         printf ("Invalid file descriptors %s %s\n", argv[2], argv[3]);
         return EXIT_FAILURE;
     }
-    mlockall (MCL_CURRENT | MCL_FUTURE);
+    //mlockall (MCL_CURRENT | MCL_FUTURE);
     fcntl (toParent, F_SETFD, FD_CLOEXEC);
     fcntl (fromChild, F_SETFD, FD_CLOEXEC);
 
