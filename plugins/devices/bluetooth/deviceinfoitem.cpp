@@ -2,8 +2,6 @@
 
 DeviceInfoItem::DeviceInfoItem(QWidget *parent) : QWidget(parent)
 {
-    qDebug() << Q_FUNC_INFO << __LINE__;
-
     if(QGSettings::isSchemaInstalled("org.ukui.style")){
         item_gsettings = new QGSettings("org.ukui.style");
         connect(item_gsettings,&QGSettings::changed,this,&DeviceInfoItem::GSettingsChanges);
@@ -52,8 +50,6 @@ DeviceInfoItem::~DeviceInfoItem()
 
 void DeviceInfoItem::initInfoPage(QString d_name, DEVICE_STATUS status, BluezQt::DevicePtr device)
 {
-    qDebug() << Q_FUNC_INFO << __LINE__;
-
     this->setObjectName(device->address());
 
     connect(device.data(),&BluezQt::Device::pairedChanged,this,[=](bool paird){
@@ -194,6 +190,8 @@ void DeviceInfoItem::onClick_Connect_Btn(bool isclicked)
                 device_status->update();
             }
             connect_timer->stop();
+            emit connectComplete();
+
         });
 
         emit sendConnectDevice(device_item->address());
@@ -255,6 +253,8 @@ void DeviceInfoItem::changeDevStatus(bool pair)
 //        QIcon icon_status = QIcon::fromTheme("software-installed-symbolic");
 //        device_status->setPixmap(icon_status.pixmap(QSize(24,24)));
     }
+    emit connectComplete();
+
 }
 
 void DeviceInfoItem::setDevConnectedIcon(bool connected)
@@ -273,6 +273,7 @@ void DeviceInfoItem::setDevConnectedIcon(bool connected)
             disconnect_btn->setGeometry(this->width()-BTN_1_X,2,BTN_1_WIDTH,45);
             disconnect_btn->setVisible(true);
         }
+	emit connectComplete();
 
     }else{
         if(disconnect_btn->isVisible()){
