@@ -394,13 +394,22 @@ QStringList CreateUserDialog::getHomeUser()
 }
 
 bool CreateUserDialog::nameTraverse(QString username){
+    // 华为云&国开行项目需求能创建带"." & "A-Z"的用户名;根据安全做判断
+    QProcess *process = new QProcess;
+    process->start("dpkg -l | grep passwd");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
     QString::const_iterator cit = NULL;
     for (cit = username.cbegin(); cit < username.cend(); cit++){
         QString str = *cit;
         if (str.contains(QRegExp("[a-z]"))){
         } else if (str.contains(QRegExp("[0-9]"))){
         } else if (str.contains("_")){
-        } else{
+        } else if (mOutput.contains("xc") && str.contains(QRegExp("[A-Z.]"))) {
+        } else {
             return false;
         }
     }
@@ -408,13 +417,21 @@ bool CreateUserDialog::nameTraverse(QString username){
 }
 
 void CreateUserDialog::nameLegalityCheck(QString username){
+    // 华为云&国开行项目需求能创建带"." & "A-Z"的用户名;根据安全做判断
+    QProcess *process = new QProcess;
+    process->start("dpkg -l | grep passwd");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
 
     if (username.isEmpty())
         nameTip = tr("The user name cannot be empty");
     else if (username.startsWith("_") || username.left(1).contains((QRegExp("[0-9]")))){
         nameTip = tr("Must be begin with lower letters!");
     }
-    else if (username.contains(QRegExp("[A-Z]"))){
+    else if (!mOutput.contains("xc") && username.contains(QRegExp("[A-Z]"))){
         nameTip = tr("Can not contain capital letters!");
     }
     else if (nameTraverse(username))
@@ -446,13 +463,17 @@ void CreateUserDialog::nameLegalityCheck(QString username){
         } else {
             nameTip = tr("Name length must less than %1 letters!").arg(USER_LENGTH);
     } else {
-        nameTip = tr("Can only contain letters,digits,underline!");
+        if (mOutput.contains("xc")) {
+            nameTip = tr("Can only contain .,letters,digits,underline!");
+        } else {
+            nameTip = tr("Can only contain letters,digits,underline!");
+        }
     }
 
-     QStringList homeDir = getHomeUser();
-     if (homeDir.contains(username) && nameTip.isEmpty()) {
-         nameTip = tr("Username's folder exists, change another one");
-     }
+    QStringList homeDir = getHomeUser();
+    if (homeDir.contains(username) && nameTip.isEmpty()) {
+        nameTip = tr("Username's folder exists, change another one");
+    }
 
     ui->tipLabel->setText(nameTip);
 
