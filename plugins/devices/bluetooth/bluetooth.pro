@@ -8,9 +8,9 @@ CONFIG += plugin \
           += c++11 \
           link_pkgconfig
 
-PKGCONFIG     += gsettings-qt
+PKGCONFIG     += gsettings-qt gio-2.0
 
-LIBS += -L /usr/lib/x86_64-linux-gnu -l KF5BluezQt
+LIBS += -L /usr/lib/x86_64-linux-gnur -l KF5BluezQt -lgio-2.0 -lglib-2.0
 
 TARGET = $$qtLibraryTarget(bluetooth)
 DESTDIR = ../..
