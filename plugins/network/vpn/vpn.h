@@ -24,7 +24,7 @@
 #include <QtPlugin>
 
 #include "shell/interface.h"
-#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/addbtn.h>
 #include <ukcc/widgets/imageutil.h>
 
 namespace Ui {
@@ -63,7 +63,7 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
-    HoverWidget * addWgt;
+    AddBtn * mAddBtn;
 
     bool mFirstLoad;
 

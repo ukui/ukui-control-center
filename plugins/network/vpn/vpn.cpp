@@ -79,62 +79,13 @@ bool Vpn::isEnable() const
 }
 
 void Vpn::initComponent(){
-    addWgt = new HoverWidget("");
-    addWgt->setObjectName("addwgt");
-    addWgt->setMinimumSize(QSize(580, 50));
-    addWgt->setMaximumSize(QSize(960, 50));
-    QPalette pal;
-    QBrush brush = pal.highlight();  //获取window的色值
-    QColor highLightColor = brush.color();
-    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
-           .arg(highLightColor.red()*0.8 + 255*0.2)
-           .arg(highLightColor.green()*0.8 + 255*0.2)
-           .arg(highLightColor.blue()*0.8 + 255*0.2);
+    mAddBtn = new AddBtn(pluginWidget);
 
-    addWgt->setStyleSheet(QString("HoverWidget#addwgt{background: palette(button);\
-                                   border-radius: 4px;}\
-                                   HoverWidget:hover:!pressed#addwgt{background: %1;\
-                                   border-radius: 4px;}").arg(stringColor));
-    QHBoxLayout *addLyt = new QHBoxLayout;
-
-    QLabel * iconLabel = new QLabel();
-    //~ contents_path /Vpn/Add vpn connect
-    QLabel * textLabel = new QLabel(tr("Add vpn connect"));
-    QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-    iconLabel->setPixmap(pixgray);
-    iconLabel->setProperty("useIconHighlightEffect", true);
-    iconLabel->setProperty("iconHighlightEffectMode", 1);
-
-    addLyt->addWidget(iconLabel);
-    addLyt->addWidget(textLabel);
-    addLyt->addStretch();
-    addWgt->setLayout(addLyt);
-
-    connect(addWgt, &HoverWidget::widgetClicked, this, [=](QString mname){
+    connect(mAddBtn, &AddBtn::clicked, this, [=]() {
         runExternalApp();
     });
 
-    // 悬浮改变Widget状态
-    connect(addWgt, &HoverWidget::enterWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", false);
-        iconLabel->setProperty("iconHighlightEffectMode", 0);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: white;");
-    });
-
-    // 还原状态
-    connect(addWgt, &HoverWidget::leaveWidget, this, [=](){
-
-        iconLabel->setProperty("useIconHighlightEffect", true);
-        iconLabel->setProperty("iconHighlightEffectMode", 1);
-        QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
-        iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(windowText);");
-    });
-    ui->addLyt->addWidget(addWgt);
-
+    ui->addLyt->addWidget(mAddBtn);
 }
 
 void Vpn::runExternalApp(){

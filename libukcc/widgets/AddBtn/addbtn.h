@@ -7,6 +7,9 @@
 
 #include "libukcc_global.h"
 
+#define THEME_QT_SCHEMA  "org.ukui.style"
+#define MODE_QT_KEY      "style-name"
+
 class LIBUKCC_EXPORT AddBtn : public QPushButton
 {
     Q_OBJECT
