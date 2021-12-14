@@ -50,13 +50,13 @@ void ClickLabel::mousePressEvent(QMouseEvent *event){
 void ClickLabel::paintEvent(QPaintEvent *event)
 {
     QPalette pal;
-    QBrush brush = pal.brightText();  //获取window的色值
-    QColor windowColor = brush.color();
+    QBrush brush = pal.placeholderText();
+    QColor textColor = brush.color();
     QString stringColor = QString("color: rgba(%1,%2,%3,%4)")
-           .arg(windowColor.red())
-           .arg(windowColor.green())
-           .arg(windowColor.blue())
-           .arg(0.35);
+           .arg(textColor.red())
+           .arg(textColor.green())
+           .arg(textColor.blue())
+           .arg(textColor.alphaF());
 
     this->setStyleSheet(stringColor);
 

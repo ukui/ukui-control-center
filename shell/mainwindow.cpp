@@ -46,6 +46,7 @@
 #include <KWindowSystem>
 #include "component/leftwidgetitem.h"
 #include "iconbutton.h"
+#include <ukcc/widgets/lightlabel.h>
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
@@ -607,8 +608,7 @@ void MainWindow::initLeftsideBar(){
 
             QWidget *typeWidget     = new QWidget(menuWidget);
             QHBoxLayout *typeLayout = new QHBoxLayout(typeWidget);
-            QLabel *typeLabel       = new QLabel(typeWidget);
-            typeLabel->setStyleSheet("color: #818181");
+            LightLabel *typeLabel       = new LightLabel(typeWidget);
             if (type != 0) {
                 typeLayout->setContentsMargins(18,20,0,0);
             } else {
