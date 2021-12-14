@@ -71,13 +71,13 @@ extern "C" {
 
 #define KEY_SOUNDS_SCHEMA "org.ukui.sound"
 #define UKUI_SWITCH_SETTING "org.ukui.session"
-#define UKUI_STARTUP_MUSIC_KEY "startup-music"
+#define UKUI_STARTUP_MUSIC_KEY "boot-music"
 #define UKUI_POWEROFF_MUSIC_KEY "poweroff-music"
 #define UKUI_LOGOUT_MUSIC_KEY "logout-music"
 #define UKUI_WAKEUP_MUSIC_KEY "weakup-music"
 
 #define DNS_NOISE_REDUCTION "dns-noise-reduction"
-#define DNS_NOISE_REDUCTION_VOLUME 32768
+#define DNS_NOISE_REDUCTION_VOLUME 65536
 #define EVENT_SOUNDS_KEY "event-sounds"
 #define INPUT_SOUNDS_KEY "input-feedback-sounds"
 #define SOUND_THEME_KEY "theme-name"
@@ -132,6 +132,7 @@ public:
 
     QPixmap drawDarkColoredPixmap(const QPixmap &source);
     QPixmap drawLightColoredPixmap(const QPixmap &source);
+    QPixmap filledSymbolicColoredPixmap(QImage &img, QColor &baseColor);
 
     void inputVolumeDarkThemeImage(int value,bool status);
     void outputVolumeDarkThemeImage(int value,bool status);

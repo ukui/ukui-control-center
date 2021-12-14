@@ -49,7 +49,7 @@ private:
     QFrame *m_pInputLevelWidget;
     QFrame *m_pDnsNoiseReductionWidget;
 
-    QLabel *m_pInputLabel;
+    TitleLabel *m_pInputLabel;
     QLabel *m_pInputDeviceLabel;
     QLabel *m_pIpVolumeLabel;
     QLabel *m_pInputLevelLabel;
