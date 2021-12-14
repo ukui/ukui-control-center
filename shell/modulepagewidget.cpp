@@ -91,8 +91,6 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
 
     QWidget *pluginwidget =  plu->pluginUi();
     pluginwidget->setContentsMargins(40,0,20,40);
-    pluginwidget->setObjectName("widget");
-    pluginwidget->setStyleSheet("QWidget#widget{background  :  palette(window);}");
     ui->scrollArea->setWidget(pluginwidget);
 
     //记录打开历史
