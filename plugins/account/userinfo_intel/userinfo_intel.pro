@@ -4,10 +4,6 @@
 #
 #-------------------------------------------------
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 
 QT       += widgets dbus gui network
 
@@ -19,7 +15,6 @@ DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpam

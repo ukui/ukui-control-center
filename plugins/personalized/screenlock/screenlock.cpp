@@ -21,7 +21,7 @@
 #include "ui_screenlock.h"
 #include "bgfileparse.h"
 #include "pictureunit.h"
-#include "MaskWidget/maskwidget.h"
+#include <ukcc/widgets/maskwidget.h>
 
 #include <QDebug>
 #include <QDir>

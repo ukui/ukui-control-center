@@ -44,9 +44,9 @@
 #include "privacydialog.h"
 
 #include "shell/interface.h"
-#include "Label/titlelabel.h"
-#include "Label/fixlabel.h"
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/fixlabel.h>
+#include <ukcc/widgets/switchbutton.h>
 
 namespace Ui {
 class About;

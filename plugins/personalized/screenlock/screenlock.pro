@@ -5,11 +5,6 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
-include($$PROJECT_COMPONENTSOURCE/maskwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/uslider.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets xml dbus
 
@@ -23,7 +18,6 @@ INSTALLS += target
 
 INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \
-                 $$PROJECT_COMPONENTSOURCE \
 
 LIBS += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 

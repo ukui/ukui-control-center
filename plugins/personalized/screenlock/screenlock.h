@@ -30,9 +30,9 @@
 #include <QtDBus>
 
 #include "shell/interface.h"
-#include "SwitchButton/switchbutton.h"
-#include "FlowLayout/flowlayout.h"
-#include "Uslider/uslider.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/flowlayout.h>
+#include <ukcc/widgets/uslider.h>
 
 #include "shell/utils/mthread.h"
 #include "buildpicunitsworker.h"

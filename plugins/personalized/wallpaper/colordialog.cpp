@@ -20,8 +20,8 @@
 #include "colordialog.h"
 #include "ui_colordialog.h"
 #include "colorsquare.h"
-#include "MaskWidget/maskwidget.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/maskwidget.h>
+#include <ukcc/widgets/closebutton.h>
 #include <QRegExp>
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);

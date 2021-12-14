@@ -33,7 +33,7 @@
 #include <QAbstractButton>
 
 #include "shell/interface.h"
-#include "commonComponent/Uslider/uslider.h"
+#include <ukcc/widgets/uslider.h>
 #include "themewidget.h"
 #include "widgetgroup.h"
 

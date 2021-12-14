@@ -1,7 +1,7 @@
 #ifndef TIMEBTN_H
 #define TIMEBTN_H
 #include <QPushButton>
-#include "Label/fixlabel.h"
+#include <ukcc/widgets/fixlabel.h>
 #include <QGSettings>
 #include <QTimeZone>
 

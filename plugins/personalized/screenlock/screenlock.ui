@@ -513,7 +513,7 @@
   <customwidget>
    <class>TitleLabel</class>
    <extends>QLabel</extends>
-   <header>Label/titlelabel.h</header>
+   <header location="global">/usr/include/ukcc/widgets/titlelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,10 +1,4 @@
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/frame.pri)
-include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
 
 QT       += widgets dbus KXmlGui KGlobalAccel x11extras
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -17,7 +11,6 @@ DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH += \
-               $$PROJECT_COMPONENTSOURCE \
                $$PROJECT_ROOTDIR \
                /usr/include/dconf
 

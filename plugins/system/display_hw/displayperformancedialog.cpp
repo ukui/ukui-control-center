@@ -19,7 +19,7 @@
  */
 #include "displayperformancedialog.h"
 #include "ui_displayperformancedialog.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/closebutton.h>
 
 #include <QFile>
 #include <QDBusReply>

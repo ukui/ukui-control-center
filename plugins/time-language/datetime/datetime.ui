@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>684</width>
-    <height>652</height>
+    <height>653</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1131,19 +1131,19 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>TitleLabel</class>
-   <extends>QLabel</extends>
-   <header>Label/titlelabel.h</header>
-  </customwidget>
-  <customwidget>
    <class>FixLabel</class>
    <extends>QLabel</extends>
-   <header>Label/fixlabel.h</header>
+   <header>/usr/include/ukcc/widgets/fixlabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TitleLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">/usr/include/ukcc/widgets/titlelabel.h</header>
   </customwidget>
   <customwidget>
    <class>FixButton</class>
    <extends>QPushButton</extends>
-   <header>Button/fixbutton.h</header>
+   <header>/usr/include/ukcc/widgets/fixbutton.h</header>
   </customwidget>
   <customwidget>
    <class>DateEdit</class>

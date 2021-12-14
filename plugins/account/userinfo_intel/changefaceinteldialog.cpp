@@ -20,7 +20,7 @@
 #include "changefaceinteldialog.h"
 #include "ui_changefaceinteldialog.h"
 
-#include "FlowLayout/flowlayout.h"
+#include <ukcc/widgets/flowlayout.h>
 #include "elipsemaskwidget.h"
 
 #include <QDebug>

@@ -22,7 +22,7 @@
 #include "ui_creategroupdialog.h"
 #include "userinfo.h"
 #include "changegroupdialog.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/closebutton.h>
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 

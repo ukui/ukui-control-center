@@ -29,10 +29,10 @@
 #include <QPainterPath>
 #include <QDBusInterface>
 #include <QDBusReply>
-#include <FlowLayout/flowlayout.h>
+#include <ukcc/widgets/flowlayout.h>
 #include <QButtonGroup>
 #include <QGSettings/QGSettings>
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/imageutil.h>
 
 #define UKUI_QT_STYLE                      "org.ukui.style"
 #define UKUI_STYLE_KEY                     "style-name"

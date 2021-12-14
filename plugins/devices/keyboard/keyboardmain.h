@@ -12,8 +12,8 @@
 #include <QProcess>
 #include <QDebug>
 
-#include "SwitchButton/switchbutton.h"
-#include "Label/titlelabel.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/titlelabel.h>
 
 
 const QByteArray kKeyboardSchamas = "org.ukui.peripherals-keyboard";

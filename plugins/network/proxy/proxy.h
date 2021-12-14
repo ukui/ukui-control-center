@@ -42,9 +42,9 @@
 #include <QMessageBox>
 
 #include "shell/interface.h"
-#include "SwitchButton/switchbutton.h"
-#include "Label/titlelabel.h"
-#include "HoverWidget/hoverwidget.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/hoverwidget.h>
 
 #define APT_PROXY_SCHEMA              "org.ukui.control-center.apt.proxy"
 #define APT_PROXY_ENABLED            "enabled"

@@ -41,7 +41,7 @@
 #include <polkit-qt5-1/polkitqt1-authority.h>
 
 
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/imageutil.h>
 #include "elipsemaskwidget.h"
 #include "passwdcheckutil.h"
 #include "loginedusers.h"

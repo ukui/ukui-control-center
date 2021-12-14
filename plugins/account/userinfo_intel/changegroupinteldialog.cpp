@@ -21,7 +21,7 @@
 #include "changegroupinteldialog.h"
 #include "ui_changegroupinteldialog.h"
 #include "definegroupitemintel.h"
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/imageutil.h>
 //#include "group_manager_client.h"
 #include "creategroupinteldialog.h"
 

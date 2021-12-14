@@ -20,7 +20,7 @@
 
 #include "addshortcutdialog.h"
 #include "ui_addshortcutdialog.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/closebutton.h>
 #include "realizeshortcutwheel.h"
 #include <QApplication>
 extern "C" {

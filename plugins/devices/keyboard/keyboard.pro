@@ -5,11 +5,6 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets x11extras KWindowSystem xml KGuiAddons KCoreAddons concurrent KConfigCore KConfigGui KI18n
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -21,7 +16,6 @@ DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
                  /usr/include/KF5 \
                  /usr/include/xcb \

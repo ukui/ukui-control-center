@@ -25,8 +25,8 @@
 #include <QtPlugin>
 
 #include "shell/interface.h"
-#include "HoverWidget/hoverwidget.h"
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/imageutil.h>
 #include "shell/utils/mthread.h"
 
 #include <QProcess>
@@ -34,7 +34,7 @@
 #include <QDBusReply>
 #include <QGSettings>
 #include <QListView>
-#include "AddBtn/addbtn.h"
+#include <ukcc/widgets/addbtn.h>
 
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏

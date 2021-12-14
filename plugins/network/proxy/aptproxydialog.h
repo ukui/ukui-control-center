@@ -9,7 +9,7 @@
 #include <QLineEdit>
 #include <QDialog>
 #include "proxy.h"
-#include "Label/fixlabel.h"
+#include <ukcc/widgets/fixlabel.h>
 
 class AptProxyDialog : public QDialog
 {

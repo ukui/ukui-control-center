@@ -36,11 +36,11 @@
 #include <sys/timex.h>
 #include <qmath.h>
 #include <polkit-qt5-1/polkitqt1-authority.h>
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/imageutil.h>
 #include "clock.h"
 #include <QButtonGroup>
 #include <QCalendarWidget>
-#include "Frame/hlineframe.h"
+#include <ukcc/widgets/hlineframe.h>
 #include "customCalendar.h"
 
 const char kTimezoneDomain[] = "installer-timezones";

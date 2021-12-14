@@ -231,8 +231,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>489</width>
-                <height>533</height>
+                <width>526</width>
+                <height>564</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_32">
@@ -802,7 +802,7 @@
   <customwidget>
    <class>CloseButton</class>
    <extends>QPushButton</extends>
-   <header>CloseButton/closebutton.h</header>
+   <header location="global">/usr/include/ukcc/widgets/closebutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -20,7 +20,7 @@
 
 #include "delgroupdialog.h"
 #include "ui_delgroupdialog.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/closebutton.h>
 #include <QPushButton>
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);

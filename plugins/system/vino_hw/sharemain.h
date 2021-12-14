@@ -39,7 +39,7 @@
 #include <QSystemTrayIcon>
 #include <QEvent>
 #include <QGestureEvent>
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/switchbutton.h>
 #include "krd.h"
 
 #if 0

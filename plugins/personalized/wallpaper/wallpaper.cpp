@@ -20,7 +20,7 @@
 #include "wallpaper.h"
 #include "ui_wallpaper.h"
 #include "pictureunit.h"
-#include "MaskWidget/maskwidget.h"
+#include <ukcc/widgets/maskwidget.h>
 
 #include <QDBusReply>
 #include <QDBusInterface>
@@ -29,7 +29,7 @@
 #include <QProcess>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
-#include "AddBtn/addbtn.h"
+#include <ukcc/widgets/addbtn.h>
 
 const QString kylinUrl = "https://www.ubuntukylin.com/wallpaper.html";
 

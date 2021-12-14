@@ -644,12 +644,12 @@
   <customwidget>
    <class>FixLabel</class>
    <extends>QLabel</extends>
-   <header>Label/fixlabel.h</header>
+   <header>/usr/include/ukcc/widgets/fixlabel.h</header>
   </customwidget>
   <customwidget>
    <class>TitleLabel</class>
    <extends>QLabel</extends>
-   <header>Label/titlelabel.h</header>
+   <header>/usr/include/ukcc/widgets/titlelabel.h</header>
   </customwidget>
   <customwidget>
    <class>LightLabel</class>

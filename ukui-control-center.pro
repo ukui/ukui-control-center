@@ -14,7 +14,7 @@ SUBDIRS = \
     group-manager-server \
 #    tastenbrett \
 
-
+LIBS += -lukcc
 TRANSLATIONS += \
     shell/res/i18n/zh_CN.ts \
     shell/res/i18n/tr.ts \

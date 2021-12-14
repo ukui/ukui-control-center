@@ -4,9 +4,6 @@
 #
 #-------------------------------------------------
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/uslider.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets KConfigCore KI18n x11extras concurrent dbus
 
@@ -20,7 +17,6 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 LIBS          += -L$$[QT_INSTALL_LIBS] -lgsettings-qt -lX11 -lXfixes -lXcursor

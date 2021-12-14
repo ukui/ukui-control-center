@@ -18,7 +18,7 @@
  *
  */
 #include "addautoboot.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/closebutton.h>
 
 #include <QDebug>
 #include <QFileInfo>

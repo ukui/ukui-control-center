@@ -11,12 +11,6 @@ CONFIG += plugin
 INCLUDEPATH += ../../..
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/frame.pri)
-include($$PROJECT_COMPONENTSOURCE/addbtn.pri)
 
 TARGET = $$qtLibraryTarget(area)
 DESTDIR = ../..
@@ -24,10 +18,6 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
 
 LIBS += -L$$[QT_INSTALL_DIRS] -lgsettings-qt
-LIBS += -l -lukcc
-
-INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
 
 ##加载gio库和gio-unix库，用于处理时间
 CONFIG        += link_pkgconfig \

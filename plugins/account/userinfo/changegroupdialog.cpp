@@ -21,11 +21,11 @@
 #include "changegroupdialog.h"
 #include "ui_changegroupdialog.h"
 #include "definegroupitem.h"
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/imageutil.h>
 #include "creategroupdialog.h"
 #include "editgroupdialog.h"
 #include "delgroupdialog.h"
-#include "CloseButton/closebutton.h"
+#include <ukcc/widgets/closebutton.h>
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 

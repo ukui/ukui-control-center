@@ -3,10 +3,6 @@ QT       += widgets dbus
 TEMPLATE = lib
 CONFIG   += plugin
 
-include($$PROJECT_COMPONENTSOURCE/comboxframe.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-
 TARGET = $$qtLibraryTarget(power)
 DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
@@ -14,7 +10,6 @@ INSTALLS += target
 
 INCLUDEPATH += \
                $$PROJECT_ROOTDIR \
-               $$PROJECT_COMPONENTSOURCE
 
 LIBS     += -L$$[QT_INSTALL_LIBS] -lgsettings-qt -lupower-glib
 

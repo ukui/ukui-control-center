@@ -32,9 +32,9 @@
 #include "keymap.h"
 #include "addshortcutdialog.h"
 #include "getshortcutworker.h"
-#include "HoverWidget/hoverwidget.h"
-#include "ImageUtil/imageutil.h"
-#include "AddBtn/addbtn.h"
+#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/imageutil.h>
+#include <ukcc/widgets/addbtn.h>
 #include "shell/utils/mthread.h"
 
 QT_BEGIN_NAMESPACE

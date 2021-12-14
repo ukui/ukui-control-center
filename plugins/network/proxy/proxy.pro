@@ -5,9 +5,6 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 
 QT       += widgets dbus
 
@@ -19,7 +16,6 @@ DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 LIBS          += -L$$[QT_INSTALL_LIBS] -lgsettings-qt

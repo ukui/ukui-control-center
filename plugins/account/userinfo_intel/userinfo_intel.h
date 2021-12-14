@@ -48,7 +48,7 @@
 #include "changevalidinteldialog.h"
 #include "deluserinteldialog.h"
 #include "createuserinteldialog.h"
-#include "HoverWidget/hoverwidget.h"
+#include <ukcc/widgets/hoverwidget.h>
 #include "picturetowhite.h"
 #include "messageboxpowerintel.h"
 

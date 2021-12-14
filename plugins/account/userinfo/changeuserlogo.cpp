@@ -26,7 +26,7 @@ extern "C" {
 #include <gio/gio.h>
 }
 
-#include "FlowLayout/flowlayout.h"
+#include <ukcc/widgets/flowlayout.h>
 
 
 #define FACEPATH "/usr/share/ukui/faces/"

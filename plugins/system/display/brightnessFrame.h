@@ -5,10 +5,10 @@
 #include <QLabel>
 #include <QWidget>
 #include <QLabel>
-#include "Uslider/uslider.h"
+#include <ukcc/widgets/uslider.h>
 #include <QMutex>
 #include <QFuture>
-#include <Label/fixlabel.h>
+#include <ukcc/widgets/fixlabel.h>
 
 class BrightnessFrame : public QFrame
 {

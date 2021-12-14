@@ -37,8 +37,8 @@
 #include <QLabel>
 
 #include "shell/interface.h"
-#include "SwitchButton/switchbutton.h"
-#include "Uslider/uslider.h"
+#include <ukcc/widgets/switchbutton.h>
+#include <ukcc/widgets/uslider.h>
 #include "presslabel.h"
 #include "shell/utils/mthread.h"
 

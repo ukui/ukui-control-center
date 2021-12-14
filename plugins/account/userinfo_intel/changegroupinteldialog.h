@@ -27,7 +27,7 @@
 #include <QListWidget>
 #include <QDebug>
 
-#include "HoverWidget/hoverwidget.h"
+#include <ukcc/widgets/hoverwidget.h>
 
 //struct custom_struct
 //{

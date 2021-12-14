@@ -5,9 +5,6 @@
 #-------------------------------------------------
 
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets
 
@@ -23,7 +20,6 @@ DESTDIR = ../..
 target.path = $${PLUGIN_INSTALL_DIRS}
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
 LIBS += -lpolkit-qt5-core-1

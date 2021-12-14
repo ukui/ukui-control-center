@@ -2,10 +2,6 @@ QT       += widgets
 
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 include(../../../env.pri)
-include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
-include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -22,7 +18,6 @@ PKGCONFIG     += gio-2.0 \
 #                 Qt5X
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
                  /usr/include/dconf
 

@@ -26,9 +26,9 @@
 #include "shell/interface.h"
 #include "datadefined.h"
 #include "addautoboot.h"
-#include "Label/titlelabel.h"
-#include "HoverWidget/hoverwidget.h"
-#include "AddBtn/addbtn.h"
+#include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/addbtn.h>
 
 #include <QtDBus>
 #include <QGSettings>

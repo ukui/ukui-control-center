@@ -30,7 +30,7 @@
 #include <QtDBus>
 
 #include "shell/interface.h"
-#include "Uslider/uslider.h"
+#include <ukcc/widgets/uslider.h>
 
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏

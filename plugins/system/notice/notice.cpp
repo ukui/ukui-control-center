@@ -20,7 +20,7 @@
 #include "notice.h"
 #include "appdetail.h"
 #include "realizenotice.h"
-#include "commonComponent/HoverWidget/hoverwidget.h"
+#include <ukcc/widgets/hoverwidget.h>
 #include <QFileDialog>
 #include <QTimer>
 #include <QFileSystemWatcher>

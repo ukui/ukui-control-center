@@ -32,9 +32,9 @@
 #include <QDebug>
 #include <QGSettings/QGSettings>
 #include <QPushButton>
-#include "SwitchButton/switchbutton.h"
+#include <ukcc/widgets/switchbutton.h>
 #include "inputpwddialog.h"
-#include "Label/titlelabel.h"
+#include <ukcc/widgets/titlelabel.h>
 
 const QByteArray kVinoSchemas = "org.gnome.Vino";
 const QString kVinoViewOnlyKey = "view-only";

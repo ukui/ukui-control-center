@@ -24,8 +24,8 @@
 #include <QtPlugin>
 
 #include "shell/interface.h"
-#include "HoverWidget/hoverwidget.h"
-#include "ImageUtil/imageutil.h"
+#include <ukcc/widgets/hoverwidget.h>
+#include <ukcc/widgets/imageutil.h>
 
 namespace Ui {
 class Vpn;

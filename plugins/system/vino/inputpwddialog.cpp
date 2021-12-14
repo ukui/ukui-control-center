@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <QKeyEvent>
 #include "sharemain.h"
-#include "Label/fixlabel.h"
+#include <ukcc/widgets/fixlabel.h>
 
 
 InputPwdDialog::InputPwdDialog(QGSettings *Keygsettiings,QWidget *parent) :

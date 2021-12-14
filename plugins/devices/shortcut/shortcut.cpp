@@ -27,8 +27,8 @@
 
 #include "realizeshortcutwheel.h"
 #include "defineshortcutitem.h"
-#include "Label/fixlabel.h"
-#include "Frame/hlineframe.h"
+#include <ukcc/widgets/fixlabel.h>
+#include <ukcc/widgets/hlineframe.h>
 #include "doubleclicklineedit.h"
 #include <QMenu>
 #include "clickfixlabel.h"
