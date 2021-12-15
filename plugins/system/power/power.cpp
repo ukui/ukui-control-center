@@ -628,6 +628,8 @@ void Power::resetui()
         mDisplayTimeFrame->hide();
     }
 
+    mBatterySaveFrame->hide();
+    line_12->hide();
     //不存在盖子隐藏该项
     if (!isExitsLid) {
         mCloseLidFrame->hide();
@@ -853,9 +855,9 @@ void Power::setupConnect()
        settings->set(LOW_BATTERY_AUTO_SAVE,checked);
     });
 
-    connect(mBatterySaveBtn,&SwitchButton::checkedChanged, [=](bool checked){
-       settings->set(ON_BATTERY_AUTO_SAVE,checked);
-    });
+//    connect(mBatterySaveBtn,&SwitchButton::checkedChanged, [=](bool checked){
+//       settings->set(ON_BATTERY_AUTO_SAVE,checked);
+//    });
 
     connect(mDisplayTimeBtn,&SwitchButton::checkedChanged, [=](bool checked){
        settings->set(DISPLAY_LEFT_TIME_OF_CHARGE_AND_DISCHARGE,checked);
@@ -1007,17 +1009,14 @@ void Power::initCustomPlanStatus()
     mSleepPwdBtn->setChecked(screensettings->get(SLEEP_ACTIVATION_ENABLED).toBool());
     mWakenPwdBtn->setChecked(settings->get(LOCK_BLANK_SCREEN).toBool());
 
-    if (mKeys.contains("lowBatteryAutoSave") && mKeys.contains("onBatteryAutoSave") && mKeys.contains("dispalyLeftTimeOfChargeAndDischarge")) {
+    if (mKeys.contains("lowBatteryAutoSave")  && mKeys.contains("dispalyLeftTimeOfChargeAndDischarge")) {
         mLowSaveBtn->setChecked(settings->get(LOW_BATTERY_AUTO_SAVE).toBool());
-        mBatterySaveBtn->setChecked(settings->get(ON_BATTERY_AUTO_SAVE).toBool());
         mDisplayTimeBtn->setChecked(settings->get(DISPLAY_LEFT_TIME_OF_CHARGE_AND_DISCHARGE).toBool());
     } else {
         mLowSaveFrame->hide();
-        mBatterySaveFrame->hide();
         mDisplayTimeFrame->hide();
         line_10->hide();
         line_11->hide();
-        line_12->hide();
     }
 
     if (m_centerSettings->keys().contains("PowerMode")) {
