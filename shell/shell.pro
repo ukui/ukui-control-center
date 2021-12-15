@@ -97,7 +97,6 @@ SOURCES += \
     utils/devicesmonitor.cpp \
     utils/keyvalueconverter.cpp \
     component/leftwidgetitem.cpp \
-    component/clicklabel.cpp \
     utils/functionselect.cpp \
     component/hoverwidget.cpp \
     qtsingleapplication/qtsingleapplication.cpp \
@@ -126,7 +125,6 @@ HEADERS += \
     ukccabout.h \
     utils/keyvalueconverter.h \
     component/leftwidgetitem.h \
-    component/clicklabel.h \
     utils/functionselect.h \
     component/hoverwidget.h \
     qtsingleapplication/qtsingleapplication_copy.h \
