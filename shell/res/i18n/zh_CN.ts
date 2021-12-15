@@ -2302,7 +2302,7 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="453"/>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="461"/>
         <source>Sure Pwd</source>
-        <translation>确认密码</translation>
+        <translation>确认新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="221"/>
