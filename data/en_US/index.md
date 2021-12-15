@@ -327,7 +327,13 @@ As shown in Fig 46.
 
 ![Fig 46 Notice-big](image/46.png)
 
+### Search
+
+As shown in Fig 47.
+
+![Fig 47 Notice-big](image/search.png)
+
 ### About
 Show the system version, authentication, etc..
 
-![Fig 47 About-big](image/47.png)
+![Fig 48 About-big](image/47.png)
