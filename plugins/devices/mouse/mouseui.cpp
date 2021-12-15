@@ -174,7 +174,9 @@ void MouseUI::setDominantHandFrame()
     dominantHandHLayout->addSpacing(7);
     dominantHandHLayout->addWidget(mDominantHandLabel);
     dominantHandHLayout->addWidget(mDominantHandLeftRadio);
+    dominantHandHLayout->addSpacing(80);
     dominantHandHLayout->addWidget(mDominantHandRightRadio);
+    dominantHandHLayout->addStretch();
 
     mDominantHandFrame->setLayout(dominantHandHLayout);
 }
@@ -342,11 +344,10 @@ void MouseUI::setPointerSizeFrame()
     mPointerSizeRadioGroup->addButton(mPointerSizeLargeRadio);
     pointerSizeHLayout->addSpacing(7);
     pointerSizeHLayout->addWidget(mPointerSizeLabel);
-    pointerSizeHLayout->addStretch();
     pointerSizeHLayout->addWidget(mPointerSizeSmallRadio);
-    pointerSizeHLayout->addStretch();
+    pointerSizeHLayout->addSpacing(50);
     pointerSizeHLayout->addWidget(mPointerSizeMediumRadio);
-    pointerSizeHLayout->addStretch();
+    pointerSizeHLayout->addSpacing(50);
     pointerSizeHLayout->addWidget(mPointerSizeLargeRadio);
     pointerSizeHLayout->addStretch();
 
