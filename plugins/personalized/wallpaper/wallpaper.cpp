@@ -297,9 +297,18 @@ void Wallpaper::setupConnect(){
     });
     //壁纸变动后改变用户属性
     connect(bgsettings, &QGSettings::changed, [=](QString key){
-
         initBgFormStatus();
-
+        if (ui->formComBox->currentIndex() == PICTURE) {
+            QString filename = bgsettings->get(FILENAME).toString();
+            setClickedPic(filename);
+        }
+        if (key == "pictureOptions") {
+            QString option = bgsettings->get(OPTIONS).toString();
+            int index = ui->showModeComboBox->findData(option);
+            ui->showModeComboBox->blockSignals(true);
+            ui->showModeComboBox->setCurrentIndex(index);
+            ui->showModeComboBox->blockSignals(false);
+        }
         //GSettings key picture-filename 这里收到 pictureFilename的返回值
         if (!QString::compare(key, "pictureFilename")){
             QString curPicname = bgsettings->get(key).toString();

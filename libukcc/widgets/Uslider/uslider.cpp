@@ -56,22 +56,25 @@ void Uslider::paintEvent(QPaintEvent *e)
         QRect fontRect = fontMetrics.boundingRect(scaleList.at(i));
         total += fontRect.width();
     }
-    const int interval = (rect.width() - total) / numTicks;
+    const float interval = (rect.width() - 16) / float(numTicks);
 
     if (this->orientation() == Qt::Horizontal) {
         int fontHeight = fontMetrics.height();
-        int tickX = 1;
-        int tickY = rect.height() / 2 + fontHeight + 5;
+        float tickY = rect.height() / 2.0 + fontHeight + 8;
         for (int i = 0; i <= numTicks; i++) {
-            QRect fontRect = fontMetrics.boundingRect(scaleList.at(i));
-
+            float tickX = 8.0 + i * interval;
+            tickX = tickX - fontMetrics.boundingRect(scaleList.at(i)).width() / 2;
             if (i == numTicks) {
-                tickX -= 3;
+                while (tickX + fontMetrics.boundingRect(scaleList.at(i)).width() > this->width()) {
+                    tickX = tickX - 1;
+                }
+            } else if (i == 0){
+                if (tickX < 0) {
+                    tickX = 0;
+                }
             }
-            painter->drawText(QPoint(tickX, tickY),
+            painter->drawText(QPointF(tickX, tickY),
                               this->scaleList.at(i));
-            tickX += fontRect.width();
-            tickX += interval;
         }
     }
     painter->end();

@@ -30,7 +30,7 @@ PictureUnit::PictureUnit()
             .arg(highLightColor.green())
             .arg(highLightColor.blue());
     hoverStyleSheet = QString("border-width: 3px;border-style: solid;border-color: %1;").arg(stringColor);
-    clickedStyleSheet = QString("border-width: 6px;border-style: solid;border-color: %1;").arg(stringColor);;
+    clickedStyleSheet = QString("border-width: 4px;border-style: solid;border-color: %1;").arg(stringColor);;
     setAttribute(Qt::WA_DeleteOnClose);
     setFixedSize(QSize(160, 110));
     setScaledContents(true);

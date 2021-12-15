@@ -21,7 +21,6 @@ include(../env.pri)
 DEFINES += PLUGIN_INSTALL_DIRS='\\"$${PLUGIN_INSTALL_DIRS}\\"'
 
 LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi -ldconf -lkysec -lukui-log4qt -lukcc
-
 DEFINES+=WITHKYSEC KYDEBUG
 
 #LIBS += -L$$[QT_INSTALL_LIBS] -lkylinssoclient

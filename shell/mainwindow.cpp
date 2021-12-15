@@ -46,6 +46,7 @@
 #include <KWindowSystem>
 #include "component/leftwidgetitem.h"
 #include "iconbutton.h"
+#include <ukcc/widgets/lightlabel.h>
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
@@ -114,8 +115,7 @@ void MainWindow::bootOptionsFilter(QString opt) {
 
     if (pluginsObjMap.keys().contains(funcStr)){
         //开始跳转
-        ui->stackedWidget->setCurrentIndex(1);
-        modulepageWidget->switchPage(pluginsObjMap.value(funcStr));
+        functionBtnClicked(pluginsObjMap.value(funcStr));
     }
 }
 
@@ -313,7 +313,9 @@ void MainWindow::initUI() {
 
     // 快捷参数
     if (QApplication::arguments().length() > 2) {
-        bootOptionsFilter(QApplication::arguments().at(2));
+        QTimer::singleShot(2, this, [=](){  //延时保证菜单栏选中插件居中，控件未画出来，无法准确居中
+            bootOptionsFilter(QApplication::arguments().at(2));
+        });
     }
 
     //快捷键
@@ -607,8 +609,7 @@ void MainWindow::initLeftsideBar(){
 
             QWidget *typeWidget     = new QWidget(menuWidget);
             QHBoxLayout *typeLayout = new QHBoxLayout(typeWidget);
-            QLabel *typeLabel       = new QLabel(typeWidget);
-            typeLabel->setStyleSheet("color: #818181");
+            LightLabel *typeLabel       = new LightLabel(typeWidget);
             if (type != 0) {
                 typeLayout->setContentsMargins(18,20,0,0);
             } else {
@@ -968,8 +969,7 @@ void MainWindow::switchPage(QString moduleName, QString jumpMoudle) {
         //开始跳转
         if (modules.keys().contains(moduleName)) {
             if (m_ModuleMap.isEmpty() || m_ModuleMap[jumpMoudle.toLower()].toBool()) {
-                ui->stackedWidget->setCurrentIndex(1);
-                modulepageWidget->switchPage(modules.value(moduleName));
+                functionBtnClicked(modules.value(moduleName));
                 return ;
             }
         }
