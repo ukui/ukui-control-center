@@ -46,5 +46,6 @@ namespace Utils
     bool isWayland();
     bool isCommunity();
     bool isExitBattery();
+    bool isHwCloud();
 }
 #endif // UTILS_H

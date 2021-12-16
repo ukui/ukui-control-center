@@ -553,7 +553,9 @@ void Power::resetui()
         mBatterySaveFrame->hide();
         mDisplayTimeFrame->hide();
     }
-    mSleepFrame->hide();
+    if (Utils::isHwCloud()) {
+        mSleepFrame->hide();
+    }
 }
 
 void Power::initSearText()

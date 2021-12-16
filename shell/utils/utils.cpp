@@ -305,3 +305,16 @@ bool Utils::isExitBattery()
 
     return hasBat;
 }
+
+// 华为云&国开行项目
+bool Utils::isHwCloud()
+{
+    QProcess *process = new QProcess;
+    process->start("dpkg -l | grep passwd");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
+    return mOutput.contains("xc", Qt::CaseInsensitive);
+}
