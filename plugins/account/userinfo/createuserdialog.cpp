@@ -301,6 +301,10 @@ void CreateUserDialog::pwdLegalityCheck(QString pwd){
 }
 
 bool CreateUserDialog::checkCharLegitimacy(QString password){
+    //需要用'在shell解释器中做强引用
+    if (password.contains("'"))
+        return false;
+
     //密码不能包含非标准字符
     foreach (QChar ch, password){
         if (int(ch.toLatin1() <= 0 || int(ch.toLatin1()) > 127)){
