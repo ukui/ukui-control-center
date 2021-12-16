@@ -25,14 +25,14 @@ INCLUDEPATH   +=  \
                  $$PROJECT_ROOTDIR \
 		 /usr/include/opencv4
 
-LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam
+LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam -lopencv_img_hash \
+                                                                            -lopencv_ximgproc -lopencv_imgcodecs -lopencv_imgproc -lopencv_core
 
 ##加载gio库和gio-unix库
 CONFIG        += link_pkgconfig \
                  C++11
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0 \
-		 opencv4 \
                  gsettings-qt
 
 
