@@ -41,6 +41,7 @@
 #include "workerobject.h"
 #include "colordialog.h"
 #include "component/clicklabel.h"
+#include "pictureunit.h"
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -96,6 +97,7 @@ public:
     void showLocalWpDialog();
 
     void showComponent(int index);
+    void setClickedPic(QString fileName);
 private:
     Ui::Wallpaper *ui;
 
@@ -111,6 +113,7 @@ private:
 private:
     FlowLayout * picFlowLayout;
     FlowLayout * colorFlowLayout;
+    PictureUnit *prePicUnit = nullptr;
 
 private:
     const QPixmap loadSvg(const QString &fileName, QString color);
