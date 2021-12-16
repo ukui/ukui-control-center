@@ -5,13 +5,13 @@
 #include <QMouseEvent>
 #include <QPushButton>
 
-class tristateLabel : public QLabel
+class TristateLabel : public QLabel
 {
     Q_OBJECT
 
 public:
-    tristateLabel(const QString &text, QWidget *parent);
-    ~tristateLabel();
+    TristateLabel(const QString &text, QWidget *parent);
+    ~TristateLabel();
 
     QString abridge(QString text); // 简写英文多长的应用名称
     void enterEvent(QEvent *e);

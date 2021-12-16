@@ -203,7 +203,7 @@ void HomePageWidget::initUI() {
 
             QString textName = single.namei18nString;
 
-            tristateLabel *label = new tristateLabel(textName, widget);
+            TristateLabel *label = new TristateLabel(textName, widget);
 
             AllWidth += label->width();
             if (AllWidth > 200) {

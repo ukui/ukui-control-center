@@ -1,17 +1,17 @@
 #include "tristatelabel.h"
 
-tristateLabel::tristateLabel(const QString &text, QWidget *parent)
+TristateLabel::TristateLabel(const QString &text, QWidget *parent)
 {
     setText(abridge(text));
     adjustSize();
 }
 
-tristateLabel::~tristateLabel()
+TristateLabel::~TristateLabel()
 {
 
 }
 
-QString tristateLabel::abridge(QString text)
+QString TristateLabel::abridge(QString text)
 {
     /* 设计要求，部分首页显示插件名和导航显示名不一致*/
     if (text == "时间和日期") {
@@ -23,14 +23,14 @@ QString tristateLabel::abridge(QString text)
     return text;
 }
 
-void tristateLabel::mousePressEvent(QMouseEvent *event)
+void TristateLabel::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {      
         mClicked = true;
     }
 }
 
-void tristateLabel::mouseReleaseEvent(QMouseEvent *event)
+void TristateLabel::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
         mClicked = false;
@@ -38,12 +38,12 @@ void tristateLabel::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
-void tristateLabel::enterEvent(QEvent *e)
+void TristateLabel::enterEvent(QEvent *e)
 {
     Q_UNUSED(e)
     mMoved = true;
 }
-void tristateLabel::leaveEvent(QEvent *e)
+void TristateLabel::leaveEvent(QEvent *e)
 {
     Q_UNUSED(e)
     mMoved = false;
@@ -74,7 +74,7 @@ QColor mixColor(const QColor &c1, const QColor &c2, qreal bias)
     return QColor::fromRgbF(r, g, b, a);
 }
 
-void tristateLabel::paintEvent(QPaintEvent *event)
+void TristateLabel::paintEvent(QPaintEvent *event)
 {
     QPushButton *button = new QPushButton;
     QPalette pal;
