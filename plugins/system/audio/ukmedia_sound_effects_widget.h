@@ -64,13 +64,13 @@ private:
     QFrame *m_pAlertSoundChangedWidget;//提示音滑动条窗口
     UkmediaVolumeSlider  *m_pAlertSoundChangedSlider;
     QLabel *m_pAlertSoundChangedLabel;
-    QLabel *m_pAlertSoundMuteLabel;
-    QLabel *m_pAlertSoundVolumeLabel;
+    UkuiButtonDrawSvg *m_pAlertSoundMuteLabel;
+    UkuiButtonDrawSvg *m_pAlertSoundVolumeLabel;
 
 
     QString qss;
     QStyledItemDelegate *itemDelegate;
-    QLabel *m_pSoundEffectLabel;
+    TitleLabel *m_pSoundEffectLabel;
     QLabel *m_pSoundThemeLabel;
     QLabel *m_pShutdownlabel;
     QLabel *m_pLagoutLabel;

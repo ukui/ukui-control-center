@@ -97,7 +97,7 @@ private:
     QFrame *m_pMasterVolumeWidget;
     QFrame *m_pChannelBalanceWidget;
 
-    QLabel *m_pOutputLabel;
+    TitleLabel *m_pOutputLabel;
     QLabel *m_pOutputDeviceLabel;
     QLabel *m_pOpVolumeLabel;
     QLabel *m_pOpVolumePercentLabel;

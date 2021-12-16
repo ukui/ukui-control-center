@@ -51,7 +51,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pDnsNoiseReductionWidget->setMinimumSize(16777215,60);
 
 
-    m_pInputLabel = new QLabel(this);
+    m_pInputLabel = new TitleLabel(this);
     m_pInputLabel->setText(tr("Input"));
     m_pInputLabel->setStyleSheet("color: palette(windowText);}");
 

@@ -101,6 +101,7 @@ public:
     static void sourceOutputCb(pa_context *, const pa_source_output_info *i, int eol, void *userdata);
     static void clientCb(pa_context *, const pa_client_info *i, int eol, void *userdata);
     static void serverInfoCb(pa_context *, const pa_server_info *i, void *userdata);
+    static void serverInfoIndexCb(pa_context *, const pa_server_info *i, void *userdata);
     static void extStreamRestoreReadCb(pa_context *,const pa_ext_stream_restore_info *i,int eol,void *userdata);
     static void extStreamRestoreSubscribeCb(pa_context *c, void *userdata);
 //    void ext_device_restore_read_cb(pa_context *,const pa_ext_device_restore_info *i,int eol,void *userdata);
@@ -117,6 +118,8 @@ public:
     void removeInputPortMap(int index); //移除指定索引的input port
     void removeCardMap(int index); //移除指定索引的 card
     void removeCardProfileMap(int index); //移除声卡profile map
+    void removeSinkPortMap(int index);
+    void removeSourcePortMap(int index);
     void removeProfileMap();
     bool isExitOutputPort(QString name);
     void removeInputProfile();
@@ -152,6 +155,7 @@ public:
     bool sinkInputMuted; //sink input 静音状态
     float balance; //平衡音量值
     int channel; //通道数
+    int inputChannel;
     QString sinkPortName; //输出设备端口名
     QString sourcePortName; //输入设备端口名
     int defaultOutputCard;
@@ -165,6 +169,9 @@ public:
     QByteArray name;
     QByteArray description;
     uint32_t index, card_index;
+    int peakDetectIndex=0;
+    pa_source_flags  sourceFlags;
+
 
     bool offsetButtonEnabled;
 

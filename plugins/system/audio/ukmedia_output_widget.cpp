@@ -63,7 +63,7 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     m_pOutputSlectWidget->setMinimumSize(550,60);
     m_pOutputSlectWidget->setMaximumSize(16777215,60);
 
-    m_pOutputLabel = new QLabel(this);
+    m_pOutputLabel = new TitleLabel(this);
     m_pOutputLabel->setText(tr("Output"));
     m_pOutputLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 

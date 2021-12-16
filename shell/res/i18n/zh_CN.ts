@@ -6059,7 +6059,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="54"/>
         <source>System Sound</source>
-        <translation>提示音</translation>
+        <translation>系统音效</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="60"/>
@@ -6074,7 +6074,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="65"/>
         <source>Startup Music</source>
-        <translation>开机</translation>
+        <translation>开关机音乐</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="66"/>
