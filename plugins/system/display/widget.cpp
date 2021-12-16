@@ -1242,6 +1242,7 @@ void Widget::save()
     }
 
     const KScreen::ConfigPtr &config = this->currentConfig();
+    qDebug() << Q_FUNC_INFO << "apply the config: " << config->connectedOutputs();
 
     bool atLeastOneEnabledOutput = false;
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
