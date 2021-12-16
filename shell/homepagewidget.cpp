@@ -33,11 +33,11 @@
 #include <QSvgRenderer>
 #include "mainwindow.h"
 #include "utils/keyvalueconverter.h"
-#include "component/clicklabel.h"
 #include "utils/functionselect.h"
 #include "component/hoverwidget.h"
 #include "./utils/utils.h"
 #include <ukcc/widgets/flowlayout.h>
+#include <ukcc/widgets/tristatelabel.h>
 
 #define STYLE_FONT_SCHEMA  "org.ukui.style"
 
@@ -203,7 +203,7 @@ void HomePageWidget::initUI() {
 
             QString textName = single.namei18nString;
 
-            ClickLabel * label = new ClickLabel(textName, widget);
+            TristateLabel *label = new TristateLabel(textName, widget);
 
             AllWidth += label->width();
             if (AllWidth > 200) {
