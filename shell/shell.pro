@@ -22,9 +22,8 @@ include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 DEFINES += PLUGIN_INSTALL_DIRS='\\"$${PLUGIN_INSTALL_DIRS}\\"'
 
 
-LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi
-
-#LIBS += -L$$[QT_INSTALL_LIBS] -lkylinssoclient
+LIBS += -L$$[QT_INSTALL_LIBS] -lX11 -lgsettings-qt -lXi -lkysec -lukui-log4qt
+DEFINES+=WITHKYSEC KYDEBUG
 
 ##加载gio库和gio-unix库，用于处理desktop文件
 CONFIG        += link_pkgconfig \
