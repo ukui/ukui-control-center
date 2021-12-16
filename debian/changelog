@@ -1,10 +1,81 @@
-ukui-control-center (3.0.1-1-70.31) v101; urgency=medium
+ukui-control-center (3.0.1-1-70.25update14) v101; urgency=medium
 
-  * 更新libukui-log4qt-dev版本为1.0.1-8
+  * 提交commit:a4c8831f
+  * bug#96072 控制面板的账户应用，新建的普通用户无法登录，提示密码不正确
+  * task63055设置-用户手册 转跳需求
 
- -- zhoubin <zhoubin@kylinos.cn>  Fri, 08 Oct 2021 14:28:22 +0800
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 16 Dec 2021 14:06:19 +0800
 
-ukui-control-center (3.0.1-1-70.28) v101; urgency=medium
+ukui-control-center (3.0.1-1-70.25update13) v101; urgency=medium
+
+  * 统一输出位置未更改
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 08 Dec 2021 16:43:45 +0800
+
+ukui-control-center (3.0.1-1-70.25update12) v101; urgency=medium
+
+  * 提交commit:提交commit:3b3c7012
+  * 同步到sp1最新的代码，解决切换输出设备控制面板闪退的问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 06 Dec 2021 17:17:25 +0800
+
+ukui-control-center (3.0.1-1-70.25update11) v101; urgency=medium
+
+  * 提交commit:5871b162
+  * bug#94841【前线】【6600】 【麒麟v10-SP1-2107】N卡双屏统一输出模式下刷新率不可调节
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 03 Dec 2021 20:20:33 +0800
+
+ukui-control-center (3.0.1-1-70.25update10.1) v101; urgency=medium
+
+  * icbc定制项目添加3.1网络插件 
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 29 Nov 2021 14:13:24 +0800
+
+ukui-control-center (3.0.1-1-70.25update8) v101; urgency=medium
+
+  * 提交commit:432a2
+  * task#61413屏蔽联想笔记本合盖无操作选项
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 26 Nov 2021 18:12:50 +0800
+
+ukui-control-center (3.0.1-1-70.25update6) v101; urgency=medium
+
+  * 提交commit:bb73ad3e
+  * bug#93125控制面板显示器页面下，双击任务栏右下角小太阳，控制面板界面异常
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 25 Nov 2021 14:56:12 +0800
+
+ukui-control-center (3.0.1-1-70.25update5) v101; urgency=medium
+
+  * 使用是否存在盖子来判断是否为笔记本
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 25 Nov 2021 14:39:38 +0800
+
+ukui-control-center (3.0.1-1-70.25update4) v101; urgency=medium
+
+  * bug#91822 【前线】 【麒麟桌面版V10-SP1-2107】【青松PT620Q】【5664】双屏扩展切换分辨率导致其中一个屏幕丢失
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 23 Nov 2021 16:25:15 +0800
+
+ukui-control-center (3.0.1-1-70.25update3) v101; urgency=medium
+
+  * 提交commit:4756d813
+  * bug# 76356 【设置】【显示器】使用HDMI连接显示器无法调节亮度:同步SP2亮度修改方案
+  * bug#90223搭配景嘉微7201显卡时设置-系统-显示器中无夜间模式选项，搭配AMD520显卡时有夜间模式选项，但是无法控制此功能(修改描述)
+  * bug# 76356 【设置】【显示器】使用HDMI连接显示器无法调节亮度:同步SP2亮度修改方案
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 19 Nov 2021 15:25:27 +0800
+
+ukui-control-center (3.0.1-1-70.25update2) v101; urgency=medium
+
+  * 提交commit:8c36d353
+  * bug#78474未发现触摸板时不显示触摸板模块
+  * bug#87240设置中，桌面选项下多出“显示在托盘上的图标字样
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 10 Nov 2021 10:09:19 +0800
+
+ukui-control-center (3.0.1-1-70.25update) v101; urgency=medium
 
   * 提交commit:68a3bd45
   * bug#84196【前线】【W330-H35A2】系统下无调节色温按钮
@@ -33,18 +104,7 @@ ukui-control-center (3.0.1-1-70.28) v101; urgency=medium
   * bug#68745夜间模式中跟随日出日落设置不生效，目前效果为全天生效
   * bug#68750修改用户名后关于界面"用户名"显示不会更新
   * bug#67933 wlan状态改变刷新投屏界面
-
- -- zhoubin <zhoubin@kylinos.cn>  Thu, 30 Sep 2021 17:27:05 +0800
-
-ukui-control-center (3.0.1-1-70.27) v101; urgency=medium
-
   * 激活更改调用方式
-
- -- zhoubin <zhoubin@kylinos.cn>  Tue, 03 Aug 2021 14:35:29 +0800
-
-ukui-control-center (3.0.1-1-70.26) v101; urgency=medium
-
-  * 提交commit:357b08c
   * bug#66255 控制面板投屏适配英文环境
   * bug#68446屏幕插拔后无法应用显示配置问题
   * bug#关闭第二显示器后打开控制面板显示模块错位
