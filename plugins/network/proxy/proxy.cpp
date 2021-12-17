@@ -225,91 +225,36 @@ void Proxy::initUi(QWidget *widget)
 
     line_2 = setLine(mManualFrame);
 
+
     mHTTPFrame = new QFrame(mManualFrame);
-    mHTTPFrame->setMinimumSize(QSize(550, 0));
-    mHTTPFrame->setMaximumSize(QSize(16777215, 16777215));
-    mHTTPFrame->setFrameShape(QFrame::NoFrame);
+    setFrame_Noframe(mHTTPFrame);
 
-    QVBoxLayout *mHTTPLayout = new QVBoxLayout(mHTTPFrame);
-    mHTTPLayout->setSpacing(0);
-    mHTTPLayout->setContentsMargins(16, 0, 16, 0);
 
-    QFrame *mHTTPFrame_1 = new QFrame(mHTTPFrame);
-    mHTTPFrame_1->setMinimumSize(QSize(550, 60));
-    mHTTPFrame_1->setMaximumSize(QSize(16777215, 60));
-    mHTTPFrame_1->setFrameShape(QFrame::NoFrame);
+//    QVBoxLayout *mHTTPLayout = new QVBoxLayout(mHTTPFrame);
+//    mHTTPLayout->setSpacing(0);
+//    mHTTPLayout->setContentsMargins(16, 0, 16, 0);
 
-    QHBoxLayout *mHTTPLayout_1 = new QHBoxLayout(mHTTPFrame_1);
+//    QFrame *mHTTPFrame_1 = new QFrame(mHTTPFrame);
+//    mHTTPFrame_1->setMinimumSize(QSize(550, 60));
+//    mHTTPFrame_1->setMaximumSize(QSize(16777215, 60));
+//    mHTTPFrame_1->setFrameShape(QFrame::NoFrame);
+
+    QHBoxLayout *mHTTPLayout_1 = new QHBoxLayout(mHTTPFrame);
     mHTTPLayout_1->setSpacing(8);
-    mHTTPLayout_1->setContentsMargins(0, 0, 0, 0);
-    mHTTPLabel = new QLabel(mHTTPFrame_1);
+    mHTTPLayout_1->setContentsMargins(16, 0, 16, 0);
+    mHTTPLabel = new QLabel(mHTTPFrame);
     mHTTPLabel->setFixedWidth(136);
-    mHTTPPortLabel = new QLabel(mHTTPFrame_1);
+    mHTTPPortLabel = new QLabel(mHTTPFrame);
     mHTTPPortLabel->setFixedWidth(100);
     mHTTPPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    mHTTPLineEdit_1 = new QLineEdit(mHTTPFrame_1);
+    mHTTPLineEdit_1 = new QLineEdit(mHTTPFrame);
     mHTTPLineEdit_1->resize(300, 36);
-    mHTTPLineEdit_2 = new QLineEdit(mHTTPFrame_1);
+    mHTTPLineEdit_2 = new QLineEdit(mHTTPFrame);
     mHTTPLineEdit_2->setFixedHeight(36);
     mHTTPLayout_1->addWidget(mHTTPLabel);
     mHTTPLayout_1->addWidget(mHTTPLineEdit_1);
     mHTTPLayout_1->addWidget(mHTTPPortLabel);
     mHTTPLayout_1->addWidget(mHTTPLineEdit_2);
-
-    QFrame *mCertificationFrame = new QFrame(mHTTPFrame);
-    mCertificationFrame->setMinimumSize(QSize(550, 20));
-    mCertificationFrame->setMaximumSize(QSize(16777215, 20));
-    mCertificationFrame->setFrameShape(QFrame::NoFrame);
-    QHBoxLayout *mCertificationLyt = new QHBoxLayout(mCertificationFrame);
-    mCertificationLyt->setContentsMargins(144, 0, 0, 0);
-    mCertificationLyt->setSpacing(8);
-    mCertificationBtn = new QCheckBox(mCertificationFrame);
-    mCertificationBtn->setFixedSize(16,16);
-    mCertificationLabel = new QLabel(mCertificationFrame);
-    mCertificationLabel->setMinimumWidth(200);
-    mCertificationLyt->addWidget(mCertificationBtn,Qt::AlignTop);
-    mCertificationLyt->addWidget(mCertificationLabel);
-    mCertificationLyt->addStretch();
-    mCertificationFrame->hide();
-
-    mCertificationFrame_1 = new QFrame(mHTTPFrame);
-    mCertificationFrame_1->setMinimumSize(QSize(550, 60));
-    mCertificationFrame_1->setMaximumSize(QSize(16777215, 60));
-    mCertificationFrame_1->setFrameShape(QFrame::NoFrame);
-    QHBoxLayout *mCertificationLyt_1 = new QHBoxLayout(mCertificationFrame_1);
-    mCertificationLyt_1->setContentsMargins(144, 0, 0, 0);
-    mCertificationLyt_1->setSpacing(8);
-    mPwdLabel = new QLabel(mCertificationFrame_1);
-    mPwdLabel->setFixedWidth(100);
-    mPwdLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    mPwdLineEdit = new QLineEdit(mCertificationFrame_1);
-    mPwdLineEdit->setFixedHeight(36);
-  //  mPwdLineEdit->setEchoMode(QLineEdit::Password);
-    mCertificationFrame_1->hide();
-
-
-    QFrame *mUserFrame = new QFrame(mCertificationFrame_1);
-    mUserFrame->setMinimumWidth(300);
-    mUserFrame->setFrameShape(QFrame::NoFrame);
-    QHBoxLayout *mUserLyt = new QHBoxLayout(mUserFrame);
-    mUserLyt->setContentsMargins(0, 0, 0, 0);
-    mUserLyt->setSpacing(8);
-    mUserNameLabel = new QLabel(mUserFrame);
- //  mUserNameLabel->setFixedWidth(80);
-    mUserNameLineEdit = new QLineEdit(mUserFrame);
- // mUserNameLineEdit->setMinimumWidth(212);
-    mUserNameLineEdit->setFixedHeight(36);
-    mUserLyt->addWidget(mUserNameLabel);
-    mUserLyt->addWidget(mUserNameLineEdit);
-
-    mCertificationLyt_1->addWidget(mUserFrame);
-    mCertificationLyt_1->addWidget(mPwdLabel);
-    mCertificationLyt_1->addWidget(mPwdLineEdit);
-    mUserFrame->hide();
-
-    mHTTPLayout->addWidget(mHTTPFrame_1);
-    mHTTPLayout->addWidget(mCertificationFrame);
-    mHTTPLayout->addWidget(mCertificationFrame_1);
 
     line_3 = setLine(mManualFrame);
 
@@ -494,9 +439,6 @@ void Proxy::retranslateUi()
     mFTPPortLabel->setText(tr("Port"));
     mSOCKSPortLabel->setText(tr("Port"));
     mIgnoreLabel->setText(tr("List of ignored hosts. more than one entry, please separate with english semicolon(;)"));
-    mCertificationLabel->setText(tr("Enable Authentication"));
-    mUserNameLabel->setText(tr("User Name"));
-    mPwdLabel->setText(tr("Password"));
 
     //~ contents_path /Proxy/Apt Proxy
     mAptProxyLabel->setText(tr("Apt Proxy"));
@@ -621,19 +563,6 @@ void Proxy::setupConnect(){
        }
     });
 
-    connect(mCertificationBtn, &QCheckBox::clicked, this, [=](){
-        bool cerChecked = mCertificationBtn->isChecked();
-        mCertificationFrame_1->setEnabled(cerChecked);
-        httpsettings->set(HTTP_AUTH_KEY, QVariant(cerChecked));
-        if (cerChecked) {
-            mUserNameLineEdit->setText(httpsettings->get(HTTP_AUTH_USER_KEY).toString());
-            mPwdLineEdit->setText(httpsettings->get(HTTP_AUTH_PASSWD_KEY).toString());
-        } else {
-            mUserNameLineEdit->setText("");
-            mPwdLineEdit->setText("");
-        }
-    });
-
     connect(mProxyBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
         if (eBtn == mAutoBtn) {
             mAutoBtn->setChecked(true);
@@ -663,18 +592,6 @@ void Proxy::setupConnect(){
     connect(mFTPLineEdit_2, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
     connect(mSOCKSLineEdit_2, &QLineEdit::textChanged, this, [=](const QString &txt){manualProxyTextChanged(txt);});
 
-    connect(mPwdLineEdit, &QLineEdit::textChanged, this, [=](QString str){
-        if (str != "") {
-            httpsettings->set(HTTP_AUTH_PASSWD_KEY,QVariant(str));
-        }
-    });
-
-    connect(mUserNameLineEdit, &QLineEdit::textChanged, this, [=](QString str){
-        if (str != "") {
-            httpsettings->set(HTTP_AUTH_USER_KEY,QVariant(str));
-        }
-    });
-
     connect(mIgnoreLineEdit, &QTextEdit::textChanged, this, [=](){
         QString text = mIgnoreLineEdit->toPlainText();
         QStringList hostStringList = text.split(";");
@@ -687,7 +604,6 @@ void Proxy::initProxyModeStatus(){
 
     mAutoBtn->blockSignals(true);
     mManualBtn->blockSignals(true);
-    mCertificationBtn->blockSignals(true);
     mAptBtn->blockSignals(true);
 
     if (mode == AUTO){
@@ -699,13 +615,6 @@ void Proxy::initProxyModeStatus(){
         mManualBtn->setChecked(false);
     }
 
-    if (httpsettings->get(HTTP_AUTH_KEY).toBool()) {
-        mUserNameLineEdit->setText(httpsettings->get(HTTP_AUTH_USER_KEY).toString());
-        mPwdLineEdit->setText(httpsettings->get(HTTP_AUTH_PASSWD_KEY).toString());
-    }
-    mCertificationBtn->setChecked(httpsettings->get(HTTP_AUTH_KEY).toBool());
-    mCertificationFrame_1->setEnabled(httpsettings->get(HTTP_AUTH_KEY).toBool());
-
     if (aptsettings->get(APT_PROXY_HOST_KEY).toString().isEmpty()) {
         aptsettings->set(APT_PROXY_ENABLED,false);
     }
@@ -714,7 +623,6 @@ void Proxy::initProxyModeStatus(){
 
     mAutoBtn->blockSignals(false);
     mManualBtn->blockSignals(false);
-    mCertificationBtn->blockSignals(false);
     mAptBtn->blockSignals(false);
 
     _setSensitivity();
