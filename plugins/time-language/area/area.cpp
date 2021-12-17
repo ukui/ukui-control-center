@@ -218,8 +218,6 @@ void Area::initUI() {
         iconLabel->setPixmap(pixgray);
         textLabel->setStyleSheet("color: palette(windowText);");
     });
-
-    ui->addBtnLayout->addWidget(addWgt);
 }
 
 void Area::initLanguage()
