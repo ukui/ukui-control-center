@@ -238,7 +238,7 @@ void MouseControl::setupComponent() {
         settings->set(HAND_KEY, ui->handHabitComBox->currentData().toBool());
     });
 
-     connect(ui->doubleclickHorSlider, &QSlider::sliderReleased, [=] {
+     connect(ui->doubleclickHorSlider, &QSlider::valueChanged, [=] {
         settings->set(DOUBLE_CLICK_KEY, ui->doubleclickHorSlider->value());
         qApp->setDoubleClickInterval(ui->doubleclickHorSlider->value());
      });
@@ -265,7 +265,7 @@ void MouseControl::setupComponent() {
         }
     });
 
-    connect(ui->midHorSlider, &QSlider::sliderReleased, [=] {
+    connect(ui->midHorSlider, &QSlider::valueChanged, [=] {
         settings->set(WHEEL_KEY, ui->midHorSlider->value());
     });
 
@@ -316,7 +316,7 @@ void MouseControl::setupComponent() {
         }
     });
 
-    connect(ui->cursorSpeedSlider, &QSlider::sliderReleased, [=] {
+    connect(ui->cursorSpeedSlider, &QSlider::valueChanged, [=] {
         
         int mValue = ui->cursorSpeedSlider->maximum() - ui->cursorSpeedSlider->value() + ui->cursorSpeedSlider->minimum();
         desktopSettings->set(CURSOR_BLINK_TIME_KEY, mValue);
