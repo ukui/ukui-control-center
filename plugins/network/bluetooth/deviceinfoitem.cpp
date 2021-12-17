@@ -124,7 +124,7 @@ void DeviceInfoItem::MenuSignalDeviceFunction(QAction *action)
         qDebug() << Q_FUNC_INFO << "To :" << _MDev->name() << "Send files" << __LINE__;
         emit devSendFiles(_MDev.data()->address());
     }
-    else if(action->text() == tr("Remove"))
+    else if(action->text() == tr("remove"))
     {
         MsgBox *box = new MsgBox(this,devName);
         connect(box,&MsgBox::accepted,this,[=]{

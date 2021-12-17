@@ -4,17 +4,17 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="97"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="571"/>
+        <location filename="../../../plugins/other/about/about.ui" line="82"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="575"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
         <extra-contents_path>/about/System Summary</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="249"/>
-        <location filename="../../../plugins/other/about/about.ui" line="752"/>
-        <location filename="../../../plugins/other/about/about.ui" line="882"/>
-        <location filename="../../../plugins/other/about/about.ui" line="996"/>
+        <location filename="../../../plugins/other/about/about.ui" line="234"/>
+        <location filename="../../../plugins/other/about/about.ui" line="756"/>
+        <location filename="../../../plugins/other/about/about.ui" line="892"/>
+        <location filename="../../../plugins/other/about/about.ui" line="1006"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23,8 +23,8 @@
         <translation type="vanished">版权所有2009-2020@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="316"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="575"/>
+        <location filename="../../../plugins/other/about/about.ui" line="301"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="579"/>
         <source>Kernel</source>
         <translation>内核</translation>
     </message>
@@ -33,71 +33,71 @@
         <translation type="vanished">2009-2020@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="237"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="574"/>
+        <location filename="../../../plugins/other/about/about.ui" line="222"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="578"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="277"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="579"/>
+        <location filename="../../../plugins/other/about/about.ui" line="262"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="583"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="355"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="576"/>
+        <location filename="../../../plugins/other/about/about.ui" line="340"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="580"/>
         <source>CPU</source>
         <translation>CPU</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="412"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/other/about/about.ui" line="397"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="581"/>
         <source>Memory</source>
         <translation>内存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="465"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="363"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="578"/>
+        <location filename="../../../plugins/other/about/about.ui" line="450"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="367"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="582"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="512"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="581"/>
+        <location filename="../../../plugins/other/about/about.ui" line="497"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="585"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="542"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="582"/>
+        <location filename="../../../plugins/other/about/about.ui" line="527"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="586"/>
         <source>User</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="615"/>
+        <location filename="../../../plugins/other/about/about.ui" line="600"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="645"/>
+        <location filename="../../../plugins/other/about/about.ui" line="630"/>
         <source>Service serial number</source>
         <translation>序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="681"/>
+        <location filename="../../../plugins/other/about/about.ui" line="666"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="733"/>
+        <location filename="../../../plugins/other/about/about.ui" line="718"/>
         <source>Trial version disclaimer</source>
         <translation>试用版免责声明</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.ui" line="891"/>
-        <location filename="../../../plugins/other/about/about.ui" line="1017"/>
+        <location filename="../../../plugins/other/about/about.ui" line="901"/>
+        <location filename="../../../plugins/other/about/about.ui" line="1027"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
@@ -118,12 +118,12 @@
         <translation type="obsolete">二维码已失效，点击刷新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="148"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="152"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation type="unfinished">了解更多 HP用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="82"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="86"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation type="unfinished">微信扫码获得HP专业技术支持</translation>
     </message>
@@ -132,21 +132,21 @@
         <translation type="vanished">Edu OS 用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="96"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="100"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="577"/>
         <source>Support</source>
         <translation>支持</translation>
         <extra-contents_path>/about/Support</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="429"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="433"/>
         <source>Kylin Linux Desktop(EDU) V10</source>
         <translation>银河麒麟桌面操作系统（教育学习版）V10</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="310"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="356"/>
-        <location filename="../../../plugins/other/about/about.cpp" line="365"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="314"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="360"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="369"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -157,12 +157,12 @@
         <extra-contents_path>/about/About &amp; Support</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="91"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="95"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation type="unfinished">查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="93"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="97"/>
         <source>See user manual&gt;&gt;</source>
         <translation type="unfinished">查看用户手册</translation>
     </message>
@@ -171,12 +171,12 @@
         <translation type="obsolete">二维码加载中......</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="535"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="539"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/other/about/about.cpp" line="537"/>
+        <location filename="../../../plugins/other/about/about.cpp" line="541"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -613,7 +613,7 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>BlueToothMain</name>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="80"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="82"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
@@ -624,46 +624,46 @@ you can restore them to ensure the integrity of your system.</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="109"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="111"/>
         <source>Local device :</source>
         <translation>本机设备：</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="131"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="133"/>
         <source>* Nothing entered, please re-enter</source>
         <translation>* 未输入任何内容，请重新输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="132"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="134"/>
         <source>* Up to 30 characters can be entered</source>
         <translation>* 最多可输入30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="154"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="156"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="212"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="214"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="244"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="246"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="264"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="266"/>
         <source>Other Devices</source>
         <translation>蓝牙列表</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="713"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="717"/>
         <source>Bluetooth adapter is not detected!</source>
         <translation>未检测到蓝牙适配器！</translation>
     </message>
@@ -706,25 +706,20 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>BluetoothNameLabel</name>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothnamelabel.cpp" line="37"/>
         <source>Double-click to change the device name</source>
-        <translation>双击修改设备名称</translation>
+        <translation type="vanished">双击修改设备名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothnamelabel.cpp" line="93"/>
-        <location filename="../../../plugins/network/bluetooth/bluetoothnamelabel.cpp" line="187"/>
         <source>Can now be found as &quot;%1&quot;</source>
-        <translation>当前可被发现为“%1”</translation>
+        <translation type="vanished">当前可被发现为“%1”</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothnamelabel.cpp" line="104"/>
         <source>Tip</source>
-        <translation>提示</translation>
+        <translation type="vanished">提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothnamelabel.cpp" line="105"/>
         <source>The length of the device name does not exceed %1 characters !</source>
-        <translation>设备名称长的不能超过%1字符！</translation>
+        <translation type="vanished">设备名称长的不能超过%1字符！</translation>
     </message>
 </context>
 <context>
@@ -1895,17 +1890,17 @@ folder will be deleted!</source>
         <translation type="obsolete">未连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="13"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="16"/>
         <source>Connecting</source>
         <translation>正在连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="14"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="17"/>
         <source>Disconnecting</source>
         <translation>正在断连</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="15"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="18"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
@@ -1914,53 +1909,49 @@ folder will be deleted!</source>
         <translation type="vanished">已配对</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="18"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="21"/>
         <source>Disconnect fail</source>
         <translation>断开失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="17"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="20"/>
         <source>Connect fail</source>
         <translation>连接失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="16"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="19"/>
         <source>Not connected</source>
         <translation>未连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="120"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="430"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="434"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="122"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="410"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="414"/>
         <source>Send files</source>
         <translation>发送文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="125"/>
         <source>Remove</source>
-        <translation>移除</translation>
+        <translation type="vanished">移除</translation>
+    </message>
+    <message>
+        <source>cancel</source>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="127"/>
-        <source>cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="128"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="445"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="449"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="425"/>
+        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="429"/>
         <source>remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="135"/>
         <source>Sure to remove,</source>
-        <translation>确定移除，</translation>
+        <translation type="vanished">确定移除，</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="137"/>
         <source>After removal, the next connection requires matching PIN code!</source>
-        <translation>移除后，下次连接需要重新配对PIN码！</translation>
+        <translation type="vanished">移除后，下次连接需要重新配对PIN码！</translation>
     </message>
 </context>
 <context>
@@ -2330,7 +2321,7 @@ folder will be deleted!</source>
 <context>
     <name>DisplayWidget</name>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="345"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="343"/>
         <source>Screen mirror</source>
         <translation>屏幕镜像</translation>
         <extra-contents_path>/display/Screen mirror</extra-contents_path>
@@ -2340,17 +2331,17 @@ folder will be deleted!</source>
         <translation type="vanished">关闭此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="346"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="344"/>
         <source>Tablet mode only supports mirroring</source>
         <translation>平板模式仅支持镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="348"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="346"/>
         <source>Open this monitor</source>
         <translation>打开此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="349"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="347"/>
         <source>auto light</source>
         <translation>自动调整亮度</translation>
     </message>
@@ -2385,35 +2376,34 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="338"/>
         <source>Display</source>
-        <translation>屏幕</translation>
+        <translation type="vanished">屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="351"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="349"/>
         <source>enable night Mode</source>
         <translation>开启夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="353"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="351"/>
         <source>screen brightness</source>
         <translation>屏幕亮度</translation>
         <extra-contents_path>/display/screen brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="355"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="353"/>
         <source>Night Mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/display/Night Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="357"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="355"/>
         <source>all time</source>
         <translation>全天开启</translation>
         <extra-contents_path>/display/all time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="359"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="357"/>
         <source>color temperature</source>
         <translation>色温</translation>
         <extra-contents_path>/display/color temperature</extra-contents_path>
@@ -2438,17 +2428,12 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="31"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="175"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="168"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="221"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="214"/>
         <source>set as home screen</source>
         <translation>设为主屏</translation>
     </message>
@@ -2477,7 +2462,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="787"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="785"/>
         <source>follow the sunrise and sunset</source>
         <translation>跟随日出日落</translation>
     </message>
@@ -2498,42 +2483,42 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="obsolete">关闭此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="329"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="322"/>
         <source>Open this monitor</source>
         <translation type="unfinished">打开此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="405"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="398"/>
         <source>Screen mirror</source>
         <translation type="unfinished">屏幕镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="428"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="421"/>
         <source>tooltip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="537"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="514"/>
         <source>screen brightness</source>
         <translation type="unfinished">屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="660"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="658"/>
         <source>Night Mode</source>
         <translation type="unfinished">夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="882"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="880"/>
         <source>all time</source>
         <translation type="unfinished">全天生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="1039"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="1043"/>
         <source>colder</source>
         <translation>较冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="1124"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="1131"/>
         <source>warmer</source>
         <translation>较暖</translation>
     </message>
@@ -2550,7 +2535,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="obsolete">至</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="1026"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="1030"/>
         <source>color temperature</source>
         <translation>色温</translation>
     </message>
@@ -3401,7 +3386,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">系统设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="606"/>
+        <location filename="../../mainwindow.cpp" line="617"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
@@ -3410,34 +3395,34 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">最大化/还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="608"/>
+        <location filename="../../mainwindow.cpp" line="619"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="563"/>
+        <location filename="../../mainwindow.cpp" line="565"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="145"/>
+        <location filename="../../mainwindow.cpp" line="147"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="240"/>
-        <location filename="../../mainwindow.cpp" line="567"/>
+        <location filename="../../mainwindow.cpp" line="242"/>
+        <location filename="../../mainwindow.cpp" line="569"/>
         <source>System Settings</source>
         <translation>系统设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="454"/>
+        <location filename="../../mainwindow.cpp" line="456"/>
         <source>Restore</source>
         <translation>还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="457"/>
-        <location filename="../../mainwindow.cpp" line="607"/>
+        <location filename="../../mainwindow.cpp" line="459"/>
+        <location filename="../../mainwindow.cpp" line="618"/>
         <source>Maximize</source>
         <translation>最大化</translation>
     </message>
@@ -3743,29 +3728,52 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="299"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="302"/>
         <source>Lefthand</source>
         <translation>左手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="298"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="301"/>
         <source>Righthand</source>
         <translation>右手</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="307"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="310"/>
         <source>Default(Recommended)</source>
         <translation>默认（推荐）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="308"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="311"/>
         <source>Medium</source>
         <translation>中等</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="309"/>
+        <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="312"/>
         <source>Large</source>
         <translation>较大</translation>
+    </message>
+</context>
+<context>
+    <name>MsgBox</name>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="31"/>
+        <source>Sure to remove %1 ?</source>
+        <translation>您确认要移除 %1 吗 ?</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="53"/>
+        <source>After removal, the next connection requires matching PIN code !</source>
+        <translation>移除此设备后将不再自动连接。如需再次使用此设备，您必须重新连接它 !</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="75"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="83"/>
+        <source>Remove</source>
+        <translation>移除</translation>
     </message>
 </context>
 <context>
@@ -4758,17 +4766,17 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="559"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="588"/>
         <source>blue-crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="562"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="591"/>
         <source>dark-sense</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="565"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="594"/>
         <source>red-glass</source>
         <translation>红玻璃</translation>
     </message>
@@ -4777,13 +4785,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="611"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="640"/>
         <source>classical</source>
         <translation>经典</translation>
         <extra-contents_path>/theme/classical</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="616"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="645"/>
         <source>light</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4792,19 +4800,19 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="614"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="643"/>
         <source>ukui-hp</source>
         <translation>惠普</translation>
         <extra-contents_path>/theme/ukui-hp</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="619"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="648"/>
         <source>basics</source>
         <translation type="unfinished">基础</translation>
         <extra-contents_path>/theme/basics</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="621"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="650"/>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="173"/>
         <source>Unknown</source>
         <translation>未知</translation>
@@ -5016,55 +5024,55 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">体验计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="310"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="319"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="320"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="329"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="329"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="338"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="338"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="347"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="347"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="356"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="357"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="366"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="366"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="375"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="375"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="384"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="384"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="393"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -5151,139 +5159,140 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1567"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1662"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1369"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1463"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="217"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1500"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1576"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1594"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1671"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1163"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1207"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1181"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1211"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1225"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1291"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1196"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1232"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1252"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1312"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1253"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1737"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1333"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1832"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1272"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1352"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1319"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1399"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1335"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1415"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1429"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1385"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1625"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1479"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1720"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1402"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1496"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1421"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1515"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1438"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1532"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1451"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1545"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1464"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1477"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1558"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1571"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1490"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1584"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1527"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1622"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1583"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1678"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1590"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1685"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1597"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1692"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1604"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1699"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1611"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1706"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1618"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1713"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1641"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1736"/>
         <source>Connection failed, attempting reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1661"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1756"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5629,8 +5638,8 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>Theme</name>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="78"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="242"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="84"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="265"/>
         <source>Theme Mode</source>
         <translation>主题模式</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
@@ -5641,13 +5650,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="244"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="267"/>
         <source>Automatic</source>
         <translation>自动</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="248"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="271"/>
         <source>Light color</source>
         <translation>浅色</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
@@ -5661,7 +5670,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">浅色模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="246"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="269"/>
         <source>Dark</source>
         <translation>深色</translation>
         <extra-contents_path>/theme/Theme Mode</extra-contents_path>
@@ -5671,46 +5680,46 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="187"/>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="283"/>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="379"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="193"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="289"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="385"/>
         <source>RadioButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="458"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="250"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="464"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="273"/>
         <source>Icon theme</source>
         <translation>图标主题</translation>
         <extra-contents_path>/theme/Icon theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="528"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="534"/>
         <source>Control theme</source>
         <translation>控件主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="616"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="254"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="622"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="277"/>
         <source>Cursor theme</source>
         <translation>光标主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="702"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="261"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="708"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="284"/>
         <source>Effect setting</source>
         <translation>效果设置</translation>
         <extra-contents_path>/theme/Effect setting</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="786"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="259"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="792"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="282"/>
         <source>Effects mode</source>
         <translation>特效模式</translation>
         <extra-contents_path>/theme/Effects mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="893"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="899"/>
         <source>Reset to default</source>
         <translation type="unfinished">恢复默认</translation>
     </message>
@@ -5954,10 +5963,10 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">加载声音失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2543"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2731"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2816"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2825"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2590"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2763"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2850"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2864"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6133,105 +6142,121 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="71"/>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="96"/>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="100"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="114"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="140"/>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="166"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="247"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="251"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="263"/>
         <source>pa_context_set_sink_volume_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="114"/>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="135"/>
         <source>pa_context_set_source_mute_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="280"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="284"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="140"/>
+        <source>pa_context_set_source_volume_by_index() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="239"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="255"/>
+        <source>pa_context_set_sink_input_mute() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="243"/>
+        <source>pa_context_set_sink_input_volume() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="272"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="276"/>
         <source>pa_context_set_source_output_volume() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="296"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="288"/>
         <source>pa_context_set_source_output_mute() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="308"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="300"/>
         <source>pa_context_set_card_profile_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="322"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="314"/>
         <source>pa_context_set_default_sink() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="336"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="328"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="337"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="787"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="903"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1277"/>
         <source>pa_context_set_default_source() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="350"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="355"/>
         <source>pa_context_set_sink_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="364"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="369"/>
         <source>pa_context_set_source_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="393"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="398"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="397"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="529"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="402"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="543"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="399"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="526"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="404"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="540"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="648"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="670"/>
         <source>Failed to read data from stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="697"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="719"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="698"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="720"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="713"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="735"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="832"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="862"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1129"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1173"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="2032"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="2153"/>
         <source>pa_ext_stream_restore_write() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6386,33 +6411,33 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="obsolete">更换手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="140"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="145"/>
         <source>Change Tel</source>
         <translation type="unfinished">更换手机号</translation>
         <extra-contents_path>/userinfo/Change Tel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="181"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="190"/>
         <source>standard user</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="183"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="192"/>
         <source>administrator</source>
         <translation type="unfinished">本地管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="192"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="201"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="722"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="731"/>
         <source>set pwd</source>
         <translation type="unfinished">设置密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="736"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="745"/>
         <source>Change</source>
         <translation>更换</translation>
     </message>
@@ -6421,33 +6446,33 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="77"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="134"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="82"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="139"/>
         <source>Current User</source>
         <translation>当前用户</translation>
         <extra-contents_path>/userinfo/Current User</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="340"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="145"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1111"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="380"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="152"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1120"/>
         <source>Change pwd</source>
         <translation type="unfinished">修改密码</translation>
         <extra-contents_path>/userinfo/Change pwd</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="295"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="329"/>
         <source>Change phone</source>
         <translation type="unfinished">更换手机号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="168"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="177"/>
         <source>Delete user</source>
         <translation>删除用户</translation>
         <extra-contents_path>/userinfo/Delete user</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="391"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="437"/>
         <source>User group</source>
         <translation>用户组</translation>
     </message>
@@ -6456,7 +6481,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">密码时效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="417"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="469"/>
         <source>Del user</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6465,24 +6490,24 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">自动登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="504"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="559"/>
         <source>system reboot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="559"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="614"/>
         <source>Unclosed apps start after a restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="628"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="137"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.ui" line="683"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="142"/>
         <source>Other Users</source>
         <translation>其他用户</translation>
         <extra-contents_path>/userinfo/Other Users</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="422"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="431"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
     </message>
