@@ -101,7 +101,9 @@ void ChangeUserLogo::loadSystemLogo(){
 }
 
 
-void ChangeUserLogo::initUI(){
+void ChangeUserLogo::initUI()
+{
+    setWindowTitle(tr("User logo"));
 
     culLogoLabel = new QLabel;
     culLogoLabel->setFixedSize(QSize(48, 48));
@@ -135,7 +137,7 @@ void ChangeUserLogo::initUI(){
 
 
     culMoreLogoBtn = new QPushButton;
-    culMoreLogoBtn->setText(tr("Local Logo"));
+    culMoreLogoBtn->setText(tr("Select Local Logo"));
 
     culMoreLogoHorLayout = new QHBoxLayout;
     culMoreLogoHorLayout->setSpacing(0);

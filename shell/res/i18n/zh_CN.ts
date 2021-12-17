@@ -101,27 +101,27 @@
         <translation>试用到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="978"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="979"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="983"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="984"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1119"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1120"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1120"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1121"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1121"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1122"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -134,9 +134,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="898"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="907"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1253"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="899"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="908"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1254"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="517"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="905"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="906"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
@@ -411,8 +411,7 @@
 <context>
     <name>AddBtn</name>
     <message>
-        <location filename="../../../commonComponent/AddBtn/addbtn.cpp" line="21"/>
-        <location filename="../../../libukcc/widgets/AddBtn/addbtn.cpp" line="19"/>
+        <location filename="../../../libukcc/widgets/AddBtn/addbtn.cpp" line="20"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
@@ -622,7 +621,7 @@
     <name>Area</name>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="42"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="43"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -651,7 +650,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="59"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="159"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="160"/>
         <source>Language Format</source>
         <translation>语言格式</translation>
         <extra-contents_path>/Area/Regional Format</extra-contents_path>
@@ -724,7 +723,7 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="555"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="161"/>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="162"/>
         <source>System Language</source>
         <translation>系统语言</translation>
         <extra-contents_path>/Area/system language</extra-contents_path>
@@ -2141,58 +2140,67 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserLogo</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="129"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="131"/>
         <source>System Logos</source>
         <translation>系统头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="138"/>
         <source>Local Logo</source>
-        <translation>本地头像</translation>
+        <translation type="vanished">本地头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="147"/>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="283"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="106"/>
+        <source>User logo</source>
+        <translation>用户头像</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="140"/>
+        <source>Select Local Logo</source>
+        <translation>选择本地图片</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="149"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="285"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="149"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="151"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="278"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="280"/>
         <source>select custom face file</source>
         <translation>选择自定义头像文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="279"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="281"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="280"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="282"/>
         <source>Position: </source>
         <translation>位置：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="281"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="283"/>
         <source>FileName: </source>
         <translation>文件名：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="282"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="284"/>
         <source>FileType: </source>
         <translation>文件类型：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="298"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="300"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="299"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="301"/>
         <source>The avatar is larger than 1M, please choose again</source>
         <translation>警告，头像大于1M请重新选择</translation>
     </message>
@@ -2302,7 +2310,7 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="453"/>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="461"/>
         <source>Sure Pwd</source>
-        <translation>确认密码</translation>
+        <translation>确认新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="221"/>
@@ -6018,88 +6026,88 @@ Please retry or relogin!</source>
         <translation>右键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="193"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="195"/>
         <source>Wheel speed</source>
         <translation>滚轮速度</translation>
         <extra-contents_path>/Mouse/Wheel speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="195"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="258"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="391"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="197"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="260"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="392"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="202"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="265"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="398"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="204"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="267"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="399"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="224"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="226"/>
         <source>Double-click interval time</source>
         <translation>双击间隔时长</translation>
         <extra-contents_path>/Mouse/Double-click interval time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="226"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="228"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="233"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="235"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="256"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="258"/>
         <source>Pointer speed</source>
         <translation>指针速度</translation>
         <extra-contents_path>/Mouse/Pointer speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="288"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="290"/>
         <source>Mouse acceleration</source>
         <translation>鼠标加速</translation>
         <extra-contents_path>/Mouse/Mouse acceleration</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="309"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="311"/>
         <source>Show pointer position when pressing ctrl</source>
         <translation>按Ctrl键时显示指针位置</translation>
         <extra-contents_path>/Mouse/Show pointer position when pressing ctrl</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="331"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="333"/>
         <source>Pointer size</source>
         <translation>指针大小</translation>
         <extra-contents_path>/Mouse/Pointer size</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="333"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="335"/>
         <source>Small(recommend)</source>
         <translation>小（推荐）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="334"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="336"/>
         <source>Medium</source>
         <translation>中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="335"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="337"/>
         <source>Large</source>
         <translation>大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="367"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="368"/>
         <source>Blinking cursor in text area</source>
         <translation>文本区域光标闪烁</translation>
         <extra-contents_path>/Mouse/Blinking cursor in text area</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="389"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="390"/>
         <source>Cursor speed</source>
         <translation>光标速度</translation>
         <extra-contents_path>/Mouse/Cursor speed</extra-contents_path>
@@ -6408,7 +6416,7 @@ Please retry or relogin!</source>
         <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="445"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="444"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="281"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="288"/>
         <source>%1 Hz</source>
@@ -8657,63 +8665,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1027"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1025"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1037"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1035"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1046"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1044"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1055"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1053"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1064"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1062"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1074"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1072"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1083"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1081"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1092"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1090"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1101"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1099"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -10868,27 +10876,27 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="896"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="894"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="864"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="862"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="865"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="863"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="868"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="866"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="869"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="867"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
@@ -10909,12 +10917,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="892"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="890"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="894"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="892"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
@@ -11206,9 +11214,8 @@ E-mail: support@kylinos.cn</source>
         <translation>添加VPN连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vpn/vpn.cpp" line="102"/>
         <source>Add vpn connect</source>
-        <translation>添加VPN连接</translation>
+        <translation type="vanished">添加VPN连接</translation>
         <extra-contents_path>/Vpn/Add vpn connect</extra-contents_path>
     </message>
     <message>
