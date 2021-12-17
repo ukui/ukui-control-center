@@ -23,9 +23,19 @@
 PictureUnit::PictureUnit()
 {
     _filename = "";
+
     setAttribute(Qt::WA_DeleteOnClose);
+    QColor highLightColor = palette().color(QPalette::Highlight);
+    QString stringColor = QString("rgb(%1,%2,%3)")
+            .arg(highLightColor.red())
+            .arg(highLightColor.green())
+            .arg(highLightColor.blue());
+    hoverStyleSheet = QString("border-width:3px;border-style:solid;border-color:%1").arg(stringColor);
+    clickedStyleSheet = QString("border-width:4px;border-style:solid;border-color:%1").arg(stringColor);
+    clickedFlag =  false;
     setFixedSize(QSize(198, 110));
     setScaledContents(true);
+
     MaskWidget * maskWidget = new MaskWidget(this);
     maskWidget->setGeometry(0, 0, this->width(), this->height());
 }
@@ -36,16 +46,45 @@ PictureUnit::~PictureUnit()
         delete dgsettings;
     }
 }
-void PictureUnit::setFilenameText(QString fn){
+void PictureUnit::setFilenameText(QString fn)
+{
     _filename = fn;
 }
 
-QString PictureUnit::filenameText(){
+QString PictureUnit::filenameText()
+{
     return _filename;
 }
 
-void PictureUnit::mousePressEvent(QMouseEvent *e){
-    if (e->button() == Qt::LeftButton)
+void PictureUnit::mousePressEvent(QMouseEvent *e)
+{
+    if (e->button() == Qt::LeftButton) {
         emit clicked(_filename);
-    QLabel::mousePressEvent(e);
+    }
+//    QLabel::mousePressEvent(e);
+}
+
+void PictureUnit::enterEvent(QEvent *event)
+{
+    if (clickedFlag == false) {
+        setFrameShape(QFrame::Box);
+        setStyleSheet(hoverStyleSheet);
+    }
+}
+
+void PictureUnit::leaveEvent(QEvent *event)
+{
+    if (clickedFlag == false) {
+        setStyleSheet("border-width:0px;");
+    }
+}
+
+bool PictureUnit::getClickedFlag()
+{
+    return clickedFlag;
+}
+
+void PictureUnit::changeClickedFlag(bool clicked)
+{
+    clickedFlag = clicked;
 }
