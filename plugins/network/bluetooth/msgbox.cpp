@@ -1,5 +1,8 @@
 #include "msgbox.h"
 
+#include <QFont>
+#include <QFontMetrics>
+
 #define STYLE "org.ukui.style"
 
 MsgBox::MsgBox(QWidget *parent, const QString txt):
@@ -25,7 +28,11 @@ MsgBox::MsgBox(QWidget *parent, const QString txt):
         }
     }
 
-    QString text = QString("Sure to remove %1 ?").arg(devname);
+    QString text = QString(tr("Sure to remove %1 ?")).arg(devname);
+
+    if (QFontMetrics(this->font()).width(text) > 485) {
+        text = QFontMetrics(this->font()).elidedText(text,Qt::ElideMiddle,485);
+    }
 
     QLabel *label = new QLabel(this);
     label->setWordWrap(true);
@@ -42,20 +49,22 @@ MsgBox::MsgBox(QWidget *parent, const QString txt):
     label1->setWordWrap(true);
     label1->setAlignment(Qt::AlignTop);
     label1->resize(390,40);
-    label1->setGeometry(96,108,390,40);
+    label1->setGeometry(96,108,390,QFontMetrics(this->font()).height()*2);
     label1->setText(tr("After removal, the next connection requires matching PIN code !"));
 
     QLabel *icon = new QLabel(this);
     icon->resize(48,48);
     icon->setGeometry(24,73,48,48);
-    icon->setPixmap(QIcon::fromTheme("ukui-dialog-warning").pixmap(48,48));
+    icon->setPixmap(QIcon(":/image/icon-bluetooth/ukui-bluetooth-warning.svg").pixmap(48,48));
 
     closeBtn = new QPushButton(this);
     closeBtn->setGeometry(470,16,30,30);
-    closeBtn->setProperty("isWindowButton", 0x2);
-    closeBtn->setProperty("useIconHighlightEffect", 0x8);
     closeBtn->setIcon(QIcon::fromTheme("application-exit-symbolic"));
-    closeBtn->setStyleSheet("background:white;");
+    closeBtn->setProperty("useIconHighlightEffect", true);
+    closeBtn->setProperty("iconHighlightEffectMode", 1);
+    closeBtn->setFlat(true);
+    closeBtn->setStyleSheet("QPushButton:hover{background:rgba(251,80,80,50%); border-radius: 4px;}"
+                            "QPushButton:pressed{background-color:rgba(251,80,80,80%); border-radius: 4px;}");
     connect(closeBtn,&QPushButton::clicked,this,[=]{
         emit rejected();
         this->close();
