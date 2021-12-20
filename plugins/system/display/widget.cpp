@@ -857,6 +857,9 @@ int Widget::getDDCBrighthess(QString name, QString serialNum)
         if (reply.isValid() && reply.value() >= 0 && reply.value() <= 100) {
             return reply.value();
         }
+        if (serialNum.contains("RE")) {
+            serialNum = serialNum.replace("/RE","");
+        }
         sleep(2);
     }
     return -1;
@@ -974,16 +977,21 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
     if (output->isConnected()) {
         QString name = Utils::outputName(output);
         QString serialNum  = "";
+        QString serialNumT  = "";
         if (output->name().contains("/")) {
             serialNum = output->name().split("/").at(1);
+            serialNumT = serialNum;
         }
         /*考虑到990上的HDMI都是8，VGA都是4，且识别出来的接口是正确的，所以直接写死*/
         if (output->name().contains("HDMI", Qt::CaseInsensitive)) {
-            serialNum = "HDMI";
+            serialNum = QString("HDMI") + QString("/") + serialNum;
         } else if(output->name().contains("VGA", Qt::CaseInsensitive)) {
-            serialNum = "VGA";
+            serialNum = QString("VGA") + QString("/") + serialNum;
         }
 
+        if (lastDelSerial.contains(serialNumT) && serialNumT != "") {
+            serialNum = serialNum + QString("/") + QString("RE");
+        }
         addBrightnessFrame(name, output->isEnabled(),serialNum);
     }
 
@@ -1078,6 +1086,7 @@ void Widget::outputRemoved(int outputId)
     QString name = ui->primaryCombo->itemText(index);
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {
         if (BrightnessFrameV[i]->outputName == name) {
+            lastDelSerial = BrightnessFrameV[i]->serialNum;
             delete BrightnessFrameV[i];
             BrightnessFrameV[i] = nullptr;
             BrightnessFrameV.remove(i);

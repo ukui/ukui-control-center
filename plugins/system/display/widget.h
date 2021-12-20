@@ -252,6 +252,7 @@ private:
     QVector<QString> deleteFrameNameV;  //用二级指针判断null出现问题，只想到这种方式排除段错误
     BrightnessFrame *currentBrightnessFrame;
     bool exitFlag = false;
+    QString lastDelSerial = "";
 
 
 };

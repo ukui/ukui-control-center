@@ -271,6 +271,10 @@ void SysdbusRegister::getBrightnessInfo()
                     mBrightInfo.serialNum  = serial;
                     mBrightInfo.busType    = busType;
                     mBrightInfo.brightness = getDDCBrightness(busType);
+                    if (mBrightInfo.brightness == 0) {//为0时确认一下
+                        sleep(2);
+                        mBrightInfo.brightness = getDDCBrightness(busType);
+                    }
                     brightInfo_V.push_back(mBrightInfo);
                 }
             }
@@ -282,17 +286,28 @@ void SysdbusRegister::getBrightnessInfo()
 
 void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum)
 {
-    if (serialNum == "HDMI") {
-        for (int i = 0; i < brightInfo_V.size(); i++) {
-            if (brightInfo_V[i].busType == "8") {
-                setDDCBrightness(brightness, brightInfo_V[i].busType);
-                brightInfo_V[i].brightness = brightness.toInt();
-                return;
+    if (serialNum.contains("HDMI") || serialNum.contains("VGA")) {
+        if (serialNum.contains("HDMI")) {
+            for (int i = 0; i < brightInfo_V.size(); i++) {
+                if (brightInfo_V[i].busType == "8") {
+                    setDDCBrightness(brightness, brightInfo_V[i].busType);
+                    brightInfo_V[i].brightness = brightness.toInt();
+                    return;
+                }
+            }
+        } else if (serialNum.contains("VGA")) {
+            for (int i = 0; i < brightInfo_V.size(); i++) {
+                if (brightInfo_V[i].busType == "4") {
+                    setDDCBrightness(brightness, brightInfo_V[i].busType);
+                    brightInfo_V[i].brightness = brightness.toInt();
+                    return;
+                }
             }
         }
-    } else if (serialNum == "VGA") {
+        //未能通过8/4匹配成功，根据序列号去匹配
+        QString getSerial = serialNum.split("/").at(1);
         for (int i = 0; i < brightInfo_V.size(); i++) {
-            if (brightInfo_V[i].busType == "4") {
+            if (brightInfo_V[i].serialNum == getSerial) {
                 setDDCBrightness(brightness, brightInfo_V[i].busType);
                 brightInfo_V[i].brightness = brightness.toInt();
                 return;
@@ -311,18 +326,33 @@ void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum
 
 int SysdbusRegister::getDDCBrightnessUkui(QString serialNum)
 {
-    if (serialNum == "HDMI") {
+    if (serialNum.contains("RE")) {
+        brightInfo_V.clear();
+        getBrightnessInfo();
+        return -2;
+    }
+    if (serialNum.contains("HDMI") || serialNum.contains("VGA")) {
+        if (serialNum.contains("HDMI")) {
+            for (int i = 0; i < brightInfo_V.size(); i++) {
+                if (brightInfo_V[i].busType == "8" && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
+                    return brightInfo_V[i].brightness;
+                }
+            }
+        } else if (serialNum.contains("VGA")) {
+            for (int i = 0; i < brightInfo_V.size(); i++) {
+                if (brightInfo_V[i].busType == "4" && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
+                    return brightInfo_V[i].brightness;
+                }
+            }
+        }
+        //未能通过8/4匹配成功，根据序列号去匹配
+        QString getSerial = serialNum.split("/").at(1);
         for (int i = 0; i < brightInfo_V.size(); i++) {
-            if (brightInfo_V[i].busType == "8" && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
+            if (brightInfo_V[i].serialNum == getSerial && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
                 return brightInfo_V[i].brightness;
             }
         }
-    } else if (serialNum == "VGA") {
-        for (int i = 0; i < brightInfo_V.size(); i++) {
-            if (brightInfo_V[i].busType == "4" && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
-                return brightInfo_V[i].brightness;
-            }
-        }
+
     } else {
         for (int i = 0; i < brightInfo_V.size(); i++) {
             if (brightInfo_V[i].serialNum == serialNum && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
