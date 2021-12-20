@@ -1,3 +1,23 @@
+ukui-control-center (3.0.4.2build4) unstable; urgency=medium
+
+  * fix:bug#95553 【用户反馈】【20.04-pro】刷机后首次打开“设置”，选择系统—>电源，将按电源时执行设置为“休眠”，会导致控制面板卡死，且通过终端可以看到控制面板CPU占用100%
+  * 测试亮度调节功能
+
+ -- Allen <zouchang@kylinos.cn>  Thu, 09 Dec 2021 10:15:30 +0800
+
+ukui-control-center (3.0.4.2build2) focal; urgency=medium
+
+  * 适配ddcutil
+  * fix:bug#95153 【控制面板】控制面板中缺少键盘、触摸板、快捷键、声音插件
+
+ -- Allen <zouchang@kylinos.cn>  Thu, 02 Dec 2021 17:15:10 +0800
+
+ukui-control-center (3.0.4.2) focal; urgency=medium
+
+  * New upstream release.
+
+ -- Allen <zouchang@kylinos.cn>  Wed, 01 Dec 2021 16:29:50 +0800
+
 ukui-control-center (3.0.4-2) unstable; urgency=medium
 
   * Add missing depends: libglib2.0-bin.
