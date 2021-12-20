@@ -557,6 +557,12 @@ void UserInfo::initComponent(){
         connect(nopwdSwitchBtn, &SwitchButton::checkedChanged, [=](bool checked){
 
             UserInfomation user = allUserInfoMap.value(g_get_user_name());
+
+            // 免密登录打开状态加载插件时setChecked触发checkedChanged；避免提权认证
+            if (checked && getNoPwdStatus()) {
+                return ;
+            }
+
             //免密登录状态改变
             bool result = authorityLogin();
             if (result == true) { //认证通过
