@@ -422,9 +422,9 @@ void MouseUI::initConnection()
         connect(mDominantRadioGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked),
                 this, &MouseUI::dominantHandSlot);
 
-        connect(mWheelSpeedSlider, &QSlider::sliderReleased, this, &MouseUI::wheelSpeedSlot);
+        connect(mWheelSpeedSlider, &QSlider::valueChanged, this, &MouseUI::wheelSpeedSlot);
 
-        connect(mDoubleClickIntervalSlider, &QSlider::sliderReleased , this, &MouseUI::doubleClickIntervalSlot);
+        connect(mDoubleClickIntervalSlider, &QSlider::valueChanged , this, &MouseUI::doubleClickIntervalSlot);
 
         connect(mPointerSpeedSlider, &QSlider::valueChanged, this, &MouseUI::pointerSpeedSlot);
 
@@ -437,7 +437,7 @@ void MouseUI::initConnection()
 
         connect(mBlinkingCursorOnTextBtn, &SwitchButton::checkedChanged, this, &MouseUI::blinkCursorOnTextSlot);
 
-        connect(mCursorSpeedSlider, &QSlider::sliderReleased, this, &MouseUI::cursorSpeedSlot);
+        connect(mCursorSpeedSlider, &QSlider::valueChanged, this, &MouseUI::cursorSpeedSlot);
 
         gsettingConnection();
     }

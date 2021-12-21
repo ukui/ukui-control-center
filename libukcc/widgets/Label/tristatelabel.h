@@ -20,7 +20,6 @@ public:
 protected:
     void mousePressEvent(QMouseEvent * event);
     void mouseReleaseEvent(QMouseEvent *event);
-    void paintEvent(QPaintEvent *event);
 
 private:
     bool mMoved = false;

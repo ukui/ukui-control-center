@@ -5615,7 +5615,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="375"/>
+        <location filename="../../mainwindow.cpp" line="377"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5624,44 +5624,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="346"/>
-        <location filename="../../mainwindow.cpp" line="395"/>
-        <location filename="../../mainwindow.cpp" line="864"/>
+        <location filename="../../mainwindow.cpp" line="348"/>
+        <location filename="../../mainwindow.cpp" line="397"/>
+        <location filename="../../mainwindow.cpp" line="865"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="404"/>
+        <location filename="../../mainwindow.cpp" line="406"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="405"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="406"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="409"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="470"/>
+        <location filename="../../mainwindow.cpp" line="472"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="472"/>
+        <location filename="../../mainwindow.cpp" line="474"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="474"/>
+        <location filename="../../mainwindow.cpp" line="476"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -6668,9 +6668,9 @@ Please retry or relogin!</source>
         <translation type="vanished">系统%1分钟后进入空闲状态并于%2分钟后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="710"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="702"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="733"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
@@ -6799,68 +6799,68 @@ Please retry or relogin!</source>
         <translation>显示剩余充电时间和剩余使用时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="670"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="672"/>
         <source>General</source>
         <translation>通用</translation>
         <extra-contents_path>/Power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="672"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="674"/>
         <source>Select Powerplan</source>
         <translation>电源计划</translation>
         <extra-contents_path>/Power/Select Powerplan</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="674"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="676"/>
         <source>Battery saving plan</source>
         <translation>电池节能计划</translation>
         <extra-contents_path>/Power/Battery saving plan</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="682"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="741"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="682"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="741"/>
         <source>blank</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="682"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="693"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="741"/>
         <source>suspend</source>
         <translation>睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="686"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="745"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="688"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="693"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="747"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="691"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="693"/>
         <source>interactive</source>
         <translation>询问</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="702"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="733"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="720"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="722"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="727"/>
         <source>Performance Model</source>
         <translation>性能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="733"/>
         <source>20min</source>
         <translation>20分钟</translation>
     </message>
@@ -6869,55 +6869,55 @@ Please retry or relogin!</source>
         <translation type="vanished">10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="710"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="702"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
         <source>15min</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="710"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="702"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="710"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="702"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
         <source>1h</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="710"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="702"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
         <source>2h</source>
         <translation>2小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="700"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="710"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="702"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="733"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="710"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="712"/>
         <source>3h</source>
         <translation>3小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="720"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="722"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="727"/>
         <source>Balance Model</source>
         <translation>平衡模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="720"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="725"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="722"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="727"/>
         <source>Save Model</source>
         <translation>节能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="731"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="733"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
@@ -6926,9 +6926,9 @@ Please retry or relogin!</source>
         <translation type="vanished">3分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="680"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="691"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="739"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="682"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="693"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="741"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
@@ -7783,7 +7783,7 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>Proxy</name>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="479"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="424"/>
         <source>Auto Proxy</source>
         <translation>自动代理</translation>
         <extra-contents_path>/Proxy/Auto Proxy</extra-contents_path>
@@ -7793,13 +7793,13 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">开启自动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="481"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="426"/>
         <source>Auto url</source>
         <translation>配置URL</translation>
         <extra-contents_path>/Proxy/Auto url</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="483"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="428"/>
         <source>Manual Proxy</source>
         <translation>手动代理</translation>
         <extra-contents_path>/Proxy/Manual Proxy</extra-contents_path>
@@ -7809,16 +7809,16 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">开启手动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="485"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="430"/>
         <source>Http Proxy</source>
         <translation>HTTP代理</translation>
         <extra-contents_path>/Proxy/Http Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="492"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="493"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="494"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="495"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="437"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="438"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="439"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="440"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
@@ -7827,93 +7827,90 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="477"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="422"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="487"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="432"/>
         <source>Https Proxy</source>
         <translation>HTTPS代理</translation>
         <extra-contents_path>/Proxy/Https Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="489"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="434"/>
         <source>Ftp Proxy</source>
         <translation>FTP代理</translation>
         <extra-contents_path>/Proxy/Ftp Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="491"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="436"/>
         <source>Socks Proxy</source>
         <translation>SOCKS代理</translation>
         <extra-contents_path>/Proxy/Socks Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="496"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="441"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
         <translation>忽略的主机列表，请使用英文分号（;）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="497"/>
         <source>Enable Authentication</source>
-        <translation>启用认证</translation>
+        <translation type="vanished">启用认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="498"/>
         <source>User Name</source>
-        <translation>用户名</translation>
+        <translation type="vanished">用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="499"/>
         <source>Password</source>
-        <translation>密码</translation>
+        <translation type="vanished">密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="502"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="444"/>
         <source>Apt Proxy</source>
         <translation>APT代理</translation>
         <extra-contents_path>/Proxy/Apt Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="503"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="445"/>
         <source>Open</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="504"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="446"/>
         <source>Server Address : </source>
         <translation>服务器地址：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="505"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="447"/>
         <source>Port : </source>
         <translation>端口：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="506"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="448"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="603"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="545"/>
         <source>The apt proxy  has been turned off and needs to be restarted to take effect</source>
         <translation>apt代理功能已关闭 需重启后生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="888"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="796"/>
         <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
         <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="605"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="890"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="547"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="798"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="604"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="889"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="546"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="797"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -8928,7 +8925,7 @@ E-mail: support@kylinos.cn</source>
         <translation>2h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="459"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="466"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
@@ -8937,32 +8934,32 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="501"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="508"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="502"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="509"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="503"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="510"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="504"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="511"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="505"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="512"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="506"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="513"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -11209,9 +11206,8 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>Vpn</name>
     <message>
-        <location filename="../../../plugins/network/vpn/vpn.ui" line="53"/>
         <source>Add Vpn Connect</source>
-        <translation>添加VPN连接</translation>
+        <translation type="vanished">添加VPN连接</translation>
     </message>
     <message>
         <source>Add vpn connect</source>
@@ -11225,6 +11221,11 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/network/vpn/vpn.cpp" line="28"/>
         <source>Vpn</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vpn/vpn.ui" line="53"/>
+        <source>VPN</source>
         <translation>VPN</translation>
     </message>
 </context>
@@ -11347,7 +11348,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="482"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="491"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
@@ -11356,38 +11357,38 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="522"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="564"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="531"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="573"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="523"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="565"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="532"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="574"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="524"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="566"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="533"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="575"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="525"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="567"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="534"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="576"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="526"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="568"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="535"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="577"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="527"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="569"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>

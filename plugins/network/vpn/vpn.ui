@@ -50,7 +50,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Add Vpn Connect</string>
+      <string>VPN</string>
      </property>
     </widget>
    </item>
