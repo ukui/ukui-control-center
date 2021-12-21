@@ -312,7 +312,12 @@ void Wallpaper::setupConnect(){
         //GSettings key picture-filename 这里收到 pictureFilename的返回值
         if (!QString::compare(key, "pictureFilename")){
             QString curPicname = bgsettings->get(key).toString();
-
+            if (curPicname == "") {
+                if (prePicUnit != nullptr) {
+                    prePicUnit->changeClickedFlag(false);
+                    prePicUnit->setStyleSheet("border-width: 0px;");
+                }
+            }
             QDBusInterface * interface = new QDBusInterface("org.freedesktop.Accounts",
                                              "/org/freedesktop/Accounts",
                                              "org.freedesktop.Accounts",

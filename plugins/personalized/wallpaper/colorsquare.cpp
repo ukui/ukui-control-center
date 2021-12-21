@@ -148,6 +148,7 @@ void ColorSquare::mousePressEvent(QMouseEvent *ev)
     if(ev->buttons() & Qt::LeftButton)
     {
         mouseStatus = DragSquare;
+        this->setFocus();
     }
 }
 

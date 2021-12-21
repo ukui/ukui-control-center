@@ -240,6 +240,7 @@ void ColorDialog::signalsBind()
     connect(colorSquare,&ColorSquare::colorSelected,this,&ColorDialog::updateWidgetsSlot);
     connect(this,&ColorDialog::checkedChanged,colorSquare,&ColorSquare::setCheckedColorSlot);
 
+    ui->colorLineEdit->setText("#000000");
     connect(ui->colorLineEdit,&QLineEdit::textChanged,this,[=](){
         QColor mcolor;
         mcolor.setNamedColor(ui->colorLineEdit->text());
@@ -354,9 +355,11 @@ void ColorDialog::updateWidgetsSlot()
     sliderVal->setLastColor(QColor::fromHsvF(colorSquare->hue(),colorSquare->saturation(),1));
 
     ui->colorPreview->setColor(col);
-    ui->colorLineEdit->blockSignals(true);
-    ui->colorLineEdit->setText(col.name().toUpper());
-    ui->colorLineEdit->blockSignals(false);
+    if (!ui->colorLineEdit->hasFocus()) {
+        ui->colorLineEdit->blockSignals(true);
+        ui->colorLineEdit->setText(col.name().toUpper());
+        ui->colorLineEdit->blockSignals(false);
+    }
 //    QPalette label_palette;
 //    label_palette.setColor(QPalette::Background, col);
 //    ui->label->setAutoFillBackground(true);
@@ -390,4 +393,12 @@ void ColorDialog::SetVerticalSlider()
 
     connect(gradientSlider, SIGNAL(valueChanged(int)), sliderHue, SLOT(setValue(int)));
     emit checkedChanged('H');
+}
+void ColorDialog::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return ) { //判断是否是回车键按下
+        emit ui->okBtn->click();
+    } else if (event->key() == Qt::Key_Escape) {
+        emit ui->cancelBtn->click();
+    }
 }

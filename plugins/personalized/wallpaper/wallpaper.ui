@@ -343,7 +343,7 @@
                <property name="maximumSize">
                 <size>
                  <width>16777215</width>
-                 <height>30</height>
+                 <height>16777215</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -600,7 +600,7 @@
   <customwidget>
    <class>TitleLabel</class>
    <extends>QLabel</extends>
-   <header location="global">/usr/include/ukcc/widgets/titlelabel.h</header>
+   <header>/usr/include/ukcc/widgets/titlelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
