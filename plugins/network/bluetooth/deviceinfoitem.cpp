@@ -562,7 +562,7 @@ QPixmap DeviceInfoItem::getDevTypeIcon()
     if (_MDev) {
         switch (_MDev.data()->type()) {
         case BluezQt::Device::Phone:
-            iconName = "phone";
+            iconName = "phone-symbolic";
             break;
         case BluezQt::Device::Computer:
             iconName = "computer-symbolic";

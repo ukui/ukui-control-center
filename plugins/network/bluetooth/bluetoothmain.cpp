@@ -37,6 +37,8 @@ BlueToothMain::BlueToothMain(QWidget *parent)
             palette.setBrush(QPalette::Background,QBrush(QColor("#272729")));
             palette.setBrush(QPalette::Text,QBrush(QColor(Qt::black)));
         } else {
+            _themeIsBlack = false;
+
             palette.setBrush(QPalette::Background,QBrush(QColor("#F6F6F6")));
             palette.setBrush(QPalette::Text,QBrush(QColor(Qt::white)));
         }
@@ -76,38 +78,181 @@ void BlueToothMain::InitBluetoothManager()
 
 }
 
+
+bool BlueToothMain::whetherToAddCurrentInterface(BluezQt::DevicePtr device)
+{
+    switch (discoverDevFlag) {
+    case DevTypeShow::All:
+        return true;
+    case DevTypeShow::Audio:
+        if (device.data()->type() == BluezQt::Device::Type::Headset ||
+            device.data()->type() == BluezQt::Device::Type::Headphones ||
+            device.data()->type() == BluezQt::Device::Type::AudioVideo) {
+            return true;
+        } else {
+            return false;
+        }
+        break;
+    case DevTypeShow::Peripherals:
+        if (device.data()->type() == BluezQt::Device::Type::Mouse ||
+            device.data()->type() == BluezQt::Device::Type::Keyboard) {
+            return true;
+        } else {
+            return false;
+        }
+        break;
+    case DevTypeShow::PC:
+        if (device.data()->type() == BluezQt::Device::Type::Computer) {
+            return true;
+        } else {
+            return false;
+        }
+        break;
+    case DevTypeShow::Phone:
+        if (device.data()->type() == BluezQt::Device::Type::Phone) {
+            return true;
+        } else {
+            return false;
+        }
+        break;
+    default:
+        if (device.data()->type() == BluezQt::Device::Type::Headset ||
+            device.data()->type() == BluezQt::Device::Type::Headphones ||
+            device.data()->type() == BluezQt::Device::Type::AudioVideo ||
+            device.data()->type() == BluezQt::Device::Type::Phone ||
+            device.data()->type() == BluezQt::Device::Type::Mouse ||
+            device.data()->type() == BluezQt::Device::Type::Keyboard ||
+            device.data()->type() == BluezQt::Device::Type::Computer) {
+            return false;
+        }
+        return true;
+    }
+}
+
+void BlueToothMain::changeListOfDiscoveredDevices(int index)
+{
+    //qDebug() << Q_FUNC_INFO << index << m_discovery_device_address_all_list;
+    qDebug() << Q_FUNC_INFO << index << __LINE__;
+    discoverDevFlag = DevTypeShow(index);
+
+    //清空列表数据
+    QLayoutItem *child;
+    while ((child = device_list_layout->takeAt(0)) != 0)
+    {
+
+        if(child->widget())
+        {
+            child->widget()->setParent(NULL);
+        }
+        delete child;
+        child = nullptr;
+    }
+    addDiscoverDevListByFlag(discoverDevFlag);
+}
+
+void BlueToothMain::addDiscoverDevListByFlag(BlueToothMain::DevTypeShow flag)
+{
+    qDebug() << Q_FUNC_INFO << flag << last_discovery_device_address;
+    for (QString devStr : last_discovery_device_address)
+    {
+        qDebug() << Q_FUNC_INFO << devStr << __LINE__;
+        BluezQt::DevicePtr device = m_localDevice.data()->deviceForAddress(devStr);
+        if (device == nullptr)
+        {
+            qDebug() << Q_FUNC_INFO << "device is not e!" << __LINE__;
+            continue;
+        }
+        switch (flag) {
+        case DevTypeShow::All:
+            addOneBluetoothDeviceItemUi(device);
+            break;
+        case DevTypeShow::Audio:
+            if (device.data()->type() == BluezQt::Device::Type::Headset ||
+                device.data()->type() == BluezQt::Device::Type::Headphones ||
+                device.data()->type() == BluezQt::Device::Type::AudioVideo) {
+                addOneBluetoothDeviceItemUi(device);
+            }
+            break;
+        case DevTypeShow::Peripherals:
+            if (device.data()->type() == BluezQt::Device::Type::Mouse ||
+                device.data()->type() == BluezQt::Device::Type::Keyboard) {
+                addOneBluetoothDeviceItemUi(device);
+            }
+            break;
+        case DevTypeShow::PC:
+            if (device.data()->type() == BluezQt::Device::Type::Computer) {
+                addOneBluetoothDeviceItemUi(device);
+            }
+            break;
+        case DevTypeShow::Phone:
+            if (device.data()->type() == BluezQt::Device::Type::Phone) {
+                addOneBluetoothDeviceItemUi(device);
+            }
+            break;
+        case DevTypeShow::Other:
+            if (device.data()->type() == BluezQt::Device::Type::Headset ||
+                device.data()->type() == BluezQt::Device::Type::Headphones ||
+                device.data()->type() == BluezQt::Device::Type::AudioVideo ||
+                device.data()->type() == BluezQt::Device::Type::Phone ||
+                device.data()->type() == BluezQt::Device::Type::Mouse ||
+                device.data()->type() == BluezQt::Device::Type::Keyboard ||
+                device.data()->type() == BluezQt::Device::Type::Computer)
+                break;
+            else
+                addOneBluetoothDeviceItemUi(device);
+            break;
+        default:
+            addOneBluetoothDeviceItemUi(device);
+            break;
+        }
+    }
+}
+
 void BlueToothMain::InitMainTopUI()
 {
     //~ contents_path /bluetooth/Bluetooth
     QLabel *label_1 = new QLabel(tr("Bluetooth"),frame_top);
-    label_1->setFixedSize(100,25);
+    label_1->setFixedSize(120,25);
     label_1->setStyleSheet("QLabel{\
                            font-size: 18px;\
                            font-weight: 500;\
                            line-height: 25px;}");
-    label_1->setContentsMargins(16,0,0,0);
+    label_1->setContentsMargins(32,0,0,0);
+    label_1->setEnabled(false);
+
     QVBoxLayout *top_layout = new QVBoxLayout();
     top_layout->setSpacing(8);
     top_layout->setContentsMargins(0,0,0,0);
     top_layout->addWidget(label_1);
 
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout->setSpacing(2);
-    layout->setContentsMargins(0,0,0,0);
-    top_layout->addLayout(layout);
+    QFrame *top_frame = new QFrame(frame_top);
+    top_frame->setMinimumWidth(582);
+    top_frame->setFrameShape(QFrame::Shape::Box);
+    top_layout->addWidget(top_frame);
 
-    QFrame *frame_1 = new QFrame(frame_top);
+    QVBoxLayout *layout = new QVBoxLayout(top_frame);
+    layout->setSpacing(2);
+    layout->setContentsMargins(16,0,0,0);
+    //top_layout->addLayout(layout);
+
+    QFrame *frame_1 = new QFrame(top_frame);
     frame_1->setMinimumWidth(582);
     frame_1->setFrameShape(QFrame::Shape::Box);
     frame_1->setFixedHeight(50);
     frame_1->setAutoFillBackground(true);
     layout->addWidget(frame_1);
 
+    QFrame *line_frame1 = new QFrame(top_frame);
+    line_frame1->setFixedHeight(1);
+    line_frame1->setMinimumWidth(582);
+    line_frame1->setFrameStyle(QFrame::HLine);
+    layout->addWidget(line_frame1);
+
     QHBoxLayout *frame_1_layout = new QHBoxLayout(frame_1);
     frame_1_layout->setSpacing(10);
     frame_1_layout->setContentsMargins(16,0,16,0);
 
-    //~ contents_path /bluetooth/Turn on Bluetooth
+    //~ contents_path /bluetooth/Local device
     label_2 = new QLabel(tr("Local device :"),frame_1);
     label_2->setStyleSheet("QLabel{\
                            width: 56px;\
@@ -121,7 +266,7 @@ void BlueToothMain::InitMainTopUI()
 //    connect(bluetooth_name,&BluetoothNameLabel::send_adapter_name,this,&BlueToothMain::change_adapter_name);
 //    connect(this,&BlueToothMain::adapter_name_changed,bluetooth_name,&BluetoothNameLabel::set_label_text);
 //    frame_1_layout->addWidget(bluetooth_name);
-    bluetooth_name = new CustomizeNameLabel(frame_top);
+    bluetooth_name = new CustomizeNameLabel(frame_1);
     bluetooth_name->setFixedSize(420,40);
     connect(bluetooth_name,&CustomizeNameLabel::setTipText,this,&BlueToothMain::setTipTextSlot);
     connect(bluetooth_name,&CustomizeNameLabel::sendAdapterName,this,&BlueToothMain::change_adapter_name);
@@ -132,7 +277,7 @@ void BlueToothMain::InitMainTopUI()
 
     _tip1 = tr("* Nothing entered, please re-enter");
     _tip2 = tr("* Up to 30 characters can be entered");
-    tipTextLabel = new QLabel(frame_top);
+    tipTextLabel = new QLabel(top_frame);
     tipTextLabel->resize(300,40);
 //    tipTextLabel->setText(_tip2);
     frame_1_layout->addWidget(tipTextLabel);
@@ -141,13 +286,22 @@ void BlueToothMain::InitMainTopUI()
 
     frame_1_layout->addWidget(open_bluetooth);
 
+    line_frame2 = new QFrame(top_frame);
+    line_frame2->setFixedHeight(1);
+    line_frame2->setMinimumWidth(582);
+    line_frame2->setFrameStyle(QFrame::HLine);
+
     frame_2 = new QFrame(frame_top);
     frame_2->setMinimumWidth(582);
     frame_2->setFrameShape(QFrame::Shape::Box);
     frame_2->setFixedHeight(50);
-    if(adapter_address_list.size() <= 1)
-        frame_2->setVisible(false);
     layout->addWidget(frame_2);
+    layout->addWidget(line_frame2);
+    if(adapter_address_list.size() <= 1)
+    {
+        frame_2->setVisible(false);
+        line_frame2->setVisible(false);
+    }
 
     QHBoxLayout *frame_2_layout = new QHBoxLayout(frame_2);
     frame_2_layout->setSpacing(10);
@@ -238,9 +392,10 @@ void BlueToothMain::InitMainMiddleUI()
     middle_layout->setSpacing(8);
     middle_layout->setContentsMargins(0,0,0,0);
 
-    paired_dev_layout = new QVBoxLayout();
-    paired_dev_layout->setSpacing(2);
-    paired_dev_layout->setContentsMargins(0,0,0,0);
+
+    QHBoxLayout *label_layout = new QHBoxLayout();
+    label_layout->setSpacing(0);
+    label_layout->setContentsMargins(16,0,0,0);
 
     //~ contents_path /bluetooth/My Devices
     QLabel *middle_label = new QLabel(tr("My Devices"),frame_middle);
@@ -250,8 +405,21 @@ void BlueToothMain::InitMainMiddleUI()
                                 font-weight: 500;\
                                 line-height: 25px;}");
     middle_label->setContentsMargins(16,0,0,0);
-    middle_layout->addWidget(middle_label,Qt::AlignTop);
-    middle_layout->addLayout(paired_dev_layout,Qt::AlignTop);
+    label_layout->addWidget(middle_label);
+    middle_label->setEnabled(false);
+
+    //QFrame *mDev_frame = new QFrame(frame_middle);
+    mDev_frame = new QFrame(frame_middle);
+    mDev_frame->setObjectName("mDev_frame");
+    mDev_frame->setMinimumWidth(582);
+    mDev_frame->setFrameShape(QFrame::Shape::Box);
+
+    paired_dev_layout = new QVBoxLayout(mDev_frame);
+    paired_dev_layout->setSpacing(2);
+    paired_dev_layout->setContentsMargins(0,0,0,0);
+
+    middle_layout->addLayout(label_layout,Qt::AlignTop);
+    middle_layout->addWidget(mDev_frame,Qt::AlignTop);
 
     frame_middle->setLayout(middle_layout);
 }
@@ -260,7 +428,7 @@ void BlueToothMain::InitMainbottomUI()
 {
     QHBoxLayout *title_layout = new QHBoxLayout();
     title_layout->setSpacing(10);
-    title_layout->setContentsMargins(0,0,10,0);
+    title_layout->setContentsMargins(16,0,16,0);
 
     //~ contents_path /bluetooth/Other Devices
     QLabel *label_1 = new QLabel(tr("Other Devices"),frame_bottom);
@@ -271,6 +439,7 @@ void BlueToothMain::InitMainbottomUI()
                           font-weight: 500;\
                           line-height: 25px;}");
     label_1->setContentsMargins(16,0,0,0);
+    label_1->setEnabled(false);
     loadLabel = new QLabel(frame_bottom);
     loadLabel->setFixedSize(18,18);
 
@@ -358,12 +527,32 @@ void BlueToothMain::InitMainbottomUI()
     title_layout->addWidget(loadLabel);
     title_layout->addStretch();
 
+    cacheDevTypeList = new QComboBox(frame_bottom);
+    cacheDevTypeList->clear();
+    cacheDevTypeList->setMinimumWidth(120);
+    QStringList devStrList;
+    devStrList << tr("All");
+    devStrList << tr("Audio");
+    devStrList << tr("Peripherals");
+    devStrList << tr("PC");
+    devStrList << tr("Phone");
+    devStrList << tr("Other");
+
+    cacheDevTypeList->addItems(devStrList);
+
+    connect(cacheDevTypeList,SIGNAL(currentIndexChanged(int)),this,SLOT(changeListOfDiscoveredDevices(int)));
+    title_layout->addWidget(cacheDevTypeList);
+
     QVBoxLayout *bottom_layout = new QVBoxLayout(frame_bottom);
     bottom_layout->setSpacing(8);
     bottom_layout->setContentsMargins(0,0,0,0);
     bottom_layout->addLayout(title_layout);
 
-    device_list = new QWidget();
+    device_list = new QFrame();
+    device_list->setObjectName("device_list");
+    device_list->setMinimumWidth(582);
+    device_list->setFrameShape(QFrame::Shape::Box);
+    device_list->setVisible(false);
 
     bottom_layout->addWidget(device_list);
 
@@ -421,8 +610,8 @@ void BlueToothMain::adapterChanged()
 
         if((adapter_address_list.size() == adapter_name_list.size())&&(adapter_name_list.size() == 1)){
             frame_2->setVisible(false);
-            frame_top->setMinimumSize(582,135);
-            frame_top->setMaximumSize(1800,135);
+            frame_top->setMinimumSize(582,157);
+            frame_top->setMaximumSize(1800,157);
         }
         qDebug() << Q_FUNC_INFO << adapter_address_list.size();
         if (adapter_address_list.size() == 0) {
@@ -456,13 +645,13 @@ void BlueToothMain::adapterChanged()
         }
 
         if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() == 1)){
-            frame_top->setMinimumSize(582,187);
-            frame_top->setMaximumSize(1800,187);
+            frame_top->setMinimumSize(582,157);
+            frame_top->setMaximumSize(1800,157);
         }else if((adapter_address_list.size() == adapter_name_list.size()) && (adapter_address_list.size() > 1)){
             if(!frame_2->isVisible())
                 frame_2->setVisible(true);
-            frame_top->setMinimumSize(582,239);
-            frame_top->setMaximumSize(1800,239);
+            frame_top->setMinimumSize(582,209);
+            frame_top->setMaximumSize(1800,209);
         }
     });
 
@@ -592,6 +781,46 @@ void BlueToothMain::removeDeviceItemUI(QString address)
 
 }
 
+void BlueToothMain::mDevFrameAddLineFrame(QString str,QString addr)
+{
+    qDebug() << Q_FUNC_INFO << "#########################" << str << addr;
+
+    if ("paired" == str) {
+
+        if (frame_middle->findChildren<DeviceInfoItem *>().size() < 1) {
+            return;
+        }
+
+        QFrame *line_frame = new QFrame(mDev_frame);
+        line_frame->setObjectName("line-"+addr);
+        line_frame->setFixedHeight(1);
+        line_frame->setMinimumWidth(582);
+        line_frame->setFrameStyle(QFrame::HLine);
+        paired_dev_layout->addWidget(line_frame,Qt::AlignTop);
+
+    } else if ("other" == str) {
+
+        if (frame_bottom->findChildren<DeviceInfoItem *>().size() <= 1) {
+            return;
+        }
+
+        QFrame *line_frame = new QFrame(device_list);
+        line_frame->setObjectName("line-"+addr);
+        line_frame->setFixedHeight(1);
+        line_frame->setMinimumWidth(582);
+        line_frame->setFrameStyle(QFrame::HLine);
+
+
+        if (!device_list->isVisible())
+            device_list->setVisible(true);
+
+        device_list_layout->insertWidget(0,line_frame,Qt::AlignTop);
+
+    } else {
+        return;
+    }
+}
+
 void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
 {
     qDebug() << __FUNCTION__ << device->name() << device->address() << device->type() << __LINE__;
@@ -621,6 +850,7 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
         });
 
         show_flag = true;
+        mDevFrameAddLineFrame("paired",device.data()->address());
         paired_dev_layout->addWidget(item,Qt::AlignTop);
     }
     return;
@@ -649,15 +879,16 @@ void BlueToothMain::showNormalMainWindow()
 
     main_layout = new QVBoxLayout(main_widget);
     main_layout->setSpacing(40);
-    main_layout->setContentsMargins(0,0,30,10);
+    main_layout->setContentsMargins(0,0,0,10);
+    //main_layout->setContentsMargins(0,0,30,10);
     frame_top    = new QWidget(main_widget);
     frame_top->setObjectName("frame_top");
     if(m_manager->adapters().size() > 1){
-        frame_top->setMinimumSize(582,239);
-        frame_top->setMaximumSize(1800,239);
+        frame_top->setMinimumSize(582,209);
+        frame_top->setMaximumSize(1800,209);
     }else{
-        frame_top->setMinimumSize(582,187);
-        frame_top->setMaximumSize(1800,187);
+        frame_top->setMinimumSize(582,157);
+        frame_top->setMaximumSize(1800,157);
     }
     frame_middle = new QWidget(main_widget);
     frame_middle->setObjectName("frame_middle");
@@ -946,6 +1177,9 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
         return ;
     }
 
+    if (!whetherToAddCurrentInterface(device))
+        return;
+
     if(!last_discovery_device_address.contains(device->address()))
     {
         DeviceInfoItem *item = new DeviceInfoItem(device_list,device);
@@ -963,6 +1197,8 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
             BlueToothMain::m_device_check = false;
             this->startDiscovery();
         });
+
+        mDevFrameAddLineFrame("other",device.data()->address());
 
         if(device->name() == device->address())
             device_list_layout->addWidget(item,Qt::AlignTop);
@@ -1140,6 +1376,8 @@ void BlueToothMain::change_device_parent(const QString &address)
     if(item){
         device_list_layout->removeWidget(item);
         item->setParent(frame_middle);
+        mDevFrameAddLineFrame("paired",address);
+        show_flag = true;
         paired_dev_layout->addWidget(item);
         Discovery_device_address.removeAll(address);
         last_discovery_device_address.removeAll(address);
