@@ -613,7 +613,7 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>BlueToothMain</name>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="82"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="214"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
@@ -624,46 +624,76 @@ you can restore them to ensure the integrity of your system.</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="111"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="256"/>
         <source>Local device :</source>
         <translation>本机设备：</translation>
-        <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
+        <extra-contents_path>/bluetooth/Local device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="133"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="278"/>
         <source>* Nothing entered, please re-enter</source>
         <translation>* 未输入任何内容，请重新输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="134"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="279"/>
         <source>* Up to 30 characters can be entered</source>
         <translation>* 最多可输入30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="156"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="310"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="214"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="368"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="246"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="401"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="266"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="434"/>
         <source>Other Devices</source>
         <translation>蓝牙列表</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="717"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="534"/>
+        <source>All</source>
+        <translation>所有设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="535"/>
+        <source>Audio</source>
+        <translation>音频设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="536"/>
+        <source>Peripherals</source>
+        <translation>键鼠设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="537"/>
+        <source>PC</source>
+        <translation>电脑</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="538"/>
+        <source>Phone</source>
+        <translation>手机</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="539"/>
+        <source>Other</source>
+        <translation>其他设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="948"/>
         <source>Bluetooth adapter is not detected!</source>
         <translation>未检测到蓝牙适配器！</translation>
     </message>
@@ -6543,7 +6573,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="548"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="113"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="127"/>
         <source>arrangement</source>
         <translation>排列方式</translation>
         <extra-contents_path>/wallpaper/arrangement</extra-contents_path>
@@ -6574,29 +6604,29 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">选择桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="118"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="132"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="118"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="132"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="163"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="177"/>
         <source>Local wallpaper</source>
         <translation>本地壁纸</translation>
         <extra-contents_path>/wallpaper/Local wallpaper</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="206"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="220"/>
         <source>Reset</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/wallpaper/Reset</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="249"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="263"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
@@ -6605,7 +6635,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="279"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="293"/>
         <source>centered</source>
         <translation>居中</translation>
         <extra-contents_path>/wallpaper/centered</extra-contents_path>
@@ -6615,7 +6645,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="281"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="295"/>
         <source>stretched</source>
         <translation>拉伸</translation>
         <extra-contents_path>/wallpaper/stretched</extra-contents_path>
@@ -6629,13 +6659,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="277"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="291"/>
         <source>tile</source>
         <translation>平铺</translation>
         <extra-contents_path>/wallpaper/tile</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="275"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="289"/>
         <source>padding</source>
         <translation>填充</translation>
         <extra-contents_path>/wallpaper/padding</extra-contents_path>
@@ -6646,54 +6676,54 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="182"/>
         <source>Local wall...</source>
         <translation>本地壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="334"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="368"/>
         <source>%1</source>
         <translation type="unfinished">%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="597"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="636"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="605"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="647"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="644"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="686"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="606"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="648"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="645"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="687"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="607"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="649"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="646"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="688"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="608"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="650"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="647"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="689"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="609"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="651"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="648"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="690"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="820"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="610"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="652"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="649"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="691"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>

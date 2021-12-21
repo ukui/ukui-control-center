@@ -54,6 +54,17 @@ class BlueToothMain : public QMainWindow
 public:
     BlueToothMain(QWidget *parent = nullptr);
     ~BlueToothMain();
+
+    enum DevTypeShow {
+        All = 0,
+        Audio,
+        Peripherals,
+        PC,
+        Phone,
+        Other,
+    };
+    Q_ENUM(DevTypeShow)
+
     static bool m_device_check ;
     void InitMainTopUI();
     void InitMainMiddleUI();
@@ -66,6 +77,7 @@ public:
     void updateUIWhenAdapterChanged();
     void removeDeviceItemUI(QString address);
     void addMyDeviceItemUI(BluezQt::DevicePtr);
+    void mDevFrameAddLineFrame(QString ,QString);
     void MonitorSleepSignal();
     void showNormalMainWindow();
     void showMainWindowError();
@@ -101,6 +113,8 @@ private slots:
     void MonitorSleepSlot(bool value);
     void styleGsettingChanged(const QString &);
     void setTipTextSlot(int);
+    void changeListOfDiscoveredDevices(int index);
+
 private:
     QGSettings *blutoothSettings = nullptr;
     QGSettings *styleSettings = nullptr;
@@ -115,9 +129,12 @@ private:
     QStringList adapter_address_list;
     QStringList adapter_name_list;
 
+    QFrame * line_frame2 = nullptr;
+    QFrame * mDev_frame = nullptr;
     QVBoxLayout *main_layout = nullptr;
-    QFrame *frame_2 = nullptr;
+    QFrame * frame_2 = nullptr;
     QComboBox *adapter_list = nullptr;
+    QComboBox *cacheDevTypeList = nullptr;
 
     QWidget *main_widget = nullptr;
     QWidget *frame_top = nullptr;
@@ -132,7 +149,7 @@ private:
 
     QVBoxLayout *bottom_layout = nullptr;
     QScrollArea *device_area = nullptr;
-    QWidget * device_list = nullptr;
+    QFrame * device_list = nullptr;
     QVBoxLayout *device_list_layout = nullptr;
 
     BluezQt::Manager *m_manager = nullptr;
@@ -166,6 +183,10 @@ private:
     qint16 MaxRssiValue = -9999;
 
     void InitBluetoothManager();
+    DevTypeShow discoverDevFlag = DevTypeShow::All;
+    bool whetherToAddCurrentInterface(BluezQt::DevicePtr);
+    void addDiscoverDevListByFlag(BlueToothMain::DevTypeShow flag);
+
 
 };
 
