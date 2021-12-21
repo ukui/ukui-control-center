@@ -911,11 +911,11 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
     addOutputToPrimaryCombo(output);
 
     if (!mFirstLoad) {
-        bool isClone = isCloneMode();
-        if (mUnifyButton->isChecked() != isClone)
-            mIsScreenAdd = true;
-        mUnifyButton->setChecked(isClone);
         QTimer::singleShot(2000, this, [=] {
+            bool isClone = isCloneMode();
+            if (mUnifyButton->isChecked() != isClone)
+                mIsScreenAdd = true;
+            mUnifyButton->setChecked(isClone);
             mainScreenButtonSelect(ui->primaryCombo->currentIndex());
         });
     }
