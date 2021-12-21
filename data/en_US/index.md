@@ -176,9 +176,9 @@ Auto proxy, manual proxy (including HTTP, HTTPS, FTP, SOCKS).
 ![Fig 28 Proxy-big](image/28.png)
 
 ### Vino
-Users can set that confirm when conect or enter specified password after checking "Allow others to view your desktop".
+Users can set that confirm when conectafter checking "Allow others to view your desktop".
 
-![Fig 29 Vino-big](image/29.png)
+![Fig 29 Vino-big](image/Vino.png)
 <br>
 
 ## Account

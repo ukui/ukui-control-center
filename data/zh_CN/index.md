@@ -253,7 +253,13 @@ Tips：系统快捷键不允许修改。
 自动代理开启/关闭，手动代理设置(包括HTTP, HTTPS, FTP,SOCKS代理)
 ![图 22 代理-big](image/delegate.png)
 
+### 桌面共享
+
+可在此开启vino服务，限制客户端的连接
+![图 33 桌面共享-big](image/vino.png)
+
 ## 账 户
+
 包括账户信息和云账户两个模块
 
 ### 账户信息
