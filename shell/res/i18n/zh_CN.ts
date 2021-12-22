@@ -4,34 +4,34 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="514"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="522"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="515"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="523"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="187"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="516"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="524"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="585"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="587"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="519"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="527"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
@@ -41,12 +41,12 @@
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="528"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="459"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>《试用免责协议》</translation>
     </message>
@@ -71,57 +71,57 @@
         <translation>通过向我们发送诊断数据，提升系统体验以及更快的解决你的问题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="452"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="460"/>
         <source>and</source>
         <translation>和</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="453"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="461"/>
         <source>&lt;&lt;Privacy&gt;&gt;</source>
         <translation>《用户隐私协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="541"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="549"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="551"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="559"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="643"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="651"/>
         <source>Not activated (trial period)</source>
         <translation>未激活(试用期)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="645"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="653"/>
         <source>Trial expiration time</source>
         <translation>试用到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="979"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="987"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="984"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="992"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1120"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1128"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1121"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1129"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1122"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1130"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -134,9 +134,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="899"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="908"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1254"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="907"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="916"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1262"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -153,7 +153,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="565"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
         <source>Version</source>
         <translation>版本</translation>
         <extra-contents_path>/About/version</extra-contents_path>
@@ -167,42 +167,42 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="441"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="449"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="567"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="569"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="517"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="906"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="525"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="914"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/About/User</extra-contents_path>
@@ -216,7 +216,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="578"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="586"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -229,8 +229,8 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="641"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="647"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="649"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="655"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -264,12 +264,12 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="639"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="647"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="652"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="660"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -934,8 +934,8 @@
     <name>Backup</name>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="53"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="40"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="109"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="41"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="118"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
@@ -957,14 +957,14 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="157"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="168"/>
         <source>Begin backup</source>
         <translation>开始备份</translation>
         <extra-contents_path>/Backup/Begin backup</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="157"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="133"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="144"/>
         <source>Restore</source>
         <translation>还原</translation>
     </message>
@@ -979,7 +979,7 @@ you can restore them to ensure the integrity of your system.</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="213"/>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="159"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="170"/>
         <source>Begin restore</source>
         <translation>开始还原</translation>
         <extra-contents_path>/Backup/Begin restore</extra-contents_path>
@@ -1012,17 +1012,17 @@ you can restore them to ensure the integrity of your system.</source>
         <translation>系统还原</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="111"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="120"/>
         <source>Back up your files to other drives and restore them when the source files are lost, damaged, or deleted to ensure the integrity of the system.</source>
         <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="135"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="146"/>
         <source>View the backup list and restore the backup file to the system</source>
         <translation>查看备份列表，将备份文件还原至系统。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="155"/>
+        <location filename="../../../plugins/security-updates/backup/backup.cpp" line="166"/>
         <source>Backup and Restore</source>
         <translation>备份还原</translation>
     </message>
@@ -5615,7 +5615,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="377"/>
+        <location filename="../../mainwindow.cpp" line="376"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5624,44 +5624,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="348"/>
-        <location filename="../../mainwindow.cpp" line="397"/>
-        <location filename="../../mainwindow.cpp" line="865"/>
+        <location filename="../../mainwindow.cpp" line="347"/>
+        <location filename="../../mainwindow.cpp" line="396"/>
+        <location filename="../../mainwindow.cpp" line="864"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="406"/>
+        <location filename="../../mainwindow.cpp" line="405"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="406"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="408"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="409"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="472"/>
+        <location filename="../../mainwindow.cpp" line="471"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="474"/>
+        <location filename="../../mainwindow.cpp" line="473"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="476"/>
+        <location filename="../../mainwindow.cpp" line="475"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -5670,12 +5670,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="977"/>
+        <location filename="../../mainwindow.cpp" line="976"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="977"/>
+        <location filename="../../mainwindow.cpp" line="976"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -7013,7 +7013,368 @@ Please retry or relogin!</source>
         <translation>银河麒麟最终用户使用许可协议和隐私政策声明</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/privacydialog.cpp" line="30"/>
+        <location filename="../../../plugins/system/about/privacydialog.cpp" line="31"/>
+        <source>Dear users of Kylin operating system and relevant products, 
+         This agreement describes your rights, obligations and prerequisites for your use of this product. Please read the clauses of the Agreement and the supplementary license (hereinafter collectively referred to as “the Agreement”) and the privacy policy statement for Kylin operating system (hereinafter referred to as “the Statement”).
+        “This product” in the Agreement and the Statement refers to “Kylin operating system software product” developed, produced and released by Kylinsoft Co., Ltd. and used for handling the office work or building the information infrastructure for enterprises and governments. “We” refers to Kylinsoft Co., Ltd. “You” refers to the users who pay the license fee and use the Kylin operating system and relevant products.
+
+End User License Agreement of Kylin 
+Release date of the version: July 30, 2021
+Effective date of the version: July 30, 2021
+        The Agreement shall include the following content:
+        I.     User license 
+        II.    Java technology limitations
+        III.   Cookies and other technologies
+        IV.    Intellectual property clause
+        V.     Open source code
+        VI.   The third-party software/services
+        VII.  Escape clause
+        VIII. Integrity and severability of the Agreement
+        IX.    Applicable law and dispute settlement
+
+        I.      User license
+        According to the number of users who have paid for this product and the types of computer hardware, we shall grant the non-exclusive and non-transferable license to you, and shall only allow the licensed unit and the employees signing the labor contracts with the unit to use the attached software (hereinafter referred to as “the Software”) and documents as well as any error correction provided by Kylinsoft.
+        1.     User license for educational institutions
+        In the case of observing the clauses and conditions of the Agreement, if you are an educational institution, your institution shall be allowed to use the attached unmodified binary format software and only for internal use. “For internal use” here refers to that the licensed unit and the employees signing the labor contracts with the unit as well as the students enrolled by your institution can use this product.
+        2.     Use of the font software
+        Font software refers to the software pre-installed in the product and generating font styles. You cannot separate the font software from the Software and cannot modify the font software in an attempt to add any function that such font software, as a part of this product, does not have when it is delivered to you, or you cannot embed the font software in the files provided as a commercial product for any fee or other remuneration, or cannot use it in equipment where this product is not installed. If you use the font software for other commercial purposes such as external publicity, please contact and negotiate with the font copyright manufacture to obtain the permissions for your relevant acts.
+
+        II.    Java technology limitations
+        You cannot change the “Java Platform Interface” (referred to as “JPI”, that is, the classes in the “java” package or any sub-package of the “java” package), whether by creating additional classes in JPI or by other means to add or change the classes in JPI. If you create an additional class as well as one or multiple relevant APIs, and they (i) expand the functions of Java platform; And (ii) may be used by the third-party software developers to develop additional software that may call the above additional APIs, you must immediately publish the accurate description of such APIs widely for free use by all developers. You cannot create or authorize other licensees to create additional classes, interfaces or sub-packages marked as “java”, “javax” and “sun” in any way, or similar agreements specified by Sun in any naming agreements. See the appropriate version of the Java Runtime Environment Binary Code License (located at http://jdk.java.net at present) to understand the availability of runtime code jointly distributed with Java mini programs and applications.
+
+        III.   Cookies and other technologies
+        In order to help us better understand and serve the users, our website, online services and applications may use the “Cookie” technology. Such Cookies are used to store the network traffic entering and exiting the system and the traffic generated due to detection errors, so they must be set. We shall understand how you interact with our website and online services by using such Cookies.
+        If you want to disable the Cookie and use the Firefox browser, you may set it in Privacy and Security Center of Firefox. If your use other browsers, please consult the specific schemes from the relevant suppliers.
+        In accordance with Article 76, paragraph 5 of the Network Security Law of the People&apos;s Republic of China, personal information refers to all kinds of information recorded in electronic or other ways, which can identify the natural persons’ personal identity separately or combined with other information, including but not limited to the natural person’s name, date of birth, identity certificate number, personal biological identification information, address and telephone number, etc. If Cookies contain the above information, or the combined information of non-personal information and other personal information collected through Cookie, for the purpose of this privacy policy, we shall regard the combined information as personal privacy information, and shall provide the corresponding security protection measures for your personal information by referring to Kylin Privacy Policy Statement.
+
+        IV.   Intellectual property clause
+        1.    Trademarks and Logos
+        This product shall be protected by the copyright law, trademark law and other laws and international intellectual property conventions. Title to the product and all associated intellectual property rights are retained by us or its licensors. No right, title or interest in any trademark, service mark, logo or trade name of us or its licensors is granted under the Agreement. Any use of Kylinsoft marked by you shall be in favor of Kylinsoft, and without our consent, you shall not arbitrarily use any trademark or sign of Kylinsoft.
+        2.    Duplication, modification and distribution
+        If the Agreement remains valid for all duplicates, you may and must duplicate, modify and distribute software observing GNU GPL-GNU General Public License agreement among the Kylin operating system software products in accordance with GNU GPL-GNU General Public License, and must duplicate, modify and distribute other Kylin operating system software products not observing GNU GPL-GNU General Public License agreement in accordance with relevant laws and other license agreements, but no derivative release version based on the Kylin operating system software products can use any of our trademarks or any other signs without our written consent.
+        Special notes: Such duplication, modification and distribution shall not include any software, to which GNU GPL-GNU General Public License does not apply, in this product, such as the software store, input method software, font library software and third-party applications contained by the Kylin operating system software products. You shall not duplicate, modify (including decompilation or reverse engineering) or distribute the above software unless prohibited by applicable laws.
+
+        V.    Open source code
+        For any open source codes contained in this product, any clause of the Agreement shall not limit, constrain or otherwise influence any of your corresponding rights or obligations under any applicable open source code license or all kinds of conditions you shall observe.
+
+        VI.  The third-party software/services
+        The third-party software/services referred to in the Agreement refer to relevant software/services developed by other organizations or individuals other than the Kylin operating system manufacturer. This product may contain or be bundled with the third-party software/services to which the separate license agreements are attached. When you use any third-party software/services with separate license agreements, you shall be bound by such separate license agreements.
+        We shall not have any right to control the third-party software/services in these products and shall not expressly or implicitly ensure or guarantee the legality, accuracy, effectiveness or security of the acts of their providers or users.
+
+        VII. Escape clause
+        1.    Limited warranty
+        We guarantee to you that within ninety (90) days from the date when you purchase or obtain this product in other legal ways (subject to the date of the sales contract), the storage medium (if any) of this product shall not be involved in any defects in materials or technology when it is normally used. All compensation available to you and our entire liability under this limited warranty will be for us to choose to replace this product media or refund the fee paid for this product.
+        2.   Disclaimer
+        In addition to the above limited warranty, the Software is provided “as is” without any express or implied condition statement and warranty, including any implied warranty of merchantability, suitability for a particular purpose or non-infringement, except that this disclaimer is deemed to be legally invalid.
+        3.   Limitation of responsibility
+        To the extent permitted by law, under any circumstances, no matter what theory of liability is adopted, no matter how it is caused, for any loss of income, profit or data caused by or related to the use or inability to use the Software, or for special indirect consequential incidental or punitive damages, neither we nor its licensors shall be liable (even if we have been informed of the possibility of such damages). According to the Agreement, in any case, whether in contract tort (including negligence) or otherwise, our liability to you will not exceed the amount you pay for the Software. The above limitations will apply even if the above warranty fails of its essential purpose.
+
+        VIII.Integrity and severability of the Agreement
+        1.    The integrity of the Agreement
+        The Agreement is an entire agreement on the product use concluded by us with you. It shall replace all oral or written contact information, suggestions, representations and guarantees inconsistent with the Agreement previous or in the same period. During the period of the Agreement, in case of any conflict clauses or additional clauses in the relevant quotations, orders or receipts or in other correspondences regarding the content of the Agreement between the parties, the Agreement shall prevail. No modification of the Agreement will be binding, unless in writing and signed by an authorized representative of each party.
+        2.   Severability of the Agreement
+        If any provision of the Agreement is deemed to be unenforceable, the deletion of the corresponding provision will still be effective, unless the deletion will hinder the realization of the fundamental purpose of the parties (in which case, the Agreement will be terminated immediately).
+
+        IX.  Applicable law and dispute settlement
+        1.   Application of governing laws
+        Any dispute settlement (including but not limited to litigation and arbitration) related to the Agreement shall be governed by the laws of the People’s Republic of China. The legal rules of any other countries and regions shall not apply.
+        2.  Termination
+        If the Software becomes or, in the opinion of either party, may become the subject of any claim for intellectual property infringement, either party may terminate the Agreement immediately.
+        The Agreement is effective until termination. You may terminate the Agreement at any time, but you must destroy all originals and duplicates of the Software. The Agreement will terminate immediately without notice from us if you fail to comply with any provision of the Agreement. At the time of termination, you must destroy all originals and duplicates of such software, and shall be legally liable for not observing the Agreement.
+        The Agreement shall be in both Chinese and English, and in case of ambiguity between any content above, the Chinese version shall prevail.
+
+        Privacy Policy Statement of Kylin Operating System/n        Release date of the version: July 30, 2021
+        Effective date of the version: July 30, 2021
+
+        We attach great importance to personal information and privacy protection. In order to guarantee the legal, reasonable and appropriate collection, storage and use of your personal privacy information and the transmission and storage in the safe and controllable circumstances, we hereby formulate this Statement. We shall provide your personal information with corresponding security protection measures according to the legal requirements and mature security standards in the industry.
+
+        The Statement shall include the following content:
+        I.   Collection and use your personal information
+        II.  How to store and protect your personal information
+        III. How to manage your personal information
+        IV.  Privacy of the third-party software/services
+        V.   Minors’ use of the products
+        VI.  How to update this Statement
+        VII. How to contact us
+
+        I.     How to collect and use your personal information
+        1.    The collection of personal information
+        We shall collect the relevant information when you use this product mainly to provide you with higher-quality products, more usability and better services. Part of information collected shall be provided by you directly, and other information shall be collected by us through your interaction with the product as well as your use and experience of the product. We shall not actively collect and deal with your personal information unless we have obtained your express consent according to the applicable legal stipulations.
+        1)   The licensing mechanism for this product allows you to apply for the formal license of the product in accordance with the contract and relevant agreements after you send a machine code to the commercial personnel of Kylinsoft, and the machine code is generated through encryption and conversion according to the information of the computer used by you, such as network card, firmware and motherboard. This machine code shall not directly contain the specific information of the equipment, such as network card, firmware and motherboard, of the computer used by you.
+        2)   Server of the software store of this product shall connect it according to the CPU type information and IP address of the computer used by you; at the same time, we shall collect the relevant information of your use of the software store of this product, including but not limited to the time of opening the software store, interaction between the pages, search content and downloaded content. The relevant information collected is generally recorded in the log of server system of software store, and the specific storage position may change due to different service scenarios.
+        3)   Upgrading and updating of this product shall be connected according to the IP address of the computer used by you, so that you can upgrade and update the system;
+        4)   Your personal information, such as E-mail address, telephone number and name, shall be collected due to business contacts and technical services.
+        5)   The biological characteristic management tool support system components of this product shall use the biological characteristics for authentication, including fingerprint, finger vein, iris and voiceprint. The biological characteristic information input by you shall be stored in the local computer, and for such part of information, we shall only receive the verification results but shall not collect or upload it. If you do not need to use the biological characteristics for the system authentication, you may disable this function in the biological characteristic management tool.
+        6)   This product shall provide the recording function. When you use the recording function of this product, we shall only store the audio content when you use the recording in the local computer but shall not collect or upload the content.
+        7)   The service and support functions of this product shall collect the information provided by you for us, such as log, E-mail, telephone and name, so as to make it convenient to provide the technical services, and we shall properly keep your personal information.
+        8)   In the upgrading process of this product, if we need to collect additional personal information of yours, we shall timely update this part of content.
+        2.   Use of personal information
+        We shall strictly observe the stipulations of laws and regulations and agreements with you to use the information collected for the following purposes. In case of exceeding the scope of following purposes, we shall explain to you again and obtain your consent.
+        1)   The needs such as product licensing mechanism, use of software store, system updating and maintenance, biological identification and online services shall be involved;
+        2)   We shall utilize the relevant information to assist in promoting the product security, reliability and sustainable service;
+        3)   We shall directly utilize the information collected (such as the E-mail address and telephone provided by you) to communicate with you directly, for example, business contact, technical support or follow-up service visit;
+        4)   We shall utilize the data collected to improve the current usability of the product, promote the product’s user experience (such as the personalized recommendation of software store) and repair the product defects, etc.;
+        5)   We shall use the user behavior data collected for data analysis. For example, we shall use the information collected to analyze and form the urban thermodynamic chart or industrial insight report excluding any personal information. We may make the information excluding identity identification content upon the statistics and processing public and share it with our partners, to understand how the users use our services or make the public understand the overall use trend of our services;
+        6)   We may use your relevant information and provide you with the advertising more related to you on relevant websites and in applications andother channels;
+        7)   In order to follow the relevant requirements of relevant laws and regulations, departmental regulations and rules and governmental instructions.
+        3.   Information sharing and provision
+        We shall not share or transfer your personal information to any third party, except for the following circumstances:
+        1)   After obtaining your clear consent, we shall share your personal information with the third parities;
+        2)   In order to achieve the purpose of external processing, we may share your personal information with the related companies or other third-party partners (the third-party service providers, contractors, agents and application developers). We shall protect your information security by means like encryption and anonymization;
+        3)   We shall not publicly disclose the personal information collected. If we must disclose it publicly, we shall notify you of the purpose of such public disclosure, type of information disclosed and the sensitive information that may be involved, and obtain your consent;
+        4)   With the continuous development of our business, we may carry out the transactions, such as merger, acquisition and asset transfer, and we shall notify you of the relevant circumstances, and continue to protect or require the new controller to continue to protect your personal information according to laws and regulations and the standards no lower than that required by this Statement;
+        5)   If we use your personal information beyond the purpose claimed at the time of collection and the directly or reasonably associated scope, we shall notify you again and obtain your consent before using your personal information.
+        4.   Exceptions with authorized consent
+        1)   It is directly related to national security, national defense security and other national interests; 
+        2)   It is directly related to public safety, public health and public knowledge and other major public interests; 
+        3)   It is directly related to crime investigation, prosecution, judgment and execution of judgment; 
+        4)   It aims to safeguard the life, property and other major legal rights and interests of you or others but it is impossible to obtain your own consent; 
+        5)   The personal information collected is disclosed to the public by yourself; 
+        6)   Personal information collected from legally publicly disclosed information, such as legal news reports, government information disclosure and other channels; 
+        7)   It is necessary to sign and perform of the contract according to your requirement; 
+        8)   It is necessary to maintain the safe and stable operation of the provided products or services, including finding and handling any fault of products or services;
+        9)   It is necessary to carry out statistical or academic research for public interest, and when the results of academic research or description are provided, the personal information contained in the results is de-identified;
+        10) Other circumstances specified in the laws and regulations.
+
+        II.   How to store and protect personal information
+        1.   Information storage place
+        We shall store the personal information collected and generated in China within the territory of China in accordance with laws and regulations.
+        2.   Information storage duration 
+        Generally speaking, we shall retain your personal information for the time necessary to achieve the purpose or for the shortest term stipulated by laws and regulations. Information recorded in the log shall be kept for a specified period and be automatically deleted according to the configuration.
+        When operation of our product or services stops, we shall notify you in the forms such as notification and announcement, delete your personal information or conduct anonymization within a reasonable period and immediately stop the activities collecting the personal information.
+        3.   How to protect the information
+        We shall strive to provide guarantee for the users’ information security, to prevent the loss, improper use, unauthorized access or disclosure of the information.
+        We shall use the security protection measures within the reasonable security level to protect the information security. For example, we shall protect your system account and password by means like encryption.
+        We shall establish the special management systems, processes and organizations to protect the information security. For example, we shall strictly restrict the scope of personnel who access to the information, and require them to observe the confidentiality obligation.
+        4.   Emergency response plan
+        In case of security incidents, such as personal information disclosure, we shall start the emergency response plan according to law, to prevent the security incidents from spreading, and shall notify you of the situation of the security incidents, the possible influence of the incidents on you and the remedial measures we will take, in the form of pushing the notifications and announcements. We will also report the disposition of the personal information security events according to the laws, regulations and regulatory requirements.
+
+        III. How to manage your personal information
+        If you worry about the personal information disclosure caused by using this product, you may consider suspending or not using the relevant functions involving the personal information, such as the formal license of the product, application store, system updating and upgrading and biological identification, according to the personal and business needs. 
+        Please pay attention to the personal privacy protection at the time of using the third-party software/services in this product.
+
+        IV.  Privacy of the third-party software/services
+
+        The third-party software/services referred to in the Agreement refer to relevant software/services developed by other organizations or individuals other than the Kylin operating system manufacturer.
+        When you install or use the third-party software/services in this product, the privacy protection and legal responsibility of the third-party software/services shall be independently borne by the third-party software/services. Please carefully read and examine the privacy statement or clauses corresponding to the third-party software/services, and pay attention to the personal privacy protection.
+
+        V.   Minors’ use of the products
+        If you are a minor, you shall obtain your guardian’s consent on your use of this product and the relevant service clauses. Except for the information required by the product, we shall not deliberately require the minors to provide more data. With the guardians’ consent or authorization, the accounts created by the minors shall be deemed to be the same as any other accounts. We have formulated special information processing rules to protect the personal information security of minors using this product. The guardians shall also take the appropriate preventive measures to protect the minors and supervise their use of this product.
+
+        VI.  How to update this Statement
+        We may update this Statement at any time, and shall display the updated statement to you through the product installation process or the company’s website at the time of updating. After such updates take effect, if you use such services or any software permitted according to such clauses, you shall be deemed to agree on the new clauses. If you disagree on the new clauses, then you must stop using this product, and please close the accountcreated by you in this product; if you are a guardian, please help your minor child to close the account created by him/her in this product.
+
+        VII. How to contact us
+        If you have any question, or any complaints or opinions on this Statement, you may seek advice through our customer service hotline 400-089-1870, or the official website (www.kylinos.cn), or “service and support” application in this product. You may also contact us by E-mail (market@kylinos.cn). 
+        We shall timely and properly deal with them. Generally, a reply will be made within 15 working days.
+        The Statement shall take effect from the date of updating. The Statement shall be in Chinese and English at the same time and in case of any ambiguity of any clause above, the Chinese version shall prevail.
+        Last date of updating: November 1, 2021
+
+Address:
+        Building 3, Xin’an Entrepreneurship Plaza, Tanggu Marine Science and Technology Park, Binhai High-tech Zone, Tianjin (300450)
+        Silver Valley Tower, No. 9, North Forth Ring West Road, Haidian District, Beijing (100190)
+        Building T3, Fuxing World Financial Center, No. 303, Section 1 of Furong Middle Road, Kaifu District, Changsha City (410000)
+        Digital Entertainment Building, No. 1028, Panyu Road, Xuhui District, Shanghai (200030)
+Tel.:
+        Tianjin (022) 58955650      Beijing (010) 51659955
+        Changsha (0731) 88280170        Shanghai (021) 51098866
+Fax:
+        Tianjin (022) 58955651      Beijing (010) 62800607
+        Changsha (0731) 88280166        Shanghai (021) 51062866
+
+        Company website: www.kylinos.cn
+        E-mail: support@kylinos.cn</source>
+        <translation>尊敬的银河麒麟操作系统及相关产品用户:
+        本协议介绍您的权利、义务以及您使用本产品的前提条件。请您仔细阅读本协议条款、补充许可条款（统称“协议”）及银河麒麟操作系统隐私政策声明（以下简称“声明”）。
+        本协议及声明中的“本产品”是指由麒麟软件有限公司开发并制作发行的用于办公或构建企业及政府的信息化基础设施——“银河麒麟操作系统软件产品”。“我们”是指麒麟软件有限公司。“您”是指支付授权费用并使用银河麒麟操作系统及相关产品的用户。
+
+银河麒麟最终用户使用许可协议
+版本发布日期：【2021】年【7】月【30】日
+版本生效日期：【2021】年【7】月【30】日
+
+        本协议将向您说明以下内容：
+        一、使用许可
+        二、Java技术限制
+        三、Cookie和其他技术
+        四、知识产权条款
+        五、开放源代码说明
+        六、第三方软件/服务说明
+        七、免责条款
+        八、协议完整性及可分割性说明
+        九、适用法律及争议解决
+
+        一、使用许可
+
+        按照已经为本产品支付费用的用户数目及计算机硬件类型，我们向您授予非排他、不可转让的许可，仅允许被授权人单位及与其签订劳动合同的员工使用由麒麟软件提供的随附软件和文档以及任何错误纠正。
+        1.教育机构使用许可
+        在遵守本协议的条款和条件的情况下，如果您是教育机构，允许贵机构仅在内部使用随附的未经修改的二进制格式的软件。此处的“在内部使用”是指被授权人单位及与其签订劳动合同的员工以及在贵机构入学的学生使用本产品。 
+        2.字型软件使用
+        字型软件指本产品中预装的和生成字体样式的软件。您不可从软件中分离字型软件，不可改动字型软件，以新增此等字型软件被作为本产品的一部分交付予您时所不具备的任何功能，不可将字型软件嵌入作为商业产品提供以换取收费或其他报酬的文件、不可脱离安装了本产品的机器使用。如将字型软件用于对外宣传等其他商业用途时，请您与字体版权厂商联系协商以获得对您相关行为的许可。
+
+        二、Java技术限制
+
+        您不可更改“Java平台界面”（简称“JPI”，即指明为“java”包或“java”包的任何子包中的类），无论通过在JPI中创建额外的类，还是通过其他方式导致对JPI中的类进行增添或更动，均为不可。如果您创建一个额外的类以及一个或多个相关的API，而它们（i）扩展Java平台的功能；并且（ii）可供第三方软件开发者用于开发可调用上述额外API的额外软件，则您必须迅即广泛公布对此种API的准确说明，以供所有开发者免费使用。您不可创建、或授权其他被许可人创建以任何方式标示为“java”、“javax”、“sun”的额外的类、界面、子包或Sun在任何命名约定中指明的类似约定。参见Java运行时环境二进制代码许可的适当版本（目前位于http://jdk.java.net），以了解可与Java小程序和应用程序共同分发的运行时代码的可供情况。
+
+        三、Cookie和其他技术
+
+        为帮助我们更好地了解并服务用户，我们的网站、在线服务和应用程序可能会使用“Cookie”技术。这些Cookie用于存储进出系统的网络流量以及因检测错误而生成的流量，因此必须设置。 我们通过使用这些Cookie来了解您与我们的网站和在线服务如何进行交互。 
+        如果您想禁用 Cookie 并且使用的是Firefox浏览器，可在Firefox的隐私与安全中心进行设置。如果您使用的是其他浏览器，请向相关供应商咨询具体方案。
+        依照《中华人民共和国网络安全法》第七十六条第五款，个人信息，是指以电子或者其他方式记录的能够单独或者与其他信息结合识别自然人个人身份的各种信息，包括但不限于自然人的姓名、出生日期、身份证件号码、个人生物识别信息、住址、电话号码等。如果Cookie中包含上述信息，或者存在通过Cookie收集的非个人信息与其他个人信息合并后的信息，出于本隐私政策的目的，我们会将合并后的信息视为个人隐私信息，将参照银河麒麟隐私政策声明，为您的个人信息提供相应的安全保护措施。
+
+        四、知识产权条款
+
+        1.商标和标识
+        本产品受到版权（著作权）法、商标法和其他法律及国际知识产权公约的保护。我们或其许可方保留对本产品的所有权及所有相关的知识产权。对于我们或其许可方的任何商标、服务标记、标识或商号的任何权利、所有权或利益，本协议均不作任何授权。您对麒麟软件标记的任何使用都应有利于麒麟软件，未经我们书面同意，不得擅自使用麒麟软件任何商标、标识。 
+        2.关于复制、修改及分发
+        如果在所有复制品中维持本协议书不变，您可以且必须根据《GNU GPL-GNU通用公共许可证》复制、修改及分发银河麒麟操作系统软件产品中遵守《GNU GPL-GNU通用公共许可证》协议的软件，其他不遵守《GNU GPL-GNU通用公共许可证》协议的银河麒麟操作系统软件产品必须根据相关法律、其他许可协议进行复制、修改及分发，但任何以银河麒麟操作系统软件产品为基础的衍生发行版未经我们的书面授权不能使用任何我们的商标或其他任何标志。
+        特别注意：该复制、修改及分发不包括本产品中包含的任何不适用《GNU GPL-GNU通用公共许可证》的软件，如银河麒麟操作系统软件产品中包含的软件商店、输入法软件、字库软件、第三方应用软件等。除非适用法律予以禁止，否则您不得对上述软件进行复制、修改（包括反编译或反向工程）、分发。
+
+        五、开放源代码说明
+
+        对于本产品中包含的任何开放源代码，本协议的任何条款均不得限制、约束或以其它方式影响任何适用开放源代码许可证赋予您的任何相应的权利或者义务或您应遵守的各种条件。
+
+        六、第三方软件/服务说明
+
+        本协议所指的第三方软件/服务是指由非银河麒麟操作系统生产商的其他组织或个人开发的相关软件/服务。本产品可能包含或捆绑有第三方软件/服务，这些第三方软件/服务附带单独的许可协议，您使用附带单独许可协议的任何第三方软件/服务需受到该单独许可协议的约束。
+        我们不对本产品中的第三方软件/服务拥有任何控制权，也不对其提供方或用户行为的合法性、准确性、有效性、安全性进行任何明示或默示的保证或担保。
+
+        七、免责条款
+
+        1.有限担保
+        我们向您担保，自购买或其他合法取得本产品之日起九十（90）天内（以销售合同日期为准），本产品的存储介质（如果有）在正常使用的情况下无材料和工艺方面的缺陷。在本有限担保项下，您可获得的所有补偿及我们的全部责任为由我们选择更换本产品介质或退还本产品的购买费用。
+        2.免责声明
+        除上述有限担保外，本软件按“原样”提供，不提供任何明示或默示的条件、陈述及担保，包括对适销性、对特定用途的适用性或非侵权性的任何默示的担保，均不予负责，但本免责声明被认定为法律上无效的情况除外。
+        3.责任限制
+        在法律允许范围内，无论在何种情况下，无论采用何种有关责任的理论，无论因何种方式导致，对于因使用或无法使用本软件引起的或与之相关的任何收益损失、利润或数据损失，或者对于特殊的、间接的、后果性的、偶发的或惩罚性的损害赔偿，我们或其许可方均不承担任何责任（即使我们已被告知可能出现上述损害赔偿）。根据本协议，在任何情况下，无论是在合同、侵权行为（包括过失）方面，还是在其他方面，我们对您的责任将不超过您就本软件所支付的金额。即使上述担保未能达到其基本目的，上述限制仍然适用。
+
+        八、协议完整性及可分割性说明
+
+        1.协议完整性
+        本协议是我们就产品使用与您达成的完整协议。它取代此前或同期的所有和本协议不一致的口头或书面往来信息、建议、陈述和担保。在本协议期间，有关报价、订单、回执或各方之间就本协议内容进行的其他往来通信中的任何冲突条款或附加条款，均以本协议为准。对本协议的任何修改均无约束力，除非通过书面进行修改并由每一方的授权代表签字。
+        2.可分割性
+        如果本协议中有任何规定被认定为无法执行，则删除相应规定，本协议仍然有效，除非该删除会防碍各方根本目的的实现（在这种情况下，本协议将立即终止）。
+
+        九、适用法律及争议解决
+
+        1.管辖法律适用
+        与本协议相关的任何争议解决（包括但不限于诉讼、仲裁等）均受适用中华人民共和国法律管辖。选择其它任何国家和地区的法律规则不予适用。
+        2.终止
+        如果本软件成为或在任一方看来可能成为任何知识产权侵权索赔之标的，则任一方可立即终止本协议。
+        本协议在终止之前有效。您可以随时终止本协议，但必须同时销毁本软件的全部正本和副本。如果您未遵守本协议的任何规定，则本协议将不经我们发出通知立即终止。终止时，您必须销毁本软件的全部正本和副本，并且需承担因未遵守本协议而导致的法律责任。
+
+        本协议提供中英文两种版本，以上任何内容如有歧义，以中文版本为准。
+
+银河麒麟操作系统隐私政策声明
+版本发布日期：【2021】年【7】月【30】日
+版本生效日期：【2021】年【7】月【30】日
+
+        我们非常重视个人信息和隐私保护，为了保证合法、合理、适度的收集、存储、使用您的个人隐私信息，并在安全、可控的情况下进行传输、存储，我们制定了本声明。我们将会按照法律要求和业界成熟安全标准，为您的个人信息提供相应的安全保护措施。
+
+        本声明将向您说明以下内容：
+        一、关于收集和使用您的个人信息
+        二、如何存储和保护您的个人信息
+        三、如何管理您的个人信息
+        四、关于第三方软件/服务的隐私说明
+        五、关于未成年人使用产品
+        六、本声明如何更新
+        七、如何联系我们
+
+        一、如何收集和使用您的个人信息
+
+        1.收集个人信息的情况
+        我们在您使用本产品过程中收集相关的信息，主要为了向您提供更高质量、更易用的产品和更好的服务。收集的部分信息由您直接提供，其他信息则由我们通过您与产品的交互以及对产品的使用和体验收集而来。除非我们已根据适用的法律规定取得您的明示同意，我们不会主动收集并处理您的个人信息。
+        1）本产品授权许可机制，会根据您所使用计算机的网卡、固件和主板等信息通过加密机制和转换方法生成申请产品正式授权许可的机器码；您将该机器码发送给麒麟软件商务人员后，可根据合同及相关协议申请正式许可。该机器码不直接包含您所使用计算机的网卡、固件和主板等设备的具体信息。
+        2）本产品软件商店的服务器端，会根据您所使用计算机的CPU类型信息以及IP地址进行连接，同时我们会收集您使用本产品软件商店的相关信息，包括但不限于打开软件商店的时间、各页面之间的交互、搜索内容、下载的内容等，收集的相关信息一般记录在软件商店的服务端系统的日志中，具体存储位置可能因为不同的服务场景有所变动。
+        3）本产品的升级更新，会根据您所使用计算机的IP地址进行连接，以便实现您升级更新系统；
+        4）因业务往来及技术服务等向您收集电子邮箱、电话、姓名等个人信息。
+        5）本产品的生物特征管理工具支持系统组件使用生物特征进行认证，包括指纹、指静脉、虹膜、声纹等。您录入的生物特征信息将储存在本地计算机，这部分信息我们仅接收验证结果，不会收集和上传。如您不需要使用生物特征进行系统认证，可以在生物特征管理工具中关闭该功能。
+        6）本产品提供录音功能，您在使用本产品录音软件中，我们仅会将您使用录音时的音频内容存储在本地计算机中，不会进行收集和上传。
+        7）本产品的服务与支持功能会收集由您提供给我们的日志、电子邮箱、电话、姓名等信息，便于提供技术服务，我们将妥善保管您的个人信息。
+        8）本产品升级过程中，如需新增收集您的个人信息，我们将及时更新本部分内容。
+        2.使用个人信息的情况
+        我们严格遵守法律法规的规定及与您的约定，将收集的信息用于以下用途。若我们超出以下用途，我们将再次向您进行说明，并征得您的同意。
+        1）涉及产品许可机制、软件商店使用、系统更新维护、生物识别、在线服务等需要；
+        2）我们会利用相关信息协助提升产品的安全性、可靠性和可持续服务；
+        3）我们会利用收集的信息（例如您提供的电子邮件地址、电话等）直接与您沟通。例如，业务联系、技术支持或服务回访；
+        4）我们会利用收集的数据改进产品当前的易用性、提升产品用户体验（例如软件商店的个性化推荐）以及修复产品缺陷等；
+        5）我们会将所收集到的用户行为数据用于大数据分析。例如，我们将收集到的信息用于分析形成不包含任何个人信息的城市热力图或行业洞察报告。我们可能对外公开并与我们的合作伙伴分享经统计加工后不含身份识别内容的信息，用于了解用户如何使用我们服务或让公众了解我们服务的总体使用趋势;
+
+        6）我们可能使用您的相关信息，在相关网站、应用及其他渠道向您提供与您更加相关的广告;
+        7）为了遵从相关法律法规、部门规章、政府指令的相关要求。
+        3.信息的分享及对外提供
+        我们不会共享或转让您的个人信息至第三方，但以下情况除外：
+        1）获取您的明确同意后，我们会与第三方分享您的个人信息；
+        2）为实现外部处理的目的，我们可能与关联公司或其他第三方合作伙伴（第三方服务供应商、承包商、代理、应用开发者等）分享您的个人信息。我们将采用加密、匿名化处理等手段来保障您的信息安全；
+        3）我们不会对外公开披露所收集的个人信息，如必须公开披露时，我们会向您告知此次公开披露的目的、披露信息的类型及可能涉及的敏感信息，并征得您的同意；
+        4）随着我们业务的持续发展，我们有可能进行合并、收购、资产转让等交易，我们将告知相关情形，按照法律法规及不低于本声明所要求的标准继续保护或要求新的控制者继续保护您的个人信息；
+        5）如我们使用您的个人信息，超出了与收集时所声称的目的及具有直接或合理关联的范围，我们将在使用您的个人信息前，再次向您告知并征得您的同意。
+        4.征得授权同意的例外情况
+        1）与国家安全、国防安全等国家利益直接相关的；
+        2）与公共安全、公共卫生、公众知情等重大公共利益直接相关的；
+        3）与犯罪侦查、起诉、审判和判决执行等直接相关的；
+        4）出于维护您或其他个人的生命、财产等重大合法权益但又无法得到您本人同意的；
+        5）所收集的个人信息是您自行向社会公众公开的；
+        6）从合法公开披露的信息中收集的个人信息，如合法的新闻报道、政府信息公开等渠道；
+        7）根据您要求签订和履行合同所必需的；
+        8）用于维护所提供的产品或服务的安全稳定运行所必需的。如发现、处置产品或服务的故障；
+        9）出于公共利益开展统计或学术研究所必需，且其对外提供学术研究或描述的结果时，对结果中所包含的个人信息进行去标识化处理的；
+        10）法律法规规定的其他情形。
+
+        二、我们如何存储和保护您的个人信息
+
+        1.信息存储的地点
+        我们会按照法律法规规定，将在中国境内收集和产生的个人信息存储于中国境内。
+        2.信息存储的期限
+        一般而言，我们仅为实现目的所必需的时间或法律法规规定最短期限保留您的个人信息。记录在日志中的信息会按配置在一定期限保存及自动删除。
+        当我们的产品或服务发生停止运营的情形时，我们将以通知、公告等形式通知您，在合理的期限内删除您的个人信息或进行匿名化处理，并立即停止收集个人信息的活动。
+        3.我们如何保护这些信息
+        我们努力为用户的信息安全提供保障，以防止信息的丢失、不当使用、未经授权访问或披露。
+        我们将在合理的安全水平内使用安全保护措施以保障信息的安全。例如，我们会使用加密技术等手段来保护您的系统级账户密码。
+        我们建立专门的管理制度、流程和组织以保障信息的安全。例如，我们严格限制访问信息的人员范围，要求他们遵守保密义务。
+        4.应急预案
+        若发生个人信息泄露等安全事件，我们会依法启动应急预案，阻止安全事件扩大，并以推送通知、公告等形式告知您安全事件的情况、事件可能对您的影响以及我们将采取的补救措施。我们还将按照法律法规和监管部门要求，上报个人信息安全事件的处置情况。
+
+        三、如何管理您的个人信息
+
+        如果担心因使用本产品导致个人信息的泄露，您可根据个人及业务需要考虑暂停或不使用涉及个人信息的相关功能，如产品正式授权许可、应用商店、系统更新升级、生物识别等。
+在使用本产品之上的第三方软件/服务时，请注意个人隐私保护。
+
+        四、关于第三方软件/服务的隐私说明
+
+        本协议所指的第三方软件/服务是由非银河麒麟操作系统生产商的其他组织或个人开发的相关软件/服务。
+        您在本产品之上安装或使用第三方软件/服务时，第三方软件/服务的隐私保护和法律责任由第三方软件/服务自行负责，请您仔细阅读和审查第三方软件/服务对应的隐私声明或条款，注意个人隐私保护。
+
+        五、关于未成年人使用产品
+
+        如果您是未成年人，则需要您的监护人同意您使用本产品并同意相关服务条款。除了提供产品所需要的信息外，我们不会刻意要求未成年人提供其他更多数据。在征得监护人同意或授权后，未成年人所创建的帐户即被视为等同于其他任何帐户。我们制定了专门的信息处理规则以保护使用本产品的未成年人的个人信息安全。监护人也应采取适当的预防措施保护未成年人，监督其对本产品的使用。
+
+        六、本声明如何更新
+
+        我们可能会随时更新本声明，并且会在变更时通过产品安装过程或公司网站向您展示变更后的声明。在这些变更生效后使用服务或根据这些条款授予许可的任何软件，即表示您同意新的条款。如果您不同意新的条款，则必须停止使用本产品，请关闭您在本产品之上创建的帐户；如果您是监护人，请帮助您的未成年子女关闭他或她在本产品之上创建的帐户。
+
+        七、如何联系我们
+
+        如您对本声明存在任何疑问，或任何相关的投诉、意见，可通过我们的客服热线400-089-1870、官方网站（www.kylinos.cn）或本产品中“服务与支持”应用进行咨询或反映。您也可以通过发送邮件至market@kylinos.cn与我们联系。
+        我们会及时、妥善处理您的问题。一般情况下，我们将在15个工作日内给予答复。
+        本声明自更新之日起生效，同时提供中英文两种版本，以上任何条款如有歧义，以中文版本为准。
+        最近更新日期：2021年11月1日
+
+地址：
+        天津市滨海高新区塘沽海洋科技园信安创业广场3号楼（300450）
+        北京市海淀区北四环西路9号银谷大厦（100190）
+        长沙市开福区芙蓉中路1段303号富兴世界金融中心T3栋（410000）
+        上海市徐汇区番禺路1028号数娱大厦（200030）
+电话：
+        天津（022）58955650    北京（010）51659955  
+        长沙（0731）88280170    上海（021）51098866
+传真：
+        天津（022）58955651    北京（010）62800607 
+        长沙（0731）88280166    上海（021）51062866
+公司网站：www.kylinos.cn
+电子邮件：support@kylinos.cn
+</translation>
+    </message>
+    <message>
         <source>Dear users of Kylin operating system and relevant products,
 
    Please read the clauses of the Agreement and the supplementary license (hereinafter collectively referred to as “the Agreement”) and the privacy policy statement for Kylin operating system (hereinafter referred to as “the Statement”). When you click the next step to confirm your complete understanding of the content, it shall indicate that you have accepted the clauses of the Agreement, and the Agreement shall take effect immediately and be legally binding on you and the Company.
@@ -7202,7 +7563,7 @@ Fax: Tianjin (022) 58955651       Beijing (010) 62800607
 
 Company website: www.kylinos.cn
 E-mail: support@kylinos.cn</source>
-        <translation>尊敬的银河麒麟操作系统及相关产品用户:
+        <translation type="vanished">尊敬的银河麒麟操作系统及相关产品用户:
    请您仔细阅读本协议条款、补充许可条款（统称“协议”）及银河麒麟操作系统隐私政策声明（以下简称“声明”）。当您确认了解并点击下一步时，即表明您已接受本协议的条款，本协议将立即生效，对您和本公司双方具有法律约束力。
    本协议及声明中的“本产品”是指由麒麟软件有限公司开发并制作发行的用于办公或构建企业及政府的信息化基础设施——“银河麒麟操作系统软件产品”。“我们”是指麒麟软件有限公司。“您”是指支付授权费用并使用银河麒麟操作系统及相关产品的用户。
 
@@ -7756,7 +8117,7 @@ E-mail: support@kylinos.cn</source>
 长沙（0731）88280170 上海（021）51098866</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/privacydialog.cpp" line="231"/>
+        <location filename="../../../plugins/system/about/privacydialog.cpp" line="298"/>
         <source>Kylinsoft Co., Ltd.</source>
         <translation>麒麟软件有限公司</translation>
     </message>
@@ -11348,7 +11709,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="491"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="496"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
@@ -11357,38 +11718,38 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="531"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="573"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="532"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="574"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="537"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="579"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="533"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="575"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="580"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="534"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="576"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="539"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="581"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="535"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="577"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="540"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="582"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="541"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="583"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
