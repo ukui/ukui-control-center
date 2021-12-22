@@ -8,13 +8,6 @@
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
-        <pinyinfunc>suofangpingmu</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>缩放屏幕</ChineseFunc>
-        <EnglishFunc>Screen Zoom</EnglishFunc>
-    </plugin>
-    <plugin name="displays">
-        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmujingxiang</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
         <ChineseFunc>屏幕镜像</ChineseFunc>
@@ -71,9 +64,9 @@
     </plugin>
     <plugin name="printer">
         <pinyinPlugin>dayinji</pinyinPlugin>
-        <pinyinfunc>dayinjihesaomiaoyi</pinyinfunc>
+        <pinyinfunc>dayinjiyusaomiaoyi</pinyinfunc>
         <ChinesePlugin>打印机</ChinesePlugin>
-        <ChineseFunc>打印机和扫描仪</ChineseFunc>
+        <ChineseFunc>打印机与扫描仪</ChineseFunc>
         <EnglishFunc>List of Existing Printers</EnglishFunc>
     </plugin>
     <plugin name="printer">
@@ -141,9 +134,9 @@
     </plugin>
     <plugin name="mouse">
         <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>shanshuosudu</pinyinfunc>
+        <pinyinfunc>guangbiaosudu</pinyinfunc>
         <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>闪烁速度</ChineseFunc>
+        <ChineseFunc>光标速度</ChineseFunc>
         <EnglishFunc>Cursor Flashing Speed</EnglishFunc>
     </plugin>
     <plugin name="touchpad">
@@ -498,13 +491,6 @@
     </plugin>
     <plugin name="userinfo">
         <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
-        <pinyinfunc>shezhimima</pinyinfunc>
-        <ChinesePlugin>账户信息</ChinesePlugin>
-        <ChineseFunc>设置密码（未创建Pin码）</ChineseFunc>
-        <EnglishFunc>Change phone</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>qitayonghu</pinyinfunc>
         <ChinesePlugin>账户信息</ChinesePlugin>
 	<ChineseFunc>其他用户</ChineseFunc>
@@ -533,9 +519,9 @@
     </plugin>
     <plugin name="backup">
         <pinyinPlugin>xitonghuanyuan</pinyinPlugin>
-        <pinyinfunc>huanyuansuoyoushezhi</pinyinfunc>
+        <pinyinfunc>qingkongbinghuanyuan</pinyinfunc>
         <ChinesePlugin>系统还原</ChinesePlugin>
-        <ChineseFunc>还原所有设置</ChineseFunc>
+        <ChineseFunc>清空并还原</ChineseFunc>
         <EnglishFunc>Backup</EnglishFunc>
     </plugin>
     <plugin name="backup">
