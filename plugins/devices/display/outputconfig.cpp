@@ -371,7 +371,7 @@ void OutputConfig::initUi()
 #endif
 
     QLabel *scaleLabel = new QLabel();
-    //~ contents_path /display/screen zoom
+
     scaleLabel->setText(tr("screen zoom"));
     scaleLabel->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     scaleLabel->setMinimumSize(118,30);
