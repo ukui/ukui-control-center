@@ -4062,7 +4062,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="375"/>
         <source>screen zoom</source>
         <translation>屏幕缩放</translation>
-        <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5847,11 +5846,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <extra-contents_path>/touchpad/Scrolling</extra-contents_path>
     </message>
     <message>
-        <source>Touchpad speed</source>
-        <translation type="vanished">触摸板速度</translation>
-        <extra-contents_path>/touchpad/Touchpad speed</extra-contents_path>
-    </message>
-    <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="271"/>
         <source>Slow</source>
         <translation>慢</translation>
@@ -6787,11 +6781,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="vanished">抱歉，配置不能应用.</translation>
-    </message>
-    <message>
-        <source>auto light</source>
-        <translation type="obsolete">自动调整亮度</translation>
-        <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
         <source>@title:window</source>

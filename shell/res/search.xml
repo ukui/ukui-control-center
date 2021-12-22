@@ -486,7 +486,7 @@
         <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>xiugaimima</pinyinfunc>
         <ChinesePlugin>账户信息</ChinesePlugin>
-        <ChineseFunc>修改密码（已创建Pin码）</ChineseFunc>
+        <ChineseFunc>修改密码</ChineseFunc>
         <EnglishFunc>Change password</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
