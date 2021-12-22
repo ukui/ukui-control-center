@@ -739,16 +739,19 @@ bool Widget::isBacklight()
     }
     buf = file.readAll();
     file.close();
-    if (-1 == buf.indexOf("ZHAOXIN")) {
-        if (-1 == buf.indexOf("D2000")) {
-            cmd = "cat /sys/class/backlight/*/max_brightness";
-        } else {
-            cmd = "cat /sys/class/backlight/ec_bl/max_brightness";
-        }
-    }
-    else{
-        cmd = "cat /sys/class/backlight/acpi_video1/max_brightness";
-    }
+    cmd = "cat /sys/class/backlight/*/max_brightness";
+    //来自ukui-power-manager
+    //220项目中D2000使用 cmd = "cat /sys/class/backlight/ec_bl/max_brightness";无法获取，先注释
+//    if (-1 == buf.indexOf("ZHAOXIN")) {
+//        if (-1 == buf.indexOf("D2000")) {
+//            cmd = "cat /sys/class/backlight/*/max_brightness";
+//        } else {
+//            cmd = "cat /sys/class/backlight/ec_bl/max_brightness";
+//        }
+//    }
+//    else{
+//        cmd = "cat /sys/class/backlight/acpi_video1/max_brightness";
+//    }
     qDebug()<<"isBacklight --- cmd:"<<cmd;
     process.start("bash", QStringList() <<"-c" << cmd);
     process.waitForFinished();
