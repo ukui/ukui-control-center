@@ -26,7 +26,7 @@ public:
     void setResolution(const QSize &size);
 
 Q_SIGNALS:
-    void resolutionChanged(const QSize &size);
+    void resolutionChanged(const QSize &size, bool emitFlag = true);
 
 public Q_SLOTS:
     void slotValueChanged(int);

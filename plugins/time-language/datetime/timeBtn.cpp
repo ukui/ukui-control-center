@@ -8,7 +8,8 @@ TimeBtn::TimeBtn(const QString &timezone) {
     this->setProperty("useButtonPalette", true);
     this->setFixedHeight(80);
 //    this->adjustSize();
-    this->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
+    this->setObjectName("TimeBtn");
+    this->setStyleSheet("QPushButton#TimeBtn:!checked{background-color: palette(base)}");
 
     QHBoxLayout *timeShowLayout = new QHBoxLayout(this);
     QWidget     *timeWid      = new QWidget(this);
