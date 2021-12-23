@@ -108,10 +108,9 @@ void Backup::initUi(QWidget *widget)
     mBackBtn->setFixedWidth(120);
     FixLabel *mBackLabel_1 = new FixLabel(tr("Backup") , mBackFrame);
     mBackLabel_1->setContentsMargins(0 , 12 , 0 , 0);
-    FixLabel *mBackLabel_2 = new FixLabel(tr("Back up your files to other drives and restore them when the source files are lost, "
+    LightLabel *mBackLabel_2 = new LightLabel(tr("Back up your files to other drives and restore them when the source files are lost, "
                                                                                              "damaged, or deleted to ensure the integrity of the system.") , mBackFrame);
     mBackLabel_2->setContentsMargins(0 , 0 , 0 , 12);
-    mBackLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
     QVBoxLayout *mverticalLayout_1 = new QVBoxLayout;
     mverticalLayout_1->setSpacing(0);
     mverticalLayout_1->setContentsMargins(0 , 0 , 0 , 0);
@@ -132,9 +131,8 @@ void Backup::initUi(QWidget *widget)
     mRestoreBtn->setFixedWidth(120);
     FixLabel *mRestoreLabel_1 = new FixLabel(tr("Restore") , mRestoreFrame);
     mRestoreLabel_1->setContentsMargins(0 , 12 , 0 , 0);
-    FixLabel *mRestoreLabel_2 = new FixLabel(tr("View the backup list and restore the backup file to the system") , mRestoreFrame);
+    LightLabel *mRestoreLabel_2 = new LightLabel(tr("View the backup list and restore the backup file to the system") , mRestoreFrame);
     mRestoreLabel_2->setContentsMargins(0 , 0 , 0 , 12);
-    mRestoreLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
     QVBoxLayout *mverticalLayout_2 = new QVBoxLayout;
     mverticalLayout_2->setSpacing(0);
     mverticalLayout_2->setContentsMargins(0 , 0 , 0 , 0);
