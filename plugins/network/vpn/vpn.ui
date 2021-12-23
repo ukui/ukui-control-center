@@ -55,16 +55,16 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="addWidget" native="true">
+    <widget class="QFrame" name="addFrame">
      <property name="minimumSize">
       <size>
        <width>550</width>
-       <height>60</height>
+       <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>960</width>
+       <width>16777215</width>
        <height>60</height>
       </size>
      </property>
