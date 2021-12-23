@@ -69,13 +69,6 @@
         <ChineseFunc>打印机与扫描仪</ChineseFunc>
         <EnglishFunc>List of Existing Printers</EnglishFunc>
     </plugin>
-    <plugin name="printer">
-        <pinyinPlugin>dayinji</pinyinPlugin>
-        <pinyinfunc>tianjiakeyongshebei</pinyinfunc>
-        <ChinesePlugin>打印机</ChinesePlugin>
-        <ChineseFunc>添加可用设备</ChineseFunc>
-        <EnglishFunc>Add printers and scanners</EnglishFunc>
-    </plugin>
     <plugin name="mouse">
         <pinyinPlugin>shubiao</pinyinPlugin>
         <pinyinfunc>shubiaojianshezhi</pinyinfunc>
