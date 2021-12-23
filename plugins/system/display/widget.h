@@ -191,6 +191,7 @@ private:
 
     void setMulScreenVisiable();
     void initMultScreenStatus();
+    void updateMultiScreen(); // 屏幕插拔更改状态
 
     void showZoomtips();      // 缩放注销提示框
 

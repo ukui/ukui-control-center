@@ -184,6 +184,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mConfig = config;
     mPrevConfig = config->clone();
 
+    updateMultiScreen();
+
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
     resetPrimaryCombo();
     changescale();
@@ -196,10 +198,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
         outputRemoved(outputId, false);
     });
 
-    int outputNum = 0;
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (output->isConnected()) {
-            mMultiScreenCombox->setItemText(outputNum++, Utils::outputName(output));
             connect(output.data(), &KScreen::Output::currentModeIdChanged,
                     this, [=]() {
                 if (output->currentMode()) {
@@ -209,7 +209,6 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
                 }
             });
         }
-
     }
 
     connect(mConfig.data(), &KScreen::Config::primaryOutputChanged,
@@ -514,6 +513,7 @@ void Widget::slotOutputConnectedChanged()
         outputRemoved(output->id(), true);
     }
 
+    updateMultiScreen();
     resetPrimaryCombo();
 
     // bug#89064,bug#89174
@@ -1029,6 +1029,14 @@ void Widget::initMultScreenStatus()
         break;
     }
     mMultiScreenCombox->blockSignals(false);
+}
+
+void Widget::updateMultiScreen()
+{
+    int index = 0;
+    for (const KScreen::OutputPtr output : mConfig->connectedOutputs()) {
+        mMultiScreenCombox->setItemText(index++, Utils::outputName(output));
+    }
 }
 
 void Widget::showZoomtips()
