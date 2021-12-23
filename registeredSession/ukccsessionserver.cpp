@@ -67,6 +67,7 @@ QVariantList ukccSessionServer::getPreScreenCfg()
                 screenCfg.screenModeId = map["modeid"].toString();
                 screenCfg.screenPosX = map["x"].toInt();
                 screenCfg.screenPosY = map["y"].toInt();
+                screenCfg.isPrimary = map["primary"].toBool();
                 QVariant screenVar = QVariant::fromValue(screenCfg);
                 mPreScreenCfg << screenVar;
             }

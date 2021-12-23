@@ -10,11 +10,16 @@ struct ScreenConfig
     QString screenModeId;
     int screenPosX;
     int screenPosY;
+    bool isPrimary;
 
     friend QDBusArgument &operator<<(QDBusArgument &argument, const ScreenConfig &screenStruct)
     {
         argument.beginStructure();
-        argument << screenStruct.screenId  << screenStruct.screenModeId << screenStruct.screenPosX << screenStruct.screenPosY;
+        argument << screenStruct.screenId
+                 << screenStruct.screenModeId
+                 << screenStruct.screenPosX
+                 << screenStruct.screenPosY
+                 << screenStruct.isPrimary;
         argument.endStructure();
         return argument;
     }
@@ -22,7 +27,11 @@ struct ScreenConfig
     friend const QDBusArgument &operator>>(const QDBusArgument &argument, ScreenConfig &screenStruct)
     {
         argument.beginStructure();
-        argument >> screenStruct.screenId >> screenStruct.screenModeId >> screenStruct.screenPosX >> screenStruct.screenPosY;
+        argument >> screenStruct.screenId
+                 >> screenStruct.screenModeId
+                 >> screenStruct.screenPosX
+                 >> screenStruct.screenPosY
+                 >> screenStruct.isPrimary;
         argument.endStructure();
         return argument;
     }
