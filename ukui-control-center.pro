@@ -3,6 +3,7 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS = \
+    libukcc \
     changeOtherUserPwd \
     changeUserPwd \
     checkUserPwdWithPAM \
@@ -10,9 +11,7 @@ SUBDIRS = \
     plugins\
     registeredSession \
     shell \
-    libukcc \
     group-manager-server \
-#    tastenbrett \
 
 LIBS += -lukcc
 TRANSLATIONS += \
