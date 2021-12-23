@@ -8830,17 +8830,17 @@ run start-pulseaudio-x11 manually.</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="692"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 29 seconds</source>
-        <translation>修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在29秒后保存配置</translation>
+        <translation>修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常或者无法显示。系统将在29秒后保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
-        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在14秒后保存配置</translation>
+        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常或者无法显示。系统将在14秒后保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after %1 seconds</source>
-        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置</translation>
+        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常或者无法显示。系统将在%1秒后保存配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="2192"/>
@@ -8851,12 +8851,12 @@ the settings will be saved after %1 seconds</source>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 9 seconds</source>
-        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
+        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常或者无法显示。系统将在9秒后保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 The settings will be saved after 9 seconds</source>
-        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
+        <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常或者无法显示。系统将在9秒后保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
