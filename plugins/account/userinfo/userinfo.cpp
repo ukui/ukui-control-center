@@ -193,7 +193,6 @@ void UserInfo::initUI(){
 
     currentNickNameLabel = new QLabel();
     currentNickNameLabel->setFixedHeight(27);
-    currentNickNameLabel->setFixedWidth(80);
     currentNickNameChangeLabel = new QLabel();
     currentNickNameChangeLabel->setFixedSize(QSize(15, 22));
     currentNickNameChangeLabel->setProperty("useIconHighlightEffect", 0x8);
@@ -207,6 +206,7 @@ void UserInfo::initUI(){
     currentNickNameHorLayout->setContentsMargins(0, 0, 0, 0);
     currentNickNameHorLayout->addWidget(currentNickNameLabel);
     currentNickNameHorLayout->addWidget(currentNickNameChangeLabel);
+    currentNickNameHorLayout->addStretch();
 
     currentUserinfoVerLayout = new QVBoxLayout();
     currentUserinfoVerLayout->setSpacing(4);
@@ -609,14 +609,15 @@ bool UserInfo::setTextDynamic(QLabel *label, QString string){
 
     bool isOverLength = false;
     QFontMetrics fontMetrics(label->font());
-    int labelValueSize = label->width() - 10;
+    int labelValueSize = 80;
     int fontSize = fontMetrics.width(string);
     QString str = string;
     if (fontSize > labelValueSize) {
         str = fontMetrics.elidedText(string, Qt::ElideRight, labelValueSize);
         isOverLength = true;
     } else {
-
+        str = fontMetrics.elidedText(string, Qt::ElideRight, fontSize+5);
+        label->setFixedWidth(fontSize+5);
     }
     label->setText(str);
     return isOverLength;
