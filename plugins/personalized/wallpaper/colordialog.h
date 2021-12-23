@@ -47,6 +47,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::ColorDialog     *ui;

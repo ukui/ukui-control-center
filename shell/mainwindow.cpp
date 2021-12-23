@@ -228,7 +228,6 @@ void MainWindow::initUI() {
                     widget->setFont(font);
                 }
             }
-            ui->leftsidebarWidget->setMaximumWidth(width * 10 + 120);
         }
     });
 
@@ -888,7 +887,7 @@ void MainWindow::initStyleSheet() {
     closeBtn->setFlat(true);
 
     ui->centralWidget->setAttribute(Qt::WA_TranslucentBackground);
-    ui->leftsidebarWidget->setMinimumWidth(260); //一级菜单宽度
+    ui->leftsidebarWidget->setFixedWidth(260); //一级菜单宽度
 
     // 设置左上角按钮图标
     backBtn->setIcon(QIcon("://img/titlebar/index.svg"));

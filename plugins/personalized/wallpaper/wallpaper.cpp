@@ -312,7 +312,12 @@ void Wallpaper::setupConnect(){
         //GSettings key picture-filename 这里收到 pictureFilename的返回值
         if (!QString::compare(key, "pictureFilename")){
             QString curPicname = bgsettings->get(key).toString();
-
+            if (curPicname == "") {
+                if (prePicUnit != nullptr) {
+                    prePicUnit->changeClickedFlag(false);
+                    prePicUnit->setStyleSheet("border-width: 0px;");
+                }
+            }
             QDBusInterface * interface = new QDBusInterface("org.freedesktop.Accounts",
                                              "/org/freedesktop/Accounts",
                                              "org.freedesktop.Accounts",
@@ -605,14 +610,14 @@ void Wallpaper::del_wallpaper(){
 }
 
 void Wallpaper::setClickedPic(QString fileName) {
+    if (prePicUnit != nullptr) {
+        prePicUnit->changeClickedFlag(false);
+        prePicUnit->setStyleSheet("border-width: 0px;");
+    }
     for (int i = picFlowLayout->count() - 1; i >= 0; --i) { 
         QLayoutItem *it      = picFlowLayout->itemAt(i);
         PictureUnit *picUnit = static_cast<PictureUnit*>(it->widget());
         if (fileName == picUnit->filenameText()) {
-            if (prePicUnit != nullptr) {
-                prePicUnit->changeClickedFlag(false);
-                prePicUnit->setStyleSheet("border-width: 0px;");
-            }
             picUnit->changeClickedFlag(true);
             prePicUnit = picUnit;
             picUnit->setFrameShape(QFrame::Box);
