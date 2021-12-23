@@ -218,7 +218,7 @@ void AutoBoot::initAutoUI()
         deBtn->setProperty("useButtonPalette", true);
         deBtn->setPopupMode(QToolButton::InstantPopup);
         deBtn->setFixedSize(QSize(36, 36));
-        deBtn->setIcon(QIcon(":/more.svg"));
+        deBtn->setIcon(QIcon::fromTheme("view-more-horizontal-symbolic"));
 
         RMenu *pMenu = new RMenu(deBtn);
 
