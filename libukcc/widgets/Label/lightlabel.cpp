@@ -19,16 +19,9 @@ LightLabel::~LightLabel()
 
 void LightLabel::paintEvent(QPaintEvent *event)
 {
-    QPalette pal;
-    QBrush brush = pal.placeholderText();
-    QColor textColor = brush.color();
-    QString stringColor = QString("color: rgba(%1,%2,%3,%4)")
-           .arg(textColor.red())
-           .arg(textColor.green())
-           .arg(textColor.blue())
-           .arg(textColor.alphaF());
-
-    this->setStyleSheet(stringColor);
-
+    QPalette paltte;
+    paltte.setColor(QPalette::WindowText, paltte.placeholderText().color());
+    this->setPalette(paltte);
     QLabel::paintEvent(event);
+    return;
 }
