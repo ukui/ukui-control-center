@@ -67,7 +67,7 @@ void UnifiedOutputConfig::initUi()
     mResolution = new ResolutionSlider(fakeOutput, this);
 
     mResolution->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    mResolution->setMinimumSize(402, 30);
+    mResolution->setMinimumSize(402, 36);
 
     //监听，否则无法处理修改分辨率/刷新率未保存
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
@@ -79,8 +79,8 @@ void UnifiedOutputConfig::initUi()
     QLabel *resLabel = new QLabel(this);
     resLabel->setText(tr("resolution"));
     resLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    resLabel->setMinimumSize(118, 30);
-    resLabel->setMaximumSize(118, 30);
+    resLabel->setMinimumSize(118, 36);
+    resLabel->setMaximumSize(118, 36);
 
     QHBoxLayout *resLayout = new QHBoxLayout();
     resLayout->addSpacing(6);
@@ -108,14 +108,14 @@ void UnifiedOutputConfig::initUi()
     mRotation = new QComboBox(this);
 
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    mRotation->setMinimumSize(402, 30);
-    mRotation->setMaximumSize(16777215, 30);
+    mRotation->setMinimumSize(402, 36);
+    mRotation->setMaximumSize(16777215, 36);
 
     QLabel *rotateLabel = new QLabel(this);
     rotateLabel->setText(tr("orientation"));
     rotateLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    rotateLabel->setMinimumSize(118, 30);
-    rotateLabel->setMaximumSize(118, 30);
+    rotateLabel->setMinimumSize(118, 36);
+    rotateLabel->setMaximumSize(118, 36);
 
     mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
@@ -148,14 +148,14 @@ void UnifiedOutputConfig::initUi()
     // 统一输出刷新率下拉框
     mRefreshRate = new QComboBox(this);
     mRefreshRate->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    mRefreshRate->setMinimumSize(402, 30);
-    mRefreshRate->setMaximumSize(16777215, 30);
+    mRefreshRate->setMinimumSize(402, 36);
+    mRefreshRate->setMaximumSize(16777215, 36);
 
     QLabel *freshLabel = new QLabel(this);
     freshLabel->setText(tr("frequency"));
     freshLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    freshLabel->setMinimumSize(118, 30);
-    freshLabel->setMaximumSize(118, 30);
+    freshLabel->setMinimumSize(118, 36);
+    freshLabel->setMaximumSize(118, 36);
 
     QHBoxLayout *freshLayout = new QHBoxLayout();
     freshLayout->addSpacing(6);

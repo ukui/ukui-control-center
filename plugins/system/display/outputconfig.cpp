@@ -70,12 +70,13 @@ void OutputConfig::initUi()
     // 分辨率下拉框
     mResolution = new ResolutionSlider(mOutput, this);
     mResolution->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    mResolution->setFixedHeight(36);
 
     QLabel *resLabel = new QLabel(this);
     //~ contents_path /Display/resolution
     resLabel->setText(tr("resolution"));
     resLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    resLabel->setFixedSize(118, 30);
+    resLabel->setFixedSize(118, 36);
 
     QHBoxLayout *resLayout = new QHBoxLayout();
     resLayout->addSpacing(6);
@@ -104,12 +105,13 @@ void OutputConfig::initUi()
     // 方向下拉框
     mRotation = new QComboBox(this);
     mRotation->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    mRotation->setFixedHeight(36);
 
     QLabel *rotateLabel = new QLabel(this);
     //~ contents_path /Display/orientation
     rotateLabel->setText(tr("orientation"));
     rotateLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    rotateLabel->setFixedSize(118, 30);
+    rotateLabel->setFixedSize(118, 36);
 
     QHBoxLayout *rotateLayout = new QHBoxLayout();
     rotateLayout->addSpacing(6);
@@ -139,12 +141,13 @@ void OutputConfig::initUi()
 
     // 刷新率下拉框
     mRefreshRate = new QComboBox(this);
+    mRefreshRate->setFixedHeight(36);
 
     QLabel *freshLabel = new QLabel(this);
     //~ contents_path /Display/frequency
     freshLabel->setText(tr("frequency"));
     freshLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    freshLabel->setFixedSize(118, 30);
+    freshLabel->setFixedSize(118, 36);
 
     QHBoxLayout *freshLayout = new QHBoxLayout();
     freshLayout->addSpacing(6);
@@ -178,12 +181,13 @@ void OutputConfig::initUi()
 
     mScaleCombox = new QComboBox(this);
     mScaleCombox->setObjectName("scaleCombox");
+    mScaleCombox->setFixedHeight(36);
 
     QLabel *scaleLabel = new QLabel(this);
     //~ contents_path /Display/screen zoom
     scaleLabel->setText(tr("screen zoom"));
     scaleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    scaleLabel->setFixedSize(118, 30);
+    scaleLabel->setFixedSize(118, 36);
 
     scaleLayout->addWidget(scaleLabel);
     scaleLayout->addWidget(mScaleCombox);

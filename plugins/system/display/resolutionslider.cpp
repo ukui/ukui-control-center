@@ -42,8 +42,8 @@ ResolutionSlider::~ResolutionSlider()
 
 void ResolutionSlider::init()
 {
-    this->setMinimumSize(402, 30);
-    this->setMaximumSize(1677215, 30);
+    this->setMinimumSize(402, 36);
+    this->setMaximumSize(1677215, 36);
     mModes.clear();
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
         if (mModes.contains(mode->size())
@@ -66,8 +66,8 @@ void ResolutionSlider::init()
     if (!mModes.empty()) {
         std::reverse(mModes.begin(), mModes.end());
         mComboBox = new QComboBox(this);
-        mComboBox->setMinimumSize(402, 30);
-        mComboBox->setMaximumSize(1677215, 30);
+        mComboBox->setMinimumSize(402, 36);
+        mComboBox->setMaximumSize(1677215, 36);
 
         int currentModeIndex = -1;
         int preferredModeIndex = -1;
