@@ -92,6 +92,7 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     QWidget *pluginwidget =  plu->pluginUi();
     pluginwidget->setContentsMargins(40,0,20,40);
     ui->scrollArea->setWidget(pluginwidget);
+    mCurrentPluName = plu->name();
 
     //记录打开历史
     if (flagBit){

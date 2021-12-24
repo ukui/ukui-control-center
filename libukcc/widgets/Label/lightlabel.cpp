@@ -1,13 +1,13 @@
 #include "lightlabel.h"
 
 LightLabel::LightLabel(QWidget *parent):
-    QLabel(parent)
+    FixLabel(parent)
 {
 
 }
 
 LightLabel::LightLabel(QString text , QWidget *parent):
-    QLabel(parent)
+    FixLabel(parent)
 {
     this->setText(text);
 }
@@ -22,6 +22,6 @@ void LightLabel::paintEvent(QPaintEvent *event)
     QPalette paltte;
     paltte.setColor(QPalette::WindowText, paltte.placeholderText().color());
     this->setPalette(paltte);
-    QLabel::paintEvent(event);
+    FixLabel::paintEvent(event);
     return;
 }

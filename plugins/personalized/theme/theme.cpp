@@ -201,8 +201,10 @@ void Theme::setupSettings() {
 
     if (effectSwitchBtn->isChecked()) {
         ui->transFrame->setVisible(true);
+        ui->line->setVisible(true);
     } else {
         ui->transFrame->setVisible(false);
+        ui->line->setVisible(false);
     }
 
     if (keys.contains("Compositing")) {
@@ -214,8 +216,7 @@ void Theme::setupSettings() {
         kwinOG = kwinSettings->value("OpenGLIsUnsafe", kwinOG).toBool();
         kwinEN = kwinSettings->value("Enabled", kwinEN).toBool();
         if (xder == kXder || kwinOG || !kwinEN) {
-            ui->effectFrame->setVisible(false);
-            ui->transFrame->setVisible(false);
+            ui->frame_4->setVisible(false);
             ui->effectLabel->setVisible(false);
             personliseGsettings->set(PERSONALSIE_EFFECT_KEY, false);
         } else {
@@ -267,6 +268,7 @@ void Theme::setupComponent() {
 
     ui->kwinFrame->setVisible(false);
     ui->transFrame->setVisible(true);
+    ui->line->setVisible(true);
 }
 
 void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
@@ -570,6 +572,7 @@ void Theme::initConnection() {
         personliseGsettings->set(PERSONALSIE_EFFECT_KEY, checked);
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
         ui->transFrame->setVisible(checked && !Utils::isTablet());
+        ui->line->setVisible(checked && !Utils::isTablet());
         writeKwinSettings(checked, currentThemeMode, true);
     });
 }
@@ -790,6 +793,7 @@ void Theme::hideIntelComponent()
         ui->cursorLabel->setVisible(false);
         ui->cursorFrame->setVisible(false);
         ui->transFrame->setVisible(false);
+        ui->line->setVisible(false);
         ui->resetBtn->setVisible(false);
     }
 }

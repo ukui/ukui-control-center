@@ -116,7 +116,8 @@ private:
     bool isExitWirelessDevice();
     bool dblOnEdge(QMouseEvent *event);
     void initStyleSheet();
-    void changeSearchSlot();
+    void changeSearchSlot();   
+    void showGuide(QString pluName);
 
 public slots:
     void functionBtnClicked(QObject * plugin);

@@ -51,6 +51,9 @@ public:
 private:
     Ui::ModulePageWidget *ui;
 
+public:
+    QString mCurrentPluName = "";
+
 private:
     MainWindow * pmainWindow;
     CommonInterface * prePlugin = nullptr;

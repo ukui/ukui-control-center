@@ -34,7 +34,7 @@ public:
     explicit FixLabel(QString text , QWidget *parent = nullptr);
     ~FixLabel();
     void setText(const QString &text, bool saveTextFlag = true);
-private:
+protected:
     void paintEvent(QPaintEvent *event);
 
 private:

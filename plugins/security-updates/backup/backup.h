@@ -27,6 +27,7 @@
 #include <ukcc/widgets/titlelabel.h>
 #include <ukcc/widgets/fixlabel.h>
 #include <ukcc/widgets/fixbutton.h>
+#include <ukcc/widgets/lightlabel.h>
 
 namespace Ui {
 class Backup;
