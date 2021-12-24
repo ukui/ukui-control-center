@@ -741,12 +741,12 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="381"/>
         <source>12 Hours</source>
-        <translation>12小时</translation>
+        <translation>12小时制</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="382"/>
         <source>24 Hours</source>
-        <translation>24小时</translation>
+        <translation>24小时制</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="491"/>

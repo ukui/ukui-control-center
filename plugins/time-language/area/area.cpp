@@ -224,6 +224,14 @@ void Area::initComponent() {
    // ui->langcomboBox->setCurrentIndex(langIndex);
     ui->countrycomboBox->setCurrentIndex(formatIndex);
 
+    if (ui->countrycomboBox->currentIndex() == 1) {
+        ui->dayBox->addItem("星期一");
+        ui->dayBox->addItem("星期天");
+    } else {
+        ui->dayBox->addItem("monday");
+        ui->dayBox->addItem("sunday");
+    }
+
     initFormComponent(0b1111);
 }
 
@@ -366,9 +374,6 @@ void Area::initFormFrame()
         ui->calendarBox->addItem(tr("lunar"));
     }
 
-    ui->dayBox->addItem(tr("monday"));
-    ui->dayBox->addItem(tr("sunday"));
-
     QString currentsecStr;
     QDateTime current = QDateTime::currentDateTime();
 
@@ -386,8 +391,18 @@ void Area::initConnect()
 {
     connect(ui->countrycomboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(change_area_slot(int)));
     connect(ui->countrycomboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            [=]{
+            [=](int index){
         showMessageBox(1);
+        int dayValue = ui->dayBox->currentIndex();
+        ui->dayBox->clear();
+        if (index == 1) {
+            ui->dayBox->addItem("星期一");
+            ui->dayBox->addItem("星期天");
+        } else {
+            ui->dayBox->addItem("monday");
+            ui->dayBox->addItem("sunday");
+        }
+        ui->dayBox->setCurrentIndex(dayValue);
     });
     connect(ui->timeBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=]() {
         bool flag_24;
