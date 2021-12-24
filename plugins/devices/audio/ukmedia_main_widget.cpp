@@ -250,6 +250,9 @@ void UkmediaMainWidget::initGsettings()
     }
     bool status = g_settings_get_boolean(m_pSoundSettings, EVENT_SOUNDS_KEY);
     m_pSoundWidget->m_pAlertSoundSwitchButton->setChecked(status);
+    status = g_settings_get_boolean(m_pSoundSettings, DNS_NOISE_REDUCTION);
+
+    m_pInputWidget->m_pNoiseReducteButton->setChecked(status);
 }
 
 /*
@@ -301,7 +304,7 @@ void UkmediaMainWidget::dealSlot()
         m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
         m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
         themeChangeIcons();
-        initListWidgetItem();
+//        initListWidgetItem();
     });
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
         QString percent = QString::number(paVolumeToValue(value));
@@ -324,6 +327,7 @@ void UkmediaMainWidget::dealSlot()
 
     connect(m_pOutputWidget->m_pOutputListWidget,SIGNAL(currentRowChanged(int )),this,SLOT(outputListWidgetCurrentRowChangedSlot(int)));
     connect(m_pInputWidget->m_pInputListWidget,SIGNAL(currentRowChanged(int )),this,SLOT(inputListWidgetCurrentRowChangedSlot(int)));
+    connect(m_pInputWidget->m_pNoiseReducteButton,SIGNAL(checkedChanged(bool)),this,SLOT(noiseReductionButtonSwitchChangedSlot(bool)));
 
 }
 
@@ -645,6 +649,11 @@ void UkmediaMainWidget::alertSoundButtonSwitchChangedSlot(bool status)
         m_pSoundWidget->m_pSoundLayout->removeWidget(m_pSoundWidget->m_pAlertSoundVolumeWidget);
     }
     */
+}
+
+void UkmediaMainWidget::noiseReductionButtonSwitchChangedSlot(bool status)
+{
+    g_settings_set_boolean (m_pSoundSettings, DNS_NOISE_REDUCTION, status);
 }
 
 void UkmediaMainWidget::bootMusicSettingsChanged()
@@ -1744,6 +1753,9 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
     if (item == nullptr) {
         qDebug() <<"output current item is null";
     }
+
+    if (!pressOutputListWidget)
+        pressOutputListWidget = true;
     UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pOutputWidget->m_pOutputListWidget->itemWidget(item);
     QListWidgetItem *inputCurrrentItem = m_pInputWidget->m_pInputListWidget->currentItem();
     UkuiListWidgetItem *inputWid = (UkuiListWidgetItem *)m_pInputWidget->m_pInputListWidget->itemWidget(inputCurrrentItem);
@@ -1818,7 +1830,16 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
         setCardProfile(wid->deviceLabel->text(),setProfile);
         setDefaultOutputPortDevice(wid->deviceLabel->text(),wid->portLabel->text());
     }
-    qDebug() << "active output port:" << wid->portLabel->text();
+    m_pVolumeControl->getDefaultSinkIndex();
+    QTimer::singleShot(100, this, [=](){
+
+        int vol = m_pVolumeControl->getSinkVolume();
+        m_pOutputWidget->m_pOpVolumeSlider->blockSignals(true);
+        m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(vol));
+        m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
+        m_pOutputWidget->m_pOpVolumePercentLabel->setText(QString::number(paVolumeToValue(vol))+"%");
+        qDebug() << "active output port:" << wid->portLabel->text() <<vol;
+    });
 }
 
 /*
@@ -1912,7 +1933,16 @@ void UkmediaMainWidget::inputListWidgetCurrentRowChangedSlot(int row)
         setCardProfile(wid->deviceLabel->text(),setProfile);
         setDefaultInputPortDevice(wid->deviceLabel->text(),wid->portLabel->text());
     }
+    m_pVolumeControl->getDefaultSinkIndex();
+    QTimer::singleShot(100, this, [=](){
 
+        int vol = m_pVolumeControl->getSourceVolume();
+        m_pInputWidget->m_pIpVolumeSlider->blockSignals(true);
+        m_pInputWidget->m_pIpVolumeSlider->setValue(paVolumeToValue(vol));
+        m_pInputWidget->m_pIpVolumeSlider->blockSignals(false);
+        m_pInputWidget->m_pIpVolumePercentLabel->setText(QString::number(paVolumeToValue(vol))+"%");
+        qDebug() << "active output port:" << wid->portLabel->text() <<vol;
+    });
     qDebug() << "active input port:" << wid->portLabel->text() << isCheckBluetoothInput;
 }
 
@@ -2305,7 +2335,7 @@ void UkmediaMainWidget::deleteNotAvailableOutputPort()
     for(it=currentOutputPortLabelMap.begin();it!=currentOutputPortLabelMap.end();) {
         //没找到，需要删除
         if (outputPortIsNeedDelete(it.key(),it.value())) {
-            int index = indexOfOutputPortInOutputListWidget(it.value());
+            int index = indexOfOutputPortInOutputListWidget(it.key(),it.value());
             if (index == -1)
                 return;
             m_pOutputWidget->m_pOutputListWidget->blockSignals(true);
@@ -2331,7 +2361,7 @@ void UkmediaMainWidget::deleteNotAvailableInputPort()
     for(it=currentInputPortLabelMap.begin();it!=currentInputPortLabelMap.end();) {
         //没找到，需要删除
         if (inputPortIsNeedDelete(it.key(),it.value())) {
-            int index = indexOfInputPortInInputListWidget(it.value());
+            int index = indexOfInputPortInInputListWidget(it.key(),it.value());
             if (index == -1)
                 return;
             m_pInputWidget->m_pInputListWidget->blockSignals(true);
@@ -2659,13 +2689,13 @@ QString UkmediaMainWidget::findHighPriorityProfile(int index,QString profile)
         if (it.key() == index) {
             profileNameMap = it.value();
             for (tempMap=profileNameMap.begin();tempMap!=profileNameMap.end();) {
-//                qDebug() << "findHighPriorityProfile" << includeProfile <<tempMap.key() << profile;
                 if (includeProfile != "" && tempMap.key().contains(includeProfile) && tempMap.key().contains(profile)) {
                     priority = tempMap.value();
                     profileName = tempMap.key();
                 }
-                else if (tempMap.key() == profile && tempMap.value() > priority) {
+                else if ( tempMap.key() == profile && tempMap.value() > priority) {
                     priority = tempMap.value();
+                    qDebug() << "findHighPriorityProfile-----" << includeProfile <<tempMap.key() << profile;
                     profileName = tempMap.key();
                 }
                 ++tempMap;
@@ -2689,6 +2719,7 @@ void UkmediaMainWidget::findOutputListWidgetItem(QString cardName,QString portLa
             m_pOutputWidget->m_pOutputListWidget->blockSignals(true);
             m_pOutputWidget->m_pOutputListWidget->setCurrentRow(row);
             m_pOutputWidget->m_pOutputListWidget->blockSignals(false);
+            qDebug() << "m_pOutputListWidget setCurrentRow11111111111" <<row;
             break;
         }
     }
@@ -2696,7 +2727,9 @@ void UkmediaMainWidget::findOutputListWidgetItem(QString cardName,QString portLa
 
 void UkmediaMainWidget::findInputListWidgetItem(QString cardName,QString portLabel)
 {
-    qDebug() <<"findInputListWidgetItem" << cardName  << m_pInputWidget->m_pInputListWidget->count();
+//    qDebug() <<"findInputListWidgetItem" << cardName  << m_pInputWidget->m_pInputListWidget->count();
+    if(strstr(m_pVolumeControl->defaultSourceName,"monitor"))
+        m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
     for (int row=0;row<m_pInputWidget->m_pInputListWidget->count();row++) {
         QListWidgetItem *item = m_pInputWidget->m_pInputListWidget->item(row);
         UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pInputWidget->m_pInputListWidget->itemWidget(item);
@@ -2743,26 +2776,29 @@ QString UkmediaMainWidget::blueCardName()
     return "";
 }
 
-int UkmediaMainWidget::indexOfOutputPortInOutputListWidget(QString portName)
+int UkmediaMainWidget::indexOfOutputPortInOutputListWidget(int index,QString portName)
 {
+    QString cardName = findCardName(index,m_pVolumeControl->cardMap);
     for (int row=0;row<m_pOutputWidget->m_pOutputListWidget->count();row++) {
 
         QListWidgetItem *item = m_pOutputWidget->m_pOutputListWidget->item(row);
         UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pOutputWidget->m_pOutputListWidget->itemWidget(item);
-        if (wid->portLabel->text() == portName) {
+        if (wid->portLabel->text() == portName && wid->deviceLabel->text() == cardName) {
             return row;
         }
     }
     return -1;
 }
 
-int UkmediaMainWidget::indexOfInputPortInInputListWidget(QString portName)
+int UkmediaMainWidget::indexOfInputPortInInputListWidget(int index,QString portName)
 {
+    QString cardName = findCardName(index,m_pVolumeControl->cardMap);
+    qDebug() << "indexOfInputPortInInputListWidget" << cardName << portName;
     for (int row=0;row<m_pInputWidget->m_pInputListWidget->count();row++) {
 
         QListWidgetItem *item = m_pInputWidget->m_pInputListWidget->item(row);
         UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pInputWidget->m_pInputListWidget->itemWidget(item);
-        if (wid->portLabel->text() == portName) {
+        if (wid->portLabel->text() == portName && wid->deviceLabel->text() == cardName) {
             return row;
         }
     }
@@ -2868,7 +2904,7 @@ void UkmediaMainWidget::setDefaultOutputPortDevice(QString devName, QString port
     QString portStr = findOutputPortName(cardIndex,portName);
 
     QTimer *timer = new QTimer;
-    timer->start(50);
+    timer->start(300);
     connect(timer,&QTimer::timeout,[=](){
         QString sinkStr = findPortSink(cardIndex,portStr);
 

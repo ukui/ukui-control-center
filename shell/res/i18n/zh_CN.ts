@@ -8198,6 +8198,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <extra-contents_path>/audio/Input Level</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="102"/>
+        <source>Noise Reduction</source>
+        <translation>智能降噪</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation type="vanished">低</translation>
     </message>
