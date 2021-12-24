@@ -60,8 +60,8 @@
 
 const QByteArray kVinoSchemas    = "org.gnome.Vino";
 
-#define KYLIN_USER_GUIDE_PATH                    "/"
-#define KYLIN_USER_GUIDE_SERVICE              "com.kylinUserGuide.hotel"
+#define KYLIN_USER_GUIDE_PATH              "/"
+#define KYLIN_USER_GUIDE_SERVICE           "com.kylinUserGuide.hotel"
 #define KYLIN_USER_GUIDE_INTERFACE         "com.guide.hotel"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏

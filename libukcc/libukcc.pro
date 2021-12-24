@@ -23,7 +23,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES +=
 
 HEADERS += \
-    libukcc_global.h
+    libukcc_global.h \
+    widgets/Label/fixlabel.h
 
 # Default rules for deployment.
 unix {
