@@ -43,11 +43,13 @@ void TrialDialog::initUi(QDialog *mTrialDialog)
 
     mContentLabel_2 = new QTextBrowser(mTrialDialog);
     mContentLabel_2->setFixedHeight(364);
-    mContentLabel_2->setText(tr("Dear customer:\n    Thank you for trying Yinhe Kylin OS(trail version)! This version is free for users who only try out,"
+    mContentLabel_2->setText(tr("Dear customer:\n"
+                                "       Thank you for trying Yinhe Kylin OS(trail version)! This version is free for users who only try out,"
                                 " no commercial purpose is permitted. The trail period lasts one year and it starts from the ex-warehouse time of the OS. No after-sales"
                                 " service is provided during the trail stage. If any security problems occurred when user put important files or do any commercial usage"
-                                " in system, all consequences are taken by users. Kylin software Co., Ltd. take no legal risk in trail version.\n    During trail stage,if you want"
-                                " any technology surpport or activate the system, please buy“Yinhe Kylin Operating System”official version or authorization by contacting 400-089-1870."));
+                                " in system, all consequences are taken by users. Kylin software Co., Ltd. take no legal risk in trail version.\n"
+                                "       During trail stage,if you want any technology surpport or activate the system, please buy“Yinhe Kylin Operating System”official "
+                                "version or authorization by contacting 400-089-1870."));
     mContentLabel_2->adjustSize();
     mContentLayout->addWidget(mContentLabel_2);
     mContentLayout->addStretch();

@@ -360,10 +360,10 @@ void Widget::initNightModeUi()
     mTemptLabel = new FixLabel(mTemptFrame);
     mTemptLabel->setFixedWidth(200);
     mTemptLabel->setText(tr("Color Temperature"));
-    mWarmLabel = new QLabel(mTemptFrame);
+    mWarmLabel = new FixLabel(mTemptFrame);
     mWarmLabel->setFixedWidth(64);
     mWarmLabel->setText(tr("Warmer"));
-    mColdLabel = new QLabel(mTemptFrame);
+    mColdLabel = new FixLabel(mTemptFrame);
     mColdLabel->setFixedWidth(64);
     mColdLabel->setText(tr("Colder"));
     mColdLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
