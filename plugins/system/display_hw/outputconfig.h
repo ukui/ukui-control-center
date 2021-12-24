@@ -37,6 +37,7 @@ public:
     bool showScaleOption() const;
 
     void initConfig(const KScreen::ConfigPtr &config);
+    QString refreshRateToText(float refreshRate);
 
 protected Q_SLOTS:
     void slotResolutionChanged(const QSize &size, bool emitFlag);

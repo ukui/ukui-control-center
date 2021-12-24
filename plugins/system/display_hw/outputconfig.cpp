@@ -388,3 +388,10 @@ void OutputConfig::initConfig(const KScreen::ConfigPtr &config)
 {
     mConfig = config;
 }
+
+QString OutputConfig::refreshRateToText(float refreshRate)
+{
+    QRegExp rx;
+    rx.setPattern("(\\.){0,1}0+$");
+    return tr("%1 Hz").arg((QString::number(refreshRate)).replace(rx,""));
+}
