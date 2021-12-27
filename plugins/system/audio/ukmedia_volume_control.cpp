@@ -110,6 +110,7 @@ bool UkmediaVolumeControl::setSourceMute(bool status)
 {
     pa_operation* o;
 
+    qDebug() << "setSourceMute" << status << sourceIndex;
     if (!(o = pa_context_set_source_mute_by_index(getContext(), sourceIndex, status, nullptr, nullptr))) {
         showError(tr("pa_context_set_source_mute_by_index() failed").toUtf8().constData());
         return false;
@@ -123,8 +124,9 @@ bool UkmediaVolumeControl::setSourceMute(bool status)
  */
 bool UkmediaVolumeControl::setSourceVolume(int index,int value)
 {
-    pa_cvolume v = m_pDefaultSink->volume;
+    pa_cvolume v = m_pDefaultSource->volume;
     v.channels = inputChannel;
+
     for (int i=0;i<v.channels;i++)
         v.values[i] = value;
 
@@ -229,7 +231,7 @@ int UkmediaVolumeControl::getDefaultSinkIndex()
 void UkmediaVolumeControl::setSinkInputVolume(int index, int value)
 {
     pa_cvolume v = m_pDefaultSink->volume;
-    v.channels = channel;
+    v.channels = sinkInputChannel;
     for (int i=0;i<v.channels;i++)
         v.values[i] = value;
 
@@ -262,7 +264,7 @@ void UkmediaVolumeControl::setSinkInputMuted(int index, bool status)
 void UkmediaVolumeControl::setSourceOutputVolume(int index, int value)
 {
     pa_cvolume v = m_pDefaultSink->volume;
-    v.channels = inputChannel;
+    v.channels = sourceOutputChannel;
     for (int i=0;i<v.channels;i++)
         v.values[i] = value;
 
@@ -322,12 +324,12 @@ bool UkmediaVolumeControl::setDefaultSink(const gchar *name)
  */
 bool UkmediaVolumeControl::setDefaultSource(const gchar *name)
 {
-    qDebug() << "setDefaultSource" << name;
     pa_operation* o;
     if (!(o = pa_context_set_default_source(getContext(), name, nullptr, nullptr))) {
         showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
         return false;
     }
+    qDebug() << "setDefaultSource" << name << sourceIndex;
 
     QTimer::singleShot(100, this,[=](){
         if (!sourceOutputVector.contains(sourceIndex) && pa_context_get_server_protocol_version(getContext()) >= 13) {
@@ -408,12 +410,7 @@ void UkmediaVolumeControl::updatePorts(UkmediaVolumeControl *d, std::map<QByteAr
         qDebug() << "updatePorts" << p.name << p.description;
     }
 
-//    QTimer *time = new QTimer;
-//    time->start(10);
-//    connect(time,&QTimer::timeout,[=](){
-        Q_EMIT d->updatePortSignal();
-//        delete time;
-//    });
+    Q_EMIT d->updatePortSignal();
     it = ports.find(d->activePort);
 
     if (it != ports.end()) {
@@ -442,7 +439,7 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
     QMap<QString,int> profilePriorityMap;
     std::set<pa_card_profile_info2 *, profile_prio_compare> profile_priorities;
 
-    description = pa_proplist_gets(info.proplist, PA_PROP_DEVICE_DESCRIPTION);
+    description = pa_proplist_gets(info.proplist, PA_PROP_DEVICE_DESCRIPTION);//获取device.description字符串
 
     hasSinks = c->hasSources = false;
     profile_priorities.clear();
@@ -479,8 +476,13 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
         if (p.direction == 1 && p.available != PA_PORT_AVAILABLE_NO) {
             //            portMap.insertMulti(p.name,p.description.data());
             insertOutputPort = true;
-            qDebug() << " add sink port name "<< info.index << p.name << p.description.data();
-            tempOutput.insertMulti(p.name,p.description.data());
+
+            //新增UI设计,combobox显示portname+description
+            QString outputPortName = p.description.data();
+            QString outputPortName_and_description = outputPortName + "（" + description + "）";
+
+            qDebug() << " add sink port name "<< info.index << p.name << p.description.data() << description;
+            tempOutput.insertMulti(p.name,outputPortName_and_description);
 
             QList<QString> portProfileName;
             for (auto p_profile : p.profiles) {
@@ -494,8 +496,13 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
         }
         else if (p.direction == 2 && p.available != PA_PORT_AVAILABLE_NO){
             insertInputPort = true;
+
+            //新增UI设计,combobox显示portname+description
+            QString inputPortName = p.description.data();
+            QString inputPortName_and_description = inputPortName + "（" + description + "）";
+
             qDebug() << " add source port name "<< info.index << p.name << p.description.data();
-            tempInput.insertMulti(p.name,p.description.data());
+            tempInput.insertMulti(p.name,inputPortName_and_description);
             for (auto p_profile : p.profiles) {
                 inputPortNameLabelMap.insertMulti(p.description.data(),p_profile.data());
             }
@@ -575,7 +582,6 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
     if (info.name && strcmp(defaultSinkName.data(),info.name) == 0) {
         channel = info.volume.channels;
         sinkIndex= info.index;
-        defaultOutputVolume = info.volume;
         balance = pa_cvolume_get_balance(&info.volume,&info.channel_map);
         defaultChannelMap = info.channel_map;
         channelMap = info.channel_map;
@@ -587,12 +593,15 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             else
                 sinkPortName = info.active_port->name;
         }
+        qDebug() << "aaaaaaaaaaaaaaa" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) << sinkPortName << sinkVolume << volume;
+
         defaultOutputCard = info.card;
         if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) && (sinkVolume != volume || sinkMuted != info.mute))
         {
             sinkVolume = volume;
             sinkMuted = info.mute;
             Q_EMIT updateVolume(sinkVolume,sinkMuted);
+            qDebug() << "sssssssssssssss" ;
         }
         //特殊情况(没有输出端口的情况下也要发送信号同步音量)
         else if((sinkVolume != volume || sinkMuted != info.mute) && sinkPortName == "")
@@ -616,8 +625,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         if(!sinkPortMapList.contains(temp))
             sinkPortMap.insertMulti(info.card,temp);
 
-        qDebug() << "updateSink" << info.active_port->description << info.active_port->name
-                 << sinkVolume << "defauleSinkName:" << defaultSinkName.data() << "sinkport" << sinkPortName;
+        qDebug() << "updateSink" << "defauleSinkName:" << defaultSinkName.data() << "sinkport" << sinkPortName << "sinkVolume" << sinkVolume ;
 
         const char *icon;
         //    std::map<uint32_t, UkmediaCard*>::iterator cw;
@@ -665,7 +673,8 @@ void UkmediaVolumeControl::readCallback(pa_stream *s, size_t length, void *userd
     index = pa_stream_get_device_index(s);
     QString deviceName = pa_stream_get_device_name(s);
     QString sourceName = w->defaultSourceName;
-    if(/*index == w->sourceIndex &&*/ strcmp(deviceName.toLatin1().data(),sourceName.toLatin1().data()) == 0) {
+
+    if(strcmp(deviceName.toLatin1().data(),sourceName.toLatin1().data()) == 0) {
         if (pa_stream_peek(s, &data, &length) < 0) {
             w->showError(UkmediaVolumeControl::tr("Failed to read data from stream").toUtf8().constData());
             return;
@@ -750,10 +759,10 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
 
     //默认的输出音量
     if (info.name && strcmp(defaultSourceName.data(),info.name) == 0) {
+        sourceIndex = info.index;
+        inputChannel = info.volume.channels;
         if (info.active_port) {
             if(strcmp(sourcePortName.toLatin1().data(),info.active_port->name) != 0) {
-                sourceIndex = info.index;
-                inputChannel = info.volume.channels;
                 sourcePortName = info.active_port->name;
                 QTimer::singleShot(100,this,SLOT(timeoutSlot()));
             }
@@ -806,7 +815,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         }
 
     }
-    qDebug() << "update Source" << "defauleSourceName:" << defaultSourceName.data() << "sinkport" << sourcePortName<< sourceVolume ;
+    qDebug() << "update Source" << "defauleSourceName:" << defaultSourceName.data() << "sinkport" << sourcePortName << "sourceVolume" << sourceVolume ;
 
     if (is_new)
         updateDeviceVisibility();
@@ -865,7 +874,7 @@ void UkmediaVolumeControl::updateSinkInput(const pa_sink_input_info &info) {
     }
     const gchar *description = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_NAME);
     const gchar *appId = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID);
-
+    sinkInputChannel = info.volume.channels;
     //没制定应用名称的不加入到应用音量中
     if (description && !strstr(description,"QtPulseAudio")) {
         if (!info.corked) {
@@ -894,6 +903,7 @@ void UkmediaVolumeControl::updateSinkInput(const pa_sink_input_info &info) {
 }
 
 void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info) {
+    sourceOutputChannel = info.volume.channels;
     const char *app;
 
     if(info.name && strstr(info.name,"Peak detect") && !sourceOutputVector.contains(info.source)) {
@@ -947,7 +957,7 @@ void UkmediaVolumeControl::updateServer(const pa_server_info &info) {
     m_pServerInfo = &info;
     defaultSourceName = info.default_source_name ? info.default_source_name : "";
     defaultSinkName = info.default_sink_name ? info.default_sink_name : "";
-    qDebug()  << "updateServer===" << "default_sink:" << info.default_sink_name << "default_source:" << info.default_source_name;
+    qDebug()  << "updateServer" << "default_sink:" << info.default_sink_name << "default_source:" << info.default_source_name;
 }
 
 void UkmediaVolumeControl::updateVolumeMeter(uint32_t index, uint32_t sinkInputIdx, double v)
@@ -1240,7 +1250,8 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
     w->sinkVolume = volume;
     if(i->active_port)
         w->sinkPortName = i->active_port->name;
-    Q_EMIT w->updateVolume(w->sinkVolume,w->sinkMuted);
+
+//    Q_EMIT w->updateVolume(w->sinkVolume,w->sinkMuted);
 }
 
 void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i, int eol, void *userdata) {
