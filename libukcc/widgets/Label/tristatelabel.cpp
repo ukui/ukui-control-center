@@ -42,7 +42,7 @@ TristateLabel::TristateLabel(const QString &text, QWidget *parent)
     const QByteArray idd(THEME_QT_SCHEMA);
     QGSettings *qtSettings  = new QGSettings(idd, QByteArray(), this);
     connect(qtSettings, &QGSettings::changed, this, [=](const QString &key) {
-        if ("systemFont" == key || "systemFontSize" == key)) {
+        if ("systemFont" == key || "systemFontSize" == key) {
             QPalette pal;
             QBrush brush = pal.placeholderText();
             QColor textColor = brush.color();
