@@ -477,7 +477,6 @@ void Widget::slotOutputEnabledChanged()
 {
     // 点击禁用屏幕输出后的改变
     resetPrimaryCombo();
-    setActiveScreen(mKDSCfg);
     int enabledOutputsCount = 0;
     Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
         for (int i = 0; i < BrightnessFrameV.size(); ++i) {
@@ -1372,32 +1371,6 @@ void Widget::applyNightModeSlot()
     setNightMode(mNightModeBtn->isChecked());
 }
 
-void Widget::setActiveScreen(QString status)
-{
-    int activeScreenId = 1;
-    int enableCount = 0;
-    int connectCount = 0;
-    Q_FOREACH(const KScreen::OutputPtr &output, mConfig->connectedOutputs()) {
-        connectCount++;
-        enableCount = (output->isEnabled() ? (++enableCount) : enableCount);
-    }
-
-    if (status == "second") {
-        activeScreenId = connectCount;
-    }
-
-    for (int index = 0; index <= ui->primaryCombo->count(); index++) {
-        KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
-        if (status.isEmpty() && connectCount > enableCount && !output.isNull() && output->isEnabled()) {
-            ui->primaryCombo->setCurrentIndex(index);
-        }
-
-        if (!status.isEmpty() && !output.isNull() && activeScreenId == output->id()) {
-            ui->primaryCombo->setCurrentIndex(index);
-        }
-    }
-}
-
 void Widget::setMultiScreenSlot(int index)
 {
     QString mode;
@@ -1424,10 +1397,9 @@ void Widget::delayApply()
 {
     QTimer::singleShot(200, this, [=]() {
         // kds与插拔不触发应用操作
-        if (mKDSCfg.isEmpty() && !mIsScreenAdd) {
+        if (!mIsScreenAdd) {
             save();
         }
-        mKDSCfg.clear();
         mIsScreenAdd = false;
     });
 }
@@ -1801,8 +1773,10 @@ void Widget::usdScreenModeChangedSlot(int status)
         mIscloneMode = false;
     }
 
-    // USD规避同样的信号
-    slotUnifyOutputs();
+    QTimer::singleShot(500, this, [=](){
+        // USD规避同样的信号
+        slotUnifyOutputs();
+    });
 
     initMultScreenStatus();
     showBrightnessFrame();

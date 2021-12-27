@@ -94,7 +94,6 @@ public:
     int scaleToSlider(const float value);
 
     void initUiComponent();
-    void setActiveScreen(QString status = "");
     void addBrightnessFrame(QString name, bool openFlag, QString edidHash);
     void showBrightnessFrame(const int flag = 0);
 
@@ -300,7 +299,6 @@ private:
     QVector<BrightnessFrame*> BrightnessFrameV;
     //BrightnessFrame *currentBrightnessFrame;
     bool exitFlag = false;
-    QString     mKDSCfg;
     bool unifySetconfig = false;
     QString mOutputClickedName;
     QDBusInterface *dbusEdid = nullptr;
