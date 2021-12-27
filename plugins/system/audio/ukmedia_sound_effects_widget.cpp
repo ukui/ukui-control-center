@@ -53,7 +53,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pSoundEffectLabel = new TitleLabel(this);
     m_pSoundEffectLabel->setText(tr("System Sound"));
     m_pSoundEffectLabel->setStyleSheet("QLabel{color: palette(windowText);}");
-    //~ contents_path /audio/Sound Theme
+    //audio/Sound Theme
     m_pSoundThemeLabel = new QLabel(tr("Sound Theme"),m_pThemeWidget);//提示音下的系统音效主题
     m_pSoundThemeCombobox = new QComboBox(m_pThemeWidget);
     ////~ contents_path /audio/Alert Sound
@@ -66,7 +66,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     m_pWakeupMusicLabel = new QLabel(tr("Wakeup Music"),m_pWakeupMusicWidget);//唤醒
     m_pVolumeChangeLabel = new QLabel(tr("Volume Change"),m_pVolumeChangeWidget);//音量调节
     m_pLagoutLabel = new QLabel(tr("Logout Music"),m_pLagoutWidget);//注销
-    //~ contents_path /audio/Alert Volume
+    //audio/Alert Volume
     m_pAlertSoundChangedLabel = new QLabel(tr("Alert Volume"),m_pAlertSoundChangedWidget);
     m_pAlertSoundMuteLabel = new UkuiButtonDrawSvg(m_pAlertSoundChangedWidget);
     m_pAlertSoundVolumeLabel = new UkuiButtonDrawSvg(m_pAlertSoundChangedWidget);

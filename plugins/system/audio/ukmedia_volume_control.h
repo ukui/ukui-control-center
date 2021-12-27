@@ -142,7 +142,6 @@ public:
     pa_cvolume m_defaultSinkVolume;
 
     const pa_sink_info *m_pDefaultSink;
-    pa_cvolume defaultOutputVolume;
     pa_cvolume defaultInputVolume;
     pa_context* m_pPaContext;
     std::map<uint32_t, char*> clientNames;
@@ -156,6 +155,8 @@ public:
     float balance; //平衡音量值
     int channel; //通道数
     int inputChannel;
+    int sinkInputChannel;
+    int sourceOutputChannel;
     QString sinkPortName; //输出设备端口名
     QString sourcePortName; //输入设备端口名
     int defaultOutputCard;

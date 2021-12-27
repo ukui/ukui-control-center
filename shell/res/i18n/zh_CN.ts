@@ -6090,7 +6090,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="57"/>
         <source>Sound Theme</source>
         <translation>音效主题</translation>
-        <extra-contents_path>/audio/Sound Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="67"/>
@@ -6120,7 +6119,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <source>Notice Sound</source>
         <translation type="vanished">通知音</translation>
-        <extra-contents_path>/audio/Notice Sound</extra-contents_path>
     </message>
     <message>
         <source>Setting Menu</source>
