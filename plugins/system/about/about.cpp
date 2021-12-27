@@ -609,7 +609,7 @@ void About::setupSerialComponent()
     int trial_status = 0;
     QDBusMessage trialReply = activeInterface.get()->call("trial_status");
     if (trialReply.type() == QDBusMessage::ReplyMessage) {
-        trial_status = activeReply.arguments().at(0).toInt();
+        trial_status = trialReply.arguments().at(0).toInt();
     }
 
     QString serial;
@@ -634,18 +634,20 @@ void About::setupSerialComponent()
     mSequenceLabel_2->setText(serial);
 
     if (dateRes.isEmpty()) {  //未激活
-        mTimeLabel_1->hide();
-        mTimeLabel_2->hide();
-        mStatusLabel_2->setText(tr("Inactivated"));
-        mStatusLabel_2->setStyleSheet("color : red ");
-        mActivationBtn->setText(tr("Active"));
-    }  else if (dateRes.isEmpty() && trial_status == 1) {  //试用期
-        mStatusLabel_2->setText(tr("Not activated (trial period)"));
-        mStatusLabel_2->setStyleSheet("color : red ");
-        mTimeLabel_1->setText(tr("Trial expiration time"));
-        mTimeLabel_2->setText(trial_dateRes);
-        mActivationBtn->setText(tr("Active"));
-    } else {    //已激活
+         if (trial_status == 1) {  //试用期
+            mStatusLabel_2->setText(tr("Not activated (trial period)"));
+            mStatusLabel_2->setStyleSheet("color : red ");
+            mTimeLabel_1->setText(tr("Trial expiration time"));
+            mTimeLabel_2->setText(trial_dateRes);
+            mActivationBtn->setText(tr("Active"));
+        } else {
+             mTimeLabel_1->hide();
+             mTimeLabel_2->hide();
+             mStatusLabel_2->setText(tr("Inactivated"));
+             mStatusLabel_2->setStyleSheet("color : red ");
+             mActivationBtn->setText(tr("Active"));
+         }
+    }  else {    //已激活
         mActivationBtn->hide();
         mTrialLabel->hide();
         mAndLabel->hide();
