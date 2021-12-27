@@ -23,6 +23,7 @@
 #include <QLabel>
 #include <QStringList>
 #include <QDebug>
+#include <QStandardItem>
 
 #define N 3
 #define SMALL 1.00
@@ -49,6 +50,13 @@
 #define DPI_KEY            "dpi"          // 将字体尺寸转换为像素值时所用的分辨率，以每英寸点数为单位
 
 QList<int> defaultsizeList =    {6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+const QStringList fontList{"CESI仿宋-GB13000", "CESI仿宋-GB18030", "CESI仿宋-GB2312", "CESI宋体-GB13000",
+                           "CESI宋体-GB18030", "CESI宋体-GB2312", "CESI小标宋-GB13000", "CESI小标宋-GB18030",
+                           "CESI小标宋-GB2312", "CESI楷体-GB13000", "CESI楷体-GB18030", "CESI楷体-GB2312",
+                           "CESI黑体-GB13000", "CESI黑体-GB18030", "CESI黑体-GB2312","仿宋", "黑体", "楷体", "宋体",
+                           "华文彩云", "华文仿宋", "华文琥珀", "华文楷体", "华文隶书", "华文宋体", "华文细黑", "华文行楷", "华文新魏",
+                           "Noto Sans CJK SC", "Noto Sans CJK SC Black", "Noto Sans Mono CJK SC", "Noto Sans CJK SC DemiLight",
+                           "Noto Sans CJK SC Light", "Noto Sans CJK SC Medium", "Noto Sans CJK SC", "Noto Sans CJK SC Thin"};
 const QString kErrorFont   =    "Noto Serif Tibetan";
 const QString kErrorStardFont = "Standard Symbols";
 /*
@@ -208,28 +216,37 @@ void Fonts::setupComponent(){
 
     ui->fontLayout->addWidget(uslider);
 
+    ui->fontSelectComBox->setModel(new QStandardItemModel());
+    QStandardItemModel *fontModel = dynamic_cast<QStandardItemModel *>(ui->fontSelectComBox->model());
 
-    //导入系统字体列表
+    ui->monoSelectComBox->setModel(new QStandardItemModel());
+    QStandardItemModel *monoModel = dynamic_cast<QStandardItemModel *>(ui->monoSelectComBox->model());
+
+
+    // 导入系统字体列表
     QStringList fontfamiles = fontdb.families();
-    for (QString font : fontfamiles){
+    for (QString fontValue : fontfamiles) {
+        if (fontList.contains(fontValue)) {
 
-        if (!font.startsWith(kErrorFont, Qt::CaseInsensitive) &&
-                !font.startsWith(kErrorStardFont, Qt::CaseInsensitive)) {
-            ui->fontSelectComBox->addItem(font);
+            QStandardItem *standardItem = new QStandardItem(fontValue);
+            standardItem->setFont(QFont(fontValue));
+            fontModel->appendRow(standardItem);
         }
 
-        //等宽字体
-        if (font.contains("Mono"))
-            ui->monoSelectComBox->addItem(font);
+        if (fontValue.contains("Mono") && !fontValue.contains("Ubuntu",Qt::CaseInsensitive)) {
+            QStandardItem *monoItem = new QStandardItem(fontValue);
+            monoItem->setFont(QFont(fontValue));
+            monoModel->appendRow(monoItem);
+        }
         //高级设置
         // gtk default
-        ui->defaultFontComBox->addItem(font);
+        ui->defaultFontComBox->addItem(fontValue);
         //doc font
-        ui->docFontComBox->addItem(font);
+        ui->docFontComBox->addItem(fontValue);
         //monospace font
-        ui->monoFontComBox->addItem(font);
+        ui->monoFontComBox->addItem(fontValue);
         //title font
-        ui->titleFontComBox->addItem(font);
+        ui->titleFontComBox->addItem(fontValue);
     }
 
     // 获取当前字体
