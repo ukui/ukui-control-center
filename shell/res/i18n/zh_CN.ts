@@ -8830,7 +8830,7 @@ run start-pulseaudio-x11 manually.</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="692"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 29 seconds</source>
-        <translation>修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常或者无法显示。系统将在29秒后保存配置</translation>
+        <translation>修改系统显示配置后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示，系统将在29秒后保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
@@ -8898,7 +8898,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="705"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
-        <translation>修改系统显示配置后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
+        <translation>修改系统显示配置后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示，系统将在%1秒后保存设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1536"/>
