@@ -49,9 +49,9 @@ void Uslider::paintEvent(QPaintEvent *e)
 
     auto rect = this->geometry();
     int numTicks = (maximum() - minimum()) / tickInterval();
+    painter->setFont(this->font());
     int total = 0;
-    QFontMetrics fontMetrics = QFontMetrics(this->font());
-
+    QFontMetrics fontMetrics = QFontMetrics(painter->font());
     for (int i=0; i <= numTicks; i++) {
         QRect fontRect = fontMetrics.boundingRect(scaleList.at(i));
         total += fontRect.width();
@@ -61,18 +61,34 @@ void Uslider::paintEvent(QPaintEvent *e)
     if (this->orientation() == Qt::Horizontal) {
         int fontHeight = fontMetrics.height();
         float tickY = rect.height() / 2.0 + fontHeight + 8;
+        float preTickEndX = 0.0;
         for (int i = 0; i <= numTicks; i++) {
             float tickX = 8.0 + i * interval;
             tickX = tickX - fontMetrics.boundingRect(scaleList.at(i)).width() / 2;
             if (i == numTicks) {
-                while (tickX + fontMetrics.boundingRect(scaleList.at(i)).width() > this->width()) {
+                while (tickX + fontMetrics.boundingRect(scaleList.at(i)).width() >= this->width()) {
                     tickX = tickX - 1;
+                }
+                if (tickX < preTickEndX + 4) {
+                    QFont fontText;
+                    int pointSize = painter->font().pointSize() - 1;
+                    if (pointSize < 1) {
+                        pointSize = 1;
+                    }
+                    fontText.setPointSize(pointSize);
+                    painter->setFont(fontText);
+                    fontMetrics = QFontMetrics(painter->font());
+                    if (pointSize > 1) { //避免 == 1死循环
+                        i--;
+                        continue;
+                    }
                 }
             } else if (i == 0){
                 if (tickX < 0) {
                     tickX = 0;
                 }
             }
+            preTickEndX = tickX + fontMetrics.boundingRect(scaleList.at(i)).width();
             painter->drawText(QPointF(tickX, tickY),
                               this->scaleList.at(i));
         }

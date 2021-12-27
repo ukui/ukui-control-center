@@ -146,10 +146,10 @@ void Screenlock::setupComponent()
 
     QStringList scaleList;
     scaleList<< tr("1m") << tr("5m") << tr("10m") << tr("30m") << tr("45m")
-              <<tr("1h") << tr("1.5h") << tr("2h") << tr("3h") << tr("Never");
+              <<tr("1h") << tr("2h") << tr("3h") << tr("Never");
 
     uslider = new Uslider(scaleList);
-    uslider->setRange(1,10);
+    uslider->setRange(1,9);
     uslider->setTickInterval(1);
     uslider->setPageStep(1);
 
