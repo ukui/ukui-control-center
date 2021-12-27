@@ -213,15 +213,6 @@ int UkmediaVolumeControl::getDefaultSinkIndex()
         return -1;
     }
     pa_operation_unref(o);
-
-    if(!(o = pa_context_get_sink_info_by_name(getContext(),defaultSinkName,sinkIndexCb,this))) {
-
-    }
-    pa_operation_unref(o);
-    if(!(o = pa_context_get_source_info_by_name(getContext(),defaultSourceName,sourceIndexCb,this))) {
-
-    }
-    pa_operation_unref(o);
     qDebug() << "getDefaultSinkIndex" << defaultSinkName << defaultSourceName << sinkVolume;
     return sinkIndex;
 }
@@ -330,6 +321,25 @@ bool UkmediaVolumeControl::setDefaultSource(const gchar *name)
     if (!(o = pa_context_set_default_source(getContext(), name, nullptr, nullptr))) {
         showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
         return false;
+    }
+
+    if(!(o = pa_context_get_source_info_by_name(getContext(),defaultSourceName,sourceIndexCb,this))) {
+        showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
+    }
+    pa_operation_unref(o);
+    if (!sourceOutputVector.contains(sourceIndex) && pa_context_get_server_protocol_version(getContext()) >= 13) {
+//        sourceOutputVector.append(info.index);
+        pa_operation* o;
+        qDebug() <<"killall source output index" <<peakDetectIndex;
+        if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
+            showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            return false;
+        }
+        sourceOutputVector.removeAt(0);
+        QTimer::singleShot( 100, this,[=](){
+            sourceOutputVector.append(sourceIndex);
+            peak = createMonitorStreamForSource(sourceIndex, -1, !!(sourceFlags & PA_SOURCE_NETWORK));
+        });
     }
     return true;
 }
@@ -527,17 +537,18 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
 bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info &info) {
     bool is_new = false;
     m_defaultSinkVolume = info.volume;
-    channel = info.volume.channels;
     QMap<QString,QString>temp;
-    int volume;
-    if (info.volume.channels >= 2)
-        volume = MAX(info.volume.values[0],info.volume.values[1]);
-    else
-        volume = info.volume.values[0];
 
     //默认的输出音量
     if (info.name && strcmp(defaultSinkName.data(),info.name) == 0) {
+
         sinkIndex= info.index;
+	int volume;
+        channel = info.volume.channels;
+        if (info.volume.channels >= 2)
+            volume = MAX(info.volume.values[0],info.volume.values[1]);
+        else
+            volume = info.volume.values[0];
         balance = pa_cvolume_get_balance(&info.volume,&info.channel_map);
         defaultChannelMap = info.channel_map;
         channelMap = info.channel_map;
@@ -545,8 +556,8 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             if (strcmp(sinkPortName.toLatin1().data(),info.active_port->name) != 0) {
                 sinkPortName = info.active_port->name;
                 QTimer::singleShot(100, this, SLOT(timeoutSlot()));
-	    }
-	    else
+            }
+            else
                 sinkPortName = info.active_port->name;
         }
         defaultOutputCard = info.card;
@@ -601,7 +612,7 @@ void UkmediaVolumeControl::readCallback(pa_stream *s, size_t length, void *userd
     index = pa_stream_get_device_index(s);
     QString str = pa_stream_get_device_name(s);
     QString sss = w->defaultSourceName;
-    if (/*index == w->sourceIndex &&*/ strcmp(str.toLatin1().data(),sss.toLatin1().data()) == 0) {
+    if (index == w->sourceIndex && strcmp(str.toLatin1().data(),sss.toLatin1().data()) == 0) {
         if (pa_stream_peek(s, &data, &length) < 0) {
             w->showError(UkmediaVolumeControl::tr("Failed to read data from stream").toUtf8().constData());
             return;
@@ -705,9 +716,12 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         }
     }
 
-    if (info.index == sourceIndex && !sourceOutputVector.contains(info.index) && pa_context_get_server_protocol_version(getContext()) >= 13) {
+    if (info.index == sourceIndex && !strstr(info.name,".monitor") && !sourceOutputVector.contains(info.index) && pa_context_get_server_protocol_version(getContext()) >= 13) {
         sourceOutputVector.append(info.index);
-        peak = createMonitorStreamForSource(info.index, -1, !!(info.flags & PA_SOURCE_NETWORK));
+        sourceFlags = info.flags;
+        qDebug() << "createMonitorStreamForSource" <<info.index <<info.name <<defaultSourceName.data();
+        if(info.name ==defaultSourceName)
+            peak = createMonitorStreamForSource(info.index, -1, !!(info.flags & PA_SOURCE_NETWORK));
     }
 
     QMap<QString,QString>temp;
@@ -807,6 +821,16 @@ void UkmediaVolumeControl::updateSinkInput(const pa_sink_input_info &info) {
 
 void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info) {
     const char *app;
+
+    if(info.name && strstr(info.name,"Peak detect") && !sourceOutputVector.contains(info.source)) {
+        pa_operation* o;
+        qDebug() <<"killall source output index====" <<peakDetectIndex;
+        if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
+            showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+//            return;
+        }
+        sourceOutputVector.removeAt(0);
+    }
 
     if ((app = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID)))
         if (app && strcmp(app, "org.PulseAudio.pavucontrol") == 0
@@ -1126,7 +1150,14 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
     if (eol > 0) {
         return;
     }
+    int volume;
+    if (i->volume.channels >= 2)
+        volume = MAX(i->volume.values[0],i->volume.values[1]);
+    else
+        volume = i->volume.values[0];
+    w->defaultOutputCard = i->card;
     w->sinkIndex= i->index;
+    w->sinkVolume = volume;
 }
 
 void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i, int eol, void *userdata) {
@@ -1142,6 +1173,7 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     if (eol > 0) {
         return;
     }
+    w->defaultInputCard = i->card;
     w->sourceIndex = i->index;
 }
 
@@ -1227,9 +1259,11 @@ void UkmediaVolumeControl::sourceOutputCb(pa_context *c, const pa_source_output_
     if (i->name)
         qDebug() << "sourceOutputCb" << i->name << i->source <<eol ;
     if (!w->sourceOutputVector.contains(i->index)) {
-        w->sourceOutputVector.append(i->index);
+//        w->sourceOutputVector.append(i->index);
         w->updateSourceOutput(*i);
-        qDebug() << "sourceOutputVector.append(i->index)" << i->source;
+        if (strstr(i->name,"Peak detect"))
+            w->peakDetectIndex = i->index;
+        qDebug() << "update source output" << w->peakDetectIndex <<i->name;
     }
 }
 
@@ -1263,14 +1297,20 @@ void UkmediaVolumeControl::serverInfoCb(pa_context *, const pa_server_info *i, v
     pa_operation *o;
     //默认的输出设备改变时需要获取默认的输出音量
     if(!(o = pa_context_get_sink_info_by_name(w->getContext(),i->default_sink_name,sinkIndexCb,w))) {
-
+        w->showError(tr("pa_context_get_sink_info_by_name() failed").toUtf8().constData());
     }
     if(!(o = pa_context_get_source_info_by_name(w->getContext(),i->default_source_name,sourceIndexCb,w))) {
-
+        w->showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
     }
-    qDebug() << "serverInfoCb" << i->user_name << i->default_sink_name << i->default_source_name;
+    if(!(o = pa_context_get_source_info_by_name(w->getContext(),i->default_source_name,sourceCb,w))) {
+        w->showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
+    }
     w->updateServer(*i);
-    QTimer::singleShot(100, w, SLOT(timeoutSlot()));
+    qDebug() << "serverInfoCb" << i->user_name << i->default_sink_name << w->sinkVolume << i->default_source_name;
+    QTimer::singleShot(100, w, [=](){
+        qDebug() << "deviceChangedSignal" << w->defaultSinkName <<w->defaultSourceName;
+        Q_EMIT w->deviceChangedSignal();
+    });
 
     decOutstanding(w);
 }

@@ -46,6 +46,7 @@ private:
     QFrame *m_pInputDeviceWidget;
     QFrame *m_pVolumeWidget;
     QFrame *m_pInputLevelWidget;
+    QFrame *m_pNoiseReducteWidget;
 
     QListWidget *m_pInputListWidget;
 
@@ -54,10 +55,12 @@ private:
     QLabel *m_pIpVolumeLabel;
     QLabel *m_pInputLevelLabel;
     QLabel *m_pIpVolumePercentLabel;
+    QLabel *m_pNoiseReducteLabel;
 
     UkuiButtonDrawSvg *m_pInputIconBtn;
     AudioSlider *m_pIpVolumeSlider;
     QProgressBar *m_pInputLevelProgressBar;
+    SwitchButton *m_pNoiseReducteButton;
 
     QString sliderQss;
     QVBoxLayout *m_pVlayout;

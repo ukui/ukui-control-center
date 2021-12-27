@@ -77,6 +77,7 @@ extern "C" {
 #define UKUI_LOGOUT_MUSIC_KEY "logout-music"
 #define UKUI_WAKEUP_MUSIC_KEY "weakup-music"
 
+#define DNS_NOISE_REDUCTION "dns-noise-reduction"
 #define EVENT_SOUNDS_KEY "event-sounds"
 #define INPUT_SOUNDS_KEY "input-feedback-sounds"
 #define SOUND_THEME_KEY "theme-name"
@@ -191,8 +192,8 @@ public:
     QString findPortSink(int cardIndex,QString portName);
     QString findPortSource(int cardIndex,QString portName);
     bool inputDeviceContainBluetooth();
-    int indexOfOutputPortInOutputListWidget(QString portName);
-    int indexOfInputPortInInputListWidget(QString portName);
+    int indexOfOutputPortInOutputListWidget(int index,QString portName);
+    int indexOfInputPortInInputListWidget(int index,QString portName);
     void inputStreamMapCardName(QString streamName,QString cardName);
     void outputStreamMapCardName(QString streamName,QString cardName);
     QString findInputStreamCardName(QString streamName);
@@ -232,6 +233,7 @@ private Q_SLOTS:
     void logoutMusicButtonSwitchChangedSlot(bool status); //注销音乐开关
     void wakeButtonSwitchChangedSlot(bool status); //唤醒音乐开关
     void alertSoundButtonSwitchChangedSlot(bool status);
+    void noiseReductionButtonSwitchChangedSlot(bool status); //降噪开关
     void bootMusicSettingsChanged();
 
     void windowClosedComboboxChangedSlot(int index);
@@ -296,6 +298,8 @@ private:
     int reconnectTime;
     QTimer *time;
 
+    bool pressOutputListWidget = false;
+    bool pressInputListWidget = false;
     QTimer *timeSlider;
     bool mousePress = false;
     bool mouseReleaseState = false;
