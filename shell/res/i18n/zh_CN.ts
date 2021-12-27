@@ -12014,6 +12014,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1557"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1747"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1811"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
