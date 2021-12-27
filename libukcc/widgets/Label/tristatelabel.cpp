@@ -41,16 +41,18 @@ TristateLabel::TristateLabel(const QString &text, QWidget *parent)
     this->setStyleSheet(stringColor);
     const QByteArray idd(THEME_QT_SCHEMA);
     QGSettings *qtSettings  = new QGSettings(idd, QByteArray(), this);
-    connect(qtSettings, &QGSettings::changed, this, [=]() {
-        QPalette pal;
-        QBrush brush = pal.placeholderText();
-        QColor textColor = brush.color();
-        QString stringColor = QString("color: rgba(%1,%2,%3,%4)")
-                       .arg(textColor.red())
-                       .arg(textColor.green())
-                       .arg(textColor.blue())
-                       .arg(textColor.alphaF());
-        this->setStyleSheet(stringColor);
+    connect(qtSettings, &QGSettings::changed, this, [=](const QString &key) {
+        if ("systemFont" == key || "systemFontSize" == key)) {
+            QPalette pal;
+            QBrush brush = pal.placeholderText();
+            QColor textColor = brush.color();
+            QString stringColor = QString("color: rgba(%1,%2,%3,%4)")
+                           .arg(textColor.red())
+                           .arg(textColor.green())
+                           .arg(textColor.blue())
+                           .arg(textColor.alphaF());
+            this->setStyleSheet(stringColor);
+        }
     });
 }
 

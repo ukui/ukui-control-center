@@ -199,6 +199,23 @@ void Fonts::setupConnect(){
         Q_UNUSED(checked)
         resetDefault();
     });
+
+    // 监听系统字体的变化
+    connect(stylesettings , &QGSettings::changed , this , [=](const QString &key) {
+         if("systemFont" == key || "systemFontSize" == key) {
+             uslider->setValue(stylesettings->get(SYSTEM_FONT_EKY).toInt() - 9);
+             ui->fontSelectComBox->setCurrentText(stylesettings->get(SYSTEM_NAME_KEY).toString());
+             ui->monoSelectComBox->setCurrentText(ifsettings->get(MONOSPACE_FONT_KEY).toString());
+         }
+    });
+
+    //监听终端字体的变化
+    connect(ifsettings , &QGSettings::changed , this , [=](const QString &key) {
+        if ("monospaceFontName" == key) {
+            QString str = ifsettings->get(MONOSPACE_FONT_KEY).toString();
+            ui->monoSelectComBox->setCurrentText(str.mid(0 , str.size() - 3));
+        }
+    });
 }
 
 void Fonts::initFontStatus(){
