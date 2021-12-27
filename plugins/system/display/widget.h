@@ -231,8 +231,8 @@ private:
     QLabel *mTimeModeLabel = nullptr;
     QLabel *mCustomTimeLabel = nullptr;
     FixLabel *mTemptLabel = nullptr;
-    QLabel *mWarmLabel = nullptr;
-    QLabel *mColdLabel = nullptr;
+    FixLabel *mWarmLabel = nullptr;
+    FixLabel *mColdLabel = nullptr;
     QLabel *mLabel_1 = nullptr;
 
     QLabel *nightLabel = nullptr;
