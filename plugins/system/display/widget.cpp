@@ -184,6 +184,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
     mConfig = config;
     mPrevConfig = config->clone();
 
+    updateMultiScreen();
+
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
     resetPrimaryCombo();
     changescale();
@@ -196,10 +198,8 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
         outputRemoved(outputId, false);
     });
 
-    int outputNum = 0;
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
         if (output->isConnected()) {
-            mMultiScreenCombox->setItemText(outputNum++, Utils::outputName(output));
             connect(output.data(), &KScreen::Output::currentModeIdChanged,
                     this, [=]() {
                 if (output->currentMode()) {
@@ -209,7 +209,6 @@ void Widget::setConfig(const KScreen::ConfigPtr &config)
                 }
             });
         }
-
     }
 
     connect(mConfig.data(), &KScreen::Config::primaryOutputChanged,
@@ -514,6 +513,7 @@ void Widget::slotOutputConnectedChanged()
         outputRemoved(output->id(), true);
     }
 
+    updateMultiScreen();
     resetPrimaryCombo();
 
     // bug#89064,bug#89174
@@ -528,6 +528,7 @@ void Widget::slotUnifyOutputs()
     QMLOutput *base = mScreen->primaryOutput();
 
     QList<int> clones;
+    updateScreenConfig();
 
     if (!base) {
         for (QMLOutput *output: mScreen->outputs()) {
@@ -550,32 +551,9 @@ void Widget::slotUnifyOutputs()
     }
     // 取消统一输出
     if (!mIscloneMode) {
-        bool isExistCfg = QFile::exists((QDir::homePath() + "/.config/ukui/ukcc-screenPreCfg.json"));
-        if (mKDSCfg.isEmpty() && isExistCfg) {
-            KScreen::OutputList screens = mPrevConfig->connectedOutputs();
-            QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
-            int posX = preScreenCfg.at(0).screenPosX;
-            bool isOverlap = false;
-            for (int i = 1; i< preScreenCfg.count(); i++) {
-                if (posX == preScreenCfg.at(i).screenPosX) {
-                    isOverlap = true;
-                    setScreenKDS("expand");
-                    break;
-                }
-            }
 
-            Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
-                Q_FOREACH(KScreen::OutputPtr output, screens) {
-                    if (!cfg.screenId.compare(output->name()) && !isOverlap) {
-                        output->setCurrentModeId(cfg.screenModeId);
-                        output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
-                    }
-                }
-            }
-        } else {
-            setScreenKDS("expand");
-        }
         unifySetconfig = true;
+
         setConfig(mPrevConfig);
 
         ui->primaryCombo->setEnabled(true);
@@ -586,14 +564,6 @@ void Widget::slotUnifyOutputs()
     } else if (mIscloneMode) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
-        auto *preOp = new KScreen::GetConfigOperation();
-        preOp->exec();
-        mPrevConfig = preOp->config()->clone();  //重新获取屏幕当前状态，通过mconfig未必能获取到正确的状态
-        preOp->deleteLater();
-
-        if (!mFirstLoad) {
-            setPreScreenCfg(mPrevConfig->connectedOutputs());
-        }
 
         for (QMLOutput *output: mScreen->outputs()) {
             if (output != base) {
@@ -1031,6 +1001,22 @@ void Widget::initMultScreenStatus()
     mMultiScreenCombox->blockSignals(false);
 }
 
+void Widget::updateMultiScreen()
+{
+    int index = 0;
+    for (const KScreen::OutputPtr output : mConfig->connectedOutputs()) {
+        mMultiScreenCombox->setItemText(index++, Utils::outputName(output));
+    }
+}
+
+void Widget::updateScreenConfig()
+{
+    auto *preOp = new KScreen::GetConfigOperation();
+    preOp->exec();
+    mPrevConfig = preOp->config()->clone();  //重新获取屏幕当前状态，通过mconfig未必能获取到正确的状态
+    preOp->deleteLater();
+}
+
 void Widget::showZoomtips()
 {
     int ret;
@@ -1384,74 +1370,6 @@ void Widget::applyNightModeSlot()
     }
 
     setNightMode(mNightModeBtn->isChecked());
-}
-
-
-void Widget::setScreenKDS(QString kdsConfig)
-{
-    KScreen::OutputList screens = mConfig->connectedOutputs();
-    if (kdsConfig == "expand") {
-        Q_FOREACH(KScreen::OutputPtr output, screens) {
-            if (!output.isNull() && !mIscloneMode) {
-                output->setEnabled(true);
-                output->setCurrentModeId("0");
-            }
-        }
-
-        KScreen::OutputList screensPre = mConfig->connectedOutputs();
-
-        KScreen::OutputPtr mainScreen = mConfig->primaryOutput();
-        if (!mainScreen.isNull()) {
-            mainScreen->setPos(QPoint(0, 0));
-        }
-
-        KScreen::OutputPtr preIt = mainScreen;
-        QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
-
-        while (nowIt != screensPre.end() && !preIt.isNull()) {
-            if (nowIt.value() != mainScreen && !nowIt.value().isNull()) {
-                nowIt.value()->setPos(QPoint(preIt->pos().x() + preIt->size().width(), 0));
-                KScreen::ModeList modes = preIt->modes();
-                Q_FOREACH (const KScreen::ModePtr &mode, modes) {
-                    if (preIt->currentModeId() == mode->id()) {
-                        if (preIt->rotation() != KScreen::Output::Rotation::Left && preIt->rotation() != KScreen::Output::Rotation::Right) {
-                            nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().width(), 0));
-                        } else {
-                            nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().height(), 0));
-                        }
-                    }
-                }
-                preIt = nowIt.value();
-            }
-            nowIt++;
-        }
-    } else if (kdsConfig == "first") {
-        QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
-        while (nowIt != screens.end()) {
-            if (!nowIt.value().isNull()) {
-                bool flag = (nowIt.key() == screens.begin().key());
-                nowIt.value()->setEnabled(flag);
-                nowIt.value()->setPrimary(flag);
-            }
-            nowIt++;
-        }
-    } else if (kdsConfig == "second") {
-        QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
-        while (nowIt != screens.end()) {
-            if (!nowIt.value().isNull()) {
-                bool flag = (nowIt.key() != screens.begin().key());
-                nowIt.value()->setEnabled(flag);
-                nowIt.value()->setPrimary(flag);
-            }
-            nowIt++;
-        }
-    } else {
-        Q_FOREACH(KScreen::OutputPtr output, screens) {
-            if (!output.isNull()) {
-                output->setEnabled(true);
-            }
-        }
-    }
 }
 
 void Widget::setActiveScreen(QString status)
@@ -1879,11 +1797,13 @@ void Widget::usdScreenModeChangedSlot(int status)
 {
     if (status == USD_CLONE_MODE && !mIscloneMode) {
         mIscloneMode = true;
-        slotUnifyOutputs();
     } else if (status != USD_CLONE_MODE && mIscloneMode) {
         mIscloneMode = false;
-        slotUnifyOutputs();
     }
+
+    // USD规避同样的信号
+    slotUnifyOutputs();
+
     initMultScreenStatus();
     showBrightnessFrame();
 }

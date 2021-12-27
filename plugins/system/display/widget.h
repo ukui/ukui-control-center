@@ -94,7 +94,6 @@ public:
     int scaleToSlider(const float value);
 
     void initUiComponent();
-    void setScreenKDS(QString kdsConfig);
     void setActiveScreen(QString status = "");
     void addBrightnessFrame(QString name, bool openFlag, QString edidHash);
     void showBrightnessFrame(const int flag = 0);
@@ -191,6 +190,8 @@ private:
 
     void setMulScreenVisiable();
     void initMultScreenStatus();
+    void updateMultiScreen(); // 屏幕插拔更改状态
+    void updateScreenConfig();// 获取系统最新配置
 
     void showZoomtips();      // 缩放注销提示框
 
@@ -304,7 +305,6 @@ private:
     QString mOutputClickedName;
     QDBusInterface *dbusEdid = nullptr;
     QString cpuArchitecture = "";
-    int mUDStatus;
     bool mIscloneMode = false;
 };
 
