@@ -406,6 +406,10 @@ void Theme::initThemeMode() {
             }
             qApp->setStyle(new InternalStyle("ukui"));
         }
+        if (key == "iconThemeName") {
+            QString icoName = qtSettings->get(ICON_QT_KEY).toString();
+            setCheckStatus(ui->iconThemeVerLayout, icoName, ICON);
+        }
     });
 
     connect(gtkSettings,&QGSettings::changed,this,[=] (const QString &key) {

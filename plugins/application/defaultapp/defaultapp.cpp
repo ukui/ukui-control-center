@@ -64,7 +64,7 @@ QWidget *DefaultApp::pluginUi() {
         initDefaultUI();
         initSlots();
         connectToServer();
-        watchFileChange();
+//        watchFileChange();
     }
     return pluginWidget;
 }
@@ -244,30 +244,12 @@ void DefaultApp::initUi(QWidget *widget)
 
 /* 建立对应的信号槽 */
 void DefaultApp::initSlots() {
-    connect(mBrowserCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, [=](int index){
-        mComboChange = true;
-        browserComBoBox_changed_cb(index);
-    });
-    connect(mMailCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, [=](int index){
-        mComboChange = true;
-        mailComBoBox_changed_cb(index);
-    });
-    connect(mImageCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, [=](int index){
-        mComboChange = true;
-        imageComBoBox_changed_cb(index);
-    });
-    connect(mAudioCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, [=](int index){
-        mComboChange = true;
-        audioComBoBox_changed_cb(index);
-    });
-    connect(mVideoCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, [=](int index){
-        mComboChange = true;
-        videoComBoBox_changed_cb(index);
-    });
-    connect(mTextCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, [=](int index){
-        mComboChange = true;
-        textComBoBox_changed_cb(index);
-    });
+    connect(mBrowserCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, &DefaultApp::browserComBoBox_changed_cb);
+    connect(mMailCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, &DefaultApp::mailComBoBox_changed_cb);
+    connect(mMailCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, &DefaultApp::mailComBoBox_changed_cb);
+    connect(mAudioCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, &DefaultApp::audioComBoBox_changed_cb);
+    connect(mVideoCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, &DefaultApp::videoComBoBox_changed_cb);
+    connect(mTextCombo, static_cast<void (QComboBox::*)(int )> (&QComboBox::currentIndexChanged), this, &DefaultApp::textComBoBox_changed_cb);
 }
 
 /* 初始化各默认应用 */
@@ -405,7 +387,7 @@ void DefaultApp::resetUi()
 /* BROWSER SLOT */
 void DefaultApp::browserComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+   QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = mBrowserCombo->itemData(index).toString();
@@ -413,13 +395,12 @@ void DefaultApp::browserComBoBox_changed_cb(int index) {
         setWebBrowsersDefaultProgram(ba.data());
         qDebug()<<"browserComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
 }
 
 /* MAIL SLOT */
 void DefaultApp::mailComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = mMailCombo->itemData(index).toString();
@@ -427,13 +408,12 @@ void DefaultApp::mailComBoBox_changed_cb(int index) {
         setMailReadersDefaultProgram(ba.data());
         qDebug()<<"mailComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
 }
 
 /* IMAGE SLOT */
 void DefaultApp::imageComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = mImageCombo->itemData(index).toString();
@@ -441,13 +421,12 @@ void DefaultApp::imageComBoBox_changed_cb(int index) {
         setImageViewersDefaultProgram(ba.data());
         qDebug()<<"imageComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
 }
 
 /* AUDIO SLOT */
 void DefaultApp::audioComBoBox_changed_cb(int  index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = mAudioCombo->itemData(index).toString();
@@ -455,13 +434,12 @@ void DefaultApp::audioComBoBox_changed_cb(int  index) {
         setAudioPlayersDefaultProgram(ba.data());
         qDebug()<<"audioComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
 }
 
 /* VIDEO SLOT */
 void DefaultApp::videoComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = mVideoCombo->itemData(index).toString();
@@ -470,13 +448,12 @@ void DefaultApp::videoComBoBox_changed_cb(int index) {
         qDebug() << __FUNCTION__  << QThread::currentThreadId() << QThread::currentThread();
         qDebug()<<"videoComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
 }
 
 /* TEXT SLOT */
 void DefaultApp::textComBoBox_changed_cb(int index) {
 
-    QFuture<void> future = QtConcurrent::run([=] {
+    QtConcurrent::run([=] {
         QTime timedebuge;//声明一个时钟对象
         timedebuge.start();//开始计时
         QString appid = mTextCombo->itemData(index).toString();
@@ -484,7 +461,6 @@ void DefaultApp::textComBoBox_changed_cb(int index) {
         setTextEditorsDefautlProgram(ba.data());
         qDebug()<<"textComBoBox_changed_cb线程耗时："<<timedebuge.elapsed()<<"ms";//输出计时
     });
-    future.waitForFinished();
 }
 
 /* 获取默认应用的应用名 */

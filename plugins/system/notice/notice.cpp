@@ -206,8 +206,9 @@ void Notice::setupGSettings()
     if (QGSettings::isSchemaInstalled(THEME_QT_SCHEMA)) {
         QByteArray id(THEME_QT_SCHEMA);
         mThemeSetting = new QGSettings(id, QByteArray(), this);
-        connect(mThemeSetting, &QGSettings::changed, [=](){
-            loadlist();
+        connect(mThemeSetting, &QGSettings::changed, [=](const QString &key){
+            if (key == "iconThemeName")
+                loadlist();
         });
 
     }

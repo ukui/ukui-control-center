@@ -1195,28 +1195,31 @@ void UserInfo::fontSizeChange(UserInfomation user, UtilsForUserinfo * utils)
 {
     const QByteArray styleID(STYLE_FONT_SCHEMA);
     QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
-    connect(stylesettings, &QGSettings::changed, this, [=](){
-        if (utils == nullptr) {
-            QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
-            for (; it != allUserInfoMap.end(); it++){
-                UserInfomation currentUser = it.value();
-                //当前用户
-                if (currentUser.username == QString(g_get_user_name())){
-                    //设置用户昵称
-                    if (setTextDynamic(currentNickNameLabel, currentUser.realname)){
-                        currentNickNameLabel->setToolTip(currentUser.realname);
-                    }
+    connect(stylesettings, &QGSettings::changed, this, [=](const QString &key){
+        if (key == "systemFontSize" || key == "systemFont") {
+            if (utils == nullptr) {
+                QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+                for (; it != allUserInfoMap.end(); it++){
+                    UserInfomation currentUser = it.value();
+                    //当前用户
+                    if (currentUser.username == QString(g_get_user_name())){
+                        //设置用户昵称
+                        if (setTextDynamic(currentNickNameLabel, currentUser.realname)){
+                            currentNickNameLabel->setToolTip(currentUser.realname);
+                        }
 
-                    //用户类型
-                    QString cType = _accountTypeIntToString(currentUser.accounttype);
-                    if (setTextDynamic(currentUserTypeLabel, cType)){
-                        currentUserTypeLabel->setToolTip(cType);
+                        //用户类型
+                        QString cType = _accountTypeIntToString(currentUser.accounttype);
+                        if (setTextDynamic(currentUserTypeLabel, cType)){
+                            currentUserTypeLabel->setToolTip(cType);
+                        }
                     }
                 }
+            } else {
+                utils->refreshUserNickname(user.realname);
+                utils->refreshUserType(user.accounttype);
             }
-        } else {
-            utils->refreshUserNickname(user.realname);
-            utils->refreshUserType(user.accounttype);
         }
     });
+
 }

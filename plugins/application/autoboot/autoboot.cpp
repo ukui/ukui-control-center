@@ -639,9 +639,11 @@ void AutoBoot::initStatus()
 
 void AutoBoot::initConnection()
 {
-    connect(mQtSettings, &QGSettings::changed, this, [=] {
-        clearAutoItem();
-        initAutoUI();
+    connect(mQtSettings, &QGSettings::changed, this, [=](const QString &key) {
+        if (key == "iconThemeName") {
+            clearAutoItem();
+            initAutoUI();
+        }
     });
 
     connect(dialog, SIGNAL(autoboot_adding_signals(QString,QString,QString,QString,QString)),
