@@ -61,15 +61,5 @@ void TrialDialog::initUi(QDialog *mTrialDialog)
     mContentLayout_1->addStretch();
     mContentLayout_1->addWidget(mContentLabel_4);
     mContentLayout->addLayout(mContentLayout_1);
-
-    QHBoxLayout *mContentLayout_2 = new QHBoxLayout;
-
-    mContentLabel_5 = new QLabel(mTrialDialog);
-    mContentLabel_5->setText(tr("www.Kylinos.cn"));
-    mContentLayout_2->addStretch();
-    mContentLayout_2->addWidget(mContentLabel_5);
-    mContentLayout->addLayout(mContentLayout_2);
-
-
     mverticalLayout->addLayout(mContentLayout);
 }
