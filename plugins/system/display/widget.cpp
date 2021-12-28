@@ -1731,38 +1731,38 @@ void Widget::primaryButtonEnable(bool status)
 
 void Widget::checkOutputScreen(bool judge)
 {
-    ui->primaryCombo->blockSignals(true);
-    int index = ui->primaryCombo->currentIndex();
-    KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+    if (judge == true) {
+        if (mCloseScreenButton->isVisible()) {  //扩展模式
+            setMultiScreenSlot(EXTEND);
+        }
+    } else {
+        int8_t enableOutputNum = 0;
+        Q_FOREACH (const KScreen::OutputPtr &output, mConfig->outputs()) {
+            if (output->isEnabled()) {
+                enableOutputNum++;
+            }
+        }
 
-    KScreen::OutputPtr mainScreen = mConfig->primaryOutput();
+        if (enableOutputNum < 2) { //两个屏幕才允许关闭
+            QMessageBox::warning(this, tr("Warning"), tr("please insure at least one output!"));
+            mCloseScreenButton->blockSignals(true);
+            mCloseScreenButton->setChecked(true);
+            mCloseScreenButton->blockSignals(false);
+            return;
+        }
 
-    if (!mainScreen) {
-        mConfig->setPrimaryOutput(newPrimary);
+        int index = ui->primaryCombo->currentIndex();
+        KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+        QString closeOutputName = Utils::outputName(newPrimary);
+        if (closeOutputName == mMultiScreenCombox->itemText(0)) {
+            setMultiScreenSlot(VICE);
+        } else if (closeOutputName == mMultiScreenCombox->itemText(1)) {
+            setMultiScreenSlot(FIRST);
+        } else {
+            qDebug()<<"(checkOutputScreen) closeOutputName = "<<closeOutputName;
+        }
     }
-    mainScreen = mConfig->primaryOutput();
-
-    newPrimary->setEnabled(judge);
-
-    int enabledOutput = 0;
-    Q_FOREACH (KScreen::OutputPtr outptr, mConfig->outputs()) {
-        if (outptr->isEnabled()) {
-            enabledOutput++;
-        }
-        if (mainScreen != outptr && outptr->isConnected()) {
-            newPrimary = outptr;
-        }
-
-        if (enabledOutput >= 2) {
-            // 设置副屏在主屏右边
-            newPrimary->setPos(QPoint(mainScreen->pos().x() + mainScreen->geometry().width(),
-                                      mainScreen->pos().y()));
-        }
-    }
-
-    ui->primaryCombo->setCurrentIndex(index);
-    mainScreenButtonSelect(index);
-	ui->primaryCombo->blockSignals(false);
+    return;
 }
 
 void Widget::usdScreenModeChangedSlot(int status)
@@ -1820,7 +1820,6 @@ void Widget::initConnection()
     connect(mCloseScreenButton, &SwitchButton::checkedChanged,
             this, [=](bool checked) {
         checkOutputScreen(checked);
-        delayApply();
         changescale();
     });
 
