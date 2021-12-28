@@ -65,7 +65,7 @@ void Uslider::paintEvent(QPaintEvent *e)
             float tickX = 8.0 + i * interval;
             tickX = tickX - fontMetrics.boundingRect(scaleList.at(i)).width() / 2;
             if (i == numTicks) {
-                while (tickX + fontMetrics.boundingRect(scaleList.at(i)).width() > this->width()) {
+                while (tickX + fontMetrics.boundingRect(scaleList.at(i)).width() > this->width() - 1) {
                     tickX = tickX - 1;
                 }
             } else if (i == 0){
