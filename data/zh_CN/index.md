@@ -256,7 +256,7 @@ Tips：系统快捷键不允许修改。
 ### 桌面共享
 
 可在此开启vino服务，限制客户端的连接
-![图 33 桌面共享-big](image/vino.png)
+![图 23 桌面共享-big](image/vino.png)
 
 ## 账 户
 
@@ -265,17 +265,17 @@ Tips：系统快捷键不允许修改。
 ### 账户信息
 对系统用户进行管理配置，允许管理员创建用户、删除用户、修改用户信息。
 
-![图 23 账户信息设置-big](image/account.png)
+![图 24-1 账户信息设置-big](image/account.png)
 
 #### 更改用户头像
 点击用户头像，即可进行修改，图片可从本机图片中选择。
 
-![图 24-1 更改用户头像](image/account-face.png)
+![图 24-2 更改用户头像](image/account-face.png)
 
 #### 更改密码
 点击“更改密码”，即可修改当前用户的密码。
 
-![图 24-2 更改密码](image/account-pwd.png)
+![图 24-3 更改密码](image/account-pwd.png)
 
 #### 更改账户类型
 系统用户类型分两种：标准用户和管理员用户。
@@ -286,18 +286,18 @@ Tips：系统快捷键不允许修改。
 
 Tips：系统至少需要存在一个管理员用户。
 
-![图 24-3 更改用户类型](image/account-type.png)
+![图 24-4 更改用户类型](image/account-type.png)
 
 #### 其他用户
 可编辑其他用户信息，添加新用户，删除用户等。
 
 - 添加新用户：输入用户名、密码，并选择用户类型，如图所示
 
-![图 24-4 添加新用户](image/account-add.png)
+![图 24-5 添加新用户](image/account-add.png)
 
 - 编辑用户
 
-![图 24-5 编辑用户](image/account-edit.png)
+![图 24-6 编辑用户](image/account-edit.png)
 
 ### 云账户
 云账户可用于同步设置配置选项，需要注册登录生效。
