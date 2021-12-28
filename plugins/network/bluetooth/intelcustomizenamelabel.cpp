@@ -1,4 +1,4 @@
-#include "customizenamelabel.h"
+#include "intelcustomizenamelabel.h"
 #include "ImageUtil/imageutil.h"
 
 

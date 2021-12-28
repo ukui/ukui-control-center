@@ -1,4 +1,4 @@
-#include "msgbox.h"
+#include "intelmsgbox.h"
 
 #include <QFont>
 #include <QFontMetrics>
@@ -59,10 +59,15 @@ MsgBox::MsgBox(QWidget *parent, const QString txt):
 
     closeBtn = new QPushButton(this);
     closeBtn->setGeometry(470,16,30,30);
-    closeBtn->setIcon(QIcon::fromTheme("application-exit-symbolic"));
-    closeBtn->setProperty("useIconHighlightEffect", true);
-    closeBtn->setProperty("iconHighlightEffectMode", 1);
+    closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
     closeBtn->setFlat(true);
+    //closeBtn->setFixedSize(QSize(20,20));
+    closeBtn->setProperty("isWindowButton",0x2);
+    closeBtn->setProperty("useIconHighlihtEffect",0x8);
+    //closeBtn->setIcon(QIcon::fromTheme("application-exit-symbolic"));
+    //closeBtn->setProperty("useIconHighlightEffect", true);
+    //closeBtn->setProperty("iconHighlightEffectMode", 1);
+    //closeBtn->setFlat(true);
     closeBtn->setStyleSheet("QPushButton:hover{background:rgba(251,80,80,50%); border-radius: 4px;}"
                             "QPushButton:pressed{background-color:rgba(251,80,80,80%); border-radius: 4px;}");
     connect(closeBtn,&QPushButton::clicked,this,[=]{
