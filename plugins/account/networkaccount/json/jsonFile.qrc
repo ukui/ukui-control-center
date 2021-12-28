@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/json"/>
-    <qresource prefix="/">
-        <file>country.json</file>
-    </qresource>
-</RCC>

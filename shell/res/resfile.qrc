@@ -1,9 +1,5 @@
 <RCC>
     <qresource prefix="/img">
-        <file>plugins/desktop/trash.png</file>
-        <file>plugins/desktop/homefolder.png</file>
-        <file>plugins/desktop/default.png</file>
-        <file>plugins/desktop/computer.png</file>
         <file>plugins/printer/add.png</file>
         <file>plugins/printer/printer.png</file>
         <file>plugins/keyboardcontrol/add.png</file>
@@ -43,8 +39,6 @@
         <file>primaryleftmenu/datetime.svg</file>
         <file>titlebar/min.svg</file>
         <file>titlebar/back.svg</file>
-        <file>plugins/netconnect/eth.svg</file>
-        <file>plugins/netconnect/nonet.svg</file>
         <file>plugins/theme/selected.svg</file>
         <file>plugins/shortcut/up.svg</file>
         <file>plugins/shortcut/down.svg</file>
@@ -60,41 +54,9 @@
         <file>dropArrow/search.svg</file>
         <file>plugins/theme/opacitylow.svg</file>
         <file>plugins/theme/opacityhigh.svg</file>
-        <file>plugins/upgrade/refresh.png</file>
-        <file>plugins/upgrade/update.png</file>
-        <file>plugins/upgrade/normal.png</file>
-        <file>plugins/upgrade/kylin-update-desktop-app.png</file>
-        <file>plugins/upgrade/kylin-update-desktop-kernel-3a4000.png</file>
-        <file>plugins/upgrade/kylin-update-desktop-security.png</file>
-        <file>plugins/upgrade/kylin-update-desktop-support.png</file>
-        <file>plugins/upgrade/kylin-update-desktop-ukui.png</file>
-        <file>plugins/upgrade/loading10.svg</file>
-        <file>plugins/upgrade/loading11.svg</file>
-        <file>plugins/upgrade/loading12.svg</file>
-        <file>plugins/upgrade/loading13.svg</file>
-        <file>plugins/upgrade/loading14.svg</file>
-        <file>plugins/upgrade/loading15.svg</file>
-        <file>plugins/upgrade/loading16.svg</file>
-        <file>plugins/upgrade/loading17.svg</file>
-        <file>plugins/upgrade/kylin-update-desktop-kernel.png</file>
-        <file>plugins/upgrade/linux-generic.png</file>
         <file>plugins/about/logo-light.svg</file>
         <file>plugins/about/logo-dark.svg</file>
-        <file>plugins/search/360.svg</file>
-        <file>plugins/search/baidu.svg</file>
-        <file>plugins/search/sougou.svg</file>
-        <file>plugins/netconnect/wifi6-full-pwd.svg</file>
-        <file>plugins/netconnect/wifi6-high-pwd.svg</file>
-        <file>plugins/netconnect/wifi6-low-pwd.svg</file>
-        <file>plugins/netconnect/wifi6-medium-pwd.svg</file>
-        <file>plugins/netconnect/wifi6-none-pwd.svg</file>
-        <file>plugins/netconnect/wifi6+-full-pwd.svg</file>
-        <file>plugins/netconnect/wifi6+-high-pwd.svg</file>
-        <file>plugins/netconnect/wifi6+-low-pwd.svg</file>
-        <file>plugins/netconnect/wifi6+-medium-pwd.svg</file>
-        <file>plugins/netconnect/wifi6+-none-pwd.svg</file>
         <file>titlebar/index.svg</file>
-        <file>plugins/netconnect/add.svg</file>
         <file>homepage/kylin-settings-account.png</file>
         <file>homepage/kylin-settings-application.png</file>
         <file>homepage/kylin-settings-devices.png</file>
@@ -124,95 +86,6 @@
         <file>plugins/userinfo_intel/successed.png</file>
         <file>plugins/userinfo_intel/type.svg</file>
         <file>plugins/userinfo_intel/warning.svg</file>
-        <file>plugins/gesture/gesture.ini</file>
-        <file>plugins/gesture/Movingobjects.gif</file>
-        <file>plugins/gesture/pause.png</file>
-        <file>plugins/gesture/play.png</file>
-        <file>plugins/gesture/Showsidebar.png</file>
-        <file>plugins/gesture/Showtaskbar.png</file>
-        <file>plugins/gesture/Textselection.png</file>
-        <file>plugins/gesture/Zoompicture.png</file>
-        <file>plugins/gesture/Rotatethepicture.png</file>
-        <file>plugins/gesture/Programminimization.png</file>
-        <file>plugins/gesture/Movingobjects.png</file>
-        <file>plugins/gesture/Enterglobalsearch.png</file>
-        <file>plugins/gesture/Displaymultitaskingview.png</file>
-        <file>plugins/gesture/Boxselectedobject.png</file>
-        <file>plugins/gesture/Boxselectedobject.gif</file>
-        <file>plugins/gesture/Displaymultitaskingview.gif</file>
-        <file>plugins/gesture/Enterglobalsearch.gif</file>
-        <file>plugins/gesture/Programminimization.gif</file>
-        <file>plugins/gesture/Rotatethepicture.gif</file>
-        <file>plugins/gesture/Showsidebar.gif</file>
-        <file>plugins/gesture/Showtaskbar.gif</file>
-        <file>plugins/gesture/Textselection.gif</file>
-        <file>plugins/gesture/Zoompicture.gif</file>
-        <file>plugins/netconnect/1.png</file>
-        <file>plugins/netconnect/2.png</file>
-        <file>plugins/netconnect/4.png</file>
-        <file>plugins/netconnect/5.png</file>
-        <file>plugins/netconnect/3.png</file>
-        <file>plugins/netconnect/6.png</file>
-        <file>plugins/netconnect/7.png</file>
-        <file>plugins/netconnect/8.png</file>
-        <file>plugins/netconnect/up.svg</file>
-        <file>plugins/netconnect/down.svg</file>
-        <file>plugins/netconnect/1-black.png</file>
-        <file>plugins/netconnect/2-black.png</file>
-        <file>plugins/netconnect/3-black.png</file>
-        <file>plugins/netconnect/4-black.png</file>
-        <file>plugins/netconnect/5-black.png</file>
-        <file>plugins/netconnect/7-black.png</file>
-        <file>plugins/netconnect/8-black.png</file>
-        <file>plugins/netconnect/6-black.png</file>
-        <file>plugins/securitycenter/icon_scanning_b48@1x.png</file>
-        <file>plugins/securitycenter/icon_scanning_w48@1x.png</file>
-        <file>plugins/securitycenter/kysec_48_white.png</file>
-        <file>plugins/securitycenter/kysec_48.png</file>
-        <file>plugins/securitycenter/kysec.png</file>
-        <file>plugins/securitycenter/kysecHover.png</file>
-        <file>plugins/securitycenter/net_48_white.png</file>
-        <file>plugins/securitycenter/net_48.png</file>
-        <file>plugins/securitycenter/net.png</file>
-        <file>plugins/securitycenter/netHover.png</file>
-        <file>plugins/securitycenter/protect_48_white.png</file>
-        <file>plugins/securitycenter/protect_48.png</file>
-        <file>plugins/securitycenter/protect.png</file>
-        <file>plugins/securitycenter/protectHover.png</file>
-        <file>plugins/securitycenter/set2@2x_1.png</file>
-        <file>plugins/securitycenter/set2px.png</file>
-        <file>plugins/securitycenter/user_48_white.png</file>
-        <file>plugins/securitycenter/user_48.png</file>
-        <file>plugins/securitycenter/user.png</file>
-        <file>plugins/securitycenter/userHover.png</file>
-        <file>plugins/securitycenter/ rectangle_bule.png</file>
-        <file>plugins/securitycenter/ rectangle_white.png</file>
-        <file>plugins/securitycenter/bai.png</file>
-        <file>plugins/securitycenter/bingdufanghu-white.png</file>
-        <file>plugins/securitycenter/bingdufanghu.png</file>
-        <file>plugins/securitycenter/lan.png</file>
-        <file>plugins/securitycenter/saomiao-white.png</file>
-        <file>plugins/securitycenter/saomiao.png</file>
-        <file>plugins/securitycenter/user_sercity_white.png</file>
-        <file>plugins/securitycenter/user_sercity.png</file>
-        <file>plugins/securitycenter/yingyongkongzhiyubaohu-white.png</file>
-        <file>plugins/securitycenter/yingyonkongzhiyubaohu.png</file>
-        <file>plugins/securitycenter/anquanfanghu_good_white.png</file>
-        <file>plugins/securitycenter/anquanfanghu_good.png</file>
-        <file>plugins/securitycenter/anquanfanghu_warning_white.png</file>
-        <file>plugins/securitycenter/anquanfanghu_warning.png</file>
-        <file>plugins/securitycenter/bingdufanghu_good_white.png</file>
-        <file>plugins/securitycenter/bingdufanghu_good.png</file>
-        <file>plugins/securitycenter/bingdufanghu_warning_white.png</file>
-        <file>plugins/securitycenter/bingdufanghu_warning.png</file>
-        <file>plugins/securitycenter/wangluobaohu_good_white.png</file>
-        <file>plugins/securitycenter/wangluobaohu_good.png</file>
-        <file>plugins/securitycenter/wangluobaohu_warning_white.png</file>
-        <file>plugins/securitycenter/wangluobaohu_warning.png</file>
-        <file>plugins/securitycenter/zhanghuanquan_good_white.png</file>
-        <file>plugins/securitycenter/zhanghuanquan_good.png</file>
-        <file>plugins/securitycenter/zhanghuanquan_warning_white.png</file>
-        <file>plugins/securitycenter/zhanghuanquan_warning.png</file>
         <file>dropArrow/ukui-down-symbolic.svg</file>
         <file>secondaryleftmenu/About.svg</file>
         <file>secondaryleftmenu/AirplaneMode.svg</file>
@@ -252,8 +125,6 @@
         <file>secondaryleftmenu/wlanconnect.svg</file>
         <file>secondaryleftmenu/netconnect.svg</file>
         <file>secondaryleftmenu/Theme.svg</file>
-        <file>plugins/mobilehotspot/hide-pwd.png</file>
-        <file>plugins/mobilehotspot/show-pwd.png</file>
         <file>secondaryleftmenu/Userinfointel.svg</file>
         <file>secondaryleftmenu/System Recovery.svg</file>
         <file>secondaryleftmenu/Wallpaper.svg</file>
