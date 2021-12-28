@@ -518,12 +518,12 @@ void MainWindow::loadPlugins(){
 
     static bool installed = (QCoreApplication::applicationDirPath() == QDir(("/usr/bin")).canonicalPath());
 
-    if (installed)
+    if (false)
         pluginsDir = QDir(PLUGIN_INSTALL_DIRS);
     else {
         pluginsDir = QDir(qApp->applicationDirPath() + "/plugins");
     }
-
+qDebug()<<"pluginsDir = "<<pluginsDir;
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
         //三权分立开启
 #ifdef WITHKYSEC
@@ -711,7 +711,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
         iconBtn->setIcon(pix);
     });
 
-    QLabel * textLabel = new QLabel(leftsidebarBtn);
+    FixLabel * textLabel = new FixLabel(leftsidebarBtn);
     textLabel->setText(tipName);
     QSizePolicy textLabelPolicy = textLabel->sizePolicy();
     textLabelPolicy.setHorizontalPolicy(QSizePolicy::Fixed);

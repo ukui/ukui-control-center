@@ -1,7 +1,7 @@
 #include "checkbutton.h"
 #include <QDebug>
 
-m_button::m_button(QWidget *parent) : QPushButton(parent)
+m_button::m_button(QWidget *parent) : FixBtn(parent)
 {
     m_cTimer = new QTimer(this);
     states =true;

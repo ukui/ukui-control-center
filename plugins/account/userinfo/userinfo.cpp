@@ -759,8 +759,8 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
 
     widget->setLayout(mainHorLayout);
 
-    QPushButton * delBtn = new QPushButton(baseWidget);
-    delBtn->setFixedSize(60, 36);
+    FixBtn * delBtn = new FixBtn(baseWidget);
+    delBtn->setFixedSize(100, 36);
     delBtn->setText(tr("Del"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();
@@ -1788,8 +1788,8 @@ void UserInfo::addFeature(FeatureInfo *featureinfo)
 
     widget->setLayout(mainHorLayout);
 
-    QPushButton * delBtn = new QPushButton(baseWidget);
-    delBtn->setFixedSize(60, 36);
+    FixBtn * delBtn = new FixBtn(baseWidget);
+    delBtn->setFixedSize(120, 36);
     delBtn->setText(tr("Delete"));
 //    delBtn->setStyleSheet("QPushButton{background: #FA6056; border-radius: 4px}");
     delBtn->hide();

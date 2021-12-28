@@ -36,6 +36,7 @@
 #include "homepagewidget.h"
 #include "modulepagewidget.h"
 #include "searchwidget.h"
+#include "../commonComponent/fixlabel.h"
 
 class QLabel;
 class QPushButton;

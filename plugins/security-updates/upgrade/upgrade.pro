@@ -1,6 +1,6 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-
+include($$PROJECT_COMPONENTSOURCE/button.pri)
 
 QT       +=  core gui widgets network dbus sql
 

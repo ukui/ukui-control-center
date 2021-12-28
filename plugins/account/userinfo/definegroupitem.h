@@ -24,6 +24,7 @@
 #include <QWidget>
 #include <QFrame>
 #include <QMouseEvent>
+#include "fixbtn.h"
 
 class QLabel;
 class QPushButton;
@@ -59,7 +60,7 @@ private:
     QWidget * pWidget;
     QLabel * pLabel;
     QPushButton * pEditBtn;
-    QPushButton * pDelBtn;
+    FixBtn * pDelBtn;
 
 private:
     bool _deleteable;
