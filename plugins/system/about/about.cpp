@@ -963,16 +963,18 @@ void About::setPrivacyCompent()
     QDBusInterface *PriDBus = new QDBusInterface("com.kylin.daq",
                                                              "/com/kylin/daq",
                                                              "com.kylin.daq.interface",
-                                                             QDBusConnection::sessionBus(), this);
+                                                             QDBusConnection::systemBus(), this);
     if (!PriDBus->isValid()) {
         qDebug()<<"create pridbus error";
         return;
     }
-    QDBusReply<int> reply = PriDBus->call("getUploadState");
+    QDBusReply<int> reply = PriDBus->call("GetUploadState");
+    mPriBtn->blockSignals(true);
     mPriBtn->setChecked(reply == 0 ? false : true);
+    mPriBtn->blockSignals(false);
 
     connect(mPriBtn,&SwitchButton::checkedChanged ,this ,[=](bool status){
-         PriDBus->call("setUploadState" , (status ? 1 : 0));
+         PriDBus->call("SetUploadState" , (status ? 1 : 0));
     } );
 }
 
