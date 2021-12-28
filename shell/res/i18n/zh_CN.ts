@@ -613,7 +613,7 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>BlueToothMain</name>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="214"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1248"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
@@ -624,78 +624,98 @@ you can restore them to ensure the integrity of your system.</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="256"/>
         <source>Local device :</source>
-        <translation>本机设备：</translation>
+        <translation type="vanished">本机设备：</translation>
         <extra-contents_path>/bluetooth/Local device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="278"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1288"/>
+        <source>Turn on</source>
+        <translation>开启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1288"/>
+        <source>Local device:</source>
+        <translation>本机设备：</translation>
+        <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1304"/>
         <source>* Nothing entered, please re-enter</source>
         <translation>* 未输入任何内容，请重新输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="279"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1305"/>
         <source>* Up to 30 characters can be entered</source>
         <translation>* 最多可输入30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="310"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1336"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
+        <extra-contents_path>/Bluetooth/Bluetooth adapter</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="368"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1372"/>
+        <source>Show icon on taskbar</source>
+        <translation>在任务栏显示蓝牙图标</translation>
+        <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1405"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="401"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1438"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
-        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="434"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1474"/>
         <source>Other Devices</source>
         <translation>蓝牙列表</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="534"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1524"/>
         <source>All</source>
         <translation>所有设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="535"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1525"/>
         <source>Audio</source>
         <translation>音频设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="536"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1526"/>
         <source>Peripherals</source>
         <translation>键鼠设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="537"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1527"/>
         <source>PC</source>
         <translation>电脑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="538"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1528"/>
         <source>Phone</source>
         <translation>手机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="539"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1529"/>
         <source>Other</source>
         <translation>其他设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="948"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1593"/>
+        <source>Bluetooth driver abnormal</source>
+        <translation>蓝牙设备异常</translation>
+    </message>
+    <message>
         <source>Bluetooth adapter is not detected!</source>
-        <translation>未检测到蓝牙适配器！</translation>
+        <translation type="vanished">未检测到蓝牙适配器！</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -715,7 +735,7 @@ you can restore them to ensure the integrity of your system.</source>
         <translation type="vanished">添加蓝牙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetooth.cpp" line="6"/>
+        <location filename="../../../plugins/network/bluetooth/bluetooth.cpp" line="42"/>
         <source>Bluetooth</source>
         <translatorcomment>蓝牙</translatorcomment>
         <translation>蓝牙</translation>
@@ -1920,45 +1940,36 @@ folder will be deleted!</source>
         <translation type="obsolete">未连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="16"/>
         <source>Connecting</source>
-        <translation>正在连接</translation>
+        <translation type="vanished">连接中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="17"/>
         <source>Disconnecting</source>
-        <translation>正在断连</translation>
+        <translation type="vanished">断连中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="18"/>
         <source>Connected</source>
-        <translation>已连接</translation>
+        <translation type="vanished">已连接</translation>
     </message>
     <message>
         <source>Ununited</source>
         <translation type="vanished">已配对</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="21"/>
         <source>Disconnect fail</source>
-        <translation>断开失败</translation>
+        <translation type="vanished">断开失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="20"/>
         <source>Connect fail</source>
-        <translation>连接失败</translation>
+        <translation type="vanished">连接失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="19"/>
         <source>Not connected</source>
-        <translation>未连接</translation>
+        <translation type="vanished">未连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="122"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="410"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="414"/>
         <source>Send files</source>
-        <translation>发送文件</translation>
+        <translation type="vanished">发送文件</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -1969,11 +1980,8 @@ folder will be deleted!</source>
         <translation type="vanished">取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="127"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="425"/>
-        <location filename="../../../plugins/network/bluetooth/deviceinfoitem.cpp" line="429"/>
         <source>remove</source>
-        <translation>移除</translation>
+        <translation type="vanished">移除</translation>
     </message>
     <message>
         <source>Sure to remove,</source>
@@ -2936,6 +2944,53 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
 </context>
 <context>
+    <name>IntelDeviceInfoItem</name>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="16"/>
+        <source>Connecting</source>
+        <translation type="unfinished">正在连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="17"/>
+        <source>Disconnecting</source>
+        <translation type="unfinished">正在断连</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="18"/>
+        <source>Connected</source>
+        <translation type="unfinished">已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="19"/>
+        <source>Not connected</source>
+        <translation type="unfinished">未连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="20"/>
+        <source>Connect fail</source>
+        <translation type="unfinished">连接失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="21"/>
+        <source>Disconnect fail</source>
+        <translation type="unfinished">断开失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="122"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="411"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="415"/>
+        <source>Send files</source>
+        <translation type="unfinished">发送文件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="127"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="426"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="430"/>
+        <source>remove</source>
+        <translation type="unfinished">移除</translation>
+    </message>
+</context>
+<context>
     <name>ItemList</name>
     <message>
         <source>Walpaper</source>
@@ -3786,22 +3841,22 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>MsgBox</name>
     <message>
-        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="31"/>
+        <location filename="../../../plugins/network/bluetooth/intelmsgbox.cpp" line="31"/>
         <source>Sure to remove %1 ?</source>
         <translation>您确认要移除 %1 吗 ?</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="53"/>
+        <location filename="../../../plugins/network/bluetooth/intelmsgbox.cpp" line="53"/>
         <source>After removal, the next connection requires matching PIN code !</source>
         <translation>移除此设备后将不再自动连接。如需再次使用此设备，您必须重新连接它 !</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="75"/>
+        <location filename="../../../plugins/network/bluetooth/intelmsgbox.cpp" line="75"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/msgbox.cpp" line="83"/>
+        <location filename="../../../plugins/network/bluetooth/intelmsgbox.cpp" line="83"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>

@@ -1,22 +1,14 @@
 #ifndef CONFIG_H
 #define CONFIG_H
+#include <QString>
 
-//enum DEVICE_TYPE{
-//    PC = 0,
-//    PHONE,
-//    HEADSET,
-//    OTHER,
-//    Mouse,
-//};
+#define BluetoothServiceExePath "/usr/bin/bluetoothService -o"
+#define BluetoothTrayExePath    "/usr/bin/ukui-bluetooth"
+#define BluetoothServiceName    "bluetoothService"
+#define BluetoothTrayName       "ukui-bluetooth"
 
-enum DEVICE_STATUS{
-    NONE = 0,
-    LINK,
-    LINKING,
-    UNLINK,
-    PAIRED,
-    ERROR,
-    NOT,
-};
+const QString SERVICE   = "com.ukui.bluetooth";
+const QString PATH      = "/com/ukui/bluetooth";
+const QString INTERFACE = "com.ukui.bluetooth";
 
 #endif // CONFIG_H
