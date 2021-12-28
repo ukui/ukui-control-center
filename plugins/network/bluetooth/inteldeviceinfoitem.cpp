@@ -77,8 +77,14 @@ void IntelDeviceInfoItem::InitMemberVariables()
     });
 
     _devConnTimer = new QTimer(this);
-    _devConnTimer->setInterval(5000);
+    _devConnTimer->setInterval(30000);
     connect(_devConnTimer,&QTimer::timeout,this,[=]{
+        if(BlueToothMain::m_device_pin_flag)
+        {
+            _devConnTimer->stop();
+            _devConnTimer->start();
+            return;
+        }
 
         _devConnTimer->stop();
         _iconTimer->stop();
@@ -175,6 +181,8 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
         connect(_MDev,&bluetoothdevice::pairedChanged,this,[=](bool paired)
         {
             qDebug() << Q_FUNC_INFO << "pairedChanged" << __LINE__;
+            BlueToothMain::m_device_pin_flag = false;
+
             if(_devConnTimer->isActive())
                 _devConnTimer->stop();
 
@@ -201,6 +209,7 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
         connect(_MDev,&bluetoothdevice::connectedChanged,this,[=](bool connected)
         {
             qDebug() << Q_FUNC_INFO << "connectedChanged" << __LINE__;
+            BlueToothMain::m_device_pin_flag = false;
             if(_devConnTimer->isActive())
                 _devConnTimer->stop();
 
@@ -222,6 +231,26 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
             update();
 
             emit devConnectionComplete();
+        });
+
+        connect(_MDev,&bluetoothdevice::errorInfoRefresh,this,[=](int errorId , QString errorText)
+        {
+            qDebug () << Q_FUNC_INFO << "error:" << errorId << errorText << __LINE__;
+            if (errorId)
+            {
+                if(_devConnTimer->isActive())
+                    _devConnTimer->stop();
+                if (_iconTimer->isActive())
+                    _iconTimer->stop();
+                _clicked = false;
+
+                qDebug () << Q_FUNC_INFO << "error:" << errorId << errorText << __LINE__;
+                //BlueToothMain::m_device_pin_flag = false;
+                _DevStatus = DEVSTATUS::ConnectFailed;
+                emit devConnectionComplete();
+                update();
+                TimedRestoreConnectionErrorDisplay();
+            }
         });
     }
 }
@@ -351,7 +380,10 @@ QRect IntelDeviceInfoItem::getFontPixelQPoint(QString str)
 void IntelDeviceInfoItem::enterEvent(QEvent *event)
 {
     Q_UNUSED(event);
-    _MStatus = Status::Hover;
+    if (!BlueToothMain::m_device_operating)
+        _MStatus = Status::Hover;
+    else
+        _MStatus = Status::Nomal;
     update();
 }
 
@@ -370,8 +402,11 @@ void IntelDeviceInfoItem::mousePressEvent(QMouseEvent *event)
         if (mouseEventIntargetAera(event->pos())) {
             _pressBtnFlag = true;
         } else {
-            _pressFlag = true;
-        }
+            if (!BlueToothMain::m_device_operating)
+            {
+                _pressFlag = true;
+                _MStatus = Status::Check;
+            }        }
     }
 }
 
@@ -779,13 +814,14 @@ void IntelDeviceInfoItem::DrawFuncBtn(QPainter &painter)
         iconName = ":/img/plugins/bluetooth/more.svg";
     }
 
-    painter.drawRoundRect(this->width()-55,14,36,36,30,30);
+    //painter.drawRoundRect(this->width()-55,14,0,0,30,30);
 
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
 
     if (_themeIsBlack && (Status::Hover != _MStatus))
         style()->drawItemPixmap(&painter, QRect(this->width()-48,23,20,20), Qt::AlignCenter, ImageUtil::loadSvg(iconName,"white",20));
     else
+
         style()->drawItemPixmap(&painter, QRect(this->width()-48,23,20,20), Qt::AlignCenter, ImageUtil::loadSvg(iconName,"default",20));
 
     painter.restore();

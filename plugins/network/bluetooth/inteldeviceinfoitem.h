@@ -43,6 +43,7 @@ public:
     enum Status{
         Hover = 0,
         Nomal,
+        Check,
 
     };
     Q_ENUM(Status)
