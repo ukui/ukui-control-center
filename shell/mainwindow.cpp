@@ -711,7 +711,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
         iconBtn->setIcon(pix);
     });
 
-    QLabel * textLabel = new QLabel(leftsidebarBtn);
+    FixLabel * textLabel = new FixLabel(leftsidebarBtn);
     textLabel->setText(tipName);
     QSizePolicy textLabelPolicy = textLabel->sizePolicy();
     textLabelPolicy.setHorizontalPolicy(QSizePolicy::Fixed);

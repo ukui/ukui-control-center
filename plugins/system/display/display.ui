@@ -221,7 +221,7 @@
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QLabel" name="scaleLabel">
+         <widget class="FixLabel" name="scaleLabel">
           <property name="minimumSize">
            <size>
             <width>118</width>
@@ -916,6 +916,11 @@
    <class>Uslider</class>
    <extends>QSlider</extends>
    <header>Uslider/uslider.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -172,7 +172,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="chgzonebtn">
+     <widget class="FixBtn" name="chgzonebtn">
       <property name="geometry">
        <rect>
         <x>220</x>
@@ -292,6 +292,13 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>FixBtn</class>
+   <extends>QPushButton</extends>
+   <header>fixbtn.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
