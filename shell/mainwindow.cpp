@@ -518,12 +518,12 @@ void MainWindow::loadPlugins(){
 
     static bool installed = (QCoreApplication::applicationDirPath() == QDir(("/usr/bin")).canonicalPath());
 
-    if (false)
+    if (installed)
         pluginsDir = QDir(PLUGIN_INSTALL_DIRS);
     else {
         pluginsDir = QDir(qApp->applicationDirPath() + "/plugins");
     }
-qDebug()<<"pluginsDir = "<<pluginsDir;
+
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)){
         //三权分立开启
 #ifdef WITHKYSEC
