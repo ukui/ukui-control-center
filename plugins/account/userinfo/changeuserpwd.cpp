@@ -109,6 +109,7 @@ void ChangeUserPwd::initUI(){
     currentPwdLineEdit->setPlaceholderText(tr("Current Pwd"));
     currentPwdLineEdit->setEchoMode(QLineEdit::Password);
     currentPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
+    currentPwdLineEdit->setTextMargins(0,0,30,0);
 
     currentPwdEyeBtn = new QPushButton;
     currentPwdEyeBtn->setFixedSize(QSize(24, 24));
@@ -117,6 +118,7 @@ void ChangeUserPwd::initUI(){
     currentPwdEyeBtn->setFlat(true);
     currentPwdEyeBtn->setStyleSheet("QPushButton::pressed{border:none;background-color:transparent}"
                                     "QPushButton::hover::!pressed{border:none;background-color:transparent}");
+    currentPwdEyeBtn->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     QHBoxLayout *currentPwdEyeBtnHLayout = new QHBoxLayout;
     currentPwdEyeBtnHLayout->addStretch();
     currentPwdEyeBtnHLayout->addWidget(currentPwdEyeBtn);
@@ -139,6 +141,7 @@ void ChangeUserPwd::initUI(){
     newPwdLineEdit->setPlaceholderText(tr("New Pwd"));
     newPwdLineEdit->setEchoMode(QLineEdit::Password);
     newPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
+    newPwdLineEdit->setTextMargins(0,0,30,0);
 
     newPwdEyeBtn = new QPushButton;
     newPwdEyeBtn->setFixedSize(QSize(24, 24));
@@ -147,6 +150,7 @@ void ChangeUserPwd::initUI(){
     newPwdEyeBtn->setFlat(true);
     newPwdEyeBtn->setStyleSheet("QPushButton::pressed{border:none;background-color:transparent}"
                                 "QPushButton::hover::!pressed{border:none;background-color:transparent}");
+    newPwdEyeBtn->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     QHBoxLayout *newPwdEyeBtnHLayout = new QHBoxLayout;
     newPwdEyeBtnHLayout->addStretch();
     newPwdEyeBtnHLayout->addWidget(newPwdEyeBtn);
@@ -169,6 +173,7 @@ void ChangeUserPwd::initUI(){
     surePwdLineEdit->setPlaceholderText(tr("Sure Pwd"));
     surePwdLineEdit->setEchoMode(QLineEdit::Password);
     surePwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
+    surePwdLineEdit->setTextMargins(0,0,30,0);
 
     surePwdEyeBtn = new QPushButton;
     surePwdEyeBtn->setFixedSize(QSize(24, 24));
@@ -177,6 +182,7 @@ void ChangeUserPwd::initUI(){
     surePwdEyeBtn->setFlat(true);
     surePwdEyeBtn->setStyleSheet("QPushButton::pressed{border:none;background-color:transparent}"
                                  "QPushButton::hover::!pressed{border:none;background-color:transparent}");
+    surePwdEyeBtn->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     QHBoxLayout *surePwdEyeBtnHLayout = new QHBoxLayout;
     surePwdEyeBtnHLayout->addStretch();
     surePwdEyeBtnHLayout->addWidget(surePwdEyeBtn);
