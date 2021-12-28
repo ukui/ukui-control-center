@@ -111,7 +111,7 @@ void OutputConfig::initUi()
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
     mRotation->addItem(tr("90° arrow-left"), KScreen::Output::Left);
     mRotation->addItem(tr("arrow-down"), KScreen::Output::Inverted);
-    connect(mRotation, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRotation, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 
@@ -142,7 +142,7 @@ void OutputConfig::initUi()
     vbox->addWidget(freshFrame);
 
     slotResolutionChanged(mResolution->currentResolution(), true);
-    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+    connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRefreshRateChanged);
 
     // 缩放率下拉框
@@ -269,19 +269,29 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         return;
     }
 
+    bool mIsModeInit = false;
     QString modeID;
+    KScreen::ModePtr selectMode;
     KScreen::ModePtr currentMode = mOutput->currentMode();
     QList<KScreen::ModePtr> modes;
+
     Q_FOREACH (const KScreen::ModePtr &mode, mOutput->modes()) {
+        //初始化时,currentMode可能为空(比如刚插上屏幕)
+        if (!currentMode || (currentMode && currentMode->size() == size)) {
+            if (currentMode) {
+                selectMode = currentMode;
+            }
+            mIsModeInit = true;
+        }
         if (mode->size() == size) {
+            if (!mIsModeInit || !currentMode) {
+                selectMode = mode;
+            }
             modes << mode;
         }
     }
 
-//    Q_ASSERT(currentMode);
-    if (!currentMode)
-        return;
-    modeID = currentMode->id();
+    modeID = selectMode->id();
 
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
@@ -294,19 +304,19 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 
         bool alreadyExisted = false;
         for (int j = 0; j < mRefreshRate->count(); ++j) {
-            if (tr("%1 Hz").arg(QLocale().toString(mode->refreshRate())) == mRefreshRate->itemText(j)) {
+            if (tr("%1 Hz").arg(QLocale().toString(static_cast<int>(mode->refreshRate()))) == mRefreshRate->itemText(j)) {
                 alreadyExisted = true;
                 break;
             }
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
-            mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(mode->refreshRate(), 'f', 2)), mode->id());
+            mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(static_cast<int>(mode->refreshRate()))), mode->id());
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
         // - that is it's not the highest resolution - then select it, otherwise
         // we stick with "Auto"
-        if (mode == currentMode && mRefreshRate->count() > 1) {
+        if (mode == selectMode && mRefreshRate->count() > 1) {
             // i + 1 since 0 is auto
             mRefreshRate->setCurrentIndex(i + 1);
         }
