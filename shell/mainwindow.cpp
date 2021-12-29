@@ -703,14 +703,24 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     iconBtn->setFixedSize(QSize(16, 16));
     iconBtn->setFocusPolicy(Qt::NoFocus);
     iconBtn->reLoadIcon();
+    static QString hoverColor;
 
-    if (QGSettings::isSchemaInstalled("org.ukui.style")){
-       QGSettings *qtSettings = new QGSettings("org.ukui.style");
-       connect(qtSettings, &QGSettings::changed, this, [=](const QString &key) {
+    if (QGSettings::isSchemaInstalled("org.ukui.style")) {
+        QGSettings *qtSettings = new QGSettings("org.ukui.style");
+        if (qtSettings->keys().contains("styleName")) {
+            hoverColor = pluginBtnHoverColor(qtSettings->get("style-name").toString());
+            if (!leftsidebarBtn->isChecked())
+                leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}").arg(hoverColor));
+        }
+
+        connect(qtSettings, &QGSettings::changed, this, [=,&hoverColor](const QString &key) {
             if (key == "styleName") {
                 iconBtn->reLoadIcon();
+                hoverColor = this->pluginBtnHoverColor(qtSettings->get("style-name").toString());
+                if (!leftsidebarBtn->isChecked())
+                    leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}").arg(hoverColor));
             }
-       });
+        });
     }
 
     QLabel * textLabel = new QLabel(leftsidebarBtn);
@@ -766,6 +776,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
             leftsidebarBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
             textLabel->setStyleSheet("color:white");
         } else {
+            leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}").arg(hoverColor));
             textLabel->setStyleSheet("color:palette(windowText)");
         }
     });
@@ -996,4 +1007,30 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 {
     QMainWindow::resizeEvent(event);
     Q_EMIT posChanged();
+}
+
+QString MainWindow::pluginBtnHoverColor(QString styleName)
+{
+    QColor color1 = palette().color(QPalette::Active, QPalette::Button);
+    QColor color2 = palette().color(QPalette::Active, QPalette::BrightText);
+    QColor color;
+    qreal r,g,b,a;
+    QString hoverColor;
+    if (styleName.contains("dark") || styleName.contains("black")) {
+        r = color1.redF() * 0.8 + color2.redF() * 0.2;
+        g = color1.greenF() * 0.8 + color2.greenF() * 0.2;
+        b = color1.blueF() * 0.8 + color2.blueF() * 0.2;
+        a = color1.alphaF() * 0.8 + color2.alphaF() * 0.2;
+    } else {
+        r = color1.redF() * 0.95 + color2.redF() * 0.05;
+        g = color1.greenF() * 0.95 + color2.greenF() * 0.05;
+        b = color1.blueF() * 0.95 + color2.blueF() * 0.05;
+        a = color1.alphaF() * 0.95 + color2.alphaF() * 0.05;
+    }
+    color = QColor::fromRgbF(r, g, b, a);
+    hoverColor = QString("rgba(%1, %2, %3, %4)").arg(color.red())
+                                                .arg(color.green())
+                                                .arg(color.blue())
+                                                .arg(color.alpha());
+    return hoverColor;
 }
