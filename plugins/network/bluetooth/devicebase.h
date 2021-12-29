@@ -155,7 +155,7 @@ public:
     void setDevTrust(bool);
     bool getDevTrust();
     void setErrorInfo(int,QString);
-
+    void clearErrorInfo();
 signals:
 
     void nameChanged(QString);
@@ -163,7 +163,7 @@ signals:
     void pairedChanged(bool);
     void connectedChanged(bool);
     void trustChanged(bool);
-    void errorInfoRefresh(int,QString);
+    void errorInfoRefreshSignal(int,QString);
 
 private:
 

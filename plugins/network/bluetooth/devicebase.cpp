@@ -99,6 +99,7 @@ bluetoothdevice::bluetoothdevice(QString   dev_name ,
     ,m_dev_trust(dev_trust)
 {
     this->setObjectName(dev_address);
+
     //qDebug() << Q_FUNC_INFO << __LINE__;
 //    if (DEVICE_STATUS::PairedAndUnlinked == dev_status ||
 //        DEVICE_STATUS::PairedAndLinked == dev_status )
@@ -202,7 +203,13 @@ void bluetoothdevice::setErrorInfo(int errorId,QString errorText)
 {
     this->m_errorId = errorId;
     this->m_errorText = errorText;
-    emit errorInfoRefresh(errorId,errorText);
+    emit errorInfoRefreshSignal(errorId,errorText);
+}
+
+void bluetoothdevice::clearErrorInfo()
+{
+    this->m_errorId = 0;
+    this->m_errorText = "";
 }
 
 //bluetoothdevice end
