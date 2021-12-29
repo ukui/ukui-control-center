@@ -458,8 +458,10 @@ void IntelDeviceInfoItem::mouseMoveEvent(QMouseEvent *event)
 {
     if (mouseEventIntargetAera(event->pos())) {
         _inBtn = true;
+        _MStatus = Status::Nomal;
         this->update();
     } else {
+        _MStatus = Status::Hover;
         if (_inBtn) {
             _inBtn = false;
             this->update();
@@ -772,10 +774,10 @@ void IntelDeviceInfoItem::DrawFuncBtn(QPainter &painter)
     painter.save();
 
     if (_inBtn) {
-        painter.setPen(QColor("#2FB3E8"));
+//        painter.setPen(QColor("#2FB3E8"));
         iconName = ":/img/plugins/bluetooth/more-blue.svg";
     } else {
-        painter.setBrush(getPainterBrushColor());
+//        painter.setBrush(getPainterBrushColor());
         iconName = ":/img/plugins/bluetooth/more.svg";
     }
 
@@ -783,7 +785,7 @@ void IntelDeviceInfoItem::DrawFuncBtn(QPainter &painter)
 
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
 
-    if (_themeIsBlack && (Status::Hover != _MStatus))
+    if (_themeIsBlack && !_inBtn)
         style()->drawItemPixmap(&painter, QRect(this->width()-48,23,20,20), Qt::AlignCenter, ImageUtil::loadSvg(iconName,"white",20));
     else
         style()->drawItemPixmap(&painter, QRect(this->width()-48,23,20,20), Qt::AlignCenter, ImageUtil::loadSvg(iconName,"default",20));

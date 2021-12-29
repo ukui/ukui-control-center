@@ -62,8 +62,8 @@ MsgBox::MsgBox(QWidget *parent, const QString txt):
     closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
     closeBtn->setFlat(true);
     //closeBtn->setFixedSize(QSize(20,20));
-    closeBtn->setProperty("isWindowButton",0x2);
-    closeBtn->setProperty("useIconHighlihtEffect",0x8);
+//    closeBtn->setProperty("isWindowButton",0x2);
+//    closeBtn->setProperty("useIconHighlihtEffect",0x8);
     //closeBtn->setIcon(QIcon::fromTheme("application-exit-symbolic"));
     //closeBtn->setProperty("useIconHighlightEffect", true);
     //closeBtn->setProperty("iconHighlightEffectMode", 1);
