@@ -85,6 +85,7 @@ void IntelDeviceInfoItem::InitMemberVariables()
             _devConnTimer->start();
             return;
         }
+        emit devConnectionComplete();
 
         _devConnTimer->stop();
         _iconTimer->stop();
@@ -96,23 +97,9 @@ void IntelDeviceInfoItem::InitMemberVariables()
             _DevStatus = DEVSTATUS::DisConnectFailed;
         }
 
-        //错误信息显示超时后，显示错误操作后的设备状态
-        QTimer::singleShot(4000,this,[=]{
-            if (_MDev->isPaired())
-            {
-                _DevStatus = DEVSTATUS::Paired;
-
-                if (_MDev->isConnected())
-                    _DevStatus = DEVSTATUS::Connected;
-
-            } else {
-                _DevStatus = DEVSTATUS::NoPaired;
-            }
-            update();
-        });
-
         update();
-        emit devConnectionComplete();
+        TimedRestoreConnectionErrorDisplay();
+
     });
 
     dev_Menu = new QMenu(this);
@@ -231,9 +218,11 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
             update();
 
             emit devConnectionComplete();
+            TimedRestoreConnectionErrorDisplay();
+
         });
 
-        connect(_MDev,&bluetoothdevice::errorInfoRefresh,this,[=](int errorId , QString errorText)
+        connect(_MDev,&bluetoothdevice::errorInfoRefreshSignal,this,[=](int errorId , QString errorText)
         {
             qDebug () << Q_FUNC_INFO << "error:" << errorId << errorText << __LINE__;
             if (errorId)
