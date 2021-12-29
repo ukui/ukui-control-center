@@ -93,7 +93,7 @@ QWidget * Power::pluginUi() {
             sessionsettings = new QGSettings(iid, QByteArray(), this);
             screensettings = new QGSettings(iiid, QByteArray(), this);
             m_centerSettings = new QGSettings(IVd,QByteArray(), this);
-            if (QGSettings::isSchemaInstalled(Vd)) {
+            if (QGSettings::isSchemaInstalled(Vd) && Utils::isTablet()) {
                 m_qsettings = new QGSettings(Vd,QByteArray(), this);
             } else {
                 m_qsettings = nullptr;
