@@ -125,9 +125,9 @@ bool ModulePageWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (event->type() == QEvent::MouseMove) {
         if (leftListWidget->geometry().contains(this->mapFromGlobal(QCursor::pos()))) {
-            leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+            leftListWidget->verticalScrollBar()->setVisible(true);
         } else {
-            leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            leftListWidget->verticalScrollBar()->setVisible(false);
         }
     }
     return QObject::eventFilter(watched,event);
@@ -161,7 +161,7 @@ void ModulePageWidget::initUI(){
     //关闭菜单响应
     leftListWidget->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftListWidget->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    leftListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    leftListWidget->verticalScrollBar()->setVisible(false);
     for (int moduleIndex = 0; moduleIndex < TOTALMODULES; moduleIndex++){
         QString titleString = mkvConverter->keycodeTokeyi18nstring(moduleIndex);
         QString titleString_1 ="    "+titleString;
@@ -201,6 +201,10 @@ void ModulePageWidget::initUI(){
         leftListWidget->setFocusPolicy(Qt::NoFocus);
         leftListWidget->setSelectionMode(QAbstractItemView::NoSelection);
         leftListWidget->setSpacing(0);
+        leftListWidget->viewport()->setAttribute(Qt::WA_TranslucentBackground);
+        leftListWidget->setStyleSheet("QListWidget{background-color: transparent}");
+        leftListWidget->viewport()->setStyleSheet("background-color: transparent");
+        leftListWidget->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
         connect(leftListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentLeftitemChanged(QListWidgetItem*,QListWidgetItem*)));
         QListWidget * topListWidget = new QListWidget;
         topListWidget->setAttribute(Qt::WA_DeleteOnClose);
