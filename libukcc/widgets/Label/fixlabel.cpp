@@ -43,8 +43,8 @@ void FixLabel::paintEvent(QPaintEvent *event)
 {
     QFontMetrics fontMetrics(this->font());
     int fontSize = fontMetrics.width(mStr);
-    if (fontSize > this->width()) {
-        this->setText(fontMetrics.elidedText(mStr, Qt::ElideRight, this->width()), false);
+    if (fontSize > this->width()-10) {
+        this->setText(fontMetrics.elidedText(mStr, Qt::ElideRight, this->width()-10), false);
         this->setToolTip(mStr);
     } else {
         this->setText(mStr, false);
