@@ -438,7 +438,7 @@ void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
 #endif
 
     connect(utils, &UtilsForUserinfo::changeLogoBtnPressed, this, [=]{
-        showChangeUserLogoDialog(user.username);
+        showChangeUserLogoDialog(user.username, utils);
     });
     connect(utils, &UtilsForUserinfo::changePwdBtnPressed, this, [=]{
         showChangeUserPwdDialog(user.username);
@@ -482,7 +482,7 @@ void UserInfo::showCreateUserNewDialog(){
         usersStringList.append(user.realname);
     }
 
-    CreateUserNew dialog(usersStringList);
+    CreateUserNew dialog(usersStringList, pluginWidget2);
     dialog.exec();
 }
 
@@ -527,19 +527,32 @@ void UserInfo::showChangeUserNicknameDialog(){
     _acquireAllUsersInfo();
 }
 
-void UserInfo::showChangeUserLogoDialog(QString pName){
+void UserInfo::showChangeUserLogoDialog(QString pName, UtilsForUserinfo *utilsUser){
     if (allUserInfoMap.keys().contains(pName)){
         UserInfomation user = allUserInfoMap.value(pName);
 
-        ChangeUserLogo dialog(pName, user.objpath, pluginWidget2);
-        dialog.requireUserInfo(user.iconfile, _accountTypeIntToString(user.accounttype));
-        dialog.exec();
+        ChangeUserLogo *dialog = new ChangeUserLogo(pName, user.objpath, pluginWidget2);
+        qDebug() << user.iconfile << ";" << __LINE__;
+        dialog->requireUserInfo(user.iconfile, _accountTypeIntToString(user.accounttype));
+        connect(dialog, &ChangeUserLogo::face_file_send, this, [=](QString faceFile){
+            changeUserFace(faceFile, user.username, utilsUser);
+        });
+        dialog->exec();
 
     } else {
         qWarning() << "User Info Data Error When Change User Pwd";
     }
 
     _acquireAllUsersInfo();
+}
+
+void UserInfo::changeUserFace(QString facefile, QString username, UtilsForUserinfo *utilsUser)
+{
+    if (utilsUser != nullptr) {
+        utilsUser->logoBtn->setIcon(QIcon(facefile));
+    } else {
+        currentUserlogoBtn->setIcon(QIcon(facefile));
+    }
 }
 
 void UserInfo::showChangeUserPwdDialog(QString pName){
@@ -630,7 +643,7 @@ void UserInfo::setUserConnect(){
     currentNickNameChangeLabel->installEventFilter(this);
 
     connect(currentUserlogoBtn, &QPushButton::clicked, this, [=]{
-        showChangeUserLogoDialog(QString(g_get_user_name()));
+        showChangeUserLogoDialog(QString(g_get_user_name()), nullptr);
     });
 
     connect(changeCurrentPwdBtn, &QPushButton::clicked, this, [=]{
@@ -739,7 +752,6 @@ void UserInfo::setUserDBusPropertyConnect(const QString pObjPath){
 void UserInfo::currentUserPropertyChangedSlot(QString property, QMap<QString, QVariant> propertyMap, QStringList propertyList){
     Q_UNUSED(property);
     Q_UNUSED(propertyList);
-
     if (propertyMap.keys().contains("AutomaticLogin") && getuid()){
         bool current = propertyMap.value("AutomaticLogin").toBool();
         if (current != autoLoginSBtn->isChecked()){
@@ -763,7 +775,6 @@ void UserInfo::currentUserPropertyChangedSlot(QString property, QMap<QString, QV
 
     if (propertyMap.keys().contains("IconFile") && getuid()){
         QString current = propertyMap.value("IconFile").toString();
-
         currentUserlogoBtn->setIcon(QIcon(current));
     }
 

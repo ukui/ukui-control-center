@@ -462,7 +462,6 @@ void MainWindow::onF1ButtonClicked() {
 }
 
 void MainWindow::initUkccAbout() {
-    mOptionBtn->setStyleSheet("QToolButton{background-color: transparent;}");
     mOptionBtn->setPopupMode(QToolButton::InstantPopup);
     QMenu* ukccMain = new QMenu(this);
     ukccMain->setObjectName("mainMenu");
@@ -870,6 +869,7 @@ void MainWindow::initStyleSheet() {
 
     mOptionBtn->setProperty("useIconHighlightEffect", 0x2);
     mOptionBtn->setProperty("isWindowButton", 0x01);
+    mOptionBtn->setAutoRaise(true);
 
     minBtn->setProperty("useIconHighlightEffect", 0x2);
     minBtn->setProperty("isWindowButton", 0x01);
