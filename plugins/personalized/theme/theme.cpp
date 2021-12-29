@@ -543,13 +543,14 @@ void Theme::initCursorTheme(){
 
     int count = 0;
     for (QString cursor : cursorThemes){
-        if (cursor == "dark-sense") {
+        qDebug()<<cursor;
+        if (cursor == "lightseeking") {
             initCursorThemeWidget(cursor , 0);
              count++;
         }
      }
     for (QString cursor : cursorThemes){
-        if (cursor != "dark-sense") {
+        if (cursor != "lightseeking") {
             initCursorThemeWidget(cursor , count);
              count++;
         }
@@ -776,8 +777,8 @@ void Theme::kwinCursorSlot(QString value) {
 QString Theme::dullCursorTranslation(QString str) {
     if (!QString::compare(str, "blue-crystal")){
         return QObject::tr("blue-crystal");
-    } else if (!QString::compare(str, "dark-sense")) {
-        return QObject::tr("dark-sense");
+    } else if (!QString::compare(str, "lightseeking")) {
+        return QObject::tr("lightseeking");
     } else if (!QString::compare(str, "DMZ-Black")) {
         return QObject::tr("DMZ-Black");
     } else if (!QString::compare(str, "DMZ-White")) {
