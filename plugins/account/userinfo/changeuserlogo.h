@@ -64,6 +64,8 @@ private:
     QPixmap makeRoundLogo(QString logo, int wsize, int hsize, int radius);
     bool setCulTextDynamic(QLabel * label, QString string);
 
+Q_SIGNALS:
+    void face_file_send(QString file);
 };
 
 #endif // CHANGEUSERLOGO_H

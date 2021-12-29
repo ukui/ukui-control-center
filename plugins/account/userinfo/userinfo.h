@@ -180,7 +180,7 @@ public:
     void showChangeUserTypeDialog(QString u);
     void showChangeUserNicknameDialog();
     void showChangeUserPwdDialog(QString pName);
-    void showChangeUserLogoDialog(QString pName);
+    void showChangeUserLogoDialog(QString pName, UtilsForUserinfo *utilsUser);
     void showCreateUserNewDialog();
     void showDeleteUserExistsDialog(QString pName);
 
@@ -201,6 +201,7 @@ public slots:
 
     void newUserCreateDoneSlot(QDBusObjectPath op);
     void existsUserDeleteDoneSlot(QDBusObjectPath op);
+    void changeUserFace(QString facefile, QString username, UtilsForUserinfo *utilsUser);
 
 Q_SIGNALS:
     void userTypeChanged(QString n);
@@ -214,7 +215,6 @@ public:
     void _acquireAllUsersInfo();
     UserInfomation _acquireUserInfo(QString objpath);
     QString _accountTypeIntToString(int type);
-
     void showChangeGroupDialog();
 
     void readCurrentPwdConf();
