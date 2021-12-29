@@ -7,11 +7,11 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-
-
     Widget w;
     if (argc == 3){
         w.pwdCheck(argv[1], argv[2]);
+    } else {
+        return 1;
     }
 
     return a.exec();

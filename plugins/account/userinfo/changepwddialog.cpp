@@ -77,6 +77,8 @@ ChangePwdDialog::ChangePwdDialog(bool _isCurrentUser, QString _username, QWidget
 
     pcThread = new PwdCheckThread();
 
+    remoteUser = isRemoteUser();
+
 
     initPwdChecked();
     setupComponent();
@@ -92,43 +94,41 @@ ChangePwdDialog::~ChangePwdDialog()
 //    delete pcThread;
 }
 
-bool ChangePwdDialog::checkOtherPasswd(QString name, QString pwd){
+bool ChangePwdDialog::isRemoteUser(){
+
     FILE * stream;
-    char command[128];
     char output[256];
 
-    QByteArray ba1 = name.toLatin1();
+    char * command = "cat /etc/passwd | awk -F : '{print$1}'";
+    bool result;
 
-    //
-    if (pwd.contains("'")){
-        snprintf(command, 128, "/usr/bin/checkTest %s \"%s\"", ba1.data(), pwd.toLatin1().data());
-    } else {
-
-        snprintf(command, 128, "/usr/bin/checkTest %s '%s'", ba1.data(), pwd.toLatin1().data());
-    }
+    QStringList userslist;
 
     if ((stream = popen(command, "r")) == NULL){
         return false;
     }
 
     while(fgets(output, 256, stream) != NULL){
-        qDebug() << "output:" << QString(output).simplified();
+        userslist.append(QString(output).simplified());
     }
 
-//    if (fread(output, sizeof(char), 128, stream) > 0){
-//        pclose(stream);
-//        return true;
-//    }
-
-
+    if (userslist.contains(currentUserName)){
+        result = false;
+    } else {
+        result = true;
+    }
 
     pclose(stream);
-    return false;
+    return result;
+
 }
 
 void ChangePwdDialog::initPwdChecked(){
 
-
+    if (remoteUser){
+        enablePwdQuality = false;
+        return;
+    }
 
 #ifdef ENABLEPQ
     int ret;
@@ -166,8 +166,6 @@ void ChangePwdDialog::setupComponent(){
     ElipseMaskWidget * cpMaskWidget = new ElipseMaskWidget(ui->faceLabel);
     cpMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
 
-    ui->pwdtypeComboBox->setText(tr("General Pwd"));
-
     ui->curPwdLineEdit->setEchoMode(QLineEdit::Password);
     ui->pwdLineEdit->setEchoMode(QLineEdit::Password);
     ui->pwdsureLineEdit->setEchoMode(QLineEdit::Password);
@@ -181,24 +179,25 @@ void ChangePwdDialog::setupComponent(){
 
 void ChangePwdDialog::setupConnect(){
 
-    connect(pcThread, &PwdCheckThread::complete, this, [=](bool re){
-        curPwdTip = re ? "" : tr("Pwd input error, re-enter!");
+    connect(pcThread, &PwdCheckThread::complete, this, [=](QString re){
+        curPwdTip = re;
 
-        if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
-            ui->tipLabel->setText(curPwdTip);
-        }
-
-        if (curPwdTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
-        }
-
-        if (re){ //密码校验成功
+        if (re.isEmpty()){ //密码校验成功
 
             this->accept();
 
             emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
 
         } else {
+
+            if (curPwdTip.contains("Failed")){
+                curPwdTip = tr("Authentication failed, input authtok again!");
+            }
+
+            if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                ui->tipLabel->setToolTip(curPwdTip);
+            }
+
             ui->curPwdLineEdit->setText("");
 
             refreshConfirmBtnStatus();
@@ -209,63 +208,46 @@ void ChangePwdDialog::setupConnect(){
         refreshCancelBtnStatus();
 
 
-
     });
 
     if (isCurrentUser){
 
-//        connect(timerForCheckPwd, &QTimer::timeout, [=]{
-//            /* 密码为空不检测 */
-//            if (ui->curPwdLineEdit->text().isEmpty()){
-//                return;
-//            }
+        if (remoteUser) {
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
+                this->accept();
 
-//            pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
+                emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+            });}
+        else {
+            connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
 
-//            pcThread->start();
+                if (!txt.isEmpty()){
+                    curPwdTip = "";
+                    if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                        ui->tipLabel->setToolTip(curPwdTip);
+                    }
+                    pwdLegalityCheck();
+                }
 
-//        });
+                refreshConfirmBtnStatus();
+            });
 
-        connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
-//            pwdLegalityCheck();
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
 
-//            ui->confirmPushBtn->setEnabled(false);
+                if (pwdChecking)
+                    return;
 
-//            timerForCheckPwd->start();
+                pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
 
-            if (!txt.isEmpty()){
-                curPwdTip = "";
-            }
+                pcThread->start();
 
-            if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
-                ui->tipLabel->setText(curPwdTip);
-            }
+                pwdChecking = true;
 
-            if (curPwdTip.isEmpty()){
-                pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
-            }
+                refreshCancelBtnStatus();
 
+            });
 
-            refreshConfirmBtnStatus();
-        });
-
-        connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
-
-            if (pwdChecking)
-                return;
-
-            pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
-
-            pcThread->start();
-
-            pwdChecking = true;
-
-            refreshCancelBtnStatus();
-
-//            this->accept();
-
-//            emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
-        });
+        }
     } else {
         connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
             this->accept();
@@ -290,7 +272,15 @@ void ChangePwdDialog::setupConnect(){
 
         ui->tipLabel->setText(pwdSureTip);
         if (pwdSureTip.isEmpty()){
-            pwdTip.isEmpty() ? ui->tipLabel->setText(curPwdTip) : ui->tipLabel->setText(pwdTip);
+            if (!pwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, pwdTip)){
+                    ui->tipLabel->setToolTip(pwdTip);
+                }
+            } else if (!curPwdTip.isEmpty()){
+                if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                    ui->tipLabel->setToolTip(curPwdTip);
+                }
+            }
         }
 
         refreshConfirmBtnStatus();
@@ -308,7 +298,9 @@ void ChangePwdDialog::setFace(QString iconfile){
 }
 
 void ChangePwdDialog::setUsername(QString realname){
-    ui->usernameLabel->setText(realname);
+    if (QLabelSetText(ui->usernameLabel, realname)){
+        ui->usernameLabel->setToolTip(realname);
+    }
 }
 
 void ChangePwdDialog::setAccountType(QString aType){
@@ -407,9 +399,20 @@ void ChangePwdDialog::pwdLegalityCheck(){
         }
     }
 
-    ui->tipLabel->setText(pwdTip);
+    if (QLabelSetText(ui->tipLabel, pwdTip)){
+        ui->tipLabel->setToolTip(pwdTip);
+    }
     if (pwdTip.isEmpty()){
-        pwdSureTip.isEmpty() ? ui->tipLabel->setText(curPwdTip) : ui->tipLabel->setText(pwdSureTip);
+        if (!pwdSureTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, pwdSureTip)){
+                ui->tipLabel->setToolTip(pwdSureTip);
+            }
+
+        } else if (!curPwdTip.isEmpty()){
+            if (QLabelSetText(ui->tipLabel, curPwdTip)){
+                ui->tipLabel->setToolTip(curPwdTip);
+            }
+        }
     }
 }
 
@@ -455,6 +458,20 @@ void ChangePwdDialog::refreshConfirmBtnStatus(){
         else
             ui->confirmPushBtn->setEnabled(true);
     }
+}
+
+bool ChangePwdDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+    QString str = string;
+    if (fontSize > (label->width()-5)) {
+        str = fontMetrics.elidedText(string, Qt::ElideRight, label->width()-10);
+        is_over_length = true;
+    }
+    label->setText(str);
+    return is_over_length;
 }
 
 
