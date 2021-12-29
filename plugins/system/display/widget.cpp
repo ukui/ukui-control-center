@@ -103,24 +103,12 @@ Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DisplayWindow())
 {
-    dbusEdid = new QDBusInterface("org.kde.KScreen",
-            "/backend",
-            "org.kde.kscreen.Backend",
-            QDBusConnection::sessionBus());
-
-    mUsdDbus = new QDBusInterface("org.ukui.SettingsDaemon",
-                                  "/org/ukui/SettingsDaemon/xrandr",
-                                  "org.ukui.SettingsDaemon.xrandr",
-                                  QDBusConnection::sessionBus(), this);
-
-    QDBusReply<int> reply = mUsdDbus->call("getScreenMode", "ukui-control-center");
-    (reply == USD_CLONE_MODE) ? mIscloneMode = true : mIscloneMode = false;
-
     cpuArchitecture = Utils::getCpuArchitecture();
     qRegisterMetaType<QQuickView *>();
 
     ui->setupUi(this);
     initNightModeUi();
+    initDbusComponent();
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
 
@@ -678,6 +666,23 @@ void Widget::initComponent()
 
     mMultiScreenFrame->setLayout(multiScreenlay);
     ui->multiscreenLyt->addWidget(mMultiScreenFrame);
+}
+
+void Widget::initDbusComponent()
+{
+    dbusEdid = new QDBusInterface("org.kde.KScreen",
+            "/backend",
+            "org.kde.kscreen.Backend",
+            QDBusConnection::sessionBus());
+
+    mUsdDbus = new QDBusInterface("org.ukui.SettingsDaemon",
+                                  "/org/ukui/SettingsDaemon/xrandr",
+                                  "org.ukui.SettingsDaemon.xrandr",
+                                  QDBusConnection::sessionBus(), this);
+
+    QDBusReply<int> reply = mUsdDbus->call("getScreenMode", "ukui-control-center");
+    mKdsStatus = reply.value();
+    (reply == USD_CLONE_MODE) ? mIscloneMode = true : mIscloneMode = false;
 }
 
 void Widget::setHideModuleInfo()
@@ -1774,8 +1779,10 @@ void Widget::usdScreenModeChangedSlot(int status)
     }
 
     QTimer::singleShot(500, this, [=](){
-        // USD规避同样的信号
-        slotUnifyOutputs();
+        if (mKdsStatus != status) {
+            mKdsStatus = status;
+            slotUnifyOutputs();
+        }
     });
 
     initMultScreenStatus();

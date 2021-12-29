@@ -1,6 +1,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include <limits>
+
 #include <QMutex>
 #include <QWidget>
 #include <QVariantMap>
@@ -165,6 +167,7 @@ private:
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
     void initComponent();
+    void initDbusComponent();
     void setHideModuleInfo();
     void setTitleLabel();
     void writeScale(double scale);
@@ -304,6 +307,8 @@ private:
     QDBusInterface *dbusEdid = nullptr;
     QString cpuArchitecture = "";
     bool mIscloneMode = false;
+
+    int mKdsStatus = INT_MIN;
 };
 
 #endif // WIDGET_H
