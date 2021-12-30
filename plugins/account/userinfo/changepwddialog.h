@@ -24,6 +24,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QThread>
+#include <QLabel>
 
 #include <QTimer>
 
@@ -68,6 +69,8 @@ public:
     void setAccountType(QString text);
     void haveCurrentPwdEdit(bool have);
 
+    bool isRemoteUser();
+
     bool isCurrentUser;
 
 protected:
@@ -80,10 +83,13 @@ private:
     bool checkCharLegitimacy(QString password);
     bool checkOtherPasswd(QString name, QString pwd);
 
+    bool QLabelSetText(QLabel *label, QString string);
+
     QString currentUserName;
     QString pwdTip;
     QString pwdSureTip;
     QString curPwdTip;
+    bool remoteUser;
 
     bool enablePwdQuality;
     bool pwdChecking;
@@ -104,6 +110,7 @@ private Q_SLOTS:
 Q_SIGNALS:
     void passwd_send(QString oldpwd, QString pwd);
     void passwd_send2(QString pwd);
+    void passwd_send3(QString currentpwd, QString pwd);
     void pwdCheckOver();
 };
 

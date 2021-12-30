@@ -97,6 +97,8 @@ QWidget *UserInfo::get_plugin_ui() {
         // 构建System dbus调度对象
         sysdispatcher = new SystemDbusDispatcher(this);
 
+        pcgThread = new PwdChangeThread;
+
         // 获取系统全部用户信息，用户Uid大于等于1000的
         _acquireAllUsersInfo();
 
@@ -493,6 +495,14 @@ void UserInfo::initComponent(){
         showChangePwdDialog(user.username);
     });
 
+    connect(pcgThread, &PwdChangeThread::complete, this, [=](QString re){
+        QString primaryText;
+        primaryText = re.simplified().isEmpty() ? tr("Pwd Changed Succes") : re;
+
+        QMessageBox::warning(NULL, "", primaryText, QMessageBox::Yes);
+
+    });
+
     //修改当前用户类型的回调
     if (getuid())
         connect(ui->changeTypeBtn, &QPushButton::clicked, this, [=](bool checked){
@@ -576,9 +586,10 @@ void UserInfo::initComponent(){
 //    });
 
     //成功新建用户的回调
-    connect(sysdispatcher, &SystemDbusDispatcher::createuserdone, this, [=](QString objPath){
-        createUserDone(objPath);
-    });
+//    connect(sysdispatcher, &SystemDbusDispatcher::createuserdone, this, [=](QString objPath){
+//        createUserDone(objPath);
+//    });
+    QDBusConnection::systemBus().connect(QString(), QString(), "org.freedesktop.Accounts", "UserAdded", this, SLOT(createUserDone(QDBusObjectPath)));
 
     //初始化生物密码控件
     if(isShowBiometric())
@@ -880,19 +891,7 @@ QStringList UserInfo::getUsersList()
 
 void UserInfo::createUser(QString username, QString pwd, QString pin, int atype){
     Q_UNUSED(pin);
-    sysdispatcher->create_user(username, "", atype);
-
-    //使用全局变量传递新建用户密码
-    _newUserPwd = pwd;
-    _newUserName = username;
-}
-
-void UserInfo::createUserDone(QString objpath){
-    UserDispatcher * userdispatcher  = new UserDispatcher(objpath);
-    //设置默认头像
-    userdispatcher->change_user_face(DEFAULTFACE);
-    //设置默认密码
-//    userdispatcher->change_user_pwd(_newUserPwd, "");
+    //    sysdispatcher->create_user(username, "", atype);
     QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                                           "/",
                                                           "com.control.center.interface",
@@ -902,10 +901,17 @@ void UserInfo::createUserDone(QString objpath){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    tmpSysinterface->call("changeOtherUserPasswd", _newUserName, _newUserPwd);
+
+    tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
+    tmpSysinterface->call("createUser", username, username, atype, DEFAULTFACE, pwd);
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
+}
+
+void UserInfo::createUserDone(QDBusObjectPath op){
+    QString objpath = op.path();
+    qDebug() << "new user:" << objpath;
 
     //刷新全部用户信息
     _acquireAllUsersInfo();
@@ -918,6 +924,9 @@ void UserInfo::createUserDone(QString objpath){
 
     //构建Item
     _buildWidgetForItem(user);
+
+    //更新界面显示
+    _refreshUserInfoUI();
 }
 
 void UserInfo::showDeleteUserDialog(QString username){
@@ -997,6 +1006,9 @@ void UserInfo::deleteUserDone(QString objpath){
 
     //重置其他用户ListWidget高度
     _resetListWidgetHeigh();
+
+    //更新界面显示
+    _refreshUserInfoUI();
 }
 
 void UserInfo::showChangeGroupDialog(){
@@ -1171,19 +1183,13 @@ void UserInfo::showChangePwdDialog(QString username){
 
         });
         connect(dialog, &ChangePwdDialog::passwd_send2, this, [=](QString pwd){
+            changeUserPwd(pwd, username);
+        });
+        connect(dialog, &ChangePwdDialog::passwd_send3, this, [=](QString currentpwd, QString pwd){
 
-            PolkitQt1::Authority::Result result;
+            pcgThread->setArgs(currentpwd, pwd);
 
-            result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                        "org.control.center.qt.systemdbus.action",
-                        PolkitQt1::UnixProcessSubject(QCoreApplication::applicationPid()),
-                        PolkitQt1::Authority::AllowUserInteraction);
-
-            if (result == PolkitQt1::Authority::Yes){
-                changeUserPwd(pwd, username);
-            }
-
-
+            pcgThread->start();
         });
         dialog->exec();
 
@@ -1209,7 +1215,10 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    QDBusReply<int> reply = tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
+    if (reply.isValid()){
+        tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
+    }
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;

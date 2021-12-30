@@ -11,7 +11,7 @@ CONFIG -= app_bundle
 PKGCONFIG     += gio-2.0 \
                  gio-unix-2.0 \
 
-LIBS          += -lddcutil
+LIBS          += -L$$[QT_INSTALL_LIBS] -lpolkit-qt5-core-1 -lddcutil
 DESTDIR = .
 INCLUDEPATH += .
 
