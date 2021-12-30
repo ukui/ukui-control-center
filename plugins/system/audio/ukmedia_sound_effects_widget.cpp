@@ -112,6 +112,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
 
 
     //设置大小
+
     m_pThemeWidget->setMinimumSize(550,60);
     m_pThemeWidget->setMaximumSize(16777215,60);
     m_pAlertSoundWidget->setMinimumSize(550,60);
@@ -256,6 +257,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
 
 
 
+
     //进行整体布局
     m_pSoundLayout = new QVBoxLayout(this);
     m_pSoundLayout->addWidget(m_pSoundEffectLabel);
@@ -276,14 +278,17 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     this->setLayout(m_pSoundLayout);
     this->layout()->setContentsMargins(0,0,0,0);
 
-//    m_pStartupMusicWidget->hide();
     m_pPoweroffMusicWidget->hide();
     m_pWakeupMusicWidget->hide();
     m_pLagoutWidget->hide();
     m_pAlertSoundWidget->hide();
     m_pVolumeChangeWidget->hide();
     m_pThemeWidget->hide();
-//    m_pAlertSoundChangedWidget->hide();
+    //    m_pStartupMusicWidget->hide();
+    //    m_pAlertSoundChangedWidget->hide();
+
+    this->setFixedHeight(225);
+
 
 }
 

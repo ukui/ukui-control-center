@@ -110,7 +110,7 @@ bool UkmediaVolumeControl::setSourceMute(bool status)
 {
     pa_operation* o;
 
-    qDebug() << "setSourceMute" << status << sourceIndex;
+    qDebug() << "setSourceMute" << status  << sourceMuted << sourceIndex;
     if (!(o = pa_context_set_source_mute_by_index(getContext(), sourceIndex, status, nullptr, nullptr))) {
         showError(tr("pa_context_set_source_mute_by_index() failed").toUtf8().constData());
         return false;
@@ -333,10 +333,16 @@ bool UkmediaVolumeControl::setDefaultSource(const gchar *name)
 
     QTimer::singleShot(100, this,[=](){
         if (!sourceOutputVector.contains(sourceIndex) && pa_context_get_server_protocol_version(getContext()) >= 13) {
+
+//          BUG# 89095 打开控制面板降噪模块unload，intel_source消失，原因打开控制面板时会kill掉上一次的sourceoutput
+
             pa_operation* o;
             qDebug() <<"killall source output index from setDefaultSource" << peakDetectIndex;
-            if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr)))
-                showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            if(!strstr(defaultSourceName,"inteldns_source")){
+                if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr)))
+                    showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            }
+
             sourceOutputVector.removeAt(0);
             sourceOutputVector.append(sourceIndex);
             peak = createMonitorStreamForSource(sourceIndex, -1, !!(sourceFlags & PA_SOURCE_NETWORK));
@@ -593,7 +599,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             else
                 sinkPortName = info.active_port->name;
         }
-        qDebug() << "aaaaaaaaaaaaaaa" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) << sinkPortName << sinkVolume << volume;
+        qDebug() << "customSoundFile isexist?" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) << sinkPortName << sinkVolume << volume;
 
         defaultOutputCard = info.card;
         if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) && (sinkVolume != volume || sinkMuted != info.mute))
@@ -601,7 +607,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             sinkVolume = volume;
             sinkMuted = info.mute;
             Q_EMIT updateVolume(sinkVolume,sinkMuted);
-            qDebug() << "sssssssssssssss" ;
+            qDebug() << "send UpdateSink Signal" << sinkVolume << sinkMuted;
         }
         //特殊情况(没有输出端口的情况下也要发送信号同步音量)
         else if((sinkVolume != volume || sinkMuted != info.mute) && sinkPortName == "")
@@ -770,6 +776,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
                 sourcePortName = info.active_port->name;
         }
         defaultInputCard = info.card;
+        qDebug() << "customSoundFile isExist?" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sourcePortName)) << sourceVolume <<volume<< sourceMuted <<info.mute;
         if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sourcePortName)) && (sourceVolume != volume || sourceMuted != info.mute)) {
             sourceVolume = volume;
             sourceMuted = info.mute;
@@ -792,8 +799,10 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         if(info.name ==defaultSourceName) {
             pa_operation* o;
             qDebug() <<"killall source output index from updateSource" <<peakDetectIndex;
-            if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
-                showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            if(!strstr(defaultSourceName,"inteldns_source")){
+                if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
+                    showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+                }
             }
             sourceOutputVector.append(info.index);
             peak = createMonitorStreamForSource(info.index, -1, !!(info.flags & PA_SOURCE_NETWORK));
@@ -815,7 +824,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         }
 
     }
-    qDebug() << "update Source" << "defauleSourceName:" << defaultSourceName.data() << "sinkport" << sourcePortName << "sourceVolume" << sourceVolume ;
+    qDebug() << "update Source" << "defauleSourceName:" << defaultSourceName.data() << "sourceportName" << sourcePortName << "sourceVolume" << sourceVolume << sourceMuted;
 
     if (is_new)
         updateDeviceVisibility();
@@ -909,9 +918,11 @@ void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info)
     if(info.name && strstr(info.name,"Peak detect") && !sourceOutputVector.contains(info.source)) {
         pa_operation* o;
         qDebug() <<"killall source output index====" <<peakDetectIndex;
-        if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
-            showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
-            //            return;
+        if(!strstr(defaultSourceName,"inteldns_source")){
+            if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
+                showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+                //            return;
+            }
         }
         sourceOutputVector.removeAt(0);
     }
@@ -1248,6 +1259,7 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
     w->defaultOutputCard = i->card;
     w->sinkIndex = i->index;
     w->sinkVolume = volume;
+    w->sinkMuted = i->mute;
     if(i->active_port)
         w->sinkPortName = i->active_port->name;
 
@@ -1277,6 +1289,7 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     w->defaultInputCard = i->card;
     w->sourceIndex = i->index;
     w->sourceVolume = volume;
+    w->sourceMuted = i->mute;
     if(i->active_port)
         w->sourcePortName = i->active_port->name;
     Q_EMIT w->updateSourceVolume(w->sourceVolume,w->sourceMuted);
@@ -1284,8 +1297,10 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     if (!w->sourceOutputVector.contains(w->sourceIndex) && pa_context_get_server_protocol_version(w->getContext()) >= 13) {
         pa_operation* o;
         qDebug() <<"killall source output index form sourceIndexCb" <<w->peakDetectIndex;
-        if (!(o = pa_context_kill_source_output(w->getContext(), w->peakDetectIndex, nullptr, nullptr))) {
-            w->showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+        if(!strstr(w->defaultSourceName,"inteldns_source")){
+            if (!(o = pa_context_kill_source_output(w->getContext(), w->peakDetectIndex, nullptr, nullptr))) {
+                w->showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            }
         }
         w->sourceOutputVector.removeAt(0);
         w->sourceOutputVector.append(w->sourceIndex);
