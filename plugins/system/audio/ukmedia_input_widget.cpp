@@ -52,6 +52,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
 
     m_pInputLabel = new TitleLabel(this);
+    m_pInputLabel->setFixedSize(150,32);
     m_pInputLabel->setText(tr("Input"));
     m_pInputLabel->setStyleSheet("color: palette(windowText);}");
 
@@ -72,11 +73,11 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
 
                                        "QSlider::handle:horizontal {"
 
-                                       "height: 24px;"
-                                       "width: 32px;"
+                                       "height: 40px;"
+                                       "width: 36px;"
                                        "margin: 30px;"
                                        "border-image: url(://img/plugins/mouse/slider.svg);"
-                                       "margin: -8 -4px;"
+                                       "margin: -20 -4px;"
                                        "}"
 
 //                                       "QSlider::add-page:horizontal {"
@@ -88,6 +89,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
                                        "background: #2FB3E8;"
                                        "border-radius: 5px;"
                                        "}");
+
     m_pIpVolumePercentLabel = new QLabel(m_pVolumeWidget);
     //~ contents_path /audio/Input Level
     m_pInputLevelLabel = new QLabel(tr("Input Level"),m_pInputLevelWidget);
@@ -132,7 +134,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     QHBoxLayout *m_pMasterLayout = new QHBoxLayout(m_pVolumeWidget);
     m_pIpVolumeLabel->setFixedSize(140,20);
     m_pInputIconBtn->setFixedSize(24,24);
-    m_pIpVolumeSlider->setFixedHeight(20);
+    m_pIpVolumeSlider->setFixedHeight(60);
     m_pIpVolumePercentLabel->setFixedSize(55,20);
     m_pIpVolumePercentLabel->setAlignment(Qt::AlignCenter);
     m_pMasterLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
@@ -176,6 +178,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pVlayout1->addWidget(m_pInputWidget);
     this->setLayout(m_pVlayout1);
     this->layout()->setContentsMargins(0,0,0,0);
+    this->setFixedHeight(279);
 
 }
 

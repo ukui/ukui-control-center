@@ -110,7 +110,7 @@ bool UkmediaVolumeControl::setSourceMute(bool status)
 {
     pa_operation* o;
 
-    qDebug() << "setSourceMute" << status << sourceIndex;
+    qDebug() << "setSourceMute" << status  << sourceMuted << sourceIndex;
     if (!(o = pa_context_set_source_mute_by_index(getContext(), sourceIndex, status, nullptr, nullptr))) {
         showError(tr("pa_context_set_source_mute_by_index() failed").toUtf8().constData());
         return false;
@@ -593,7 +593,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             else
                 sinkPortName = info.active_port->name;
         }
-        qDebug() << "aaaaaaaaaaaaaaa" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) << sinkPortName << sinkVolume << volume;
+        qDebug() << "customSoundFile isexist?" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) << sinkPortName << sinkVolume << volume;
 
         defaultOutputCard = info.card;
         if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) && (sinkVolume != volume || sinkMuted != info.mute))
@@ -601,7 +601,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             sinkVolume = volume;
             sinkMuted = info.mute;
             Q_EMIT updateVolume(sinkVolume,sinkMuted);
-            qDebug() << "sssssssssssssss" ;
+            qDebug() << "send UpdateSink Signal" << sinkVolume << sinkMuted;
         }
         //特殊情况(没有输出端口的情况下也要发送信号同步音量)
         else if((sinkVolume != volume || sinkMuted != info.mute) && sinkPortName == "")
@@ -770,6 +770,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
                 sourcePortName = info.active_port->name;
         }
         defaultInputCard = info.card;
+        qDebug() << "customSoundFile isExist?" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sourcePortName)) << sourceVolume <<volume<< sourceMuted <<info.mute;
         if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sourcePortName)) && (sourceVolume != volume || sourceMuted != info.mute)) {
             sourceVolume = volume;
             sourceMuted = info.mute;
@@ -815,7 +816,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         }
 
     }
-    qDebug() << "update Source" << "defauleSourceName:" << defaultSourceName.data() << "sinkport" << sourcePortName << "sourceVolume" << sourceVolume ;
+    qDebug() << "update Source" << "defauleSourceName:" << defaultSourceName.data() << "sourceportName" << sourcePortName << "sourceVolume" << sourceVolume << sourceMuted;
 
     if (is_new)
         updateDeviceVisibility();
@@ -1248,6 +1249,7 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
     w->defaultOutputCard = i->card;
     w->sinkIndex = i->index;
     w->sinkVolume = volume;
+    w->sinkMuted = i->mute;
     if(i->active_port)
         w->sinkPortName = i->active_port->name;
 
@@ -1277,6 +1279,7 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     w->defaultInputCard = i->card;
     w->sourceIndex = i->index;
     w->sourceVolume = volume;
+    w->sourceMuted = i->mute;
     if(i->active_port)
         w->sourcePortName = i->active_port->name;
     Q_EMIT w->updateSourceVolume(w->sourceVolume,w->sourceMuted);

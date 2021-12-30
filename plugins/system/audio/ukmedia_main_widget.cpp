@@ -92,20 +92,22 @@ void UkmediaMainWidget::initWidget()
     m_pOutputWidget = new UkmediaOutputWidget();
     m_pInputWidget = new UkmediaInputWidget();
     m_pSoundWidget = new UkmediaSoundEffectsWidget();
+    this->setAttribute(Qt::WA_StyledBackground,true);
+    this->setAttribute(Qt::WA_DeleteOnClose);
     cboxfirstEntry = true;
     mThemeName = UKUI_THEME_WHITE;
     QVBoxLayout *m_pvLayout = new QVBoxLayout();
     m_pvLayout->addWidget(m_pOutputWidget);
+    m_pvLayout->addSpacing(40);
     m_pvLayout->addWidget(m_pInputWidget);
+    m_pvLayout->addSpacing(40);
     m_pvLayout->addWidget(m_pSoundWidget);
-    m_pvLayout->setSpacing(40);
 
+    m_pvLayout->setSpacing(0);
     this->setLayout(m_pvLayout);
-    this->setMinimumWidth(0);
-    this->setMaximumWidth(16777215);
-    this->layout()->setContentsMargins(0,0,0,130);
-    this->setAttribute(Qt::WA_StyledBackground,true);
-    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->setMinimumSize(0,0);
+    this->setMaximumSize(16777215,802);
+    this->layout()->setContentsMargins(0,0,0,0);
 
     //设置滑动条的最大值为100
     m_pInputWidget->m_pIpVolumeSlider->setMaximum(100);//输入音量滑动条
@@ -267,9 +269,11 @@ void UkmediaMainWidget::initGsettings()
     if(m_pSoundWidget->m_pAlertSoundSwitchButton->isChecked())
     {
         m_pSoundWidget->m_pAlertSoundChangedWidget->show();
+        m_pSoundWidget->setFixedHeight(225);
     }
     else {
         m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
+        m_pSoundWidget->setFixedHeight(164);
     }
 }
 
@@ -385,7 +389,8 @@ void UkmediaMainWidget::initVoulmeSlider()
     m_pOutputWidget->m_pOpBalanceSlider->blockSignals(true);
     m_pInputWidget->m_pIpVolumeSlider->blockSignals(true);
     m_pOutputWidget->m_pOpBalanceSlider->setValue(balanceVolume*100);
-    if(m_pOutputWidget->m_pOpBalanceSlider->value() == 0) {
+    gdouble midPointIsNeedHide = m_pOutputWidget->m_pOpBalanceSlider->value()/100.0;
+    if(midPointIsNeedHide <= 0.02 && midPointIsNeedHide >= -0.02) {
         m_pOutputWidget->m_pBalanceMidPointLabel->hide();
     }
     else {
@@ -628,9 +633,11 @@ void UkmediaMainWidget::alertSoundButtonSwitchChangedSlot(bool status)
 
     if (status == true) {
         m_pSoundWidget->m_pAlertSoundChangedWidget->show();
+        m_pSoundWidget->setFixedHeight(225);
     }
     else {
         m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
+        m_pSoundWidget->setFixedHeight(164);
     }
 }
 
@@ -652,11 +659,11 @@ void UkmediaMainWidget::switchNoiseReductionButton(bool status)
 
                                            "QSlider::handle:horizontal {"
 
-                                           "height: 24px;"
-                                           "width: 32px;"
+                                           "height: 40px;"
+                                           "width: 36px;"
                                            "margin: 30px;"
                                            "border-image: url(://img/plugins/mouse/slider.svg);"
-                                           "margin: -8 -4px;"
+                                           "margin: -20 -4px;"
                                            "}"
 
     //                                       "QSlider::add-page:horizontal {"
@@ -667,7 +674,7 @@ void UkmediaMainWidget::switchNoiseReductionButton(bool status)
                                            "QSlider::sub-page:horizontal {"
                                            "background: palette(button);"
                                            "border-radius: 5px;"
-                                           "}");
+                                           "}");      
     }
     else {
         system("pacmd switch-on-dns-global inteldns_source 0");
@@ -681,11 +688,11 @@ void UkmediaMainWidget::switchNoiseReductionButton(bool status)
 
                                            "QSlider::handle:horizontal {"
 
-                                           "height: 24px;"
-                                           "width: 32px;"
+                                           "height: 40px;"
+                                           "width: 36px;"
                                            "margin: 30px;"
                                            "border-image: url(://img/plugins/mouse/slider.svg);"
-                                           "margin: -8 -4px;"
+                                           "margin: -20 -4px;"
                                            "}"
 
     //                                       "QSlider::add-page:horizontal {"
@@ -1704,7 +1711,7 @@ void UkmediaMainWidget::balanceSliderChangedSlot(int value)
     gdouble volume = value/100.0;
     value = valueToPaVolume(m_pOutputWidget->m_pOpVolumeSlider->value());
     m_pVolumeControl->setBalanceVolume(m_pVolumeControl->sinkIndex,value,volume);
-    if(volume == 0) {
+    if(volume <= 0.02 && volume >= -0.02) {
         m_pOutputWidget->m_pBalanceMidPointLabel->hide();
     }
     else {
