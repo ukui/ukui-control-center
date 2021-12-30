@@ -706,7 +706,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     static QString hoverColor;
 
     if (QGSettings::isSchemaInstalled("org.ukui.style")) {
-        QGSettings *qtSettings = new QGSettings("org.ukui.style");
+        QGSettings *qtSettings = new QGSettings("org.ukui.style", QByteArray(), this);
         if (qtSettings->keys().contains("styleName")) {
             hoverColor = pluginBtnHoverColor(qtSettings->get("style-name").toString());
             if (!leftsidebarBtn->isChecked())
