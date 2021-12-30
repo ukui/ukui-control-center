@@ -83,20 +83,7 @@ QWidget *Wallpaper::get_plugin_ui(){
         ui->titleLabel->setText(tr("Desktop Background"));
 
         ui->picOptionsComBox->setMinimumHeight(48);
-        ui->picOptionsComBox->setStyleSheet("QComboBox QAbstractItemView  \
-        {  \
-             border: 1px solid rgb(161,161,161);  \
-        }  \
-          \
-        QComboBox QAbstractItemView::item  \
-        {  \
-            height: 60px; \
-        }  \
-          \
-        QComboBox QAbstractItemView::item:selected  \
-        {     \
-            background-color: rgba(54, 98, 180);  \
-        } ");
+
         //初始化控件
         setupComponent();
         //隐藏背景形式
