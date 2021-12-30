@@ -65,7 +65,8 @@ void OutputConfig::initUi()
 
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setContentsMargins(0, 0, 0, 0);
-    vbox->setSpacing(2);
+//    vbox->setSpacing(2);
+    vbox->setSpacing(0);
 
     // 分辨率下拉框
     mResolution = new ResolutionSlider(mOutput, this);
@@ -79,7 +80,7 @@ void OutputConfig::initUi()
     resLabel->setFixedSize(118, 36);
 
     QHBoxLayout *resLayout = new QHBoxLayout();
-    resLayout->addSpacing(6);
+    resLayout->setContentsMargins(14,0,7,0);
     resLayout->addWidget(resLabel);
     resLayout->addWidget(mResolution);
 
@@ -114,7 +115,7 @@ void OutputConfig::initUi()
     rotateLabel->setFixedSize(118, 36);
 
     QHBoxLayout *rotateLayout = new QHBoxLayout();
-    rotateLayout->addSpacing(6);
+    rotateLayout->setContentsMargins(14,0,7,0);
     rotateLayout->addWidget(rotateLabel);
 
     rotateLayout->addWidget(mRotation);
@@ -141,6 +142,7 @@ void OutputConfig::initUi()
 
     // 刷新率下拉框
     mRefreshRate = new QComboBox(this);
+    mRefreshRate->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     mRefreshRate->setFixedHeight(36);
 
     QLabel *freshLabel = new QLabel(this);
@@ -150,7 +152,7 @@ void OutputConfig::initUi()
     freshLabel->setFixedSize(118, 36);
 
     QHBoxLayout *freshLayout = new QHBoxLayout();
-    freshLayout->addSpacing(6);
+    freshLayout->setContentsMargins(14, 0, 7, 0);
     freshLayout->addWidget(freshLabel);
     freshLayout->addWidget(mRefreshRate);
 
@@ -178,6 +180,7 @@ void OutputConfig::initUi()
 
 
     QHBoxLayout *scaleLayout = new QHBoxLayout(scaleFrame);
+    scaleLayout->setContentsMargins(14, 0, 7, 0);
 
     mScaleCombox = new QComboBox(this);
     mScaleCombox->setObjectName("scaleCombox");

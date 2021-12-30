@@ -83,7 +83,7 @@ void UnifiedOutputConfig::initUi()
     resLabel->setMaximumSize(118, 36);
 
     QHBoxLayout *resLayout = new QHBoxLayout();
-    resLayout->addSpacing(6);
+    resLayout->setContentsMargins(14, 0, 7, 0);
     resLayout->addWidget(resLabel);
     resLayout->addWidget(mResolution);
 
@@ -129,7 +129,7 @@ void UnifiedOutputConfig::initUi()
             this, &UnifiedOutputConfig::slotRotationChangedDerived);
 
     QHBoxLayout *roatateLayout = new QHBoxLayout();
-    roatateLayout->addSpacing(6);
+    roatateLayout->setContentsMargins(14, 0, 7, 0);
     roatateLayout->addWidget(rotateLabel);
     roatateLayout->addWidget(mRotation);
 
@@ -158,7 +158,7 @@ void UnifiedOutputConfig::initUi()
     freshLabel->setMaximumSize(118, 36);
 
     QHBoxLayout *freshLayout = new QHBoxLayout();
-    freshLayout->addSpacing(6);
+    freshLayout->setContentsMargins(14, 0, 7, 0);
     freshLayout->addWidget(freshLabel);
     freshLayout->addWidget(mRefreshRate);
 
