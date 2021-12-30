@@ -327,11 +327,11 @@ QWidget *Shortcut::buildGeneralWidget(QString schema, QMap<QString, QString> sub
         QWidget *gWidget = new QWidget;
         gWidget->setFixedHeight(52);
         gWidget->setStyleSheet(
-            "QWidget{background: palette(base); border: none; border-radius: 4px}");
+            "QWidget{background: palette(base); border: none; border-radius: 6px}");
 
         QHBoxLayout *gHorLayout = new QHBoxLayout(gWidget);
-        gHorLayout->setSpacing(24);
-        gHorLayout->setContentsMargins(16, 0, 19, 0);
+        gHorLayout->setSpacing(140);
+        gHorLayout->setContentsMargins(16, 0, 16, 0);
 
         QByteArray ba = domain.toLatin1();
         QByteArray ba1 = it.key().toLatin1();
@@ -339,43 +339,31 @@ QWidget *Shortcut::buildGeneralWidget(QString schema, QMap<QString, QString> sub
         GSettingsSchemaKey *keyObj = g_settings_schema_get_key(pSettings, ba1.data());
 
         char *i18nKey;
-        QLabel *nameLabel = new QLabel(gWidget);
+        FixLabel *nameLabel = new FixLabel(gWidget);
         i18nKey = const_cast<char *>(g_dgettext(ba.data(), g_settings_schema_key_get_summary(
                                                     keyObj)));
 
         nameLabel->setText(QString(i18nKey));
         nameLabel->setToolTip(QString(i18nKey));
 
-        QFontMetrics  fontMetrics(nameLabel->font());
-        QLabel *bindingLabel = new QLabel(gWidget);
+        FixLabel *bindingLabel = new FixLabel(gWidget);
 
         bindingLabel->setText(getShowShortcutString(it.value()));
         bindingLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-        nameLabel->setText(fontMetrics.elidedText(QString(i18nKey), Qt::ElideRight, 180));
+        nameLabel->setText(QString(i18nKey));
 
-        const QByteArray styleID(UKUI_STYLE_SCHEMA);
+        QSizePolicy policy;
+        policy = nameLabel->sizePolicy();
+        policy.setHorizontalPolicy(QSizePolicy::Ignored);
+        nameLabel->setSizePolicy(policy);
 
-        if (QGSettings::isSchemaInstalled(styleID)) {
-            QGSettings *styleUKUI = new QGSettings(styleID, QByteArray(), this);
+        policy = bindingLabel->sizePolicy();
+        policy.setHorizontalPolicy(QSizePolicy::Ignored);
+        bindingLabel->setSizePolicy(policy);
 
-            connect(styleUKUI, &QGSettings::changed, this, [=](const QString &key){
-                if (key == "systemFontSize") {
-                    QFontMetrics  fm(nameLabel->font());
-                    nameLabel->setText(fm.elidedText(QString(i18nKey), Qt::ElideRight, 180));
-                }
-            });
-        }
-
-        QHBoxLayout *tHorLayout = new QHBoxLayout();
-        QSpacerItem *horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        tHorLayout->addItem(horizontalSpacer);
-        tHorLayout->addWidget(bindingLabel);
-        tHorLayout->setMargin(0);
-        gHorLayout->addWidget(nameLabel);
-        gHorLayout->addStretch();
-        gHorLayout->addLayout(tHorLayout);
+        gHorLayout->addWidget(nameLabel, 1);
+        gHorLayout->addWidget(bindingLabel, 1);
 
         gWidget->setLayout(gHorLayout);
 
