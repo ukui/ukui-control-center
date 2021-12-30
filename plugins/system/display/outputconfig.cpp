@@ -305,13 +305,13 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 
         bool alreadyExisted = false;
         for (int j = 0; j < mRefreshRate->count(); ++j) {
-            if (tr("%1 Hz").arg(QLocale().toString(static_cast<int>(mode->refreshRate()))) == mRefreshRate->itemText(j)) {
+            if (tr("%1 Hz").arg(QLocale().toString(qRound(mode->refreshRate()))) == mRefreshRate->itemText(j)) {
                 alreadyExisted = true;
                 break;
             }
         }
         if (alreadyExisted == false) {   //不添加已经存在的项
-            mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(static_cast<int>(mode->refreshRate()))), mode->id());
+            mRefreshRate->addItem(tr("%1 Hz").arg(QLocale().toString(qRound(mode->refreshRate()))), mode->id());
         }
 
         // If selected refresh rate is other then what we consider the "Auto" value
