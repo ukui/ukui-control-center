@@ -148,7 +148,7 @@
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="leftMargin">
-          <number>16</number>
+          <number>15</number>
          </property>
          <item>
           <widget class="QLabel" name="primaryLabel">
@@ -297,20 +297,26 @@
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <property name="leftMargin">
-          <number>16</number>
+          <number>15</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
          </property>
          <item>
           <widget class="QLabel" name="scaleLabel">
            <property name="minimumSize">
             <size>
              <width>118</width>
-             <height>30</height>
+             <height>36</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>118</width>
-             <height>30</height>
+             <height>36</height>
             </size>
            </property>
            <property name="text">
@@ -329,7 +335,7 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>30</height>
+             <height>36</height>
             </size>
            </property>
           </widget>
@@ -489,7 +495,7 @@
             <number>2</number>
            </property>
            <property name="leftMargin">
-            <number>6</number>
+            <number>8</number>
            </property>
           </layout>
          </item>
