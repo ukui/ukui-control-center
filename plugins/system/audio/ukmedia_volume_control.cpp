@@ -333,10 +333,16 @@ bool UkmediaVolumeControl::setDefaultSource(const gchar *name)
 
     QTimer::singleShot(100, this,[=](){
         if (!sourceOutputVector.contains(sourceIndex) && pa_context_get_server_protocol_version(getContext()) >= 13) {
+
+//          BUG# 89095 打开控制面板降噪模块unload，intel_source消失，原因打开控制面板时会kill掉上一次的sourceoutput
+
             pa_operation* o;
             qDebug() <<"killall source output index from setDefaultSource" << peakDetectIndex;
-            if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr)))
-                showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            if(!strstr(defaultSourceName,"inteldns_source")){
+                if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr)))
+                    showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            }
+
             sourceOutputVector.removeAt(0);
             sourceOutputVector.append(sourceIndex);
             peak = createMonitorStreamForSource(sourceIndex, -1, !!(sourceFlags & PA_SOURCE_NETWORK));
@@ -793,8 +799,10 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         if(info.name ==defaultSourceName) {
             pa_operation* o;
             qDebug() <<"killall source output index from updateSource" <<peakDetectIndex;
-            if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
-                showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            if(!strstr(defaultSourceName,"inteldns_source")){
+                if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
+                    showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+                }
             }
             sourceOutputVector.append(info.index);
             peak = createMonitorStreamForSource(info.index, -1, !!(info.flags & PA_SOURCE_NETWORK));
@@ -910,9 +918,11 @@ void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info)
     if(info.name && strstr(info.name,"Peak detect") && !sourceOutputVector.contains(info.source)) {
         pa_operation* o;
         qDebug() <<"killall source output index====" <<peakDetectIndex;
-        if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
-            showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
-            //            return;
+        if(!strstr(defaultSourceName,"inteldns_source")){
+            if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
+                showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+                //            return;
+            }
         }
         sourceOutputVector.removeAt(0);
     }
@@ -1287,8 +1297,10 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     if (!w->sourceOutputVector.contains(w->sourceIndex) && pa_context_get_server_protocol_version(w->getContext()) >= 13) {
         pa_operation* o;
         qDebug() <<"killall source output index form sourceIndexCb" <<w->peakDetectIndex;
-        if (!(o = pa_context_kill_source_output(w->getContext(), w->peakDetectIndex, nullptr, nullptr))) {
-            w->showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+        if(!strstr(w->defaultSourceName,"inteldns_source")){
+            if (!(o = pa_context_kill_source_output(w->getContext(), w->peakDetectIndex, nullptr, nullptr))) {
+                w->showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            }
         }
         w->sourceOutputVector.removeAt(0);
         w->sourceOutputVector.append(w->sourceIndex);
