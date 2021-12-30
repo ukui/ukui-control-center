@@ -1866,6 +1866,9 @@ void BlueToothMain::changeListOfDiscoveredDevices(int index)
         delete child;
         child = nullptr;
     }
+
+    device_list->setVisible(false);
+
     addDiscoverDevListByFlag(discoverDevFlag);
 }
 
