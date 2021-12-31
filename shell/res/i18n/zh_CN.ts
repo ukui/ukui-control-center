@@ -1492,42 +1492,45 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">当前密码检查!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="169"/>
         <source>General Pwd</source>
-        <translation>通用密码</translation>
+        <translation type="vanished">通用密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="442"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="173"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="445"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="443"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="451"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="174"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="446"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="454"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="444"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="452"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="447"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="455"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="185"/>
-        <source>Pwd input error, re-enter!</source>
-        <translation>密码输入错误,重新输入!</translation>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="194"/>
+        <source>Authentication failed, input authtok again!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="368"/>
+        <source>Pwd input error, re-enter!</source>
+        <translation type="vanished">密码输入错误,重新输入!</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="360"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="370"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="362"/>
         <source>Same with old pwd</source>
         <translation>与旧密码相同</translation>
     </message>
@@ -1544,8 +1547,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码长度需要大于5个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="286"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="406"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="268"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="398"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -1890,37 +1893,42 @@ change system settings</source>
         <translation>和密码不一致</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="400"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="417"/>
         <source>Must be begin with lower letters!</source>
         <translation>用户名必须以小写字母开始！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="403"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="420"/>
         <source>Can not contain capital letters!</source>
         <translation>用户名不能包含大写字母！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="425"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="442"/>
         <source>Name already in use, change another one.</source>
         <translation>该用户名已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="427"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="444"/>
         <source>Name corresponds to group already exists.</source>
         <translation>用户名对应组已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="432"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="449"/>
         <source>Name length must less than %1 letters!</source>
         <translation>用户名长度必须小于%1！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="434"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="452"/>
+        <source>Can only contain .,letters,digits,underline!</source>
+        <translation>用户名仅能包含&apos;.&apos;，字母，数字及下划线！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="454"/>
         <source>Can only contain letters,digits,underline!</source>
         <translation>用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="439"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="460"/>
         <source>Username&apos;s folder exists, change another one</source>
         <translation>用户目录已存在，请更改</translation>
     </message>
@@ -1947,7 +1955,7 @@ change system settings</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="398"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="415"/>
         <source>The user name cannot be empty</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -5019,12 +5027,12 @@ Please retry or relogin!</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="418"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="428"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="419"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="429"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
@@ -5055,8 +5063,8 @@ Please retry or relogin!</source>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="297"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="303"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="307"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="313"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6291,191 +6299,191 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1491"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1531"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1507"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1547"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1514"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1554"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1561"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1528"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1568"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1293"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1333"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1535"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1575"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1542"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1582"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1558"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1598"/>
         <source>Connection failed, attempting reconnect</source>
         <translation>连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1310"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1350"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="212"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1425"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1500"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1465"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1540"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1194"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1654"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1226"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1694"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1213"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1245"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1243"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1277"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1259"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1293"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1327"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1367"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1346"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1386"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1363"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1403"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1376"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1416"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1389"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1402"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1429"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1442"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1415"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1455"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1451"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1491"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1578"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1618"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1104"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1122"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1128"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1146"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1154"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1186"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1138"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1175"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1169"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1207"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="303"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="305"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="313"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="315"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="322"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="324"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="331"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="333"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="340"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="342"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="350"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="352"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="359"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="361"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="368"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="370"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="377"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="379"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -8171,7 +8179,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>UkmediaInputWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="66"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
@@ -8180,27 +8188,28 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">选择输入设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="69"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="73"/>
         <source>Input Device:</source>
         <translation>选择输入设备:</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="72"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="76"/>
         <source>Volume</source>
         <translation>音量大小</translation>
         <extra-contents_path>/audio/Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="77"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="81"/>
         <source>Input Level</source>
         <translation>输入反馈</translation>
         <extra-contents_path>/audio/Input Level</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="102"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="92"/>
         <source>Noise Reduction</source>
         <translation>智能降噪</translation>
+        <extra-contents_path>/audio/Noise</extra-contents_path>
     </message>
     <message>
         <source>Low</source>
@@ -8435,9 +8444,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="110"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="136"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="162"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="242"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="246"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="258"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="233"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="237"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="249"/>
         <source>pa_context_set_sink_volume_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8447,86 +8456,100 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="275"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="279"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="266"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="270"/>
         <source>pa_context_set_source_output_volume() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="291"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="282"/>
         <source>pa_context_set_source_output_mute() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="303"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="294"/>
         <source>pa_context_set_card_profile_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="317"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="308"/>
         <source>pa_context_set_default_sink() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="331"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="322"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="335"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="829"/>
         <source>pa_context_set_default_source() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="345"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="327"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1303"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1306"/>
+        <source>pa_context_get_source_info_by_name() failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="355"/>
         <source>pa_context_set_sink_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="359"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="369"/>
         <source>pa_context_set_source_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="388"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="398"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="392"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="506"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="402"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="516"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="394"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="503"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="404"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="513"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="606"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="617"/>
         <source>Failed to read data from stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="656"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="667"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="657"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="668"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="672"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="683"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="774"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="788"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1070"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1094"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1300"/>
+        <source>pa_context_get_sink_info_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -8684,72 +8707,77 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="142"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="144"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1275"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="500"/>
+        <source>Pwd Changed Succes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1288"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1276"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1289"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1279"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1292"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1280"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1293"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1350"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1363"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1825"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1838"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1839"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1852"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1859"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1872"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="138"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="140"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="140"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="142"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="789"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="800"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="923"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="936"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="923"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="936"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -8759,12 +8787,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="771"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="782"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="758"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="769"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -8782,14 +8810,14 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="301"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="124"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="126"/>
         <source>Password</source>
         <translation>修改密码</translation>
         <extra-contents_path>/userinfo/Password</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="320"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="126"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="128"/>
         <source>Type</source>
         <translation>账户类型</translation>
         <extra-contents_path>/userinfo/Type</extra-contents_path>
@@ -8801,20 +8829,20 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="358"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="132"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="134"/>
         <source>Group</source>
         <translation>用户组</translation>
         <extra-contents_path>/userinfo/Group</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="424"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="128"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="130"/>
         <source>Login no passwd</source>
         <translation>免密登录</translation>
         <extra-contents_path>/userinfo/Login no passwd</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="130"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="132"/>
         <source>enable autoLogin</source>
         <translation>开机自动登录</translation>
         <extra-contents_path>/userinfo/enable autoLogin</extra-contents_path>
@@ -8860,7 +8888,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>其他用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="432"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="434"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
         <extra-contents_path>/userinfo/Add new user</extra-contents_path>
@@ -9108,8 +9136,8 @@ the settings will be saved after 14 seconds</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1928"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1943"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1951"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1966"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -9154,19 +9182,19 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1273"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1296"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1101"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1273"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1280"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1124"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1296"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1303"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1102"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1125"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -9179,7 +9207,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1281"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1304"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
