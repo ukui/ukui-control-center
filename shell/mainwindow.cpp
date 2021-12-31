@@ -40,6 +40,7 @@
 #include <QMessageBox>
 #include <QGSettings>
 #include <KWindowEffects>
+#include <KWindowSystem>
 #include "customstyle.h"
 
 #define MODE_QT_KEY  "style-name"
@@ -265,6 +266,7 @@ void MainWindow::initStyleSheet() {
 void MainWindow::sltMessageReceived(const QString &msg) {
 
     //showNormal();
+    KWindowSystem::forceActiveWindow(this->winId());
     this->show(); //显示最近一次的大小
     bootOptionsFilter(msg);
 

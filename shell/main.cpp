@@ -58,7 +58,8 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
 
-    QtSingleApplication a(argc, argv);
+    QString id = QString("ukui-control-center" + QLatin1String(getenv("DISPLAY")));
+    QtSingleApplication a(id, argc, argv);
 
     if (a.isRunning()) {
         a.sendMessage(QApplication::arguments().length() > 1 ? QApplication::arguments().at(1) : a.applicationFilePath());
