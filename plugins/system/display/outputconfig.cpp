@@ -265,7 +265,8 @@ KScreen::OutputPtr OutputConfig::output() const
 void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 {
     // Ignore disconnected outputs
-    if (!size.isValid()) {
+    if (!size.isValid() || mIsRefreshRateChanged) {
+        mIsRefreshRateChanged = false;
         return;
     }
 
@@ -318,7 +319,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         // we stick with "Auto"
         if (mode == selectMode && mRefreshRate->count() > 1) {
             // i + 1 since 0 is auto
-            mRefreshRate->setCurrentIndex(i + 1);
+            mRefreshRate->setCurrentIndex(mRefreshRate->count() - 1);
         }
     }
 
@@ -345,6 +346,7 @@ void OutputConfig::slotRotationChanged(int index)
 
 void OutputConfig::slotRefreshRateChanged(int index)
 {
+    mIsRefreshRateChanged = true;
     QString modeId;
     if (index == 0) {
         // Item 0 is "Auto" - "Auto" is equal to highest refresh rate (at least
