@@ -106,7 +106,7 @@ void UkmediaMainWidget::initWidget()
     m_pvLayout->setSpacing(0);
     this->setLayout(m_pvLayout);
     this->setMinimumSize(0,0);
-    this->setMaximumSize(16777215,802);
+    this->setMaximumSize(16777215,810);
     this->layout()->setContentsMargins(0,0,0,0);
 
     //设置滑动条的最大值为100
@@ -328,6 +328,15 @@ void UkmediaMainWidget::dealSlot()
 
         m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
         m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
+
+        gdouble midPointIsNeedHide = m_pOutputWidget->m_pOpBalanceSlider->value()/100.0;
+        if(midPointIsNeedHide <= 0.02 && midPointIsNeedHide >= -0.02) {
+            m_pOutputWidget->m_pBalanceMidPointLabel->hide();
+        }
+        else {
+            m_pOutputWidget->m_pBalanceMidPointLabel->show();
+        }
+
         themeChangeIcons();
         initComboboxItem();
     });
