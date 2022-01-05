@@ -19,6 +19,8 @@ LanguageFrame::LanguageFrame(QString name, QWidget *parent)
     selectedIconLabel->setFixedSize(16,16);
     selectedIconLabel->setScaledContents(true);
     selectedIconLabel->setPixmap(QPixmap("://img/plugins/theme/selected.svg"));
+    QIcon selectIcon = QIcon::fromTheme("ukui-selected");
+    selectedIconLabel->setPixmap(selectIcon.pixmap(selectIcon.actualSize(QSize(16, 16))));
     selectedIconLabel->setVisible(false);
 
     layout->addWidget(nameLabel);
