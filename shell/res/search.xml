@@ -311,7 +311,7 @@
         <pinyinPlugin>beijing</pinyinPlugin>
 	<pinyinfunc>bendibizhi</pinyinfunc>
         <ChinesePlugin>背景</ChinesePlugin>
-        <ChineseFunc>本地壁纸</ChineseFunc>
+        <ChineseFunc>本地背景</ChineseFunc>
         <EnglishFunc>Local wall</EnglishFunc>
     </plugin>
     <plugin name="theme">
@@ -367,7 +367,7 @@
         <pinyinPlugin>suoping</pinyinPlugin>
         <pinyinfunc>bendibizhi</pinyinfunc>
         <ChinesePlugin>锁屏</ChinesePlugin>
-        <ChineseFunc>本地壁纸</ChineseFunc>
+        <ChineseFunc>本地锁屏</ChineseFunc>
         <EnglishFunc>Local wallpaper</EnglishFunc>
     </plugin>
     <plugin name="network">
