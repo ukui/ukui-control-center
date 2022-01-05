@@ -64,7 +64,7 @@ public:
     void bootOptionsFilter(QString opt);        // 模块跳转
     void moveEvent(QMoveEvent *event);
     void resizeEvent(QResizeEvent *event);
-    QString pluginBtnHoverColor(QString styleName);
+    QString pluginBtnHoverColor(QString styleName, bool hoverFlag);
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
