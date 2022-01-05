@@ -226,6 +226,10 @@
         <file>plugins/securitycenter/zhanghuanquan_good.png</file>
         <file>plugins/securitycenter/zhanghuanquan_warning_white.png</file>
         <file>plugins/securitycenter/zhanghuanquan_warning.png</file>
+        <file>secondaryleftmenu/WlanconnectWhite.svg</file>
+        <file>secondaryleftmenu/Wlanconnect.svg</file>
+        <file>secondaryleftmenu/NetconnectICBC.svg</file>
+        <file>secondaryleftmenu/NetconnectICBCWhite.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>

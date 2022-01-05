@@ -138,6 +138,11 @@ void FunctionSelect::initValue(){
     networkList[VINO].nameString = QString("Vino");
     networkList[VINO].namei18nString = QObject::tr("Vino");
     networkList[VINO].mainShow = false;
+    networkList[NETCONNECT_ICBC].nameString = QString("NetconnectICBC");
+    networkList[NETCONNECT_ICBC].namei18nString = QObject::tr("Netconnect-icbc");
+    networkList[WLANCONNECT].nameString = QString("Wlanconnect");
+    networkList[WLANCONNECT].namei18nString = QObject::tr("Wlanconnect");
+
 
     funcinfoList.append(networkList);
 
