@@ -703,21 +703,26 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     iconBtn->setFocusPolicy(Qt::NoFocus);
     iconBtn->reLoadIcon();
     static QString hoverColor;
+    static QString clickColor;
 
     if (QGSettings::isSchemaInstalled("org.ukui.style")) {
         QGSettings *qtSettings = new QGSettings("org.ukui.style", QByteArray(), this);
         if (qtSettings->keys().contains("styleName")) {
-            hoverColor = pluginBtnHoverColor(qtSettings->get("style-name").toString());
+            hoverColor = pluginBtnHoverColor(qtSettings->get("style-name").toString(), true);
+            clickColor = pluginBtnHoverColor(qtSettings->get("style-name").toString(), false);
             if (!leftsidebarBtn->isChecked())
-                leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}").arg(hoverColor));
+                leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}"
+                                                      "QPushButton:pressed{background-color:%2;border-radius: 6px;}").arg(hoverColor).arg(clickColor));
         }
 
         connect(qtSettings, &QGSettings::changed, this, [=,&hoverColor](const QString &key) {
             if (key == "styleName") {
                 iconBtn->reLoadIcon();
-                hoverColor = this->pluginBtnHoverColor(qtSettings->get("style-name").toString());
+                hoverColor = this->pluginBtnHoverColor(qtSettings->get("style-name").toString(), true);
+                clickColor = pluginBtnHoverColor(qtSettings->get("style-name").toString(), false);
                 if (!leftsidebarBtn->isChecked())
-                    leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}").arg(hoverColor));
+                    leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}"
+                                                          "QPushButton:pressed{background-color:%2;border-radius: 6px;}").arg(hoverColor).arg(clickColor));
             }
         });
     }
@@ -775,7 +780,8 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
             leftsidebarBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
             textLabel->setStyleSheet("color:white");
         } else {
-            leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}").arg(hoverColor));
+            leftsidebarBtn->setStyleSheet(QString("QPushButton:hover{background-color:%1;border-radius: 6px;}"
+                                                  "QPushButton:pressed{background-color:%2;border-radius: 6px;}").arg(hoverColor).arg(clickColor));
             textLabel->setStyleSheet("color:palette(windowText)");
         }
     });
@@ -1009,14 +1015,15 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     Q_EMIT posChanged();
 }
 
-QString MainWindow::pluginBtnHoverColor(QString styleName)
+QString MainWindow::pluginBtnHoverColor(QString styleName, bool hoverFlag)
 {
     QColor color1 = palette().color(QPalette::Active, QPalette::Button);
     QColor color2 = palette().color(QPalette::Active, QPalette::BrightText);
     QColor color;
     qreal r,g,b,a;
     QString hoverColor;
-    if (styleName.contains("dark") || styleName.contains("black")) {
+    if (((styleName.contains("dark") || styleName.contains("black")) && hoverFlag) ||
+        ((!styleName.contains("dark") && !styleName.contains("black")) && !hoverFlag)) {
         r = color1.redF() * 0.8 + color2.redF() * 0.2;
         g = color1.greenF() * 0.8 + color2.greenF() * 0.2;
         b = color1.blueF() * 0.8 + color2.blueF() * 0.2;
