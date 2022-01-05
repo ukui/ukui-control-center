@@ -1,6 +1,9 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include <limits>
+
+#include <QMutex>
 #include <QWidget>
 #include <QVariantMap>
 #include <QGSettings>
@@ -10,20 +13,29 @@
 #include <QDBusConnection>
 #include <QDBusError>
 #include <QDBusReply>
-#include <QGSettings>
+#include <QStringList>
+#include <QSharedPointer>
+#include <QHash>
+#include <QVariant>
+#include <QScreen>
+#include <QMultiMap>
+#include <QShortcut>
+#include <QFuture>
+#include <QVBoxLayout>
 
 #include <KF5/KScreen/kscreen/config.h>
 
 #include "outputconfig.h"
-#include "slider.h"
-#include "SwitchButton/switchbutton.h"
-#include "warningdialog.h"
-#include "applydialog.h"
+//#include <ukcc/widgets/switchbutton.h>
+#include "commonComponent/SwitchButton/switchbutton.h"
+#include "brightnessFrame.h"
+#include "screenConfig.h"
+//#include <ukcc/widgets/titlelabel.h>
+//#include <ukcc/widgets/fixlabel.h>
+//#include <ukcc/widgets/uslider.h>
+#include "commonComponent/Uslider/uslider.h"
 
-#define SETTINGS_DAEMON_AUTOBRIGHTNESS  "org.ukui.SettingsDaemon.plugins.auto-brightness"
-#define AUTO_BRIGHTINESS_KEY "auto-brightness"
-
-const QString tempDayBrig  = "6500";
+#define USD_CLONE_MODE 1
 
 class QLabel;
 class QMLOutput;
@@ -38,31 +50,17 @@ class QQuickView;
 class QQuickWidget;
 class QStyledItemDelegate;
 
-typedef struct xml{
-    QString isClone;
-    QString outputName;
-    QString vendorName;
-    QString productName;
-    QString serialNum;
-    QString widthValue;
-    QString heightValue;
-    QString rateValue;
-    QString posxValue;
-    QString posyValue;
-    QString rotationValue;
-    QString isPrimary;
-    bool isEnable;
-}xmlFile;
-
 typedef enum {
     SUN,
-    ALL,
     CUSTOM,
 }MODE;
 
+typedef enum {
+    EXTEND,
+    CLONE,
+}MULTISCREEN;
 
-namespace KScreen
-{
+namespace KScreen {
 class ConfigOperation;
 }
 
@@ -70,175 +68,253 @@ namespace Ui {
 class DisplayWindow;
 }
 
-class DisplayWidget : public QWidget
+class Widget : public QWidget
 {
     Q_OBJECT
 
-  public:
-    explicit DisplayWidget(QWidget *parent = nullptr);
-    ~DisplayWidget() override;
+public:
+    explicit Widget(QWidget *parent = nullptr);
+    ~Widget() override;
 
     void setConfig(const KScreen::ConfigPtr &config);
     KScreen::ConfigPtr currentConfig() const;
 
+    void initNightModeUi();
     void slotFocusedOutputChangedNoParam();
-    // 亮度调节UI
-    void initBrightnessUI();
+    void initConnection();
     QString getScreenName(QString name = "");
-    void initTemptSlider();
-    void initConfigFile();
-    void writeScreenXml();
+    void setNightComponent();
 
-    void setIsNightMode(bool isNightMode);
+    bool writeFile(const QString &filePath);
+    void writeGlobal(const KScreen::OutputPtr &output);
+    bool writeGlobalPart(const KScreen::OutputPtr &output, QVariantMap &info,
+                         const KScreen::OutputPtr &fallback);
+    QString globalFileName(const QString &hash);
+    QVariantMap getGlobalData(KScreen::OutputPtr output);
 
     float converToScale(const int value);
     int scaleToSlider(const float value);
-    void size();
+
     void initUiComponent();
-    void OnRandrEvent();
-    void initUI();
-  protected:
+    void addBrightnessFrame(QString name, bool openFlag, QString edidHash);
+    void showBrightnessFrame(const int flag = 0);
+
+    QList<ScreenConfig> getPreScreenCfg();
+    void setPreScreenCfg(KScreen::OutputList screens);
+
+    void changescale();
+protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
-  Q_SIGNALS:
+Q_SIGNALS:
     void changed();
-    void primaryChange();
+
     void nightModeChanged(const bool nightMode) const;
     void redShiftValidChanged(const bool isValid) const;
 
-  private Q_SLOTS:
+private Q_SLOTS:
     void slotFocusedOutputChanged(QMLOutput *output);
-    void startUnifyButton();
-    void m_unifybuttonChanged();
+
     void slotOutputEnabledChanged();
     void slotOutputConnectedChanged();
 
     void slotUnifyOutputs();
-
-    void slotChangeAutoBrightness(QString key);
+    void tabletMode_DbusSlot(bool tablet_mode);
+    void rotationDbusSlot(bool autoRotation);
 
     void slotIdentifyButtonClicked(bool checked = true);
     void slotIdentifyOutputs(KScreen::ConfigOperation *op);
     void clearOutputIdentifiers();
-    void screenAddedProcess();
-    void screenAddedTimer();
-    void screenRemovedProcess();
-    void screenRemovedTimer();
-    void outputAdded(const KScreen::OutputPtr &output);
-    void outputRemoved(int outputId);
+
+    void outputAdded(const KScreen::OutputPtr &output, bool connectChanged);
+    void outputRemoved(int outputId, bool connectChanged);
     void primaryOutputSelected(int index);
     void primaryOutputChanged(const KScreen::OutputPtr &output);
 
     void showNightWidget(bool judge);
-    void showlightWidget(bool judge);
     void showCustomWiget(int index);
-    //判断系统是否支持自动亮度
-    void hasAutoLight();
-    // 按钮选择主屏确认按钮
-    void primaryButtonEnable();
-    // 是否禁用设置主屏按钮
-    void mainScreenButtonSelect(int index);
-    // 是否禁用屏幕
-    void checkOutputScreen(bool judge);
-    // 设置屏幕亮度
-    void setBrightnessScreen(int brightnessValue);
-    // 设置亮度滑块数值
-    void setBrightnesSldierValue(QString screeName);
-    // 设置跟随日落日出或自定义时间
-    void onRadioClickButton();
-  public:
-    SwitchButton *m_unifybutton = nullptr;
-  public Q_SLOTS:
-    void save();
-    void scaleChangedSlot(int index);
-    void widget_DbusSlot(bool tablet_mode);
-    void screenModeChangeSlot(int screenMode);
-  private:
 
+    void primaryButtonEnable(bool);             // 按钮选择主屏确认按钮
+    void mainScreenButtonSelect(int index);     // 是否禁用设置主屏按钮
+    void checkOutputScreen(bool judge);         // 是否禁用屏幕
+
+    void setNightMode(const bool nightMode);    // 设置夜间模式
+
+    void initNightStatus();                     // 初始化夜间模式
+
+    void setNightModeSetting();                 // 通过配置文件设置夜间模式
+    void nightChangedSlot(QHash<QString, QVariant> nightArg);
+
+    void callMethod(QRect geometry, QString name);// 设置wayland主屏幕
+    QString getPrimaryWaylandScreen();
+    void usdScreenModeChangedSlot(int status);
+
+    void setMultiScreenSlot(int index);
+
+    void applyNightModeSlot();
+
+    void delayApply();
+
+public Q_SLOTS:
+    void save();
+    void scaleChangedSlot(double scale);
+    void changedSlot();
+    void propertiesChangedSlot(QString, QMap<QString, QVariant>, QStringList);
+    void mOutputClicked();
+
+private:
     void loadQml();
     void resetPrimaryCombo();
     void addOutputToPrimaryCombo(const KScreen::OutputPtr &output);
-    bool writeInit(QString group, QString key, bool value);//写入路径存储
     KScreen::OutputPtr findOutput(const KScreen::ConfigPtr &config, const QVariantMap &info);
 
-    void writeScale(int scale);
+    void initComponent();
+    void initDbusComponent();
+    void setHideModuleInfo();
+    void setTitleLabel();
+    void writeScale(double scale);
     void initGSettings();
-    void initUnifybuttonStatus();
-    void apply();
-    void applyConifg();
-    void nightModeApply();
+    void setcomBoxScale();
+    void initNightUI();
+    QFrame *setLine(QFrame *frame);
+    void initAdvanceScreen();
+
+    bool isRestoreConfig();   // 是否恢复应用之前的配置
     bool isCloneMode();
-    int opHour;
-    int opMin;
-    int clsHour;
-    int clsMin;
-    int autoopHour;
-    int autoopMin;
-    int autoclsHour;
-    int autoclsMin;
-    QGSettings *m_brilight = nullptr;
-  private:
+    bool isBacklight();
+    bool isLaptopScreen();
+    bool isVisibleBrightness();
+
+    QString getCpuInfo();
+    QString getMonitorType();
+
+    int getPrimaryScreenID();
+
+    void setScreenIsApply(bool isApply);
+
+    void setMulScreenVisiable();
+    void initMultScreenStatus();
+    void updateMultiScreen(); // 屏幕插拔更改状态
+    void updateScreenConfig();// 获取系统最新配置
+
+    void showZoomtips();      // 缩放注销提示框
+
+    void paintEvent(QPaintEvent *event);
+
+private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
+
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    KScreen::ConfigPtr mConfig ;
-    KScreen::ConfigPtr mPrevConfig ;
-    //这是outPutptr结果
-    KScreen::OutputPtr res ;
+    KScreen::ConfigPtr mConfig;
+    KScreen::ConfigPtr mPrevConfig;
+    KScreen::OutputPtr res;                       // 这是outPutptr结果
 #else
     KScreen::ConfigPtr mConfig = nullptr;
     KScreen::ConfigPtr mPrevConfig = nullptr;
-    // outPutptr结果
     KScreen::OutputPtr res = nullptr;
 #endif
 
     ControlPanel *mControlPanel = nullptr;
-    // 设置主显示器相关控件
-    OutputConfig *mOutputConfig = nullptr;
 
-    QList<QQuickView*> mOutputIdentifiers;
-    QTimer * mOutputTimer = nullptr;
-    QTimer * mScreenAddTimer = nullptr;
-    QTimer * mScreenRemoveTimer = nullptr;
+    OutputConfig *mOutputConfig = nullptr;        // 设置主显示器相关控件
 
-    bool m_blockChanges = false;
-    // 亮度配置文件位置
-    QString brightnessFile = nullptr;
-    // xml文件
-    xmlFile inputXml[100];
+    QList<QQuickView *> mOutputIdentifiers;
+    QTimer *mOutputTimer = nullptr;
 
-    SwitchButton *nightButton = nullptr;
-    SwitchButton *lightButton = nullptr;
-    SwitchButton *closeScreenButton = nullptr;
+    QString     mCPU;
+    QString     mDir;
+    QStringList mPowerKeys;
+
+    SwitchButton *mNightButton = nullptr;
+    SwitchButton *mCloseScreenButton = nullptr;
+    SwitchButton *mUnifyButton = nullptr;
+    SwitchButton *mThemeButton = nullptr;
+    SwitchButton *mNightModeBtn = nullptr;
+    SwitchButton *mAutoRotationBtn = nullptr;
+
+    QLabel *mNightModeLabel = nullptr;
+    QLabel *mOpenLabel = nullptr;
+    QLabel *mTimeModeLabel = nullptr;
+    QLabel *mCustomTimeLabel = nullptr;
+    QLabel *mTemptLabel = nullptr;
+    QLabel *mWarmLabel = nullptr;
+    QLabel *mColdLabel = nullptr;
+    QLabel *mLabel_1 = nullptr;
+
     QLabel *nightLabel = nullptr;
-    QLabel *lightLabel = nullptr;
+    QLabel *mMultiScreenLabel = nullptr;
 
-    // 是否为夜间模式
-    bool m_isNightMode = false;
-    // profile文件内容
-    QStringList proRes;
+    QComboBox *mTimeModeCombox = nullptr;
+    QComboBox *mOpenTimeHCombox = nullptr;
+    QComboBox *mQpenTimeMCombox = nullptr;
+    QComboBox *mCloseTimeHCombox = nullptr;
+    QComboBox *mCloseTimeMCombox = nullptr;
+    QComboBox *mMultiScreenCombox = nullptr;
 
-    Slider *slider;
-    QGSettings *m_gsettings = nullptr;
+    QSlider *mTemptSlider = nullptr;
+
+    QFrame *mMultiScreenFrame = nullptr;   
+    QFrame *mNightModeFrame = nullptr;
+    QFrame *mOpenFrame = nullptr;
+    QFrame *mTimeModeFrame = nullptr;
+    QFrame *mCustomTimeFrame = nullptr;
+    QFrame *mTemptFrame = nullptr;
+    QFrame *line_1 = nullptr;
+    QFrame *line_2 = nullptr;
+    QFrame *line_3 = nullptr;
+
+    QGSettings *mGsettings = nullptr;
     QGSettings *scaleGSettings = nullptr;
-    QGSettings * m_colorSettings = nullptr;
-    QGSettings * m_settings = nullptr;
-    QSettings *m_qsettings = nullptr;
-    QDBusInterface *m_statusSessionDbus = nullptr;
-    QDBusInterface *m_ScreenModeDbus = nullptr;
-    QButtonGroup *singleButton;
-    QGSettings * powerSettings;
-    QGSettings * xrandrSettings;
-    QDBusInterface *m_widgetInterface;
-    QString m_initPath;
+    QGSettings *mPowerGSettings = nullptr;
+    QGSettings *m_colorSettings = nullptr;
 
-    QTimer* m_unifyTimer;
-    int count;
-    int screenScale = 1;
-    bool isScaleChanged = false;
-    bool oriApply;
-    bool unifyChecked = false;
+    QSettings *mQsettings = nullptr;
+
+    QButtonGroup *singleButton;
+
+    QSharedPointer<QDBusInterface> mUPowerInterface;
+    QSharedPointer<QDBusInterface> mUkccInterface;
+    QDBusInterface *mUsdDbus;
+    QDBusInterface *m_StatusDbus = nullptr;
+
+    QHash<QString, QVariant> mNightConfig;
+
+    double mScreenScale = 1.0;
+    double scaleres = 1.0;
+
+    QSize mScaleSizeRes = QSize();
+
+    bool mIsNightMode = false;
+    bool mRedshiftIsValid = false;
+    bool mIsScaleChanged = false;
+    bool mOriApply;
+    bool mConfigChanged = false;
+    bool mOnBattery = false;
+    bool mBlockChanges = false;
+    bool mFirstLoad = true;
+    bool mIsWayland = false;
+    bool mIsBattery = false;
+    bool mIsScreenAdd = false;
+    bool mIsRestore = false;
+
+    bool mIsSCaleRes = false;
+    bool mIsChange = false;
+
+    QStringList mTimeModeStringList;
+
+    QString firstAddOutputName;
+    QShortcut *mApplyShortcut;
+    QVector<BrightnessFrame*> BrightnessFrameV;
+    //BrightnessFrame *currentBrightnessFrame;
+    bool exitFlag = false;
+    bool unifySetconfig = false;
+    QString mOutputClickedName;
+    QDBusInterface *dbusEdid = nullptr;
+    QString cpuArchitecture = "";
+    bool mIscloneMode = false;
+
+    int mKdsStatus = INT_MIN;
 };
 
 #endif // WIDGET_H
-

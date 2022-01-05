@@ -3,8 +3,7 @@
 
 #include "outputconfig.h"
 
-namespace KScreen
-{
+namespace KScreen {
 class Output;
 class Config;
 }
@@ -12,44 +11,32 @@ class Config;
 class UnifiedOutputConfig : public OutputConfig
 {
     Q_OBJECT
-  public:
+public:
     explicit UnifiedOutputConfig(const KScreen::ConfigPtr &config, QWidget *parent);
     ~UnifiedOutputConfig() override;
 
     void setOutput(const KScreen::OutputPtr &output) override;
-    bool is_unifiedoutput = false;
+    bool isCloneMode();
+private Q_SLOTS:
+    void slotResolutionChanged(const QSize &size, bool emitFlag);
 
-  private Q_SLOTS:
-    void slotResolutionChanged();
+    // 统一输出后调整屏幕方向统一代码
+    void slotRotationChangedDerived(int index);
 
-    //统一输出后调整屏幕方向统一代码
-    void slotRotationChangedDerived();
-
-    void whetherApplyResolution();
-    void whetherApplyRotation();
-    void slotResolutionNotChange();
-    void slotRotationNotChange();
-
-    void rotationRadioDbusSlot(bool auto_rotation);
-    void mode_rotationRadioDbusSlot(bool tablet_mode);
-    void mode_mrotationDbusSlot(bool tablet_mode);
-    void mrotationDbusSlot(bool auto_rotation);
-
-private:
-    int resolutionIndex = 0;
-    int rotationIndex = 0;
+    void slotRestoreResoltion();
+    void slotRestoreRatation();
+    void slotRefreshRateChanged(int index);
 
 private:
     void initUi() override;
     KScreen::OutputPtr createFakeOutput();
     QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
-
+    QFrame *setLine(QFrame *frame);
 
 private:
     KScreen::ConfigPtr mConfig;
     QList<KScreen::OutputPtr> mClones;
-
-    QDBusInterface *m_unifiedSessionDbus = nullptr;
+    bool mIsRestore;
 };
 
 #endif // UNIFIEDOUTPUTCONFIG_H

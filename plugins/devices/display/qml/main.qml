@@ -14,16 +14,14 @@
     You should have received a copy of the GNU Lesser General Public
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
 */
 
 import QtQuick 2.1
 import QtQuick.Controls 1.1 as Controls
-//import org.kde.plasma.core 2.0 as PlasmaCore
-//import org.kde.kquickcontrols 2.0
 import org.kde.kscreen 1.0
 
 Item {
-
     id: root;
 
     property variant virtualScreen: null;
@@ -35,72 +33,43 @@ Item {
         id: palette;
     }
 
-    Rectangle {
-        id: background;
-
+    MouseArea {
         anchors.fill: parent;
         focus: true;
 
-//        color: "#000000";
-        color: "transparent";
-//        color: palette.button;
-//        opacity: 0.6;
-        radius: 4 //设置矩形圆角弧度
-
-
-        FocusScope {
-
-            id: outputViewFocusScope;
+        Rectangle {
+            id: background;
 
             anchors.fill: parent;
             focus: true;
 
-            QMLScreen {
+            color: "transparent";
 
-                id: outputView;
+            FocusScope {
+
+                id: outputViewFocusScope;
 
                 anchors.fill: parent;
-                clip: true;
+                focus: true;
 
-                objectName: "outputView";
+                QMLScreen {
+                    id: outputView;
+                    anchors.fill: parent;
+                    clip: true;
+                    objectName: "outputView";
+                }
+            }
+
+            Column {
+                anchors {
+                    left: parent.left;
+                    bottom: parent.bottom;
+                    margins: 5;
+                }
+                spacing: 5;
             }
         }
 
-        Column {
-
-            anchors {
-                left: parent.left;
-                //right: identifyButton.left;
-                bottom: parent.bottom;
-                margins: 5;
-            }
-
-            spacing: 5;
-
-
-
-
-
-
-        }
-
-//对识别按钮注释
-//        Controls.ToolButton {
-
-//            id: identifyButton
-//            objectName: "identifyButton";
-
-//            anchors {
-//                right: parent.right
-//                bottom: parent.bottom
-//                margins: 5
-//            }
-
-//            height: width
-//            width: theme.largeIconSize;
-//            iconName: "kdocumentinfo"
-
-//            tooltip: i18nd("kcm_displayconfiguration", "Identify outputs");
-//        }
     }
+
 }

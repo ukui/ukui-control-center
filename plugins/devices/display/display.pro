@@ -5,8 +5,9 @@
 #-------------------------------------------------
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
+include($$PROJECT_COMPONENTSOURCE/uslider.pri)
 
-QT            += widgets core gui quickwidgets quick xml KScreen KI18n KConfigCore KConfigWidgets KWidgetsAddons dbus
+QT            += widgets core gui quickwidgets quick xml KScreen dbus concurrent
 TEMPLATE = lib
 CONFIG        += c++11   link_pkgconfig plugin
 
@@ -16,18 +17,15 @@ target.path = $${PLUGIN_INSTALL_DIRS}
 INSTALLS += target
 
 INCLUDEPATH   +=  \
-                 $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
+                 $$PROJECT_COMPONENTSOURCE \
 
 LIBS          += -L$$[QT_INSTALL_LIBS] -lgsettings-qt
 
 PKGCONFIG += gsettings-qt     \
-             gtk+-3.0         \
-#             glib-2.0         \
-             mate-desktop-2.0 \
 
 SOURCES += \
-    applydialog.cpp \
+    brightnessFrame.cpp \
     display.cpp \
     declarative/qmloutput.cpp \
     declarative/qmloutputcomponent.cpp \
@@ -35,15 +33,14 @@ SOURCES += \
     controlpanel.cpp \
     outputconfig.cpp \
     resolutionslider.cpp \
-    slider.cpp \
     unifiedoutputconfig.cpp \
     utils.cpp \
-    warningdialog.cpp \
     widget.cpp \
     displayperformancedialog.cpp
 
 HEADERS += \
-    applydialog.h \
+    brightnessFrame.h \
+    colorinfo.h \
     display.h \
     declarative/qmloutput.h \
     declarative/qmloutputcomponent.h \
@@ -51,18 +48,15 @@ HEADERS += \
     controlpanel.h \
     outputconfig.h \
     resolutionslider.h \
-    slider.h \
+    scalesize.h \
     unifiedoutputconfig.h \
     utils.h \
-    warningdialog.h \
     widget.h \
     displayperformancedialog.h
 
 FORMS += \
-    applydialog.ui \
     display.ui \
-    displayperformancedialog.ui \
-    warningdialog.ui
+    displayperformancedialog.ui
 
 #DISTFILES += \
 #    qml/main.qml \

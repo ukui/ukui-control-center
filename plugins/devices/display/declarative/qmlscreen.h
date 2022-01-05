@@ -20,11 +20,10 @@
 #define QMLSCREEN_H
 
 #include <QQuickItem>
-#include <QSettings>
+
 #include <KF5/KScreen/kscreen/output.h>
-#include <QDBusInterface>
 #include "qmloutput.h"
-#include "./widget.h"
+
 class QQmlEngine;
 
 namespace KScreen {
@@ -52,17 +51,14 @@ class QMLScreen : public QQuickItem
                READ outputScale
                NOTIFY outputScaleChanged)
 
-  public:
+public:
     explicit QMLScreen(QQuickItem *parent = nullptr);
     ~QMLScreen() override;
-
-    bool writeInit(QString group, QString key, int value);//写入路径存储
 
     int connectedOutputsCount() const;
     int enabledOutputsCount() const;
 
-    void setDisplayWidget(DisplayWidget * displayWidget);
-    QMLOutput* primaryOutput() const;
+    QMLOutput *primaryOutput() const;
     QList<QMLOutput*> outputs() const;
 
     QSize maxScreenSize() const;
@@ -75,16 +71,23 @@ class QMLScreen : public QQuickItem
     void updateOutputsPlacement();
 
     void setActiveOutput(QMLOutput *output);
-  public Q_SLOTS:
-    void setActiveOutput() {
-        setActiveOutput(qobject_cast<QMLOutput*>(sender()));
-    }
-    void applyOutput();
-    void screenAddedProcess();
-    void screenAddedProcessTimer();
-    void screenRemovedProcess();
 
-  Q_SIGNALS:
+    void setScreenPos(QMLOutput *output, bool isReleased);
+
+    void setScreenCenterPos();
+public Q_SLOTS:
+    void setActiveOutput()
+    {
+        setActiveOutput(qobject_cast<QMLOutput *>(sender()));
+    }
+
+    void setActiveOutputByCombox(int screenId);
+    void setScreenPos(bool isReleased)
+    {
+        setScreenPos(qobject_cast<QMLOutput*>(sender()), isReleased);
+    }
+
+Q_SIGNALS:
     void connectedOutputsCountChanged();
     void enabledOutputsCountChanged();
 
@@ -92,60 +95,35 @@ class QMLScreen : public QQuickItem
 
     void focusedOutputChanged(QMLOutput *output);
 
-    void changed();
+    void released();
 
-  private Q_SLOTS:
+private Q_SLOTS:
     void addOutput(const KScreen::OutputPtr &output);
     void removeOutput(int outputId);
 
     void outputConnectedChanged();
     void outputEnabledChanged();
     void outputPositionChanged();
-    void mainScreenChanged();
+
     void viewSizeChanged();
-  private:
+
+private:
     void qmlOutputMoved(QMLOutput *qmlOutput);
     void updateCornerOutputs();
     void setOutputScale(float scale);
 
     KScreen::ConfigPtr m_config;
-    QHash<KScreen::OutputPtr,QMLOutput*> m_outputMap;
+    QHash<KScreen::OutputPtr, QMLOutput *> m_outputMap;
     QVector<QMLOutput*> m_manuallyMovedOutputs;
     int m_connectedOutputsCount = 0;
     int m_enabledOutputsCount = 0;
 
-    float m_outputScale = 1.0 / 13.0;//缩放比例
+    float m_outputScale = 1.0 / 14.0;// 缩放比例
 
     QMLOutput *m_leftmost = nullptr;
     QMLOutput *m_topmost = nullptr;
     QMLOutput *m_rightmost = nullptr;
     QMLOutput *m_bottommost = nullptr;
-    int primaryX;
-    int primaryY;
-    int expandX;
-    int expandY;
-    int primaryWidth;
-    int primaryHeight;
-    int expandWidth;
-    int expandHeight;
-    int start_x;
-    int start_y;
-
-    int resize_x1;
-    int resize_y1;
-    int resize_width1;
-    int resize_height1;
-
-    int resize_x2;
-    int resize_y2;
-    int resize_width2;
-    int resize_height2;
-    QString m_initPath;
-    DisplayWidget * dispalyWidget;
-    QTimer * m_outputTimer;
-    QTimer * m_screenAddTimer;
-
-    QDBusInterface *m_qmlscreenSessionDbus;
 };
 
 #endif // QMLSCREEN_H

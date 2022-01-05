@@ -45,7 +45,8 @@ QMLOutput::QMLOutput(QQuickItem *parent):
     m_topDock(nullptr),
     m_rightDock(nullptr),
     m_bottomDock(nullptr),
-    m_isCloneMode(false)
+    m_isCloneMode(false),
+    m_allowResetSize(true)
 {
     connect(this, &QMLOutput::xChanged,
             this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
@@ -65,7 +66,6 @@ KScreen::OutputPtr QMLOutput::outputPtr() const
 
 void QMLOutput::setOutputPtr(const KScreen::OutputPtr &output)
 {
-    //qDebug()<<"setOutputPtr------> qmloutput"<<endl;
     Q_ASSERT(m_output.isNull());
 
     m_output = output;
@@ -75,8 +75,6 @@ void QMLOutput::setOutputPtr(const KScreen::OutputPtr &output)
             this, &QMLOutput::updateRootProperties);
     connect(m_output.data(), &KScreen::Output::currentModeIdChanged,
             this, &QMLOutput::currentModeIdChanged);
-//    connect(m_output.data(), &KScreen::Output::scaleChanged,
-//            this, &QMLOutput::currentModeIdChanged);
 }
 
 QMLScreen *QMLOutput::screen() const
@@ -187,7 +185,6 @@ QMLOutput* QMLOutput::cloneOf() const
     return m_cloneOf;
 }
 
-//返回上面小屏幕高度
 int QMLOutput::currentOutputHeight() const
 {
     if (!m_output) {
@@ -206,12 +203,9 @@ int QMLOutput::currentOutputHeight() const
             return 1000;
         }
     }
-    //qDebug()<<"mode->size().height()---->"<<mode->size()<<endl;
-
-    return mode->size().height() ;/// m_output->scale();
+    return mode->size().height() / m_output->scale();
 }
 
-//返回上面小屏幕宽度
 int QMLOutput::currentOutputWidth() const
 {
     if (!m_output) {
@@ -230,12 +224,7 @@ int QMLOutput::currentOutputWidth() const
             return 1000;
         }
     }
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    return mode->size().width();// / m_output->scale();
-#else
     return mode->size().width() / m_output->scale();
-#endif
-
 }
 
 void QMLOutput::currentModeIdChanged()
@@ -308,16 +297,32 @@ void QMLOutput::setOutputY(int y)
     Q_EMIT outputYChanged();
 }
 
+void QMLOutput::setAllowResetSize(bool t_allowResetSize)
+{
+    if (t_allowResetSize != m_allowResetSize) {
+        m_allowResetSize = t_allowResetSize;
+        Q_EMIT allowResetSizeChanged();
+    }
+}
+
+bool QMLOutput::allowResetSize() const
+{
+    return m_allowResetSize;
+}
+
+bool QMLOutput::isCloneModeShow() const
+{
+    return m_cloneModeShow;
+}
+
 bool QMLOutput::isCloneMode() const
 {
     return m_isCloneMode;
 }
 
-void QMLOutput::setIsCloneMode(bool isCloneMode)
+void QMLOutput::setIsCloneMode(bool isCloneMode, bool cloneModeShow)
 {
-    if (m_isCloneMode == isCloneMode) {
-        return;
-    }
+    m_cloneModeShow = cloneModeShow;
 
     m_isCloneMode = isCloneMode;
     Q_EMIT isCloneModeChanged();
@@ -385,7 +390,6 @@ bool QMLOutput::collidesWithOutput(QObject *other)
 
 bool QMLOutput::maybeSnapTo(QMLOutput *other)
 {
-    //qDebug()<<"maybeSnapTo---->"<<endl;
     qreal centerX = x() + (width() / 2.0);
     qreal centerY = y() + (height() / 2.0);
 
@@ -539,43 +543,11 @@ bool QMLOutput::maybeSnapTo(QMLOutput *other)
 
         return true;
     }
-    // 矩形是否相交
-    if (!(x() + width() < x2 ||  x2 + width2 < x() ||
-          y() > y2 +height2 || y2 > y() + height()) &&
-            (x() != x2 || y() != y2)) {
-
-        if ((x() + width() > x2) && (x() < x2)) {
-            setX(x2 - width() + sMargin);
-            setRightDockedTo(other);
-            other->setLeftDockedTo(this);
-        } else if ((x() < x2 + width2) && (x() + width() > x2 + width2)) {
-            setX(x2 + width2 - sMargin);
-            setLeftDockedTo(other);
-            other->setRightDockedTo(this);
-        } else if ((y() + height() > y2) && (y() < y2 + height2)) {
-            setY(y2 - height() + sMargin);
-            setBottomDockedTo(other);
-            other->setTopDockedTo(this);
-        } else if ((y()  <  y2  + height2) && (y() + height() > y2 + height2)) {
-            setY(y2 + height2 - sMargin);
-            setTopDockedTo(other);
-            other->setBottomDockedTo(this);
-        }
-    }
-
-    if (x() == x2 && y() == y2 ) {
-        if (x() == 0) {
-            setX(x() + width());
-        } else if (x() + width() == 550){
-            setX(x() - width());
-        }
-    }
     return false;
 }
 
 void QMLOutput::moved()
 {
-//    qDebug()<<"moved----->"<<endl;
     const QList<QQuickItem*> siblings = screen()->childItems();
 
     // First, if we have moved, then unset the "cloneOf" flag
@@ -637,8 +609,6 @@ void QMLOutput::updateRootProperties()
 
     //qDebug()<<"transformedWidth: "<<transformedWidth<<"transformedHeight: "<<transformedHeight<<endl;
 
+    setPosition(QPointF(transformedX, transformedY));
     setSize(QSizeF(transformedWidth, transformedHeight));
-    if (this->y() < 108)
-        setPosition(QPointF(this->x(),0));
-//    setPosition();
 }
