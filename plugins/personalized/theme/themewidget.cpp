@@ -58,12 +58,12 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     selectedLabel->setScaledContents(true);
     selectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.svg"));
 
-    QLabel * nameLabel = new QLabel(this);
+    FixLabel * nameLabel = new FixLabel(this);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
     nameSizePolicy.setHorizontalPolicy(QSizePolicy::Fixed);
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     nameLabel->setSizePolicy(nameSizePolicy);
-    nameLabel->setFixedWidth(102);
+    nameLabel->setMinimumWidth(130);
     nameLabel->setText(name);
 
     QHBoxLayout * iconHorLayout = new QHBoxLayout;
@@ -78,7 +78,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
 
 
     mainHorLayout->addWidget(nameLabel);
-    mainHorLayout->addSpacerItem(new QSpacerItem(58,20));
+    mainHorLayout->addSpacerItem(new QSpacerItem(38,20));
     mainHorLayout->addLayout(iconHorLayout);
     mainHorLayout->addStretch(2);
     mainHorLayout->addWidget(placeHolderLabel);
@@ -117,7 +117,7 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMa
     selectedLabel->setScaledContents(true);
     selectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.svg"));
 
-    QLabel * nameLabel = new QLabel(this);
+    FixLabel * nameLabel = new FixLabel(this);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
     nameSizePolicy.setHorizontalPolicy(QSizePolicy::Preferred);
     nameSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);

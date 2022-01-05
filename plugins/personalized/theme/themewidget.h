@@ -26,6 +26,7 @@
 #include <QPixmap>
 #include <QRadioButton>
 #include <QFrame>
+#include <ukcc/widgets/fixlabel.h>
 
 class QLabel;
 
