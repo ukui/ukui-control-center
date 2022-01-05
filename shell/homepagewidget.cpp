@@ -60,25 +60,6 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
     ui->scrollArea->viewport()->setStyleSheet("background-color: transparent;");
     ui->scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
     ui->scrollArea->verticalScrollBar()->setVisible(false);
-    const QByteArray styleID(STYLE_FONT_SCHEMA);
-    QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
-    connect(stylesettings,&QGSettings::changed, [=](QString key) {
-        if ("systemFont" == key || "systemFontSize" == key) {
-            if (ui->scrollArea->layout() != NULL) {
-                QLayoutItem *item;
-                while ((item = ui->scrollAreaWidgetContents_5->layout()->takeAt(0)) != NULL) {
-                    if(item->widget()) {
-                       item->widget()->setParent(NULL);
-                    }
-                    delete item;
-                    item = nullptr;
-                }
-            }
-            // 删掉滚动区域布局
-            delete ui->scrollAreaWidgetContents_5->layout();
-            initUI();
-        }
-    });
 
 }
 
@@ -177,6 +158,7 @@ void HomePageWidget::initUI() {
         QHBoxLayout * funcHorLayout = new QHBoxLayout();
 
         uint AllWidth = 0;
+        QList< TristateLabel *> mLabels;
         //循环填充模块下属功能
         if (moduleIndex >= FunctionSelect::funcinfoListHomePage.size()) {
             continue;
@@ -202,15 +184,12 @@ void HomePageWidget::initUI() {
             }
 
             QString textName = single.namei18nString;
-
             TristateLabel *label = new TristateLabel(textName, widget);
 
+            mLabels.append(label);
             AllWidth += label->width();
-            if (AllWidth > 200) {
-                delete label;
-                label = nullptr;
-                continue;
-            }
+            if (AllWidth > 200)
+                label->setVisible(false);
 
             QGSettings *plugin_settings = setGsettingsPath(list_path ,  single.nameString);
             vecGsettins.insert(single.nameString , plugin_settings);
@@ -231,6 +210,23 @@ void HomePageWidget::initUI() {
 
             funcHorLayout->addWidget(label);
         }
+        const QByteArray styleID(STYLE_FONT_SCHEMA);
+        QGSettings *stylesettings = new QGSettings(styleID, QByteArray(), this);
+        connect(stylesettings,&QGSettings::changed, [=](QString key) {
+            if ("systemFont" == key || "systemFontSize" == key) {
+                 int MWidth = 0;
+                 for (TristateLabel * label : mLabels) {
+                     QFontMetrics fontMetrics(this->font());
+                     int fontSize = fontMetrics.width(label->text());
+                     label->setFixedWidth(fontSize);
+                     if ((MWidth += label->width()) < 200) {
+                         label->setVisible(true);
+                     } else {
+                         label->setVisible(false);
+                     }
+                 }
+            }
+        });
         connect(widget, &QPushButton::clicked, [=]() {
             int moduleIndex = kvConverter->keystringTokeycode(moduleName);
 
