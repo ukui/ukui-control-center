@@ -413,9 +413,12 @@ void About::initUI(QWidget *widget)
     mActivationFrame = new QFrame(Aboutwidget);
     setFrame_Box(mActivationFrame);
 
-    QGridLayout *mActivationLayout = new QGridLayout(mActivationFrame);
+    QHBoxLayout *mActivationLayout_1 = new QHBoxLayout(mActivationFrame);
+    mActivationLayout_1->setContentsMargins(16, 16, 16, 8);
+    mActivationLayout_1->setSpacing(8);
+
+    QGridLayout *mActivationLayout = new QGridLayout();
     mActivationLayout->setVerticalSpacing(8);
-    mActivationLayout->setContentsMargins(16, 16, 16, 8);
 
     mStatusLabel_1 = new FixLabel(mActivationFrame);
     mStatusLabel_1->setFixedSize(160,30);
@@ -430,13 +433,15 @@ void About::initUI(QWidget *widget)
 
     mActivationBtn->setFixedSize(120,40);
 
-    mActivationLayout->addWidget(mStatusLabel_1, 0, 0, 2, 1);
-    mActivationLayout->addWidget(mStatusLabel_2, 0, 1, 2, 3,Qt::AlignLeft);
-    mActivationLayout->addWidget(mSequenceLabel_1, 2, 0, 2, 1);
-    mActivationLayout->addWidget(mSequenceLabel_2, 2, 1, 2, 3,Qt::AlignLeft);
-    mActivationLayout->addWidget(mTimeLabel_1, 4, 0, 2, 1);
-    mActivationLayout->addWidget(mTimeLabel_2, 4, 1, 2, 3,Qt::AlignLeft);
-    mActivationLayout->addWidget(mActivationBtn, 1, 3, 4, 1, Qt::AlignRight);
+    mActivationLayout->addWidget(mStatusLabel_1, 0, 0, 1, 1);
+    mActivationLayout->addWidget(mStatusLabel_2, 0, 1, 1, 3,Qt::AlignLeft);
+    mActivationLayout->addWidget(mSequenceLabel_1, 1, 0, 1, 1);
+    mActivationLayout->addWidget(mSequenceLabel_2, 1, 1, 1, 3,Qt::AlignLeft);
+    mActivationLayout->addWidget(mTimeLabel_1, 2, 0, 1, 1);
+    mActivationLayout->addWidget(mTimeLabel_2, 2, 1, 1, 3,Qt::AlignLeft);
+
+    mActivationLayout_1->addLayout(mActivationLayout);
+    mActivationLayout_1->addWidget(mActivationBtn);
 
     mTipLabel = new FixLabel(tr("Copyright © 2009-2021 KylinSoft. All rights reserved.") , Aboutwidget);
     mTipLabel->setContentsMargins(16 , 0 , 0 , 0);
@@ -634,8 +639,8 @@ void About::setupSerialComponent()
     mSequenceLabel_2->setText(serial);
 
     if (dateRes.isEmpty()) {  //未激活
-         if (trial_status == 1) {  //试用期
-            mStatusLabel_2->setText(tr("Not activated (trial period)"));
+         if (!trial_dateRes.isEmpty()) {  //试用期
+            mStatusLabel_2->setText(tr("Inactivated"));
             mStatusLabel_2->setStyleSheet("color : red ");
             mTimeLabel_1->setText(tr("Trial expiration time"));
             mTimeLabel_2->setText(trial_dateRes);
