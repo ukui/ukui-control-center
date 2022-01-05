@@ -203,8 +203,6 @@ void MainWindow::initUI() {
     this->setMinimumSize(978, 630);
     if (screenSize.width() > 1440)
         this->resize(1160,720);
-    ui->centralWidget->setStyleSheet("QWidget#centralWidget{background: palette(base); border-radius: 6px;}");
-
     m_ModuleMap = Utils::getModuleHideStatus();
 
     const QByteArray id("org.ukui.style");
@@ -266,15 +264,15 @@ void MainWindow::initUI() {
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
         ui->centralWidget->setVisible(false);    //避免出现明显的卡顿现象，在选择进入屏保界面之后这个问题比较明显，这种做法只是优化
-        if (index){ //首页部分组件样式
+        if (index){ //次页部分组件样式
             titleLabel->setHidden(true);
             mTitleIcon->setHidden(true);
               ui->leftsidebarWidget->setVisible(true);
             //左上角显示字符/返回按钮
             backBtn->setVisible(true);
-
-            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-right-radius: 6px;}");
-        } else { //次页部分组件样式
+            ui->stackedWidget->status = false;
+            ui->titleWidget->status = false;
+        } else { //首页部分组件样式
             //左侧边栏显示/不显示
             ui->leftsidebarWidget->setHidden(true);
             titleLabel->setVisible(true);
@@ -284,8 +282,8 @@ void MainWindow::initUI() {
             if (modulepageWidget) {
                 modulepageWidget->pluginLeave();
             }
-            //中部内容区域
-            ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background:  palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+            ui->stackedWidget->status = true;
+            ui->titleWidget->status = true;
         }
         ui->centralWidget->setVisible(true);
     });
@@ -303,10 +301,7 @@ void MainWindow::initUI() {
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=] (int id){
         if (id == 0) {
-            ui->titleWidget->setStyleSheet("QWidget#titleWidget{background-color:palette(base)}");
             modulepageWidget->mCurrentPluName =  "";
-        } else {
-            ui->titleWidget->setStyleSheet("QWidget#titleWidget{background-color:palette(window)}");
         }
     });
 
@@ -355,7 +350,6 @@ void MainWindow::initTileBar() {
     titleLayout = new QHBoxLayout(ui->titleWidget);
     ui->titleWidget->setLayout(titleLayout);
     ui->titleWidget->setObjectName("titleWidget");
-    ui->titleWidget->setStyleSheet("QWidget#titleWidget{background-color:palette(base)}");
     titleLayout->setContentsMargins(8, 4, 4, 0);
     titleLayout->setSpacing(0);
     m_searchWidget = new SearchWidget(this);
@@ -875,9 +869,7 @@ void MainWindow::initStyleSheet() {
 
     qApp->setWindowIcon(panelicon);
     this->setWindowTitle(tr("Settings"));
-
-    // 中部内容区域
-    ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}");
+    ui->stackedWidget->setAutoFillBackground(true);
 
     // 左上角返回按钮
     backBtn->setProperty("useIconHighlightEffect", true);

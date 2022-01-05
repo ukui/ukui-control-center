@@ -123,17 +123,12 @@ void InternalStyle::drawComplexControl(QStyle::ComplexControl control, const QSt
 void InternalStyle::polish(QPalette &pal)
 {
     QProxyStyle::polish(pal);
-    pal.setColor(QPalette::Inactive, QPalette::Base, pal.base().color());
 }
 
 void InternalStyle::polish(QWidget *widget)
 {
     QProxyStyle::polish(widget);
-    if (qobject_cast<QLineEdit *>(widget)) {
-        auto pal = qApp->palette();
-        pal.setColor(QPalette::Base, pal.alternateBase().color());
-        widget->setPalette(pal);
-    } else if (qobject_cast<QDialog *>(widget)) {
+     if (qobject_cast<QDialog *>(widget)) {
         QPalette paltte = widget->palette();
         paltte.setColor(QPalette::Window, paltte.base().color());
         widget->setPalette(paltte);

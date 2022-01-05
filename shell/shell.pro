@@ -90,9 +90,11 @@ SOURCES += \
     framelessExtended/widgethandlerealize.cpp \
     homepagewidget.cpp \
     modulepagewidget.cpp \
+    mstackwidget.cpp \
     pinyin.cpp \
     prescene.cpp \
     searchwidget.cpp \
+    titlewidget.cpp \
     ukccabout.cpp \
     utils/devicesmonitor.cpp \
     utils/keyvalueconverter.cpp \
@@ -119,9 +121,11 @@ HEADERS += \
     framelessExtended/widgethandlerealize.h \
     homepagewidget.h \
     modulepagewidget.h \
+    mstackwidget.h \
     pinyin.h \
     prescene.h \
     searchwidget.h \
+    titlewidget.h \
     ukccabout.h \
     utils/keyvalueconverter.h \
     component/leftwidgetitem.h \
