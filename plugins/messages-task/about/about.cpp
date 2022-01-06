@@ -271,6 +271,8 @@ void About::setupSerialComponent()
         ui->timeContent->setText(dateRes);
         QTimer::singleShot( 1, this, [=](){
             QString s1(ntpdate());
+            s1.remove(QChar('\n'), Qt::CaseInsensitive);
+            s1.replace(QRegExp("[\\s]+"), " ");   //把所有的多余的空格转为一个空格
             if (s1.isNull()) {    //未连接上网络
                 ui->timeContent->setText(dateRes);
             } else {    //获取到网络时间
@@ -449,8 +451,8 @@ QString About::getTotalMemory()
 
     memtotal = ceil(memtotal / 1024 / 1024);
     // 向2的n次方取整
-    int nPow = ceil(log(memtotal)/log(2.0));
-    memtotal = pow(2.0, nPow);
+//    int nPow = ceil(log(memtotal)/log(2.0));
+//    memtotal = pow(2.0, nPow);
 
     return QString::number(memtotal) + " GB";
 }
