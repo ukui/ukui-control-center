@@ -83,6 +83,7 @@ void ChangtimeDialog::datetimeUpdateSlot(){
 }
 
 void ChangtimeDialog::dayUpdateSlot(){
+    int currentDay = ui->daycomboBox->currentIndex();
     ui->daycomboBox->clear();
 
     int year = ui->yearcomboBox->currentIndex() + BEGINYEAR;
@@ -125,6 +126,11 @@ void ChangtimeDialog::dayUpdateSlot(){
                 ui->daycomboBox->addItem(QString::number(i));
         }
         break;
+    }
+    if (currentDay < ui->daycomboBox->count() && currentDay >= 0) {
+        ui->daycomboBox->setCurrentIndex(currentDay);
+    } else {
+        ui->daycomboBox->setCurrentIndex(0);
     }
 }
 
