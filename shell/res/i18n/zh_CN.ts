@@ -4132,7 +4132,7 @@ folder will be deleted!</source>
         <translation type="vanished">统一输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="409"/>
+        <location filename="../../../plugins/system/display/display.ui" line="415"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="299"/>
         <source>open monitor</source>
         <translation>打开显示器</translation>
@@ -4156,7 +4156,7 @@ folder will be deleted!</source>
         <translation>设为主屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="317"/>
+        <location filename="../../../plugins/system/display/display.ui" line="323"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="238"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
@@ -4179,43 +4179,43 @@ folder will be deleted!</source>
         <translation type="vanished">亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="583"/>
+        <location filename="../../../plugins/system/display/display.ui" line="589"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="537"/>
         <source>follow the sunrise and sunset(17:55-05:04)</source>
         <translation>跟随日落日出（17:55-05:04）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="647"/>
+        <location filename="../../../plugins/system/display/display.ui" line="653"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="601"/>
         <source>custom time</source>
         <translation>自定义时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="711"/>
+        <location filename="../../../plugins/system/display/display.ui" line="717"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="665"/>
         <source>opening time</source>
         <translation>开启时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="794"/>
+        <location filename="../../../plugins/system/display/display.ui" line="800"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="748"/>
         <source>closing time</source>
         <translation>关闭时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="889"/>
+        <location filename="../../../plugins/system/display/display.ui" line="895"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="843"/>
         <source>color temperature</source>
         <translation>色温</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="896"/>
+        <location filename="../../../plugins/system/display/display.ui" line="902"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="850"/>
         <source>warm</source>
         <translation>暖</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/display.ui" line="919"/>
+        <location filename="../../../plugins/system/display/display.ui" line="925"/>
         <location filename="../../../plugins/system/display_hw/display_hw.ui" line="873"/>
         <source>cold</source>
         <translation>冷</translation>
@@ -5613,7 +5613,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="381"/>
+        <location filename="../../mainwindow.cpp" line="375"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5622,44 +5622,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="352"/>
-        <location filename="../../mainwindow.cpp" line="401"/>
-        <location filename="../../mainwindow.cpp" line="860"/>
+        <location filename="../../mainwindow.cpp" line="347"/>
+        <location filename="../../mainwindow.cpp" line="395"/>
+        <location filename="../../mainwindow.cpp" line="871"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="410"/>
+        <location filename="../../mainwindow.cpp" line="404"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="411"/>
+        <location filename="../../mainwindow.cpp" line="405"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="412"/>
+        <location filename="../../mainwindow.cpp" line="406"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="413"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="470"/>
+        <location filename="../../mainwindow.cpp" line="464"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="472"/>
+        <location filename="../../mainwindow.cpp" line="466"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="474"/>
+        <location filename="../../mainwindow.cpp" line="468"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -5668,12 +5668,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="985"/>
+        <location filename="../../mainwindow.cpp" line="994"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="985"/>
+        <location filename="../../mainwindow.cpp" line="994"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -6347,32 +6347,32 @@ Please retry or relogin!</source>
 <context>
     <name>OutputConfig</name>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="77"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="78"/>
         <source>resolution</source>
         <translation>分辨率</translation>
         <extra-contents_path>/Display/resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="112"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="113"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="122"/>
         <source>orientation</source>
         <translation>方向</translation>
         <extra-contents_path>/Display/orientation</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="130"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="131"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="139"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="131"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="132"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="140"/>
         <source>90° arrow-right</source>
         <translation>90° 顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="133"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="134"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="142"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
@@ -6386,13 +6386,13 @@ Please retry or relogin!</source>
         <translation type="vanished">部分程序需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="132"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="133"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="141"/>
         <source>90° arrow-left</source>
         <translation>90° 逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="148"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="150"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="154"/>
         <source>frequency</source>
         <translation>刷新率</translation>
@@ -6403,21 +6403,21 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="349"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="352"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="188"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="191"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
         <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="448"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="451"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="281"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="288"/>
-        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="396"/>
+        <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="394"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8414,65 +8414,52 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="779"/>
         <source>blue-crystal</source>
-        <translation>蓝水晶</translation>
+        <translation type="vanished">蓝水晶</translation>
     </message>
     <message>
         <source>dark-sense</source>
         <translation type="vanished">深色质感</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="783"/>
         <source>DMZ-Black</source>
-        <translation>DMZ-黑</translation>
+        <translation type="vanished">DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="785"/>
         <source>DMZ-White</source>
-        <translation>DMZ-白</translation>
+        <translation type="vanished">DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="808"/>
         <source>basic</source>
-        <translation>基础</translation>
+        <translation type="vanished">基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="810"/>
         <source>classical</source>
-        <translation>经典</translation>
+        <translation type="vanished">经典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="812"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="824"/>
         <source>default</source>
-        <translation>默认</translation>
+        <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="814"/>
         <source>fashion</source>
-        <translation>时尚</translation>
+        <translation type="vanished">时尚</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="816"/>
         <source>hp</source>
-        <translation>惠普</translation>
+        <translation type="vanished">惠普</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="818"/>
         <source>ukui</source>
-        <translation>基础</translation>
+        <translation type="vanished">基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="781"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="820"/>
         <source>lightseeking</source>
-        <translation>寻光</translation>
+        <translation type="vanished">寻光</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="822"/>
         <source>HeYin</source>
-        <translation>和印</translation>
+        <translation type="vanished">和印</translation>
     </message>
     <message>
         <source>found</source>
@@ -8497,7 +8484,7 @@ E-mail: support@kylinos.cn</source>
         <translation>自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="458"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="446"/>
         <source>Edit Shortcut</source>
         <translation>编辑快捷键</translation>
     </message>
@@ -9960,17 +9947,17 @@ E-mail: support@kylinos.cn</source>
         <extra-contents_path>/Shortcut/Add</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="442"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="430"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="443"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="431"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="725"/>
+        <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="713"/>
         <source> or </source>
         <translation type="unfinished"></translation>
     </message>
@@ -10450,6 +10437,67 @@ E-mail: support@kylinos.cn</source>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="254"/>
         <source>Dark</source>
         <translation>深色模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="783"/>
+        <source>Blue-Crystal</source>
+        <translation>蓝水晶</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="785"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="824"/>
+        <source>Light-Seeking</source>
+        <translation>寻光</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="787"/>
+        <source>DMZ-Black</source>
+        <translation>DMZ-黑</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="789"/>
+        <source>DMZ-White</source>
+        <translation>DMZ-白</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="812"/>
+        <source>basic</source>
+        <translation>基础</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="814"/>
+        <source>Classic</source>
+        <translation>启典</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="816"/>
+        <source>Origins-Tracing</source>
+        <translation>溯源</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="818"/>
+        <source>fashion</source>
+        <translation>时尚</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="820"/>
+        <source>hp</source>
+        <translation>惠普</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="822"/>
+        <source>ukui</source>
+        <translation>基础</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="826"/>
+        <source>HeYin</source>
+        <translation>和印</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="828"/>
+        <source>default</source>
+        <translation>默认</translation>
     </message>
     <message>
         <source>Middle</source>

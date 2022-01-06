@@ -70,7 +70,7 @@ void AptProxyDialog::initUi()
 
     QFrame *mChooseFrame = new QFrame(this);
     mChooseFrame->setFixedWidth(432);
-    mChooseFrame->setFrameShape(QFrame::Box);
+    mChooseFrame->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mLyt_3= new QHBoxLayout(mChooseFrame);
     mLyt_3->setContentsMargins(0, 0, 0, 0);

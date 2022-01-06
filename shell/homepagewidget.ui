@@ -68,16 +68,19 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_5">
+        <widget class="TitleWidget" name="scrollAreaWidgetContents_5">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>819</width>
-           <height>511</height>
+           <width>817</width>
+           <height>513</height>
           </rect>
          </property>
          <property name="maximumSize">
@@ -110,6 +113,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TitleWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">titlewidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -148,7 +148,11 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="titleWidget" native="true"/>
+       <widget class="TitleWidget" name="titleWidget" native="true">
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+       </widget>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -159,7 +163,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QStackedWidget" name="stackedWidget">
+         <widget class="MStackWidget" name="stackedWidget">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -181,6 +185,18 @@
    <class>LeftsidebarWidget</class>
    <extends>QWidget</extends>
    <header>leftsidebarwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TitleWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">titlewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MStackWidget</class>
+   <extends>QStackedWidget</extends>
+   <header>mstackwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

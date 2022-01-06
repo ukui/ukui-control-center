@@ -48,6 +48,7 @@ HomePageWidget::HomePageWidget(QWidget *parent) :
     ui(new Ui::HomePageWidget)
 {
     qApp->installEventFilter(this);
+//    this->setAutoFillBackground(true);
     ui->setupUi(this);
     // 获取主窗口
     this->setParent(parent);
@@ -106,7 +107,6 @@ void HomePageWidget::initUI() {
         QWidget * baseWidget = new QWidget();
         baseWidget->setAttribute(Qt::WA_DeleteOnClose);
         baseWidget->setObjectName("itemBaseWidget");
-        baseWidget->setStyleSheet("QWidget#itemBaseWidget{background: palette(base);}");
         //baseWidget 的顶级布局
         QVBoxLayout * baseVerLayout = new QVBoxLayout(baseWidget);
         baseVerLayout->setMargin(0);
@@ -131,8 +131,7 @@ void HomePageWidget::initUI() {
             picModuleName = "time-language";
         }
         widget->setObjectName("itemWidget");
-        widget->setStyleSheet("QPushButton:!checked{background-color: palette(base)}");
-
+         widget->setStyleSheet("QPushButton#itemWidget{background-color: transparent;}");
         QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
         mainHorLayout->setMargin(16);
         mainHorLayout->setSpacing(16);

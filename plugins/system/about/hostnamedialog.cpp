@@ -53,7 +53,7 @@ void HostNameDialog::InitUi()
 
     QFrame *mInputPwdFrame_1 = new QFrame(this);
     mInputPwdFrame_1->setFixedWidth(432);
-    mInputPwdFrame_1->setFrameShape(QFrame::Box);
+    mInputPwdFrame_1->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mLyt_2= new QHBoxLayout(mInputPwdFrame_1);
     mLyt_2->setContentsMargins(0, 0, 0, 0);

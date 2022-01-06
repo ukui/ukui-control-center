@@ -55,7 +55,6 @@ void ModulePageWidget::initUI() {
 
     ui->widget->setSizePolicy(rightSizePolicy);
     ui->widget->setObjectName("widget");
-    ui->widget->setStyleSheet("QWidget#widget{background-color: palette(window);}");
     ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     ui->scrollArea->verticalScrollBar()->setHidden(true);
     connect(ui->scrollArea->verticalScrollBar(),&QScrollBar::rangeChanged,this, [=](){
@@ -109,3 +108,4 @@ void ModulePageWidget::pluginLeave()
         currentPlugin->plugin_leave();
     }
 }
+
