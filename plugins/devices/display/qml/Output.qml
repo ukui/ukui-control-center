@@ -19,6 +19,7 @@
 import QtQuick 2.1
 import QtGraphicalEffects 1.0
 import org.kde.kscreen 1.0
+
 QMLOutput {
 
     id: root;
@@ -27,53 +28,64 @@ QMLOutput {
     signal primaryTriggered(string self);
     signal enabledToggled(string self);
     signal mousePressed();
-    signal mouseReleased();
+    signal mouseReleased(bool isReleased);
+    signal positionChanged(bool isReleased);
+    signal rotationChanged(bool isReleased);
+    signal widthChanged(bool isReleased);
+    signal heightChanged(bool isReleased);
 
     property bool isDragged: monitorMouseArea.drag.active;
     property bool isDragEnabled: true;
     property bool isToggleButtonVisible: false;
     property bool hasMoved: false;
+    property var saveWidth: 0.0;
+    property var saveHeight: 0.0;
 
     width: monitorMouseArea.width;
     height: monitorMouseArea.height;
 
-
-    visible: (opacity > 0);
+    visible: (opacity > 0 && ((isCloneMode && isCloneModeShow) || !isCloneMode));
     opacity: output.connected ? 1.0 : 0.0;
-
 
     Component.onCompleted: {
         root.updateRootProperties();
     }
 
     SystemPalette {
-
         id: palette;
     }
 
     MouseArea {
-
         id: monitorMouseArea;
+        width: {
+            if (allowResetSize === false && saveWidth > 0.0) {
+            } else {
+                if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
+                    saveWidth = root.currentOutputWidth * screen.outputScale
+                } else {
+                    saveWidth = root.currentOutputHeight * screen.outputScale
+                }
+            }
+            return saveWidth;
+        }
 
-        width: root.currentOutputWidth * screen.outputScale;
-        height: root.currentOutputHeight * screen.outputScale;
+        height: {
+            if (allowResetSize === false && saveHeight > 0.0) {
+            } else {
+                if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
+                    saveHeight = root.currentOutputHeight * screen.outputScale
+                } else {
+                    saveHeight = root.currentOutputWidth * screen.outputScale
+                }
+            }
+            return saveHeight;
+        }
 
         anchors.centerIn: parent;
-
         //是否激活时的透明度
         opacity: root.output.enabled ? 1.0 : 0.3;
         transformOrigin: Item.Center;
-        rotation: {
-            if (output.rotation === KScreenOutput.None) {
-                return 0;
-            } else if (output.rotation === KScreenOutput.Right) {
-                return 270;
-            } else if (output.rotation === KScreenOutput.Inverted) {
-                return 180;
-            } else {
-                return 90;
-            }
-        }
+        rotation: 0;
 
         hoverEnabled: true;
         preventStealing: true;
@@ -92,8 +104,6 @@ QMLOutput {
         drag.onActiveChanged: {
             /* If the drag is shorter then the animation then make sure
              * we won't end up in an inconsistent state */
-//            console.log("宽度------>"+width)
-//            console.log("高度------>"+height)
             if (dragActiveChangedAnimation.running) {
                 dragActiveChangedAnimation.complete();
             }
@@ -102,7 +112,10 @@ QMLOutput {
         }
 
         onPressed: root.clicked();
-        onReleased: root.mouseReleased();
+        onReleased: root.mouseReleased(true)
+        onRotationChanged: root.rotationChanged(false);
+        onWidthChanged: root.widthChanged(false);
+        onHeightChanged: root.heightChanged(false);
 
         /* FIXME: This could be in 'Behavior', but MouseArea had
          * some complaints...to tired to investigate */
@@ -150,20 +163,17 @@ QMLOutput {
         }
 
         Rectangle {
-
             id: monitor;
-
             anchors.fill: parent;
-
             //圆角
             radius: 8;
             //是否点击到屏幕
-            color: root.focus? "#2FB3E8" : "#AEACAD";
+            color: root.focus? "#3D6BE5" : "#AEACAD";
             smooth: true;
             clip: true;
 
             border {
-                color: root.focus ? "#2FB3E8" : "#AED6F1";
+                color: root.focus ? "#3498DB" : "#AED6F1";
                 width: 1;
 
                 Behavior on color {
@@ -174,17 +184,12 @@ QMLOutput {
             }
 
             Rectangle {
-
                 id: posLabel;
-
                 y: 4;
                 x: 4;
-
                 width: childrenRect.width + 5;
                 height: childrenRect.height + 2;
-
                 radius: 8;
-
                 opacity: root.output.enabled && monitorMouseArea.drag.active ? 1.0 : 0.0;
                 visible: opacity != 0.0;
 
@@ -192,11 +197,8 @@ QMLOutput {
 
                 Text {
                     id: posLabelText;
-
                     text: root.outputX + "," + root.outputY;
-
                     color: "white";
-
                     y: 2;
                     x: 2;
                 }
@@ -214,37 +216,11 @@ QMLOutput {
                 }
 
                 Text {
-                    id: nameLabel
-                    text: if (root.isCloneMode === true) {
-                            return "";
-                          } /*else if (root.output.type !== KScreenOutput.Panel && root.output.edid && root.output.edid.name) {
-                            return root.output.edid.name;
-                          } */else {
-                            return "";
-                          }
-
-                    //上面文字颜色
-                    color: "#FFFFFF";
-                    font.pixelSize: 12;
-
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter;
-                        bottom: labelVendor.top;
-                        topMargin: 5;
-                    }
-                }
-
-                Text {
                     id: labelVendor;
                     text: if (root.isCloneMode) {
-                            return (qsTr("Mirror Screen"));
-                          } else if (root.output.type === KScreenOutput.Panel) {
-                            return qsTr("Laptop Screen");
-                          } else if (root.output.edid && root.output.edid.vendor) {
-
-                            return root.output.edid.vendor;
+                            return ("Unified Outputs");
                           } else {
-                            return qsTr("External Screen");
+                            return root.output.name;
                           }
 
                     anchors {
@@ -253,27 +229,9 @@ QMLOutput {
                         right: parent.right;
                     }
                     horizontalAlignment: Text.AlignHCenter;
-                    //下面文字颜色
-                    //color: palette.text;
                     color: "#FFFFFF";
-                    font.pixelSize: 18;
+                    font.pixelSize: 12;
                     elide: Text.ElideRight;
-                }
-                Text {
-                    id: label
-                    text: if (root.isCloneMode) {
-                              (labelVendor.text === root.output.name) ? "" : ""
-                          } else {
-                              (labelVendor.text === root.output.name) ? "" : root.output.name
-                          }
-                    color: palette.text;
-                    font.pixelSize: 10;
-
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter;
-                        top: labelVendor.bottom;
-                        topMargin: 5;
-                    }
                 }
             }
         }
@@ -286,16 +244,7 @@ QMLOutput {
 
             Rectangle {
                 id: orientationPanel;
-
-                //注释底部不会变色拖动时候
-//                anchors {
-//                    left: parent.left;
-//                    right: parent.right;
-//                    bottom: parent.bottom;
-//                }
-
                 height: 10;
-                //color: root.focus ? palette.highlight : palette.shadow;
                 //底部颜色
                 color:  palette.highlight ;
                 smooth: true;

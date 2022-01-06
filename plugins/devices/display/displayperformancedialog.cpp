@@ -19,13 +19,15 @@
  */
 #include "displayperformancedialog.h"
 #include "ui_displayperformancedialog.h"
+//#include <ukcc/widgets/closebutton.h>
+//#include "commonComponent/c
 
 #include <QFile>
 #include <QDBusReply>
 #include <QDBusInterface>
 #include <QPainter>
 #include <QPainterPath>
-
+#include <QProcess>
 #include <QDebug>
 
 #define ADVANCED_SCHEMAS "org.ukui.session.required-components"
@@ -46,13 +48,14 @@ DisplayPerformanceDialog::DisplayPerformanceDialog(QWidget *parent) :
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
-    ui->closeBtn->setProperty("useIconHighlightEffect", true);
-    ui->closeBtn->setProperty("iconHighlightEffectMode", 1);
-    ui->closeBtn->setFlat(true);
-    ui->closeBtn->setStyleSheet("QWidget{border:1px solid rgba(255,0,0,1);}");//测试用，画出边界线
-    ui->closeBtn->setStyleSheet("QPushButton:hover:!pressed#closeBtn{background: #FA6056; border-radius: 4px;}"
-                                "QPushButton:hover:pressed#closeBtn{background: #E54A50; border-radius: 4px;}");
+    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
+
+    ui->label->setAlignment(Qt::AlignTop);
+    ui->label_2->setAlignment(Qt::AlignTop);
+    ui->label_3->setAlignment(Qt::AlignTop);
+    ui->label_4->setAlignment(Qt::AlignTop);
+    ui->label_5->setAlignment(Qt::AlignTop);
+    ui->label_6->setAlignment(Qt::AlignTop);
 
     ui->closeBtn->setIcon(QIcon("://img/titlebar/close.svg"));
 
@@ -71,8 +74,11 @@ DisplayPerformanceDialog::DisplayPerformanceDialog(QWidget *parent) :
 DisplayPerformanceDialog::~DisplayPerformanceDialog()
 {
     delete ui;
+    ui = nullptr;
     delete settings;
+    settings = nullptr;
     delete confSettings;
+    confSettings = nullptr;
 }
 
 void DisplayPerformanceDialog::setupComponent(){
@@ -148,6 +154,7 @@ void DisplayPerformanceDialog::changeConfValue(){
     tempSettings->endGroup();
 
     delete tempSettings;
+    tempSettings = nullptr;
 
     //替换kylin-wm-chooser
     QDBusInterface * sysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
@@ -162,9 +169,9 @@ void DisplayPerformanceDialog::changeConfValue(){
 
     QString cmd = QString("mv %1 %2").arg(WM_CHOOSER_CONF_TMP).arg(WM_CHOOSER_CONF);
 
-    QDBusReply<QString> reply =  sysinterface->call("systemRun", QVariant(cmd));
-
+    QProcess::execute(cmd);
     delete sysinterface;
+    sysinterface = nullptr;
 }
 
 void DisplayPerformanceDialog::paintEvent(QPaintEvent *event){

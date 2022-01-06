@@ -21,10 +21,13 @@
 
 #include "display.h"
 #include "ui_display.h"
+#include "../../../shell/utils/utils.h"
 
 #include <KF5/KScreen/kscreen/getconfigoperation.h>
 #include <KF5/KScreen/kscreen/output.h>
 #include <QDebug>
+#include <QDBusInterface>
+#include <QDBusConnection>
 
 DisplaySet::DisplaySet() : mFirstLoad(true)
 {
@@ -32,28 +35,31 @@ DisplaySet::DisplaySet() : mFirstLoad(true)
     pluginType = DEVICES;
 }
 
-DisplaySet::~DisplaySet(){
-
+DisplaySet::~DisplaySet()
+{
 }
 
-QWidget *DisplaySet::get_plugin_ui(){
+QWidget *DisplaySet::get_plugin_ui()
+{
     if (mFirstLoad) {
+        requestBackend();
         mFirstLoad = false;
-        pluginWidget = new DisplayWidget;
-        pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
+        pluginWidget = new Widget;
         QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished,
                          [&](KScreen::ConfigOperation *op) {
-            pluginWidget->setConfig(qobject_cast<KScreen::GetConfigOperation*>(op)->config());
+            pluginWidget->setConfig(qobject_cast<KScreen::GetConfigOperation *>(op)->config());
         });
     }
     return pluginWidget;
 }
 
-QString DisplaySet::get_plugin_name(){
+QString DisplaySet::get_plugin_name()
+{
     return pluginName;
 }
 
-int DisplaySet::get_plugin_type(){
+int DisplaySet::get_plugin_type()
+{
     return pluginType;
 }
 
@@ -61,8 +67,26 @@ void DisplaySet::plugin_delay_control(){
 
 }
 
-const QString DisplaySet::name() const {
-
-    return QStringLiteral("display");
+const QString DisplaySet::name() const
+{
+    return QStringLiteral("Displays");
 }
 
+void DisplaySet::requestBackend()
+{
+    QDBusInterface screenIft("org.kde.KScreen",
+                             "/",
+                             "org.kde.KScreen",
+                             QDBusConnection::sessionBus());
+    if (!screenIft.isValid()) {
+        QProcess process;
+        process.start("uname -m");
+        process.waitForFinished();
+        QString output = process.readAll();
+        output = output.simplified();
+
+        QString command = "/usr/lib/" + output + "-linux-gnu"
+                          +"/libexec/kf5/kscreen_backend_launcher";
+        QProcess::startDetached(command);
+    }
+}

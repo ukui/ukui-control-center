@@ -1,26 +1,25 @@
 #include "controlpanel.h"
 #include "outputconfig.h"
 #include "unifiedoutputconfig.h"
-//#include "kcm_screen_debug.h"
+#include "utils.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QLabel>
+#include <QDBusInterface>
 #include <KF5/KScreen/kscreen/config.h>
 
-ControlPanel::ControlPanel(QWidget *parent)
-    : QFrame(parent)
-    , mUnifiedOutputCfg(nullptr)
+QSize mScaleSize = QSize();
+
+ControlPanel::ControlPanel(QWidget *parent) :
+    QFrame(parent),
+    mUnifiedOutputCfg(nullptr)
 {
-//    setMinimumSize(553,150);
-//    setMaximumSize(16777215,150);
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-//    setFrameStyle(QFrame::NoFrame | QFrame::Sunken);
-//    this->setStyleSheet("border: 1px solid #ff0000");
     mLayout = new QVBoxLayout(this);
-    mLayout->setContentsMargins(0,0,0,0);
+    mLayout->setContentsMargins(0, 0, 0, 0);
 
-
+    isWayland();
 }
 
 ControlPanel::~ControlPanel()
@@ -29,7 +28,6 @@ ControlPanel::~ControlPanel()
 
 void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
 {
-
     qDeleteAll(mOutputConfigs);
     mOutputConfigs.clear();
     delete mUnifiedOutputCfg;
@@ -41,25 +39,30 @@ void ControlPanel::setConfig(const KScreen::ConfigPtr &config)
 
     mConfig = config;
     connect(mConfig.data(), &KScreen::Config::outputAdded,
-            this, &ControlPanel::addOutput);
+            this, [=](const KScreen::OutputPtr &output) {
+        addOutput(output, false);
+    });
     connect(mConfig.data(), &KScreen::Config::outputRemoved,
             this, &ControlPanel::removeOutput);
 
     for (const KScreen::OutputPtr &output : mConfig->outputs()) {
-        //qDebug()<<"output is----->"<<output<<endl;
-        addOutput(output);
+        addOutput(output, false);
     }
 }
 
-void ControlPanel::addOutput(const KScreen::OutputPtr &output)
+void ControlPanel::addOutput(const KScreen::OutputPtr &output, bool connectChanged)
 {
+    if (!connectChanged) {
+        connect(output.data(), &KScreen::Output::isConnectedChanged,
+                    this, &ControlPanel::slotOutputConnectedChanged);
+    }
+
+    if (!output->isConnected())
+        return;
+
     OutputConfig *outputCfg = new OutputConfig(this);
     outputCfg->setVisible(false);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     outputCfg->setShowScaleOption(mConfig->supportedFeatures().testFlag(KScreen::Config::Feature::PerOutputScaling));
-#else
-
-#endif
 
     outputCfg->setOutput(output);
     connect(outputCfg, &OutputConfig::changed,
@@ -68,59 +71,92 @@ void ControlPanel::addOutput(const KScreen::OutputPtr &output)
     connect(outputCfg, &OutputConfig::scaleChanged,
             this, &ControlPanel::scaleChanged);
 
-
+    connect(outputCfg, &OutputConfig::toSetScreenPos,
+            this, [=](){
+        Q_EMIT this->toSetScreenPos(output);
+    });
 
     mLayout->addWidget(outputCfg);
 
     mOutputConfigs << outputCfg;
+
+    if (mIsWayland) {
+        activateOutput(mCurrentOutput);
+    }
 }
 
 void ControlPanel::removeOutput(int outputId)
 {
+    if (mUnifiedOutputCfg) {
+        mUnifiedOutputCfg->deleteLater(); //避免内存泄露，插拔时会一直new，所以这里delete掉
+        mUnifiedOutputCfg = nullptr;
+    }
     for (OutputConfig *outputCfg : mOutputConfigs) {
+        if (!outputCfg || !outputCfg->output()) {
+            continue;
+        }
         if (outputCfg->output()->id() == outputId) {
             mOutputConfigs.removeOne(outputCfg);
-            delete outputCfg;
-            return;
+            outputCfg->deleteLater();
+            outputCfg = nullptr;
+        } else {
+            if (outputCfg->output()->isConnected()) {
+                outputCfg->setVisible(true);
+            } else {
+                outputCfg->setVisible(false);
+            }
         }
     }
 }
 
 void ControlPanel::activateOutput(const KScreen::OutputPtr &output)
 {
-
     // Ignore activateOutput when in unified mode
-    if (mUnifiedOutputCfg) {
+    //避免镜像下拔掉所有屏幕再插上导致不显示显示器内容
+    if (mUnifiedOutputCfg && mUnifiedOutputCfg->isVisible()) {
         return;
     }
 
+    mCurrentOutput = output;
 
-    //qCDebug(KSCREEN_KCM) << "Activate output" << output->id();
-    //qDebug()<<"activateOutput---->"<<mOutputConfigs<<endl;
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
-
-    //    qDebug()<<cfg->output()->id()<<" "<<output->id();
         cfg->setVisible(cfg->output()->id() == output->id());
-
-        //cfg->setVisible(cfg->output()->id() == 66)
     }
 }
 
-
 void ControlPanel::activateOutputNoParam()
 {
-
     // Ignore activateOutput when in unified mode
     if (mUnifiedOutputCfg) {
         return;
     }
-    qDebug()<<"activateOutputNoParam ------>"<<endl;
-   // qCDebug(KSCREEN_KCM) << "Activate output" << output->id();
 
     Q_FOREACH (OutputConfig *cfg, mOutputConfigs) {
-        qDebug()<<cfg->output()->id()<<" id";
-        //cfg->setVisible(cfg->output()->id() == output->id());
         cfg->setVisible(cfg->output()->id() == 66);
+    }
+}
+
+void ControlPanel::changescalemax(const KScreen::OutputPtr &output)
+{
+    QSize sizescale = QSize();
+    Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
+        if (sizescale.width() <= mode->size().width()) {
+            sizescale = mode->size();
+        }
+    }
+    if (mScaleSize == QSize() || mScaleSize.width() > sizescale.width()) {
+        mScaleSize = sizescale;
+    }
+}
+
+void ControlPanel::isWayland()
+{
+    QString sessionType = getenv("XDG_SESSION_TYPE");
+
+    if (!sessionType.compare(kSession, Qt::CaseSensitive)) {
+        mIsWayland = true;
+    } else {
+        mIsWayland = false;
     }
 }
 
@@ -130,9 +166,8 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
         if (!config->output()->isConnected()) {
             continue;
         }
-        //qDebug()<<"config is---->"<<config->output()<<"--------"<<output<<endl;
 
-        //隐藏下面控制
+        // 隐藏下面控制
         config->setVisible(output == nullptr);
     }
 
@@ -140,13 +175,23 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
         mUnifiedOutputCfg->deleteLater();
         mUnifiedOutputCfg = nullptr;
     } else {
-        //qDebug()<<"config is---->"<<mConfig<<endl;
         mUnifiedOutputCfg = new UnifiedOutputConfig(mConfig, this);
-        mUnifiedOutputCfg->is_unifiedoutput = true;
         mUnifiedOutputCfg->setOutput(output);
         mUnifiedOutputCfg->setVisible(true);
         mLayout->insertWidget(mLayout->count() - 2, mUnifiedOutputCfg);
         connect(mUnifiedOutputCfg, &UnifiedOutputConfig::changed,
                 this, &ControlPanel::changed);
+    }
+}
+
+void ControlPanel::slotOutputConnectedChanged()
+{
+    const KScreen::OutputPtr output(qobject_cast<KScreen::Output *>(sender()), [](void *){
+    });
+
+    if (output->isConnected()) {
+        addOutput(output, true);
+    } else {
+        removeOutput(output->id());
     }
 }

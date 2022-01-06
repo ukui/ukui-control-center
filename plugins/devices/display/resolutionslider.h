@@ -15,35 +15,33 @@ class ResolutionSlider : public QWidget
 {
     Q_OBJECT
 
-  public:
+public:
     explicit ResolutionSlider(const KScreen::OutputPtr &output, QWidget *parent = nullptr);
     ~ResolutionSlider() override;
 
     QSize currentResolution() const;
     QSize getMaxResolution() const;
-    QComboBox *mComboBox = nullptr;
 
-  Q_SIGNALS:
-    void resolutionChanged(const QSize &size);
+    void setResolution(const QSize &size);
 
-  private Q_SLOTS:
+Q_SIGNALS:
+    void resolutionChanged(const QSize &size, bool emitFlag = true);
+
+public Q_SLOTS:
     void slotValueChanged(int);
-    void slotOutputModeChanged();
 
-  private:
+private:
     void init();
 
+private:
     KScreen::OutputPtr mOutput;
 
     QList<QSize> mModes;
+    QList<QSize> mExcludeModes;
 
-    QLabel *mSmallestLabel = nullptr;
-    QLabel *mBiggestLabel = nullptr;
-    QLabel *mCurrentLabel = nullptr;
-    QSlider *mSlider = nullptr;
-//    QComboBox *mComboBox = nullptr;
+    QComboBox *mComboBox = nullptr;
 
-    QString qss;
+    bool mIsWayland = false;
 };
 
 #endif // RESOLUTIONSLIDER_H

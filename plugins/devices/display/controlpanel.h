@@ -14,38 +14,49 @@ class QCheckBox;
 class QSlider;
 class QComboBox;
 
+const QString kSession = "wayland";
+
 class ControlPanel : public QFrame
 {
     Q_OBJECT
 
-  public:
+public:
     explicit ControlPanel(QWidget *parent = nullptr);
     ~ControlPanel() override;
 
     void setConfig(const KScreen::ConfigPtr &config);
-
     void setUnifiedOutput(const KScreen::OutputPtr &output);
-
-  public Q_SLOTS:
-    void activateOutput(const KScreen::OutputPtr &output);
-
-public:
     void activateOutputNoParam();
+    void changescalemax(const KScreen::OutputPtr &output);
 
-  Q_SIGNALS:
+private:
+    void isWayland();
+
+public Q_SLOTS:
+    void activateOutput(const KScreen::OutputPtr &output);
+    void slotOutputConnectedChanged();
+
+Q_SIGNALS:
     void changed();
-    void scaleChanged(int index);
+    void scaleChanged(double scale);
+    void toSetScreenPos(const KScreen::OutputPtr &output);
 
 private Q_SLOTS:
-    void addOutput(const KScreen::OutputPtr &output);
+    void addOutput(const KScreen::OutputPtr &output, bool connectChanged);
     void removeOutput(int outputId);
 
-  private:
-    KScreen::ConfigPtr mConfig;
-    QList<OutputConfig*> mOutputConfigs;
-
+public:
     QVBoxLayout *mLayout;
+
+private:
+    KScreen::ConfigPtr mConfig;
+    QList<OutputConfig *> mOutputConfigs;
+
     UnifiedOutputConfig *mUnifiedOutputCfg;
+
+    KScreen::OutputPtr mCurrentOutput;
+
+    bool mIsWayland;
 };
 
 #endif // CONTROLPANEL_H

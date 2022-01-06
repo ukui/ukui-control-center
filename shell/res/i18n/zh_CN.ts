@@ -269,35 +269,24 @@
 <context>
     <name>ApplyDialog</name>
     <message>
-        <location filename="../../../plugins/devices/display/applydialog.ui" line="26"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/applydialog.cpp" line="66"/>
         <source>Whether to apply this modification?</source>
-        <translation>是否应用本次更改</translation>
+        <translation type="vanished">是否应用本次更改</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/applydialog.cpp" line="88"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/applydialog.cpp" line="95"/>
         <source>Apply</source>
-        <translation>应用</translation>
+        <translation type="vanished">应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/applydialog.cpp" line="118"/>
-        <location filename="../../../plugins/devices/display/applydialog.cpp" line="133"/>
         <source>This operation will be undone after %1 seconds.</source>
-        <translation>系统将在%1秒后自动撤销本次操作</translation>
+        <translation type="vanished">系统将在%1秒后自动撤销本次操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/applydialog.cpp" line="131"/>
         <source>This operation will be undone after %1 second.</source>
-        <translation>系统将在%1秒后自动撤销本次操作</translation>
+        <translation type="vanished">系统将在%1秒后自动撤销本次操作</translation>
     </message>
 </context>
 <context>
@@ -706,6 +695,14 @@ you can restore them to ensure the integrity of your system.</source>
         <source>Bluetooth</source>
         <translatorcomment>蓝牙</translatorcomment>
         <translation>蓝牙</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessFrame</name>
+    <message>
+        <location filename="../../../plugins/devices/display/brightnessFrame.cpp" line="38"/>
+        <source>Failed to get the brightness information of this monitor</source>
+        <translation>无法获取该显示器的亮度信息</translation>
     </message>
 </context>
 <context>
@@ -2144,67 +2141,67 @@ folder will be deleted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="183"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="214"/>
         <source>Display Advanced Settings</source>
         <translation>显示高级设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="255"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="297"/>
         <source>Performance</source>
         <translation>性能模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="325"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="376"/>
         <source>Applicable to machine with discrete graphics, which can accelerate the rendering of 3D graphics.</source>
         <translation>适用于具有独立显卡的机器，能够充分发挥显卡的性能，对3D图形绘制进行加速。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="338"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="392"/>
         <source>(Note: not support connect graphical with xmanager on windows.)</source>
         <translation>（注意：本模式不支持Windows上个使用Xmanager等工具连接图形显示）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="412"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="462"/>
         <source>Compatible</source>
         <translation>兼容模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="482"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="538"/>
         <source>Applicable to machine with integrated graphics,  there is no 3D graphics acceleration. </source>
         <translation>适用于集成显卡，BMC显卡等只具备基础显示功能，无3D图形绘制加速。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="495"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="554"/>
         <source>(Note: need connect graphical with xmanager on windows, use this option.)</source>
         <translation>（注意：需要使用Windows上Xmanager等工具连接图形的机器请选择本项）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="569"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="624"/>
         <source>Automatic</source>
         <translation>自动检测</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="639"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="700"/>
         <source>Auto select according to environment, delay the login time (about 0.5 sec).</source>
         <translation>自动检测显示环境，会增加登录延时（0.5秒左右）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="657"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="721"/>
         <source>Threshold:</source>
         <translation>阈值设置：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="667"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="744"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="674"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="757"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="689"/>
+        <location filename="../../../plugins/devices/display/displayperformancedialog.ui" line="772"/>
         <source>(Note: select this option to use 3D graphics acceleration and xmanager.)</source>
         <translation>（注意：使用3D图形加速，且用Xmanager连接图形时选择本项）</translation>
     </message>
@@ -2224,17 +2221,16 @@ folder will be deleted!</source>
         <translation type="obsolete">护眼中心</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.cpp" line="31"/>
+        <location filename="../../../plugins/devices/display/display.cpp" line="34"/>
         <source>Displays</source>
-        <translation type="unfinished">屏幕</translation>
+        <translation>屏幕</translation>
     </message>
 </context>
 <context>
     <name>DisplayWidget</name>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="343"/>
         <source>Screen mirror</source>
-        <translation>屏幕镜像</translation>
+        <translation type="vanished">屏幕镜像</translation>
         <extra-contents_path>/display/Screen mirror</extra-contents_path>
     </message>
     <message>
@@ -2242,45 +2238,38 @@ folder will be deleted!</source>
         <translation type="vanished">关闭此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="344"/>
         <source>Tablet mode only supports mirroring</source>
-        <translation>平板模式仅支持镜像</translation>
+        <translation type="vanished">平板模式仅支持镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="346"/>
         <source>Open this monitor</source>
-        <translation>打开此显示器</translation>
+        <translation type="vanished">打开此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="347"/>
         <source>auto light</source>
-        <translation>自动调整亮度</translation>
+        <translation type="vanished">自动调整亮度</translation>
     </message>
     <message>
         <source>night mode</source>
         <translation type="vanished">夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1018"/>
         <source>Some applications need to be logouted to take effect</source>
-        <translation>应用程序需要注销才能生效</translation>
+        <translation type="vanished">应用程序需要注销才能生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1314"/>
         <source>please insure at least one output!</source>
-        <translation>请确保至少开启一个屏幕!</translation>
+        <translation type="vanished">请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1328"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
-        <translation>抱歉，配置不能应用.</translation>
+        <translation type="vanished">抱歉，配置不能应用.</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1329"/>
         <source>@title:window</source>
         <comment>Unsupported Configuration</comment>
-        <translation>窗口</translation>
+        <translation type="vanished">窗口</translation>
     </message>
     <message>
         <source>Morning time should be earlier than evening time!</source>
@@ -2291,70 +2280,93 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="349"/>
         <source>enable night Mode</source>
-        <translation>开启夜间模式</translation>
+        <translation type="vanished">开启夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="351"/>
         <source>screen brightness</source>
-        <translation>屏幕亮度</translation>
+        <translation type="vanished">屏幕亮度</translation>
         <extra-contents_path>/display/screen brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="353"/>
         <source>Night Mode</source>
-        <translation>夜间模式</translation>
+        <translation type="vanished">夜间模式</translation>
         <extra-contents_path>/display/Night Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="355"/>
         <source>all time</source>
-        <translation>全天开启</translation>
+        <translation type="vanished">全天开启</translation>
         <extra-contents_path>/display/all time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="357"/>
         <source>color temperature</source>
-        <translation>色温</translation>
+        <translation type="vanished">色温</translation>
         <extra-contents_path>/display/color temperature</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1596"/>
         <source>follow the sunrise and sunset</source>
-        <translation>跟随日出日落</translation>
+        <translation type="vanished">跟随日出日落</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1599"/>
         <source>Auto Switch</source>
-        <translation>自动切换</translation>
+        <translation type="vanished">自动切换</translation>
         <extra-contents_path>/display/Auto Switch</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DisplayWindow</name>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="14"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="17"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="168"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="58"/>
+        <source>Display</source>
+        <translation>显示器</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="193"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="214"/>
-        <source>set as home screen</source>
+        <location filename="../../../plugins/devices/display/display.ui" line="239"/>
+        <source>as main</source>
         <translation>设为主屏</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="348"/>
+        <source>screen zoom</source>
+        <translation>屏幕缩放</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="500"/>
+        <source>autorotation</source>
+        <translation>自动旋转</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="674"/>
+        <source>follow the sunrise and sunset(17:55-05:04)</source>
+        <translation>跟随日出日落</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="738"/>
+        <source>custom time</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <source>set as home screen</source>
+        <translation type="vanished">设为主屏</translation>
     </message>
     <message>
         <source>close monitor</source>
         <translation type="vanished">关闭显示器</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="443"/>
         <source>open monitor</source>
-        <translation type="vanished">打开显示器</translation>
+        <translation>打开显示器</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -2373,17 +2385,18 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">亮</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="785"/>
         <source>follow the sunrise and sunset</source>
-        <translation>跟随日出日落</translation>
+        <translation type="vanished">跟随日出日落</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="802"/>
         <source>opening time</source>
-        <translation type="vanished">开启时间</translation>
+        <translation>开启时间</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="885"/>
         <source>closing time</source>
-        <translation type="vanished">关闭时间</translation>
+        <translation>关闭时间</translation>
     </message>
     <message>
         <source>night mode</source>
@@ -2394,44 +2407,32 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="obsolete">关闭此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="322"/>
         <source>Open this monitor</source>
-        <translation type="unfinished">打开此显示器</translation>
+        <translation type="obsolete">打开此显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="398"/>
         <source>Screen mirror</source>
-        <translation type="unfinished">屏幕镜像</translation>
+        <translation type="obsolete">屏幕镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="421"/>
-        <source>tooltip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="514"/>
         <source>screen brightness</source>
-        <translation type="unfinished">屏幕亮度</translation>
+        <translation type="obsolete">屏幕亮度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="658"/>
         <source>Night Mode</source>
-        <translation type="unfinished">夜间模式</translation>
+        <translation type="obsolete">夜间模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="880"/>
         <source>all time</source>
-        <translation type="unfinished">全天生效</translation>
+        <translation type="obsolete">全天生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="1043"/>
         <source>colder</source>
-        <translation>较冷</translation>
+        <translation type="vanished">较冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="1131"/>
         <source>warmer</source>
-        <translation>较暖</translation>
+        <translation type="vanished">较暖</translation>
     </message>
     <message>
         <source>stronger</source>
@@ -2446,17 +2447,19 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="obsolete">至</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.ui" line="1030"/>
+        <location filename="../../../plugins/devices/display/display.ui" line="983"/>
         <source>color temperature</source>
         <translation>色温</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="1013"/>
         <source>warm</source>
-        <translation type="vanished">暖</translation>
+        <translation>暖</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/display.ui" line="990"/>
         <source>cold</source>
-        <translation type="vanished">冷</translation>
+        <translation>冷</translation>
     </message>
     <message>
         <source>apply</source>
@@ -2849,16 +2852,16 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">断开失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="122"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="417"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="421"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="115"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="435"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="439"/>
         <source>Send files</source>
         <translation type="unfinished">发送文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="127"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="432"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="436"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="120"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="450"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="454"/>
         <source>remove</source>
         <translation type="unfinished">移除</translation>
     </message>
@@ -3344,7 +3347,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">系统设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="617"/>
+        <location filename="../../mainwindow.cpp" line="619"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
@@ -3353,34 +3356,34 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">最大化/还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="619"/>
+        <location filename="../../mainwindow.cpp" line="621"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="565"/>
+        <location filename="../../mainwindow.cpp" line="567"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="147"/>
+        <location filename="../../mainwindow.cpp" line="148"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="242"/>
-        <location filename="../../mainwindow.cpp" line="569"/>
+        <location filename="../../mainwindow.cpp" line="243"/>
+        <location filename="../../mainwindow.cpp" line="571"/>
         <source>System Settings</source>
         <translation>系统设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="456"/>
+        <location filename="../../mainwindow.cpp" line="458"/>
         <source>Restore</source>
         <translation>还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="459"/>
-        <location filename="../../mainwindow.cpp" line="618"/>
+        <location filename="../../mainwindow.cpp" line="461"/>
+        <location filename="../../mainwindow.cpp" line="620"/>
         <source>Maximize</source>
         <translation>最大化</translation>
     </message>
@@ -3882,114 +3885,93 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 (镜像模式)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/qml/Output.qml" line="240"/>
         <source>Mirror Screen</source>
-        <translation type="unfinished">镜像屏幕</translation>
+        <translation type="obsolete">镜像屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/qml/Output.qml" line="242"/>
         <source>Laptop Screen</source>
-        <translation type="unfinished">笔记本屏幕</translation>
+        <translation type="obsolete">笔记本屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/qml/Output.qml" line="247"/>
         <source>External Screen</source>
-        <translation type="unfinished">外接屏幕</translation>
+        <translation type="obsolete">外接屏幕</translation>
     </message>
 </context>
 <context>
     <name>OutputConfig</name>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="135"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="79"/>
         <source>resolution</source>
         <translation>分辨率</translation>
+        <extra-contents_path>/Display/resolution</extra-contents_path>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="114"/>
         <source>orientation</source>
-        <translation type="vanished">方向</translation>
+        <translation>方向</translation>
+        <extra-contents_path>/Display/orientation</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="183"/>
         <source>Only tablet mode supports this feature</source>
-        <translation>仅平板模式下支持此功能</translation>
+        <translation type="vanished">仅平板模式下支持此功能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="212"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="485"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="132"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="213"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="486"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="133"/>
         <source>90° arrow-right</source>
         <translation>90° 顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="214"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="487"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="135"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="215"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="488"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="151"/>
+        <source>frequency</source>
+        <translation>刷新率</translation>
+        <extra-contents_path>/Display/frequency</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="452"/>
+        <source>%1 Hz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="134"/>
         <source>90° arrow-left</source>
         <translation>90° 逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="246"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="474"/>
-        <source>fixed-rotation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="247"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="475"/>
         <source>auto-rotation</source>
-        <translation type="unfinished">自动旋转</translation>
+        <translation type="obsolete">自动旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="308"/>
         <source>refresh rate</source>
-        <translation>刷新率</translation>
+        <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="328"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="353"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="361"/>
-        <source>100%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="364"/>
         <source>100% (Recommended)</source>
-        <translation type="unfinished">100% (推荐)</translation>
+        <translation type="obsolete">100% (推荐)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="359"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="366"/>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="368"/>
-        <source>200%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="187"/>
         <source>Auto Screen Rotation</source>
-        <translation>屏幕自动旋转</translation>
+        <translation type="vanished">屏幕自动旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="369"/>
-        <source>300%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="375"/>
+        <location filename="../../../plugins/devices/display/outputconfig.cpp" line="192"/>
         <source>screen zoom</source>
         <translation>屏幕缩放</translation>
+        <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5111,145 +5093,145 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="65"/>
+        <location filename="../../main.cpp" line="66"/>
         <source>ukui-control-center is already running!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1662"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1688"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1463"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1489"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="217"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1594"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1671"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="219"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1620"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1697"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1207"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1228"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1225"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1291"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1246"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1317"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1252"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1312"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1275"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1338"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1333"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1832"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1359"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1858"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1352"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1378"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1399"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1425"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1415"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1429"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1441"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1455"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1479"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1720"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1505"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1746"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1496"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1522"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1515"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1541"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1532"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1558"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1545"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1571"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1558"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1571"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1584"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1597"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1584"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1610"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1622"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1648"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1678"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1704"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1685"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1711"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1692"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1718"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1699"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1725"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1706"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1732"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1713"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1739"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1736"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1762"/>
         <source>Connection failed, attempting reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1756"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1782"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5300,14 +5282,12 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>ResolutionSlider</name>
     <message>
-        <location filename="../../../plugins/devices/display/resolutionslider.cpp" line="88"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"> (推荐)</translation>
+        <translation type="obsolete"> (推荐)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/resolutionslider.cpp" line="119"/>
         <source>No available resolutions</source>
-        <translation>没有合适的分辨率</translation>
+        <translation type="vanished">没有合适的分辨率</translation>
     </message>
 </context>
 <context>
@@ -5740,35 +5720,35 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="151"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="181"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="180"/>
         <source>Enabled touchpad</source>
         <translation>启用触摸板</translation>
         <extra-contents_path>/touchpad/Enabled touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="242"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="189"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="188"/>
         <source>Pointer speed</source>
         <translation>指针速度</translation>
         <extra-contents_path>/touchpad/Pointer speed</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="369"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="183"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="182"/>
         <source>Disable touchpad while typing</source>
         <translation>打字时禁用触摸板</translation>
         <extra-contents_path>/touchpad/Disable touchpad while typing</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="460"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="185"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="184"/>
         <source>Enable mouse clicks with touchpad</source>
         <translation>触摸板轻触点击</translation>
         <extra-contents_path>/touchpad/Enable mouse clicks with touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="560"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="187"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="186"/>
         <source>Scrolling</source>
         <translation>滚动</translation>
         <extra-contents_path>/touchpad/Scrolling</extra-contents_path>
@@ -5802,12 +5782,12 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="226"/>
         <source>Disable rolling</source>
         <translation>禁用滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
         <source>Vertical edge scrolling</source>
         <translation>垂直边界滚动</translation>
     </message>
@@ -5816,7 +5796,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">水平边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="229"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
         <source>Vertical two-finger scrolling</source>
         <translation>垂直双指滚动</translation>
     </message>
@@ -5839,30 +5819,30 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>UkmediaInputWidget</name>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="55"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="56"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="60"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="61"/>
         <source>Input Device</source>
         <translation>选择输入设备</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="63"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="64"/>
         <source>Volume</source>
         <translation>输入音量</translation>
         <extra-contents_path>/audio/Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="93"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="95"/>
         <source>Input Level</source>
         <translation>输入等级</translation>
         <extra-contents_path>/audio/Input Level</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="103"/>
+        <location filename="../../../plugins/system/audio/ukmedia_input_widget.cpp" line="105"/>
         <source>Noise Reduction</source>
         <translation>智能降噪</translation>
         <extra-contents_path>/audio/Noise Reduction</extra-contents_path>
@@ -5915,10 +5895,10 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">加载声音失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2590"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2763"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2850"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2864"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2600"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2772"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2857"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2871"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5926,30 +5906,30 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>UkmediaOutputWidget</name>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="67"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="68"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="71"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="72"/>
         <source>Output Device</source>
         <translation>选择输出设备</translation>
         <extra-contents_path>/audio/Output Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="74"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="75"/>
         <source>Master Volume</source>
         <translation>输出音量</translation>
         <extra-contents_path>/audio/Master Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="104"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="107"/>
         <source>Balance</source>
         <translation>声道平衡</translation>
         <extra-contents_path>/audio/Balance</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="132"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="136"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
@@ -5978,7 +5958,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">声道平衡</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="105"/>
+        <location filename="../../../plugins/system/audio/ukmedia_output_widget.cpp" line="108"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
@@ -6061,7 +6041,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/audio/ukmedia_sound_effects_widget.cpp" line="70"/>
         <source>Alert Volume</source>
         <translation>提示音量</translation>
-        <extra-contents_path>/audio/Alert Volume</extra-contents_path>
     </message>
     <message>
         <source>Boot Music</source>
@@ -6092,121 +6071,121 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="71"/>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="96"/>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="100"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="166"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="168"/>
         <source>pa_context_set_sink_volume_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="114"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="135"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="115"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="137"/>
         <source>pa_context_set_source_mute_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="140"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="142"/>
         <source>pa_context_set_source_volume_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="239"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="255"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="241"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="257"/>
         <source>pa_context_set_sink_input_mute() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="243"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="245"/>
         <source>pa_context_set_sink_input_volume() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="272"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="276"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="274"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="278"/>
         <source>pa_context_set_source_output_volume() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="288"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="290"/>
         <source>pa_context_set_source_output_mute() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="300"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="302"/>
         <source>pa_context_set_card_profile_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="314"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="316"/>
         <source>pa_context_set_default_sink() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="328"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="337"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="787"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="903"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1277"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="329"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="343"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="804"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="923"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1302"/>
         <source>pa_context_set_default_source() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="355"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="363"/>
         <source>pa_context_set_sink_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="369"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="377"/>
         <source>pa_context_set_source_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="398"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="406"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="402"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="543"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="410"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="556"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="404"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="540"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="412"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="553"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="670"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="685"/>
         <source>Failed to read data from stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="719"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="734"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="720"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="735"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="735"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="750"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="862"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="880"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1173"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1194"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="2153"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="2179"/>
         <source>pa_ext_stream_restore_write() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6214,101 +6193,68 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>UnifiedOutputConfig</name>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="96"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="80"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="115"/>
         <source>orientation</source>
-        <translation type="vanished">方向</translation>
+        <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="143"/>
         <source>Only tablet mode supports this feature</source>
-        <translation>仅平板模式下支持此功能</translation>
+        <translation type="vanished">仅平板模式下支持此功能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="147"/>
         <source>Auto Screen Rotation</source>
-        <translation>屏幕自动旋转</translation>
+        <translation type="vanished">屏幕自动旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="172"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="406"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="120"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="173"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="407"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="121"/>
         <source>90° arrow-right</source>
         <translation>90°顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="174"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="408"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="122"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="175"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="409"/>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="123"/>
         <source>90° arrow-left</source>
         <translation>90°逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="206"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="395"/>
-        <source>fixed-rotation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="207"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="396"/>
-        <source>auto-rotation</source>
-        <translation type="unfinished">自动旋转</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="249"/>
-        <source>refresh rate</source>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="155"/>
+        <source>frequency</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="254"/>
+        <source>auto-rotation</source>
+        <translation type="obsolete">自动旋转</translation>
+    </message>
+    <message>
+        <source>refresh rate</source>
+        <translation type="vanished">刷新率</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="336"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="255"/>
-        <source>aa</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="293"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="300"/>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="302"/>
-        <source>200%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="295"/>
-        <source>100%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="298"/>
         <source>100% (Recommended)</source>
-        <translation type="unfinished">100% (推荐)</translation>
+        <translation type="obsolete">100% (推荐)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="303"/>
-        <source>300%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/unifiedoutputconfig.cpp" line="309"/>
         <source>screen zoom</source>
-        <translation type="unfinished">缩放屏幕</translation>
+        <translation type="obsolete">缩放屏幕</translation>
     </message>
 </context>
 <context>
@@ -6493,7 +6439,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="548"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="127"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="114"/>
         <source>arrangement</source>
         <translation>排列方式</translation>
         <extra-contents_path>/wallpaper/arrangement</extra-contents_path>
@@ -6524,29 +6470,29 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">选择桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="132"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="119"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="132"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="119"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="177"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="164"/>
         <source>Local wallpaper</source>
         <translation>本地壁纸</translation>
         <extra-contents_path>/wallpaper/Local wallpaper</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="220"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="207"/>
         <source>Reset</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/wallpaper/Reset</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="263"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="250"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
@@ -6555,7 +6501,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="293"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="280"/>
         <source>centered</source>
         <translation>居中</translation>
         <extra-contents_path>/wallpaper/centered</extra-contents_path>
@@ -6565,7 +6511,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="295"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="282"/>
         <source>stretched</source>
         <translation>拉伸</translation>
         <extra-contents_path>/wallpaper/stretched</extra-contents_path>
@@ -6579,13 +6525,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="291"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="278"/>
         <source>tile</source>
         <translation>平铺</translation>
         <extra-contents_path>/wallpaper/tile</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="289"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="276"/>
         <source>padding</source>
         <translation>填充</translation>
         <extra-contents_path>/wallpaper/padding</extra-contents_path>
@@ -6596,54 +6542,54 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="182"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="169"/>
         <source>Local wall...</source>
         <translation>本地壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="368"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="355"/>
         <source>%1</source>
         <translation type="unfinished">%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="636"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="623"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="644"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="686"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="631"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="673"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="645"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="687"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="632"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="674"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="646"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="688"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="633"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="675"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="647"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="689"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="634"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="676"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="648"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="690"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="635"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="677"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="820"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="649"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="691"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="636"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="678"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -6651,26 +6597,16 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>WarningDialog</name>
     <message>
-        <location filename="../../../plugins/devices/display/warningdialog.ui" line="26"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/display/warningdialog.ui" line="56"/>
         <source>Warning!</source>
-        <translation>警告！</translation>
+        <translation type="vanished">警告！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/warningdialog.ui" line="83"/>
-        <location filename="../../../plugins/devices/display/warningdialog.cpp" line="14"/>
         <source>Confirm</source>
-        <translation>确认</translation>
+        <translation type="vanished">确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/warningdialog.ui" line="102"/>
-        <location filename="../../../plugins/devices/display/warningdialog.cpp" line="15"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>please insure at least one output!</source>
@@ -6684,29 +6620,180 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="265"/>
+        <source>Night Mode</source>
+        <translation>夜间模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="286"/>
+        <source>Open</source>
+        <translation>开启夜间模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="301"/>
+        <source>Time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="317"/>
+        <source>Custom Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="328"/>
+        <source>to</source>
+        <translation type="unfinished">至</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="354"/>
+        <source>Color Temperature</source>
+        <translation>色温</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="357"/>
+        <source>Colder</source>
+        <translation>较冷</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="360"/>
+        <source>Warmer</source>
+        <translation>较暖</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="726"/>
+        <source>Multi-screen</source>
+        <translation>屏幕镜像</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="731"/>
+        <source>Extend Screen</source>
+        <translation>扩展模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="732"/>
+        <source>Clone Screen</source>
+        <translation>镜像模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="800"/>
+        <source>monitor</source>
+        <translation>显示器</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="899"/>
         <source>night mode</source>
-        <translation type="vanished">夜间模式</translation>
+        <translation>夜间模式</translation>
+        <extra-contents_path>/Display/night mode</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="907"/>
+        <source>Theme follow night mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="934"/>
+        <source>resolution</source>
+        <translation>分辨率</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="937"/>
+        <source>orientation</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="940"/>
+        <source>frequency</source>
+        <translation>刷新率</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="943"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1127"/>
+        <source>Hint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="944"/>
+        <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="947"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="948"/>
+        <source>Not Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="957"/>
+        <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %2 seconds&lt;/font&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1128"/>
+        <source>The zoom function needs to log out to take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1129"/>
+        <source>Log out now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1130"/>
+        <source>Later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1468"/>
+        <source>Open time should be earlier than close time!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2080"/>
+        <source>All Day</source>
+        <translation>全天开启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2080"/>
+        <source>Follow the sunrise and sunset</source>
+        <translation>跟随日出日落</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2350"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2364"/>
+        <source>Brightness</source>
+        <translation>屏幕亮度</translation>
     </message>
     <message>
         <source>Some applications need to be logouted to take effect</source>
         <translation type="vanished">应用程序需要注销才能生效</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1549"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1851"/>
         <source>please insure at least one output!</source>
-        <translation type="vanished">请确保至少开启一个屏幕!</translation>
+        <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1467"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1549"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1556"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1851"/>
         <source>Warning</source>
-        <translation type="vanished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>Morning time should be earlier than evening time!</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1557"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
-        <translation type="vanished">抱歉，配置不能应用.</translation>
+        <translation>抱歉，配置不能应用.</translation>
     </message>
     <message>
         <source>@title:window</source>

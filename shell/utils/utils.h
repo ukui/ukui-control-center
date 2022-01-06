@@ -17,42 +17,36 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  *
  */
-#ifndef DISPLAYPERFORMANCEDIALOG_H
-#define DISPLAYPERFORMANCEDIALOG_H
+#ifndef UTILS_H
+#define UTILS_H
 
-#include <QDialog>
+#include <QRect>
+#include <QCursor>
+#include <QObject>
+#include <QWidget>
 #include <QSettings>
-#include <QGSettings>
+#include <QApplication>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
+#include <QDesktopWidget>
+#include <QVariantMap>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
+#include <QtDBus/QDBusConnection>
 
-namespace Ui {
-class DisplayPerformanceDialog;
+namespace Utils
+{    
+    void centerToScreen(QWidget *widget);
+    QRect sizeOnCursor();
+    QVariantMap getModuleHideStatus();
+    QString getCpuInfo();
+    QString getCpuArchitecture();
+    bool isExistEffect();
+    bool isExitBattery();
+    void setKwinMouseSize(int size);
+    bool isWayland();
+    bool isCommunity();
+    bool isTablet();
+    QString getHostName();
 }
-
-class DisplayPerformanceDialog : public QDialog
-{
-    Q_OBJECT
-
-public:
-    explicit DisplayPerformanceDialog(QWidget *parent = 0);
-    ~DisplayPerformanceDialog();
-
-public:
-    void setupComponent();
-    void setupConnect();
-    void initModeStatus();
-    void initThresholdStatus();
-
-    void changeConfValue();
-
-private:
-    void paintEvent(QPaintEvent *event);
-
-private:
-    Ui::DisplayPerformanceDialog *ui;
-
-private:
-    QGSettings *settings;
-    QSettings *confSettings;
-};
-
-#endif // DISPLAYPERFORMANCEDIALOG_H
+#endif // UTILS_H
