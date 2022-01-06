@@ -344,7 +344,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="frame_4">
+       <widget class="QFrame" name="zoomFrame">
         <property name="minimumSize">
          <size>
           <width>0</width>

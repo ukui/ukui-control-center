@@ -512,6 +512,7 @@ void Widget::slotOutputConnectedChanged()
 
 void Widget::slotUnifyOutputs()
 {
+    bool isExtendMode = (mKdsStatus == 2);
     QMLOutput *base = mScreen->primaryOutput();
 
     QList<int> clones;
@@ -543,11 +544,9 @@ void Widget::slotUnifyOutputs()
 
         setConfig(mPrevConfig);
 
-        ui->primaryCombo->setEnabled(true);
-        mCloseScreenButton->setEnabled(true);
-        ui->showMonitorframe->setVisible(true);
-        ui->frame_4->setVisible(true);
-        ui->primaryCombo->setEnabled(true);
+        ui->primaryCombo->setEnabled(isExtendMode);
+        ui->showMonitorframe->setVisible(isExtendMode);
+        ui->zoomFrame->setVisible(isExtendMode);
     } else if (mIscloneMode) {
         // Clone the current config, so that we can restore it in case user
         // breaks the cloning
@@ -586,7 +585,7 @@ void Widget::slotUnifyOutputs()
         // 关闭开关
         mCloseScreenButton->setEnabled(false);
         ui->showMonitorframe->setVisible(false);
-        ui->frame_4->setVisible(false);
+        ui->zoomFrame->setVisible(false);
         ui->primaryCombo->setEnabled(false);
         ui->mainScreenButton->setVisible(false);
         mControlPanel->setUnifiedOutput(base->outputPtr());
@@ -1709,7 +1708,7 @@ void Widget::mainScreenButtonSelect(int index)
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
     ui->showMonitorframe->setVisible(connectCount > 1 && !mIscloneMode);
-    ui->frame_4->setVisible(connectCount > 1 && !mIscloneMode);
+    ui->zoomFrame->setVisible(connectCount > 1 && !mIscloneMode);
 
     // 初始化时不要发射信号
     mCloseScreenButton->blockSignals(true);
