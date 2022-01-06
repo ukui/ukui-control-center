@@ -111,7 +111,14 @@ SearchWidget::SearchWidget(QWidget *parent)
     });
 
     //鼠标点击后直接页面跳转(存在同名信号)
-    connect(m_completer, SIGNAL(activated(QString)), this, SLOT(onCompleterActivated(QString)));
+#if QT_VERSION <= QT_VERSION_CHECK(5,12,0)
+    connect(m_completer, static_cast<void(QCompleter::*)(const QString &)>(&QCompleter::activated),[const QString &text]){
+#else
+    connect(m_completer, QOverload<const QString &>::of(&QCompleter::activated), [=](const QString &text){
+#endif
+        Q_UNUSED(text);
+        Q_EMIT returnPressed();
+    });
 
     connect(m_XrandrSetting, SIGNAL(changed(QString)),this,SLOT(xrandrKeyChange(QString)));
     connect(m_statusSessionDbus, SIGNAL(objectNameChanged(QString)),this,SLOT(xrandrKeyChange(QString)));
@@ -600,13 +607,6 @@ void SearchWidget::addModulesName(QString moduleName, QString searchName, QStrin
     }
 
 }
-
-void SearchWidget::onCompleterActivated(QString value) {
-    qDebug() << Q_FUNC_INFO << value;
-    Q_EMIT returnPressed();
-}
-
-
 
 bool ukCompleter::eventFilter(QObject *o, QEvent *e) {
     if (e->type() == QEvent::FocusOut) {

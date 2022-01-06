@@ -2275,43 +2275,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <source>Morning time should be earlier than evening time!</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
-    <message>
-        <source>Display</source>
-        <translation type="vanished">屏幕</translation>
-    </message>
-    <message>
-        <source>enable night Mode</source>
-        <translation type="vanished">开启夜间模式</translation>
-    </message>
-    <message>
-        <source>screen brightness</source>
-        <translation type="vanished">屏幕亮度</translation>
-        <extra-contents_path>/display/screen brightness</extra-contents_path>
-    </message>
-    <message>
-        <source>Night Mode</source>
-        <translation type="vanished">夜间模式</translation>
-        <extra-contents_path>/display/Night Mode</extra-contents_path>
-    </message>
-    <message>
-        <source>all time</source>
-        <translation type="vanished">全天开启</translation>
-        <extra-contents_path>/display/all time</extra-contents_path>
-    </message>
-    <message>
-        <source>color temperature</source>
-        <translation type="vanished">色温</translation>
-        <extra-contents_path>/display/color temperature</extra-contents_path>
-    </message>
-    <message>
-        <source>follow the sunrise and sunset</source>
-        <translation type="vanished">跟随日出日落</translation>
-    </message>
-    <message>
-        <source>Auto Switch</source>
-        <translation type="vanished">自动切换</translation>
-        <extra-contents_path>/display/Auto Switch</extra-contents_path>
-    </message>
 </context>
 <context>
     <name>DisplayWindow</name>
@@ -2354,14 +2317,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/display.ui" line="738"/>
         <source>custom time</source>
         <translation>自定义</translation>
-    </message>
-    <message>
-        <source>set as home screen</source>
-        <translation type="vanished">设为主屏</translation>
-    </message>
-    <message>
-        <source>close monitor</source>
-        <translation type="vanished">关闭显示器</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/display.ui" line="443"/>
@@ -3903,13 +3858,11 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="79"/>
         <source>resolution</source>
         <translation>分辨率</translation>
-        <extra-contents_path>/Display/resolution</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="114"/>
         <source>orientation</source>
         <translation>方向</translation>
-        <extra-contents_path>/Display/orientation</extra-contents_path>
     </message>
     <message>
         <source>Only tablet mode supports this feature</source>
@@ -3934,7 +3887,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="151"/>
         <source>frequency</source>
         <translation>刷新率</translation>
-        <extra-contents_path>/Display/frequency</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="452"/>
@@ -3971,7 +3923,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/outputconfig.cpp" line="192"/>
         <source>screen zoom</source>
         <translation>屏幕缩放</translation>
-        <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5895,10 +5846,10 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">加载声音失败</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2600"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2772"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2857"/>
-        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2871"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2609"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2781"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2866"/>
+        <location filename="../../../plugins/system/audio/ukmedia_main_widget.cpp" line="2880"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6645,143 +6596,146 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">至</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="354"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="355"/>
         <source>Color Temperature</source>
         <translation>色温</translation>
+        <extra-contents_path>/Display/Color Temperature</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="357"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="358"/>
         <source>Colder</source>
         <translation>较冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="360"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="361"/>
         <source>Warmer</source>
         <translation>较暖</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="726"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="727"/>
         <source>Multi-screen</source>
         <translation>屏幕镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="731"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="732"/>
         <source>Extend Screen</source>
         <translation>扩展模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="732"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="733"/>
         <source>Clone Screen</source>
         <translation>镜像模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="800"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="801"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="899"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="900"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/Display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="907"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="908"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="934"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="935"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="937"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="938"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="940"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="941"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="943"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1127"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="944"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1128"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="944"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="945"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="947"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="948"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="948"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="949"/>
         <source>Not Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="957"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="958"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %2 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1128"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1129"/>
         <source>The zoom function needs to log out to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1129"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1130"/>
         <source>Log out now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1130"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1131"/>
         <source>Later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1468"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1469"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2080"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2082"/>
         <source>All Day</source>
         <translation>全天开启</translation>
+        <extra-contents_path>/Display/All Day</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2080"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2082"/>
         <source>Follow the sunrise and sunset</source>
         <translation>跟随日出日落</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2350"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2364"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2347"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2362"/>
         <source>Brightness</source>
         <translation>屏幕亮度</translation>
+        <extra-contents_path>/Display/Brightness</extra-contents_path>
     </message>
     <message>
         <source>Some applications need to be logouted to take effect</source>
         <translation type="vanished">应用程序需要注销才能生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1549"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1851"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1550"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1852"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1467"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1549"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1556"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1851"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1468"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1550"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1557"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1852"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -6790,7 +6744,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1557"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1558"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
