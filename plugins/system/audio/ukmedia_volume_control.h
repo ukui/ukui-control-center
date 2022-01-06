@@ -170,7 +170,7 @@ public:
     QByteArray name;
     QByteArray description;
     uint32_t index, card_index;
-    int peakDetectIndex=0;
+    int peakDetectIndex=-1;
     pa_source_flags  sourceFlags;
 
 
