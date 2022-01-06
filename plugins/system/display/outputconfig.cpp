@@ -199,7 +199,8 @@ void OutputConfig::initConnection()
         if (mOutput->currentMode()) {
             if (mRefreshRate) {
                 mRefreshRate->blockSignals(true);
-                slotResolutionChanged(mOutput->currentMode()->size(), false);
+                if (mOutput->currentMode()->size() != mResolution->currentResolution())
+                    slotResolutionChanged(mOutput->currentMode()->size(), false);
                 mRefreshRate->blockSignals(false);
             }
         }
