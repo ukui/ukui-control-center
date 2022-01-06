@@ -214,13 +214,14 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     vLayout1->addWidget(m_pOutputLabel);
     vLayout1->addItem(new QSpacerItem(16,4,QSizePolicy::Fixed));
     vLayout1->addWidget(m_pOutputWidget);
+    vLayout1->setSpacing(0);
     this->setLayout(vLayout1);
     this->layout()->setContentsMargins(0,0,0,0);
 
     m_pMasterVolumeWidget->setObjectName("masterVolumeWidget");
     //设置样式
     m_pOutputLabel->setObjectName("m_pOutputLabel");
-    this->setFixedHeight(218);
+    this->setFixedHeight(223);
 
 }
 

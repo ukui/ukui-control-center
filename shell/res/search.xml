@@ -8,13 +8,6 @@
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
-        <pinyinfunc>suofangpingmu</pinyinfunc>
-        <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>缩放屏幕</ChineseFunc>
-        <EnglishFunc>Screen Zoom</EnglishFunc>
-    </plugin>
-    <plugin name="displays">
-        <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmujingxiang</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
         <ChineseFunc>屏幕镜像</ChineseFunc>
@@ -71,17 +64,10 @@
     </plugin>
     <plugin name="printer">
         <pinyinPlugin>dayinji</pinyinPlugin>
-        <pinyinfunc>dayinjihesaomiaoyi</pinyinfunc>
+        <pinyinfunc>dayinjiyusaomiaoyi</pinyinfunc>
         <ChinesePlugin>打印机</ChinesePlugin>
-        <ChineseFunc>打印机和扫描仪</ChineseFunc>
+        <ChineseFunc>打印机与扫描仪</ChineseFunc>
         <EnglishFunc>List of Existing Printers</EnglishFunc>
-    </plugin>
-    <plugin name="printer">
-        <pinyinPlugin>dayinji</pinyinPlugin>
-        <pinyinfunc>tianjiakeyongshebei</pinyinfunc>
-        <ChinesePlugin>打印机</ChinesePlugin>
-        <ChineseFunc>添加可用设备</ChineseFunc>
-        <EnglishFunc>Add printers and scanners</EnglishFunc>
     </plugin>
     <plugin name="mouse">
         <pinyinPlugin>shubiao</pinyinPlugin>
@@ -141,47 +127,47 @@
     </plugin>
     <plugin name="mouse">
         <pinyinPlugin>shubiao</pinyinPlugin>
-        <pinyinfunc>shanshuosudu</pinyinfunc>
+        <pinyinfunc>guangbiaosudu</pinyinfunc>
         <ChinesePlugin>鼠标</ChinesePlugin>
-        <ChineseFunc>闪烁速度</ChineseFunc>
+        <ChineseFunc>光标速度</ChineseFunc>
         <EnglishFunc>Cursor Flashing Speed</EnglishFunc>
     </plugin>
-    <plugin name="touchpad">
+    <plugin name="trackpad">
         <pinyinPlugin>chumoban</pinyinPlugin>
         <pinyinfunc>chumobanshezhi</pinyinfunc>
         <ChinesePlugin>触摸板</ChinesePlugin>
         <ChineseFunc>触摸板设置</ChineseFunc>
         <EnglishFunc>Touchpad Settings</EnglishFunc>
     </plugin>
-    <plugin name="touchpad">
+    <plugin name="trackpad">
         <pinyinPlugin>chumoban</pinyinPlugin>
         <pinyinfunc>qidongchumoban</pinyinfunc>
         <ChinesePlugin>触摸板</ChinesePlugin>
         <ChineseFunc>启动触摸板</ChineseFunc>
         <EnglishFunc>Enabled touchpad</EnglishFunc>
     </plugin>
-    <plugin name="touchpad">
+    <plugin name="trackpad">
         <pinyinPlugin>chumoban</pinyinPlugin>
         <pinyinfunc>zhizhensudu</pinyinfunc>
         <ChinesePlugin>触摸板</ChinesePlugin>
         <ChineseFunc>指针速度</ChineseFunc>
         <EnglishFunc>Touchpad speed</EnglishFunc>
     </plugin>
-    <plugin name="touchpad">
+    <plugin name="trackpad">
         <pinyinPlugin>chumoban</pinyinPlugin>
         <pinyinfunc>dazishijinyongchumoban</pinyinfunc>
         <ChinesePlugin>触摸板</ChinesePlugin>
         <ChineseFunc>打字时禁用触摸板</ChineseFunc>
         <EnglishFunc>Disable touchpad while typing</EnglishFunc>
     </plugin>
-    <plugin name="touchpad">
+    <plugin name="trackpad">
         <pinyinPlugin>chumoban</pinyinPlugin>
         <pinyinfunc>chumobanqingchudianji</pinyinfunc>
         <ChinesePlugin>触摸板</ChinesePlugin>
         <ChineseFunc>触摸板轻触点击</ChineseFunc>
         <EnglishFunc>Enable mouse clicks with touchpad</EnglishFunc>
     </plugin>
-    <plugin name="touchpad">
+    <plugin name="trackpad">
         <pinyinPlugin>chumoban</pinyinPlugin>
         <pinyinfunc>gundong</pinyinfunc>
         <ChinesePlugin>触摸板</ChinesePlugin>
@@ -384,21 +370,21 @@
         <ChineseFunc>本地壁纸</ChineseFunc>
         <EnglishFunc>Local wallpaper</EnglishFunc>
     </plugin>
-    <plugin name="netconnect">
+    <plugin name="network">
         <pinyinPlugin>wangluolianjie</pinyinPlugin>
         <pinyinfunc>youxianwangluo</pinyinfunc>
         <ChinesePlugin>网络连接</ChinesePlugin>
         <ChineseFunc>有线网络</ChineseFunc>
         <EnglishFunc>Lan</EnglishFunc>
     </plugin>
-    <plugin name="netconnect">
+    <plugin name="network">
         <pinyinPlugin>wangluolianjie</pinyinPlugin>
         <pinyinfunc>wuxianwangluo</pinyinfunc>
         <ChinesePlugin>网络连接</ChinesePlugin>
         <ChineseFunc>无线网络</ChineseFunc>
         <EnglishFunc>Wifi</EnglishFunc>
     </plugin>
-    <plugin name="netconnect">
+    <plugin name="network">
         <pinyinPlugin>wangluolianjie</pinyinPlugin>
         <pinyinfunc>kaiqiwifi</pinyinfunc>
         <ChinesePlugin>网络连接</ChinesePlugin>
@@ -493,15 +479,8 @@
         <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
         <pinyinfunc>xiugaimima</pinyinfunc>
         <ChinesePlugin>账户信息</ChinesePlugin>
-        <ChineseFunc>修改密码（已创建Pin码）</ChineseFunc>
+        <ChineseFunc>修改密码</ChineseFunc>
         <EnglishFunc>Change password</EnglishFunc>
-    </plugin>
-    <plugin name="userinfo">
-        <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
-        <pinyinfunc>shezhimima</pinyinfunc>
-        <ChinesePlugin>账户信息</ChinesePlugin>
-        <ChineseFunc>设置密码（未创建Pin码）</ChineseFunc>
-        <EnglishFunc>Change phone</EnglishFunc>
     </plugin>
     <plugin name="userinfo">
         <pinyinPlugin>zhanghuxinxi</pinyinPlugin>
@@ -531,19 +510,12 @@
         <ChineseFunc>24小时制</ChineseFunc>
         <EnglishFunc>24-hour Clock</EnglishFunc>
     </plugin>
-    <plugin name="backup">
+    <plugin name="recovery">
         <pinyinPlugin>xitonghuanyuan</pinyinPlugin>
-        <pinyinfunc>huanyuansuoyoushezhi</pinyinfunc>
+        <pinyinfunc>qingkongbinghuanyuan</pinyinfunc>
         <ChinesePlugin>系统还原</ChinesePlugin>
-        <ChineseFunc>还原所有设置</ChineseFunc>
+        <ChineseFunc>清空并还原</ChineseFunc>
         <EnglishFunc>Backup</EnglishFunc>
-    </plugin>
-    <plugin name="backup">
-        <pinyinPlugin>xitonghuanyuan</pinyinPlugin>
-        <pinyinfunc>modiaosuoyouneirongheshezhi</pinyinfunc>
-        <ChinesePlugin>系统还原</ChinesePlugin>
-        <ChineseFunc>抹掉所有内容和设置</ChineseFunc>
-        <EnglishFunc>Erase and Restore</EnglishFunc>
     </plugin>
     <plugin name="gesture">
         <pinyinPlugin>shoushiyindao</pinyinPlugin>

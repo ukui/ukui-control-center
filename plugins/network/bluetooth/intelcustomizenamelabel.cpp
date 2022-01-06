@@ -1,4 +1,4 @@
-#include "customizenamelabel.h"
+#include "intelcustomizenamelabel.h"
 #include "ImageUtil/imageutil.h"
 
 
@@ -43,7 +43,15 @@ void CustomizeNameLabel::initMemberVariables()
     connect(nameLineEdit,&QLineEdit::textChanged,this,&CustomizeNameLabel::nameLineEditSlot);
     nameLineEdit->setFixedSize(420,40);
     nameLineEdit->setVisible(false);
-    nameLineEdit->setStyleSheet("QLineEdit {\
+    if (_themeIsBlack)
+        nameLineEdit->setStyleSheet("QLineEdit {\
+                                 border: 1px solid transparent; /* 边框宽度 */\
+                                 selection-background-color: #2FB3E8; /* 选中文本的背景颜色 */\
+                                 selection-color: #FFFFFF; /* 选中文本的颜色 */\
+                                 color: white;\
+                                 background-color: transparent; /* 背景颜色 */}");
+     else
+        nameLineEdit->setStyleSheet("QLineEdit {\
                                  border: 1px solid transparent; /* 边框宽度 */\
                                  selection-background-color: #2FB3E8; /* 选中文本的背景颜色 */\
                                  selection-color: #FFFFFF; /* 选中文本的颜色 */\
@@ -161,10 +169,21 @@ void CustomizeNameLabel::gsettingsChanged(const QString &key)
            gsettings->get("style-name").toString() == "ukui-dark")
         {
             _themeIsBlack = true;
+            nameLineEdit->setStyleSheet("QLineEdit {\
+                                         border: 1px solid transparent; /* 边框宽度 */\
+                                         selection-background-color: #2FB3E8; /* 选中文本的背景颜色 */\
+                                         selection-color: #FFFFFF; /* 选中文本的颜色 */\
+                                         color: white;\
+                                         background-color: transparent; /* 背景颜色 */}");
         }
         else
         {
             _themeIsBlack = false;
+            nameLineEdit->setStyleSheet("QLineEdit {\
+                                        border: 1px solid transparent; /* 边框宽度 */\
+                                        selection-background-color: #2FB3E8; /* 选中文本的背景颜色 */\
+                                        selection-color: #FFFFFF; /* 选中文本的颜色 */\
+                                        background-color: transparent; /* 背景颜色 */}");
 
         }
     } else if (key == "systemFont") {

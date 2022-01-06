@@ -6,10 +6,7 @@
 
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-#include($$PROJECT_COMPONENTSOURCE/hoverwidget.pri)
 include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
-#include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-#include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets
 QT       += core gui widgets dbus svg
@@ -39,38 +36,33 @@ INCLUDEPATH += \
 DEFINES += QT_DEPRECATED_WARNINGS
 #           QT_NO_WARNING_OUTPUT \
 #           QT_NO_DEBUG_OUTPUT
-
-#SOURCES += \
-#        bluetooth.cpp \
-#        bluetooththread.cpp
-
-#HEADERS += \
-#        bluetooth.h \
-#        bluetooththread.h
+exists(/etc/apt/ota_version)
+{
+    DEFINES += DEVICE_IS_INTEL
+}
 
 SOURCES += \
     bluetooth.cpp \
     bluetoothmain.cpp \
 #    bluetoothnamelabel.cpp \
-    customizenamelabel.cpp \
-    deviceinfoitem.cpp \
+    devicebase.cpp \
+    intelcustomizenamelabel.cpp \
+    inteldeviceinfoitem.cpp \
+    intelmsgbox.cpp \
     loadinglabel.cpp \
-    msgbox.cpp
+    ukccbluetoothconfig.cpp
 
 HEADERS += \
     bluetooth.h \
     bluetoothmain.h \
 #    bluetoothnamelabel.h \
+    devicebase.h \
     config.h \
-    customizenamelabel.h \
-    deviceinfoitem.h \
-    loadinglabel.h \ \
-    msgbox.h
-
-#RESOURCES += \
-#    res/img.qrc
-#FORMS += \
-#        bluetooth.ui
+    intelcustomizenamelabel.h \
+    inteldeviceinfoitem.h \
+    intelmsgbox.h \
+    loadinglabel.h \
+    ukccbluetoothconfig.h
 
 INSTALLS += target
 

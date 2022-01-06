@@ -100,7 +100,6 @@ Touchpad::Touchpad()
     ui->touchpadSpeedSlider->setMaximum(35);
     ui->touchpadSpeedSlider->setPageStep(1);
     ui->touchpadSpeedSlider->installEventFilter(this);
-    ui->scrollingTypeComBox->setView(new QListView());
 
     const QByteArray id(TOUCHPAD_SCHEMA);
 

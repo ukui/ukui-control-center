@@ -7,6 +7,8 @@
 #include "shell/interface.h"
 #include "bluetoothmain.h"
 
+#include "ukccbluetoothconfig.h"
+
 class Bluetooth : public QObject, CommonInterface
 {
     Q_OBJECT
@@ -21,7 +23,7 @@ public:
     QWidget * get_plugin_ui()   Q_DECL_OVERRIDE;
     void plugin_delay_control() Q_DECL_OVERRIDE;
     const QString name() const  Q_DECL_OVERRIDE;
-
+    //void plugin_leave()   Q_DECL_OVERRIDE;
 private:
     QString pluginName;
     int pluginType;

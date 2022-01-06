@@ -19,7 +19,7 @@
  */
 #include "wallpaper.h"
 #include "ui_wallpaper.h"
-#include "pictureunit.h"
+
 #include "MaskWidget/maskwidget.h"
 #include <QGraphicsOpacityEffect>
 #include <QDBusReply>
@@ -83,6 +83,7 @@ QWidget *Wallpaper::get_plugin_ui(){
         ui->titleLabel->setText(tr("Desktop Background"));
 
         ui->picOptionsComBox->setMinimumHeight(48);
+
         //初始化控件
         setupComponent();
         //隐藏背景形式
@@ -289,11 +290,31 @@ void Wallpaper::setupConnect(){
     //使用线程构建本地壁纸文件；获取壁纸压缩QPixmap
     pThread = new QThread;
     pObject = new WorkerObject;
+    QString bgFileName = bgsettings->get(FILENAME).toString();
     connect(pObject, &WorkerObject::pixmapGenerate, this, [=](QPixmap pixmap, QString filename){
         PictureUnit * picUnit = new PictureUnit;
         picUnit->setPixmap(pixmap);
         picUnit->setFilenameText(filename);
+        if (bgFileName == filename) {
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width:0px;");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
+        }
+
         connect(picUnit, &PictureUnit::clicked, [=](QString fn){
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width:0px;");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
             bgsettings->set(FILENAME, fn);
             ui->previewStackedWidget->setCurrentIndex(PICTURE);
         });
@@ -416,6 +437,10 @@ void Wallpaper::setupConnect(){
 
         initBgFormStatus();
 
+        if (ui->pictureButton->isChecked()) {
+            QString fileName = bgsettings->get(FILENAME).toString();
+            setClickedPic(fileName);
+        }
         //GSettings key picture-filename 这里收到 pictureFilename的返回值
         if (!QString::compare(key, "pictureFilename")){
             QString curPicname = bgsettings->get(key).toString();
@@ -588,6 +613,7 @@ void Wallpaper::resetDefaultWallpaperSlot(){
     g_object_unref(wpgsettings);
 
     bgsettings->set(FILENAME, QVariant(QString(dwp)));
+    setClickedPic(QString(dwp));
 }
 
 void Wallpaper::showLocalWpDialog(){
@@ -705,4 +731,23 @@ void Wallpaper::del_wallpaper(){
 
     //    将改动保存至文件
     xmlhandleObj->xmlUpdate(wallpaperinfosMap);
+}
+
+
+void Wallpaper::setClickedPic(QString fileName)
+{
+    for (int i = picFlowLayout->count()-1; i>= 0; --i) {
+        QLayoutItem *it = picFlowLayout->itemAt(i);
+        PictureUnit *picUnit = static_cast<PictureUnit*>(it->widget());
+        if (fileName == picUnit->filenameText()) {
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width:0px;");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
+        }
+    }
 }
