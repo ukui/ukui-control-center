@@ -58,19 +58,19 @@ Provide an entry to add printers or scanners.
 ![Fig 9 Printer-big](image/9.png)
 
 ### Mouse
-As shown in Fig 10.
+As shown in Fig mouse.
 
-![Fig 10 Mouse-big](image/10.png)
+![Fig mouse Mouse-big](image/mouse.png)
 
 ### Touchpad
-As shown in Fig 11.
+As shown in Fig touchpad.
 
-![Fig 11 Touchpad-big](image/11.png)
+![Fig touchpad Touchpad-big](image/touchpad.png)
 
 ### Keyboard
-As shown in Fig 12.
+As shown in Fig keyboard.
 
-![Fig 12 Keyboard-big](image/12.png)
+![Fig keyboard Keyboard-big](image/keyboard.png)
 
 ### Shortcut
 As shown in Fig 13.
