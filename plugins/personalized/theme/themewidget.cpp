@@ -56,7 +56,8 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     sSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     selectedLabel->setSizePolicy(sSizePolicy);
     selectedLabel->setScaledContents(true);
-    selectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.svg"));
+    QIcon selectIcon = QIcon::fromTheme("ukui-selected");
+    selectedLabel->setPixmap(selectIcon.pixmap(selectIcon.actualSize(QSize(16, 16))));
 
     FixLabel * nameLabel = new FixLabel(this);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
@@ -115,7 +116,8 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMa
     sSizePolicy.setVerticalPolicy(QSizePolicy::Fixed);
     selectedLabel->setSizePolicy(sSizePolicy);
     selectedLabel->setScaledContents(true);
-    selectedLabel->setPixmap(QPixmap("://img/plugins/theme/selected.svg"));
+    QIcon selectIcon = QIcon::fromTheme("ukui-selected");
+    selectedLabel->setPixmap(selectIcon.pixmap(selectIcon.actualSize(QSize(16, 16))));
 
     FixLabel * nameLabel = new FixLabel(this);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();

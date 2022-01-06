@@ -5,6 +5,7 @@
 
 #include <QFrame>
 #include <QLabel>
+#include <QIcon>
 
 class LanguageFrame : public QFrame
 {
