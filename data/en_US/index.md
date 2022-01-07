@@ -301,24 +301,17 @@ As shown in Fig 29:
 
 <br>
 
-## Update
-### Upgrade
-Check whether the system has available updates.
+## Update Operation
 
-- Update: Show the current update status and the time of the latest refresh.
+In update configuration, you can configure backup and update.
 
-- Update List: Push system available updates.
+-Click start backup to automatically open our Kirin backup and restore tool for system content backup.
+-Click Detect update to automatically open our Kirin update manager to obtain the updated content.
 
-- Update Settings: Whether allow to renewable notice and backup before updating.
 
-![Fig 30 Upgrade-big](image/31.png)
+![Fig 30 Backup-big](image/31.png)
 
-### Backup
-- Begin backup: Back up files to other devices.
-
-- Begin restore: View backup list and restore the system to one of them.
-
-![Fig 31 Backup-big](image/32.png)
+![Fig 31 Upgrade-big](image/32.png)
 
 <br>
 
