@@ -351,6 +351,7 @@ void Widget::initNightModeUi()
     mTemptLyt->setSpacing(8);
     mTemptLabel = new QLabel(mTemptFrame);
     mTemptLabel->setFixedWidth(200);
+    //~ contents_path /Display/Color Temperature
     mTemptLabel->setText(tr("Color Temperature"));
     mWarmLabel = new QLabel(mTemptFrame);
     mWarmLabel->setFixedWidth(64);
@@ -2077,6 +2078,7 @@ void Widget::initConnection()
 void Widget::setNightComponent()
 {
     /* 设置时间模式 */
+    //~ contents_path /Display/All Day
     mTimeModeStringList << tr("All Day") << tr("Follow the sunrise and sunset");
     mTimeModeCombox->insertItem(0, mTimeModeStringList.at(0));
     mTimeModeCombox->insertItem(1, mTimeModeStringList.at(1));
@@ -2356,6 +2358,7 @@ void Widget::showBrightnessFrame(const int flag)
                 } else {
                     ui->unifyBrightFrame->setFixedHeight(82);
                 }
+                //~ contents_path /Display/Brightness
                 BrightnessFrameV[i]->setTextLabelName(tr("Brightness"));
                 BrightnessFrameV[i]->setVisible(true);
                 //不能break，要把其他的frame隐藏

@@ -60,7 +60,6 @@ public:
     void addModulesName(QString moduleName, QString searchName, QString translation = "");
     void clearText();
 private Q_SLOTS:
-    void onCompleterActivated(QString value);
     void screenAddedProcess();
     void screenRemovedProcess();
     void xrandrKeyChange(QString key);
