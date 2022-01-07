@@ -19,6 +19,7 @@
  */
 #include "printer.h"
 #include "ui_printer.h"
+#include <cups/cups.h>
 
 #include <QtPrintSupport/QPrinterInfo>
 #include <QProcess>
@@ -160,62 +161,51 @@ void Printer::initComponent()
 
 void Printer::refreshPrinterDevSlot()
 {
-    QStringList printer = QPrinterInfo::availablePrinterNames();
+    cups_dest_t *dests;
+    int num_dests = cupsGetDests(&dests);
+    cups_dest_t *dest;
+    int i;
+    for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
+        // 获取打印机状态，3为空闲，4为忙碌，5为不可用
+        const char*  value = cupsGetOption("printer-state", dest->num_options, dest->options);
+//        qDebug()<<dest->name<<"----------------"<<value;
 
-    for (int num = 0; num < printer.count(); num++) {
-        QStringList env = QProcess::systemEnvironment();
+         // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
+         bool flag = (atoi(value) == 5 ? true : false);
+         bool flag1 = true;
 
-        env << "LANG=en_US.UTF-8";
+         // 遍历窗口列表，判断列表中是否已经存在该打印机，若存在，便判断该打印机是否可用，不可用则从列表中删除该打印机窗口
+         for (int j = 0; j < ui->listWidget->count(); j++) {
+             QString itemData = ui->listWidget->item(j)->data(Qt::UserRole).toString();
+             if (!itemData.compare(QString(dest->name))) {
+                 if (flag) {
+                     ui->listWidget->takeItem(j);
+                     flag1 = false;
+                     break;
+                 }
+                 flag1 = false;
+                 break;
+             }
+         }
 
-        QProcess *process = new QProcess;
-        process->setEnvironment(env);
-        process->start("lpstat -p "+printer.at(num));
-        process->waitForFinished();
+         //
+         if (!flag && flag1) {
+             HoverBtn *printerItem = new HoverBtn(QString(dest->name), pluginWidget);
+             printerItem->installEventFilter(this);
+             connect(printerItem,&HoverBtn::resize,[=](){
+                 setLabelText(printerItem->mPitLabel,QString(dest->name));
+             });
 
-        QString ba = process->readAllStandardOutput();
-        delete process;
-        QString printer_stat = QString(ba.data());
+             QIcon printerIcon = QIcon::fromTheme("printer");
+             printerItem->mPitIcon->setPixmap(printerIcon.pixmap(printerIcon.actualSize(QSize(24, 24))));
+             QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
+             item->setData(Qt::UserRole, QString(dest->name));
 
+             item->setSizeHint(QSize(QSizePolicy::Expanding, 50));
+             ui->listWidget->setItemWidget(item, printerItem);
+         }
 
-
-        // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
-        bool flag = printer_stat.contains("disable", Qt::CaseSensitive)
-                    || printer_stat.contains("Unplugged or turned off", Qt::CaseSensitive);
-//        bool flag = false;
-
-        bool flag1 = true;
-
-        // 遍历窗口列表，判断列表中是否已经存在该打印机，若存在，便判断该打印机是否可用，不可用则从列表中删除该打印机窗口
-        for (int j = 0; j < ui->listWidget->count(); j++) {
-            QString itemData = ui->listWidget->item(j)->data(Qt::UserRole).toString();
-            if (!itemData.compare(printer.at(num))) {
-                if (flag) {
-                    ui->listWidget->takeItem(j);
-                    flag1 = false;
-                    break;
-                }
-                flag1 = false;
-                break;
-            }
-        }
-
-        //
-        if (!flag && flag1) {
-            HoverBtn *printerItem = new HoverBtn(printer.at(num), pluginWidget);
-            printerItem->installEventFilter(this);
-            connect(printerItem,&HoverBtn::resize,[=](){
-                setLabelText(printerItem->mPitLabel,printer.at(num));
-            });
-
-            QIcon printerIcon = QIcon::fromTheme("printer");
-            printerItem->mPitIcon->setPixmap(printerIcon.pixmap(printerIcon.actualSize(QSize(24, 24))));
-            QListWidgetItem *item = new QListWidgetItem(ui->listWidget);
-            item->setData(Qt::UserRole, printer.at(num));
-
-            item->setSizeHint(QSize(QSizePolicy::Expanding, 50));
-            ui->listWidget->setItemWidget(item, printerItem);
-        }
-    }
+   }
 }
 
 void Printer::runExternalApp()
