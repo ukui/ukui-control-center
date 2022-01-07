@@ -12,6 +12,8 @@ include($$PROJECT_COMPONENTSOURCE/label.pri)
 
 QT       += widgets printsupport
 
+LIBS          += -L$$[QT_INSTALL_LIBS] -lcups
+
 TEMPLATE = lib
 CONFIG += plugin \
           link_pkgconfig
