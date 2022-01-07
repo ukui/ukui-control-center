@@ -179,6 +179,8 @@ void DefaultApp::initDefaultAppInfo(const char *type, QComboBox *combox)
         if (!list.isEmpty()) {
             for (int i = 0; i < list.size(); i++) {
                 QString single(list[i].strAppid);
+                if (type == VIDEOTYPE && single == "kylin-music.desktop") //屏蔽视频播放器里面的音乐
+                    continue;
                 QByteArray ba = QString(DESKTOPPATH + single).toUtf8();
                 GDesktopAppInfo * info = g_desktop_app_info_new_from_filename(ba.constData());
                 QString appname = g_app_info_get_name(G_APP_INFO(info));
