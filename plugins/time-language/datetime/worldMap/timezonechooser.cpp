@@ -214,13 +214,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
         });
 
         m_popup = completer->popup();
-        m_popup->setAttribute(Qt::WA_TranslucentBackground);
         m_popup->installEventFilter(this);
-
-        QHBoxLayout *layout = new QHBoxLayout;
-        layout->setSpacing(0);
-        layout->setMargin(0);
-        m_popup->setLayout(layout);
     });
 }
 
