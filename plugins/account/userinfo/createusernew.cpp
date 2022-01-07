@@ -15,6 +15,8 @@
 #include <QDebug>
 #include <QMouseEvent>
 
+#include <kylin-chkname.h>
+
 #define USER_LENGTH 32
 #define NICKNAME_LENGTH 32
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
@@ -401,48 +403,13 @@ void CreateUserNew::nameLegalityCheck2(QString nickname){
 
 void CreateUserNew::nameLegalityCheck(QString username){
 
-    if (username.isEmpty())
-        userNameTip = tr("The user name cannot be empty");
-    else if (username.startsWith("_") || username.left(1).contains((QRegExp("[0-9]")))){
-        userNameTip = tr("Must be begin with lower letters!");
-    }
-    else if (username.contains(QRegExp("[A-Z]"))){
-        userNameTip = tr("Can not contain capital letters!");
-    }
-    else if (nameTraverse(username))
-        if (username.length() > 0 && username.length() < USER_LENGTH){
+    int isValued = kylin_username_check(username.toLatin1().data(), 1);
 
-            QString cmd = QString("getent group %1").arg(username);
-            QString output;
-
-            FILE   *stream;
-            char buf[256];
-
-            if ((stream = popen(cmd.toLatin1().data(), "r" )) == NULL){
-                return;
-            }
-
-            while(fgets(buf, 256, stream) != NULL){
-                output = QString(buf).simplified();
-            }
-
-            pclose(stream);
-
-            if (_allNames.contains(username)){
-                userNameTip = tr("Name already in use.");
-            } else if (!output.isEmpty()) {
-                userNameTip = tr("Name corresponds to group already exists.");
-            }else {
-                userNameTip = "";
-            }
-        } else {
-            userNameTip = tr("Name length must less than %1 letters!").arg(USER_LENGTH);
+    if (isValued != 0) {
+        qDebug() <<"err_num:" <<  isValued << ";" << kylin_username_strerror(isValued);
+        userNameTip = kylin_username_strerror(isValued);
     } else {
-        userNameTip = tr("Can only contain letters,digits,underline!");
-    }
-
-    if (isHomeUserExists(username) && userNameTip.isEmpty()) {
-        userNameTip = tr("Username's folder exists, change another one");
+        userNameTip = "";
     }
 
     setCunTextDynamic(tipLabel, userNameTip);
