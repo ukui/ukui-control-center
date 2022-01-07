@@ -167,14 +167,7 @@ void Screenlock::setupComponent()
     });
 
     connect(lSetting, &QGSettings::changed, this, [=](QString key) {
-        if ("idleActivationEnabled" == key) {
-            bool judge = lSetting->get(key).toBool();
-            if (!judge) {
-                if (lockSwitchBtn->isChecked()) {
-                    lockSwitchBtn->setChecked(judge);
-                }
-            }
-        } else if ("lockEnabled" == key) {
+        if ("lockEnabled" == key) {
             bool status = lSetting->get(key).toBool();
             lockSwitchBtn->setChecked(status);
         } else if ("background" == key) {
