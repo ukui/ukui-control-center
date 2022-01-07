@@ -6583,7 +6583,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/devices/display/widget.cpp" line="301"/>
         <source>Time</source>
-        <translation>时间</translation>
+        <translation>生效时间</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/widget.cpp" line="317"/>
@@ -6614,7 +6614,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/devices/display/widget.cpp" line="727"/>
         <source>Multi-screen</source>
-        <translation>屏幕镜像</translation>
+        <translation>投屏方式</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/widget.cpp" line="732"/>
