@@ -1900,7 +1900,6 @@ void Widget::initConnection()
         ui->frame_2->setVisible(false);
         ui->frame_3->setVisible(false);
         ui->frame_4->setVisible(false);
-        ui->frame_5->setVisible(false);
         ui->showMonitorframe->setVisible(false);
     }
 
