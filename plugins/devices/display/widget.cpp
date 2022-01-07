@@ -353,20 +353,20 @@ void Widget::initNightModeUi()
     mTemptLabel->setFixedWidth(200);
     //~ contents_path /Display/Color Temperature
     mTemptLabel->setText(tr("Color Temperature"));
-    mWarmLabel = new QLabel(mTemptFrame);
-    mWarmLabel->setFixedWidth(64);
-    mWarmLabel->setText(tr("Colder"));
     mColdLabel = new QLabel(mTemptFrame);
     mColdLabel->setFixedWidth(64);
-    mColdLabel->setText(tr("Warmer"));
-    mColdLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    mColdLabel->setText(tr("Colder"));
+    mWarmLabel = new QLabel(mTemptFrame);
+    mWarmLabel->setFixedWidth(64);
+    mWarmLabel->setText(tr("Warmer"));
+    mWarmLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     mTemptSlider = new QSlider(mTemptFrame);
     mTemptSlider->setMinimumSize(16777215, 50);
     mTemptSlider->setOrientation(Qt::Orientation::Horizontal);
     mTemptLyt->addWidget(mTemptLabel);
-    mTemptLyt->addWidget(mWarmLabel);
-    mTemptLyt->addWidget(mTemptSlider);
     mTemptLyt->addWidget(mColdLabel);
+    mTemptLyt->addWidget(mTemptSlider);
+    mTemptLyt->addWidget(mWarmLabel);
 
     line_1 = setLine(mNightModeFrame);
     line_2 = setLine(mNightModeFrame);
@@ -632,8 +632,6 @@ void Widget::tabletMode_DbusSlot(bool tablet_mode)
 {
     qDebug() << tablet_mode << "============";
     if (tablet_mode) {
-        ui->autorotationFrame->setVisible(true);
-        ui->frame_5->setVisible(true);
 
         mMultiScreenCombox->setCurrentIndex(CLONE);
         mMultiScreenCombox->setEnabled(false);
@@ -649,8 +647,8 @@ void Widget::tabletMode_DbusSlot(bool tablet_mode)
     } else {
         mMultiScreenCombox->setEnabled(true);
 
-        ui->frame_5->setVisible(false);
-        ui->autorotationFrame->setVisible(false);
+        mAutoRotationBtn->setChecked(false);
+        mAutoRotationBtn->setEnabled(false);
     }
 }
 
@@ -738,9 +736,6 @@ void Widget::initComponent()
         QDBusReply<bool> is_tabletmode = m_StatusDbus->call("get_current_tabletmode");
         if (is_tabletmode) {
 
-            ui->autorotationFrame->setVisible(true);
-            ui->frame_5->setVisible(true);
-
             mMultiScreenCombox->setCurrentIndex(CLONE);
             mMultiScreenCombox->setEnabled(false);
 
@@ -752,8 +747,8 @@ void Widget::initComponent()
                 mAutoRotationBtn->setChecked(false);
             }
         } else {
-            ui->frame_5->setVisible(false);
-            ui->autorotationFrame->setVisible(false);
+            mAutoRotationBtn->setChecked(false);
+            mAutoRotationBtn->setEnabled(false);
         }
     }
 
@@ -1905,7 +1900,6 @@ void Widget::initConnection()
         ui->frame_2->setVisible(false);
         ui->frame_3->setVisible(false);
         ui->frame_4->setVisible(false);
-        ui->frame_5->setVisible(false);
         ui->showMonitorframe->setVisible(false);
     }
 

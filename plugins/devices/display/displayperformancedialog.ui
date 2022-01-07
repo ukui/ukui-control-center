@@ -203,7 +203,7 @@
             <number>32</number>
            </property>
            <item>
-            <widget class="TitleLabel" name="titleLabel">
+            <widget class="QLabel" name="titleLabel">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -232,7 +232,7 @@
                 <x>0</x>
                 <y>0</y>
                 <width>489</width>
-                <height>533</height>
+                <height>558</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_32">
@@ -798,13 +798,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>TitleLabel</class>
-   <extends>QLabel</extends>
-   <header location="global">/usr/include/ukcc/widgets/titlelabel.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
  <buttongroups>
