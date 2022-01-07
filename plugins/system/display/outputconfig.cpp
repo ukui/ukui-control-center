@@ -218,9 +218,7 @@ void OutputConfig::initConnection()
             this, [=]() {
         if (mOutput->currentMode()) {
             if (mRefreshRate) {
-                mRefreshRate->blockSignals(true);
                 slotResolutionChanged(mOutput->currentMode()->size(), false);
-                mRefreshRate->blockSignals(false);
             }
 
             if (mScaleCombox) {
@@ -293,7 +291,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     }
 
     modeID = selectMode->id();
-
+    mRefreshRate->blockSignals(true);
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
     for (int i = mRefreshRate->count(); i >= 2; --i) {
@@ -326,6 +324,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     if (-1 == mRefreshRate->currentIndex() || 0 == mRefreshRate->currentIndex()) {
         modeID = mRefreshRate->itemData(1).toString();
     }
+    mRefreshRate->blockSignals(false);
 
     mOutput->setCurrentModeId(modeID);
 
