@@ -42,6 +42,7 @@ extern "C" {
 #define DISABLE_WHILE_TYPING_KEY "disable-while-typing"
 #define TOUCHPAD_CLICK_KEY "tap-to-click"
 #define V_EDGE_KEY "vertical-edge-scrolling"
+#define H_EDGE_KEY "horizontal-edge-scrolling"
 #define V_FINGER_KEY "vertical-two-finger-scrolling"
 #define H_FINGER_KEY "horizontal-two-finger-scrolling"
 #define N_SCROLLING "none"
@@ -245,16 +246,24 @@ void Touchpad::setupComponent(){
     connect(ui->scrollingTypeComBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=](int index){
 #endif
         Q_UNUSED(index)
-        //旧滚动类型设置为false,跳过N_SCROLLING
-        QString oldType = _findKeyScrollingType();
-        if (QString::compare(oldType, N_SCROLLING) != 0)
-        tpsettings->set(oldType, false);
 
-        //新滚动类型设置为true,跳过N_SCROLLING
         QString data = ui->scrollingTypeComBox->currentData().toString();
-        if (QString::compare(data, N_SCROLLING) != 0)
-            tpsettings->set(data, true);
-
+        if (data.compare(V_EDGE_KEY) == 0) {
+            tpsettings->set(V_EDGE_KEY, true);
+            tpsettings->set(H_EDGE_KEY, true);
+            tpsettings->set(V_FINGER_KEY, false);
+            tpsettings->set(H_FINGER_KEY, false);
+        } else if (data.compare(V_FINGER_KEY) == 0) {
+            tpsettings->set(V_EDGE_KEY, false);
+            tpsettings->set(H_EDGE_KEY, false);
+            tpsettings->set(V_FINGER_KEY, true);
+            tpsettings->set(H_FINGER_KEY, true);
+        } else if (data.compare(N_SCROLLING) == 0) {
+            tpsettings->set(V_EDGE_KEY, false);
+            tpsettings->set(H_EDGE_KEY, false);
+            tpsettings->set(V_FINGER_KEY, false);
+            tpsettings->set(H_FINGER_KEY, false);
+        }
     });
 }
 
@@ -282,17 +291,25 @@ void Touchpad::initTouchpadStatus(){
 
 QString Touchpad::_findKeyScrollingType()
 {
-    //水平滚动默认有效
-    tpsettings->set(H_FINGER_KEY, true);
-
     if (tpsettings->get(V_EDGE_KEY).toBool()) {
+        //水平滚动默认有效
+        tpsettings->set(H_EDGE_KEY, true);
+
+        tpsettings->set(H_FINGER_KEY,false);
         tpsettings->set(V_FINGER_KEY,false);
         return V_EDGE_KEY;
     }
     if (tpsettings->get(V_FINGER_KEY).toBool()) {
+        //水平滚动默认有效
+        tpsettings->set(H_FINGER_KEY, true);
+
+        tpsettings->set(H_EDGE_KEY,false);
         tpsettings->set(V_EDGE_KEY,false);
         return V_FINGER_KEY;
     }
+
+    tpsettings->set(H_FINGER_KEY,false);
+    tpsettings->set(H_EDGE_KEY,false);
     return N_SCROLLING;
 }
 
