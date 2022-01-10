@@ -221,7 +221,6 @@ UkmediaOutputWidget::UkmediaOutputWidget(QWidget *parent) : QWidget(parent)
     m_pMasterVolumeWidget->setObjectName("masterVolumeWidget");
     //设置样式
     m_pOutputLabel->setObjectName("m_pOutputLabel");
-    this->setFixedHeight(223);
 
 }
 
