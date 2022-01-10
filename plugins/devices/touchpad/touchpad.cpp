@@ -224,9 +224,9 @@ void Touchpad::setupComponent(){
     ui->clickHorLayout->addWidget(clickBtn);
 
     //
-    ui->scrollingTypeComBox->addItem(tr("Disable rolling"), N_SCROLLING);
-    ui->scrollingTypeComBox->addItem(tr("Vertical edge scrolling"), V_EDGE_KEY);
     ui->scrollingTypeComBox->addItem(tr("Vertical two-finger scrolling"), V_FINGER_KEY);
+    ui->scrollingTypeComBox->addItem(tr("Vertical edge scrolling"), V_EDGE_KEY);
+    ui->scrollingTypeComBox->addItem(tr("Disable rolling"), N_SCROLLING);
 
     connect(enableBtn, &SwitchButton::checkedChanged, [=](bool checked){
         tpsettings->set(ACTIVE_TOUCHPAD_KEY, checked);
