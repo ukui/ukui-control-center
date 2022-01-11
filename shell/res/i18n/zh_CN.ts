@@ -8360,6 +8360,11 @@ run start-pulseaudio-x11 manually.</source>
         <source>ukui-control-center-update</source>
         <translation>控制面板-更新提示</translation>
     </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="103"/>
+        <source>System-Upgrade</source>
+        <translation>系统更新</translation>
+    </message>
 </context>
 <context>
     <name>UpdateLog</name>
