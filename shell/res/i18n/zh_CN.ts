@@ -630,12 +630,6 @@ you can restore them to ensure the integrity of your system.</source>
         <extra-contents_path>/bluetooth/Bluetooth adapter</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1378"/>
-        <source>Show icon on taskbar</source>
-        <translation>在任务栏显示蓝牙图标</translation>
-        <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
-    </message>
-    <message>
         <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1411"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近蓝牙检测发现</translation>

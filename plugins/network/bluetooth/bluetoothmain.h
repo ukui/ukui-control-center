@@ -92,6 +92,7 @@ private slots:
     void reportDevNameChangedSignal(QString,QString);
     void reportDevTypeChangedSignal(QString,QString);
     void reportRequestConfirmation(QString,QString);
+    void reportReplyRequestConfirmation(bool);
     void reportDevOperateErrorSignal(QString,int,QString);
 
     //receive
