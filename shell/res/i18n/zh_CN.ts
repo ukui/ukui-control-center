@@ -4,34 +4,34 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="514"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="519"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="515"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="187"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="516"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="521"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="582"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="584"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="519"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="524"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
@@ -41,12 +41,12 @@
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="525"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="456"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>《试用免责协议》</translation>
     </message>
@@ -71,57 +71,56 @@
         <translation>通过向我们发送诊断数据，提升系统体验以及更快的解决你的问题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="452"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="457"/>
         <source>and</source>
         <translation>和</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="453"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="458"/>
         <source>&lt;&lt;Privacy&gt;&gt;</source>
         <translation>《用户隐私协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="541"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="546"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="551"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="556"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="638"/>
         <source>Not activated (trial period)</source>
-        <translation>未激活(试用期)</translation>
+        <translation type="vanished">未激活(试用期)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="640"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="645"/>
         <source>Trial expiration time</source>
         <translation>试用到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="983"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="988"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="988"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="993"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1124"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1129"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1125"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1130"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1126"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1131"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -134,9 +133,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="901"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="910"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1258"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="906"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="915"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1263"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -153,7 +152,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="565"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="570"/>
         <source>Version</source>
         <translation>版本</translation>
         <extra-contents_path>/About/version</extra-contents_path>
@@ -167,42 +166,42 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="441"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="446"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="567"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="572"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="569"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="574"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="576"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="517"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="908"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="522"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="913"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="578"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="580"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/About/User</extra-contents_path>
@@ -216,7 +215,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="578"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -229,8 +228,8 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="642"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="648"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="647"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="653"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -264,12 +263,13 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="646"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="643"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="651"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="654"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="659"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -2896,136 +2896,128 @@ change system settings</source>
 <context>
     <name>CreateUserNew</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="27"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="29"/>
         <source>CreateUserNew</source>
         <translation>新建用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="48"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="50"/>
         <source>UserName</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="51"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="53"/>
         <source>NickName</source>
         <translation>用户昵称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="54"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="56"/>
         <source>Pwd</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="57"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="59"/>
         <source>SurePwd</source>
         <translation>确认密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="114"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="116"/>
         <source>Select Type</source>
         <translation>选择账户类型</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="123"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="125"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="126"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="128"/>
         <source>Users can make any changes they need</source>
         <translation>管理员用户可以更改任何系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="128"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="130"/>
         <source>Standard User</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="131"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="133"/>
         <source>Users cannot change system settings</source>
         <translation>标准用户不能修改系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="203"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="205"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="205"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="207"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="250"/>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="507"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="252"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="474"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="377"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="379"/>
         <source>The nick name cannot be empty</source>
         <translation>用户昵称不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="379"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="381"/>
         <source>nickName already in use.</source>
         <translation>该用户昵称已存在。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="381"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="383"/>
         <source>nickName length must less than %1 letters!</source>
         <translation>用户昵称长度必须小于%1！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="432"/>
         <source>Name already in use.</source>
-        <translation>该用户名已存在。</translation>
+        <translation type="vanished">该用户名已存在。</translation>
     </message>
     <message>
         <source>Nickname cannot same with username</source>
         <translation type="vanished">用户昵称和用户名不能相同</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="405"/>
         <source>The user name cannot be empty</source>
-        <translation>用户名不能为空</translation>
+        <translation type="vanished">用户名不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="407"/>
         <source>Must be begin with lower letters!</source>
-        <translation>用户名必须以小写字母开始！</translation>
+        <translation type="vanished">用户名必须以小写字母开始！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="410"/>
         <source>Can not contain capital letters!</source>
-        <translation>用户名不能包含大写字母！</translation>
+        <translation type="vanished">用户名不能包含大写字母！</translation>
     </message>
     <message>
         <source>Name already in use, change another one.</source>
         <translation type="vanished">该用户名已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="434"/>
         <source>Name corresponds to group already exists.</source>
-        <translation>用户名对应组已存在，请更改。</translation>
+        <translation type="vanished">用户名对应组已存在，请更改。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="439"/>
         <source>Name length must less than %1 letters!</source>
-        <translation>用户名长度必须小于%1！</translation>
+        <translation type="vanished">用户名长度必须小于%1！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="441"/>
         <source>Can only contain letters,digits,underline!</source>
-        <translation>用户名仅能包含字母，数字及下划线</translation>
+        <translation type="vanished">用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="445"/>
         <source>Username&apos;s folder exists, change another one</source>
-        <translation>用户目录已存在，请更改</translation>
+        <translation type="vanished">用户目录已存在，请更改</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="477"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="444"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
@@ -10439,63 +10431,66 @@ E-mail: support@kylinos.cn</source>
         <translation>深色模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="783"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="778"/>
         <source>Blue-Crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="785"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="824"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="780"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="813"/>
         <source>Light-Seeking</source>
         <translation>寻光</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="787"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="782"/>
         <source>DMZ-Black</source>
         <translation>DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="789"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="784"/>
         <source>DMZ-White</source>
         <translation>DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="812"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="786"/>
+        <source>Dark-Sense</source>
+        <translation>黑色质感</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="809"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="814"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="811"/>
         <source>Classic</source>
         <translation>启典</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="816"/>
         <source>Origins-Tracing</source>
-        <translation>溯源</translation>
+        <translation type="vanished">溯源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="818"/>
         <source>fashion</source>
-        <translation>时尚</translation>
+        <translation type="vanished">时尚</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="820"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="817"/>
         <source>hp</source>
         <translation>惠普</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="822"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="819"/>
         <source>ukui</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="826"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="815"/>
         <source>HeYin</source>
         <translation>和印</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="828"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="821"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
@@ -11809,7 +11804,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">统一输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="798"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="797"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/Display/night mode</extra-contents_path>
@@ -11836,7 +11831,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="312"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1965"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1964"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -11861,47 +11856,47 @@ E-mail: support@kylinos.cn</source>
         <translation>较冷</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="653"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="652"/>
         <source>Multi-screen</source>
         <translation>多屏显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="658"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="657"/>
         <source>First Screen</source>
         <translation>第一屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="661"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
         <source>Clone Screen</source>
         <translation>镜像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="843"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="842"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
         <translation>屏幕%1已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在14秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="856"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="855"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %2 seconds&lt;/font&gt;</source>
         <translation>屏幕%1已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在%2秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1965"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1964"/>
         <source>Follow the sunrise and sunset</source>
         <translation>跟随日出日落</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="659"/>
         <source>Extend Screen</source>
         <translation>扩展</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="659"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="658"/>
         <source>Vice Screen</source>
         <translation>其他屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="699"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="698"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="543"/>
         <source>monitor</source>
         <translation>显示器</translation>
@@ -11913,29 +11908,29 @@ E-mail: support@kylinos.cn</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="806"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="805"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="649"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="833"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="832"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="836"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="835"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="839"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="838"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="842"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1032"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="841"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1031"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="671"/>
         <source>Hint</source>
         <translation>提示</translation>
@@ -11946,12 +11941,12 @@ the settings will be saved after 14 seconds</source>
         <translation type="vanished">是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="846"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="845"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="847"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="846"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
@@ -11961,22 +11956,22 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1033"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1032"/>
         <source>The zoom function needs to log out to take effect</source>
         <translation>修改系统缩放后需要注销生效，是否注销？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1034"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1033"/>
         <source>Log out now</source>
         <translation>立即注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1035"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1034"/>
         <source>Later</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1965"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1964"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
@@ -11985,8 +11980,8 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2232"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2246"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2231"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2245"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2151"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="2158"/>
         <source>Brightness</source>
@@ -12057,17 +12052,17 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1452"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1752"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1451"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1751"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1811"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1371"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1452"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1459"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1752"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1370"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1451"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1458"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1751"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1515"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1811"/>
         <source>Warning</source>
@@ -12082,7 +12077,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">屏幕分辨率已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在%1秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1372"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1371"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1516"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
@@ -12092,7 +12087,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1460"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1459"/>
         <location filename="../../../plugins/system/display_hw/widget.cpp" line="1526"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>

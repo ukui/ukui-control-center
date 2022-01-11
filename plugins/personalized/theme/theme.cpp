@@ -457,7 +457,7 @@ void Theme::initIconTheme() {
     QStringList IconThemeList = themesDir.entryList(QDir::Dirs);
     int count = 0;
     foreach (QString themedir, IconThemeList) {
-        if ("ukui-icon-theme-lightseeking" == themedir) {
+        if ("ukui-icon-theme-default" == themedir) {
             initIconThemeWidget(themedir , 0);
             break;
         }
@@ -467,13 +467,9 @@ void Theme::initIconTheme() {
         if ((Utils::isCommunity() && (!themedir.compare("ukui") || !themedir.compare("ukui-classical")))
                 || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-")) ||
                 (Utils::isTablet() && (themedir.startsWith("ukui-hp") || !themedir.compare("ukui") || themedir.startsWith("ukui-classical")))) {
-            if ("ukui-icon-theme-basic" == themedir  || "ukui-icon-theme-lightseeking" == themedir) {
+            if ("ukui-icon-theme-basic" == themedir  || "ukui-icon-theme-default" == themedir) {
                   continue;
             }
-            if ("ukui-icon-theme-fashion" == themedir) {
-                count++;
-                continue;
-            } // 规避主题包升级之后未删去fashion这个文件夹的问题
             initIconThemeWidget(themedir , count);
         }
     }
@@ -547,13 +543,13 @@ void Theme::initCursorTheme(){
 
     int count = 0;
     for (QString cursor : cursorThemes){
-        if (cursor == "lightseeking") {
+        if (cursor == "dark-sense") {
             initCursorThemeWidget(cursor , 0);
              count++;
         }
      }
     for (QString cursor : cursorThemes){
-        if (cursor != "lightseeking") {
+        if (cursor != "dark-sense") {
             initCursorThemeWidget(cursor , count);
              count++;
         }
@@ -786,6 +782,8 @@ QString Theme::dullCursorTranslation(QString str) {
         return tr("DMZ-Black");
     } else if (!QString::compare(str, "DMZ-White")) {
         return tr("DMZ-White");
+    } else if (!QString::compare(str, "dark-sense")) {
+        return tr("Dark-Sense");
     } else {
         return str;
     }
@@ -809,20 +807,16 @@ void Theme::hideIntelComponent()
 QString Theme::dullTranslation(QString str) {
     if (!QString::compare(str, "basic")){
         return tr("basic");
-    } else if (!QString::compare(str, "classical")) {
+    } else if (!QString::compare(str, "classical")) { // 启典
         return tr("Classic");
-    } else if (!QString::compare(str, "default")) {
-        return tr("Origins-Tracing");
-    } else if (!QString::compare(str, "fashion")) {
-        return tr("fashion");
+    } else if (!QString::compare(str, "default")) {   // 寻光
+        return tr("Light-Seeking");
+    } else if (!QString::compare(str, "fashion")) {   // 和印
+        return tr("HeYin");
     } else if (!QString::compare(str, "hp")) {
         return tr("hp");
     } else if (!QString::compare(str, "ukui")) {
         return tr("ukui");
-    } else if (!QString::compare(str, "lightseeking")) {
-        return tr("Light-Seeking");
-    } else if (!QString::compare(str, "HeYin")) {
-         return tr("HeYin");
     } else {
         return tr("default");
     }
@@ -833,9 +827,7 @@ void Theme::resetBtnClickSlot() {
 
     emit ui->themeModeBtnGroup->buttonClicked(ui->defaultButton);
 
-    // 重置光标主题
-//    curSettings->reset(CURSOR_THEME_KEY);
-    curSettings->set(CURSOR_THEME_KEY , "lightseeking"); //规避光标主题默认值与设计不一致的问题
+    curSettings->reset(CURSOR_THEME_KEY);
     QString cursorTheme = kDefCursor;
     QString defaultCursor = getCursorName();
     if (defaultCursor.isEmpty()) {
@@ -845,11 +837,8 @@ void Theme::resetBtnClickSlot() {
     }
     kwinCursorSlot(cursorTheme);
 
-    // 规避图标主题reset与set图标包不一致的问题
-//    qtSettings->reset(ICON_QT_KEY);
-//    gtkSettings->reset(ICON_GTK_KEY);
-    qtSettings->set(ICON_QT_KEY, "ukui-icon-theme-lightseeking");
-    gtkSettings->set(ICON_GTK_KEY, "ukui-icon-theme-lightseeking");
+    qtSettings->reset(ICON_QT_KEY);
+    gtkSettings->reset(ICON_GTK_KEY);
 
     if (ui->effectFrame->isVisible()) {
         effectSwitchBtn->setChecked(true);

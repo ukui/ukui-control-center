@@ -65,6 +65,7 @@ Depends: ${shlibs:Depends},
          ukui-biometric-manager(>=1.0.1-1kylin1~46),
          miraclecast(>=1.0.21kord),
          kylin-sso-client(>=2.0.0),
+         ubuntukylin-theme(>=2.0.99)
 Suggests: gsettings-desktop-schemas,
           mate-desktop-common,
           ukui-power-manager(>=2.1.29~rc11),
