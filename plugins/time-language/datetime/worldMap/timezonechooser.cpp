@@ -163,8 +163,11 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
 
 
     connect(m_map, &TimezoneMap::timezoneSelected, this, [this]{
-        m_searchInput->setText("") ;
-        m_searchInput->clearFocus();
+        if (m_searchInput->hasFocus() || !m_searchInput->text().isEmpty()) {
+            m_searchInput->setText("");
+            m_searchInput->setFocus();
+            m_searchInput->clearFocus();
+        }
     });
 
     connect(m_searchInput, &QLineEdit::editingFinished, [this]{
@@ -386,4 +389,13 @@ void TimeZoneChooser::animationFinishedSlot()
     } else {
         m_queryWid->layout()->addWidget(m_queryText);
     }
+}
+
+void TimeZoneChooser::hide()
+{
+    m_searchInput->setText("");
+    m_searchInput->setFocus();
+    m_searchInput->clearFocus();
+    QDialog::hide();
+    return;
 }

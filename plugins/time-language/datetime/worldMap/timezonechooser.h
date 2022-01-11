@@ -17,6 +17,7 @@ class TimeZoneChooser : public QDialog
 public:
     explicit TimeZoneChooser(QWidget *parent);
     void setTitle(QString title);
+    void hide();
 
 public slots:
     void setMarkedTimeZoneSlot(QString timezone);
