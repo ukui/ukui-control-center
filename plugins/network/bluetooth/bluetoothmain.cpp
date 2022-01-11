@@ -155,6 +155,14 @@ void BlueToothMain::monitorBluetoothDbusConnection()
                                           INTERFACE,
                                           "requestConfirmation",this, SLOT(reportRequestConfirmation(QString,QString)));
 
+    //PIN窗口是否操作
+    QDBusConnection::sessionBus().connect(SERVICE,
+                                          PATH,
+                                          INTERFACE,
+                                          "replyRequestConfirmation",this, SLOT(reportReplyRequestConfirmation(bool)));
+
+
+
     QDBusConnection::sessionBus().connect(SERVICE,
                                           PATH,
                                           INTERFACE,
@@ -490,11 +498,16 @@ void BlueToothMain::reportRequestConfirmation(QString deviceName,QString disPinC
     qDebug() << Q_FUNC_INFO << deviceName << disPinCode << __LINE__;
     m_device_pin_flag = true;
 }
+void BlueToothMain::reportReplyRequestConfirmation(bool value)
+{
+    qDebug() << Q_FUNC_INFO << "User Check:"<<value  << __LINE__;
+    m_device_pin_flag = false;
+}
 
 void BlueToothMain::reportDevOperateErrorSignal(QString deviceAddress , int ErrorId , QString ErrorText)
 {
     qDebug() << Q_FUNC_INFO << deviceAddress << ErrorId << ErrorText << __LINE__;
-    m_device_pin_flag = false;
+    //m_device_pin_flag = false;
     for (bluetoothdevice * dev :m_default_bluetooth_adapter->m_bluetooth_device_list)
     {
         if (deviceAddress == dev->getDevAddress())
@@ -1356,6 +1369,8 @@ void BlueToothMain::initMainWindowTopUI()
     m_adapter_list_cmbox->setCurrentIndex(m_adapter_name_list.indexOf(m_default_adapter_name));
     connect(m_adapter_list_cmbox,SIGNAL(currentIndexChanged(int)),this,SLOT(adapterComboxChanged(int)));
     frame_2_layout->addWidget(m_adapter_list_cmbox);
+
+#ifndef DEVICE_IS_INTEL
     if(!ukccbluetoothconfig::m_isIntel)
     {
         QFrame *frame_3 = new QFrame(top_frame);
@@ -1397,6 +1412,7 @@ void BlueToothMain::initMainWindowTopUI()
         }
         connect(m_show_panel_btn,&SwitchButton::checkedChanged,this,&BlueToothMain::setTrayVisible);
     }
+#endif
     QFrame *frame_4 = new QFrame(top_frame);
     frame_4->setMinimumWidth(582);
     frame_4->setFrameShape(QFrame::Shape::Box);

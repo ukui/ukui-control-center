@@ -77,14 +77,14 @@ void IntelDeviceInfoItem::InitMemberVariables()
     });
 
     _devConnTimer = new QTimer(this);
-    _devConnTimer->setInterval(30000);
+    _devConnTimer->setInterval(32000);
     connect(_devConnTimer,&QTimer::timeout,this,[=]{
-        if(BlueToothMain::m_device_pin_flag)
-        {
-            _devConnTimer->stop();
-            _devConnTimer->start();
-            return;
-        }
+//        if(BlueToothMain::m_device_pin_flag)
+//        {
+//            _devConnTimer->stop();
+//            _devConnTimer->start();
+//            return;
+//        }
         emit devConnectionComplete();
 
         _devConnTimer->stop();
@@ -168,7 +168,7 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
         connect(_MDev,&bluetoothdevice::pairedChanged,this,[=](bool paired)
         {
             qDebug() << Q_FUNC_INFO << "pairedChanged" << __LINE__;
-            BlueToothMain::m_device_pin_flag = false;
+            //BlueToothMain::m_device_pin_flag = false;
 
             if(_devConnTimer->isActive())
                 _devConnTimer->stop();
@@ -196,7 +196,7 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
         connect(_MDev,&bluetoothdevice::connectedChanged,this,[=](bool connected)
         {
             qDebug() << Q_FUNC_INFO << "connectedChanged" << __LINE__;
-            BlueToothMain::m_device_pin_flag = false;
+            //BlueToothMain::m_device_pin_flag = false;
             if(_devConnTimer->isActive())
                 _devConnTimer->stop();
 
@@ -210,6 +210,9 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
             } else if (!_MDev->isPaired() && connected) {
                 _DevStatus = DEVSTATUS::Connecting;
             } else if (_MDev->isPaired() && !connected){
+                if(_DevStatus == DEVSTATUS::ConnectFailed || _DevStatus == DEVSTATUS::DisConnectFailed )
+                    ;
+                else
                 _DevStatus = DEVSTATUS::Paired;
             } else {
                 _DevStatus = DEVSTATUS::ConnectFailed;
@@ -225,6 +228,7 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
         connect(_MDev,&bluetoothdevice::errorInfoRefreshSignal,this,[=](int errorId , QString errorText)
         {
             qDebug () << Q_FUNC_INFO << "error:" << errorId << errorText << __LINE__;
+            emit devConnectionComplete();
             if (errorId)
             {
                 if(_devConnTimer->isActive())
@@ -236,7 +240,6 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
                 qDebug () << Q_FUNC_INFO << "error:" << errorId << errorText << __LINE__;
                 //BlueToothMain::m_device_pin_flag = false;
                 _DevStatus = DEVSTATUS::ConnectFailed;
-                emit devConnectionComplete();
                 update();
                 TimedRestoreConnectionErrorDisplay();
             }
@@ -552,6 +555,10 @@ QColor IntelDeviceInfoItem::getPainterBrushColor()
         //color = QColor(Qt::white);//("#EBEBEB");
         break;
     }
+
+    if (_MStatus == Status::Hover || _MStatus == Status::Check)
+        color.setAlpha(50);
+
     return color;
 }
 
@@ -610,11 +617,13 @@ QPixmap IntelDeviceInfoItem::getDevTypeIcon()
             iconName = "input-mouse-symbolic";
             break;
         default:
-            iconName = "bluetooth-active-symbolic";
+            //iconName = "bluetooth-active-symbolic";
+            iconName = "bluetooth-symbolic";
             break;
         }
     } else {
-        iconName = "bluetooth-active-symbolic";
+        //iconName = "bluetooth-active-symbolic";
+        iconName = "bluetooth-symbolic";
     }
 
     if (_themeIsBlack && (Status::Nomal == _MStatus)) {
@@ -700,7 +709,7 @@ QString IntelDeviceInfoItem::getDeviceName(QString devName)
 
 int IntelDeviceInfoItem::ShowNameTextNumberMax()
 {
-    float display_coefficient = (this->width() - 300)/500.00;
+    float display_coefficient = (this->width() - 350)/450.00;
     //qDebug() << Q_FUNC_INFO << "display coefficient:" << display_coefficient << __LINE__;
     int max_text_number = 0;
     switch (_fontSize)
@@ -717,14 +726,14 @@ int IntelDeviceInfoItem::ShowNameTextNumberMax()
         max_text_number += 2 ;
     case 15:
     default:
-        max_text_number += 45 ;
+        max_text_number += 35 ;
         break;
     }
 
     int showMaxNameLength = max_text_number*display_coefficient;
     //qDebug() << Q_FUNC_INFO << "The max length :" <<  showMaxNameLength << __LINE__;
 
-    return (45 > showMaxNameLength?45: showMaxNameLength);
+    return (showMaxNameLength);
 
 }
 
@@ -903,16 +912,20 @@ void IntelDeviceInfoItem::TimedRestoreConnectionErrorDisplay()
     qDebug() << Q_FUNC_INFO << __LINE__;
     //错误信息显示超时后，显示错误操作后的设备状态
     QTimer::singleShot(8000,this,[=]{
-        if (_MDev->isPaired())
+
+        if((_DevStatus != DEVSTATUS::Connecting) && (_DevStatus != DEVSTATUS::Connecting))
         {
-            _DevStatus = DEVSTATUS::Paired;
+            if (_MDev->isPaired())
+            {
+                _DevStatus = DEVSTATUS::Paired;
 
             if (_MDev->isConnected())
                 _DevStatus = DEVSTATUS::Connected;
 
-        } else {
-            _DevStatus = DEVSTATUS::NoPaired;
+            } else {
+                _DevStatus = DEVSTATUS::NoPaired;
+            }
+            update();
         }
-        update();
     });
 }
