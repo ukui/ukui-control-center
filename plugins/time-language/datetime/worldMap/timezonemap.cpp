@@ -55,8 +55,9 @@ QString TimezoneMap::getTimezone() {
 }
 
 void TimezoneMap::initUI() {
-    QLabel* backgroundLabel = new QLabel(this);
+    backgroundLabel = new QLabel(this);
     backgroundLabel->setObjectName("background_label");
+    backgroundLabel->setProperty("useIconHighlightEffect", 0x02);
 
     QPixmap timezonePixmap(timezoneMapFile);
     //QPixmap timezonePixmap = loadPixmap(timezoneMapFile);
@@ -67,8 +68,9 @@ void TimezoneMap::initUI() {
     m_dot = new QLabel(this->parentWidget());
     QPixmap dotPixmap(dotFile);
     Q_ASSERT(!dotPixmap.isNull());
-    m_dot->setPixmap(dotPixmap);
-    m_dot->setFixedSize(dotPixmap.size());
+    m_dot->setPixmap(dotPixmap.scaled(8,8,Qt::KeepAspectRatio));
+
+    m_dot->setFixedSize(8, 8);
     m_dot->hide();
 
 
@@ -177,7 +179,7 @@ void TimezoneMap::setTimezone(QString timezone) {
         m_nearestZones.append(m_currentZone);
         this->mark();
     } else {
-        qWarning() <<" failed to found "<<timezone<<endl;
+        //qWarning() <<" failed to found "<<timezone<<endl;
     }
 }
 
