@@ -60,7 +60,7 @@ extern "C" {
 
 #define LOCAL_CONFIG_DIR           "/.config/autostart/"
 #define SYSTEM_CONFIG_DIR          "/etc/xdg/autostart/"
-#define USR_CONFIG_DIR            "/usr/share/applications/"
+#define USR_CONFIG_DIR             "/usr/share/applications/"
 
 AutoBoot::AutoBoot() : mFirstLoad(true)
 {
