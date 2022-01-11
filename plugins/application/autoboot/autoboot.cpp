@@ -60,6 +60,7 @@ extern "C" {
 
 #define LOCAL_CONFIG_DIR           "/.config/autostart/"
 #define SYSTEM_CONFIG_DIR          "/etc/xdg/autostart/"
+#define USR_CONFIG_DIR              "/usr/share/applications/"
 
 AutoBoot::AutoBoot() : mFirstLoad(true)
 {
@@ -226,7 +227,13 @@ void AutoBoot::initAutoUI()
         QAction* mDel = new QAction(tr("Delete"),this);
         pMenu->addAction(mDel);
         connect(mDel, &QAction::triggered, this, [=](){
-               delAutoApp(bname);
+            QMap<QString, AutoApp>::iterator it = statusMaps.find(bname);
+            if (it == statusMaps.end()) {
+                qDebug() << "AutoBoot Data Error";
+                return;
+            }
+            deleteLocalAutoapp(bname);
+            baseWidget->close();
         });
 
         mainHLayout->addWidget(iconLabel);
@@ -566,6 +573,7 @@ void AutoBoot::initStatus()
 {
     QDir localdir(QString(QDir::homePath()+LOCAL_CONFIG_DIR).toUtf8());
     QDir systemdir(QString(SYSTEM_CONFIG_DIR).toUtf8());
+    QDir usrdir(QString(USR_CONFIG_DIR).toUtf8());
 
     QStringList filters;
     filters<<QString("*.desktop");
@@ -594,8 +602,15 @@ void AutoBoot::initStatus()
 
     //将本地配置目录下的应用加入localappMaps
     localappMaps.clear();
-    for (int i = 0; i < localdir.count(); i++) {
+    QStringList usrlist;
+    for(uint i = 0 ; i < usrdir.count() ; i++)
+        usrlist.append(usrdir[i]);
+    for (uint i = 0; i < localdir.count(); i++) {
         QString file_name = localdir[i];  // 文件名称
+        if (!usrlist.contains(file_name) && !whitelist.contains(file_name)) { //过滤掉不存在于白名单和/usr/share/applications/目录下的应用，解决bug#101357
+            QFile::remove(QString(QDir::homePath() + LOCAL_CONFIG_DIR + file_name));
+            continue;
+        }
         AutoApp app;
         app = setInformation(QDir::homePath()+LOCAL_CONFIG_DIR+file_name);
         app.xdg_position = LOCALPOS;
@@ -648,19 +663,6 @@ void AutoBoot::initConnection()
 
     connect(dialog, SIGNAL(autoboot_adding_signals(QString,QString,QString,QString,QString)),
             this, SLOT(add_autoboot_realize_slot(QString,QString,QString,QString,QString)));
-}
-
-void AutoBoot::delAutoApp(QString bname)
-{
-    QMap<QString, AutoApp>::iterator it = statusMaps.find(bname);
-    if (it == statusMaps.end()) {
-        qDebug() << "AutoBoot Data Error";
-        return;
-    }
-
-    deleteLocalAutoapp(bname);
-    clearAutoItem();
-    initAutoUI();
 }
 
 void AutoBoot::connectToServer()

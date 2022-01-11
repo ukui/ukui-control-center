@@ -398,9 +398,8 @@ void About::initUI(QWidget *widget)
 
     FixLabel *mPriLabel_1 = new FixLabel(tr("Send optional diagnostic data"),  mPrivacyFrame);
     mPriLabel_1->setContentsMargins(0 , 12 , 0 , 0);
-    FixLabel *mPriLabel_2 = new FixLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
+    LightLabel *mPriLabel_2 = new LightLabel(tr("By sending us diagnostic data, improve the system experience and solve your problems faster"),  mPrivacyFrame);
     mPriLabel_2->setContentsMargins(0 , 0 , 0 , 12);
-    mPriLabel_2->setStyleSheet("background:transparent;color:#626c6e;");
     QVBoxLayout *mverticalLayout_2 = new QVBoxLayout;
     mverticalLayout_2->setSpacing(0);
     mverticalLayout_2->setContentsMargins(0 , 0 , 0 , 0);
@@ -1143,12 +1142,12 @@ bool About::eventFilter(QObject *obj, QEvent *event)
     } else if (obj == mTrialLabel) {
          if (event->type() == QEvent::MouseButtonPress) {
              TrialDialog *mDialog = new TrialDialog(pluginWidget);
-             mDialog->show();
+             mDialog->exec();
          }
     } else if (obj == mAgreeLabel) {
         if (event->type() == QEvent::MouseButtonPress) {
             PrivacyDialog *mDialog = new PrivacyDialog(pluginWidget);
-            mDialog->show();
+            mDialog->exec();
         }
     }
     return false;
