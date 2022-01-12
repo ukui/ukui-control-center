@@ -46,6 +46,7 @@
 #include "shell/interface.h"
 #include <ukcc/widgets/titlelabel.h>
 #include <ukcc/widgets/fixlabel.h>
+#include <ukcc/widgets/lightlabel.h>
 #include <ukcc/widgets/switchbutton.h>
 
 namespace Ui {

@@ -64,7 +64,6 @@ private:
     void initAutoUI();
     void initStatus();
     void initConnection();
-    void delAutoApp(QString bname);
     void connectToServer();
     bool initConfig();
     void setupGSettings();
