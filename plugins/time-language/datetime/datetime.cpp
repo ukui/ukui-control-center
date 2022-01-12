@@ -179,8 +179,8 @@ void DateTime::initUI()
     m_itimer            = new QTimer(this);
     m_itimer->start(1000);
 
-    int timezone_x = pluginWidget->topLevelWidget()->x() + (pluginWidget->topLevelWidget()->width() - m_timezone->width())/2;
-    int timezone_y = pluginWidget->topLevelWidget()->y() + (pluginWidget->topLevelWidget()->height() - m_timezone->height())/2;
+    int timezone_x = pluginWidget->topLevelWidget()->x() + (pluginWidget->topLevelWidget()->width() - 960)/2;
+    int timezone_y = pluginWidget->topLevelWidget()->y() + (pluginWidget->topLevelWidget()->height() - 640)/2;
     timezone_x = timezone_x > 0 ? timezone_x : 0;
     timezone_y = timezone_y > 0 ? timezone_y : 0;
 
@@ -575,6 +575,12 @@ void DateTime::changezoneSlot(int flag)
         m_timezone->setTitle(tr("Change Timezone"));
     }
     m_timezone->setWindowModality(Qt::ApplicationModal);
+    int timezone_x = pluginWidget->topLevelWidget()->x() + (pluginWidget->topLevelWidget()->width() - 960)/2;
+    int timezone_y = pluginWidget->topLevelWidget()->y() + (pluginWidget->topLevelWidget()->height() - 640)/2;
+    timezone_x = timezone_x > 0 ? timezone_x : 0;
+    timezone_y = timezone_y > 0 ? timezone_y : 0;
+
+    m_timezone->move(timezone_x, timezone_y);
     m_timezone->show();
 
     QDBusReply<QVariant> tz = m_datetimeiproperties->call("Get", "org.freedesktop.timedate1", "Timezone");

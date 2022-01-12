@@ -112,6 +112,14 @@ void TimezoneMap::mark() {
 
     QString locale = QLocale::system().name();
     if (!m_nearestZones.isEmpty()) {
+        int correctX = 0;
+        int correctY = 0;
+        if (m_currentZone.timezone == "Asia/Taipei") {
+            correctX = 5;
+            correctY = 4;
+        } else if (m_currentZone.timezone == "Asia/Vladivostok") {
+            correctX = 8;
+        }
         m_singleList->setText(m_zoninfo->getLocalTimezoneName(m_currentZone.timezone, locale));
         m_singleList->adjustSize();
 
@@ -122,8 +130,8 @@ void TimezoneMap::mark() {
         QPoint zoneSinglePos(this->mapToParent(zoneSingleRlativePos));
         m_singleList->popupSlot(zoneSinglePos);
 
-        QPoint dotRelativePos(zonePos.x() - m_dot->width(),
-                              zonePos.y() - m_dot->height());
+        QPoint dotRelativePos(zonePos.x() - m_dot->width() + correctX,
+                              zonePos.y() - m_dot->height() + correctY);
 
         QPoint dotPos(this->mapToParent(dotRelativePos));
         m_dot->move(dotPos);

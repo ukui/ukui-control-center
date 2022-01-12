@@ -321,7 +321,7 @@ int SysdbusRegister::_getI2CBrightness(QString type) {
     QString bri=result.split(" ").at(9);
     bool ok;
     int bright=bri.toInt(&ok,16);
-    if(ok && bright >= 0 && bright <= 100)
+    if(ok && bright > 0 && bright <= 100)  // == 0 maybe means failed
         return bright;
 
     return -1;

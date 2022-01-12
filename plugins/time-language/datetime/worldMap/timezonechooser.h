@@ -17,6 +17,7 @@ class TimeZoneChooser : public QDialog
 public:
     explicit TimeZoneChooser(QWidget *parent);
     void setTitle(QString title);
+    void hide();
 
 public slots:
     void setMarkedTimeZoneSlot(QString timezone);
@@ -28,11 +29,11 @@ Q_SIGNALS:
 protected:
     void keyRealeaseEvent(QKeyEvent* event);
     bool eventFilter(QObject* obj, QEvent* event);
+    void closeEvent(QCloseEvent *e);
 
 private:
     QSize getFitSize();
     void initSize();
-    void paintEvent(QPaintEvent *event);
 
 private:
     ZoneInfo* m_zoneinfo;
@@ -42,11 +43,8 @@ private:
 
     TimezoneMap* m_map;
     QLineEdit* m_searchInput;
-    QLabel      *m_title;
-    QLabel      *m_logo;
     QPushButton *m_cancelBtn;
     QPushButton *m_confirmBtn;
-    QPushButton *m_closeBtn;
 
     QLabel            *m_queryIcon;
     QLabel            *m_queryText  = nullptr;
