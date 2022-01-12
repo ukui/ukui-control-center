@@ -5734,7 +5734,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
         <source>Vertical edge scrolling</source>
-        <translation>垂直边界滚动</translation>
+        <translation>边界滚动</translation>
     </message>
     <message>
         <source>Horizontal edge scrolling</source>
@@ -5743,7 +5743,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
         <source>Vertical two-finger scrolling</source>
-        <translation>垂直双指滚动</translation>
+        <translation>中间区域滚动</translation>
     </message>
     <message>
         <source>Horizontal two-finger scrolling</source>
