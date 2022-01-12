@@ -713,10 +713,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
 
     FixLabel * textLabel = new FixLabel(leftsidebarBtn);
     textLabel->setText(tipName);
-    QSizePolicy textLabelPolicy = textLabel->sizePolicy();
-    textLabelPolicy.setHorizontalPolicy(QSizePolicy::Fixed);
-    textLabelPolicy.setVerticalPolicy(QSizePolicy::Fixed);
-    textLabel->setSizePolicy(textLabelPolicy);
+    textLabel->setFixedWidth(100);
     textLabel->setScaledContents(true);
 
     QHBoxLayout * btnHorLayout = new QHBoxLayout();
