@@ -76,6 +76,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
 
     m_pAlertSoundChangedSlider->setOrientation(Qt::Horizontal);
     m_pAlertSoundChangedSlider->setRange(0,100);
+
     m_pAlertSoundChangedSlider->setStyleSheet( "QSlider::groove:horizontal {"
                                        "border: 0px none;"
                                        "background: palette(button);"
@@ -85,11 +86,11 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
 
                                        "QSlider::handle:horizontal {"
 
-                                       "height: 24px;"
-                                       "width: 32px;"
+                                       "height: 40px;"
+                                       "width: 36px;"
                                        "margin: 30px;"
                                        "border-image: url(://img/plugins/mouse/slider.svg);"
-                                       "margin: -8 -4px;"
+                                       "margin: -20 -4px;"
                                        "}"
 
                                        "QSlider::add-page:horizontal {"
@@ -101,6 +102,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
                                        "background: #2FB3E8;"
                                        "border-radius: 5px;"
                                        "}");
+
 
     m_pLagoutCombobox = new QComboBox(m_pLagoutWidget);
     m_pStartupButton = new SwitchButton(m_pStartupMusicWidget);
@@ -240,7 +242,7 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     QHBoxLayout *alertSoundVolumeLayout = new QHBoxLayout(m_pAlertSoundChangedWidget);
     m_pAlertSoundChangedLabel->setFixedSize(140,20);
     m_pAlertSoundMuteLabel->setFixedSize(24,24);
-    m_pAlertSoundChangedSlider->setFixedHeight(20);
+    m_pAlertSoundChangedSlider->setFixedHeight(60);
     m_pAlertSoundVolumeLabel->setFixedSize(24,24);
     alertSoundVolumeLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
     alertSoundVolumeLayout->addWidget(m_pAlertSoundChangedLabel);
@@ -287,7 +289,6 @@ UkmediaSoundEffectsWidget::UkmediaSoundEffectsWidget(QWidget *parent) : QWidget(
     //    m_pStartupMusicWidget->hide();
     //    m_pAlertSoundChangedWidget->hide();
 
-    this->setFixedHeight(225);
 
 
 }

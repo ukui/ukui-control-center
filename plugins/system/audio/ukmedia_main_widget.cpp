@@ -98,15 +98,14 @@ void UkmediaMainWidget::initWidget()
     mThemeName = UKUI_THEME_WHITE;
     QVBoxLayout *m_pvLayout = new QVBoxLayout();
     m_pvLayout->addWidget(m_pOutputWidget);
-    m_pvLayout->addSpacing(40);
     m_pvLayout->addWidget(m_pInputWidget);
-    m_pvLayout->addSpacing(40);
     m_pvLayout->addWidget(m_pSoundWidget);
+    m_pvLayout->setSpacing(40);
+    m_pvLayout->addStretch();
 
-    m_pvLayout->setSpacing(0);
     this->setLayout(m_pvLayout);
-    this->setMinimumSize(0,0);
-    this->setMaximumSize(16777215,810);
+    this->setMinimumWidth(0);
+    this->setMinimumWidth(16777215);
     this->layout()->setContentsMargins(0,0,0,0);
 
     //设置滑动条的最大值为100
@@ -269,11 +268,9 @@ void UkmediaMainWidget::initGsettings()
     if(m_pSoundWidget->m_pAlertSoundSwitchButton->isChecked())
     {
         m_pSoundWidget->m_pAlertSoundChangedWidget->show();
-        m_pSoundWidget->setFixedHeight(225);
     }
     else {
         m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
-        m_pSoundWidget->setFixedHeight(164);
     }
 }
 
@@ -642,11 +639,9 @@ void UkmediaMainWidget::alertSoundButtonSwitchChangedSlot(bool status)
 
     if (status == true) {
         m_pSoundWidget->m_pAlertSoundChangedWidget->show();
-        m_pSoundWidget->setFixedHeight(225);
     }
     else {
         m_pSoundWidget->m_pAlertSoundChangedWidget->hide();
-        m_pSoundWidget->setFixedHeight(164);
     }
 }
 

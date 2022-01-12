@@ -179,7 +179,6 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pVlayout1->setSpacing(0);
     this->setLayout(m_pVlayout1);
     this->layout()->setContentsMargins(0,0,0,0);
-    this->setFixedHeight(280);
 
 }
 
