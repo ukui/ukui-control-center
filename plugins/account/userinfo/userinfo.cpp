@@ -1076,6 +1076,9 @@ void UserInfo::showChangeNameDialog(){
     for (; it != allUserInfoMap.end(); it++){
         UserInfomation user = it.value();
 
+        if (QString::compare(user.username, g_get_user_name()) == 0)
+            continue;
+
         usernames.append(user.username);
         realnames.append(user.realname);
     }
