@@ -29,19 +29,11 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
 //    m_map->show();
     m_zoneinfo = new ZoneInfo;
     m_searchInput = new QLineEdit(this);
-    m_title = new QLabel(this);
-    m_logo = new QLabel(this);
-    m_closeBtn = new QPushButton(this);
     m_cancelBtn = new QPushButton(tr("Cancel"));
     m_confirmBtn = new QPushButton(tr("Confirm"));
 
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);//无边框
-    setAttribute(Qt::WA_DeleteOnClose);
-    this->setAttribute(Qt::WA_TranslucentBackground);
-
-
     this->setObjectName("MapFrame");
-    this->setWindowTitle(tr("Change time zone"));
+    this->setWindowTitle(tr("Change Timezone"));
 
 
     //m_searchInput->setStyleSheet("background-color:palette(windowtext)");
@@ -81,42 +73,11 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     SearchLayout->addWidget(m_queryWid);
     SearchLayout->addStretch();
 
-//    m_queryWid->setGeometry(QRect((m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
-//                                        m_queryIcon->width()+m_queryText->width()+10,m_searchInput->height()));
-//    m_queryWid->show();
 
     connect(m_animation,&QPropertyAnimation::finished,this,&TimeZoneChooser::animationFinishedSlot);
 
-    m_closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    m_closeBtn->setFlat(true);
-    m_closeBtn->setFixedSize(30, 30);
-    m_closeBtn->setProperty("isWindowButton", 0x2);
-    m_closeBtn->setProperty("useIconHighlightEffect", 0x08);
-
-    m_logo->setFixedSize(24,24);
-    m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
-    const QByteArray id("org.ukui.style");
-    QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
-    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
-        if (key == "iconThemeName")
-            m_logo->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
-    });
-    m_title->setObjectName("titleLabel");
-    m_title->setText(tr("Change Timezone"));
-    m_title->setAlignment(Qt::AlignTop);
 
     initSize();
-
-    QFrame *wbFrame = new QFrame;
-    wbFrame->setContentsMargins(0,0,0,0);
-
-    QHBoxLayout *wbLayout = new QHBoxLayout(wbFrame);
-    wbLayout->setContentsMargins(16,15,16,0);
-    wbLayout->addWidget(m_logo);
-    wbLayout->addWidget(m_title);
-    m_title->setAlignment(Qt::AlignCenter);
-    wbLayout->addStretch();
-    wbLayout->addWidget(m_closeBtn);
 
     QHBoxLayout *btnlayout = new QHBoxLayout;
     btnlayout->addStretch();
@@ -134,8 +95,6 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     mTipLabel->setStyleSheet("background:transparent;color:#626c6e;");
     mTipLabel->setAlignment(Qt::AlignHCenter);
 
-    layout->addWidget(wbFrame,0,Qt::AlignVCenter);
-    layout->addSpacing(0);
     layout->addWidget(m_searchInput, 0, Qt::AlignHCenter);
     layout->addWidget(mTipLabel,Qt::AlignHCenter);
     layout->addSpacing(32);
@@ -156,10 +115,6 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
         emit this->cancelled();
     });
 
-    connect(m_closeBtn, &QPushButton::clicked, this, [this] {
-        hide();
-        emit cancelled();
-    });
 
 
     connect(m_map, &TimezoneMap::timezoneSelected, this, [this]{
@@ -222,7 +177,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
 }
 
 void TimeZoneChooser::setTitle(QString title) {
-    m_title->setText(title);
+    this->setWindowTitle(title);
 }
 
 void TimeZoneChooser::setMarkedTimeZoneSlot(QString timezone) {
@@ -306,7 +261,7 @@ QSize TimeZoneChooser::getFitSize(){
     // double width = primaryRect.width() - 360/* dcc */ - 20 * 2;
     // double height = primaryRect.height() - 70/* dock */ - 20 * 2;
 
-    return QSize(980, 660);
+    return QSize(960, 602);
 }
 
 
@@ -321,7 +276,8 @@ void TimeZoneChooser::initSize(){
    setFixedSize(fitSize.width(), fitSize.height());
 
     const float mapWidth = qMin(MapPixWidth, fitSize.width() - 20 * 2.0);
-    const float mapHeight = qMin(MapPixHeight, fitSize.height() - 20 * 2/*paddings*/ - 36 * 2/*buttons*/ - 10/*button spacing*/ - 40 * 3.0 /*spacings*/ - 30/*title*/ -  20 * 2/*top bottom margin*/);
+    //搜索时区36,取消 确定按钮36, mTipLabel 36
+    const float mapHeight = qMin(MapPixHeight, fitSize.height() - 36.0 * 3 - 32.0 * 3);
     const double widthScale = MapPictureWidth / mapWidth;
     const double heightScale = MapPictureHeight / mapHeight;
     const double scale = qMax(widthScale, heightScale);
@@ -334,47 +290,6 @@ void TimeZoneChooser::initSize(){
     m_confirmBtn->setFixedWidth(120);
 }
 
-void TimeZoneChooser::paintEvent(QPaintEvent *event)
-{
-    Q_UNUSED(event);
-    QPainter p(this);
-    p.setRenderHint(QPainter::Antialiasing);
-    QPainterPath rectPath;
-    rectPath.addRoundedRect(this->rect().adjusted(10, 10, -10, -10), 6, 6);
-
-    // 画一个黑底
-    QPixmap pixmap(this->rect().size());
-    pixmap.fill(Qt::transparent);
-    QPainter pixmapPainter(&pixmap);
-    pixmapPainter.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter.setPen(Qt::transparent);
-    pixmapPainter.setBrush(Qt::black);
-    pixmapPainter.setOpacity(0.65);
-    pixmapPainter.drawPath(rectPath);
-    pixmapPainter.end();
-
-    // 模糊这个黑底
-    QImage img = pixmap.toImage();
-    qt_blurImage(img, 10, false, false);
-
-    // 挖掉中心
-    pixmap = QPixmap::fromImage(img);
-    QPainter pixmapPainter2(&pixmap);
-    pixmapPainter2.setRenderHint(QPainter::Antialiasing);
-    pixmapPainter2.setCompositionMode(QPainter::CompositionMode_Clear);
-    pixmapPainter2.setPen(Qt::transparent);
-    pixmapPainter2.setBrush(Qt::transparent);
-    pixmapPainter2.drawPath(rectPath);
-
-    // 绘制阴影
-    p.drawPixmap(this->rect(), pixmap, pixmap.rect());
-
-    // 绘制一个背景
-    p.save();
-    p.fillPath(rectPath,palette().color(QPalette::Base));
-    p.restore();
-
-}
 
 void TimeZoneChooser::animationFinishedSlot()
 {
@@ -398,4 +313,10 @@ void TimeZoneChooser::hide()
     m_searchInput->clearFocus();
     QDialog::hide();
     return;
+}
+
+void TimeZoneChooser::closeEvent(QCloseEvent *e)
+{
+    hide();
+    emit cancelled();
 }
