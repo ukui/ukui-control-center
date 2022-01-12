@@ -105,7 +105,8 @@ static gboolean rfkill_event(GIOChannel *chan,
 
     close(fd);
 
-    if (g_str_has_prefix(sysname, "tpacpi_bluetooth_sw") == TRUE)
+    if (g_str_has_prefix(sysname, "tpacpi_bluetooth_sw") == TRUE ||
+        g_str_has_prefix(sysname, "ideapad_bluetooth") == TRUE)
     {
         spe_bt_node = true;
         qDebug () << Q_FUNC_INFO <<  "spe_bt_node:" << spe_bt_node  << __LINE__;
@@ -265,39 +266,39 @@ void BlueToothMain::InitAllTimer()
     m_timer->setInterval(100);
     connect(m_timer,&QTimer::timeout,this,&BlueToothMain::Refresh_load_Label_icon);
 
-    IntermittentScann_timer_count = 0;
-    IntermittentScann_timer= new QTimer(this);
-    IntermittentScann_timer->setInterval(2000);
-    connect(IntermittentScann_timer,&QTimer::timeout,this,[=]
-    {
-        qDebug() << __FUNCTION__ << "IntermittentScann_timer_count:" << IntermittentScann_timer_count << __LINE__ ;
-        IntermittentScann_timer->stop();
-        if (IntermittentScann_timer_count >= 2)
-        {
-            IntermittentScann_timer_count = 0;
-            IntermittentScann_timer->stop();
-            this->startDiscovery();
-            discovering_timer->start();
-        }
-        else
-        {
-            if (1 == IntermittentScann_timer_count%2)
-            {
-                this->stopDiscovery();
-            }
-            else
-            {
-                this->startDiscovery();
-            }
-            IntermittentScann_timer->start();
-        }
-        IntermittentScann_timer_count++;
+//    IntermittentScann_timer_count = 0;
+//    IntermittentScann_timer= new QTimer(this);
+//    IntermittentScann_timer->setInterval(2000);
+//    connect(IntermittentScann_timer,&QTimer::timeout,this,[=]
+//    {
+//        qDebug() << __FUNCTION__ << "IntermittentScann_timer_count:" << IntermittentScann_timer_count << __LINE__ ;
+//        IntermittentScann_timer->stop();
+//        if (IntermittentScann_timer_count >= 2)
+//        {
+//            IntermittentScann_timer_count = 0;
+//            IntermittentScann_timer->stop();
+//            this->startDiscovery();
+//            discovering_timer->start();
+//        }
+//        else
+//        {
+//            if (1 == IntermittentScann_timer_count%2)
+//            {
+//                this->stopDiscovery();
+//            }
+//            else
+//            {
+//                this->startDiscovery();
+//            }
+//            IntermittentScann_timer->start();
+//        }
+//        IntermittentScann_timer_count++;
 
-    });
+//    });
 
     //开启时延迟2s后开启扫描，留点设备回连时间
     delayStartDiscover_timer = new QTimer(this);
-    delayStartDiscover_timer->setInterval(2000);
+    delayStartDiscover_timer->setInterval(500);
     connect(delayStartDiscover_timer,&QTimer::timeout,this,[=]
     {
         qDebug() << __FUNCTION__ << "delayStartDiscover_timer:timeout" << __LINE__ ;
@@ -305,8 +306,8 @@ void BlueToothMain::InitAllTimer()
 
         this->startDiscovery();
 
-        IntermittentScann_timer->start();
-        IntermittentScann_timer_count = 0;
+        //IntermittentScann_timer->start();
+        //IntermittentScann_timer_count = 0;
 
     });
 
@@ -1217,41 +1218,41 @@ void BlueToothMain::InitMainbottomUI()
     });
 
 
-    IntermittentScann_timer_count = 0;
-    IntermittentScann_timer= new QTimer(this);
-    IntermittentScann_timer->setInterval(2000);
-    connect(IntermittentScann_timer,&QTimer::timeout,this,[=]
-    {
-        qDebug() << __FUNCTION__ << "IntermittentScann_timer_count:" << IntermittentScann_timer_count << __LINE__ ;
-        IntermittentScann_timer->stop();
-        if (IntermittentScann_timer_count >= 2)
-        {
-            IntermittentScann_timer_count = 0;
-            IntermittentScann_timer->stop();
+//    IntermittentScann_timer_count = 0;
+//    IntermittentScann_timer= new QTimer(this);
+//    IntermittentScann_timer->setInterval(2000);
+//    connect(IntermittentScann_timer,&QTimer::timeout,this,[=]
+//    {
+//        qDebug() << __FUNCTION__ << "IntermittentScann_timer_count:" << IntermittentScann_timer_count << __LINE__ ;
+//        IntermittentScann_timer->stop();
+//        if (IntermittentScann_timer_count >= 2)
+//        {
+//            IntermittentScann_timer_count = 0;
+//            IntermittentScann_timer->stop();
 
-            this->startDiscovery();
-            discovering_timer->start();
-        }
-        else
-        {
-            if (1 == IntermittentScann_timer_count%2)
-            {
+//            this->startDiscovery();
+//            discovering_timer->start();
+//        }
+//        else
+//        {
+//            if (1 == IntermittentScann_timer_count%2)
+//            {
 
-                this->stopDiscovery();
+//                this->stopDiscovery();
 
-            }
-            else
-            {
+//            }
+//            else
+//            {
 
-                this->startDiscovery();
-            }
+//                this->startDiscovery();
+//            }
 
-            IntermittentScann_timer->start();
+//            IntermittentScann_timer->start();
 
-        }
-        IntermittentScann_timer_count++;
+//        }
+//        IntermittentScann_timer_count++;
 
-    });
+//    });
 
     //开启时延迟1.8s后开启扫描，留点设备回连时间
     delayStartDiscover_timer = new QTimer(this);
@@ -1262,8 +1263,8 @@ void BlueToothMain::InitMainbottomUI()
         delayStartDiscover_timer->stop();
 
         this->startDiscovery();
-        IntermittentScann_timer->start();
-        IntermittentScann_timer_count = 0;
+        //IntermittentScann_timer->start();
+        //IntermittentScann_timer_count = 0;
 
     });
 
@@ -1814,14 +1815,14 @@ void BlueToothMain::clearAllTimer()
 {
     qDebug() << Q_FUNC_INFO  << __LINE__;
 
-    IntermittentScann_timer_count = 0;
+    //IntermittentScann_timer_count = 0;
 
     if (discovering_timer->isActive())
         discovering_timer->stop();
     if (delayStartDiscover_timer->isActive())
         delayStartDiscover_timer->stop();
-    if (IntermittentScann_timer->isActive())
-        IntermittentScann_timer->stop();
+    //if (IntermittentScann_timer->isActive())
+    //    IntermittentScann_timer->stop();
     if (poweronAgain_timer->isActive())
         poweronAgain_timer->stop();
     if(m_timer->isActive())
