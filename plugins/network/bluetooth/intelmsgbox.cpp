@@ -3,6 +3,8 @@
 #include <QFont>
 #include <QFontMetrics>
 
+#include "config.h"
+
 #define STYLE "org.ukui.style"
 
 MsgBox::MsgBox(QWidget *parent, const QString txt):
@@ -59,17 +61,16 @@ MsgBox::MsgBox(QWidget *parent, const QString txt):
 
     closeBtn = new QPushButton(this);
     closeBtn->setGeometry(470,16,30,30);
-    closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    closeBtn->setFlat(true);
-    //closeBtn->setFixedSize(QSize(20,20));
-//    closeBtn->setProperty("isWindowButton",0x2);
-//    closeBtn->setProperty("useIconHighlihtEffect",0x8);
-    //closeBtn->setIcon(QIcon::fromTheme("application-exit-symbolic"));
-    //closeBtn->setProperty("useIconHighlightEffect", true);
-    //closeBtn->setProperty("iconHighlightEffectMode", 1);
-    //closeBtn->setFlat(true);
-    closeBtn->setStyleSheet("QPushButton:hover{background:rgba(251,80,80,50%); border-radius: 4px;}"
+
+    if (isBlack)
+        closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"white"));
+    else
+        closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
+
+    closeBtn->setStyleSheet("QPushButton:hover{background:transparent; border-radius: 4px;}"
+                            "QPushButton:hover{background:rgba(251,80,80,50%); border-radius: 4px;}"
                             "QPushButton:pressed{background-color:rgba(251,80,80,80%); border-radius: 4px;}");
+
     connect(closeBtn,&QPushButton::clicked,this,[=]{
         emit rejected();
         this->close();
@@ -124,10 +125,12 @@ void MsgBox::gsettingsChanged(const QString &key)
            gsettings->get("style-name").toString() == "ukui-dark")
         {
             isBlack = true;
+            closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"white"));
         }
         else
         {
             isBlack = false;
+            closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
         }
     }
 }
