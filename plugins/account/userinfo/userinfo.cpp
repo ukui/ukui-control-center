@@ -348,6 +348,7 @@ void UserInfo::initUI(){
     if (!getuid()){
         changeCurrentPwdBtn->setEnabled(false);
         changeCurrentTypeBtn->setEnabled(false);
+        currentUserlogoBtn->setEnabled(false);
         autoLoginFrame->hide();
         nopwdLoginFrame->hide();
     }
