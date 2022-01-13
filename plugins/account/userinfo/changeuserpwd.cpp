@@ -225,9 +225,11 @@ void ChangeUserPwd::initUI(){
     cancelBtn = new QPushButton();
     cancelBtn->setMinimumWidth(96);
     cancelBtn->setText(tr("Cancel"));
+    cancelBtn->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     confirmBtn = new QPushButton();
     confirmBtn->setMinimumWidth(96);
     confirmBtn->setText(tr("Confirm"));
+    confirmBtn->setFocusPolicy(Qt::FocusPolicy::NoFocus);
 
     bottomBtnsHorLayout = new QHBoxLayout;
     bottomBtnsHorLayout->setSpacing(16);
