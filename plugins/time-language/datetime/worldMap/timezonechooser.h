@@ -8,13 +8,15 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QAbstractItemView>
+#include <QPropertyAnimation>
+#include <QDialog>
 
-class TimeZoneChooser : public QFrame
+class TimeZoneChooser : public QDialog
 {
     Q_OBJECT
 public:
     explicit TimeZoneChooser(QWidget *parent);
-    void setTitle();
+    void setTitle(QString title);
 
 public slots:
     void setMarkedTimeZoneSlot(QString timezone);
@@ -30,6 +32,7 @@ protected:
 private:
     QSize getFitSize();
     void initSize();
+    void paintEvent(QPaintEvent *event);
 
 private:
     ZoneInfo* m_zoneinfo;
@@ -40,9 +43,21 @@ private:
     TimezoneMap* m_map;
     QLineEdit* m_searchInput;
     QLabel      *m_title;
+    QLabel      *m_logo;
     QPushButton *m_cancelBtn;
     QPushButton *m_confirmBtn;
     QPushButton *m_closeBtn;
+
+    QLabel            *m_queryIcon;
+    QLabel            *m_queryText  = nullptr;
+    QPropertyAnimation *m_animation = nullptr;
+    QWidget           *m_queryWid   = nullptr;
+    bool              m_isSearching = false;
+    QString           m_searchKeyWords;
+    bool       firstin = true;
+
+public slots:
+    void animationFinishedSlot();
 };
 
 #endif // TIMEZONECHOOSER_H

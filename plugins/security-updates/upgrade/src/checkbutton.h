@@ -4,8 +4,9 @@
 #include <QObject>
 #include <QPushButton>
 #include <QTimer>
+#include "fixbtn.h"
 
-class m_button : public QPushButton
+class m_button : public FixBtn
 {
     Q_OBJECT
 public:

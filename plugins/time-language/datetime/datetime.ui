@@ -165,7 +165,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="chgzonebtn">
+     <widget class="FixBtn" name="chgzonebtn">
       <property name="geometry">
        <rect>
         <x>220</x>
@@ -190,7 +190,7 @@
        <string>Change time zone</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="chgtimebtn">
+     <widget class="FixBtn" name="chgtimebtn">
       <property name="geometry">
        <rect>
         <x>16</x>
@@ -290,6 +290,11 @@
    <class>TitleLabel</class>
    <extends>QLabel</extends>
    <header>titlelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixBtn</class>
+   <extends>QPushButton</extends>
+   <header>fixbtn.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
