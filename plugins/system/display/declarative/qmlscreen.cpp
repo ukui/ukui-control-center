@@ -314,8 +314,10 @@ void QMLScreen::setScreenPosCenter(QMLOutput *output, bool isReleased)
 
     // 坐标为负的情况，bug#76350
     if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) {
-        if (isReleased)
+        if (isReleased) {
             setScreenCenterPos();
+            emit released();
+        }
         return;
     }
 
