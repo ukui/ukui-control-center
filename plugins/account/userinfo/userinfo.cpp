@@ -347,6 +347,8 @@ void UserInfo::initUI(){
     //root需要屏蔽部分功能
     if (!getuid()){
         changeCurrentPwdBtn->setEnabled(false);
+        changeCurrentTypeBtn->setEnabled(false);
+        currentUserlogoBtn->setEnabled(false);
         autoLoginFrame->hide();
         nopwdLoginFrame->hide();
     }
@@ -378,7 +380,7 @@ void UserInfo::buildAndSetupUsers(){
                 currentUserTypeLabel->setToolTip(cType);
             }
             fontSizeChange(user, nullptr);
-            if (user.accounttype){
+            if (user.accounttype && getuid()){
                 changeCurrentTypeBtn->setEnabled(!isLastAdmin(user.username));
             }
 
