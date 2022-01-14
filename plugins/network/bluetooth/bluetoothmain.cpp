@@ -628,6 +628,9 @@ void BlueToothMain::addMyDeviceItemUI(bluetoothdevice * device)
     }
 
     if (device && device->isPaired()) {
+
+        mDevFrameAddLineFrame("paired",device->getDevAddress());
+
         IntelDeviceInfoItem *item = new IntelDeviceInfoItem(this,device);
         item->setObjectName(device->getDevAddress());
         connect(item,SIGNAL(devPaired(QString)),this,SLOT(changeDeviceParentWindow(QString)));
@@ -641,7 +644,6 @@ void BlueToothMain::addMyDeviceItemUI(bluetoothdevice * device)
         });
         m_myDev_show_flag = true;
 
-        mDevFrameAddLineFrame("paired",device->getDevAddress());
         paired_dev_layout->addWidget(item,Qt::AlignTop);
     }
     return;
@@ -1689,6 +1691,9 @@ void BlueToothMain::changeDeviceParentWindow(const QString &address)
     IntelDeviceInfoItem *item = device_list->findChild<IntelDeviceInfoItem *>(address);
     QFrame *line_item = device_list->findChild<QFrame *>("line-"+address);
     if(item){
+
+        mDevFrameAddLineFrame("paired",address);
+
         device_list_layout->removeWidget(item);
         item->setParent(frame_middle);
 
@@ -1702,7 +1707,6 @@ void BlueToothMain::changeDeviceParentWindow(const QString &address)
         bool isConnect = getDevConnectStatus(address);
         reportDevConnectStatusSignal(address,isConnect);
 
-        mDevFrameAddLineFrame("paired",address);
         paired_dev_layout->addWidget(item);
         m_myDev_show_flag = true;
     }else{
@@ -2063,7 +2067,7 @@ void BlueToothMain::mDevFrameAddLineFrame(QString str,QString addr)
 
     if ("paired" == str) {
 
-        if (frame_middle->findChildren<IntelDeviceInfoItem *>().size() < 1) {
+        if (!frame_middle->findChildren<IntelDeviceInfoItem *>().size()) {
             return;
         }
 

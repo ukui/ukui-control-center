@@ -32,8 +32,6 @@
 
 #include <QGSettings/QGSettings>
 
-//#include "../config/config.h"
-
 class BluezQt::Device;
 
 class IntelDeviceInfoItem : public QFrame

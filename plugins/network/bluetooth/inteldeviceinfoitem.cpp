@@ -434,7 +434,7 @@ void IntelDeviceInfoItem::MouseClickedDevFunc()
         QAction *sendfile = nullptr;
         if (_themeIsBlack) {
             QIcon sendfileIcon;
-            sendfileIcon.addFile(":/image/icon-bluetooth/ukui-bluetooth-send-file.png");
+            sendfileIcon.addFile(":/image/icon-bluetooth/ukui-bluetooth-send-file-selected.svg");
             sendfile= new QAction(sendfileIcon.pixmap(18,18),tr("Send files"),dev_Menu);
         } else {
             QIcon sendfileIcon;

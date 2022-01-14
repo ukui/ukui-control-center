@@ -45,6 +45,7 @@ SOURCES += \
     bluetooth.cpp \
     bluetoothmain.cpp \
 #    bluetoothnamelabel.cpp \
+    config.cpp \
     devicebase.cpp \
     intelcustomizenamelabel.cpp \
     inteldeviceinfoitem.cpp \
