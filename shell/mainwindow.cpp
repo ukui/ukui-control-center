@@ -318,7 +318,6 @@ void MainWindow::initUI() {
             //左上角显示字符/返回按钮
             backBtn->setHidden(true);
             if (modulepageWidget){
-                qDebug()<<"---------------";
                 modulepageWidget->pluginLeave();
             }
             //中部内容区域
