@@ -45,6 +45,7 @@
 #include "biometricproxy.h"
 #include "biometricenroll.h"
 #include "biometricmoreinfo.h"
+#include "fixbtn.h"
 
 #ifdef ENABLEPQ
 extern "C" {

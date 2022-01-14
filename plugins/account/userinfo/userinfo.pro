@@ -10,6 +10,7 @@ include($$PROJECT_COMPONENTSOURCE/flowlayout.pri)
 include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/fixbtn.pri)
 
 QT       += widgets dbus gui
 
