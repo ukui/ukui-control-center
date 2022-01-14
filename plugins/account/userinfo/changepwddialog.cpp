@@ -70,6 +70,7 @@ ChangePwdDialog::ChangePwdDialog(bool _isCurrentUser, QString _username, QWidget
     ui->pwdFrame->setFrameShape(QFrame::Shape::Box);
     ui->tipLabel->setAlignment(Qt::AlignCenter);
     ui->tipLabel->setStyleSheet("color:red;");
+    ui->pwdtypeComboBox->setText(tr("general password"));
 
 //    ui->closeBtn->setIcon(QIcon("://img/titlebar/close.svg"));
 
