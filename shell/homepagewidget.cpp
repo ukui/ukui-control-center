@@ -71,7 +71,7 @@ HomePageWidget::~HomePageWidget()
 }
 
 void HomePageWidget::initUI() {
-    FlowLayout * flowLayout = new FlowLayout(ui->scrollAreaWidgetContents_5, true, 0);
+    FlowLayout * flowLayout = new FlowLayout(ui->widget_2, true, 0);
     flowLayout->setContentsMargins(70, 0, 70, 0);
     mModuleMap = Utils::getModuleHideStatus();
 
