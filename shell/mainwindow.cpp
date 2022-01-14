@@ -594,7 +594,6 @@ void MainWindow::loadPlugins(){
 void MainWindow::initLeftsideBar(){
 
     leftBtnGroup = new QButtonGroup();
-    leftMicBtnGroup = new QButtonGroup();
 
     //构建左侧边栏返回首页按钮
     QPushButton * hBtn = buildLeftsideBtn("homepage",tr("Home"));
@@ -657,7 +656,6 @@ void MainWindow::initLeftsideBar(){
 
 QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     QString iname = bname.toLower();
-    int itype = kvConverter->keystringTokeycode(bname);
 
     QPushButton * leftsidebarBtn = new QPushButton();
     leftsidebarBtn->setAttribute(Qt::WA_DeleteOnClose);
@@ -665,42 +663,14 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     //    leftsidebarBtn->setFixedSize(QSize(60, 56)); //Widget Width 60
     leftsidebarBtn->setFixedHeight(56);
 
-    QPushButton * iconBtn = new QPushButton(leftsidebarBtn);
-    iconBtn->setCheckable(true);
-    iconBtn->setFixedSize(QSize(24, 24));
-    iconBtn->setFocusPolicy(Qt::NoFocus);
-
-    QString iconHomePageBtnQss = QString("QPushButton{background: palette(window); border: none;}");
-    QString iconBtnQss = QString("QPushButton:checked{background: palette(base); border: none;}"
-                                 "QPushButton:!checked{background: palette(window); border: none;}");
+    QLabel * iconLabel = new QLabel(leftsidebarBtn);
     QString path = QString("://img/primaryleftmenu/%1.svg").arg(iname);
-    QPixmap pix = ImageUtil::loadSvg(path, "default");
-    //单独设置HomePage按钮样式
-    if (iname == "homepage") {
-        iconBtn->setFlat(true);
-        iconBtn->setStyleSheet(iconHomePageBtnQss);
-    } else {
-        iconBtn->setStyleSheet(iconBtnQss);
-    }
-    iconBtn->setIcon(pix);
-
-    leftMicBtnGroup->addButton(iconBtn, itype);
-
-    connect(iconBtn, &QPushButton::toggled, this, [=] (bool checked) {
-        QString path = QString("://img/primaryleftmenu/%1.svg").arg(iname);
-        QPixmap pix;
-        if (checked) {
-            pix = ImageUtil::loadSvg(path, "blue");
-        } else {
-            pix = ImageUtil::loadSvg(path, "default");
-        }
-        iconBtn->setIcon(pix);
-    });
-
-    connect(iconBtn, &QPushButton::clicked, leftsidebarBtn, &QPushButton::click);
+    QPixmap pix = ImageUtil::loadSvg(path, "default" );
+    iconLabel->setPixmap(pix);
 
     connect(leftsidebarBtn, &QPushButton::toggled, this, [=](bool checked) {
-        iconBtn->setChecked(checked);
+        if (iname == "homepage")
+            return;
         QString path = QString("://img/primaryleftmenu/%1.svg").arg(iname);
         QPixmap pix;
         if (checked) {
@@ -708,7 +678,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
         } else {
             pix = ImageUtil::loadSvg(path, "default");
         }
-        iconBtn->setIcon(pix);
+        iconLabel->setPixmap(pix);
     });
 
     FixLabel * textLabel = new FixLabel(leftsidebarBtn);
@@ -717,7 +687,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     textLabel->setScaledContents(true);
 
     QHBoxLayout * btnHorLayout = new QHBoxLayout();
-    btnHorLayout->addWidget(iconBtn, Qt::AlignCenter);
+    btnHorLayout->addWidget(iconLabel, Qt::AlignCenter);
     btnHorLayout->addWidget(textLabel);
     btnHorLayout->addStretch();
     btnHorLayout->setSpacing(10);
@@ -852,7 +822,6 @@ void MainWindow::showGuide(QString pluName)
 
 void MainWindow::setModuleBtnHightLight(int id) {
     leftBtnGroup->button(id)->setChecked(true);
-    leftMicBtnGroup->button(id)->setChecked(true);
 }
 
 QMap<QString, QObject *> MainWindow::exportModule(int type) {
