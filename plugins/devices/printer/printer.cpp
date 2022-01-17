@@ -169,7 +169,8 @@ void Printer::refreshPrinterDevSlot()
         // 获取打印机状态，3为空闲，4为忙碌，5为不可用
         const char*  value = cupsGetOption("printer-state", dest->num_options, dest->options);
 //        qDebug()<<dest->name<<"----------------"<<value;
-
+        if (value == nullptr)
+            continue;
          // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
          bool flag = (atoi(value) == 5 ? true : false);
          bool flag1 = true;
