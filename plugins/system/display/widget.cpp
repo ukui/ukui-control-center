@@ -151,7 +151,7 @@ bool Widget::eventFilter(QObject *object, QEvent *event)
         if (mOutputIdentifiers.contains(qobject_cast<QQuickView *>(object))) {
             QResizeEvent *e = static_cast<QResizeEvent *>(event);
             const QRect screenSize = object->property("screenSize").toRect();
-            QRect geometry(QPoint(0, 0), e->size());
+            QRect geometry(QPoint(0, 0), qobject_cast<QQuickView *>(object)->size());
             geometry.moveCenter(screenSize.center());
             static_cast<QQuickView *>(object)->setGeometry(geometry);
             // Pass the event further
