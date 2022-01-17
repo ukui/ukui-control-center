@@ -842,14 +842,12 @@ void Theme::resetBtnClickSlot() {
 
     if (ui->effectFrame->isVisible()) {
         effectSwitchBtn->blockSignals(true);
-        ui->tranSlider->blockSignals(true);
         effectSwitchBtn->setChecked(true);
         qtSettings->reset(THEME_TRAN_KEY);
         qtSettings->reset(PEONY_TRAN_KEY);
         personliseGsettings->reset(PERSONALSIE_TRAN_KEY);   
         ui->tranSlider->setValue(transparency);
         effectSwitchBtn->blockSignals(false);
-        ui->tranSlider->blockSignals(false);
     }
 
     QString icoName = qtSettings->get(ICON_QT_KEY).toString();
