@@ -224,7 +224,7 @@ BlueToothMain::BlueToothMain(QWidget *parent)
     //刷新界面状态
     RefreshWindowUiState();
 
-    MonitorSleepSignal();
+    //MonitorSleepSignal();
 }
 
 BlueToothMain::~BlueToothMain()
@@ -2127,11 +2127,17 @@ void BlueToothMain::change_device_parent(const QString &address)
 
 void BlueToothMain::adapterPoweredChanged(bool value)
 {
+    qDebug() << Q_FUNC_INFO << value;
+
+    if(m_localDevice == nullptr)
+    {
+        qDebug() << Q_FUNC_INFO << value;
+        return;
+    }
 
     btPowerBtnTimer->stop();
     open_bluetooth->setEnabled(true);
 
-    qDebug() << Q_FUNC_INFO << value;
     if(settings)
         settings->set("switch",QVariant::fromValue(value));
 
