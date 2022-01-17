@@ -841,13 +841,13 @@ void Theme::resetBtnClickSlot() {
     gtkSettings->reset(ICON_GTK_KEY);
 
     if (ui->effectFrame->isVisible()) {
+        effectSwitchBtn->blockSignals(true);
         effectSwitchBtn->setChecked(true);
         qtSettings->reset(THEME_TRAN_KEY);
         qtSettings->reset(PEONY_TRAN_KEY);
-        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);
-        ui->tranSlider->blockSignals(true);
+        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);   
         ui->tranSlider->setValue(transparency);
-        ui->tranSlider->blockSignals(false);
+        effectSwitchBtn->blockSignals(false);
     }
 
     QString icoName = qtSettings->get(ICON_QT_KEY).toString();
