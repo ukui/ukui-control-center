@@ -345,7 +345,7 @@ void OutputConfig::slotRotationChanged(int index)
 
 void OutputConfig::slotRefreshRateChanged(int index)
 {
-    mIsRefreshRateChanged = true;
+    QString currentModeId = mOutput->currentModeId();
     QString modeId;
     if (index == 0) {
         // Item 0 is "Auto" - "Auto" is equal to highest refresh rate (at least
@@ -355,6 +355,7 @@ void OutputConfig::slotRefreshRateChanged(int index)
     } else {
         modeId = mRefreshRate->itemData(index).toString();
     }
+    mIsRefreshRateChanged = modeId.compare(currentModeId);
     qDebug() << "modeId is:" << modeId << endl;
     mOutput->setCurrentModeId(modeId);
 
