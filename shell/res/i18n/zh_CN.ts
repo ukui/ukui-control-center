@@ -2215,18 +2215,14 @@ folder will be deleted!</source>
         <translation type="obsolete">护眼中心</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/display.cpp" line="34"/>
+        <location filename="../../../plugins/devices/display/display.cpp" line="35"/>
         <source>Displays</source>
         <translation>屏幕</translation>
+        <extra-contents_path>/Displays/Displays</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DisplayWidget</name>
-    <message>
-        <source>Screen mirror</source>
-        <translation type="vanished">屏幕镜像</translation>
-        <extra-contents_path>/display/Screen mirror</extra-contents_path>
-    </message>
     <message>
         <source>Close this monitor</source>
         <translation type="vanished">关闭此显示器</translation>
@@ -2346,26 +2342,6 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/display.ui" line="885"/>
         <source>closing time</source>
         <translation>关闭时间</translation>
-    </message>
-    <message>
-        <source>night mode</source>
-        <translation type="obsolete">夜间模式</translation>
-    </message>
-    <message>
-        <source>Close this monitor</source>
-        <translation type="obsolete">关闭此显示器</translation>
-    </message>
-    <message>
-        <source>Open this monitor</source>
-        <translation type="obsolete">打开此显示器</translation>
-    </message>
-    <message>
-        <source>Screen mirror</source>
-        <translation type="obsolete">屏幕镜像</translation>
-    </message>
-    <message>
-        <source>screen brightness</source>
-        <translation type="obsolete">屏幕亮度</translation>
     </message>
     <message>
         <source>Night Mode</source>
@@ -4650,17 +4626,17 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="588"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="590"/>
         <source>blue-crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="591"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="593"/>
         <source>dark-sense</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="594"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="596"/>
         <source>red-glass</source>
         <translation>红玻璃</translation>
     </message>
@@ -4669,13 +4645,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="640"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="642"/>
         <source>classical</source>
         <translation>经典</translation>
         <extra-contents_path>/theme/classical</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="645"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="647"/>
         <source>light</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4684,19 +4660,19 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="643"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="645"/>
         <source>ukui-hp</source>
         <translation>惠普</translation>
         <extra-contents_path>/theme/ukui-hp</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="648"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="650"/>
         <source>basics</source>
         <translation type="unfinished">基础</translation>
         <extra-contents_path>/theme/basics</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="650"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="652"/>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="173"/>
         <source>Unknown</source>
         <translation>未知</translation>
@@ -5043,140 +5019,140 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1688"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1682"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1489"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1483"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="219"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1620"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1697"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1614"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1691"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1228"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1221"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1246"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1317"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1239"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1309"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1275"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1338"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1268"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1330"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1359"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1858"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1351"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1852"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1378"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1370"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1425"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1419"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1441"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1455"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1435"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1449"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1505"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1746"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1499"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1740"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1522"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1516"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1541"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1535"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1558"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1552"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1571"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1565"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1584"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1597"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1578"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1591"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1610"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1604"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1648"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1642"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1704"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1698"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1711"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1705"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1718"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1712"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1725"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1719"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1732"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1726"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1739"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1733"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1762"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1756"/>
         <source>Connection failed, attempting reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1782"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1776"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5658,42 +5634,42 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     <name>Touchpad</name>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="58"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="69"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="70"/>
         <source>Touchpad Settings</source>
         <translation>触摸板设置</translation>
         <extra-contents_path>/touchpad/Touchpad Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="151"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="180"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="181"/>
         <source>Enabled touchpad</source>
         <translation>启用触摸板</translation>
         <extra-contents_path>/touchpad/Enabled touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="242"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="188"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="189"/>
         <source>Pointer speed</source>
         <translation>指针速度</translation>
         <extra-contents_path>/touchpad/Pointer speed</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="369"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="182"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="183"/>
         <source>Disable touchpad while typing</source>
         <translation>打字时禁用触摸板</translation>
         <extra-contents_path>/touchpad/Disable touchpad while typing</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="460"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="184"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="185"/>
         <source>Enable mouse clicks with touchpad</source>
         <translation>触摸板轻触点击</translation>
         <extra-contents_path>/touchpad/Enable mouse clicks with touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="560"/>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="186"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="187"/>
         <source>Scrolling</source>
         <translation>滚动</translation>
         <extra-contents_path>/touchpad/Scrolling</extra-contents_path>
@@ -5722,17 +5698,17 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="65"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="66"/>
         <source>Trackpad</source>
         <translation type="unfinished">触摸板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="226"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="229"/>
         <source>Disable rolling</source>
         <translation>禁用滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
         <source>Vertical edge scrolling</source>
         <translation>边界滚动</translation>
     </message>
@@ -5741,7 +5717,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">水平边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="228"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="227"/>
         <source>Vertical two-finger scrolling</source>
         <translation>中间区域滚动</translation>
     </message>
@@ -6065,72 +6041,72 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="329"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="343"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="804"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="923"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1302"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="339"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="799"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="916"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1294"/>
         <source>pa_context_set_default_source() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="363"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="359"/>
         <source>pa_context_set_sink_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="377"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="373"/>
         <source>pa_context_set_source_port_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="406"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="402"/>
         <source> (plugged in)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="410"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="556"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="406"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="552"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="412"/>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="553"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="408"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="549"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="685"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="681"/>
         <source>Failed to read data from stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="734"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="730"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="735"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="731"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="750"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="746"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="880"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="874"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1194"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="1187"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="2179"/>
+        <location filename="../../../plugins/system/audio/ukmedia_volume_control.cpp" line="2173"/>
         <source>pa_ext_stream_restore_write() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6593,7 +6569,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <location filename="../../../plugins/devices/display/widget.cpp" line="355"/>
         <source>Color Temperature</source>
         <translation>色温</translation>
-        <extra-contents_path>/Display/Color Temperature</extra-contents_path>
+        <extra-contents_path>/Displays/Color Temperature</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/display/widget.cpp" line="358"/>
@@ -6606,130 +6582,136 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>较暖</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="727"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="725"/>
         <source>Multi-screen</source>
         <translation>投屏方式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="732"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="730"/>
         <source>Extend Screen</source>
         <translation>扩展模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="733"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="732"/>
         <source>Clone Screen</source>
         <translation>镜像模式</translation>
+        <extra-contents_path>/Displays/Clone Screen</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="801"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="796"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="900"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="895"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
-        <extra-contents_path>/Display/night mode</extra-contents_path>
+        <extra-contents_path>/Displays/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="908"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="903"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="935"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="930"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="938"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="933"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="941"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="936"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="944"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1128"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="939"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1123"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="945"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="940"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="948"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="943"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="949"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="944"/>
         <source>Not Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="958"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="953"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %2 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1129"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1124"/>
         <source>The zoom function needs to log out to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1130"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1125"/>
         <source>Log out now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1131"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1126"/>
         <source>Later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1469"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1464"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2082"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2076"/>
         <source>All Day</source>
         <translation>全天开启</translation>
-        <extra-contents_path>/Display/All Day</extra-contents_path>
+        <extra-contents_path>/Displays/All Day</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2082"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2078"/>
+        <source>Auto Switch（18:00~07:00）</source>
+        <translation>自动切换（18:00~07:00）</translation>
+        <extra-contents_path>/Displays/Auto Switch（18:00~07:00）</extra-contents_path>
+    </message>
+    <message>
         <source>Follow the sunrise and sunset</source>
-        <translation>跟随日出日落</translation>
+        <translation type="vanished">跟随日出日落</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2347"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2362"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2343"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2358"/>
         <source>Brightness</source>
         <translation>屏幕亮度</translation>
-        <extra-contents_path>/Display/Brightness</extra-contents_path>
+        <extra-contents_path>/Displays/Brightness</extra-contents_path>
     </message>
     <message>
         <source>Some applications need to be logouted to take effect</source>
         <translation type="vanished">应用程序需要注销才能生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1550"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1852"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1545"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1847"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1468"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1550"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1557"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1852"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1463"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1545"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1552"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1847"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -6738,7 +6720,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1558"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1553"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

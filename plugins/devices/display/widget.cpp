@@ -351,7 +351,7 @@ void Widget::initNightModeUi()
     mTemptLyt->setSpacing(8);
     mTemptLabel = new QLabel(mTemptFrame);
     mTemptLabel->setFixedWidth(200);
-    //~ contents_path /Display/Color Temperature
+    //~ contents_path /Displays/Color Temperature
     mTemptLabel->setText(tr("Color Temperature"));
     mColdLabel = new QLabel(mTemptFrame);
     mColdLabel->setFixedWidth(64);
@@ -728,8 +728,8 @@ void Widget::initComponent()
     mMultiScreenCombox = new QComboBox(this);
 
     mMultiScreenCombox->addItem(tr("Extend Screen"));
+    //~ contents_path /Displays/Clone Screen
     mMultiScreenCombox->addItem(tr("Clone Screen"));
-
 
     // 平板模式下只支持镜像 屏幕自动旋转仅平板模式下支持
     if (m_StatusDbus->isValid()) {
@@ -891,7 +891,7 @@ void Widget::setcomBoxScale()
 void Widget::initNightUI()
 {
     QHBoxLayout *nightLayout = new QHBoxLayout(ui->nightframe);
-    //~ contents_path /Display/night mode
+    //~ contents_path /Displays/night mode
     nightLabel = new QLabel(tr("night mode"), this);
     mNightButton = new SwitchButton(this);
     nightLayout->addWidget(nightLabel);
@@ -2072,8 +2072,10 @@ void Widget::initConnection()
 void Widget::setNightComponent()
 {
     /* 设置时间模式 */
-    //~ contents_path /Display/All Day
-    mTimeModeStringList << tr("All Day") << tr("Follow the sunrise and sunset");
+    //~ contents_path /Displays/All Day
+    mTimeModeStringList << tr("All Day");
+    //~ contents_path /Displays/Auto Switch（18:00~07:00）
+    mTimeModeStringList << tr("Auto Switch（18:00~07:00）");
     mTimeModeCombox->insertItem(0, mTimeModeStringList.at(0));
     mTimeModeCombox->insertItem(1, mTimeModeStringList.at(1));
 
@@ -2352,7 +2354,7 @@ void Widget::showBrightnessFrame(const int flag)
                 } else {
                     ui->unifyBrightFrame->setFixedHeight(82);
                 }
-                //~ contents_path /Display/Brightness
+                //~ contents_path /Displays/Brightness
                 BrightnessFrameV[i]->setTextLabelName(tr("Brightness"));
                 BrightnessFrameV[i]->setVisible(true);
                 //不能break，要把其他的frame隐藏
