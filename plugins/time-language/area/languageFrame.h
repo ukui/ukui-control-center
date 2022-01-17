@@ -6,6 +6,8 @@
 #include <QFrame>
 #include <QLabel>
 #include <QIcon>
+#include <QGSettings>
+#define THEME_QT_SCHEMA  "org.ukui.style"
 
 class LanguageFrame : public QFrame
 {

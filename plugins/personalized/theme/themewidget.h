@@ -26,7 +26,10 @@
 #include <QPixmap>
 #include <QRadioButton>
 #include <QFrame>
+#include <QGSettings>
 #include <ukcc/widgets/fixlabel.h>
+
+#define THEME_QT_SCHEMA  "org.ukui.style"
 
 class QLabel;
 

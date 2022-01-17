@@ -58,6 +58,12 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     selectedLabel->setScaledContents(true);
     QIcon selectIcon = QIcon::fromTheme("ukui-selected");
     selectedLabel->setPixmap(selectIcon.pixmap(selectIcon.actualSize(QSize(16, 16))));
+    const QByteArray id(THEME_QT_SCHEMA);
+    QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
+    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
+        if (key == "iconThemeName")
+            selectedLabel->setPixmap(selectIcon.pixmap(selectIcon.actualSize(QSize(16, 16))));
+    });
 
     FixLabel * nameLabel = new FixLabel(this);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
@@ -118,6 +124,12 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, const QList<QPixmap> &listMa
     selectedLabel->setScaledContents(true);
     QIcon selectIcon = QIcon::fromTheme("ukui-selected");
     selectedLabel->setPixmap(selectIcon.pixmap(selectIcon.actualSize(QSize(16, 16))));
+    const QByteArray id(THEME_QT_SCHEMA);
+    QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
+    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
+        if (key == "iconThemeName")
+            selectedLabel->setPixmap(selectIcon.pixmap(selectIcon.actualSize(QSize(16, 16))));
+    });
 
     FixLabel * nameLabel = new FixLabel(this);
     QSizePolicy nameSizePolicy = nameLabel->sizePolicy();
