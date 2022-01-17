@@ -225,7 +225,7 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
 
         });
 
-        connect(_MDev,&bluetoothdevice::errorInfoRefreshSignal,this,[=](int errorId , QString errorText)
+        connect(_MDev,&bluetoothdevice::errorInfoRefresh,this,[=](int errorId , QString errorText)
         {
             qDebug () << Q_FUNC_INFO << "error:" << errorId << errorText << __LINE__;
             emit devConnectionComplete();
@@ -334,7 +334,8 @@ QPixmap IntelDeviceInfoItem::getDevConnectedIcon(DEVSTATUS status,QSize size)
         break;
     }
 
-    if (":/img/plugins/bluetooth/not-connected.svg" == iconName && _themeIsBlack && (Status::Hover != _MStatus)) {
+    //if (":/img/plugins/bluetooth/not-connected.svg" == iconName && _themeIsBlack && (Status::Hover != _MStatus)) {
+    if (":/img/plugins/bluetooth/not-connected.svg" == iconName && _themeIsBlack) {
         return iconName.isEmpty() ? \
                 QPixmap() : \
                 ImageUtil::loadSvg(iconName,"white",size.width());
@@ -607,7 +608,7 @@ QPixmap IntelDeviceInfoItem::getDevTypeIcon()
         case bluetoothdevice::DEVICE_TYPE::headphones:
             iconName = "audio-headphones-symbolic";
             break;
-        case bluetoothdevice::DEVICE_TYPE::audioVideo:
+        case bluetoothdevice::DEVICE_TYPE::audiovideo:
             iconName = "audio-speakers-symbolic";
             break;
         case bluetoothdevice::DEVICE_TYPE::keyboard:
@@ -626,7 +627,8 @@ QPixmap IntelDeviceInfoItem::getDevTypeIcon()
         iconName = "bluetooth-symbolic";
     }
 
-    if (_themeIsBlack && (Status::Nomal == _MStatus)) {
+    //if (_themeIsBlack && (Status::Nomal == _MStatus)) {
+    if (_themeIsBlack) {
         icon = ImageUtil::drawSymbolicColoredPixmap(QIcon::fromTheme(iconName).pixmap(18,18),"white");
     } else {
         icon = QIcon::fromTheme(iconName).pixmap(18,18);
@@ -750,9 +752,9 @@ void IntelDeviceInfoItem::DrawText(QPainter &painter)
     else
         painter.setPen(QColor(Qt::black));
 
-    if (_MStatus == Status::Hover) {
-        painter.setPen(QColor(Qt::black));
-    }
+//    if (_MStatus == Status::Hover) {
+//        painter.setPen(QColor(Qt::black));
+//    }
 
     painter.drawText(60,20,this->width()-300,24,Qt::AlignLeft,_MDev?getDeviceName( _MDev->getDevName() ): QString("Example"));
     painter.restore();

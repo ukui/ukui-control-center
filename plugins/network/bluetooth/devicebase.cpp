@@ -99,7 +99,7 @@ bluetoothdevice::bluetoothdevice(QString   dev_name ,
     ,m_dev_trust(dev_trust)
 {
     this->setObjectName(dev_address);
-
+    clearErrorInfo();
     //qDebug() << Q_FUNC_INFO << __LINE__;
 //    if (DEVICE_STATUS::PairedAndUnlinked == dev_status ||
 //        DEVICE_STATUS::PairedAndLinked == dev_status )
@@ -152,16 +152,16 @@ bluetoothdevice::DEVICE_TYPE bluetoothdevice::getDevType()
     return this->m_dev_type;
 
 }
-void bluetoothdevice::setDevStatus(DEVICE_STATUS status)
-{
-    //qDebug() << Q_FUNC_INFO << __LINE__;
+//void bluetoothdevice::setDevStatus(DEVICE_STATUS status)
+//{
+//    //qDebug() << Q_FUNC_INFO << __LINE__;
 
-}
-bluetoothdevice::DEVICE_STATUS bluetoothdevice::getDevStatus()
-{
-    //qDebug() << Q_FUNC_INFO << __LINE__;
+//}
+//bluetoothdevice::DEVICE_STATUS bluetoothdevice::getDevStatus()
+//{
+//    //qDebug() << Q_FUNC_INFO << __LINE__;
 
-}
+//}
 
 void bluetoothdevice::setDevTrust(bool value)
 {
@@ -183,8 +183,11 @@ bool bluetoothdevice::isPaired()
 void bluetoothdevice::devPairedChanged(bool value)
 {
     qDebug() << Q_FUNC_INFO << value << __LINE__;
-    this->m_dev_isPaired = value;
-    emit pairedChanged(value);
+    if(this->m_dev_isPaired != value)
+    {
+        this->m_dev_isPaired = value;
+        emit pairedChanged(value);
+    }
 }
 
 bool bluetoothdevice::isConnected()
@@ -195,15 +198,18 @@ bool bluetoothdevice::isConnected()
 
 void bluetoothdevice::devConnectedChanged(bool value)
 {
-    this->m_dev_isConnected = value;
-    emit connectedChanged(value);
+    if(this->m_dev_isConnected != value)
+    {
+        this->m_dev_isConnected = value;
+        emit connectedChanged(value);
+    }
 }
 
 void bluetoothdevice::setErrorInfo(int errorId,QString errorText)
 {
     this->m_errorId = errorId;
     this->m_errorText = errorText;
-    emit errorInfoRefreshSignal(errorId,errorText);
+    emit errorInfoRefresh(errorId,errorText);
 }
 
 void bluetoothdevice::clearErrorInfo()
