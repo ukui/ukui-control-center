@@ -644,6 +644,7 @@ void BlueToothMain::addMyDeviceItemUI(bluetoothdevice * device)
         });
         m_myDev_show_flag = true;
 
+        mDevFrameAddLineFrame("paired",device->getDevAddress());
         paired_dev_layout->addWidget(item,Qt::AlignTop);
     }
     return;
@@ -656,7 +657,7 @@ bool BlueToothMain::whetherToAddCurrentInterface(bluetoothdevice * device)
     case DevTypeShow::Audio:
         if (device->getDevType() == bluetoothdevice::DEVICE_TYPE::headset ||
             device->getDevType() == bluetoothdevice::DEVICE_TYPE::headphones ||
-            device->getDevType() == bluetoothdevice::DEVICE_TYPE::audioVideo) {
+            device->getDevType() == bluetoothdevice::DEVICE_TYPE::audiovideo) {
             return true;
         } else {
             return false;
@@ -687,7 +688,7 @@ bool BlueToothMain::whetherToAddCurrentInterface(bluetoothdevice * device)
     default:
         if (device->getDevType() == bluetoothdevice::DEVICE_TYPE::headset ||
             device->getDevType() == bluetoothdevice::DEVICE_TYPE::headphones ||
-            device->getDevType() == bluetoothdevice::DEVICE_TYPE::audioVideo ||
+            device->getDevType() == bluetoothdevice::DEVICE_TYPE::audiovideo ||
             device->getDevType() == bluetoothdevice::DEVICE_TYPE::phone ||
             device->getDevType() == bluetoothdevice::DEVICE_TYPE::mouse ||
             device->getDevType() == bluetoothdevice::DEVICE_TYPE::keyboard ||
@@ -747,6 +748,13 @@ void BlueToothMain::getDefaultAdapterData(QString adapter_address)
     m_default_adapter_name              = getAdapterName(adapter_address);
     m_current_adapter_power_swtich      = getDefaultAdapterPower();
     m_current_adapter_scan_status       = getDefaultAdapterScanStatus();
+    //当前扫描状态是开启，则关闭扫描状态，并清除所有未匹配的蓝牙设备，
+    if (m_current_adapter_scan_status)
+    {
+        setDefaultAdapterScanOn(false);
+        clearAllUnPairedDevicelist();
+    }
+
     m_current_adapter_disconvery_swtich = getDefaultAdapterDiscoverable();
 
 
@@ -1621,7 +1629,7 @@ void BlueToothMain::refreshUIWhenAdapterChanged()
 {
     qDebug() << Q_FUNC_INFO << __LINE__;
     // =============清空我的设备和蓝牙发现设备栏布局下的所有设备item=================
-    //cleanPairDevices();
+    cleanPairDevices();
     m_default_adapter_address = getDefaultAdapterAddress();
     getDefaultAdapterData(m_default_adapter_address);
     // ========================END===========================================
@@ -1653,17 +1661,24 @@ void BlueToothMain::refreshUIWhenAdapterChanged()
     if(m_current_adapter_power_swtich)
     {
         if (!m_open_bluetooth_btn->isChecked())
+        {
+            //添加标识，从蓝牙服务获取的数据
+            m_service_dbus_adapter_power_change_flag = true;
             m_open_bluetooth_btn->setChecked(true);
+        }
 //        bluetooth_name->setVisible(true);
         frame_middle->setVisible(m_myDev_show_flag);
-        if (!frame_bottom->isVisible())
+        if (!frame_bottom->isVisible() && frame_bottom->children().size())
             frame_bottom->setVisible(true);
     }
     else
     {
         if (m_open_bluetooth_btn->isChecked())
+        {
+            //添加标识，从蓝牙服务获取的数据
+            m_service_dbus_adapter_power_change_flag = true;
             m_open_bluetooth_btn->setChecked(false);
-//        bluetooth_name->setVisible(false);
+        }
         frame_bottom->setVisible(false);
         frame_middle->setVisible(false);
     }
@@ -1691,9 +1706,6 @@ void BlueToothMain::changeDeviceParentWindow(const QString &address)
     IntelDeviceInfoItem *item = device_list->findChild<IntelDeviceInfoItem *>(address);
     QFrame *line_item = device_list->findChild<QFrame *>("line-"+address);
     if(item){
-
-        mDevFrameAddLineFrame("paired",address);
-
         device_list_layout->removeWidget(item);
         item->setParent(frame_middle);
 
@@ -1707,6 +1719,7 @@ void BlueToothMain::changeDeviceParentWindow(const QString &address)
         bool isConnect = getDevConnectStatus(address);
         reportDevConnectStatusSignal(address,isConnect);
 
+        mDevFrameAddLineFrame("paired",address);
         paired_dev_layout->addWidget(item);
         m_myDev_show_flag = true;
     }else{
@@ -1907,7 +1920,7 @@ void BlueToothMain::addDiscoverDevListByFlag(BlueToothMain::DevTypeShow flag)
         case DevTypeShow::Audio:
             if (dev->getDevType() == bluetoothdevice::DEVICE_TYPE::headset ||
                 dev->getDevType() == bluetoothdevice::DEVICE_TYPE::headphones ||
-                dev->getDevType() == bluetoothdevice::DEVICE_TYPE::audioVideo) {
+                dev->getDevType() == bluetoothdevice::DEVICE_TYPE::audiovideo) {
                 addOneBluetoothDeviceItemUi(dev);
             }
             break;
@@ -1930,7 +1943,7 @@ void BlueToothMain::addDiscoverDevListByFlag(BlueToothMain::DevTypeShow flag)
         case DevTypeShow::Other:
             if (dev->getDevType() == bluetoothdevice::DEVICE_TYPE::headset ||
                 dev->getDevType() == bluetoothdevice::DEVICE_TYPE::headphones ||
-                dev->getDevType() == bluetoothdevice::DEVICE_TYPE::audioVideo ||
+                dev->getDevType() == bluetoothdevice::DEVICE_TYPE::audiovideo ||
                 dev->getDevType() == bluetoothdevice::DEVICE_TYPE::phone ||
                 dev->getDevType() == bluetoothdevice::DEVICE_TYPE::mouse ||
                 dev->getDevType() == bluetoothdevice::DEVICE_TYPE::keyboard ||
@@ -2035,24 +2048,18 @@ void BlueToothMain::adapterComboxChanged(int i)
     if(i != -1)
     {
         qDebug() << Q_FUNC_INFO << "=================3" << __LINE__;
+        setDefaultAdapterScanOn(false);
+        clearAllUnPairedDevicelist();
 
         setDefaultAdapter(m_bluetooth_adapter_list.at(i)->getDevAddress());
-
-//        m_default_bluetooth_adapter = m_bluetooth_adapter_list.at(i);
-//        if (nullptr == m_default_bluetooth_adapter)
-//        {
-//            return;
-//        }
         refreshUIWhenAdapterChanged();
-
-//        if(m_settings)
-//            m_settings->set("adapter-address",QVariant::fromValue(m_adapter_address_list.at(i)));
-//            Default_Adapter = m_adapter_address_list.at(i);
     }else{
         if(m_open_bluetooth_btn->isChecked()){
             qDebug() << __FUNCTION__<< "index - i : "<< i << __LINE__ ;
             m_open_bluetooth_btn->setChecked(false);
-            //m_open_bluetooth_btn->setDisabledFlag(false);
+#ifndef DEVICE_IS_INTEL
+            m_open_bluetooth_btn->setDisabledFlag(false);
+#endif
         }
         if(frame_middle->isVisible()){
             frame_middle->setVisible(false);
@@ -2136,6 +2143,7 @@ void BlueToothMain::cleanPairDevices()
         {
             child->widget()->setParent(NULL);
         }
+        paired_dev_layout->removeItem(child);
         delete child;
         child = nullptr;
     }
@@ -2146,6 +2154,7 @@ void BlueToothMain::cleanPairDevices()
         {
             child->widget()->setParent(NULL);
         }
+        device_list_layout->removeItem(child);
         delete child;
         child = nullptr;
     }
@@ -2162,9 +2171,9 @@ void BlueToothMain::gSettingsChanged(const QString &key)
             isblack = false;
 
         if (isblack)
-            errorWidgetIcon->setPixmap(ImageUtil::drawSymbolicColoredPixmap(QIcon::fromTheme("bluetooth-error").pixmap(56,56),"white"));
+            errorWidgetIcon->setPixmap(ImageUtil::drawSymbolicColoredPixmap(QIcon::fromTheme("bluetooth-disabled-symbolic").pixmap(54,88),"white"));
         else
-            errorWidgetIcon->setPixmap(QIcon::fromTheme("bluetooth-error").pixmap(56,56));
+            errorWidgetIcon->setPixmap(QIcon::fromTheme("bluetooth-disabled-symbolic").pixmap(54,88));
     }
 }
 
