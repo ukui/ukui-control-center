@@ -397,7 +397,7 @@ void Theme::buildThemeModeLabel(){
         QString themeMode = "ukui-light";
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
 
-        qApp->setStyle(new InternalStyle(themeMode));
+        qApp->setStyle(new InternalStyle("ukui"));
         if (QString::compare(currentThemeMode, themeMode)) {
             QString tmpMode;
             if ("ukui-dark" == themeMode) {
@@ -425,7 +425,7 @@ void Theme::buildThemeModeLabel(){
         ui->darkRadioBtn->clearFocus();
         QString themeMode = "ukui-dark";
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-        qApp->setStyle(new InternalStyle(themeMode));
+        qApp->setStyle(new InternalStyle("ukui"));
         if (QString::compare(currentThemeMode, themeMode)) {
             QString tmpMode;
             if ("ukui-dark" == themeMode) {
