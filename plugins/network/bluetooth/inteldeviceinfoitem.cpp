@@ -600,7 +600,7 @@ QPixmap IntelDeviceInfoItem::getDevTypeIcon()
             iconName = "phone-symbolic";
             break;
         case bluetoothdevice::DEVICE_TYPE::computer:
-            iconName = "computer-symbolic";
+            iconName = "video-display-symbolic";
             break;
         case bluetoothdevice::DEVICE_TYPE::headset:
             iconName = "audio-headset-symbolic";
