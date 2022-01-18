@@ -627,60 +627,61 @@ gboolean AutoBoot::_key_file_get_boolean(GKeyFile *keyfile, const gchar *key, gb
 AutoApp AutoBoot::_app_new(const char *path)
 {
     AutoApp app;
-    GKeyFile *keyfile;
-    char *bname, *obpath, *name, *comment, *exec, *icon;
-    bool hidden, no_display, enable, shown;
+    QSettings* desktopFile = new QSettings(path, QSettings::IniFormat);
+    QString icon, only_showin, not_show_in;
+    if (desktopFile) {
+       desktopFile->setIniCodec("utf-8");
 
-    app.bname = "";
-    keyfile = g_key_file_new();
+       QFileInfo file = QFileInfo(path);
+       app.bname = file.fileName();
+       app.path = path;
+       app.exec = desktopFile->value(QString("Desktop Entry/Exec")).toString();
+       icon = desktopFile->value(QString("Desktop Entry/Icon")).toString();
+       app.hidden = desktopFile->value(QString("Desktop Entry/Hidden")).toBool();
+       app.no_display = desktopFile->value(QString("Desktop Entry/NoDisplay")).toBool();
+       only_showin = desktopFile->value(QString("Desktop Entry/OnlyShowIn")).toString();
+       not_show_in = desktopFile->value(QString("Desktop Entry/NotShowIn")).toString();
+       bool mshow = true;
+       if (app.bname == "sogouImeService.desktop") {
+           icon = "/opt/sogouimebs/files/share/resources/skin/logo/logo.png";
+       }
+       if (only_showin != nullptr) {
+           if (!only_showin.contains("UKUI")) {
+               mshow = false;
+           }
+       }
+       if (not_show_in != nullptr) {
+           if (not_show_in.contains("UKUI")) {
+               mshow = false;
+           }
+       }
+       app.shown = mshow;
+
+       QFileInfo iconfile(icon);
+
+       if (!QString(icon).isEmpty()) {
+           QIcon currenticon
+               = QIcon::fromTheme(icon,
+                                  QIcon(QString("/usr/share/pixmaps/"+icon
+                                                +".png")));
+           app.pixmap = currenticon.pixmap(QSize(32, 32));
+       } else if (iconfile.exists()) {
+           app.pixmap = QPixmap(iconfile.filePath()).scaled(32, 32);
+       } else {
+           app.pixmap = QPixmap(QString(":/img/plugins/autoboot/desktop.png"));
+       }
+
+       delete desktopFile;
+       desktopFile = nullptr;
+    }
+    //通过glib库函数获取Name字段，防止特殊情况（含有字段X-Ubuntu-Gettext-Domain）
+    GKeyFile *keyfile = g_key_file_new();
     if (!g_key_file_load_from_file(keyfile, path, G_KEY_FILE_NONE, NULL)) {
         g_key_file_free(keyfile);
         return app;
     }
-
-    bname = g_path_get_basename(path);
-    obpath = g_strdup(path);
-    hidden = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
-    no_display = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY, FALSE);
-// enable = _key_file_get_boolean(keyfile, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, TRUE);
-    shown = _key_file_get_shown(keyfile, g_getenv("XDG_CURRENT_DESKTOP"));
-    name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+    app.name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                         G_KEY_FILE_DESKTOP_KEY_NAME, NULL, NULL);
-    comment = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                           G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
-    exec = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC,
-                                 NULL);
-    icon = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                        G_KEY_FILE_DESKTOP_KEY_ICON, NULL, NULL);
-
-    app.bname = QString::fromUtf8(bname);
-    app.path = QString::fromUtf8(obpath);
-
-    app.hidden = hidden;
-    app.no_display = no_display;
-    app.shown = shown;
-// app.enable = enable;
-
-    app.name = QString::fromUtf8(name);
-    app.comment = QString::fromUtf8(comment);
-    app.exec = QString::fromUtf8(exec);
-
-    QFileInfo iconfile(static_cast<QString>(icon));
-
-    if (!QString(icon).isEmpty() /*&& QIcon::hasThemeIcon(QString(icon))*/) {
-        QIcon currenticon
-            = QIcon::fromTheme(QString(icon),
-                               QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(icon))
-                                             +".png")));
-        app.pixmap = currenticon.pixmap(QSize(32, 32));
-    } else if (iconfile.exists()) {
-        app.pixmap = QPixmap(iconfile.filePath()).scaled(32, 32);
-    } else {
-        app.pixmap = QPixmap(QString(":/img/plugins/autoboot/desktop.png"));
-    }
-
-    g_free(bname);
-    g_free(obpath);
     g_key_file_free(keyfile);
 
     return app;
