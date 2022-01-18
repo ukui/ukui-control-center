@@ -1558,8 +1558,10 @@ void BlueToothMain::startBluetoothDiscovery()
 
     if (!m_localDevice->isDiscovering())
         m_localDevice->startDiscovery();
-    discovering_timer->start();
-
+    if(!discovering_timer->isActive())
+    {
+        discovering_timer->start();
+    }
 }
 
 void BlueToothMain::MonitorSleepSignal()
