@@ -712,6 +712,9 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 
 void Widget::initComponent()
 {
+    ui->tipLabel->setText(tr("Only tablet mode supports"));
+    ui->tipLabel->setEnabled(false);
+
     mAutoRotationBtn = new SwitchButton(this);
     ui->autorotationLayout->addWidget(mAutoRotationBtn);
 
