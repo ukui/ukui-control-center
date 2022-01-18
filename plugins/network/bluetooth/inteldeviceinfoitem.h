@@ -29,6 +29,7 @@
 #include <QPushButton>
 #include <QFont>
 #include <QFontMetrics>
+#include <QDateTime>
 
 #include <QGSettings/QGSettings>
 
@@ -127,6 +128,7 @@ private:
     bool _removeDevFlag ;
     bool _inBtn = false;
     bool _themeIsBlack = false;
+    long long _pressCurrentTime;
 
     QString _fontFamily;
     int _fontSize = 0;
