@@ -40,8 +40,10 @@ QString ukccSessionServer::getScreenMode()
 
 void ukccSessionServer::setScreenMode(QString screenMode)
 {
-    mScreenMode = screenMode;
-    Q_EMIT screenChanged(mScreenMode);
+    if (mScreenMode != screenMode) {
+        mScreenMode = screenMode;
+        Q_EMIT screenChanged(mScreenMode);
+    }
 }
 
 void ukccSessionServer::setPreScreenCfg(QVariantList preScreenCfg)
