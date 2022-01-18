@@ -1166,27 +1166,9 @@ void Widget::setScreenKDS(QString kdsConfig)
              }
              nowIt++;
          }
-    } else if (kdsConfig == "first") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i == 0));
-            }
-        }
-        delayApply();
-    } else if (kdsConfig == "second") {
-        for (int i = 0; i < screens.size(); i++) {
-            if (!screens[i].isNull()) {
-                screens[i]->setEnabled((i != 0));
-            }
-        }
-        delayApply();
-    } else {
-        Q_FOREACH(KScreen::OutputPtr output, screens) {
-            if (!output.isNull()) {
-                output->setEnabled(true);
-            }
-        }
-        delayApply();
+    } else if ((!mUnifyButton->isChecked() && kdsConfig != "copy") ||
+                 (mUnifyButton->isChecked() && kdsConfig == "copy")) {  // 过滤重复应用
+        mKDSCfg.clear();
     }
 }
 
@@ -1221,6 +1203,7 @@ void Widget::setActiveScreen(QString status)
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
+    qDebug() << Q_FUNC_INFO << status;
     bool isCheck = (status == "copy") ? true : false;
     mKDSCfg = status;
     setScreenKDS(mKDSCfg);
