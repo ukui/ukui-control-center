@@ -100,7 +100,6 @@ private:
     QStringList gtkfontStrList;
     QStringList docfontStrList;
     QStringList monospacefontStrList;
-    QStringList peonyfontStrList;
     QStringList titlebarfontStrList;
 
     QDBusInterface *m_cloudInterface;
