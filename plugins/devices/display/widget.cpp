@@ -717,6 +717,8 @@ void Widget::initComponent()
 
     mAutoRotationBtn = new SwitchButton(this);
     ui->autorotationLayout->addWidget(mAutoRotationBtn);
+    //~ contents_path /Displays/autorotation
+    ui->autorotationLabel->setText(tr("autorotation"));
 
     mCloseScreenButton = new SwitchButton(this);
     ui->showScreenLayout->addWidget(mCloseScreenButton);
@@ -725,13 +727,13 @@ void Widget::initComponent()
     mMultiScreenFrame->setFrameShape(QFrame::Shape::Box);
 
     QHBoxLayout *multiScreenlay = new QHBoxLayout();
+    //~ contents_path /Displays/Clone Screen
     mMultiScreenLabel = new QLabel(tr("Multi-screen"), this);
     mMultiScreenLabel->setFixedSize(118, 30);
 
     mMultiScreenCombox = new QComboBox(this);
 
     mMultiScreenCombox->addItem(tr("Extend Screen"));
-    //~ contents_path /Displays/Clone Screen
     mMultiScreenCombox->addItem(tr("Clone Screen"));
 
     // 平板模式下只支持镜像 屏幕自动旋转仅平板模式下支持

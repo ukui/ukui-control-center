@@ -602,88 +602,88 @@ you can restore them to ensure the integrity of your system.</source>
 <context>
     <name>BlueToothMain</name>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1265"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1273"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1306"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1314"/>
         <source>Local device:</source>
         <translation>本机设备：</translation>
         <extra-contents_path>/bluetooth/Local device:</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1324"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1332"/>
         <source>* Nothing entered, please re-enter</source>
         <translation>* 未输入任何内容，请重新输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1325"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1333"/>
         <source>* Up to 30 characters can be entered</source>
         <translation>* 最多可输入30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1357"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1365"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
         <extra-contents_path>/bluetooth/Bluetooth adapter</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1395"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1403"/>
         <source>Show icon on taskbar</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1429"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1437"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近蓝牙检测发现</translation>
         <extra-contents_path>/bluetooth/Discoverable by nearby Bluetooth devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1462"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1470"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1494"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1502"/>
         <source>Other Devices</source>
         <translation>其他设备</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1540"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1548"/>
         <source>All</source>
         <translation>全部</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1541"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1549"/>
         <source>Audio</source>
         <translation>音频设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1542"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1550"/>
         <source>Peripherals</source>
         <translation>键鼠设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1543"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1551"/>
         <source>PC</source>
         <translation>电脑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1544"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1552"/>
         <source>Phone</source>
         <translation>手机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1545"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1553"/>
         <source>Other</source>
         <translation>其他设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1609"/>
+        <location filename="../../../plugins/network/bluetooth/bluetoothmain.cpp" line="1617"/>
         <source>Bluetooth driver abnormal</source>
         <translation>蓝牙设备异常</translation>
     </message>
@@ -2789,15 +2789,15 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="115"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="438"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="442"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="439"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="443"/>
         <source>Send files</source>
         <translation type="unfinished">发送文件</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="120"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="453"/>
-        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="457"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="454"/>
+        <location filename="../../../plugins/network/bluetooth/inteldeviceinfoitem.cpp" line="458"/>
         <source>remove</source>
         <translation type="unfinished">移除</translation>
     </message>
@@ -6371,7 +6371,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="548"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="117"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="114"/>
         <source>arrangement</source>
         <translation>排列方式</translation>
         <extra-contents_path>/wallpaper/arrangement</extra-contents_path>
@@ -6402,29 +6402,29 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">选择桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="122"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="119"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="122"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="119"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="167"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="164"/>
         <source>Local wallpaper</source>
         <translation>本地背景</translation>
         <extra-contents_path>/wallpaper/Local wallpaper</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="210"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="207"/>
         <source>Reset</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/wallpaper/Reset</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="253"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="250"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
@@ -6433,7 +6433,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="283"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="280"/>
         <source>centered</source>
         <translation>居中</translation>
         <extra-contents_path>/wallpaper/centered</extra-contents_path>
@@ -6443,7 +6443,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">比例放大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="285"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="282"/>
         <source>stretched</source>
         <translation>拉伸</translation>
         <extra-contents_path>/wallpaper/stretched</extra-contents_path>
@@ -6457,13 +6457,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="281"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="278"/>
         <source>tile</source>
         <translation>平铺</translation>
         <extra-contents_path>/wallpaper/tile</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="279"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="276"/>
         <source>padding</source>
         <translation>填充</translation>
         <extra-contents_path>/wallpaper/padding</extra-contents_path>
@@ -6474,54 +6474,54 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished">背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="172"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="169"/>
         <source>Local wall...</source>
         <translation>本地背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="358"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="355"/>
         <source>%1</source>
         <translation type="unfinished">%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="626"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="623"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="634"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="676"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="631"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="673"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="635"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="677"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="632"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="674"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="636"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="678"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="633"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="675"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="637"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="679"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="634"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="676"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="638"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="680"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="635"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="677"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="820"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="639"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="681"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="636"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="678"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -6598,106 +6598,112 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>仅在平板模式支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="728"/>
-        <source>Multi-screen</source>
-        <translation>投屏方式</translation>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="721"/>
+        <source>autorotation</source>
+        <translation>自动旋转</translation>
+        <extra-contents_path>/Displays/autorotation</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="733"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="731"/>
+        <source>Multi-screen</source>
+        <translation>投屏方式</translation>
+        <extra-contents_path>/Displays/Clone Screen</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="736"/>
         <source>Extend Screen</source>
         <translation>扩展模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="735"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="737"/>
         <source>Clone Screen</source>
         <translation>镜像模式</translation>
-        <extra-contents_path>/Displays/Clone Screen</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="799"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="801"/>
         <source>monitor</source>
         <translation>显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="898"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="900"/>
         <source>night mode</source>
         <translation>夜间模式</translation>
         <extra-contents_path>/Displays/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="906"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="908"/>
         <source>Theme follow night mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="933"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="935"/>
         <source>resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="936"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="938"/>
         <source>orientation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="939"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="941"/>
         <source>frequency</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="942"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1126"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="944"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1128"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="943"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="945"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after 14 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="946"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="948"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="947"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="949"/>
         <source>Not Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="956"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="958"/>
         <source>The screen %1 has been modified, whether to save it ? &lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;the settings will be saved after %2 seconds&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1127"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1129"/>
         <source>The zoom function needs to log out to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1128"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1130"/>
         <source>Log out now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1129"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1131"/>
         <source>Later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1467"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1469"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2079"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2081"/>
         <source>All Day</source>
         <translation>全天开启</translation>
         <extra-contents_path>/Displays/All Day</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2081"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2083"/>
         <source>Auto Switch（18:00~07:00）</source>
         <translation>自动切换（18:00~07:00）</translation>
         <extra-contents_path>/Displays/Auto Switch（18:00~07:00）</extra-contents_path>
@@ -6707,8 +6713,8 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">跟随日出日落</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2346"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="2361"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2348"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="2363"/>
         <source>Brightness</source>
         <translation>屏幕亮度</translation>
         <extra-contents_path>/Displays/Brightness</extra-contents_path>
@@ -6718,16 +6724,16 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">应用程序需要注销才能生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1548"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1850"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1550"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1852"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1466"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1548"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1555"/>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1850"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1468"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1550"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1557"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1852"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -6736,7 +6742,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">早晨时刻应早于晚上的时刻!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/display/widget.cpp" line="1556"/>
+        <location filename="../../../plugins/devices/display/widget.cpp" line="1558"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

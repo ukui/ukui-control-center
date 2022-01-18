@@ -8,10 +8,17 @@
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
-        <pinyinfunc>jingxiangmoshi</pinyinfunc>
+        <pinyinfunc>toupingfangshi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>镜像模式</ChineseFunc>
-        <EnglishFunc>Screen mirror</EnglishFunc>
+        <ChineseFunc>投屏方式</ChineseFunc>
+        <EnglishFunc>Multi-screen</EnglishFunc>
+    </plugin>
+    <plugin name="displays">
+        <pinyinPlugin>pingmu</pinyinPlugin>
+        <pinyinfunc>zidongxuanzhuan</pinyinfunc>
+        <ChinesePlugin>显示器</ChinesePlugin>
+        <ChineseFunc>自动旋转</ChineseFunc>
+        <EnglishFunc>autorotation</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
@@ -29,9 +36,9 @@
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
-        <pinyinfunc>zidongqiehuan</pinyinfunc>
+        <pinyinfunc>zidongqiehuan(18:00~07:00)</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>自动切换</ChineseFunc>
+        <ChineseFunc>自动切换(18:00~07:00)</ChineseFunc>
         <EnglishFunc>Auto Switch(18:00~07:00)</EnglishFunc>
     </plugin>
     <plugin name="displays">
