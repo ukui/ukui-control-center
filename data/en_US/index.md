@@ -249,6 +249,24 @@ Administrator can modify other user's information, add new user, etc..
 
 - Add new user
 
+-Password complexity requirements(Password strength can be customized through security neutrality):
+
+1. The user password cannot contain illegal characters ("'" and non-standard characters);
+
+2. The minimum password length is 8;
+
+3. The password shall contain at least two types of characters;
+
+4. The password must not contain the user name;
+
+5. It is forbidden to use palindrome in password;
+
+6. Enable password similarity check (detect when modifying password);
+
+7. Enable password dictionary;
+
+8. The validity period of the password is unlimited;
+
 ![Fig 25-5 Add new user](image/27.png)
 
 ### Biometrics
