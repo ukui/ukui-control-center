@@ -209,7 +209,7 @@ Administrator can modify other user's information, add new user, etc..
 
 - Edit
 
--Password complexity requirements:
+-Password complexity requirements(Password strength can be customized through security neutrality):
 
 1. The user password cannot contain illegal characters ("'" and non-standard characters);
 
