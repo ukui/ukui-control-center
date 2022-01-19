@@ -377,7 +377,7 @@ static gboolean io_watch_stdout (GIOChannel *source, GIOCondition condition, Pas
                                          "Your password has been changed after you verify!");
                 } */else {
                     error = g_error_new (PASSWD_ERROR, PASSWD_ERROR_UNKNOWN,
-                                         str->str);
+                                         "%s", str->str);
                 }
 
                 /* At this point, passwd might have exited, in which case
