@@ -125,7 +125,7 @@ bool ModulePageWidget::eventFilter(QObject *watched, QEvent *event)
 {
 
     if (event->type() == QEvent::MouseMove) {
-        if (leftListWidget->geometry().contains(this->mapFromGlobal(QCursor::pos()) - QPoint(6, 6))) {
+        if (leftListWidget->geometry().contains(this->mapFromGlobal(QCursor::pos()) - QPoint(6, 12))) {
             leftListWidget->verticalScrollBar()->setVisible(true);
         } else {
             leftListWidget->verticalScrollBar()->setVisible(false);
