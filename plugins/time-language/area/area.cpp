@@ -296,7 +296,7 @@ void Area::change_language_slot(int index) {
         break;
     }
 
-    QMessageBox::information(pluginWidget, tr("Message"),tr("Need to log off to take effect"));
+    QMessageBox::information(pluginWidget, tr("Message"),tr("Need to reboot to take effect"));
 }
 
 void Area::change_area_slot(int index) {
