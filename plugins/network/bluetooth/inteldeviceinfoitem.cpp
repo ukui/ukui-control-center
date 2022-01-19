@@ -389,8 +389,41 @@ void IntelDeviceInfoItem::leaveEvent(QEvent *event)
     update();
 }
 
+void IntelDeviceInfoItem::mouseReleaseEvent(QMouseEvent *event)
+{
+    long long _releaseCurrentTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
+    qDebug() << Q_FUNC_INFO << "_releaseCurrentTime" << _releaseCurrentTime << "_pressCurrentTime:" << _pressCurrentTime;
+    if((_releaseCurrentTime - _pressCurrentTime) >= 200)
+    {
+        qDebug() << Q_FUNC_INFO << "press to release time too long！！！！！！！";
+        _pressBtnFlag = false;
+
+        _pressFlag = false;
+        _MStatus = Status::Hover;
+        return;
+    }
+
+    if (event->button() == Qt::LeftButton) {
+        if (mouseEventIntargetAera(event->pos()) && _pressBtnFlag && !BlueToothMain::m_device_operating) {
+            MouseClickedDevFunc();
+            _pressBtnFlag = false;
+        } else {
+            qDebug() << Q_FUNC_INFO << BlueToothMain::m_device_operating ;
+            if (!BlueToothMain::m_device_operating)
+            {
+                MouseClickedFunc();
+                _pressFlag = false;
+            }
+        }
+    }
+}
+
 void IntelDeviceInfoItem::mousePressEvent(QMouseEvent *event)
 {
+    //获取当前时间
+    _pressCurrentTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
+    qDebug() << Q_FUNC_INFO << _pressCurrentTime;
+
     if (event->button() == Qt::LeftButton) {
         if (mouseEventIntargetAera(event->pos())) {
             _pressBtnFlag = true;
@@ -465,22 +498,6 @@ void IntelDeviceInfoItem::MouseClickedDevFunc()
 
 }
 
-void IntelDeviceInfoItem::mouseReleaseEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton) {
-        if (mouseEventIntargetAera(event->pos()) && _pressBtnFlag) {
-            MouseClickedDevFunc();
-            _pressBtnFlag = false;
-        } else {
-            qDebug() << Q_FUNC_INFO << BlueToothMain::m_device_operating ;
-            if (!BlueToothMain::m_device_operating)
-            {
-                MouseClickedFunc();
-                _pressFlag = false;
-            }
-        }
-    }
-}
 
 void IntelDeviceInfoItem::mouseMoveEvent(QMouseEvent *event)
 {
