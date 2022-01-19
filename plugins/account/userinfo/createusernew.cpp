@@ -59,6 +59,7 @@ void CreateUserNew::initUI(){
     surePwdLabel->setText(tr("SurePwd"));
     tipLabel = new QLabel;
     tipLabel->setFixedSize(340, 36);
+    tipLabel->setStyleSheet("color:red;");
 
     usernameLineEdit = new QLineEdit;
     usernameLineEdit->setFixedWidth(340);
