@@ -669,7 +669,6 @@
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="134"/>
-        <location filename="../../../plugins/time-language/area/area.cpp" line="299"/>
         <source>Need to log off to take effect</source>
         <translation>需要注销生效</translation>
     </message>
@@ -719,6 +718,11 @@
         <location filename="../../../plugins/time-language/area/area.cpp" line="273"/>
         <source>sunday</source>
         <translation>星期天</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/area/area.cpp" line="299"/>
+        <source>Need to reboot to take effect</source>
+        <translation>需要重启生效</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="344"/>
@@ -1139,46 +1143,46 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="413"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1012"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="414"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1013"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="438"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1038"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="439"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1039"/>
         <source>Turn on :</source>
         <translation>开启</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="471"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1072"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="472"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1073"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="499"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1105"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="500"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1106"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="532"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1137"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="533"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1138"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="834"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1643"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="835"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1646"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1644"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1647"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可使用rfkill命令进行查看</translation>
     </message>
@@ -1193,8 +1197,8 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="711"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1177"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="712"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1178"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
     </message>
@@ -1203,8 +1207,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="730"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1194"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="731"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1195"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
     </message>
@@ -5032,12 +5036,12 @@ Please retry or relogin!</source>
         <translation>上下颠倒</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="429"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="430"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="430"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="431"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
@@ -9141,8 +9145,8 @@ the settings will be saved after 14 seconds</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1951"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1966"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1934"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1949"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -9187,14 +9191,14 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1296"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1279"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1124"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1296"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1303"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1279"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1286"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -9212,7 +9216,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1304"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1287"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
