@@ -77,7 +77,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     mate_mixer_init();
     this->setMinimumSize(978, 630);
-    //logoLabel  = new QLabel(tr("Settings"), this);
     qApp->installEventFilter(this);
     initUI();
 }
@@ -243,8 +242,6 @@ void MainWindow::initUI() {
     ui->centralWidget->setStyleSheet("QWidget#centralWidget{background: palette(base); border-radius: 6px;}");
 
     m_ModuleMap = Utils::getModuleHideStatus();
-
-    //this->installEventFilter(this);
 
     const QByteArray id("org.ukui.style");
     m_fontSetting = new QGSettings(id, QByteArray(), this);
@@ -599,6 +596,7 @@ void MainWindow::loadPlugins(){
                 qDebug() << fileName << "Load Failed: " << loader.errorString() << "\n";
         }
     }
+    qDebug() << "the module size is:" << modulesList[3].size();
     m_searchWidget->setLanguage(QLocale::system().name());
 }
 
@@ -891,11 +889,14 @@ void MainWindow::setModuleBtnHightLight(int id) {
 }
 
 QMap<QString, QObject *> MainWindow::exportModule(int type) {
+
     QMap<QString, QObject *> emptyMaps;
-    if (type < modulesList.length())
+//    qDebug() << Q_FUNC_INFO << type << modulesList[type].size();
+    if (type < modulesList.length()) {
         return modulesList[type];
-    else
+    } else {
         return emptyMaps;
+    }
 }
 
 void MainWindow::functionBtnClicked(QObject *plugin) {

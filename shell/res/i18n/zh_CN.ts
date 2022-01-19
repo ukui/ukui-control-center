@@ -1177,12 +1177,12 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="835"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1646"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1644"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1647"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1645"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可使用rfkill命令进行查看</translation>
     </message>
@@ -4402,7 +4402,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="397"/>
+        <location filename="../../mainwindow.cpp" line="394"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4411,44 +4411,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="417"/>
-        <location filename="../../mainwindow.cpp" line="623"/>
-        <location filename="../../mainwindow.cpp" line="800"/>
+        <location filename="../../mainwindow.cpp" line="414"/>
+        <location filename="../../mainwindow.cpp" line="621"/>
+        <location filename="../../mainwindow.cpp" line="798"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="426"/>
+        <location filename="../../mainwindow.cpp" line="423"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="427"/>
+        <location filename="../../mainwindow.cpp" line="424"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="428"/>
+        <location filename="../../mainwindow.cpp" line="425"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="429"/>
+        <location filename="../../mainwindow.cpp" line="426"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="482"/>
+        <location filename="../../mainwindow.cpp" line="479"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="484"/>
+        <location filename="../../mainwindow.cpp" line="481"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="486"/>
+        <location filename="../../mainwindow.cpp" line="483"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4457,17 +4457,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="932"/>
+        <location filename="../../mainwindow.cpp" line="933"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="932"/>
+        <location filename="../../mainwindow.cpp" line="933"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="628"/>
+        <location filename="../../mainwindow.cpp" line="626"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -5858,12 +5858,18 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="141"/>
-        <source>Netconnect-icbc</source>
+        <source>NetconnectICBC</source>
         <translation>有线网络</translation>
     </message>
     <message>
+        <source>Netconnect-icbc</source>
+        <translation type="vanished">有线网络</translation>
+    </message>
+    <message>
+        <location filename="../../utils/functionselect.cpp" line="143"/>
         <source>WlanConnect</source>
-        <translation type="obsolete">无线局域网</translation>
+        <translatorcomment>无线局域网</translatorcomment>
+        <translation>无线局域网</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="159"/>
@@ -5931,9 +5937,8 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>备份</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="143"/>
         <source>Wlanconnect</source>
-        <translation type="unfinished">无线局域网</translation>
+        <translation type="obsolete">无线局域网</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="199"/>
