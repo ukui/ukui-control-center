@@ -1787,7 +1787,6 @@ void Widget::setNightMode(const bool nightMode)
 
 void Widget::initUiComponent()
 {
-    ui->frame->setVisible(false);
     mDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
             %QStringLiteral("/kscreen/")
             %QStringLiteral("" /*"configs/"*/);
