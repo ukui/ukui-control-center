@@ -1520,18 +1520,14 @@ void Widget::mainScreenButtonSelect(int index)
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
     int connectCount = mConfig->connectedOutputs().count();
 
-    if (mIsWayland) {
-        if (!getPrimaryWaylandScreen().compare(newPrimary->name(), Qt::CaseInsensitive)) {
-            ui->mainScreenButton->setEnabled(false);
-        } else {
-            ui->mainScreenButton->setEnabled(true);
-        }
+    // 设置主屏按钮状态更新
+    if (newPrimary == mConfig->primaryOutput() ||
+        mUnifyButton->isChecked() ||
+        (mConfig->connectedOutputs().count() == 1) ||
+        !newPrimary->isEnabled()) {
+        ui->mainScreenButton->setEnabled(false);
     } else {
-        if (newPrimary == mConfig->primaryOutput()) {
-            ui->mainScreenButton->setEnabled(false);
-        } else {
-            ui->mainScreenButton->setEnabled(true);
-        }
+        ui->mainScreenButton->setEnabled(true);
     }
 
     // 设置是否勾选
