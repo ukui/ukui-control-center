@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QObject>
-
+#include <QPainterPath>
 
 class TitleWidget : public QWidget
 {

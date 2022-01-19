@@ -1,5 +1,6 @@
 #include "mstackwidget.h"
 #include <QPainter>
+#include <QPainterPath>
 #include <QDebug>
 #include <QPainterPath>
 
