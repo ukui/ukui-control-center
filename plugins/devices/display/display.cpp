@@ -31,6 +31,7 @@
 
 DisplaySet::DisplaySet() : mFirstLoad(true)
 {
+    //~ contents_path /Displays/Displays
     pluginName = tr("Displays");
     pluginType = DEVICES;
 }

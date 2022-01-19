@@ -3,15 +3,22 @@
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>pingmu</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>屏幕（外接显示器后才展示）</ChineseFunc>
-        <EnglishFunc>Display</EnglishFunc>
+        <ChineseFunc>屏幕</ChineseFunc>
+        <EnglishFunc>Displays</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
-        <pinyinfunc>pingmujingxiang</pinyinfunc>
+        <pinyinfunc>toupingfangshi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>屏幕镜像</ChineseFunc>
-        <EnglishFunc>Screen mirror</EnglishFunc>
+        <ChineseFunc>投屏方式</ChineseFunc>
+        <EnglishFunc>Multi-screen</EnglishFunc>
+    </plugin>
+    <plugin name="displays">
+        <pinyinPlugin>pingmu</pinyinPlugin>
+        <pinyinfunc>zidongxuanzhuan</pinyinfunc>
+        <ChinesePlugin>显示器</ChinesePlugin>
+        <ChineseFunc>自动旋转</ChineseFunc>
+        <EnglishFunc>autorotation</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
@@ -29,17 +36,17 @@
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
-        <pinyinfunc>zidongqiehuan</pinyinfunc>
+        <pinyinfunc>zidongqiehuan(18:00~07:00)</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
-        <ChineseFunc>自动切换</ChineseFunc>
-        <EnglishFunc>Auto Switch</EnglishFunc>
+        <ChineseFunc>自动切换(18:00~07:00)</ChineseFunc>
+        <EnglishFunc>Auto Switch(18:00~07:00)</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
         <pinyinfunc>quantiankaiqi</pinyinfunc>
         <ChinesePlugin>显示器</ChinesePlugin>
         <ChineseFunc>全天开启</ChineseFunc>
-        <EnglishFunc>all time</EnglishFunc>
+        <EnglishFunc>all day</EnglishFunc>
     </plugin>
     <plugin name="displays">
         <pinyinPlugin>pingmu</pinyinPlugin>
