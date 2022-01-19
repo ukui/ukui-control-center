@@ -1324,7 +1324,7 @@ void BlueToothMain::initMainWindowTopUI()
     bluetooth_name->setFixedSize(420,40);
     connect(bluetooth_name,&CustomizeNameLabel::setTipText,this,&BlueToothMain::setTipTextSlot);
     connect(bluetooth_name,&CustomizeNameLabel::sendAdapterName,this,&BlueToothMain::setDefaultAdapterName);
-    connect(this,&BlueToothMain::adapter_name_changed,bluetooth_name,&CustomizeNameLabel::setAdapterNameText);
+    connect(this,&BlueToothMain::defaultAdapterNameChanged,bluetooth_name,&CustomizeNameLabel::setAdapterNameText);
     frame_1_layout->addWidget(bluetooth_name);
     frame_1_layout->addStretch();
 
