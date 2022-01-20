@@ -242,17 +242,20 @@ int SysdbusRegister::createUser(QString name, QString fullname, int accounttype,
                          QDBusConnection::systemBus());
 
     QDBusReply<QDBusObjectPath> reply = iface.call("CreateUser", name, fullname, accounttype);
-
     if (reply.isValid()){
         QString op = reply.value().path();
         if (!op.isEmpty()){
 
             QDBusInterface ifaceUser("org.freedesktop.Accounts",
                                      op,
-                                     "org.freedesktop.Accounts.User",
+                                     "org.freedesktop.DBus.Properties",
                                      QDBusConnection::systemBus());
-            // 设置头像
-            ifaceUser.call("SetIconFile", faceicon);
+            // 设置头像, 默认头像不存在则设置DEFAULTFACE
+            QDBusReply<QMap<QString, QVariant> > user = ifaceUser.call("GetAll", "org.freedesktop.Accounts.User");
+            char *iconpath = user.value().find("IconFile").value().toString().toLatin1().data();
+            if (!g_file_test(iconpath, G_FILE_TEST_EXISTS)){
+                ifaceUser.call("SetIconFile", faceicon);
+            }
 
             // 设置密码
             _changeOtherUserPasswd(name, pwd);
