@@ -183,11 +183,6 @@ void Wallpaper::setupComponent(){
         connect(colordialog,&ColorDialog::colorSelected,this,&Wallpaper::colorSelectedSlot);
         colordialog->exec();
     });
-
-    if (Utils::isWayland()) {
-        ui->showModeComboBox->setVisible(false);
-        ui->showModeLabel->setVisible(false);
-    }
 }
 
 void Wallpaper::setupConnect(){
