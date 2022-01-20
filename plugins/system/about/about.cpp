@@ -498,7 +498,9 @@ void About::initUI(QWidget *widget)
     AboutLayout->addWidget(mInformationFrame);
     AboutLayout->addWidget(mActivationFrame);
      AboutLayout->addWidget(mTipLabel);
-    AboutLayout->addSpacing(32);
+     item = new QSpacerItem(10 , 32);
+     AboutLayout->addSpacerItem(item);
+//    AboutLayout->addSpacing(32);
     AboutLayout->addWidget(mPriTitleLabel);
     AboutLayout->addWidget(mPrivacyFrame);
     AboutLayout->addSpacing(0);
@@ -964,6 +966,14 @@ void About::setHostNameCompenet()
 
 void About::setPrivacyCompent()
 {
+    if (Utils::isWayland()) {
+        mPrivacyFrame->setVisible(false);
+        mPriTitleLabel->setVisible(false);
+        mAgreeLabel->setVisible(false);
+        mAndLabel->setVisible(false);
+        item->changeSize(0, 0);
+        return;
+    }
     QDBusInterface *PriDBus = new QDBusInterface("com.kylin.daq",
                                                              "/com/kylin/daq",
                                                              "com.kylin.daq.interface",

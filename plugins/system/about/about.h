@@ -183,6 +183,8 @@ private:
     QGSettings *themeStyleQgsettings;
     hp::QRCodeInterface *app;//hp插件
 
+    QSpacerItem *item;
+
 Q_SIGNALS:
     void resize();
 
