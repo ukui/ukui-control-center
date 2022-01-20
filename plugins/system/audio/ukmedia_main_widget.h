@@ -176,7 +176,8 @@ public:
     void switchNoiseReductionButton(bool status);
 
     //TEST输出
-    void initComboboxItem();//初始化输入输出的Combobox选项框
+    void initInputComboboxItem();//初始化输入输出的Combobox选项框
+    void initOutputComboboxItem();
     void findOutputComboboxItem(QString cardName,QString portLabel); //初始化Combobox output/input list widget的选项
 
     void addComboboxAvailableOutputPort();

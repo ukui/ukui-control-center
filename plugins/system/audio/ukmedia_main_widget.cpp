@@ -334,8 +334,8 @@ void UkmediaMainWidget::dealSlot()
             m_pOutputWidget->m_pBalanceMidPointLabel->show();
         }
 
+        initOutputComboboxItem();
         themeChangeIcons();
-        initComboboxItem();
     });
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
         qDebug() << "Source Volume Changed" << value << paVolumeToValue(value) << state;
@@ -362,7 +362,7 @@ void UkmediaMainWidget::dealSlot()
             m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
             m_pInputWidget->m_pInputLevelProgressBar->blockSignals(false);
         }
-
+        initInputComboboxItem();
         themeChangeIcons();
     });
 
@@ -407,8 +407,9 @@ void UkmediaMainWidget::initVoulmeSlider()
     m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
     m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
     m_pInputWidget->m_pIpVolumeSlider->blockSignals(false);
+    initOutputComboboxItem();
+    initInputComboboxItem();
     themeChangeIcons();
-    initComboboxItem();
 
 }
 
@@ -2507,7 +2508,7 @@ QString UkmediaMainWidget::findPortSource(int cardIndex,QString portName)
 
 //---------------------------------Combobox输出----------------------------
 
-void UkmediaMainWidget::initComboboxItem()
+void UkmediaMainWidget::initOutputComboboxItem()
 {
     QString outputCardName = findCardName(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->cardMap);
     QString outputPortLabel = findOutputPortLabel(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->sinkPortName);
@@ -2523,13 +2524,16 @@ void UkmediaMainWidget::initComboboxItem()
     qDebug() <<"initComboboxItem(Output)" << m_pVolumeControl->defaultOutputCard << outputCardName
                                   <<m_pVolumeControl->sinkPortName << outputPortLabel;
 
+}
+
+void UkmediaMainWidget::initInputComboboxItem()
+{
     QString inputCardName = findCardName(m_pVolumeControl->defaultInputCard,m_pVolumeControl->cardMap);
     QString inputPortLabel = findInputPortLabel(m_pVolumeControl->defaultInputCard,m_pVolumeControl->sourcePortName);
     findInputComboboxItem(inputCardName,inputPortLabel);
 
     qDebug() <<"initComboboxItem(Input)" << m_pVolumeControl->defaultInputCard << inputCardName
             <<m_pVolumeControl->sourcePortName << inputPortLabel;
-
 }
 
 void UkmediaMainWidget::findOutputComboboxItem(QString cardName,QString portLabel)
@@ -2985,42 +2989,51 @@ void UkmediaMainWidget::cboxoutputListWidgetCurrentRowChangedSlot(int row)
         setCardProfile(cardName,"a2dp_sink");
     }
 
-    QMap<QString,QString>::iterator it;
+    QMap<int, QMap<QString,QString>>::iterator outputProfileMap;
     QMap<int ,QMap<QString,QString>>::iterator inputProfileMap;
+    QMap<QString,QString> tempMap;
+    QMap<QString,QString>::iterator at;
     QString endOutputProfile = "";
     QString endInputProfile = "";
     int count,i;
+    int currentCardIndex = findCardIndex(outputComboboxCardName,m_pVolumeControl->cardMap);
+
     QStringList outputComboboxPortNameList = outputComboboxPortName.split("（");//新增设计combobox需要显示 端口名+描述
     QStringList inputComboboxPortNameList = inputComboboxPortName.split("（");
-    for (it=m_pVolumeControl->profileNameMap.begin(),i=0;it!= m_pVolumeControl->profileNameMap.end();++i) {
 
-//            qDebug()<< "this is count= " << count << "i= " << i << outputComboboxPortName;
-        if (it.key() == outputComboboxPortNameList.at(0)) {
-            count = i;
-            endOutputProfile = it.value();
-        }
-        ++it;
-    }
-
-        if (m_pInputWidget->m_pInputDeviceSelectBox->currentText().size()!=0) {
-
-            QMap <QString,QString>::iterator it;
-            QMap <QString,QString> temp;
-            int index = findCardIndex(inputComboboxCardName,m_pVolumeControl->cardMap);
-            for (inputProfileMap=m_pVolumeControl->inputPortProfileNameMap.begin(),count=0;inputProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();count++) {
-                if (inputProfileMap.key() == index) {
-                    temp = inputProfileMap.value();
-                    for(it = temp.begin(); it != temp.end();){
-                        if(it.key() == inputComboboxPortNameList.at(0)){
-                            endInputProfile = it.value();
-                        }
-                        ++it;
-                    }
-
+    for (outputProfileMap=m_pVolumeControl->profileNameMap.begin();outputProfileMap!= m_pVolumeControl->profileNameMap.end();) {
+        if(currentCardIndex == outputProfileMap.key()){
+            tempMap = outputProfileMap.value();
+            for(at=tempMap.begin(),i=0;at!= tempMap.end();++i){
+                if (at.key() == outputComboboxPortNameList.at(0)) {
+                    count = i;
+                    endOutputProfile = at.value();
                 }
-                ++inputProfileMap;
+                ++at;
             }
         }
+        ++outputProfileMap;
+    }
+
+    if (m_pInputWidget->m_pInputDeviceSelectBox->currentText().size()!=0) {
+        QMap <QString,QString>::iterator it;
+        QMap <QString,QString> temp;
+        int index = findCardIndex(inputComboboxCardName,m_pVolumeControl->cardMap);
+        for (inputProfileMap=m_pVolumeControl->inputPortProfileNameMap.begin(),count=0;inputProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();count++) {
+            if (inputProfileMap.key() == index) {
+                temp = inputProfileMap.value();
+                for(it = temp.begin(); it != temp.end();){
+                    if(it.key() == inputComboboxPortNameList.at(0)){
+                        endInputProfile = it.value();
+                        if(endInputProfile == "a2dp_source")
+                            endInputProfile = "headset_head_unit";
+                    }
+                    ++it;
+                }
+            }
+            ++inputProfileMap;
+        }
+    }
     qDebug() << "outputListWidgetCurrentRowChangedSlot" << row << outputComboboxPortName << endOutputProfile <<endInputProfile;
     //如果选择的输入输出设备为同一个声卡，则追加指定输入输出端口属于的配置文件
     if ((m_pInputWidget->m_pInputDeviceSelectBox->currentText().size()!=0 && outputComboboxCardName == inputComboboxCardName ) || \
@@ -3084,37 +3097,49 @@ void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
         isCheckBluetoothInput = false;
     }
 
-    QMap<int, QMap<QString,QString>>::iterator it;
+    QMap<int, QMap<QString,QString>>::iterator inputProfileMap;
+    QMap<int, QMap<QString,QString>>::iterator outputProfileMap;
     QMap <QString,QString> temp;
     QMap<QString,QString>::iterator at;
     QString endOutputProfile = "";
     QString endInputProfile = "";
+
     QStringList outputComboboxPortNameList = outputComboboxPortName.split("（");//新增设计combobox需要显示 端口名+描述
     QStringList inputComboboxPortNameList = inputComboboxPortName.split("（");
     int index = findCardIndex(inputComboboxCardName,m_pVolumeControl->cardMap);
-    for (it=m_pVolumeControl->inputPortProfileNameMap.begin();it!= m_pVolumeControl->inputPortProfileNameMap.end();) {
 
-        if (it.key() == index) {
-            temp = it.value();
+    for (inputProfileMap=m_pVolumeControl->inputPortProfileNameMap.begin();inputProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();) {
+        if (inputProfileMap.key() == index) {
+            temp = inputProfileMap.value();
             for(at=temp.begin();at!=temp.end();){
-                //at.key()为多声道输入，outputComboboxPortName为扬声器
                 if(at.key() == inputComboboxPortNameList.at(0)){
                     endInputProfile = at.value();
+                    if(endInputProfile == "a2dp_source")
+                        endInputProfile = "headset_head_unit";
                 }
                 ++at;
             }
         }
-        ++it;
+        ++inputProfileMap;
     }
     if (m_pOutputWidget->m_pDeviceSelectBox->currentText().size()!=0) {
-        for (at=m_pVolumeControl->profileNameMap.begin();at!= m_pVolumeControl->profileNameMap.end();) {
-            if (at.key() == outputComboboxPortNameList.at(0)) {
-                 endOutputProfile = at.value();
+        QMap <QString,QString>::iterator it;
+        QMap <QString,QString> temp;
+        int index = findCardIndex(outputComboboxCardName,m_pVolumeControl->cardMap);
+        for (outputProfileMap=m_pVolumeControl->profileNameMap.begin();outputProfileMap!= m_pVolumeControl->profileNameMap.end();) {
+            if (outputProfileMap.key() == index) {
+                temp = outputProfileMap.value();
+                for(it=temp.begin();it!=temp.end();){
+                    if(it.key() == outputComboboxPortNameList.at(0)){
+                        endOutputProfile = it.value();
+                    }
+                    ++it;
+                }
             }
-            ++at;
+            ++outputProfileMap;
         }
     }
-    qDebug() << "cboxinputListWidgetCurrentRowChangedSlot" << endOutputProfile <<endInputProfile;
+    qDebug() << "cboxinputListWidgetCurrentRowChangedSlot" << endOutputProfile <<endInputProfile <<isContainBlue;
     //如果选择的输入输出设备为同一个声卡，则追加指定输入输出端口属于的配置文件
     if (m_pOutputWidget->m_pDeviceSelectBox->currentText().size()!=0 && inputComboboxCardName == outputComboboxCardName) {
         QString  setProfile;
@@ -3156,5 +3181,7 @@ void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
 
 
 void UkmediaMainWidget::updateComboboxListWidgetItemSlot() {
-    initComboboxItem();
+    initOutputComboboxItem();
+    initInputComboboxItem();
+    themeChangeIcons();
 }

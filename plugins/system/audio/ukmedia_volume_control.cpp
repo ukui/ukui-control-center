@@ -437,6 +437,7 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
     QMap<QString,QString> tempOutput;
     QList<QString> profileName;
     QMap<QString,QString>portMap;
+    QMap<QString,QString> outputPortNameLabelMap;
     QMap<QString,QString>inputPortNameLabelMap;
     QMap<QString,int> profilePriorityMap;
     std::set<pa_card_profile_info2 *, profile_prio_compare> profile_priorities;
@@ -489,11 +490,10 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
             QList<QString> portProfileName;
             for (auto p_profile : p.profiles) {
                 portProfileName.append(p_profile.data());
-                QString portName = p.description.data();
-                QString profileName = p_profile.data();
-                profileNameMap.insertMulti(portName,profileName);
+                outputPortNameLabelMap.insertMulti(p.description.data(),p_profile.data());
                 qDebug() << "ctf profilename map insert -----------" << p.description.data() << p_profile.data();
             }
+            profileNameMap.insert(info.index,outputPortNameLabelMap);
             cardProfileMap.insertMulti(info.index,portProfileName);
         }
         else if (p.direction == 2 && p.available != PA_PORT_AVAILABLE_NO){
@@ -1249,6 +1249,8 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
         volume = MAX(i->volume.values[0],i->volume.values[1]);
     else
         volume = i->volume.values[0];
+
+    w->channel = i->volume.channels;
     w->defaultOutputCard = i->card;
     w->sinkIndex = i->index;
     w->sinkVolume = volume;
@@ -1256,6 +1258,7 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
     if(i->active_port)
         w->sinkPortName = i->active_port->name;
 
+    qDebug() <<"sinkIndexCb----" << w->sinkIndex << w->sinkVolume << w->channel << i->volume.channels;
 //    Q_EMIT w->updateVolume(w->sinkVolume,w->sinkMuted);
 }
 
@@ -1279,6 +1282,7 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     else
         volume = i->volume.values[0];
 
+    w->inputChannel = i->volume.channels;
     w->defaultInputCard = i->card;
     w->sourceIndex = i->index;
     w->sourceVolume = volume;
@@ -1298,6 +1302,8 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
         w->sourceOutputVector.append(w->sourceIndex);
         w->peak = w->createMonitorStreamForSource(w->sourceIndex, -1, !!(w->sourceFlags & PA_SOURCE_NETWORK));
     }
+
+    qDebug() <<"sourceIndexCb----" << w->sourceIndex << w->sourceVolume << w->inputChannel << i->volume.channels;
 }
 
 void UkmediaVolumeControl::sinkCb(pa_context *c, const pa_sink_info *i, int eol, void *userdata) {
@@ -2069,19 +2075,21 @@ void UkmediaVolumeControl::removeSourcePortMap(int index)
 
 void UkmediaVolumeControl::removeProfileMap()
 {
-    QMap<QString,QString>::iterator it;
+    QMap<int,QMap<QString,QString>>::iterator it;
+    QMap<QString,QString> temp;
+    QMap<QString,QString>::iterator at;
+    qDebug() << "removeProfileMap" << profileNameMap;
     for (it=profileNameMap.begin();it!=profileNameMap.end();) {
-        qDebug() << "ctf ------------" << profileNameMap.count();
-        qDebug() << "removeProfileMap" <<it.key() <<it.value();
-
-        if (!isExitOutputPort(it.value())) {
-
-            it = profileNameMap.erase(it);
-            continue;
+        temp = it.value();
+        for(at=temp.begin();at!=temp.end();){
+            if (!isExitOutputPort(at.value())) {
+                it = profileNameMap.erase(it);
+                return;
+            }
+            ++at;
         }
         ++it;
     }
-
 }
 
 bool UkmediaVolumeControl::isExitOutputPort(QString name)
