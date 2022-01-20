@@ -92,7 +92,6 @@ QWidget *Desktop::get_plugin_ui() {
         ui->deskNetworkFrame->setVisible(false);
 
         ui->titleLabel->setVisible(false);
-        ui->title3Label->setVisible(false);
 
         ui->deskComputerFrame->setVisible(false);
         ui->deskTrashFrame->setVisible(false);
@@ -391,7 +390,6 @@ void Desktop::initTraySettings() {
 
             connect(traySettings, &QGSettings::changed, this, [=] (const QString &key) {
 
-                QString status = traySettings->get(key).toString();
                 if ("action" == key) {
                     QString status = traySettings->get(key).toString();
                     QString itemName = traySettings->get(TRAY_NAME_KEY).toString();
@@ -424,6 +422,9 @@ void Desktop::initTraySettings() {
         }
     }
     ui->listWidget->setFixedHeight(itemCount * 55);
+    if (!ui->listWidget->count()) {
+        ui->title3Label->setVisible(false);
+    }
 }
 
 QMap<QString, QIcon> Desktop::desktopConver(QString processName) {
