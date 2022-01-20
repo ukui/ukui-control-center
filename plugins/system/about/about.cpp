@@ -497,9 +497,9 @@ void About::initUI(QWidget *widget)
 
     AboutLayout->addWidget(mInformationFrame);
     AboutLayout->addWidget(mActivationFrame);
-     AboutLayout->addWidget(mTipLabel);
-     item = new QSpacerItem(10 , 32);
-     AboutLayout->addSpacerItem(item);
+    AboutLayout->addWidget(mTipLabel);
+    item = new QSpacerItem(10 , 32);
+    AboutLayout->addSpacerItem(item);
 //    AboutLayout->addSpacing(32);
     AboutLayout->addWidget(mPriTitleLabel);
     AboutLayout->addWidget(mPrivacyFrame);
