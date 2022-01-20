@@ -334,8 +334,8 @@ void UkmediaMainWidget::dealSlot()
             m_pOutputWidget->m_pBalanceMidPointLabel->show();
         }
 
+        initOutputComboboxItem();
         themeChangeIcons();
-        initComboboxItem();
     });
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
         qDebug() << "Source Volume Changed" << value << paVolumeToValue(value) << state;
@@ -362,7 +362,7 @@ void UkmediaMainWidget::dealSlot()
             m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
             m_pInputWidget->m_pInputLevelProgressBar->blockSignals(false);
         }
-
+        initInputComboboxItem();
         themeChangeIcons();
     });
 
@@ -407,8 +407,9 @@ void UkmediaMainWidget::initVoulmeSlider()
     m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
     m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
     m_pInputWidget->m_pIpVolumeSlider->blockSignals(false);
+    initOutputComboboxItem();
+    initInputComboboxItem();
     themeChangeIcons();
-    initComboboxItem();
 
 }
 
@@ -2507,7 +2508,7 @@ QString UkmediaMainWidget::findPortSource(int cardIndex,QString portName)
 
 //---------------------------------Combobox输出----------------------------
 
-void UkmediaMainWidget::initComboboxItem()
+void UkmediaMainWidget::initOutputComboboxItem()
 {
     QString outputCardName = findCardName(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->cardMap);
     QString outputPortLabel = findOutputPortLabel(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->sinkPortName);
@@ -2523,13 +2524,16 @@ void UkmediaMainWidget::initComboboxItem()
     qDebug() <<"initComboboxItem(Output)" << m_pVolumeControl->defaultOutputCard << outputCardName
                                   <<m_pVolumeControl->sinkPortName << outputPortLabel;
 
+}
+
+void UkmediaMainWidget::initInputComboboxItem()
+{
     QString inputCardName = findCardName(m_pVolumeControl->defaultInputCard,m_pVolumeControl->cardMap);
     QString inputPortLabel = findInputPortLabel(m_pVolumeControl->defaultInputCard,m_pVolumeControl->sourcePortName);
     findInputComboboxItem(inputCardName,inputPortLabel);
 
     qDebug() <<"initComboboxItem(Input)" << m_pVolumeControl->defaultInputCard << inputCardName
             <<m_pVolumeControl->sourcePortName << inputPortLabel;
-
 }
 
 void UkmediaMainWidget::findOutputComboboxItem(QString cardName,QString portLabel)
@@ -3177,5 +3181,7 @@ void UkmediaMainWidget::cboxinputListWidgetCurrentRowChangedSlot(int row)
 
 
 void UkmediaMainWidget::updateComboboxListWidgetItemSlot() {
-    initComboboxItem();
+    initOutputComboboxItem();
+    initInputComboboxItem();
+    themeChangeIcons();
 }
