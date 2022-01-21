@@ -548,28 +548,6 @@ void Widget::writeScale(double scale)
     }
 
     mIsScaleChanged = false;
-    int cursize;
-    QByteArray iid(MOUSE_SIZE_SCHEMAS);
-    if (QGSettings::isSchemaInstalled(MOUSE_SIZE_SCHEMAS)) {
-        QGSettings cursorSettings(iid);
-
-        if (1.0 == scale) {
-            cursize = 24;
-        } else if (2.0 == scale) {
-            cursize = 48;
-        } else if (3.0 == scale) {
-            cursize = 96;
-        } else {
-            cursize = 24;
-        }
-
-        QStringList keys = scaleGSettings->keys();
-        if (keys.contains("scalingFactor")) {
-
-            scaleGSettings->set(SCALE_KEY, scale);
-        }
-        cursorSettings.set(CURSOR_SIZE_KEY, cursize);
-        Utils::setKwinMouseSize(cursize);
     }
 }
 
