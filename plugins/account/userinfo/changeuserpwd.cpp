@@ -526,14 +526,13 @@ void ChangeUserPwd::checkPwdLegality(){
 
 
     //防止先输入确认密码，再输入密码后tipLabel无法刷新
-    if (!surePwdTip.isEmpty()){
+    if (!surePwdLineEdit->text().isEmpty()){
         if (QString::compare(newPwdLineEdit->text(), surePwdLineEdit->text()) == 0){
             surePwdTip = "";
         } else {
             surePwdTip = tr("Inconsistency with pwd");
         }
     }
-
 
     //设置新密码的提示
     updateTipLableInfo(newPwdTip);
