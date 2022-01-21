@@ -548,7 +548,9 @@ void Widget::writeScale(double scale)
     }
 
     mIsScaleChanged = false;
-    }
+    QStringList keys = scaleGSettings->keys();
+    if (keys.contains("scalingFactor"))
+        scaleGSettings->set(SCALE_KEY, scale);
 }
 
 void Widget::initGSettings()
