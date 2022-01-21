@@ -128,7 +128,7 @@ void InternalStyle::polish(QPalette &pal)
 void InternalStyle::polish(QWidget *widget)
 {
     QProxyStyle::polish(widget);
-     if (qobject_cast<QDialog *>(widget)) {
+     if (qobject_cast<QDialog *>(widget) && !qobject_cast<QFileDialog *>(widget)) {
         QPalette paltte = widget->palette();
         paltte.setColor(QPalette::Window, paltte.base().color());
         widget->setPalette(paltte);
