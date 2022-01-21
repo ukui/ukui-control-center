@@ -176,7 +176,6 @@ public:
 
     bool offsetButtonEnabled;
 
-    pa_channel_map channelMap;
     pa_cvolume volume;
     std::vector< std::pair<QByteArray,QByteArray> > dPorts;
     QByteArray activePort;
