@@ -4,34 +4,34 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="518"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="519"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="521"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="187"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="522"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="585"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="523"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="525"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
@@ -41,7 +41,7 @@
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="524"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="526"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
@@ -81,12 +81,12 @@
         <translation>《用户隐私协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="545"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="547"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="555"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="557"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
@@ -95,32 +95,32 @@
         <translation type="vanished">未激活(试用期)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="644"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="646"/>
         <source>Trial expiration time</source>
         <translation>试用到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="987"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="997"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="992"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1002"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1128"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1138"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1129"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1139"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1130"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1140"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -133,9 +133,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="905"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="914"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1262"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="907"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="916"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1272"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -152,7 +152,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="569"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
         <source>Version</source>
         <translation>版本</translation>
         <extra-contents_path>/About/version</extra-contents_path>
@@ -171,37 +171,37 @@
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="521"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="912"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="523"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="914"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/About/User</extra-contents_path>
@@ -215,7 +215,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="582"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="584"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -228,8 +228,8 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="646"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="652"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="648"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="654"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -263,13 +263,13 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="642"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="650"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="644"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="652"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="658"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="660"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -4942,8 +4942,12 @@ folder will be deleted!</source>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="73"/>
-        <source>Search</source>
+        <source>Investigation</source>
         <translation>搜索</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="vanished">搜索</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -9142,21 +9146,21 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="448"/>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="120"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="123"/>
         <source>Browse</source>
         <translation>浏览</translation>
         <extra-contents_path>/Screenlock/Browse</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="455"/>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="122"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="125"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
         <extra-contents_path>/Screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="487"/>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="131"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="134"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/Screenlock/Reset To Default</extra-contents_path>
@@ -9167,7 +9171,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="281"/>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="118"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="121"/>
         <source>Lock screen when screensaver boot</source>
         <translation>激活屏保时锁定屏幕</translation>
         <extra-contents_path>/Screenlock/Lock screen when screensaver boot</extra-contents_path>
@@ -9195,7 +9199,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="211"/>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="116"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
         <source>Show picture of screenlock on screenlogin</source>
         <translation>显示锁屏壁纸在登录页面</translation>
         <extra-contents_path>/Screenlock/Show picture of screenlock on screenlogin</extra-contents_path>
@@ -9217,37 +9221,37 @@ E-mail: support@kylinos.cn</source>
         <translation type="obsolete">图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="149"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="152"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="148"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="151"/>
         <source>1m</source>
         <translation>1m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="148"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="151"/>
         <source>5m</source>
         <translation>5m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="148"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="151"/>
         <source>10m</source>
         <translation>10m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="148"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="151"/>
         <source>30m</source>
         <translation>30m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="148"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="151"/>
         <source>45m</source>
         <translation>45m</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="149"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="152"/>
         <source>1h</source>
         <translation>1h</translation>
     </message>
@@ -9256,17 +9260,17 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">1.5h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="149"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="152"/>
         <source>3h</source>
         <translation>3h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="149"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="152"/>
         <source>2h</source>
         <translation>2h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="466"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="469"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
@@ -9275,32 +9279,32 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="508"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="511"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="509"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="512"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="510"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="513"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="511"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="514"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="512"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="515"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="513"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="516"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -10420,53 +10424,53 @@ E-mail: support@kylinos.cn</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="252"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="249"/>
         <source>Default</source>
         <translation>系统默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="253"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="250"/>
         <source>Light</source>
         <translation>浅色模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="254"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="251"/>
         <source>Dark</source>
         <translation>深色模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="778"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="775"/>
         <source>Blue-Crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="780"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="813"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="777"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="810"/>
         <source>Light-Seeking</source>
         <translation>寻光</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="782"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="779"/>
         <source>DMZ-Black</source>
         <translation>DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="784"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="781"/>
         <source>DMZ-White</source>
         <translation>DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="786"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="783"/>
         <source>Dark-Sense</source>
         <translation>黑色质感</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="809"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="806"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="811"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="808"/>
         <source>Classic</source>
         <translation>启典</translation>
     </message>
@@ -10479,22 +10483,22 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">时尚</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="817"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="814"/>
         <source>hp</source>
         <translation>惠普</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="819"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="816"/>
         <source>ukui</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="815"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="812"/>
         <source>HeYin</source>
         <translation>和印</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="821"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="818"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
@@ -11642,14 +11646,14 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="544"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="128"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="131"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
         <extra-contents_path>/Wallpaper/Online Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="576"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="137"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="140"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
         <extra-contents_path>/Wallpaper/Reset To Default</extra-contents_path>
@@ -11664,7 +11668,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="537"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="126"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="129"/>
         <source>Browse</source>
         <translation>浏览</translation>
         <extra-contents_path>/Wallpaper/Browse</extra-contents_path>
@@ -11696,17 +11700,17 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="331"/>
         <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="51"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="124"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="127"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="152"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="155"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="152"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="155"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
@@ -11719,22 +11723,22 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">自定义颜色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="171"/>
         <source>wallpaper</source>
         <translation>平铺</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="171"/>
         <source>centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="171"/>
         <source>scaled</source>
         <translation>填充</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="168"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="171"/>
         <source>stretched</source>
         <translation>拉伸</translation>
     </message>
@@ -11747,7 +11751,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="496"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="493"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
@@ -11756,38 +11760,38 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="533"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="575"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="537"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="579"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="534"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="576"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="580"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="535"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="577"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="539"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="581"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="540"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="582"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="537"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="579"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="541"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="583"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="580"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
