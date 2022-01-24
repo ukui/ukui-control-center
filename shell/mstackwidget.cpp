@@ -1,6 +1,7 @@
 #include "mstackwidget.h"
 #include <QPainter>
 #include <QDebug>
+#include <QPainterPath>
 
 MStackWidget::MStackWidget(QWidget *parent)
     : QStackedWidget(parent)

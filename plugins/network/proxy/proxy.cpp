@@ -742,7 +742,7 @@ bool Proxy::getAptProxyInfo(bool status)
     return true;
 }
 
-bool Proxy::setAptProxy(QString host, int port, bool status)
+void Proxy::setAptProxy(QString host, int port, bool status)
 {
     QDBusInterface *setaptproxyDbus = new QDBusInterface("com.control.center.qt.systemdbus",
                                                              "/",

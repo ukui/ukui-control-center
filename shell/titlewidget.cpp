@@ -1,6 +1,7 @@
 #include "titlewidget.h"
 #include <QPainter>
 #include <QDebug>
+#include <QPainterPath>
 
 TitleWidget::TitleWidget(QWidget *parent)
     : QWidget(parent)
