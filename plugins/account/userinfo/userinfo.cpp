@@ -258,6 +258,9 @@ UserInfomation UserInfo::_acquireUserInfo(QString objpath){
         }
         user.accounttype = propertyMap.find("AccountType").value().toInt();
         user.iconfile = propertyMap.find("IconFile").value().toString();
+        if (!g_file_test(user.iconfile.toLatin1().data(), G_FILE_TEST_EXISTS)) {
+            user.iconfile =DEFAULTFACE;
+        }
         user.passwdtype = propertyMap.find("PasswordMode").value().toInt();
         user.uid = propertyMap.find("Uid").value().toInt();
         user.autologin = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
