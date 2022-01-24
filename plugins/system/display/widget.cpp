@@ -1582,7 +1582,6 @@ void Widget::save()
         }
         mIsUnifyChanged = false;
         mConfigChanged = false;
-        mainScreenButtonSelect(ui->primaryCombo->currentIndex());
     });
 
     if (isRestoreConfig()) {
@@ -1785,8 +1784,15 @@ void Widget::propertiesChangedSlot(QString property, QMap<QString, QVariant> pro
 // 是否禁用主屏按钮
 void Widget::mainScreenButtonSelect(int index)
 {
+    int enableScreenCount = 0;
     if (!mConfig || ui->primaryCombo->count() <= 0) {
         return;
+    }
+
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        if (output->isEnabled()) {
+            enableScreenCount++;
+        }
     }
 
     const KScreen::OutputPtr newPrimary = mConfig->output(ui->primaryCombo->itemData(index).toInt());
@@ -1799,7 +1805,10 @@ void Widget::mainScreenButtonSelect(int index)
 
     int connectCount = mConfig->connectedOutputs().count();
 
-    if (newPrimary == mConfig->primaryOutput() || mUnifyButton->isChecked() || (mConfig->connectedOutputs().count() == 1) || !newPrimary->isEnabled()) {
+    if (newPrimary == mConfig->primaryOutput() ||
+        mUnifyButton->isChecked() ||
+        (enableScreenCount < 2) ||
+        !newPrimary->isEnabled()) {
         ui->mainScreenButton->setEnabled(false);
     } else {
         ui->mainScreenButton->setEnabled(true);
@@ -1882,7 +1891,6 @@ void Widget::checkOutputScreen(bool judge)
     mainScreenButtonSelect(index);
 }
 
-
 void Widget::initConnection()
 {
     connect(mNightButton, SIGNAL(checkedChanged(bool)), this, SLOT(showNightWidget(bool)));
@@ -1960,7 +1968,6 @@ void Widget::initConnection()
             this, [=](int index) {
         mainScreenButtonSelect(index);
         showBrightnessFrame();  //当前屏幕框变化的时候，显示，此时不判断
-
     });
 }
 
