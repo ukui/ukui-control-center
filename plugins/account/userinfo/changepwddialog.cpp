@@ -235,6 +235,7 @@ void ChangePwdDialog::setupConnect(){
 
             if (!txt.isEmpty()){
                 curPwdTip = "";
+                pwdLegalityCheck();
             }
 
             if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
