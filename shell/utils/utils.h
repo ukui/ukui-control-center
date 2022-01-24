@@ -33,6 +33,7 @@
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
+#include <QProcess>
 
 namespace Utils
 {    
@@ -44,5 +45,6 @@ namespace Utils
     void setKwinMouseSize(int size);
     bool isWayland();
     bool isCommunity();
+
 }
 #endif // UTILS_H
