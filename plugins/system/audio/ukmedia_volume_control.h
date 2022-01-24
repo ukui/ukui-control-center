@@ -176,7 +176,6 @@ public:
 
     bool offsetButtonEnabled;
 
-    pa_channel_map channelMap;
     pa_cvolume volume;
     std::vector< std::pair<QByteArray,QByteArray> > dPorts;
     QByteArray activePort;
@@ -242,7 +241,7 @@ private:
 
     gboolean m_connected;
     gchar* m_config_filename;
-    CustomSound *customSoundFile;
+//  /  CustomSound *customSoundFile;
 };
 
 
