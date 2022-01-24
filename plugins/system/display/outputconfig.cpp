@@ -217,7 +217,7 @@ void OutputConfig::initConnection()
     connect(mOutput.data(), &KScreen::Output::currentModeIdChanged,
             this, [=]() {
         if (mOutput->currentMode()) {
-            if (mRefreshRate) {
+            if (mRefreshRate && mOutput->currentMode()->size() != mResolution->currentResolution()) {
                 slotResolutionChanged(mOutput->currentMode()->size(), false);
             }
 
