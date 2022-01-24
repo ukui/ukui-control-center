@@ -321,7 +321,8 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         }
     }
 
-    if (-1 == mRefreshRate->currentIndex() || 0 == mRefreshRate->currentIndex()) {
+    int currentIndex = mRefreshRate->currentIndex();
+    if (-1 == currentIndex || 0 == currentIndex || emitFlag) {
         modeID = mRefreshRate->itemData(1).toString();
     }
     mRefreshRate->blockSignals(false);
