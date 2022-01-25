@@ -219,8 +219,19 @@ void OutputConfig::initConnection()
         if (mOutput->currentMode()) {
             if (mRefreshRate && mOutput->currentMode()->size() != mResolution->currentResolution()) {
                 slotResolutionChanged(mOutput->currentMode()->size(), false);
+            } else if (mRefreshRate &&
+                       mOutput->currentMode()->size() == mResolution->currentResolution() &&
+                       tr("%1 Hz").arg(QLocale().toString(qRound(mOutput->currentMode()->refreshRate()))) != mRefreshRate->itemText(mRefreshRate->currentIndex())) {
+                if (!mIsManualForRefreshRate) {
+                    mRefreshRate->blockSignals(true);
+                    int dataNum = mRefreshRate->findText(tr("%1 Hz").arg(QLocale().toString(qRound(mOutput->currentMode()->refreshRate()))));
+                    if (dataNum >= 0)
+                        mRefreshRate->setCurrentIndex(dataNum);
+                    mRefreshRate->blockSignals(false);
+                } else {
+                    mIsManualForRefreshRate = false;
+                }
             }
-
             if (mScaleCombox) {
                 mScaleCombox->blockSignals(true);
                 slotScaleIndex(mOutput->currentMode()->size());
@@ -345,6 +356,7 @@ void OutputConfig::slotRotationChanged(int index)
 
 void OutputConfig::slotRefreshRateChanged(int index)
 {
+    mIsManualForRefreshRate = true;
     QString currentModeId = mOutput->currentModeId();
     QString modeId;
     if (index == 0) {
