@@ -2923,7 +2923,7 @@ change system settings</source>
     <message>
         <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="117"/>
         <source>Select Type</source>
-        <translation>选择账户类型</translation>
+        <translation>选择帐户类型</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="126"/>
