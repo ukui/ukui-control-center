@@ -219,8 +219,27 @@ void OutputConfig::initConnection()
         if (mOutput->currentMode()) {
             if (mRefreshRate && mOutput->currentMode()->size() != mResolution->currentResolution()) {
                 slotResolutionChanged(mOutput->currentMode()->size(), false);
+            } else if (mRefreshRate &&
+                       mOutput->currentMode()->size() == mResolution->currentResolution() &&
+                       tr("%1 Hz").arg(QLocale().toString(qRound(mOutput->currentMode()->refreshRate()))) != mRefreshRate->itemText(mRefreshRate->currentIndex())) {
+                /* 修改一次刷新率会触发三次currentModeIdChanged(不确定是否所有机型均会如此，因此这里添加保护)
+                 * 例如从50HZ  ->  60HZ,mRefreshRate显示的为60HZ
+                 * 第一次Mode获取到的为60HZ，不会进入此条件
+                 * 第二次Mode获取到的为50HZ，会进入此条件，但mIsManualForRefreshRate为true，故不会修改mRefreshRate，并将mIsManualForRefreshRate置为false
+                 * 第三次Mode获取到的为60HZ，不会进入此条件
+                 * 综上可以保证手动修改刷新率时，不会去修改mRefreshRate的显示文本，并且将mIsManualForRefreshRate重新置为了false
+                 * 这样可以保证修改刷新率然后选择不保存时，能够修改mRefreshRate的显示文本
+                */
+                if (!mIsManualForRefreshRate) {
+                    mRefreshRate->blockSignals(true);
+                    int dataNum = mRefreshRate->findText(tr("%1 Hz").arg(QLocale().toString(qRound(mOutput->currentMode()->refreshRate()))));
+                    if (dataNum >= 0)
+                        mRefreshRate->setCurrentIndex(dataNum);
+                    mRefreshRate->blockSignals(false);
+                } else {
+                    mIsManualForRefreshRate = false;
+                }
             }
-
             if (mScaleCombox) {
                 mScaleCombox->blockSignals(true);
                 slotScaleIndex(mOutput->currentMode()->size());
@@ -346,6 +365,7 @@ void OutputConfig::slotRotationChanged(int index)
 
 void OutputConfig::slotRefreshRateChanged(int index)
 {
+    mIsManualForRefreshRate = true;
     QString currentModeId = mOutput->currentModeId();
     QString modeId;
     if (index == 0) {
