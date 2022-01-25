@@ -403,13 +403,6 @@ bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
             if (AptProxyFile.exists() && AptProxyProFile.exists()) {
                AptProxyFile.remove();
                AptProxyProFile.remove();
-               QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-               env.insert("LANG","en_US");
-               QProcess *process = new QProcess;
-               process->setProcessEnvironment(env);
-               process->start(QString("%1%2").arg("unset ").arg("http_proxy ").arg("https_proxy"));
-               process->waitForFinished();
-               delete process;
             }
         }
     }else {

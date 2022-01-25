@@ -87,6 +87,9 @@ QWidget *Screenlock::pluginUi()
         initScreenlockStatus();
 
         lockbgSize = QSize(400, 240);
+    } else {
+        ui->backgroundsWidget->resize(ui->backgroundsWidget->size() - QSize(1,1));
+        ui->backgroundsWidget->resize(ui->backgroundsWidget->size() + QSize(1,1));
     }
     return pluginWidget;
 }

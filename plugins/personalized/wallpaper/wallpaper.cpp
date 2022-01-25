@@ -96,6 +96,9 @@ QWidget *Wallpaper::pluginUi() {
         }
         // 构建xmlhandle对象
         xmlhandleObj = new XmlHandle();
+    } else {
+        ui->picFrame->resize(ui->picFrame->size() - QSize(1,1));
+        ui->picFrame->resize(ui->picFrame->size() + QSize(1,1));
     }
     return pluginWidget;
 }
@@ -180,11 +183,6 @@ void Wallpaper::setupComponent(){
         connect(colordialog,&ColorDialog::colorSelected,this,&Wallpaper::colorSelectedSlot);
         colordialog->exec();
     });
-
-    if (Utils::isWayland()) {
-        ui->showModeComboBox->setVisible(false);
-        ui->showModeLabel->setVisible(false);
-    }
 }
 
 void Wallpaper::setupConnect(){
@@ -224,7 +222,6 @@ void Wallpaper::setupConnect(){
 
         picFlowLayout->addWidget(picUnit);
         picNum++;
-
     });
     connect(pObject, &WorkerObject::workComplete, this, [=](QMap<QString, QMap<QString, QString>> wpInfoMaps){
         wallpaperinfosMap = wpInfoMaps;

@@ -155,6 +155,7 @@ void HomePageWidget::initUI() {
         titleLabel->setText(modulenamei18nString);
 
         QHBoxLayout * funcHorLayout = new QHBoxLayout();
+        funcHorLayout->setSpacing(4);
 
         uint AllWidth = 0;
         QList< TristateLabel *> mLabels;
@@ -188,7 +189,7 @@ void HomePageWidget::initUI() {
             mLabels.append(label);
             AllWidth += label->width();
             if (AllWidth > 200)
-                label->setVisible(false);
+                 label->setVisible(false);
 
             QGSettings *plugin_settings = setGsettingsPath(list_path ,  single.nameString);
             vecGsettins.insert(single.nameString , plugin_settings);

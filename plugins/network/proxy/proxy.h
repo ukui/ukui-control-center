@@ -117,7 +117,7 @@ public:
     int _getCurrentProxyMode();
     void _setSensitivity();
     bool getAptProxyInfo(bool status);
-    bool setAptProxy(QString host ,int port ,bool status); //  apt代理对应的配置文件的写入或删除
+    void setAptProxy(QString host ,int port ,bool status); //  apt代理对应的配置文件的写入或删除
     void reboot(); // 调用重启接口
 
     void setFrame_Noframe(QFrame *frame);

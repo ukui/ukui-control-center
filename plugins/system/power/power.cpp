@@ -832,7 +832,7 @@ void Power::setupConnect()
 
     connect(mDarkenComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
         Q_UNUSED(index)
-        if (mSleepComboBox->currentData(Qt::UserRole).toInt() == 0) {
+        if (mDarkenComboBox->currentData(Qt::UserRole).toInt() == 0) {
             settings->set(IDLE_DIM_TIME_KEY, -1);
         } else {
             settings->set(IDLE_DIM_TIME_KEY, QVariant(mDarkenComboBox->currentData(Qt::UserRole).toInt() * 60));

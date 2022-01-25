@@ -70,7 +70,7 @@ QString KeyValueConverter::keycodeTokeyi18nstring(int code){
         nameString = tr("Application");
         break;
     case SEARCH_F:
-        nameString = tr("Search");
+        nameString = tr("Investigation");
         break;
     default:
         break;
