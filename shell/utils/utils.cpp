@@ -173,24 +173,22 @@ QVariantMap Utils::getModuleHideStatus() {
 }
 
 QString Utils::getCpuInfo() {
-    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
-                                   "/com/kylin/assistant/systemdaemon",
-                                   "com.kylin.assistant.systemdaemon",
-                                   QDBusConnection::systemBus());
-    if (!youkerInterface.isValid()) {
-        qCritical() << "Create youker Interface Failed When Get Computer info: " << QDBusConnection::systemBus().lastError();
-        return QString();
-    }
-
-    QDBusReply<QMap<QString, QVariant>> cpuinfo;
     QString cpuType;
-    cpuinfo  = youkerInterface.call("get_cpu_info");
-    if (!cpuinfo.isValid()) {
-        qDebug() << "cpuinfo is invalid" << endl;
-    } else {
-        QMap<QString, QVariant> res = cpuinfo.value();
-        cpuType = res["CpuVersion"].toString();
-    }
+    // 设置系统环境变量
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("bash" , QStringList() << "-c" << "lscpu | grep 'Model name' ");
+    process->waitForFinished();
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+
+    QString cpuinfo = QString(ba.data());
+    cpuinfo = cpuinfo.remove(QRegExp("\\s"));
+    QStringList list = cpuinfo.split(":");
+    cpuType = list.at(1);
+
     return cpuType;
 }
 
