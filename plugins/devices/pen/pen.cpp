@@ -65,6 +65,7 @@ QWidget *Pen::get_plugin_ui(){
         ui->label_3->setText(tr("Please further configure the side button function of the stylus through other software"));
         ui->label_3->setEnabled(false);
         ui->moreFrame->hide();
+        ui->line->hide();
         initComponent();
     }
    return pluginWidget;
