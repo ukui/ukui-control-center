@@ -3,6 +3,7 @@
 #include <QPushButton>
 #include <QIcon>
 #include <QPainterPath>
+#include <QGSettings/QGSettings>
 
 #include "libukcc_global.h"
 
@@ -26,6 +27,12 @@ private:
 private:
     QColor m_backgroundColor;
     QColor m_foregroundColor;
+
+    //监听主题的Gsettings
+    QGSettings * m_styleGsettings = nullptr;
+
+private slots:
+    void onGSettingChaned(const QString &key);
 };
 
 #endif // INFOBUTTON_H

@@ -1,4 +1,5 @@
 #include "infobutton.h"
+#include <QDebug>
 #include <QEvent>
 #include <QPainter>
 #include <qcoreapplication.h>
@@ -15,10 +16,20 @@
 
 #define BUTTON_SIZE 36,36
 
+#define THEME_SCHAME "org.ukui.style"
+#define COLOR_THEME "styleName"
+
 InfoButton::InfoButton(QWidget *parent) : QPushButton(parent)
 {
     this->setFixedSize(BUTTON_SIZE);
     initUI();
+    const QByteArray style_id(THEME_SCHAME);
+    if (QGSettings::isSchemaInstalled(style_id)) {
+        m_styleGsettings = new QGSettings(style_id, QByteArray(), this);
+        connect(m_styleGsettings, &QGSettings::changed, this, &InfoButton::onGSettingChaned);
+    } else {
+        qDebug() << "Gsettings interface \"org.ukui.style\" is not exist!";
+    }
 }
 
 void InfoButton::initUI()
@@ -26,6 +37,14 @@ void InfoButton::initUI()
     this->setFixedSize(BUTTON_SIZE);
     m_backgroundColor = BACKGROUND_COLOR;
     m_foregroundColor = FOREGROUND_COLOR_NORMAL;
+}
+
+void InfoButton::onGSettingChaned(const QString &key)
+{
+    if (key == COLOR_THEME) {
+        m_foregroundColor = FOREGROUND_COLOR_NORMAL;
+        this->repaint();
+    }
 }
 
 void InfoButton::paintEvent(QPaintEvent *event)
