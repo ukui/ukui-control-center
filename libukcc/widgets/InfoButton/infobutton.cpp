@@ -25,7 +25,7 @@ InfoButton::InfoButton(QWidget *parent) : QPushButton(parent)
     initUI();
     const QByteArray style_id(THEME_SCHAME);
     if (QGSettings::isSchemaInstalled(style_id)) {
-        m_styleGsettings = new QGSettings(style_id);
+        m_styleGsettings = new QGSettings(style_id, QByteArray(), this);
         connect(m_styleGsettings, &QGSettings::changed, this, &InfoButton::onGSettingChaned);
     } else {
         qDebug() << "Gsettings interface \"org.ukui.style\" is not exist!";
