@@ -16,10 +16,15 @@ public:
     Uslider(Qt::Orientation orientation, QWidget *parent = nullptr, int paintValue = 0);
     Uslider(QWidget *parent = nullptr, int paintValue = 0);
     QStringList scaleList;
+
+protected:
+    void mousePressEvent(QMouseEvent *ev);
     void paintEvent(QPaintEvent *ev);
+    void wheelEvent(QWheelEvent *ev);
+    void leaveEvent(QEvent *ev);
 private:
-    void mousePressEvent(QMouseEvent *e);
     int paintValue;
+    bool isMouseCliked = false;
 };
 
 #endif // USLIDER_H

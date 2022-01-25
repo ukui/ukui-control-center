@@ -24,7 +24,6 @@ SOURCES +=
 
 HEADERS += \
     libukcc_global.h \
-    widgets/Label/fixlabel.h
 
 # Default rules for deployment.
 unix {
