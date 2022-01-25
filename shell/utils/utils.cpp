@@ -61,24 +61,17 @@ QString Utils::getCpuInfo() {
     env.insert("LANG","en_US");
     QProcess *process = new QProcess;
     process->setProcessEnvironment(env);
-    process->start("lscpu");
+    process->start("bash" , QStringList() << "-c" << "lscpu | grep 'Model name' ");
     process->waitForFinished();
-
     QByteArray ba = process->readAllStandardOutput();
-
     delete process;
+
     QString cpuinfo = QString(ba.data());
-    QStringList cpuinfo_list = cpuinfo.split("\n");
-    for (int i = 0; i < cpuinfo_list.count(); i++) {
-        QString mstring = cpuinfo_list.at(i);
-        if (mstring.contains("Model name")) {
-            // 去除空格
-            mstring = mstring.remove(QRegExp("\\s"));
-            QStringList list = mstring.split(":");
-            cpuType = list.at(1);
-            break;
-        }
-    }
+    cpuinfo = cpuinfo.remove(QRegExp("\\s"));
+    QStringList list = cpuinfo.split(":");
+    cpuType = list.at(1);
+
+    qDebug()<<cpuType;
     return cpuType;
 }
 
