@@ -543,7 +543,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
     if (info.name && strcmp(defaultSinkName.data(),info.name) == 0) {
 
         sinkIndex= info.index;
-	int volume;
+        int volume;
         channel = info.volume.channels;
         if (info.volume.channels >= 2)
             volume = MAX(info.volume.values[0],info.volume.values[1]);
@@ -1157,7 +1157,17 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
         volume = i->volume.values[0];
     w->defaultOutputCard = i->card;
     w->sinkIndex= i->index;
-    w->sinkVolume = volume;
+
+    if(i->active_port)
+        w->sinkPortName = i->active_port->name;
+    else
+        w->sinkPortName = "";
+
+    if(w->sinkVolume != volume || w->sinkMuted){
+        w->sinkVolume = volume;
+        w->sinkMuted  = i->mute;
+        Q_EMIT w->updateVolume(w->sinkVolume,w->sinkMuted);
+    }
 }
 
 void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i, int eol, void *userdata) {
@@ -1173,8 +1183,25 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     if (eol > 0) {
         return;
     }
+    int volume;
+    if(i->volume.channels >= 2)
+        volume = MAX(i->volume.values[0],i->volume.values[1]);
+    else
+        volume = i->volume.values[0];
+
     w->defaultInputCard = i->card;
     w->sourceIndex = i->index;
+
+    if(i->active_port)
+        w->sourcePortName = i->active_port->name;
+    else
+        w->sourcePortName = "" ;
+
+    if(w->sourceVolume != volume || w->sourceMuted != i->mute){
+        w->sourceVolume = volume;
+        w->sourceMuted  = i->mute;
+        Q_EMIT w->updateSourceVolume(w->sourceVolume,w->sourceMuted);
+    }
 }
 
 void UkmediaVolumeControl::sinkCb(pa_context *c, const pa_sink_info *i, int eol, void *userdata) {
@@ -1300,9 +1327,6 @@ void UkmediaVolumeControl::serverInfoCb(pa_context *, const pa_server_info *i, v
         w->showError(tr("pa_context_get_sink_info_by_name() failed").toUtf8().constData());
     }
     if(!(o = pa_context_get_source_info_by_name(w->getContext(),i->default_source_name,sourceIndexCb,w))) {
-        w->showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
-    }
-    if(!(o = pa_context_get_source_info_by_name(w->getContext(),i->default_source_name,sourceCb,w))) {
         w->showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
     }
     w->updateServer(*i);
