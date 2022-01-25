@@ -2957,7 +2957,7 @@ change system settings</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="253"/>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="475"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="479"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -3013,11 +3013,12 @@ change system settings</source>
         <translation type="vanished">用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="417"/>
         <source>Username&apos;s folder exists, change another one</source>
-        <translation type="vanished">用户目录已存在，请更改</translation>
+        <translation>用户目录已存在，请更改</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="445"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="449"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
@@ -10424,53 +10425,53 @@ E-mail: support@kylinos.cn</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="249"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="252"/>
         <source>Default</source>
         <translation>系统默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="250"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="253"/>
         <source>Light</source>
         <translation>浅色模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="251"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="254"/>
         <source>Dark</source>
         <translation>深色模式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="775"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="778"/>
         <source>Blue-Crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="777"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="810"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="780"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="813"/>
         <source>Light-Seeking</source>
         <translation>寻光</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="779"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="782"/>
         <source>DMZ-Black</source>
         <translation>DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="781"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="784"/>
         <source>DMZ-White</source>
         <translation>DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="783"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="786"/>
         <source>Dark-Sense</source>
         <translation>黑色质感</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="806"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="809"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="808"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="811"/>
         <source>Classic</source>
         <translation>启典</translation>
     </message>
@@ -10483,22 +10484,22 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">时尚</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="814"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="817"/>
         <source>hp</source>
         <translation>惠普</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="816"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="819"/>
         <source>ukui</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="812"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="815"/>
         <source>HeYin</source>
         <translation>和印</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="818"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="821"/>
         <source>default</source>
         <translation>默认</translation>
     </message>

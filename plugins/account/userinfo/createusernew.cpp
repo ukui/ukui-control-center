@@ -413,6 +413,10 @@ void CreateUserNew::nameLegalityCheck(QString username){
         userNameTip = "";
     }
 
+    if (isHomeUserExists(username) && userNameTip.isEmpty()) {
+        userNameTip = tr("Username's folder exists, change another one");
+    }
+
     setCunTextDynamic(tipLabel, userNameTip);
 
     if (userNameTip.isEmpty()){
