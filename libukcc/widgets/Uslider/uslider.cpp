@@ -96,11 +96,22 @@ void Uslider::paintEvent(QPaintEvent *e)
     painter->end();
 }
 
+void Uslider::wheelEvent(QWheelEvent *ev)
+{
+    if (isMouseCliked)
+        return QSlider::wheelEvent(ev);
+}
+
+void Uslider::leaveEvent(QEvent *ev)
+{
+    isMouseCliked = false;
+}
+
 //重写鼠标点击事件
-void Uslider::mousePressEvent(QMouseEvent *e)
+void Uslider::mousePressEvent(QMouseEvent *ev)
 {
     int value = 0;
-    int currentX = e->pos().x();
+    int currentX = ev->pos().x();
     double per = currentX * 1.0 / this->width();
     if ((this->maximum() - this->minimum()) >= 50) { //减小鼠标点击像素的影响
         value = qRound(per*(this->maximum() - this->minimum())) + this->minimum();
@@ -115,8 +126,8 @@ void Uslider::mousePressEvent(QMouseEvent *e)
         value = qRound(per*(this->maximum() - this->minimum())) + this->minimum();
     }
     this->setValue(value);
-
-    QSlider::mousePressEvent(e);  //必须放在后面，否则点击拖动无法使用(待优化)
+    isMouseCliked = true;
+    QSlider::mousePressEvent(ev);  //必须放在后面，否则点击拖动无法使用(待优化)
 }
 
 

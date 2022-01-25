@@ -71,7 +71,6 @@ QString Utils::getCpuInfo() {
     QStringList list = cpuinfo.split(":");
     cpuType = list.at(1);
 
-    qDebug()<<cpuType;
     return cpuType;
 }
 
