@@ -1230,6 +1230,11 @@ void Widget::save()
     const KScreen::ConfigPtr &config = this->currentConfig();
     qDebug() << Q_FUNC_INFO << "apply the config: " << config->connectedOutputs();
 
+    auto *preOp = new KScreen::GetConfigOperation();
+    preOp->exec();
+    const KScreen::ConfigPtr &mPrevSaveConfig = preOp->config()->clone();  //重新获取屏幕当前状态
+    preOp->deleteLater();
+
     bool atLeastOneEnabledOutput = false;
     Q_FOREACH (const KScreen::OutputPtr &output, config->outputs()) {
         if (output->isEnabled()) {
@@ -1297,7 +1302,7 @@ void Widget::save()
     }
 
     if (isRestoreConfig()) {
-        auto *op = new KScreen::SetConfigOperation(mPrevConfig);
+        auto *op = new KScreen::SetConfigOperation(mPrevSaveConfig);
         op->exec();
 
     } else {
