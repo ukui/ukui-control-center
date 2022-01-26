@@ -567,7 +567,7 @@ void BlueToothMain::showNormalMainWindow()
     InitMainMiddleUI();
     InitMainbottomUI();
     this->setLayout(main_layout);
-    MonitorSleepSignal();
+    //MonitorSleepSignal();
     updateUIWhenAdapterChanged();
 }
 
@@ -715,7 +715,7 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
             }
             else
             {
-                poweronAgain_timer->start();
+                //poweronAgain_timer->start();
                 qDebug() << "Failed to turn off Bluetooth:" << p->errorText();
             }
         });
@@ -737,6 +737,7 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
                 qDebug() << "Failed to turn off Bluetooth:" << p->errorText();
         });
     }
+    qDebug() << Q_FUNC_INFO << "end" << __LINE__;
 }
 
 void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
@@ -1005,6 +1006,11 @@ void BlueToothMain::change_device_parent(const QString &address)
 void BlueToothMain::adapterPoweredChanged(bool value)
 {
     qDebug() << Q_FUNC_INFO <<value;
+    if (m_localDevice.isNull())
+    {
+        qDebug() << Q_FUNC_INFO << "m_localDevice is nullptr ================!!" << __LINE__;
+        return ;
+    }
     if(settings)
         settings->set("switch",QVariant::fromValue(value));
 
