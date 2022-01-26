@@ -35,7 +35,7 @@ private:
     void initUi() override;
     void initscale(QVBoxLayout *vbox);
     KScreen::OutputPtr createFakeOutput();
-    QString findBestMode(const KScreen::OutputPtr &output, const QSize &size);
+    QString findBestMode(const KScreen::OutputPtr &output, const QSize &size, bool isFirst);
 
 private:
     KScreen::ConfigPtr mConfig;

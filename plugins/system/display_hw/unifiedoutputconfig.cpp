@@ -13,10 +13,14 @@
 #include <QStyledItemDelegate>
 #include <QFile>
 #include <QVector>
+#include <QCryptographicHash>
 
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/config.h>
 #include <KF5/KScreen/kscreen/getconfigoperation.h>
+
+#include <KF5/KConfigCore/KSharedConfig>
+#include <KF5/KConfigCore/KConfigGroup>
 
 bool operator<(const QSize &s1, const QSize &s2)
 {
@@ -249,7 +253,7 @@ KScreen::OutputPtr UnifiedOutputConfig::createFakeOutput()
     return fakeOutput;
 }
 
-void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
+void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag = false)
 {
     // Ignore disconnected outputs
     if (!size.isValid()) {
@@ -262,7 +266,7 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
     mRefreshRate->clear();
     mRefreshRate->blockSignals(false);
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
-        const QString &id = findBestMode(clone, size);
+        const QString &id = findBestMode(clone, size, emitFlag);
         if (id.isEmpty()) {
             // FIXME: Error?
             return;
@@ -359,8 +363,9 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
     Q_EMIT changed();
 }
 
-QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size)
+QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size, bool isFirst)
 {
+
     float refreshRate = 0;
     QString id;
     Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
@@ -369,6 +374,42 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, cons
             id = mode->id();
         }
     }
+
+    if (isFirst) {
+        QVector<KScreen::Output *> outputs;
+        Q_FOREACH (const auto &output, mConfig->outputs()) {
+            outputs << output.data();
+        }
+
+        QCryptographicHash hash(QCryptographicHash::Md5);
+        Q_FOREACH (const KScreen::Output *output, outputs) {
+            hash.addData(output->uuid());
+        }
+        QByteArray groupUuid = QByteArray(1, '1').append(hash.result().toHex()).left(15);
+        const auto config = KSharedConfig::openConfig(QLatin1String("ukui-kwinrc"));
+        const auto outputGroup = config->group("DrmOutputs");
+        const auto configGroup = outputGroup.group(groupUuid);
+
+        Q_FOREACH (const auto &aimOutput, outputs) {
+            const auto outputConfig = configGroup.group(output->uuid());
+            QString res = outputConfig.readEntry("Mode");
+            // don't change mode if cannot found config
+            if (outputConfig.hasKey("Mode")) {
+                QStringList list = res.split(QLatin1String("_"));
+                QStringList size = list[0].split(QLatin1String("x"));
+                if (list.size() > 1 && size.size() > 1) {
+                    QSize outputSize(size[0].toInt(), size[1].toInt());
+                    int refreshRate = list[1].toInt();
+                    Q_FOREACH (const auto &m, output->modes()) {
+                        if (m->size() == outputSize && m->refreshRate() * 1000 == refreshRate && output == aimOutput) {
+                            id = m->id();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     return id;
 }
 
