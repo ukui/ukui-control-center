@@ -365,6 +365,14 @@ void UkmediaMainWidget::initListWidgetItem()
     QString outputCardName = findCardName(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->cardMap);
     QString outputPortLabel = findOutputPortLabel(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->sinkPortName);
     findOutputListWidgetItem(outputCardName,outputPortLabel);
+
+    int vol = m_pVolumeControl->getSinkVolume();
+    m_pOutputWidget->m_pOpVolumeSlider->blockSignals(true);
+    m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(vol));
+    m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
+    m_pOutputWidget->m_pOpVolumePercentLabel->setText(QString::number(paVolumeToValue(vol))+"%");
+
+
     qDebug() <<"initListWidgetItem" << m_pVolumeControl->defaultOutputCard << outputCardName <<m_pVolumeControl->sinkPortName << outputPortLabel << m_pVolumeControl->defaultSourceName;
 
     QString inputCardName = findCardName(m_pVolumeControl->defaultInputCard,m_pVolumeControl->cardMap);
@@ -1830,16 +1838,6 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
         setCardProfile(wid->deviceLabel->text(),setProfile);
         setDefaultOutputPortDevice(wid->deviceLabel->text(),wid->portLabel->text());
     }
-    m_pVolumeControl->getDefaultSinkIndex();
-    QTimer::singleShot(100, this, [=](){
-
-        int vol = m_pVolumeControl->getSinkVolume();
-        m_pOutputWidget->m_pOpVolumeSlider->blockSignals(true);
-        m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(vol));
-        m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
-        m_pOutputWidget->m_pOpVolumePercentLabel->setText(QString::number(paVolumeToValue(vol))+"%");
-        qDebug() << "active output port:" << wid->portLabel->text() <<vol;
-    });
 }
 
 /*
@@ -2714,12 +2712,11 @@ void UkmediaMainWidget::findOutputListWidgetItem(QString cardName,QString portLa
 
         QListWidgetItem *item = m_pOutputWidget->m_pOutputListWidget->item(row);
         UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pOutputWidget->m_pOutputListWidget->itemWidget(item);
-        qDebug() << "findOutputListWidgetItem" << "card name:" << cardName << "portLabel" << wid->portLabel->text() << "deviceLabel:" << wid->deviceLabel->text();
+        qDebug() << "findOutputListWidgetItem" << "card name:" << cardName << wid->deviceLabel->text() << "portLabel" << portLabel << wid->portLabel->text();
         if (wid->deviceLabel->text() == cardName && wid->portLabel->text() == portLabel) {
             m_pOutputWidget->m_pOutputListWidget->blockSignals(true);
             m_pOutputWidget->m_pOutputListWidget->setCurrentRow(row);
             m_pOutputWidget->m_pOutputListWidget->blockSignals(false);
-            qDebug() << "m_pOutputListWidget setCurrentRow11111111111" <<row;
             break;
         }
     }
