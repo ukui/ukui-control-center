@@ -22,19 +22,16 @@
 
 #include "ComboBox/combobox.h"
 
-double mScaleres = 0;
-
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),
     mOutput(nullptr)
 {
-    initDpiConnection();
+
 }
 
 OutputConfig::OutputConfig(const KScreen::OutputPtr &output, QWidget *parent) :
     QWidget(parent)
 {
-    initDpiConnection();
     setOutput(output);
 }
 
@@ -144,44 +141,6 @@ void OutputConfig::initUi()
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &OutputConfig::slotRefreshRateChanged);
 
-    // 缩放率下拉框
-    QFrame *scaleFrame = new QFrame(this);
-    scaleFrame->setFrameShape(QFrame::Shape::Box);
-
-    scaleFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    scaleFrame->setMinimumSize(550, 50);
-    scaleFrame->setMaximumSize(960, 50);
-
-    QHBoxLayout *scaleLayout = new QHBoxLayout(scaleFrame);
-
-    mScaleCombox = new QComboBox(this);
-    mScaleCombox->setObjectName("scaleCombox");
-
-    double scale = getScreenScale();
-
-    slotScaleIndex(mResolution->currentResolution());
-
-    mScaleCombox->setCurrentText(scaleToString(scale));
-
-    if (mScaleCombox->findData(scale) == -1) {
-        mScaleCombox->addItem(scaleToString(scale), scale);
-        mScaleCombox->setCurrentText(scaleToString(scale));
-    }
-
-    connect(mScaleCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &OutputConfig::slotScaleChanged);
-
-    QLabel *scaleLabel = new QLabel(this);
-    //~ contents_path /display/screen zoom
-    scaleLabel->setText(tr("screen zoom"));
-    scaleLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    scaleLabel->setFixedSize(118, 30);
-
-    scaleLayout->addWidget(scaleLabel);
-    scaleLayout->addWidget(mScaleCombox);
-
-    vbox->addWidget(scaleFrame);
-
     initConnection();
 }
 
@@ -240,32 +199,8 @@ void OutputConfig::initConnection()
                     mIsManualForRefreshRate = false;
                 }
             }
-            if (mScaleCombox) {
-                mScaleCombox->blockSignals(true);
-                slotScaleIndex(mOutput->currentMode()->size());
-                mScaleCombox->blockSignals(false);
-            }
         }
     });
-}
-
-void OutputConfig::initDpiConnection()
-{
-    QByteArray id(SCALE_SCHEMAS);
-    if (QGSettings::isSchemaInstalled(SCALE_SCHEMAS)) {
-        mDpiSettings = new QGSettings(id, QByteArray(), this);
-        connect(mDpiSettings, &QGSettings::changed, this, [=](QString key) {
-            if (!key.compare("scalingFactor", Qt::CaseSensitive)) {
-                slotDPIChanged(key);
-            }
-
-        });
-    }
-}
-
-QString OutputConfig::scaleToString(double scale)
-{
-    return QString::number(scale * 100) + "%";
 }
 
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
@@ -374,78 +309,6 @@ void OutputConfig::slotRefreshRateChanged(int index)
     mOutput->setCurrentModeId(modeId);
 
     Q_EMIT changed();
-}
-
-void OutputConfig::slotScaleChanged(int index)
-{
-    Q_EMIT scaleChanged(mScaleCombox->itemData(index).toDouble());
-}
-
-void OutputConfig::slotDPIChanged(QString key)
-{
-    double scale = mDpiSettings->get(key).toDouble();
-    if (mScaleCombox) {
-        if (mScaleCombox->findData(scale) == -1) {
-            mScaleCombox->addItem(scaleToString(scale), scale);
-        }
-        mScaleCombox->blockSignals(true);
-        mScaleCombox->setCurrentText(scaleToString(scale));
-        mScaleCombox->blockSignals(false);
-
-    }
-}
-
-void OutputConfig::slotScaleIndex(const QSize &size)
-{
-    QSize msize;
-    if (mScaleSize != QSize()) {
-        msize = size.width() > mScaleSize.width()?mScaleSize:size;
-    } else {
-        msize = size;
-    }
-    if (!msize.isValid()) {
-        return;
-    }
-
-    mScaleCombox->blockSignals(true);
-    mScaleCombox->clear();
-    mScaleCombox->addItem("100%", 1.0);
-
-    if (msize.width() >= 1024 ) {
-        mScaleCombox->addItem("125%", 1.25);
-    }
-    if (msize.width() >= 1920 ) {
-        mScaleCombox->addItem("150%", 1.5);
-    }
-    if (msize.width() >= 2560) {
-        mScaleCombox->addItem("175%", 1.75);
-        mScaleCombox->addItem("200%", 2.0);
-    }
-    if (msize.width() >= 3072) {
-       mScaleCombox->addItem("225%", 2.25);
-       mScaleCombox->addItem("250%", 2.5);
-    }
-    if (msize.width() >= 3840) {
-       mScaleCombox->addItem("275%", 2.75);
-    }
-
-    double scale = getScreenScale();
-
-    if (mScaleCombox->findData(scale) == -1) {
-        //该变量保存改变前的缩放率，当用户点击恢复时，恢复对应的缩放率
-        mScaleres = scale;
-
-        scale = 1.0;
-        if (QGSettings::isSchemaInstalled(SCALE_SCHEMAS)) {
-            if (mDpiSettings->keys().contains("scalingFactor")) {
-                mDpiSettings->set(SCALE_KEY,scale);
-            }
-        }
-        QMessageBox::information(this, tr("Information"),
-                                 tr("Some applications need to be logouted to take effect"));
-    }
-    mScaleCombox->setCurrentText(scaleToString(scale));
-    mScaleCombox->blockSignals(false);
 }
 
 void OutputConfig::setShowScaleOption(bool showScaleOption)
