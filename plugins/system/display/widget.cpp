@@ -191,6 +191,18 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
             this, [=](int outputId){
         outputRemoved(outputId, false);
     });
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        if (output->isConnected()) {
+            connect(output.data(), &KScreen::Output::currentModeIdChanged,
+                    this, [=]() {
+                if (output->currentMode()) {
+                    if (ui->scaleCombo) {
+                        changescale();
+                    }
+                }
+            });
+        }
+    }
 
     connect(mConfig.data(), &KScreen::Config::primaryOutputChanged,
             this, &Widget::primaryOutputChanged);
@@ -539,9 +551,11 @@ void Widget::writeScale(double scale)
     }
 
     if (mIsScaleChanged) {
-        if (!mIsRestore) {
+        if (!mIsChange) {  //主动切换缩放率，直接提示注销
             QMessageBox::information(this, tr("Information"),
                                      tr("Some applications need to be logouted to take effect"));
+        } else {
+            mIsChange = false;
         }
     } else {
         return;
@@ -652,15 +666,22 @@ bool Widget::isRestoreConfig()
     switch (ret) {
     case QMessageBox::AcceptRole:
         res = false;
+        //若 点击保存后，因分辨率导致缩放发生了变化，则提示注销
+        if (mIsSCaleRes) {
+            QMessageBox::information(this, tr("Information"),
+                                     tr("Some applications need to be logouted to take effect"));
+        }
+        mIsSCaleRes = false;
         break;
     case QMessageBox::RejectRole:
-        res = true;
-        if (mScaleres) {
-            //该情况下不弹提示弹窗
-            mIsRestore = true;
-            writeScale(mScaleres);
-            mIsRestore = false;
+        if (mIsSCaleRes) {
+            QStringList keys = scaleGSettings->keys();
+            if (keys.contains("scalingFactor")) {
+                scaleGSettings->set(SCALE_KEY,scaleres);
+            }
+            mIsSCaleRes = false;
         }
+        res = true;
         break;
     }
     return res;
@@ -872,6 +893,20 @@ void Widget::outputAdded(const KScreen::OutputPtr &output, bool connectChanged)
     if (firstAddOutputName == "" && output->isConnected()) {
         firstAddOutputName = Utils::outputName(output);
     }
+    // 刷新缩放选项，监听新增显示屏的mode变化
+    changescale();
+    if (output->isConnected()) {
+        connect(output.data(), &KScreen::Output::currentModeIdChanged,
+                this, [=]() {
+            if (output->currentMode()) {
+                if (ui->scaleCombo) {
+                    ui->scaleCombo->blockSignals(true);
+                    changescale();
+                    ui->scaleCombo->blockSignals(false);
+                }
+            }
+        });
+    }
     if (output->isConnected()) {
         QDBusReply<QByteArray> replyEdid = dbusEdid->call("getEdid",output->id());
         const quint8 *edidData = reinterpret_cast<const quint8 *>(replyEdid.value().constData());
@@ -917,6 +952,8 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
             output->disconnect(this);
         }
     }
+    // 刷新缩放选项
+    changescale();
     const int index = ui->primaryCombo->findData(outputId);
     if (index != -1) {
         if (index == ui->primaryCombo->currentIndex()) {
@@ -1470,14 +1507,13 @@ bool Widget::writeFile(const QString &filePath)
 
 void Widget::scaleChangedSlot(double scale)
 {
-    this->mScreenScale = scale;
-    if (scaleGSettings->get(SCALE_KEY).toDouble() != this->mScreenScale) {
+    if (scaleGSettings->get(SCALE_KEY).toDouble() != scale) {
         mIsScaleChanged = true;
     } else {
         mIsScaleChanged = false;
     }
 
-    writeScale(this->mScreenScale);
+    writeScale(scale);
 }
 
 void Widget::changedSlot()
@@ -1513,6 +1549,11 @@ void Widget::mainScreenButtonSelect(int index)
         ui->mainScreenButton->setEnabled(false);
     } else {
         ui->mainScreenButton->setEnabled(true);
+    }
+    if (!newPrimary->isEnabled()) {
+        ui->scaleCombo->setEnabled(false);
+    } else {
+        ui->scaleCombo->setEnabled(true);
     }
 
     // 设置是否勾选
@@ -1676,6 +1717,22 @@ void Widget::initConnection()
             this, [=](int index) {
        // mainScreenButtonSelect(index);
         showBrightnessFrame();  //当前屏幕框变化的时候，显示，此时不判断
+    });
+
+    connect(ui->scaleCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, [=](int index){
+        scaleChangedSlot(ui->scaleCombo->itemData(index).toDouble());
+    });
+    connect(scaleGSettings,&QGSettings::changed,this,[=](QString key){
+        if (!key.compare("scalingFactor", Qt::CaseSensitive)) {
+            double scale = scaleGSettings->get(key).toDouble();
+            if (ui->scaleCombo->findData(scale) == -1) {
+                scale = 1.0;
+            }
+            ui->scaleCombo->blockSignals(true);
+            ui->scaleCombo->setCurrentText(QString::number(scale * 100) + "%");
+            ui->scaleCombo->blockSignals(false);
+        }
     });
 }
 
@@ -1999,4 +2056,75 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
 
     }
     file.write(QJsonDocument::fromVariant(outputList).toJson());
+}
+
+void Widget::changescale()
+{
+    mScaleSizeRes = QSize();
+    for (const KScreen::OutputPtr &output : mConfig->outputs()) {
+        if (output->isEnabled()) {
+            // 作判空判断，防止控制面板闪退
+            if (output->currentMode()) {
+                if (mScaleSizeRes == QSize()) {
+                    mScaleSizeRes = output->currentMode()->size();
+                } else {
+                    mScaleSizeRes = mScaleSizeRes.width() < output->currentMode()->size().width()?mScaleSizeRes:output->currentMode()->size();
+                }
+            } else {
+                return;
+            }
+
+        }
+    }
+
+    if (mScaleSizeRes != QSize(0,0)) {
+        QSize scalesize = mScaleSizeRes;
+        ui->scaleCombo->blockSignals(true);
+        ui->scaleCombo->clear();
+        ui->scaleCombo->addItem("100%", 1.0);
+
+        if (scalesize.width() > 1024 ) {
+            ui->scaleCombo->addItem("125%", 1.25);
+        }
+        if (scalesize.width() == 1920 ) {
+            ui->scaleCombo->addItem("150%", 1.5);
+        }
+        if (scalesize.width() > 1920) {
+            ui->scaleCombo->addItem("150%", 1.5);
+            ui->scaleCombo->addItem("175%", 1.75);
+        }
+        if (scalesize.width() >= 2160) {
+            ui->scaleCombo->addItem("200%", 2.0);
+        }
+        if (scalesize.width() > 2560) {
+            ui->scaleCombo->addItem("225%", 2.25);
+        }
+        if (scalesize.width() > 3072) {
+            ui->scaleCombo->addItem("250%", 2.5);
+        }
+        if (scalesize.width() > 3840) {
+            ui->scaleCombo->addItem("275%", 2.75);
+        }
+
+        double scale;
+        QStringList keys = scaleGSettings->keys();
+        if (keys.contains("scalingFactor")) {
+            scale = scaleGSettings->get(SCALE_KEY).toDouble();
+        }
+        if (ui->scaleCombo->findData(scale) == -1) {
+            //记录分辨率切换时，新分辨率不存在的缩放率，在用户点击恢复设置时写入
+            mIsSCaleRes = true;
+
+            //记录是否因分辨率导致的缩放率变化
+            mIsChange = true;
+
+            scaleres = scale;
+            scale = 1.0;
+        }
+        ui->scaleCombo->setCurrentText(QString::number(scale * 100) + "%");
+        scaleChangedSlot(scale);
+        ui->scaleCombo->blockSignals(false);
+        mScaleSizeRes = QSize();
+
+    }
 }
