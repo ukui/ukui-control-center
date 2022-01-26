@@ -138,7 +138,6 @@ void OutputConfig::initUi()
     freshFrame->setMinimumSize(550, 50);
     freshFrame->setMaximumSize(960, 50);
 
-    mRefreshRate->addItem(tr("auto"), -1);
     vbox->addWidget(freshFrame);
 
     slotResolutionChanged(mResolution->currentResolution(), true);
@@ -219,6 +218,7 @@ void OutputConfig::initConnection()
         if (mOutput->currentMode()) {
             if (mRefreshRate && mOutput->currentMode()->size() != mResolution->currentResolution()) {
                 slotResolutionChanged(mOutput->currentMode()->size(), false);
+                mResolution->setResolution(mOutput->currentMode()->size());
             } else if (mRefreshRate &&
                        mOutput->currentMode()->size() == mResolution->currentResolution() &&
                        tr("%1 Hz").arg(QLocale().toString(qRound(mOutput->currentMode()->refreshRate()))) != mRefreshRate->itemText(mRefreshRate->currentIndex())) {
@@ -285,7 +285,6 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     if (!size.isValid()) {
         return;
     }
-
     bool mIsModeInit = false;
     QString modeID;
     KScreen::ModePtr selectMode;
@@ -312,9 +311,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     mRefreshRate->blockSignals(true);
     // Don't remove the first "Auto" item - prevents ugly flicker of the combobox
     // when changing resolution
-    for (int i = mRefreshRate->count(); i >= 2; --i) {
-        mRefreshRate->removeItem(i - 1);
-    }
+    mRefreshRate->clear();
 
     for (int i = 0, total = modes.count(); i < total; ++i) {
         const KScreen::ModePtr mode = modes.at(i);
@@ -339,13 +336,15 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         }
     }
 
-    int currentIndex = mRefreshRate->currentIndex();
-    if (-1 == currentIndex || 0 == currentIndex || emitFlag) {
-        modeID = mRefreshRate->itemData(1).toString();
+    if (mRefreshRate->count() == 0) {
+        mRefreshRate->addItem(tr("auto"), -1);
+    } else if (-1 == mRefreshRate->currentIndex() || emitFlag) {
+        modeID = mRefreshRate->itemData(0).toString();
     }
     mRefreshRate->blockSignals(false);
 
-    mOutput->setCurrentModeId(modeID);
+    if (!mIsModeInit)
+        mOutput->setCurrentModeId(modeID);
 
     if (emitFlag)
         Q_EMIT changed();
@@ -366,11 +365,8 @@ void OutputConfig::slotRefreshRateChanged(int index)
 {
     mIsManualForRefreshRate = true;
     QString modeId;
-    if (index == 0) {
-        // Item 0 is "Auto" - "Auto" is equal to highest refresh rate (at least
-        // that's how I understand it, and since the combobox is sorted in descending
-        // order, we just pick the second item from top
-        modeId = mRefreshRate->itemData(1).toString();
+    if (index == -1) {
+        modeId = mRefreshRate->itemData(0).toString();
     } else {
         modeId = mRefreshRate->itemData(index).toString();
     }
