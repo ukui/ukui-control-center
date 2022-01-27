@@ -598,7 +598,7 @@ void UserInfo::initComponent(){
         setBiometricDeviceVisible(false);
 
     UserInfomation user = allUserInfoMap.value(g_get_user_name());
-    if (is_domain_user(user.username.toLatin1().data())) {
+    if (isDomainUser(user.username.toLatin1().data())) {
         ui->changeGroupBtn->setEnabled(false);
         ui->changePwdBtn->setEnabled(false);
         ui->changeTypeBtn->setEnabled(false);
@@ -614,7 +614,7 @@ void UserInfo::initComponent(){
 * 和/etc/passwd文件中用户做对比
 * 1：域用户，0：非域用户
 */
-int UserInfo::is_domain_user(const char* username)
+int UserInfo::isDomainUser(const char* username)
 {
     FILE *fp;
     fp=fopen("/etc/passwd","r");
@@ -856,7 +856,7 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
             delBtn->setEnabled(false);
         }
         UserInfomation curruser = allUserInfoMap.value(g_get_user_name());
-        if (is_domain_user(curruser.username.toLatin1().data())) {
+        if (isDomainUser(curruser.username.toLatin1().data())) {
             typeBtn->setEnabled(false);
             pwdBtn->setEnabled(false);
             delBtn->setEnabled(false);
