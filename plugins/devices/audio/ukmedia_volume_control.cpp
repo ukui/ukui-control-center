@@ -1,4 +1,4 @@
-#include "ukmedia_volume_control.h"
+﻿#include "ukmedia_volume_control.h"
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -459,8 +459,10 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
         p.available = info.ports[i]->available;
         p.direction = info.ports[i]->direction;
         p.latency_offset = info.ports[i]->latency_offset;
-        for (pa_card_profile_info2 ** p_profile = info.ports[i]->profiles2; *p_profile != nullptr; ++p_profile)
-            p.profiles.push_back((*p_profile)->name);
+        if (info.ports[i]->profiles2)
+            for (pa_card_profile_info2 ** p_profile = info.ports[i]->profiles2; *p_profile != nullptr; ++p_profile) {
+                p.profiles.push_back((*p_profile)->name);
+            }
         if (p.direction == 1 && p.available != PA_PORT_AVAILABLE_NO) {
 //            portMap.insertMulti(p.name,p.description.data());
             qDebug() << " add sink port name "<< info.index << p.name << p.description.data();
