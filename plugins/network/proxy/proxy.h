@@ -46,11 +46,6 @@
 #include <ukcc/widgets/titlelabel.h>
 #include <ukcc/widgets/hoverwidget.h>
 
-#define APT_PROXY_SCHEMA              "org.ukui.control-center.apt.proxy"
-#define APT_PROXY_ENABLED            "enabled"
-#define APT_PROXY_HOST_KEY         "host"
-#define APT_PROXY_PORT_KEY         "port"
-
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -68,7 +63,6 @@ struct GSData
     QString key;
     QString schema;
 };
-
 
 typedef enum{
     NONE,
@@ -117,7 +111,9 @@ public:
     int _getCurrentProxyMode();
     void _setSensitivity();
     bool getAptProxyInfo(bool status);
-    void setAptProxy(QString host ,int port ,bool status); //  apt代理对应的配置文件的写入或删除
+    static void setAptProxy(QString host ,QString port ,bool status); //  apt代理对应的配置文件的写入或删除
+    static QHash<QString, QVariant> getAptProxy();
+    void setAptInfo();
     void reboot(); // 调用重启接口
 
     void setFrame_Noframe(QFrame *frame);
@@ -209,6 +205,8 @@ private:
 
     QFileSystemWatcher *mfileWatch_1;
     QFileSystemWatcher *mfileWatch_2;
+
+    QDBusInterface *mAptproxyDbus;
 
     bool settingsCreate;
     bool mFirstLoad;

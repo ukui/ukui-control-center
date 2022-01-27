@@ -34,6 +34,7 @@ SOURCES += \
     proxy.cpp
 
 HEADERS += \
+    aptinfo.h \
     aptproxydialog.h \
     proxy.h \
     certificationdialog.h
