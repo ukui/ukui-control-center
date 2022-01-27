@@ -596,6 +596,48 @@ void UserInfo::initComponent(){
         initBioComonent();
     else
         setBiometricDeviceVisible(false);
+
+    UserInfomation user = allUserInfoMap.value(g_get_user_name());
+    if (isDomainUser(user.username.toLatin1().data())) {
+        ui->changeGroupBtn->setEnabled(false);
+        ui->changePwdBtn->setEnabled(false);
+        ui->changeTypeBtn->setEnabled(false);
+        ui->nameChangeWidget->setEnabled(false);
+        autoLoginSwitchBtn->setEnabled(false);
+        nopwdSwitchBtn->setEnabled(false);
+        addWgt->setEnabled(false);
+    }
+}
+
+/*
+* 判断用户是否为域用户
+* 和/etc/passwd文件中用户做对比
+* 1：域用户，0：非域用户
+*/
+int UserInfo::isDomainUser(const char* username)
+{
+    FILE *fp;
+    fp=fopen("/etc/passwd","r");
+    if(fp == NULL)
+    {
+        return 1;
+    }
+    char buf[1024], name[128];
+    while(!feof(fp))
+    {
+        if(fgets(buf,sizeof (buf),fp) == NULL)
+        {
+            break;
+        }
+        sscanf(buf,"%[^:]",name);
+        if(strcmp(name,username) == 0)
+        {
+            fclose(fp);
+            return 0;
+        }
+    }
+    fclose(fp);
+    return 1;
 }
 
 void UserInfo::_resetListWidgetHeigh(){
@@ -813,7 +855,12 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
         } else if (_userCanDel(name) == 0) {
             delBtn->setEnabled(false);
         }
-
+        UserInfomation curruser = allUserInfoMap.value(g_get_user_name());
+        if (isDomainUser(curruser.username.toLatin1().data())) {
+            typeBtn->setEnabled(false);
+            pwdBtn->setEnabled(false);
+            delBtn->setEnabled(false);
+        }
 #ifdef WITHKYSEC
         if (!kysec_is_disabled() && kysec_get_3adm_status()){
             if (user.username == "secadm" || user.username == "auditadm"){
@@ -1241,7 +1288,7 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                 return false;
             }
         }
-    } else if (watched == ui->nameChangeWidget){
+    } else if (watched == ui->nameChangeWidget && ui->nameChangeWidget->isEnabled()){
         if (event->type() == QEvent::MouseButtonPress){
             QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
             if (mouseEvent->button() == Qt::LeftButton ){
