@@ -4,12 +4,9 @@
 #include <QGroupBox>
 #include <QComboBox>
 #include <QWidget>
-
-#include <KF5/KScreen/kscreen/output.h>
-
 #include <QGSettings>
 
-
+#include <KF5/KScreen/kscreen/output.h>
 
 class QCheckBox;
 class ResolutionSlider;

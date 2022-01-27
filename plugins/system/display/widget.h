@@ -171,6 +171,7 @@ private:
     void setScreenIsApply(bool isApply);
 
     void changescale();
+    void updateScaleComStatus();
 
 private:
     Ui::DisplayWindow *ui;

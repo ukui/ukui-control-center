@@ -1326,6 +1326,7 @@ void Widget::save()
             QString hash = config->connectedOutputsHash();
             writeFile(mDir % hash);
         }
+        updateScaleComStatus();
         mBlockChanges = false;
         mConfigChanged = false;
     });
@@ -1342,7 +1343,6 @@ void Widget::save()
     if (isRestoreConfig()) {
         auto *op = new KScreen::SetConfigOperation(mPrevSaveConfig);
         op->exec();
-
     } else {
         mPrevConfig = mConfig->clone();
         writeScreenXml();
@@ -1551,11 +1551,8 @@ void Widget::mainScreenButtonSelect(int index)
     } else {
         ui->mainScreenButton->setEnabled(true);
     }
-    if (!newPrimary->isEnabled()) {
-        ui->scaleCombo->setEnabled(false);
-    } else {
-        ui->scaleCombo->setEnabled(true);
-    }
+
+    updateScaleComStatus();
 
     // 设置是否勾选
     mCloseScreenButton->setEnabled(true);
@@ -1660,7 +1657,7 @@ void Widget::initConnection()
             this, [=](bool checked) {
         checkOutputScreen(checked);
         delayApply();
-         changescale();
+        changescale();
     });
 
     connect(mNightButton, &SwitchButton::checkedChanged, this, [=](bool status){
@@ -2128,5 +2125,16 @@ void Widget::changescale()
         ui->scaleCombo->blockSignals(false);
         mScaleSizeRes = QSize();
 
+    }
+}
+
+void Widget::updateScaleComStatus()
+{
+    int index = ui->primaryCombo->currentIndex();
+    const KScreen::OutputPtr output = mConfig->output(ui->primaryCombo->itemData(index).toInt());
+    if (!output->isEnabled()) {
+        ui->scaleCombo->setEnabled(false);
+    } else {
+        ui->scaleCombo->setEnabled(true);
     }
 }
