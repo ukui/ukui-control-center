@@ -172,7 +172,6 @@ void UserInfo::initSearchText() {
         });
     }
 
-
     //~ contents_path /userinfo/Delete user
     ui->delUserBtn->setText(tr("Delete user"));
 
@@ -662,29 +661,44 @@ void UserInfo::_refreshUserInfoUI(){
             //设置用户名
 
             ui->userNameLabel->setStyleSheet("QLineEdit{color: palette(windowText);}");
-            ui->userNameLabel->setText(user.realname);
+            QFontMetrics fontMetrics(ui->userNameLabel->font());
+            int fontSize = fontMetrics.width(user.realname);
+            userName = user.realname;
+            if (fontSize > 180) {
+                QString str = fontMetrics.elidedText(user.realname, Qt::ElideRight, 180);
+                ui->userNameLabel->setFixedWidth(180);
+                ui->userNameLabel->blockSignals(true);
+                ui->userNameLabel->setText(str);
+                ui->userNameLabel->blockSignals(false);
+                ui->userNameLabel->setToolTip(user.realname);
+            } else {
+                ui->userNameLabel->setFixedWidth(fontSize+5);
+                ui->userNameLabel->blockSignals(true);
+                ui->userNameLabel->setText(user.realname);
+                ui->userNameLabel->blockSignals(false);
+            }
             ui->userNameLabel->setCursorPosition(0);
             ui->userNameLabel->setReadOnly(true);
             ui->userNameLabel->installEventFilter(this);
 
             oldName = ui->userNameLabel->text();
+            ui->userNameLabel->setMaxLength(32);
             connect(ui->userNameLabel,&QLineEdit::textChanged, [=](QString text){
-                    qDebug()<<text;
-                    QString str =ui->userNameLabel->text();
-                    char gbk[10000];
-                    QByteArray ba = QTextCodec::codecForName("GBK")->fromUnicode(str);
-                    memset(gbk, 0, sizeof(gbk));//初始化为0
-                    strcpy(gbk, ba.data());
-                    const char *str_2 = gbk;
-                    int count = strlen(str_2);//获取转换长度
-                    qDebug()<<count;
-                    if (count > 32) {
-                        ui->userNameLabel->setText(oldName);
-                    } else {
-                        oldName = text;
-                    }
+                QFontMetrics fontMetrics(ui->userNameLabel->font());
+                int fontSize = fontMetrics.width(text);
+                if (fontSize > 180) {
+                    ui->userNameLabel->setFixedWidth(180);
+                } else {
+                    ui->userNameLabel->setFixedWidth(fontSize+5);
+                }
+                userName = text;
+                qDebug()<<"*********************SET NAME = "<<text;
             });
             connect(ui->editBtn,&QPushButton::clicked,[=](){
+                    UserInfomation curruser = allUserInfoMap.value(g_get_user_name());
+                    ui->userNameLabel->blockSignals(true);
+                    ui->userNameLabel->setText(curruser.realname);
+                    ui->userNameLabel->blockSignals(false);
                     ui->userNameLabel->setReadOnly(false);
                     ui->userNameLabel->selectAll();
                     ui->userNameLabel->setFocus();
@@ -1205,9 +1219,22 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
 
                     ui->userNameLabel->setCursorPosition(0);
                     if (str_name != NULL) {
-
-                        userreal.call("SetRealName",ui->userNameLabel->text());
-                        allUserInfoMap.find(my_name).value().realname = ui->userNameLabel->text();
+                        userreal.call("SetRealName",userName);
+                        allUserInfoMap.find(my_name).value().realname = userName;
+                        QFontMetrics fontMetrics(ui->userNameLabel->font());
+                        int fontSize = fontMetrics.width(ui->userNameLabel->text());
+                        if (fontSize > 180) {
+                            QString str = fontMetrics.elidedText(ui->userNameLabel->text(), Qt::ElideRight, 180);
+                            ui->userNameLabel->setToolTip(userName);
+                            ui->userNameLabel->blockSignals(true);
+                            ui->userNameLabel->setText(str);
+                            ui->userNameLabel->blockSignals(false);
+                        } else {
+                            ui->userNameLabel->blockSignals(true);
+                            ui->userNameLabel->setText(ui->userNameLabel->text());
+                            ui->userNameLabel->blockSignals(false);
+                            ui->userNameLabel->setToolTip("");
+                        }
                         ui->editBtn->show();
                         ui->userNameLabel->setReadOnly(true);
                         ui->userNameLabel->deselect();
@@ -1216,7 +1243,20 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                         enter = true;
                         MessageBoxPower *messageBoxpower = new MessageBoxPower();
                         messageBoxpower->exec();
-                        ui->userNameLabel->setText(userreal.property("RealName").toString());
+                        QFontMetrics fontMetrics(ui->userNameLabel->font());
+                        int fontSize = fontMetrics.width(userreal.property("RealName").toString());
+                        if (fontSize > 180) {
+                            QString str = fontMetrics.elidedText(userreal.property("RealName").toString(), Qt::ElideRight, 180);
+                            ui->userNameLabel->setToolTip(userreal.property("RealName").toString());
+                            ui->userNameLabel->blockSignals(true);
+                            ui->userNameLabel->setText(str);
+                            ui->userNameLabel->blockSignals(false);
+                        } else {
+                            ui->userNameLabel->blockSignals(true);
+                            ui->userNameLabel->setText(userreal.property("RealName").toString());
+                            ui->userNameLabel->blockSignals(false);
+                            ui->userNameLabel->setToolTip("");
+                        }
                         ui->editBtn->show();
                         ui->userNameLabel->setReadOnly(true);
                         ui->userNameLabel->deselect();
@@ -1225,6 +1265,7 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
             }
             else if (event->type() == QEvent::FocusOut)
             {
+
                 QString str_name =ui->userNameLabel->text().remove(QRegExp("\\s"));
                 qlonglong uid = getuid();
                 QDBusInterface user("org.freedesktop.Accounts",
@@ -1240,8 +1281,22 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                                         QDBusConnection::systemBus());
                 if (str_name != NULL) {
                     ui->userNameLabel->setCursorPosition(0);
-                    userreal.call("SetRealName",ui->userNameLabel->text());
-                    allUserInfoMap.find(my_name).value().realname = ui->userNameLabel->text();
+                    userreal.call("SetRealName",userName);
+                    allUserInfoMap.find(my_name).value().realname = userName;
+                    QFontMetrics fontMetrics(ui->userNameLabel->font());
+                    int fontSize = fontMetrics.width(ui->userNameLabel->text());
+                    if (fontSize > 180) {
+                        QString str = fontMetrics.elidedText(ui->userNameLabel->text(), Qt::ElideRight, 180);
+                        ui->userNameLabel->setToolTip(userName);
+                        ui->userNameLabel->blockSignals(true);
+                        ui->userNameLabel->setText(str);
+                        ui->userNameLabel->blockSignals(false);
+                    } else {
+                        ui->userNameLabel->blockSignals(true);
+                        ui->userNameLabel->setText(ui->userNameLabel->text());
+                        ui->userNameLabel->blockSignals(false);
+                        ui->userNameLabel->setToolTip("");
+                    }
                     ui->editBtn->show();
                     ui->userNameLabel->setReadOnly(true);
                     ui->userNameLabel->deselect();
@@ -1253,12 +1308,26 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
                     } else {
                         MessageBoxPower *messageBoxpower = new MessageBoxPower;
                         messageBoxpower->exec();
-                        ui->userNameLabel->setText(userreal.property("RealName").toString());
+                        QFontMetrics fontMetrics(ui->userNameLabel->font());
+                        int fontSize = fontMetrics.width(userreal.property("RealName").toString());
+                        if (fontSize > 180) {
+                            QString str = fontMetrics.elidedText(userreal.property("RealName").toString(), Qt::ElideRight, 180);
+                            ui->userNameLabel->blockSignals(true);
+                            ui->userNameLabel->setText(str);
+                            ui->userNameLabel->blockSignals(false);
+                            ui->userNameLabel->setToolTip(userreal.property("RealName").toString());
+                        } else {
+                            ui->userNameLabel->blockSignals(true);
+                            ui->userNameLabel->setText(userreal.property("RealName").toString());
+                            ui->userNameLabel->blockSignals(false);
+                            ui->userNameLabel->setToolTip("");
+                        }
                         ui->editBtn->show();
                         ui->userNameLabel->setReadOnly(true);
                         ui->userNameLabel->deselect();
                     }
                 }
+
             }
         }
 
