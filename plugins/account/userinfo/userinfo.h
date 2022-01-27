@@ -128,7 +128,7 @@ public:
     void initSearchText();
     void initComponent();
     void initAllUserStatus();
-    int is_domain_user(const char* username);
+    int isDomainUser(const char* username);
 
     //初始化生物特征组件
     void initBioComonent();
