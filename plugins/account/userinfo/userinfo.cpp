@@ -394,7 +394,7 @@ void UserInfo::buildAndSetupUsers(){
             });
 
             // 域用户用户信息不可设置
-            if (is_domain_user(user.username.toLatin1().data())) {
+            if (isDomainUser(user.username.toLatin1().data())) {
                 currentNickNameChangeLabel->setEnabled(false);
                 currentNickNameLabel->setEnabled(false);
                 changeCurrentPwdBtn->setEnabled(false);
@@ -433,7 +433,7 @@ void UserInfo::buildAndSetupUsers(){
 * 和/etc/passwd文件中用户做对比
 * 1：域用户，0：非域用户
 */
-int UserInfo::is_domain_user(const char* username)
+int UserInfo::isDomainUser(const char* username)
 {
     FILE *fp;
     fp=fopen("/etc/passwd","r");
@@ -475,7 +475,7 @@ void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
 
     // 域用户按钮不可设置
     UserInfomation curruser = allUserInfoMap.value(g_get_user_name());
-    if (is_domain_user(curruser.username.toLatin1().data())) {
+    if (isDomainUser(curruser.username.toLatin1().data())) {
         utils->refreshDelStatus(false);
         utils->refreshPwdStatus(false);
         utils->refreshTypeStatus(false);
