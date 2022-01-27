@@ -27,8 +27,9 @@ ResolutionSlider::ResolutionSlider(const KScreen::OutputPtr &output, QWidget *pa
        mExcludeModes.push_back(QSize(1152, 864));
     }
 
-    connect(output.data(), &KScreen::Output::currentModeIdChanged,
-            this, &ResolutionSlider::slotOutputModeChanged);
+    //在xxconfig中会监听，这里暂时先注释
+    // connect(output.data(), &KScreen::Output::currentModeIdChanged,
+    //         this, &ResolutionSlider::slotOutputModeChanged);
 
     connect(output.data(), &KScreen::Output::modesChanged,
             this, &ResolutionSlider::init);

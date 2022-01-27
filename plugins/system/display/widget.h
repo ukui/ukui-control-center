@@ -170,6 +170,8 @@ private:
 
     void setScreenIsApply(bool isApply);
 
+    void changescale();
+
 private:
     Ui::DisplayWindow *ui;
     QMLScreen *mScreen = nullptr;
@@ -215,8 +217,12 @@ private:
 
     QHash<QString, QVariant> mNightConfig;
 
+    QSize mScaleSizeRes = QSize();
     double mScreenScale = 1.0;
+    double scaleres = 1.0;
 
+    bool mIsSCaleRes = false;
+    bool mIsChange = false;
     bool mIsNightMode = false;
     bool mRedshiftIsValid = false;
     bool mIsScaleChanged = false;

@@ -42,11 +42,6 @@ protected Q_SLOTS:
     void slotResolutionChanged(const QSize &size, bool emitFlag);
     void slotRotationChanged(int index);
     void slotRefreshRateChanged(int index);
-    void slotScaleChanged(int index);
-    void slotDPIChanged(QString key);
-
-public Q_SLOTS:
-    void slotScaleIndex(const QSize &size);
 
 Q_SIGNALS:
     void changed();
@@ -58,8 +53,6 @@ protected:
 
 private:
     void initConnection();
-    void initDpiConnection();
-    QString scaleToString(double scale);
 
 protected:
     KScreen::OutputPtr mOutput;
@@ -71,12 +64,11 @@ protected:
     QComboBox *mScale = nullptr;
     QComboBox *mRefreshRate = nullptr;
     QComboBox *mMonitor = nullptr;
-    QComboBox *mScaleCombox = nullptr;
 
     bool mShowScaleOption = false;
     bool mIsWayland = false;
     bool mIsFirstLoad = true;
-    bool mIsRefreshRateChanged = false;
+    bool mIsManualForRefreshRate = false;
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
     KScreen::ConfigPtr mConfig;

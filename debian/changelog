@@ -1,3 +1,154 @@
+ukui-control-center (3.0.1-1-70.25update34) v101; urgency=medium
+
+  * 提交commit: 98bf6162
+  * bug#102479升级完成后控制面板的通知关于界面不显示CPU信息
+  * bug#104772长城控制面板主线补丁验证，单屏出现分辨率异常(默认设置为第一个刷新率)
+  * bug#97983:【sp2未复现】【显示器】修改刷新率时，控制面板刷新率下拉框显示异常
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 25 Jan 2022 10:12:42 +0800
+
+ukui-control-center (3.0.1-1-70.25update32) v101; urgency=medium
+
+  * 提交commit: 341a73e8
+  * bug#66928创建用户时的默认头像根据iconfile定制，控制面板不设置为default.png
+  * bug#103438【宝新创PF215T】个性化桌面选项中部分锁定在开始菜单的选项不生效
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 21 Jan 2022 09:44:40 +0800
+
+ukui-control-center (3.0.1-1-70.25update31) v101; urgency=medium
+
+  * 提交commit: 70af222f
+  * bug#90329VGA+HDMI双显组合下，设置投屏模式为其他屏，当HDMI设为主屏，HDMI屏幕不显，VGA屏幕正常显示；当选择设置VGA为主屏时，发现无法设置VGA为主屏
+  * bug#96386【控制面板】英文模式下，控制面板无网络连接模块
+  * bug#103379:【长城T322】【长城用例】【区域语言】更换显示语言后的提示语不正确
+  * task#66818密码复杂性要求
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 19 Jan 2022 17:59:03 +0800
+
+ukui-control-center (3.0.1-1-70.25update30) v101; urgency=medium
+
+  * 提交commit:3548d1b6
+  * bug#103401【开机启动】UKUI桌面禁用开机自启动后，系统监视器仍在运行该程序
+  * bug#102944已打开显示器界面的前提下，win+P切换镜像模式，显示器界面未实时发生变化
+  * bug#102928控制面版无法选择用户自己添加的字体
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 18 Jan 2022 18:01:09 +0800
+
+ukui-control-center (3.0.1-1-70.25update29) v101; urgency=medium
+
+  * 提交commit: 840d9300
+  * bug#102922添加保护机制
+  * bug1 02952 【前线】【7688】 [长城F229][229FBE18][229FEE10][Kylin V10 SP1_1216][蓝牙]S3/S4唤醒后，蓝牙开关关闭会自动打开，需重启恢复正常
+  * bug#102921【显示器】来回切换分辨率和刷新率，无法弹出保存设置弹窗
+  * bug#102919在密码类型栏添加通用密码描述
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 18 Jan 2022 09:24:13 +0800
+
+ukui-control-center (3.0.1-1-70.25update28) v101; urgency=medium
+
+  * 提交commit: 59e22db9
+  * bug#97439:控制面板-手动更 改时区，哈萨克斯坦国家名未汉化
+  * 去掉间隔性扫描策略影响的扫描慢的问题
+  * bug#102344修改用户名时不比较自己
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 12 Jan 2022 10:37:32 +0800
+
+ukui-control-center (3.0.1-1-70.25update27) v101; urgency=medium
+
+  * 编译依赖问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 10 Jan 2022 14:52:53 +0800
+
+ukui-control-center (3.0.1-1-70.25update26) v101; urgency=medium
+
+  * 提交commit: 71f12166
+  * bug#101560【前线】【7533】 【浪潮信息】【兆芯KX-U6780A】【CE520Z】【Kylin-Desktop-V10-SP1-Release-2107-x86_64.iso】个性化-屏保界面，
+  * bug#102184【前线】【外部禅道编号6899】 【宝新创】【MZ241A】【教育版】默认应用的视频播放器里包含音乐
+  * bug#102266统下设置分辨率选择不保存，分辨率会自动跳选
+  * bug#95423【前线】【6375】【桌面版】【山西百信】【百信太行225BC】【SP1 2107】手动修改时间，选择年份/月份，日期自动变为1
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 07 Jan 2022 16:51:37 +0800
+
+ukui-control-center (3.0.1-1-70.25update25) v101; urgency=medium
+
+  * 提交commit: eef2c341
+  * bug#100508修改GSettings的监听方式
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 05 Jan 2022 10:50:57 +0800
+
+ukui-control-center (3.0.1-1-70.25update24) v101; urgency=medium
+
+  * 提交commit: 9f13b73c
+  * bug#99510显卡_BXC_1GB_Radeon520_64b_P HDMI接口更改刷新率重启后失效
+  * bug#97571创建用户时开放点和大写
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 31 Dec 2021 17:02:12 +0800
+
+ukui-control-center (3.0.1-1-70.25update23) v101; urgency=medium
+
+  * 提交commit: 7b6b0171
+  * bug#99510 【前线】【7128】【浪潮信息】【兆芯KX-U6780A】【CE520Z】【Kylin-Desktop-V10-SP1-Release-2107-x86_64.iso】显卡_BXC_1GB_Radeon520_64b_P HDMI接口更改刷新率重启后失效。
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 30 Dec 2021 17:26:09 +0800
+
+ukui-control-center (3.0.1-1-70.25update22) v101; urgency=medium
+
+  * 提交commit: d35fa0ca
+  * 64880 【江西银行】控制面板支持域用户修改密码
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 30 Dec 2021 13:57:51 +0800
+
+ukui-control-center (3.0.1-1-70.25update21) v101; urgency=medium
+
+  * 提交commit: 512a68a1
+  * bug#99510显卡_BXC_1GB_Radeon520_64b_P HDMI接口更改刷新率重启后失效
+  * bug#67241修改当前用户名后创建新用户名检测不到位
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 28 Dec 2021 19:33:59 +0800
+
+ukui-control-center (3.0.1-1-70.25update20) v101; urgency=medium
+
+  * 提交commit:91f7659a
+  * 添加降噪选项 
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 27 Dec 2021 11:28:51 +0800
+
+ukui-control-center (3.0.1-1-70.25update19.1) v101; urgency=medium
+
+  * 提交commit:588328cc
+  * bug#99266
+  * 去除logqt临时版本
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 23 Dec 2021 10:28:56 +0800
+
+ukui-control-center (3.0.1-1-70.25update18) v101; urgency=medium
+
+  * 去除logqt临时版本
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 22 Dec 2021 15:11:39 +0800
+
+ukui-control-center (3.0.1-1-70.25update17) v101; urgency=medium
+
+  * 提交commit：705a6182
+  * 修改笔记本判断
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 22 Dec 2021 15:01:54 +0800
+
+ukui-control-center (3.0.1-1-70.25update16) v101; urgency=medium
+
+  * 提交commit:a5cae968
+  * bug#99088判断是否为镜像模式错误,双屏统一输出时拔插HDMI显示器，统一输出按钮状态错误
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 21 Dec 2021 18:19:32 +0800
+
+ukui-control-center (3.0.1-1-70.25update15) v101; urgency=medium
+
+  * 提交commit:e75209d9
+  * bug#97382，该bug需要电源管理进一步解决无法调节亮度的问题
+  * bug#96912外部禅道编号6957】【NF220B】 夜间模式选择“跟随日落日出”，不管当前时间在不在默认设定时间内，机器都会进入夜间模式
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 21 Dec 2021 15:55:20 +0800
+
 ukui-control-center (3.0.1-1-70.25update14) v101; urgency=medium
 
   * 提交commit:a4c8831f

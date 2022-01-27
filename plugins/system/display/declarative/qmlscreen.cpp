@@ -429,7 +429,6 @@ void QMLScreen::qmlOutputMoved(QMLOutput *qmlOutput)
 
 void QMLScreen::viewSizeChanged()
 {
-    updateOutputsPlacement();
     setScreenCenterPos();
 }
 
