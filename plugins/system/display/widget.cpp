@@ -183,6 +183,7 @@ void Widget::setConfig(const KScreen::ConfigPtr &config, bool showBrightnessFram
 
     KScreen::ConfigMonitor::instance()->addConfig(mConfig);
     resetPrimaryCombo();
+    changescale();
     connect(mConfig.data(), &KScreen::Config::outputAdded,
             this, [=](const KScreen::OutputPtr &output){
         outputAdded(output, false);
@@ -1659,6 +1660,7 @@ void Widget::initConnection()
             this, [=](bool checked) {
         checkOutputScreen(checked);
         delayApply();
+         changescale();
     });
 
     connect(mNightButton, &SwitchButton::checkedChanged, this, [=](bool status){
