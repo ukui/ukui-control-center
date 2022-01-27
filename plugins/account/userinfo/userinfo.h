@@ -172,6 +172,7 @@ public:
 public:
     void initUI();
     void buildAndSetupUsers();
+    int isDomainUser(const char* username);
     void setUserConnect();
     void setUserDBusPropertyConnect(const QString pObjPath);
     bool authoriyLogin();
@@ -255,7 +256,7 @@ private:
 private:
     bool getNoPwdStatus();
     void fontSizeChange(UserInfomation user, UtilsForUserinfo * utils);
-
+    QPixmap makeRoundLogo(QString logo, int wsize, int hsize, int radius);
 };
 
 #endif // USERINFO_H

@@ -93,7 +93,8 @@ QFrame * UtilsForUserinfo::buildItemForUsers(){
 }
 
 void UtilsForUserinfo::refreshUserLogo(QString logo){
-    logoBtn->setIcon(QIcon(logo));
+    QPixmap iconfile = makeRoundLogo(logo, logoBtn->width(), logoBtn->height(), logoBtn->width()/2);
+    logoBtn->setIcon(iconfile);
 }
 
 void UtilsForUserinfo::refreshUserNickname(QString name){
@@ -200,4 +201,34 @@ QString UtilsForUserinfo::_accountTypeIntToString(int type){
         atype = tr("Admin");
 
     return atype;
+}
+
+QPixmap UtilsForUserinfo::makeRoundLogo(QString logo, int wsize, int hsize, int radius)
+{
+    QPixmap rectPixmap;
+    QPixmap iconcop = QPixmap(logo);
+
+    if (iconcop.width() > iconcop.height()) {
+        QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
+        // 根据label高度等比例缩放图片
+        rectPixmap = iconPixmap.scaledToHeight(hsize);
+    } else {
+        QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
+        // 根据label宽度等比例缩放图片
+        rectPixmap = iconPixmap.scaledToWidth(wsize);
+    }
+
+    if (rectPixmap.isNull()) {
+        return QPixmap();
+    }
+    QPixmap pixmapa(rectPixmap);
+    QPixmap pixmap(radius*2,radius*2);
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    QPainterPath path;
+    path.addEllipse(0, 0, radius*2, radius*2);
+    painter.setClipPath(path);
+    painter.drawPixmap(0, 0, radius*2, radius*2, pixmapa);
+    return pixmap;
 }

@@ -363,8 +363,10 @@ void UserInfo::buildAndSetupUsers(){
 
         //当前用户
         if (user.username == QString(g_get_user_name())){
+
             //设置用户头像
-            currentUserlogoBtn->setIcon(QIcon(user.iconfile));
+            QPixmap iconfile = makeRoundLogo(user.iconfile, currentUserlogoBtn->width(), currentUserlogoBtn->height(), currentUserlogoBtn->width()/2);
+            currentUserlogoBtn->setIcon(iconfile);
             ////圆形头像
             ElipseMaskWidget * currentElipseMaskWidget = new ElipseMaskWidget(currentUserlogoBtn);
             currentElipseMaskWidget->setGeometry(0, 0, currentUserlogoBtn->width(), currentUserlogoBtn->height());
@@ -392,6 +394,18 @@ void UserInfo::buildAndSetupUsers(){
                 }
             });
 
+            // 域用户用户信息不可设置
+            if (isDomainUser(user.username.toLatin1().data())) {
+                currentNickNameChangeLabel->setEnabled(false);
+                currentNickNameLabel->setEnabled(false);
+                changeCurrentPwdBtn->setEnabled(false);
+                changeCurrentGroupsBtn->setEnabled(false);
+                changeCurrentTypeBtn->setEnabled(false);
+                nopwdLoginSBtn->setEnabled(false);
+                autoLoginSBtn->setEnabled(false);
+                addUserBtn->setEnabled(false);
+            }
+
             //设置自动登录状态
             autoLoginSBtn->blockSignals(true);
             autoLoginSBtn->setChecked(user.autologin);
@@ -415,6 +429,37 @@ void UserInfo::buildAndSetupUsers(){
     QDBusConnection::systemBus().connect(QString(), QString(), "org.freedesktop.Accounts", "UserDeleted", this, SLOT(existsUserDeleteDoneSlot(QDBusObjectPath)));
 }
 
+/*
+* 判断用户是否为域用户
+* 和/etc/passwd文件中用户做对比
+* 1：域用户，0：非域用户
+*/
+int UserInfo::isDomainUser(const char* username)
+{
+    FILE *fp;
+    fp=fopen("/etc/passwd","r");
+    if(fp == NULL)
+    {
+        return 1;
+    }
+    char buf[1024], name[128];
+    while(!feof(fp))
+    {
+        if(fgets(buf,sizeof (buf),fp) == NULL)
+        {
+            break;
+        }
+        sscanf(buf,"%[^:]",name);
+        if(strcmp(name,username) == 0)
+        {
+            fclose(fp);
+            return 0;
+        }
+    }
+    fclose(fp);
+    return 1;
+}
+
 void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
 
     UtilsForUserinfo * utils = new UtilsForUserinfo;
@@ -427,6 +472,14 @@ void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
     if (user.accounttype){
         utils->refreshDelStatus(!isLastAdmin(user.username));
         utils->refreshTypeStatus(!isLastAdmin(user.username));
+    }
+
+    // 域用户按钮不可设置
+    UserInfomation curruser = allUserInfoMap.value(g_get_user_name());
+    if (isDomainUser(curruser.username.toLatin1().data())) {
+        utils->refreshDelStatus(false);
+        utils->refreshPwdStatus(false);
+        utils->refreshTypeStatus(false);
     }
 
 #ifdef WITHKYSEC
@@ -551,10 +604,42 @@ void UserInfo::showChangeUserLogoDialog(QString pName, UtilsForUserinfo *utilsUs
 void UserInfo::changeUserFace(QString facefile, QString username, UtilsForUserinfo *utilsUser)
 {
     if (utilsUser != nullptr) {
-        utilsUser->logoBtn->setIcon(QIcon(facefile));
+        QPixmap iconfile = makeRoundLogo(facefile, utilsUser->logoBtn->width(), utilsUser->logoBtn->height(), utilsUser->logoBtn->width()/2);
+        utilsUser->logoBtn->setIcon(iconfile);
     } else {
-        currentUserlogoBtn->setIcon(QIcon(facefile));
+        QPixmap iconfile = makeRoundLogo(facefile, currentUserlogoBtn->width(), currentUserlogoBtn->height(), currentUserlogoBtn->width()/2);
+        currentUserlogoBtn->setIcon(iconfile);
     }
+}
+
+QPixmap UserInfo::makeRoundLogo(QString logo, int wsize, int hsize, int radius)
+{
+    QPixmap rectPixmap;
+    QPixmap iconcop = QPixmap(logo);
+
+    if (iconcop.width() > iconcop.height()) {
+        QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
+        // 根据label高度等比例缩放图片
+        rectPixmap = iconPixmap.scaledToHeight(hsize);
+    } else {
+        QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
+        // 根据label宽度等比例缩放图片
+        rectPixmap = iconPixmap.scaledToWidth(wsize);
+    }
+
+    if (rectPixmap.isNull()) {
+        return QPixmap();
+    }
+    QPixmap pixmapa(rectPixmap);
+    QPixmap pixmap(radius*2,radius*2);
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    QPainterPath path;
+    path.addEllipse(0, 0, radius*2, radius*2);
+    painter.setClipPath(path);
+    painter.drawPixmap(0, 0, radius*2, radius*2, pixmapa);
+    return pixmap;
 }
 
 void UserInfo::showChangeUserPwdDialog(QString pName){
@@ -777,7 +862,8 @@ void UserInfo::currentUserPropertyChangedSlot(QString property, QMap<QString, QV
 
     if (propertyMap.keys().contains("IconFile") && getuid()){
         QString current = propertyMap.value("IconFile").toString();
-        currentUserlogoBtn->setIcon(QIcon(current));
+        QPixmap iconfile = makeRoundLogo(current, currentUserlogoBtn->width(), currentUserlogoBtn->height(), currentUserlogoBtn->width()/2);
+        currentUserlogoBtn->setIcon(iconfile);
     }
 
     if (propertyMap.keys().contains("AccountType") && getuid()){
@@ -1179,7 +1265,8 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
     if (event->type() == QEvent::MouseButtonPress){
         QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent->button() == Qt::LeftButton ){
-            if (watched == currentNickNameChangeLabel || watched == currentNickNameLabel){
+            if ((watched == currentNickNameChangeLabel && currentNickNameChangeLabel->isEnabled())
+                    || (watched == currentNickNameLabel && currentNickNameLabel->isEnabled())){
                 showChangeUserNicknameDialog();
             }
         }
