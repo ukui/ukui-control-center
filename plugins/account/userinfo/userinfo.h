@@ -172,6 +172,7 @@ public:
 public:
     void initUI();
     void buildAndSetupUsers();
+    int is_domain_user(const char* username);
     void setUserConnect();
     void setUserDBusPropertyConnect(const QString pObjPath);
     bool authoriyLogin();

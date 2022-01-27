@@ -363,6 +363,7 @@ void UserInfo::buildAndSetupUsers(){
 
         //当前用户
         if (user.username == QString(g_get_user_name())){
+
             //设置用户头像
             currentUserlogoBtn->setIcon(QIcon(user.iconfile));
             ////圆形头像
@@ -392,6 +393,18 @@ void UserInfo::buildAndSetupUsers(){
                 }
             });
 
+            // 域用户用户信息不可设置
+            if (is_domain_user(user.username.toLatin1().data())) {
+                currentNickNameChangeLabel->setEnabled(false);
+                currentNickNameLabel->setEnabled(false);
+                changeCurrentPwdBtn->setEnabled(false);
+                changeCurrentGroupsBtn->setEnabled(false);
+                changeCurrentTypeBtn->setEnabled(false);
+                nopwdLoginSBtn->setEnabled(false);
+                autoLoginSBtn->setEnabled(false);
+                addUserBtn->setEnabled(false);
+            }
+
             //设置自动登录状态
             autoLoginSBtn->blockSignals(true);
             autoLoginSBtn->setChecked(user.autologin);
@@ -415,6 +428,37 @@ void UserInfo::buildAndSetupUsers(){
     QDBusConnection::systemBus().connect(QString(), QString(), "org.freedesktop.Accounts", "UserDeleted", this, SLOT(existsUserDeleteDoneSlot(QDBusObjectPath)));
 }
 
+/*
+* 判断用户是否为域用户
+* 和/etc/passwd文件中用户做对比
+* 1：域用户，0：非域用户
+*/
+int UserInfo::is_domain_user(const char* username)
+{
+    FILE *fp;
+    fp=fopen("/etc/passwd","r");
+    if(fp == NULL)
+    {
+        return 1;
+    }
+    char buf[1024], name[128];
+    while(!feof(fp))
+    {
+        if(fgets(buf,sizeof (buf),fp) == NULL)
+        {
+            break;
+        }
+        sscanf(buf,"%[^:]",name);
+        if(strcmp(name,username) == 0)
+        {
+            fclose(fp);
+            return 0;
+        }
+    }
+    fclose(fp);
+    return 1;
+}
+
 void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
 
     UtilsForUserinfo * utils = new UtilsForUserinfo;
@@ -427,6 +471,14 @@ void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
     if (user.accounttype){
         utils->refreshDelStatus(!isLastAdmin(user.username));
         utils->refreshTypeStatus(!isLastAdmin(user.username));
+    }
+
+    // 域用户按钮不可设置
+    UserInfomation curruser = allUserInfoMap.value(g_get_user_name());
+    if (is_domain_user(curruser.username.toLatin1().data())) {
+        utils->refreshDelStatus(false);
+        utils->refreshPwdStatus(false);
+        utils->refreshTypeStatus(false);
     }
 
 #ifdef WITHKYSEC
@@ -1179,7 +1231,8 @@ bool UserInfo::eventFilter(QObject *watched, QEvent *event){
     if (event->type() == QEvent::MouseButtonPress){
         QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent->button() == Qt::LeftButton ){
-            if (watched == currentNickNameChangeLabel || watched == currentNickNameLabel){
+            if ((watched == currentNickNameChangeLabel && currentNickNameChangeLabel->isEnabled())
+                    || (watched == currentNickNameLabel && currentNickNameLabel->isEnabled())){
                 showChangeUserNicknameDialog();
             }
         }
