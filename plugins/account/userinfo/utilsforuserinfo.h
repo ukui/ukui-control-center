@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QMap>
 #include <QVariant>
+#include <QPainter>
 
 class QFrame;
 class QPushButton;
@@ -50,6 +51,7 @@ protected:
 
 private:
     QString _accountTypeIntToString(int type);
+    QPixmap makeRoundLogo(QString logo, int wsize, int hsize, int radius);
 
 public slots:
     void userPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);

@@ -256,7 +256,7 @@ private:
 private:
     bool getNoPwdStatus();
     void fontSizeChange(UserInfomation user, UtilsForUserinfo * utils);
-
+    QPixmap makeRoundLogo(QString logo, int wsize, int hsize, int radius);
 };
 
 #endif // USERINFO_H

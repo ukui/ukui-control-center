@@ -365,7 +365,8 @@ void UserInfo::buildAndSetupUsers(){
         if (user.username == QString(g_get_user_name())){
 
             //设置用户头像
-            currentUserlogoBtn->setIcon(QIcon(user.iconfile));
+            QPixmap iconfile = makeRoundLogo(user.iconfile, currentUserlogoBtn->width(), currentUserlogoBtn->height(), currentUserlogoBtn->width()/2);
+            currentUserlogoBtn->setIcon(iconfile);
             ////圆形头像
             ElipseMaskWidget * currentElipseMaskWidget = new ElipseMaskWidget(currentUserlogoBtn);
             currentElipseMaskWidget->setGeometry(0, 0, currentUserlogoBtn->width(), currentUserlogoBtn->height());
@@ -603,10 +604,42 @@ void UserInfo::showChangeUserLogoDialog(QString pName, UtilsForUserinfo *utilsUs
 void UserInfo::changeUserFace(QString facefile, QString username, UtilsForUserinfo *utilsUser)
 {
     if (utilsUser != nullptr) {
-        utilsUser->logoBtn->setIcon(QIcon(facefile));
+        QPixmap iconfile = makeRoundLogo(facefile, utilsUser->logoBtn->width(), utilsUser->logoBtn->height(), utilsUser->logoBtn->width()/2);
+        utilsUser->logoBtn->setIcon(iconfile);
     } else {
-        currentUserlogoBtn->setIcon(QIcon(facefile));
+        QPixmap iconfile = makeRoundLogo(facefile, currentUserlogoBtn->width(), currentUserlogoBtn->height(), currentUserlogoBtn->width()/2);
+        currentUserlogoBtn->setIcon(iconfile);
     }
+}
+
+QPixmap UserInfo::makeRoundLogo(QString logo, int wsize, int hsize, int radius)
+{
+    QPixmap rectPixmap;
+    QPixmap iconcop = QPixmap(logo);
+
+    if (iconcop.width() > iconcop.height()) {
+        QPixmap iconPixmap = iconcop.copy((iconcop.width() - iconcop.height())/2, 0, iconcop.height(), iconcop.height());
+        // 根据label高度等比例缩放图片
+        rectPixmap = iconPixmap.scaledToHeight(hsize);
+    } else {
+        QPixmap iconPixmap = iconcop.copy(0, (iconcop.height() - iconcop.width())/2, iconcop.width(), iconcop.width());
+        // 根据label宽度等比例缩放图片
+        rectPixmap = iconPixmap.scaledToWidth(wsize);
+    }
+
+    if (rectPixmap.isNull()) {
+        return QPixmap();
+    }
+    QPixmap pixmapa(rectPixmap);
+    QPixmap pixmap(radius*2,radius*2);
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    QPainterPath path;
+    path.addEllipse(0, 0, radius*2, radius*2);
+    painter.setClipPath(path);
+    painter.drawPixmap(0, 0, radius*2, radius*2, pixmapa);
+    return pixmap;
 }
 
 void UserInfo::showChangeUserPwdDialog(QString pName){
@@ -829,7 +862,8 @@ void UserInfo::currentUserPropertyChangedSlot(QString property, QMap<QString, QV
 
     if (propertyMap.keys().contains("IconFile") && getuid()){
         QString current = propertyMap.value("IconFile").toString();
-        currentUserlogoBtn->setIcon(QIcon(current));
+        QPixmap iconfile = makeRoundLogo(current, currentUserlogoBtn->width(), currentUserlogoBtn->height(), currentUserlogoBtn->width()/2);
+        currentUserlogoBtn->setIcon(iconfile);
     }
 
     if (propertyMap.keys().contains("AccountType") && getuid()){
