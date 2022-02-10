@@ -142,6 +142,7 @@ void OutputConfig::initUi()
             this, &OutputConfig::slotRefreshRateChanged);
 
     initConnection();
+    slotEnableWidget();
 }
 
 double OutputConfig::getScreenScale()
@@ -200,6 +201,10 @@ void OutputConfig::initConnection()
                 }
             }
         }
+    });
+
+    connect(mOutput.data(), &KScreen::Output::isEnabledChanged, this, [=](){
+       slotEnableWidget();
     });
 }
 
@@ -309,6 +314,19 @@ void OutputConfig::slotRefreshRateChanged(int index)
     mOutput->setCurrentModeId(modeId);
 
     Q_EMIT changed();
+}
+
+void OutputConfig::slotEnableWidget()
+{
+    if (mOutput.data()->isEnabled()) {
+        mResolution->setEnabled(true);
+        mRotation->setEnabled(true);
+        mRefreshRate->setEnabled(true);
+    } else {
+        mResolution->setEnabled(false);
+        mRotation->setEnabled(false);
+        mRefreshRate->setEnabled(false);
+    }
 }
 
 void OutputConfig::setShowScaleOption(bool showScaleOption)

@@ -39,6 +39,7 @@ protected Q_SLOTS:
     void slotResolutionChanged(const QSize &size, bool emitFlag);
     void slotRotationChanged(int index);
     void slotRefreshRateChanged(int index);
+    void slotEnableWidget();
 
 Q_SIGNALS:
     void changed();
