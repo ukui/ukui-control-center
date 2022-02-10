@@ -17,6 +17,9 @@
    <property name="rightMargin">
     <number>0</number>
    </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
@@ -162,8 +165,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>326</width>
-               <height>404</height>
+               <width>324</width>
+               <height>411</height>
               </rect>
              </property>
             </widget>

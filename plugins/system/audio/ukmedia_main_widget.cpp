@@ -106,7 +106,7 @@ void UkmediaMainWidget::initWidget()
     this->setLayout(m_pvLayout);
     this->setMinimumWidth(0);
     this->setMinimumWidth(16777215);
-    this->layout()->setContentsMargins(0,0,0,0);
+    this->layout()->setContentsMargins(0,0,0,12);
 
     //设置滑动条的最大值为100
     m_pInputWidget->m_pIpVolumeSlider->setMaximum(100);//输入音量滑动条

@@ -297,7 +297,7 @@ void Widget::initNightModeUi()
     QHBoxLayout *mTimeModeLyt = new QHBoxLayout(mTimeModeFrame);
     mTimeModeLyt->setSpacing(8);
     mTimeModeLabel = new QLabel(mTimeModeFrame);
-    mTimeModeLabel->setFixedWidth(200);
+    mTimeModeLabel->setFixedWidth(118);
     mTimeModeLabel->setText(tr("Time"));
     mTimeModeCombox = new QComboBox(mTimeModeFrame);
     mTimeModeCombox->setMinimumWidth(0);
@@ -350,7 +350,7 @@ void Widget::initNightModeUi()
     QHBoxLayout *mTemptLyt = new QHBoxLayout(mTemptFrame);
     mTemptLyt->setSpacing(8);
     mTemptLabel = new QLabel(mTemptFrame);
-    mTemptLabel->setFixedWidth(200);
+    mTemptLabel->setFixedWidth(118);
     //~ contents_path /Displays/Color Temperature
     mTemptLabel->setText(tr("Color Temperature"));
     mColdLabel = new QLabel(mTemptFrame);
