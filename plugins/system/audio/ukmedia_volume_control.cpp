@@ -1,4 +1,4 @@
-#include "ukmedia_volume_control.h"
+﻿#include "ukmedia_volume_control.h"
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -1485,7 +1485,7 @@ void UkmediaVolumeControl::serverInfoCb(pa_context *, const pa_server_info *i, v
     }
     qDebug() << "serverInfoCb" << i->user_name << i->default_sink_name << i->default_source_name;
     w->updateServer(*i);
-//    QTimer::singleShot(50, w, SLOT(timeoutSlot()));
+    QTimer::singleShot(50, w, SLOT(timeoutSlot()));
 
     decOutstanding(w);
 }
