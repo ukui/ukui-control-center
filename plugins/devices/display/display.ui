@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>801</width>
-    <height>1033</height>
+    <height>1039</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>0</number>
+    <number>3</number>
    </property>
    <item>
     <widget class="QFrame" name="frame_6">

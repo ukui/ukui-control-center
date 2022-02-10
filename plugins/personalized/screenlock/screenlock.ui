@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>886</width>
-    <height>664</height>
+    <height>429</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -60,6 +60,9 @@
         </property>
         <property name="topMargin">
          <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>3</number>
         </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -415,7 +418,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>40</height>
+       <height>0</height>
       </size>
      </property>
     </spacer>
