@@ -34,7 +34,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
 
     this->setObjectName("MapFrame");
     this->setWindowTitle(tr("Change Timezone"));
-
+    this->installEventFilter(this);
 
     //m_searchInput->setStyleSheet("background-color:palette(windowtext)");
     m_searchInput->setFocusPolicy(Qt::ClickFocus);
