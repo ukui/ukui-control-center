@@ -61,10 +61,10 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     m_queryText->setStyleSheet("background:transparent;color:#626c6e;");
     m_queryText->adjustSize();
 
-    queryWidLayout->addStretch();
+//    queryWidLayout->addStretch();
     queryWidLayout->addWidget(m_queryIcon);
     queryWidLayout->addWidget(m_queryText);
-    queryWidLayout->addStretch();
+//    queryWidLayout->addStretch();
 
     m_animation= new QPropertyAnimation(m_queryWid, "geometry", this);
     m_animation->setDuration(100);
@@ -219,13 +219,8 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
                 m_queryWid->layout()->removeWidget(m_queryText);
                 m_queryText->setParent(nullptr);
                 m_animation->stop();
-                int left = 0;
-                left = firstin ? (m_searchInput->width() - (m_queryIcon->width()+m_queryText->width()+10))/2 : m_queryWid->x()-(m_queryIcon->width()+m_queryText->width()+8)/2 ;
-                if (firstin) {
-                    firstin = false;
-                }
-                m_animation->setStartValue(QRect(left,0,
-                                               m_queryIcon->width()+m_queryText->width()+30,(m_searchInput->height()+36)/2));
+                m_animation->setStartValue(QRect(m_queryWid->x(),0,
+                                               m_queryIcon->width()+5,(m_searchInput->height()+36)/2));
 
                 m_animation->setEndValue(QRect(0, 0, m_queryIcon->width() + 5,(m_searchInput->height()+36)/2));
                 m_animation->setEasingCurve(QEasingCurve::OutQuad);
@@ -237,7 +232,6 @@ bool TimeZoneChooser::eventFilter(QObject* obj, QEvent *event) {
             m_searchKeyWords.clear();
             if (m_searchInput->text().isEmpty()) {
                 if (m_isSearching) {
-                    firstin = true;
                     m_queryText->adjustSize();
                     m_animation->setStartValue(QRect(0, 0,
                                                      m_queryIcon->width()+5,(m_searchInput->height()+36)/2));

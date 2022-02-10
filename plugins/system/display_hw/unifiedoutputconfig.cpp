@@ -344,6 +344,7 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
         mRefreshRate->blockSignals(false);
     }
     if (emitFlag && !mIsModeInit){
+        changeItm = RESOLUTION;
         Q_EMIT changed();
     }
 }
@@ -360,6 +361,7 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
             }
         }
     }
+    changeItm = FREQUENCY;
     Q_EMIT changed();
 }
 
@@ -425,6 +427,7 @@ void UnifiedOutputConfig::slotRotationChangedDerived(int index)
             clone->blockSignals(false);
         }
     }
+     changeItm = ORIENTATION;
     Q_EMIT changed();
 }
 

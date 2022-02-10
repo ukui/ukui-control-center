@@ -588,7 +588,7 @@ void Proxy::initProxyModeStatus(){
     if (mAptinfo["open"].toBool()) {
         mAptBtn->setChecked(true);
         mAPTHostLabel_2->setText(mAptinfo["ip"].toString());
-        mAPTPortLabel_2->setText(mAptinfo["ip"].toString());
+        mAPTPortLabel_2->setText(mAptinfo["port"].toString());
     } else {
         mAptBtn->setChecked(false);
         line_7->setVisible(false);

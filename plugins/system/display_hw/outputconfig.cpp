@@ -22,6 +22,7 @@
 #include <ukcc/widgets/combobox.h>
 
 double mScreenScale = 1.0;
+int changeItm = -1;
 
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),
@@ -308,6 +309,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
 
 
     if (emitFlag)
+        changeItm = RESOLUTION;
         Q_EMIT changed();
 }
 
@@ -317,6 +319,7 @@ void OutputConfig::slotRotationChanged(int index)
         = static_cast<KScreen::Output::Rotation>(mRotation->itemData(index).toInt());
     mOutput->setRotation(rotation);
 
+    changeItm = ORIENTATION;
     Q_EMIT changed();
 }
 
@@ -333,7 +336,7 @@ void OutputConfig::slotRefreshRateChanged(int index)
     }
     qDebug() << "modeId is:" << modeId << endl;
     mOutput->setCurrentModeId(modeId);
-
+    changeItm = FREQUENCY;
     Q_EMIT changed();
 }
 
