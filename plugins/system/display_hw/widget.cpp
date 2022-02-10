@@ -668,24 +668,34 @@ bool Widget::isRestoreConfig()
     });
 
     if (mConfigChanged && !mIsUnifyChanged) {
+        QString config_name;
+        switch (changeItm) {
+        case 0:
+            config_name = tr("resolution");
+            break;
+        case 1:
+            config_name = tr("orientation");
+            break;
+        case 2:
+            config_name = tr("frequency");
+            break;
+        }
         msg.setWindowTitle(tr("Hint"));
-        msg.setText(tr("After modifying the resolution or refresh rate, "
-                       "due to compatibility issues between the display device and the graphics card, "
-                       "the display may be abnormal or unable to display\n"
-                       "the settings will be saved after 29 seconds"));
-        msg.addButton(tr("Save Config"), QMessageBox::RejectRole);
-        msg.addButton(tr("Restore Config"), QMessageBox::AcceptRole);
+        msg.setText(QString(tr("The screen %1 has been modified, whether to save it ? "
+                       "<br/>"
+                       "<font style= 'color:#626c6e'>the settings will be saved after 14 seconds</font>")).arg(config_name));
+        msg.addButton(tr("Save"), QMessageBox::RejectRole);
+        msg.addButton(tr("Not Save"), QMessageBox::AcceptRole);
 
         QTimer cntDown;
-        QObject::connect(&cntDown, &QTimer::timeout, [&msg, &cnt, &cntDown, &ret]()->void {
+        QObject::connect(&cntDown, &QTimer::timeout, [&msg, &cnt, &cntDown, &ret ,&config_name]()->void {
             if (--cnt < 0) {
                 cntDown.stop();
                 msg.close();
             } else {
-                msg.setText(QString(tr("After modifying the resolution or refresh rate, "
-                                       "due to compatibility issues between the display device and the graphics card, "
-                                       "the display may be abnormal or unable to display \n"
-                                       "the settings will be saved after %1 seconds")).arg(cnt));
+                msg.setText(QString(tr("The screen %1 has been modified, whether to save it ? "
+                                       "<br/>"
+                                       "<font style= 'color:#626c6e'>the settings will be saved after %2 seconds</font>")).arg(config_name).arg(cnt));
             }
         });
         cntDown.start(1000);

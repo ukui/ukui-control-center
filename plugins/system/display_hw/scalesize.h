@@ -2,6 +2,11 @@
 #define SCALESIZE_H
 
 #include <QSize>
+typedef enum{
+    RESOLUTION,
+    ORIENTATION,
+    FREQUENCY
+}CONFIG;
 
 #define SCALE_SCHEMAS "org.ukui.SettingsDaemon.plugins.xsettings"
 #define SCALE_KEY     "scaling-factor"
@@ -31,5 +36,7 @@ extern QSize  mScaleSize;
 extern QSize mScaleSizeRes;
 
 extern double mScreenScale;
+
+extern int changeItm;
 
 #endif // SCALESIZE_H
