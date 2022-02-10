@@ -4,15 +4,14 @@
 #include <QSpacerItem>
 #include <QLabel>
 #include <QPushButton>
+#include <proxy.h>
 
-AptProxyDialog::AptProxyDialog(QGSettings *Keygsettiings, QWidget *parent ):
-    QDialog(parent),
-    mgsettings(Keygsettiings)
+AptProxyDialog::AptProxyDialog(QWidget *parent ):
+    QDialog(parent)
 {
     initUi();
     setupComponent();
     initConnect();
-    mgsettings->set(APT_PROXY_ENABLED , false);
 }
 
 AptProxyDialog::~AptProxyDialog()
@@ -109,17 +108,15 @@ void AptProxyDialog::initConnect()
     });
 
     connect(mConfirmBtn, &QPushButton::clicked, this, [=]() {
-        mgsettings->set(APT_PROXY_ENABLED , true);
-        mgsettings->set(APT_PROXY_HOST_KEY,mHostEdit->text());
-        mgsettings->set(APT_PROXY_PORT_KEY,mPortEdit->text().toInt());
+        Proxy::setAptProxy(mHostEdit->text() , mPortEdit->text() , true);
         this->close();
     });
 }
 
 void AptProxyDialog::setupComponent()
 {
-    QString host = mgsettings->get(APT_PROXY_HOST_KEY).toString();
-    QString port = QString::number(mgsettings->get(APT_PROXY_PORT_KEY).toInt());
+    QString host = Proxy::getAptProxy()["ip"].toString();
+    QString port = Proxy::getAptProxy()["port"].toString();;
 
     mHostEdit->setText(host);
     mPortEdit->setText(port);
@@ -128,7 +125,3 @@ void AptProxyDialog::setupComponent()
         mConfirmBtn->setEnabled(false);
     }
 }
-
-
-
-

@@ -57,6 +57,9 @@ SysdbusRegister::SysdbusRegister()
     _getDisplayInfoThread();
 
     _id = 0;
+
+    QString filename = "/usr/share/ukui-control-center/shell/res/apt.ini";
+    aptSettings = new QSettings(filename, QSettings::IniFormat, this);
 }
 
 SysdbusRegister::~SysdbusRegister()
@@ -367,6 +370,12 @@ bool SysdbusRegister::setNtpSerAddress(QString serverAddress)
 
 bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
 {
+    QStringList keys = aptSettings->childGroups();
+    aptSettings->beginGroup("Info");
+    aptSettings->setValue("open", open);
+    aptSettings->setValue("ip", ip);
+    aptSettings->setValue("port", port);
+    aptSettings->endGroup();
     QString content_http = QString("%1%2%3%4%5%6").arg("Acquire::http::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
     QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
     QString profile_http = QString("%1%2%3%4%5").arg("export http_proxy=\"http://").arg(ip).arg(":").arg(port).arg("\"\n");
@@ -409,6 +418,17 @@ bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
            return false;
     }
     return true;
+}
+
+QHash<QString, QVariant> SysdbusRegister::getaptproxy()
+{
+    QHash<QString, QVariant> mAptInfo;
+    aptSettings->beginGroup("Info");
+    mAptInfo.insert("open" ,  aptSettings->value("open").toBool());
+    mAptInfo.insert("ip" ,  aptSettings->value("ip").toString());
+    mAptInfo.insert("port" ,  aptSettings->value("port").toString());
+    aptSettings->endGroup();
+    return mAptInfo;
 }
 
 void SysdbusRegister::sethostname(QString hostname)

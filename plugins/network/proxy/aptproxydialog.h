@@ -8,14 +8,18 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QDialog>
-#include "proxy.h"
 #include <ukcc/widgets/fixlabel.h>
+
+#define APT_PROXY_SCHEMA              "org.ukui.control-center.apt.proxy"
+#define APT_PROXY_ENABLED            "enabled"
+#define APT_PROXY_HOST_KEY         "host"
+#define APT_PROXY_PORT_KEY         "port"
 
 class AptProxyDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AptProxyDialog(QGSettings *Keygsettiings ,QWidget *parent = nullptr);
+    AptProxyDialog(QWidget *parent = nullptr);
     ~AptProxyDialog();
 
     void initUi();
@@ -25,8 +29,6 @@ private:
 
     QPushButton *mCancelBtn;
     QPushButton *mConfirmBtn;
-
-    QGSettings *mgsettings;
 
 private:
     void initConnect();
