@@ -67,6 +67,8 @@ protected:
 
 public:
     static bool m_device_operating ;
+    static QString m_device_operating_address ;
+
     static bool m_device_pin_flag ;
     void setbluetoothAdapterDiscoveringStatus(bool);
 signals:
