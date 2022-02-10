@@ -99,12 +99,13 @@ QWidget *Wallpaper::get_plugin_ui(){
         //构建xmlhandle对象
         xmlhandleObj = new XmlHandle();
     } else {
-        qApp->activeWindow()->resize(qApp->activeWindow()->size() + QSize(1,1));
-        qApp->processEvents();
-        qApp->activeWindow()->resize(qApp->activeWindow()->size() - QSize(1,1));
-        pluginWidget->hide();
-        pluginWidget->show();
-
+        if (qApp->activeWindow() != nullptr) {
+            qApp->activeWindow()->resize(qApp->activeWindow()->size() + QSize(1,1));
+            qApp->processEvents();
+            qApp->activeWindow()->resize(qApp->activeWindow()->size() - QSize(1,1));
+            pluginWidget->hide();
+            pluginWidget->show();
+        }
     }
     return pluginWidget;
 }
