@@ -334,15 +334,12 @@ int Screenlock::convertToLocktime(const int value)
         return 60;
         break;
     case 7:
-        return 90;
-        break;
-    case 8:
         return 120;
         break;
-    case 9:
+    case 8:
         return 180;
         break;
-    case 10:
+    case 9:
         return -1;
         break;
     default:
@@ -372,20 +369,17 @@ int Screenlock::lockConvertToSlider(const int value)
     case 60:
         return 6;
         break;
-    case 90:
+    case 120:
         return 7;
         break;
-    case 120:
+    case 180:
         return 8;
         break;
-    case 180:
+    case -1:
         return 9;
         break;
-    case -1:
-        return 10;
-        break;
     default:
-        return 10;
+        return 9;
         break;
     }
 }
