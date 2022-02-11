@@ -162,6 +162,8 @@ Kylin-OS and Kylin-OS connection process:
 
 ![Fig 14-11 Projection function unavailable interface(2)-big](image/unUseInterface2.png)
 
+8.When used as the sending terminal, it does not support projecting to the receiving terminal of SP1 version.
+
 <br>
 
 ## Network
