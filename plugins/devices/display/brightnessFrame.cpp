@@ -62,7 +62,7 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
     labelValue->setText("0"); //最低亮度10,获取前显示为0
     slider->setEnabled(false); //成功连接了再改为true，否则表示无法修改亮度
 
-    slider->setMinimumSize(550, 50);
+    slider->setMinimumSize(0, 50);
     slider->setStyleSheet( "QSlider::groove:horizontal {"
                                     "border: 0px none;"
                                     "background: palette(button);"
