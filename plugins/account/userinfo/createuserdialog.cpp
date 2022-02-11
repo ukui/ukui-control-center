@@ -408,7 +408,7 @@ bool CreateUserDialog::nameTraverse(QString username){
         if (str.contains(QRegExp("[a-z]"))){
         } else if (str.contains(QRegExp("[0-9]"))){
         } else if (str.contains("_")){
-        } else if (mOutput.contains("xc") && str.contains(QRegExp("[A-Z.]"))) {
+        } else if (mOutput.contains("xc") && str.contains(QRegExp("[A-Z.-]"))) {
         } else {
             return false;
         }
@@ -428,7 +428,7 @@ void CreateUserDialog::nameLegalityCheck(QString username){
 
     if (username.isEmpty())
         nameTip = tr("The user name cannot be empty");
-    else if (username.startsWith("_") || username.left(1).contains((QRegExp("[0-9]")))){
+    else if (username.startsWith("-")){
         nameTip = tr("Must be begin with lower letters!");
     }
     else if (!mOutput.contains("xc") && username.contains(QRegExp("[A-Z]"))){
@@ -464,7 +464,7 @@ void CreateUserDialog::nameLegalityCheck(QString username){
             nameTip = tr("Name length must less than %1 letters!").arg(USER_LENGTH);
     } else {
         if (mOutput.contains("xc")) {
-            nameTip = tr("Can only contain .,letters,digits,underline!");
+            nameTip = tr("Can only contain .,-,letters,digits,underline!");
         } else {
             nameTip = tr("Can only contain letters,digits,underline!");
         }
