@@ -17,7 +17,7 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="502"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="504"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -51,21 +51,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="504"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="506"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="506"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="508"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="508"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="510"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -77,21 +77,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="510"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="512"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="512"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="514"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="514"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="516"/>
         <source>Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Status</extra-contents_path>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="669"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="518"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="520"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="639"/>
         <location filename="../../../plugins/messages-task/about/about.cpp" line="266"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="516"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="518"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -170,12 +170,12 @@
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="310"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="312"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="313"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="315"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
@@ -1219,8 +1219,9 @@ Please authenticate yourself to continue</source>
 <context>
     <name>Biometrics</name>
     <message>
+        <location filename="../../../plugins/account/biometrics/biometrics.cpp" line="24"/>
         <source>Biometrics</source>
-        <translation type="vanished">生物识别与密码</translation>
+        <translation>生物识别与密码</translation>
     </message>
 </context>
 <context>
@@ -2024,8 +2025,12 @@ change system settings</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="467"/>
+        <source>Can only contain .,-,letters,digits,underline!</source>
+        <translation>用户名仅能包含&quot;.&quot;，&quot;-&quot;，字母，数字及下划线</translation>
+    </message>
+    <message>
         <source>Can only contain .,letters,digits,underline!</source>
-        <translation>用户名仅能包含&quot;.&quot;，字母，数字及下划线</translation>
+        <translation type="vanished">用户名仅能包含&quot;.&quot;，字母，数字及下划线</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="469"/>
@@ -4524,8 +4529,8 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="414"/>
-        <location filename="../../mainwindow.cpp" line="630"/>
-        <location filename="../../mainwindow.cpp" line="848"/>
+        <location filename="../../mainwindow.cpp" line="632"/>
+        <location filename="../../mainwindow.cpp" line="850"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -4569,17 +4574,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="963"/>
+        <location filename="../../mainwindow.cpp" line="976"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="963"/>
+        <location filename="../../mainwindow.cpp" line="976"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="635"/>
+        <location filename="../../mainwindow.cpp" line="637"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -5135,8 +5140,8 @@ Please retry or relogin!</source>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="276"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="288"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="277"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="289"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
