@@ -207,14 +207,6 @@ QWidget *Screenlock::get_plugin_ui(){
         initScreenlockStatus();
         initIdleSliderStatus();
         lockbgSize = QSize(400, 240);
-    } else {
-        if (qApp->activeWindow() != nullptr) {
-            qApp->activeWindow()->resize(qApp->activeWindow()->size() + QSize(1,1));
-            qApp->processEvents();
-            qApp->activeWindow()->resize(qApp->activeWindow()->size() - QSize(1,1));
-            pluginWidget->hide();
-            pluginWidget->show();
-        }
     }
     return pluginWidget;
 }
