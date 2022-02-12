@@ -224,7 +224,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLabel" name="bioVerifyTypeLbl">
+           <widget class="FixLabel" name="bioVerifyTypeLbl">
             <property name="text">
              <string/>
             </property>
@@ -245,7 +245,7 @@
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QLabel" name="label_8">
+           <widget class="FixLabel" name="label_8">
             <property name="text">
              <string>Identification Type:</string>
             </property>
@@ -299,6 +299,11 @@
    <class>CloseButton</class>
    <extends>QPushButton</extends>
    <header location="global">CloseButton/closebutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

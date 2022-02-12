@@ -126,15 +126,16 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     layout->setContentsMargins(0,0,0,0);
     layout->setAlignment(Qt::AlignTop);
 
-    QLabel *mTipLabel = new QLabel(this);
+    FixLabel *mTipLabel = new FixLabel(this);
+    mTipLabel->setFixedWidth(900);
     mTipLabel->setText(tr("To select a time zone, please click where near you on the map and select a city from the nearest city"));
-    mTipLabel->setStyleSheet("background:transparent;color:#626c6e;");
+    mTipLabel->setStyleSheet("FixLabel{background:transparent;color:#626c6e;}");
     mTipLabel->setAlignment(Qt::AlignHCenter);
 
     layout->addWidget(wbFrame,0,Qt::AlignVCenter);
     layout->addSpacing(0);
     layout->addWidget(m_searchInput, 0, Qt::AlignHCenter);
-    layout->addWidget(mTipLabel,Qt::AlignHCenter);
+    layout->addWidget(mTipLabel, 0 , Qt::AlignHCenter);
     layout->addSpacing(32);
     layout->addWidget(m_map, 0, Qt::AlignHCenter);
     layout->addSpacing(32);
