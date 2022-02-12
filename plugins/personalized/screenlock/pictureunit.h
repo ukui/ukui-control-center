@@ -33,15 +33,26 @@ public:
 
 public:
     void setFilenameText(QString fn);
+    QString filenameText();
+    bool getClickedFlag();
+    void changeClickedFlag(bool clicked);
+
+public:
+    QString clickedStyleSheet;
 
 protected:
     void mousePressEvent(QMouseEvent * e);
+    void enterEvent(QEvent *event);
+    void leaveEvent(QEvent *event);
 
 private:
     QString _filename;
     bool settingsCreate;
     QGSettings *dgsettings;
 
+    QString hoverStyleSheet;
+
+    bool clickedFlag;
 Q_SIGNALS:
     void clicked(QString filename);
 
