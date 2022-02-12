@@ -531,6 +531,12 @@ void Widget::slotUnifyOutputs()
         }
     }
     for (QMLOutput *output: mScreen->outputs()) {
+        //修改镜像时usd会修改modeId
+        for (KScreen::OutputPtr m_output : mPrevConfig->connectedOutputs()) {
+            if (m_output->name() == output->outputPtr()->name()) {
+                output->outputPtr()->setCurrentModeId(m_output->currentModeId());
+            }
+        }
         if (mIscloneMode && output == base) {
             output->setIsCloneMode(true, true);
         } else {
