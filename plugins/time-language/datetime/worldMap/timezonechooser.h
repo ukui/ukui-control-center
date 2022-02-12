@@ -10,6 +10,7 @@
 #include <QAbstractItemView>
 #include <QPropertyAnimation>
 #include <QDialog>
+#include "fixlabel.h"
 
 class TimeZoneChooser : public QDialog
 {
