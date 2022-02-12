@@ -15,7 +15,6 @@
 BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, const QString &edidHash, QWidget *parent) :
     QFrame(parent)
 {
-    this->setFixedHeight(80);
     this->setFrameShape(QFrame::Shape::Box);
 
     QHBoxLayout *layout = new QHBoxLayout;
@@ -101,8 +100,6 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
             setTextLabelValue(QString::number(brightnessValue));
             setSliderEnable(true);
             labelMsg->hide();
-            this->setFixedHeight(50);
-//            this->adjustSize();
             disconnect(slider,&QSlider::valueChanged,this,0);
             connect(slider, &QSlider::valueChanged, this, [=](){
                  qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
@@ -123,8 +120,6 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                 slider->setValue(brightnessValue);
                 setSliderEnable(true);
                 labelMsg->hide();
-                this->setFixedHeight(50);
-//                this->adjustSize();
                 disconnect(slider,&QSlider::valueChanged,this,0);
                 connect(slider, &QSlider::valueChanged, this, [=](){
                     qDebug()<<outputName<<"brightness"<<" is changed, value = "<<slider->value();
