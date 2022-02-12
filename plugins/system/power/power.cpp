@@ -41,6 +41,7 @@
 typedef enum {
     BALANCE,
     SAVING,
+    PERFORMANCE,
     CUSTDOM
 }MODE;
 
@@ -242,8 +243,14 @@ void Power::setupComponent() {
         ui->title2Label->hide();
     }
 
+    // 电源管理版本低于3.0.0，隐藏性能模式设置接口
+    if (!isPerforSupply()) {
+        ui->perforFrame->hide();
+    }
+
     ui->powerModeBtnGroup->setId(ui->balanceRadioBtn, BALANCE);
     ui->powerModeBtnGroup->setId(ui->savingRadioBtn, SAVING);
+     ui->powerModeBtnGroup->setId(ui->performanceRadioBtn,PERFORMANCE );
     ui->powerModeBtnGroup->setId(ui->custdomRadioBtn, CUSTDOM);
 
     // 电脑睡眠延迟
@@ -349,11 +356,27 @@ void Power::setupConnect() {
             mUkccpersonpersonalize->set("custompower", false);
             // 省电模式
             settings->set(POWER_POLICY_KEY, 1);
+            if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
+                settings->set(POWER_POLICY_AC, 1);
+                settings->set(POWER_POLICY_BATTARY, 1);
+            }
         } else if (id == SAVING) {
             mUkccpersonpersonalize->set("custompower", false);
             // 省电模式
             settings->set(POWER_POLICY_KEY, 2);
-        } else {
+            if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
+                settings->set(POWER_POLICY_AC, 2);
+                settings->set(POWER_POLICY_BATTARY, 2);
+            }
+        } else if (id == PERFORMANCE) {
+            mUkccpersonpersonalize->set("custompower", false);
+            // 性能模式
+            settings->set(POWER_POLICY_KEY, 0);
+            if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
+                settings->set(POWER_POLICY_AC, 0);
+                settings->set(POWER_POLICY_BATTARY, 0);
+            }
+        }else {
             //自定义模式下的POWER_POLICY_KEY的值与切换前的模式有关，这里不做设置
             mUkccpersonpersonalize->set("custompower", true);
             initCustomPlanStatus();
@@ -445,12 +468,18 @@ void Power::setupConnect() {
 
 void Power::initModeStatus() {
     int power_policy = settings->get(POWER_POLICY_KEY).toInt();
+    if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
+        power_policy = settings->get(POWER_POLICY_AC).toInt();
+        settings->set(POWER_POLICY_BATTARY, power_policy);
+    }
     bool powerStatus = mUkccpersonpersonalize->get("custompower").toBool();
     if (power_policy == 1 && !powerStatus) {
         ui->balanceRadioBtn->setChecked(true);
     } else if (power_policy == 2 && !powerStatus) {
         ui->savingRadioBtn->setChecked(true);
-    } else {
+    } else if (power_policy == 0 && !powerStatus) {
+         ui->performanceRadioBtn->setChecked(true);
+    }else {
         ui->custdomRadioBtn->setChecked(true);
         ui->acBtn->setChecked(true);
         initCustomPlanStatus();
@@ -550,6 +579,38 @@ void Power::refreshUI() {
 // 空闲时间
 int Power::getIdleTime() {
     return sessionSetting->get(IDLE_DELAY_KEY).toInt();
+}
+
+bool Power::isPerforSupply()
+{
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("bash" , QStringList() << "-c" << "dpkg -l | grep 'ukui-power-manager' ");
+    process->waitForFinished();
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+
+    QString powerinfo = QString(ba.data());
+    if (powerinfo.isEmpty())
+        return false;
+    powerinfo.replace(QRegExp("[\\s]+"), " "); //把所有的多余的空格(换行符)转为一个空格
+    QStringList list = powerinfo.split(" ");
+    bool isNum = false;
+    for (QString str : list) {
+        if (str == "ukui-power-manager") {
+            isNum = true;
+            continue;
+        }
+        if (isNum) {
+            QStringList list_1 = str.split(".");
+            if (list_1.at(0) == "3")
+                return true;
+            break;
+        }
+    }
+    return false;
 }
 
 void Power::initGeneralSet() {

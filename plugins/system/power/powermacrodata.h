@@ -36,6 +36,8 @@
 #define ACTION_CRI_BTY          "action-critical-battery"
 #define PER_ACTION_CRI          "percentage-critical"
 #define POWER_POLICY_KEY        "power-policy-current"
+#define POWER_POLICY_AC         "power-policy-ac"
+#define POWER_POLICY_BATTARY    "power-policy-battery"
 
 #define PRESENT_VALUE           "present"
 #define ALWAYS_VALUE            "always"

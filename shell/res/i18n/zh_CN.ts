@@ -800,15 +800,20 @@
         <translation>备份</translation>
     </message>
     <message>
-        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure 
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, you can restore them to ensure
 the integrity of your system.</source>
         <translation type="vanished">将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
+    </message>
+    <message>
+        <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted,
+you can restore them to ensure the integrity of your system.</source>
+        <translation type="vanished">将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
 you can restore them to ensure the integrity of your system.</source>
-        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
@@ -1861,7 +1866,7 @@ Please authenticate yourself to continue</source>
         <translation>标准账户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
-        <source>Standard users can use most software, but cannot install the software and 
+        <source>Standard users can use most software, but cannot install the software and
 change system settings</source>
         <translation type="vanished">标准账户可以使用大多数软件，但是不能安装软件和更改系统配置</translation>
     </message>
@@ -2372,8 +2377,8 @@ change system settings</source>
         <translation>删除用户组</translation>
     </message>
     <message>
-        <source>Are you sure to delete this group, 
-which will make some file components 
+        <source>Are you sure to delete this group,
+which will make some file components
 in the file system invalid!</source>
         <translation type="vanished">确定删除此用户组? 这将使得文件系统\n中的某些文件组件ID无效!</translation>
     </message>
@@ -2407,8 +2412,8 @@ in the file system invalid!</source>
         <translation type="vanished">提醒</translation>
     </message>
     <message>
-        <source>Are you sure to delete &quot;%1&quot; group, 
-which will make some file components 
+        <source>Are you sure to delete &quot;%1&quot; group,
+which will make some file components
 in the file system invalid!</source>
         <translation type="vanished">确定删除&quot;%1&quot;组,这将使得文件系统
 中的某些文件组件ID无效!</translation>
@@ -2427,7 +2432,7 @@ in the file system invalid!</source>
     <name>DelUserDialog</name>
     <message>
         <source>Delete the user, belonging to the user&apos;s desktop,
-documents, favorites, music, pictures and video 
+documents, favorites, music, pictures and video
 folder will be deleted!</source>
         <translation type="vanished">删除用户，用户所属的桌面、文档、收藏夹、音乐、图片和视频文件夹中的内容将全部被删除！</translation>
     </message>
@@ -5064,7 +5069,7 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="275"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="280"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
@@ -5074,10 +5079,10 @@ Please retry or relogin!</source>
         <extra-contents_path>/display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="183"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="194"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="256"/>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="262"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="184"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="195"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="261"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="267"/>
         <source>%1 Hz</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5122,14 +5127,14 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="151"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="141"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="142"/>
         <source>Balance (suggest)</source>
         <translation>平衡(推荐)</translation>
         <extra-contents_path>/power/Balance (suggest)</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="261"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
         <source>Saving</source>
         <translation>节能</translation>
         <extra-contents_path>/power/Saving</extra-contents_path>
@@ -5150,38 +5155,48 @@ Please retry or relogin!</source>
         <translation>利用可用的硬件自动平衡消耗与性能</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="379"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="145"/>
+        <location filename="../../../plugins/system/power/power.ui" line="351"/>
+        <source>Performance</source>
+        <translation>性能模式</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.ui" line="358"/>
+        <source>Run at maximum performance</source>
+        <translation>以最大性能运行</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.ui" line="449"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="146"/>
         <source>Custom</source>
         <translation>自定义</translation>
         <extra-contents_path>/power/Custom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="395"/>
+        <location filename="../../../plugins/system/power/power.ui" line="465"/>
         <source>Users develop personalized power plans</source>
         <translation>用户制定个性化电源计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="501"/>
+        <location filename="../../../plugins/system/power/power.ui" line="571"/>
         <source>Power supply</source>
         <translation>电源供给</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="535"/>
+        <location filename="../../../plugins/system/power/power.ui" line="605"/>
         <source>Battery powered</source>
         <translation>电池供给</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="595"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="386"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="526"/>
+        <location filename="../../../plugins/system/power/power.ui" line="665"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="409"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="555"/>
         <source>Change PC sleep time:</source>
         <translation>系统进入空闲状态并于此时间后睡眠：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="697"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="403"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="527"/>
+        <location filename="../../../plugins/system/power/power.ui" line="767"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="426"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="556"/>
         <source>Change DP close time:</source>
         <translation>系统进入空闲状态并于此时间后关闭显示器：</translation>
     </message>
@@ -5194,12 +5209,12 @@ Please retry or relogin!</source>
         <translation type="vanished">系统进入空闲状态并于此时间后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="802"/>
+        <location filename="../../../plugins/system/power/power.ui" line="872"/>
         <source>When close lid:</source>
         <translation>关闭笔记本电脑上盖时：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="882"/>
+        <location filename="../../../plugins/system/power/power.ui" line="952"/>
         <source>Screen darkens use battery:</source>
         <translation>无操作状态下于此时间后减小屏幕亮度：</translation>
     </message>
@@ -5216,7 +5231,7 @@ Please retry or relogin!</source>
         <translation type="vanished">电源图标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="1003"/>
+        <location filename="../../../plugins/system/power/power.ui" line="1073"/>
         <source>Power icon:</source>
         <translation>电源图标：</translation>
     </message>
@@ -5225,7 +5240,7 @@ Please retry or relogin!</source>
         <translation type="vanished">电源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="74"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="75"/>
         <source>Power</source>
         <translation>电源</translation>
     </message>
@@ -5238,123 +5253,123 @@ Please retry or relogin!</source>
         <translation type="vanished">系统%1分钟后进入空闲状态并于此时间后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="222"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="223"/>
         <source>Enter idle state %1 min and sleep after %2 min :</source>
         <translation>系统%1分钟后进入空闲状态并于%2分钟后挂起：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="226"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="227"/>
         <source>Enter idle state %1 min and close after %2 min :</source>
         <translation>系统%1分钟后进入空闲状态并于%2分钟后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="283"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="283"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
         <source>10 min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
         <source>30 min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
         <source>60 min</source>
         <translation>60分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
         <source>120 min</source>
         <translation>120分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
         <source>300 min</source>
         <translation>300分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="250"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="283"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
         <source>20 min</source>
         <translation>20分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="283"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
         <source>1 min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="260"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="283"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
         <source>5 min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
         <source>blank</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
         <source>suspend</source>
         <translation>睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="286"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="271"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="296"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="303"/>
         <source>always</source>
         <translation>显示电源图标在托盘栏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="296"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="303"/>
         <source>present</source>
         <translation>仅当存在电池时显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="296"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="303"/>
         <source>charge</source>
         <translation>仅当使用电池时显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="587"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="648"/>
         <source>Perform operations when battery is low:</source>
         <translation>低电量执行操作:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="934"/>
+        <location filename="../../../plugins/system/power/power.ui" line="1004"/>
         <source>General Settings</source>
         <translation>通用设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="559"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="620"/>
         <source>When the power button is pressed:</source>
         <translation>按电源键时执行:</translation>
     </message>
@@ -5970,62 +5985,62 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>体验计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="61"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="62"/>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="177"/>
         <location filename="../../../plugins/account/userinfo/changevaliddialog.cpp" line="214"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="61"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="62"/>
         <source>10min</source>
         <translation>10min</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="61"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="62"/>
         <source>20min</source>
         <translation>20min</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="62"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="63"/>
         <source>40min</source>
         <translation>40min</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="62"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="63"/>
         <source>80min</source>
         <translation>80min</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="66"/>
         <source>interactive</source>
         <translation>询问</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="66"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="70"/>
         <source>suspend</source>
         <translation>睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="66"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="70"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="65"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="66"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="70"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="70"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="69"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="70"/>
         <source>blank</source>
         <translation>关闭显示器</translation>
     </message>
@@ -6317,138 +6332,138 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1531"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1557"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1547"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1573"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1554"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1580"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1561"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1587"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1568"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1594"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1333"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1359"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1575"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1601"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1582"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1608"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1598"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1624"/>
         <source>Connection failed, attempting reconnect</source>
         <translation>连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1350"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1376"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="212"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1465"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1540"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1491"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1566"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1226"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1694"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1255"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1720"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1245"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1274"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1277"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1306"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1293"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1322"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1367"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1393"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1386"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1412"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1403"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1429"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1416"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1442"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1429"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1442"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1455"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1468"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1455"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1481"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1491"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1517"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1618"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1644"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1128"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1146"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1130"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1148"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1186"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1215"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1169"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1207"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1181"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1236"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8497,14 +8512,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="322"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="335"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="829"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="831"/>
         <source>pa_context_set_default_source() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="327"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1303"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1306"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1332"/>
         <source>pa_context_get_source_info_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8525,48 +8539,48 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="402"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="516"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="518"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="404"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="513"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="515"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="617"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="619"/>
         <source>Failed to read data from stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="667"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="669"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="668"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="670"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="683"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="685"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="788"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="790"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1094"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1096"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1300"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1329"/>
         <source>pa_context_get_sink_info_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8735,42 +8749,42 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1291"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1338"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1292"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1339"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1295"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1342"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1296"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1343"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1366"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1413"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1841"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1888"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1855"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1902"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1875"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1922"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -8785,17 +8799,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="800"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="842"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="936"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="983"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="936"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="983"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -8805,12 +8819,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="782"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="824"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="769"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="811"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -9100,64 +9114,70 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="603"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="604"/>
         <source>unify output</source>
         <translation>统一输出</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="607"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="608"/>
         <source>night mode</source>
         <translation>色温</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="556"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="672"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="557"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="673"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="544"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="545"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="555"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="671"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="556"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="672"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="615"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="616"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="636"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="637"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="637"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="638"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="641"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="642"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="642"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="643"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1972"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1987"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="651"/>
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+the settings will be saved after %1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1969"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1984"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -9173,10 +9193,9 @@ The settings will be saved after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="650"/>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after %1 seconds</source>
-        <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
+        <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
@@ -9197,24 +9216,24 @@ If something goes wrong, the settings will be restored after 9 seconds</source>
         <translation type="vanished">恢复之前配置</translation>
     </message>
     <message>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1301"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1302"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1141"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1301"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1308"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1142"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1302"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1309"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1142"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1143"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -9227,7 +9246,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1309"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1310"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
