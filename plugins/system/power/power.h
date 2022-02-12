@@ -65,6 +65,7 @@ public:
     void isHibernateSupply();
     void refreshUI();
     int  getIdleTime();
+    bool isPerforSupply();
 
 private:
     Ui::Power *ui;
