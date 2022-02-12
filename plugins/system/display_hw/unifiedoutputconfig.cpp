@@ -167,7 +167,7 @@ void UnifiedOutputConfig::initUi()
     freshFrame->setMinimumSize(552, 50);
     freshFrame->setMaximumSize(16777215, 50);
 
-    slotResolutionChanged(mResolution->currentResolution(), true);
+    slotResolutionChanged(mResolution->currentResolution(), false);
     connect(mRefreshRate, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
         this, &UnifiedOutputConfig::slotRefreshRateChanged);
     QObject::connect(new KScreen::GetConfigOperation(), &KScreen::GetConfigOperation::finished, this,
@@ -365,7 +365,7 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
     Q_EMIT changed();
 }
 
-QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size, bool isFirst)
+QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size, bool isUser)
 {
 
     float refreshRate = 0;
@@ -377,7 +377,8 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, cons
         }
     }
 
-    if (isFirst) {
+    // 第一次开启镜像模式读取kwin配置
+    if (!isUser) {
         QVector<KScreen::Output *> outputs;
         Q_FOREACH (const auto &output, mConfig->outputs()) {
             outputs << output.data();
@@ -392,6 +393,7 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, cons
         const auto outputGroup = config->group("DrmOutputs");
         const auto configGroup = outputGroup.group(groupUuid);
 
+        QSize outputSize;
         Q_FOREACH (const auto &aimOutput, outputs) {
             const auto outputConfig = configGroup.group(output->uuid());
             QString res = outputConfig.readEntry("Mode");
@@ -400,7 +402,7 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, cons
                 QStringList list = res.split(QLatin1String("_"));
                 QStringList size = list[0].split(QLatin1String("x"));
                 if (list.size() > 1 && size.size() > 1) {
-                    QSize outputSize(size[0].toInt(), size[1].toInt());
+                    outputSize = QSize(size[0].toInt(), size[1].toInt());
                     int refreshRate = list[1].toInt();
                     Q_FOREACH (const auto &m, output->modes()) {
                         if (m->size() == outputSize && m->refreshRate() * 1000 == refreshRate && output == aimOutput) {
@@ -410,8 +412,8 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, cons
                 }
             }
         }
+        mResolution->setResolution(outputSize);
     }
-
     return id;
 }
 
