@@ -834,13 +834,13 @@ bool Widget::isRestoreConfig()
     if (mConfigChanged) {
         QString config_name;
         switch (changeItm) {
-        case 0:
+        case RESOLUTION:
             config_name = tr("resolution");
             break;
-        case 1:
+        case ORIENTATION:
             config_name = tr("orientation");
             break;
-        case 2:
+        case FREQUENCY:
             config_name = tr("frequency");
             break;
         }
@@ -1197,7 +1197,7 @@ void Widget::outputRemoved(int outputId, bool connectChanged)
     }
     // 刷新缩放选项
     changescale();
-    if (!connectChanged) {        
+    if (!connectChanged) {
         if (!output.isNull()) {
             output->disconnect(this);
         }
@@ -1836,7 +1836,7 @@ void Widget::initConnection()
     });
 
     connect(mOpenTimeHCombox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=]{
-        if (m_colorSettings) {           
+        if (m_colorSettings) {
             m_colorSettings->set(NIGHT_FROM_KEY,QString::number(hour_minute_to_value((mOpenTimeHCombox->currentText()).toInt(),(mQpenTimeMCombox->currentText()).toInt()),'f', 2).toDouble());
         } else {
             applyNightModeSlot();

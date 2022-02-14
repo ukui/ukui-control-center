@@ -23,7 +23,7 @@
 #include <ukcc/widgets/combobox.h>
 
 double mScaleres = 0;
-int changeItm = -1;
+CONFIG changeItm = INIT;
 
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),

@@ -4,6 +4,7 @@
 #include <QSize>
 
 typedef enum{
+    INIT,
     RESOLUTION,
     ORIENTATION,
     FREQUENCY
@@ -33,6 +34,6 @@ extern QSize mScaleSize;
 
 extern double mScaleres;
 
-extern int changeItm;
+extern CONFIG changeItm;
 
 #endif // SCALESIZE_H
