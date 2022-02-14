@@ -82,8 +82,6 @@ Screenlock::~Screenlock()
         delete lockSetting;
         delete lockLoginSettings;
         delete powerSettings;
-        delete addLyt_1;
-        delete addLyt_2;
         if (m_formatsettings)
             delete m_formatsettings;
     }
@@ -306,6 +304,8 @@ void Screenlock::setupComponent(){
             showMessageBtn->setChecked(status);
         } else if ("background" == key) {
             initPreviewStatus();
+            QString filename = lSetting->get(key).toString();
+            setClickedPic(filename);
         }
     });
     //设置布局
@@ -320,7 +320,7 @@ void Screenlock::initButton(){
     localBgd->setToolTip(tr("Local wallpaper"));
     localBgd->setFixedSize(136,56);
     localBgd->setStyleSheet("HoverWidget#localBgd{background: palette(base); border-radius: 12px;}HoverWidget:hover:!pressed#localBgd{background: #2FB3E8; border-radius: 12px;}");
-    addLyt_1 = new QHBoxLayout;
+    addLyt_1 = new QHBoxLayout(pluginWidget);
     QLabel * iconLabel_1 = new QLabel();
     //~ contents_path /screenlock/Local wallpaper
     QLabel * textLabel_1 = new QLabel(tr("Local wall..."));
@@ -356,7 +356,7 @@ void Screenlock::initButton(){
     resetBgd->setObjectName("resetBgd");
     resetBgd->setFixedSize(136,56);
     resetBgd->setStyleSheet("HoverWidget#resetBgd{background: palette(base); border-radius: 12px;}HoverWidget:hover:!pressed#resetBgd{background: #2FB3E8; border-radius: 12px;}");
-    addLyt_2 = new QHBoxLayout;
+    addLyt_2 = new QHBoxLayout(pluginWidget);
     QLabel * iconLabel_2 = new QLabel();
     //~ contents_path /screenlock/Reset
     QLabel * textLabel_2 = new QLabel(tr("Reset"));
@@ -523,17 +523,34 @@ void Screenlock::initScreenlockStatus(){
     pThread = new QThread;
     pWorker = new BuildPicUnitsWorker;
     connect(pWorker, &BuildPicUnitsWorker::pixmapGeneral, this, [=](QPixmap pixmap, BgInfo bgInfo){
-        // 设置当前锁屏壁纸的预览
-        if (bgInfo.filename == bgStr){
-            initPreviewStatus();
-        }
 
         // 线程中构建控件传递会报告event无法install 的警告
         PictureUnit * picUnit = new PictureUnit;
         picUnit->setPixmap(pixmap);
         picUnit->setFilenameText(bgInfo.filename);
 
+        // 设置当前锁屏壁纸的预览
+        if (bgInfo.filename == bgStr){
+            initPreviewStatus();
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width: 0px");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
+        }
+
         connect(picUnit, &PictureUnit::clicked, [=](QString filename){
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width: 0px");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
             initPreviewStatus();
             plugin_delay_control();
             qDebug()<<filename;
@@ -726,4 +743,22 @@ bool Screenlock::getLockStatus()
     bool status = lockSetting->value("lockStatus").toBool();
     lockSetting->endGroup();
     return  status;
+}
+
+void Screenlock::setClickedPic(QString fileName)
+{
+    if (prePicUnit != nullptr) {
+        prePicUnit->changeClickedFlag(false);
+        prePicUnit->setStyleSheet("border-width:0px;");
+    }
+    for (int i = flowLayout->count()-1; i>= 0; --i) {
+        QLayoutItem *it = flowLayout->itemAt(i);
+        PictureUnit *picUnit = static_cast<PictureUnit*>(it->widget());
+        if (fileName == picUnit->filenameText()) {
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
+        }
+    }
 }

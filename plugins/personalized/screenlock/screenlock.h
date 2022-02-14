@@ -37,6 +37,7 @@
 //#include "changepwddialog.h"
 #include "userdispatcher.h"
 #include "plugins/account/userinfo/changepwddialog.h"
+#include "pictureunit.h"
 
 #include "buildpicunitsworker.h"
 #define UKUI_SCREENSAVER "org.ukui.screensaver"
@@ -107,6 +108,7 @@ private:
 
     void startupScreensaver();
     void closeScreensaver();
+    void setClickedPic(QString fileName);
 private slots:
     void datetime_update_slot();
 private:
@@ -161,6 +163,7 @@ private:
     bool messageKey = false;
 
     bool mFirstLoad;
+    PictureUnit *prePicUnit = nullptr;
 };
 
 #endif // SCREENLOCK_H
