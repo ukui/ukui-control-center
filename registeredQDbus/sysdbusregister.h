@@ -90,8 +90,8 @@ public slots:
 
     //获取显示器i2c bus号
     Q_SCRIPTABLE void getBrightnessInfo();
-    Q_SCRIPTABLE void setDDCBrightnessUkui(QString brightness, QString serialNum);
-    Q_SCRIPTABLE int  getDDCBrightnessUkui(QString serialNum);
+    Q_SCRIPTABLE void setDDCBrightnessUkui(QString brightness, QString serialNum, QString busNum);
+    Q_SCRIPTABLE int  getDDCBrightnessUkui(QString serialNum, QString busNum);
 
 };
 

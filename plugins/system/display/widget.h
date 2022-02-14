@@ -82,7 +82,7 @@ public:
     int scaleToSlider(const float value);
 
     void initUiComponent();
-    void addBrightnessFrame(QString name, bool openFlag, QString serialNum);
+    void addBrightnessFrame(QString name, bool openFlag, QString serialNum, QString busNum);
     void showBrightnessFrame(const int flag = 0, const int brightnessFrame_i = -1, const bool openFlag = false);
 
     void changescale();
@@ -160,10 +160,10 @@ private:
     QString getMonitorType();
 
     int getDDCBrighthess();
-    int getDDCBrighthess(QString name, QString serialNum);
+    int getDDCBrighthess(QString name, QString serialNum, QString busNum);
     int getLaptopBrightness() const;
 
-    void setDDCBrightnessN(int value, QString serialNum);
+    void setDDCBrightnessN(int value, QString serialNum, QString busNum);
     void setScreenKDS(QString kdsConfig);
     void setActiveScreen(QString status = "");
 
@@ -253,8 +253,6 @@ private:
     BrightnessFrame *currentBrightnessFrame;
     bool exitFlag = false;
     QString lastDelSerial = "";
-
-
 };
 
 #endif // WIDGET_H

@@ -332,7 +332,7 @@ void Widget::slotOutputEnabledChanged()
             for (int i = 0; i < BrightnessFrameV.size(); ++i) {
                 if (BrightnessFrameV[i]->outputName == Utils::outputName(output) && !BrightnessFrameV[i]->slider->isEnabled()) {
                     QtConcurrent::run([=]{
-                        int initValue = getDDCBrighthess(BrightnessFrameV[i]->outputName,BrightnessFrameV[i]->serialNum);
+                        int initValue = getDDCBrighthess(BrightnessFrameV[i]->outputName, BrightnessFrameV[i]->serialNum, BrightnessFrameV[i]->busNum);
                         if (initValue == -1 || BrightnessFrameV[i] == nullptr)
                             return;
                         BrightnessFrameV[i]->slider->setValue(initValue);
@@ -341,7 +341,7 @@ void Widget::slotOutputEnabledChanged()
                         connect(BrightnessFrameV[i]->slider, &QSlider::valueChanged, this, [=](){
                                             qDebug()<<BrightnessFrameV[i]->outputName<<"brightness"<<" is changed, value = "<<BrightnessFrameV[i]->slider->value();
                                             BrightnessFrameV[i]->setTextLableValue(QString::number(BrightnessFrameV[i]->slider->value()));
-                                            setDDCBrightnessN(BrightnessFrameV[i]->slider->value(), BrightnessFrameV[i]->serialNum);
+                                            setDDCBrightnessN(BrightnessFrameV[i]->slider->value(), BrightnessFrameV[i]->serialNum, BrightnessFrameV[i]->busNum);
                         });
                     });
                 }
@@ -836,7 +836,7 @@ int Widget::getDDCBrighthess()
     return 0;
 }
 
-int Widget::getDDCBrighthess(QString name, QString serialNum)
+int Widget::getDDCBrighthess(QString name, QString serialNum, QString busNum)
 {
     int times = 10;
     QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
@@ -853,7 +853,7 @@ int Widget::getDDCBrighthess(QString name, QString serialNum)
         }
         if (serialNum == "" || exitFlag)
             return -1;
-        reply = ukccIfc.call("getDDCBrightnessUkui", serialNum);
+        reply = ukccIfc.call("getDDCBrightnessUkui", serialNum, busNum);
         if (reply.isValid() && reply.value() >= 0 && reply.value() <= 100) {
             return reply.value();
         }
@@ -916,7 +916,7 @@ void Widget::clearOutputIdentifiers()
     mOutputIdentifiers.clear();
 }
 
-void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
+void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum, QString busNum)
 {
     if (mIsBattery && name != "eDP")  //笔记本非内置
         return;
@@ -926,6 +926,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
             return;
     }
     BrightnessFrame *frame = new BrightnessFrame;
+    frame->busNum = busNum;
     frame->serialNum = serialNum;
     frame->openFlag = openFlag;
     frame->setTextLableValue("0"); //最低亮度10,获取前为0
@@ -955,7 +956,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
         QtConcurrent::run([=]{
             if (openFlag == false)
                 return;
-            int initValue = getDDCBrighthess(name,serialNum);
+            int initValue = getDDCBrighthess(name, serialNum, frame->busNum);
             if (initValue == -1 || frame == nullptr)
                 return;
             frame->slider->setEnabled(true);
@@ -964,7 +965,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString serialNum)
             connect(frame->slider, &QSlider::valueChanged, this, [=](){
                  qDebug()<<name<<"brightness"<<" is changed, value = "<<frame->slider->value();
                  frame->setTextLableValue(QString::number(frame->slider->value()));
-                 setDDCBrightnessN(frame->slider->value(), frame->serialNum);
+                 setDDCBrightnessN(frame->slider->value(), frame->serialNum, frame->busNum);
             });
         });
 
@@ -982,6 +983,35 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
             serialNum = output->name().split("/").at(1);
             serialNumT = serialNum;
         }
+
+        QString cmd = "find /sys/class/drm/*/ddc/ -name '*i2c-[0-9]*'";
+        QString busNum = "-1";
+        QProcess process;
+        process.start("bash", QStringList() <<"-c"<<cmd);
+        process.waitForFinished();
+        QString strResult = process.readAllStandardOutput();
+        QStringList resultList = strResult.split("\n");
+        qDebug()<<"read i2c process result = "<<resultList;
+        for (int i = 0; i < resultList.size(); i++) {
+            if ((output->name().contains("HDMI",Qt::CaseInsensitive) && resultList.at(i).contains("HDMI",Qt::CaseInsensitive)) ||
+                (output->name().contains("VGA",Qt::CaseInsensitive) && resultList.at(i).contains("VGA",Qt::CaseInsensitive))) {
+                QStringList i2cList = resultList.at(i).split("/");
+                QString i2cStr = "";
+                for (int i = 1; i <= i2cList.size(); i++) {
+                    if (i2cList.at(i2cList.size() - i).contains("i2c-")) {
+                       i2cStr =  i2cList.at(i2cList.size() - i);
+                       break;
+                    }
+                }
+                if (i2cStr != "") {
+                    busNum = i2cStr.split("-").at(1);
+                    if (QString::number(busNum.toInt()) != busNum) { //busNum非纯数字
+                        busNum = "-1";
+                    }
+                }
+            }
+        }
+
         /*考虑到990上的HDMI都是8，VGA都是4，且识别出来的接口是正确的，所以直接写死*/
         if (output->name().contains("HDMI", Qt::CaseInsensitive)) {
             serialNum = QString("HDMI") + QString("/") + serialNum;
@@ -992,7 +1022,8 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
         if (lastDelSerial.contains(serialNumT) && serialNumT != "") {
             serialNum = serialNum + QString("/") + QString("RE");
         }
-        addBrightnessFrame(name, output->isEnabled(),serialNum);
+        qDebug()<<"addBrightnessFrame: "<<name<<"  i2c-bus:"<<busNum;
+        addBrightnessFrame(name, output->isEnabled(), serialNum, busNum);
     }
 
     // 刷新缩放选项，监听新增显示屏的mode变化
@@ -1239,7 +1270,7 @@ void Widget::isWayland()
 }
 
 
-void Widget::setDDCBrightnessN(int value, QString serialNum)
+void Widget::setDDCBrightnessN(int value, QString serialNum, QString busNum)
 {
     if (serialNum == "")
             return;
@@ -1251,7 +1282,7 @@ void Widget::setDDCBrightnessN(int value, QString serialNum)
 
 
     if (mLock.tryLock()) {
-        ukccIfc.call("setDDCBrightnessUkui", QString::number(value), serialNum);
+        ukccIfc.call("setDDCBrightnessUkui", QString::number(value), serialNum, busNum);
         mLock.unlock();
     }
 

@@ -19,6 +19,7 @@ public:
     QString outputName;
     QString serialNum;
     bool    openFlag = true;
+    QString busNum = "";
 private:
     QLabel *labelName = nullptr;
     QLabel *labelValue = nullptr;
