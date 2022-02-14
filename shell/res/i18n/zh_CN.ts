@@ -5188,15 +5188,15 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="665"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="409"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="555"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="410"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="556"/>
         <source>Change PC sleep time:</source>
         <translation>系统进入空闲状态并于此时间后睡眠：</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="767"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="426"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="556"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="427"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="557"/>
         <source>Change DP close time:</source>
         <translation>系统进入空闲状态并于此时间后关闭显示器：</translation>
     </message>
@@ -5264,33 +5264,33 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="257"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="291"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="257"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="291"/>
         <source>10 min</source>
         <translation>10分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="257"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
         <source>30 min</source>
         <translation>30分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="257"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
         <source>60 min</source>
         <translation>60分钟</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="257"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
         <source>120 min</source>
         <translation>120分钟</translation>
     </message>
@@ -5301,65 +5301,70 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="257"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="291"/>
         <source>20 min</source>
         <translation>20分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="257"/>
+        <source>15 min</source>
+        <translation>15分钟</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="291"/>
         <source>1 min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="267"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="290"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="268"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="291"/>
         <source>5 min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
         <source>blank</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
         <source>suspend</source>
         <translation>睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="286"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="287"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="278"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="279"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="303"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="304"/>
         <source>always</source>
         <translation>显示电源图标在托盘栏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="303"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="304"/>
         <source>present</source>
         <translation>仅当存在电池时显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="303"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="304"/>
         <source>charge</source>
         <translation>仅当使用电池时显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="648"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="649"/>
         <source>Perform operations when battery is low:</source>
         <translation>低电量执行操作:</translation>
     </message>
@@ -5369,7 +5374,7 @@ Please retry or relogin!</source>
         <translation>通用设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="620"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="621"/>
         <source>When the power button is pressed:</source>
         <translation>按电源键时执行:</translation>
     </message>
@@ -7999,17 +8004,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>TimeZoneChooser</name>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="34"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="36"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="45"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="46"/>
         <source>Change time zone</source>
         <translation>更改时区</translation>
     </message>
