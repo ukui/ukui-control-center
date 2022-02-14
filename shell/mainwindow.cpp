@@ -529,8 +529,11 @@ void MainWindow::loadPlugins(){
         }
 #endif
         qDebug() << "Scan Plugin: " << fileName;
-
-
+        if (!fileName.endsWith(".so")
+                || ("libukcc-bluetooth.so" == fileName && !isExitBluetooth())
+                ) {
+            continue;
+        }
 #ifdef __sw_64__
         if ("libpower.so" == fileName) {
             continue;
@@ -911,7 +914,8 @@ bool MainWindow::isExitBluetooth() {
     process.waitForFinished();
     QByteArray output = process.readAllStandardOutput();
     QString str_output = output;
-    bool isDevice = str_output.contains(QString("bluetooth"), Qt::CaseInsensitive);
+    //bool isDevice = str_output.contains(QString("hci"), Qt::CaseInsensitive);
+    bool isDevice = str_output.contains(QString("hci"), Qt::CaseInsensitive);
     bool isAddress = true;
 
 //    QByteArray bluetoothId("org.ukui.bluetooth");
@@ -921,6 +925,7 @@ bool MainWindow::isExitBluetooth() {
 //    } else
 //        isAddress = false;
 
+    qDebug() << Q_FUNC_INFO << "========================================" << isDevice << __LINE__;
     return isDevice && isAddress;
 }
 
