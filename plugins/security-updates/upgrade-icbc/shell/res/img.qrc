@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>upgrade/kylin-update-desktop-app.png</file>
+        <file>upgrade/kylin-update-desktop-kernel-3a4000.png</file>
+        <file>upgrade/kylin-update-desktop-kernel.png</file>
+        <file>upgrade/kylin-update-desktop-security.png</file>
+        <file>upgrade/kylin-update-desktop-support.png</file>
+        <file>upgrade/kylin-update-desktop-ukui.png</file>
+        <file>upgrade/linux-generic.png</file>
+        <file>upgrade/loading10.svg</file>
+        <file>upgrade/loading11.svg</file>
+        <file>upgrade/loading12.svg</file>
+        <file>upgrade/loading13.svg</file>
+        <file>upgrade/loading14.svg</file>
+        <file>upgrade/loading15.svg</file>
+        <file>upgrade/loading16.svg</file>
+        <file>upgrade/loading17.svg</file>
+        <file>upgrade/normal.png</file>
+        <file>upgrade/refresh.png</file>
+        <file>upgrade/update.png</file>
+    </qresource>
+</RCC>

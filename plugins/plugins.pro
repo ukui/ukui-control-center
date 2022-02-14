@@ -33,6 +33,7 @@ SUBDIRS = \
           security-updates/backup \
           security-updates/update \
           security-updates/upgrade \
+          security-updates/upgrade-icbc \
           messages-task/about \
           system/touchscreen \
           time-language/datetime \
