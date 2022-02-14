@@ -9178,7 +9178,7 @@ the settings will be saved after 14 seconds</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="651"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1969"/>
