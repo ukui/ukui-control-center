@@ -1495,7 +1495,7 @@ void Widget::save()
         }
     }
     int delayTime = 0;
-    if (changeItm == 0 || changeItm == 1) {
+    if (changeItm == 1 || changeItm == 2) {
         delayTime = 900; //修改分辨率，为了保证弹出框居中，延时900ms
     }
     QTimer::singleShot(delayTime, this, [=]() {
