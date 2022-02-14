@@ -254,14 +254,15 @@ void Power::setupComponent() {
     ui->powerModeBtnGroup->setId(ui->custdomRadioBtn, CUSTDOM);
 
     // 电脑睡眠延迟
-    sleepStringList  << tr("never") << tr("10 min") << tr("20 min") << tr("30 min") << tr("60 min") << tr("120 min") << tr("300 min");
+    sleepStringList  << tr("never") << tr("10 min") << tr("15 min") << tr("20 min") << tr("30 min") << tr("60 min") << tr("120 min") << tr("300 min");
     ui->sleepComboBox->insertItem(0, sleepStringList.at(0), QVariant::fromValue(0));
     ui->sleepComboBox->insertItem(1, sleepStringList.at(1), QVariant::fromValue(10));
-    ui->sleepComboBox->insertItem(2, sleepStringList.at(2), QVariant::fromValue(20));
-    ui->sleepComboBox->insertItem(3, sleepStringList.at(3), QVariant::fromValue(30));
-    ui->sleepComboBox->insertItem(4, sleepStringList.at(4), QVariant::fromValue(60));
-    ui->sleepComboBox->insertItem(5, sleepStringList.at(5), QVariant::fromValue(120));
-    ui->sleepComboBox->insertItem(6, sleepStringList.at(6), QVariant::fromValue(300));
+    ui->sleepComboBox->insertItem(2, sleepStringList.at(2), QVariant::fromValue(15));
+    ui->sleepComboBox->insertItem(3, sleepStringList.at(3), QVariant::fromValue(20));
+    ui->sleepComboBox->insertItem(4, sleepStringList.at(4), QVariant::fromValue(30));
+    ui->sleepComboBox->insertItem(5, sleepStringList.at(5), QVariant::fromValue(60));
+    ui->sleepComboBox->insertItem(6, sleepStringList.at(6), QVariant::fromValue(120));
+    ui->sleepComboBox->insertItem(7, sleepStringList.at(7), QVariant::fromValue(300));
 
     // 显示器关闭延迟
     closeStringList  << tr("never") << tr("1 min") << tr("5 min") << tr("10 min") << tr("20 min") << tr("30 min") << tr("60 min") << tr("120 min");
