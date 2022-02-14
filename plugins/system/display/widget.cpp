@@ -1788,10 +1788,10 @@ void Widget::usdScreenModeChangedSlot(int status)
             mKdsStatus = status;
             slotUnifyOutputs();
         }
+        showBrightnessFrame();
     });
 
     initMultScreenStatus();
-    showBrightnessFrame();
 }
 
 void Widget::initConnection()
