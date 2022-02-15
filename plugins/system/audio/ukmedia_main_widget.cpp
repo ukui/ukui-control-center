@@ -2532,8 +2532,8 @@ void UkmediaMainWidget::initInputComboboxItem()
     QString inputPortLabel = findInputPortLabel(m_pVolumeControl->defaultInputCard,m_pVolumeControl->sourcePortName);
     if(m_pVolumeControl->defaultSourceName == "inteldns_source")
     {
-        inputCardName = "alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic";
-        inputPortLabel = "内置话筒（sof-hda-dsp）";
+        inputCardName = MIC_CARDNAME;
+        inputPortLabel = MIC_PORTLABEL;
     }
     findInputComboboxItem(inputCardName,inputPortLabel);
 }
