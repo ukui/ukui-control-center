@@ -1019,7 +1019,7 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
             serialNum = QString("VGA") + QString("/") + serialNum;
         }
 
-        if (lastDelSerial.contains(serialNumT) && serialNumT != "") {
+        if (lastDelOutputName == name) {
             serialNum = serialNum + QString("/") + QString("RE");
         }
         qDebug()<<"addBrightnessFrame: "<<name<<"  i2c-bus:"<<busNum;
@@ -1117,7 +1117,7 @@ void Widget::outputRemoved(int outputId)
     QString name = ui->primaryCombo->itemText(index);
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {
         if (BrightnessFrameV[i]->outputName == name) {
-            lastDelSerial = BrightnessFrameV[i]->serialNum;
+            lastDelOutputName = BrightnessFrameV[i]->outputName;
             delete BrightnessFrameV[i];
             BrightnessFrameV[i] = nullptr;
             BrightnessFrameV.remove(i);

@@ -270,10 +270,14 @@ void SysdbusRegister::getBrightnessInfo()
                     struct brightInfo  mBrightInfo;
                     mBrightInfo.serialNum  = serial;
                     mBrightInfo.busType    = busType;
-                    mBrightInfo.brightness = getDDCBrightness(busType);
-                    if (mBrightInfo.brightness <= 10) {//<10时确认一下,大多数是插拔时异常导致<10
-                        sleep(2);
+                    for (int i = 0; i < 4; i++) {
                         mBrightInfo.brightness = getDDCBrightness(busType);
+                        if (mBrightInfo.brightness < 10) {//<10时确认一下,大多数是插拔时异常导致<10
+                            sleep(2);
+                            continue;
+                        } else {
+                            break;
+                        }
                     }
                     brightInfo_V.push_back(mBrightInfo);
                 }
