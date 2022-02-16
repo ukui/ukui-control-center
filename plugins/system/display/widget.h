@@ -193,7 +193,7 @@ private:
     void setMulScreenVisiable();
     void initMultScreenStatus();
     void updateMultiScreen(); // 屏幕插拔更改状态
-    void updateScreenConfig();// 获取系统最新配置
+    int updateScreenConfig();// 获取系统最新配置
 
     void showZoomtips();      // 缩放注销提示框
 
