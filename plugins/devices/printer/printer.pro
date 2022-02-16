@@ -6,7 +6,7 @@
 
 include(../../../env.pri)
 
-QT       += widgets printsupport
+QT       += widgets printsupport concurrent
 
 TEMPLATE = lib
 CONFIG += plugin \

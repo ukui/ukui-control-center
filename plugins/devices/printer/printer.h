@@ -33,6 +33,7 @@
 #include <ukcc/widgets/titlelabel.h>
 #include <ukcc/widgets/fixlabel.h>
 #include <ukcc/widgets/addbtn.h>
+#include <QtConcurrent>
 
 namespace Ui {
 class Printer;
@@ -63,6 +64,8 @@ public:
     void initComponent();
     void runExternalApp();
     void clearAutoItem();
+    void usbDeviceIdentify(const QString &str);
+    int init_hotplug_sock();
 
 private:
     QString pluginName;
@@ -82,6 +85,10 @@ private:
     bool mFirstLoad;
 
     QTimer *mTimer;
+
+    int hotplug_sock;
+
+    int enable = 1;
 
 public slots:
     void refreshPrinterDevSlot();
