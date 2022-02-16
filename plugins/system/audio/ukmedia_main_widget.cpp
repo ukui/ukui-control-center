@@ -2530,6 +2530,11 @@ void UkmediaMainWidget::initInputComboboxItem()
 {
     QString inputCardName = findCardName(m_pVolumeControl->defaultInputCard,m_pVolumeControl->cardMap);
     QString inputPortLabel = findInputPortLabel(m_pVolumeControl->defaultInputCard,m_pVolumeControl->sourcePortName);
+    if(m_pVolumeControl->defaultSourceName == "inteldns_source")
+    {
+        inputCardName = MIC_CARDNAME;
+        inputPortLabel = MIC_PORTLABEL;
+    }
     findInputComboboxItem(inputCardName,inputPortLabel);
 }
 
