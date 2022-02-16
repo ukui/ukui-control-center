@@ -25,6 +25,7 @@ extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int tran
 
 TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
 {
+    this->setFocusPolicy(Qt::StrongFocus);
     m_map = new TimezoneMap(this);
 //    m_map->show();
     m_zoneinfo = new ZoneInfo;
@@ -37,7 +38,6 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent) : QDialog(parent)
     this->installEventFilter(this);
 
     //m_searchInput->setStyleSheet("background-color:palette(windowtext)");
-    m_searchInput->setFocusPolicy(Qt::ClickFocus);
     m_searchInput->setFixedSize(400,36);
     m_searchInput->installEventFilter(this);
     m_searchInput->setFocusPolicy(Qt::ClickFocus);
@@ -182,6 +182,18 @@ void TimeZoneChooser::setTitle(QString title) {
 
 void TimeZoneChooser::setMarkedTimeZoneSlot(QString timezone) {
     m_map->setTimezone(timezone);
+}
+
+void TimeZoneChooser::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        this->hide();
+    } else if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
+        emit m_confirmBtn->clicked();
+    } else {
+        QDialog::keyPressEvent(event);
+    }
+    return;
 }
 
 void TimeZoneChooser::keyRealeaseEvent(QKeyEvent *event) {
