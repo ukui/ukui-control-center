@@ -242,8 +242,7 @@ bool LoginDialog::login_account_thr_number() {
     //account_phone->setGeometry(31 + sizeoff,148 + sizeoff,338,36);
     //account_pass->setGeometry(31 + sizeoff,192 + sizeoff,338,36);
 
-    m_forgetPasswordBtn->setMaximumSize(80,30);
-    m_forgetPasswordBtn->setMinimumSize(80,30);
+    m_forgetPasswordBtn->setFixedSize(80,28);
     //forgot_pass_btn->setGeometry(289 + sizeoff,228 + sizeoff,80,30);
     m_forgetPasswordBtn->setStyleSheet("QPushButton {background: transparent;border-radius: 4px;}"
                                    "QPushButton:hover{color:rgba(55,144,250,0.85);position:relative;border-radius: 4px;}"
