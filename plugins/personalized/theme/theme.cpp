@@ -388,7 +388,7 @@ void Theme::buildThemeModeLabel(){
     connect(qtSettings,&QGSettings::changed,this,[=](const QString &key){
         if (key == "styleName" && ui->defaultRadioBtn->isChecked() ) {
             autoThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-            qApp->setStyle(new InternalStyle(autoThemeMode));
+            qApp->setStyle(new InternalStyle("ukui"));
         }
     });
     connect(ui->lightRadioBtn,&QRadioButton::clicked,[=]{
@@ -396,7 +396,6 @@ void Theme::buildThemeModeLabel(){
         //intel定制版修改ukui-default为ukui-light，以防主题设置对部分组件不生效
         QString themeMode = "ukui-light";
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-
         qApp->setStyle(new InternalStyle("ukui"));
         if (QString::compare(currentThemeMode, themeMode)) {
             QString tmpMode;
