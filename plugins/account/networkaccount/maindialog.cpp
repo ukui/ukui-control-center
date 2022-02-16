@@ -21,6 +21,7 @@
 #include <QDesktopServices>
 #include <QApplication>
 #include <QUrl>
+#include <QtConcurrent/QtConcurrent>
 
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
@@ -30,7 +31,7 @@ MainDialog::MainDialog(QWidget *parent) : QDialog(parent)
     //内存分配
     m_uuid = QUuid::createUuid().toString();
     m_submitBtn = new QPushButton(tr("Sign in"),this);     //登录或者确认或者注册或者重置密码或者绑定手机按钮（重用）
-    m_regBtn = new QPushButton(tr("Sign up"),this); //返回登录或者注册账户按钮（重用）
+    m_regBtn = new QPushButton(tr("Sign up"),this); //返回登录或者注册帐户按钮（重用）
     m_loginDialog = new LoginDialog(this);      //登录页面
     //m_regDialog = new RegDialog(this);          //注册页面
     //m_BindDialog = new BindPhoneDialog(this);   //手机绑定页面
@@ -252,19 +253,25 @@ void MainDialog::set_client(DBusUtils *c) {
     connect(this, &MainDialog::dologin, this, [=] (QString kylinID,QString pass) {
         QList<QVariant> argList;
         argList << kylinID << pass;
-        m_dbusClient->callMethod("userLogin",argList);
+        QtConcurrent::run([=]() {
+            m_dbusClient->callMethod("userLogin",argList);
+        });
     });
 
     connect(this, &MainDialog::dogetmcode_phone_log, this, [=] (QString phone) {
         QList<QVariant> argList;
         argList << phone;
-        m_dbusClient->callMethod("getMCodeByPhone",argList);
+        QtConcurrent::run([=]() {
+            m_dbusClient->callMethod("getMCodeByPhone",argList);
+        });
     });
 
     connect(this, &MainDialog::dophonelogin, this, [=] (QString phone,QString code) {
         QList<QVariant> argList;
         argList << phone << code;
-        m_dbusClient->callMethod("phoneLogin",argList);
+        QtConcurrent::run([=]() {
+            m_dbusClient->callMethod("phoneLogin",argList);
+        });
     });
 
     connect(m_dbusClient,&DBusUtils::taskFinished,this,[=] (const QString &taskName,int ret) {
@@ -378,19 +385,21 @@ QString MainDialog::messagebox(const int &code) const {
     case 500:ret = tr("Failed due to server error!");break;
     case 501:ret = tr("User and passsword can't be empty!");break;
     case 502:ret = tr("User existing!");break;
-    case 503:ret = tr("User doesn't exist!");break;
+    case 503:ret = tr("Account or password error!");break;
     case 504:ret = tr("Network can not reach!");break;
     case 505:ret = tr("Phone can't be empty!");break;
+    case 508:ret = tr("See and check your network status!");break;
     case 511:ret = tr("Account or password error!");break;
     case 610:ret = tr("Phone number already in used!");break;
     case 611:ret = tr("Please check your format!");break;
     case 612:ret = tr("Your are reach the limit!");break;
     case 613:ret = tr("Please check your phone number!");break;
     case 614:ret = tr("Please check your code!");break;
-    case 615:ret = tr("Account doesn't exist!");break;
+    case 615:ret = tr("Account or password error!");break;
     case 616:ret = tr("User has bound the phone!");break;
     case 619:ret = tr("Sending code error occurred!");break;
     case 632:ret = tr("Phone code is expired!");break;
+    case 656:ret = tr("Failed attemps limit reached!");break;
     case 702:ret = tr("Phone code error!");break;
     case 703:ret = tr("Code can not be empty!");break;
     case 704:ret = tr("MCode can not be empty!");break;
@@ -631,16 +640,11 @@ void MainDialog::on_timer_timeout() {
 
 /* 登录回调槽函数，登录回执消息后执行此处 */
 void MainDialog::on_login_finished(int ret) {
-    //qDebug() << "ssssssssssssssss2";
-    //qDebug()<<ret;
     //无手机号码绑定，进入手机号码绑定页面
     //登录返回成功，执行此处
     if (ret == 0) {
-        //m_blueEffect->stop();
-        //m_submitBtn->setText(tr("Sign in"));
         emit on_login_success(); //发送成功登录信号给主页面
     } else {
-        //qDebug() << "cscacacasca";
         emit on_login_failed();
         set_back();
         m_blueEffect->stop();             //登录失败，执行此处，关闭登录执行过程效果，并打印错误消息
@@ -659,7 +663,6 @@ void MainDialog::on_login_finished(int ret) {
             return ;
         }
     }
-    //qDebug()<<"scascasca";
 }
 
 /* 手机号直接发送验证码回调函数，发送手机验证码回执消息后执行此处 */
