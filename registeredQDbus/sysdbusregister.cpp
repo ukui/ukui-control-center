@@ -260,7 +260,7 @@ void SysdbusRegister::getBrightnessInfo()
                 QString busType = bus.split("-").at(1);
                 bool existFlag = false;
                 for (int i = 0; i < brightInfo_V.size(); i++) {
-                    if (brightInfo_V[i].serialNum == serial) {
+                    if (brightInfo_V[i].serialNum == serial && brightInfo_V[i].busType == busType) { //990存在多个bus号的情况，但内核只链接到一个，所以都需要存留
                         brightInfo_V[i].brightness = getDDCBrightness(busType);
                         existFlag = true;
                         break;
@@ -270,10 +270,14 @@ void SysdbusRegister::getBrightnessInfo()
                     struct brightInfo  mBrightInfo;
                     mBrightInfo.serialNum  = serial;
                     mBrightInfo.busType    = busType;
-                    mBrightInfo.brightness = getDDCBrightness(busType);
-                    if (mBrightInfo.brightness == 0) {//为0时确认一下
-                        sleep(2);
+                    for (int i = 0; i < 4; i++) {
                         mBrightInfo.brightness = getDDCBrightness(busType);
+                        if (mBrightInfo.brightness < 10) {//<10时确认一下,大多数是插拔时异常导致<10
+                            sleep(2);
+                            continue;
+                        } else {
+                            break;
+                        }
                     }
                     brightInfo_V.push_back(mBrightInfo);
                 }
@@ -284,8 +288,19 @@ void SysdbusRegister::getBrightnessInfo()
     return;
 }
 
-void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum)
+void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum, QString busNum)
 {
+    if (busNum != "-1") {
+        for (int i = 0; i < brightInfo_V.size(); i++) {
+            if (brightInfo_V[i].busType == busNum) {
+                setDDCBrightness(brightness, brightInfo_V[i].busType);
+                brightInfo_V[i].brightness = brightness.toInt();
+                return;
+            }
+        }
+        return;
+    }
+
     if (serialNum.contains("HDMI") || serialNum.contains("VGA")) {
         if (serialNum.contains("HDMI")) {
             for (int i = 0; i < brightInfo_V.size(); i++) {
@@ -324,13 +339,23 @@ void SysdbusRegister::setDDCBrightnessUkui(QString brightness, QString serialNum
     }
 }
 
-int SysdbusRegister::getDDCBrightnessUkui(QString serialNum)
+int SysdbusRegister::getDDCBrightnessUkui(QString serialNum, QString busNum)
 {
     if (serialNum.contains("RE")) {
         brightInfo_V.clear();
         getBrightnessInfo();
         return -2;
     }
+    if (busNum != "-1") {  //发来了bus号，直接用
+        for (int i = 0; i < brightInfo_V.size(); i++) {
+            if (brightInfo_V[i].busType == busNum && brightInfo_V[i].brightness >= 0 && brightInfo_V[i].brightness <= 100) {
+                return brightInfo_V[i].brightness;
+            }
+        }
+        getBrightnessInfo();
+        return -2;
+    }
+
     if (serialNum.contains("HDMI") || serialNum.contains("VGA")) {
         if (serialNum.contains("HDMI")) {
             for (int i = 0; i < brightInfo_V.size(); i++) {
