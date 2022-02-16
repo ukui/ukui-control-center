@@ -272,6 +272,7 @@ void MainWindow::initUI() {
     });
     initNMIcbc();
     initTileBar();
+    mIsUpgrade();
     m_queryWid->setGeometry(QRect((m_searchWidget->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
                                         m_queryIcon->width()+m_queryText->width()+10,(m_searchWidget->height()+36)/2));
     m_queryWid->show();
@@ -550,7 +551,9 @@ void MainWindow::loadPlugins(){
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
                 || ("libnetconnect-icbc.so" == fileName && !mIsNmIcbc)
                 || ("libwlanconnect-icbc.so" == fileName && !mIsNmIcbc)
-                || ("libnetconnect.so" == fileName && mIsNmIcbc)) {
+                || ("libnetconnect.so" == fileName && mIsNmIcbc)
+                || ("libupgrade.so" == fileName && !mIsUpgradesp1)
+                || ("libupgrade-icbc.so" == fileName && !mIsUpgradeIcbc)) {
             continue;
         }
 
@@ -775,6 +778,26 @@ bool MainWindow::isExitsCloudAccount() {
         }
     }
     return false;
+}
+
+QString MainWindow::mIsUpgrade()
+{
+    QFile filename("/usr/share/kylin-system-updater/projects_id");
+    QString version;
+    if(!filename.exists())
+    {
+        mIsUpgradesp1=true;
+        return "standard";
+    }
+    else
+    {
+        filename.open(QIODevice::ReadOnly);
+        version = filename.readAll();
+        filename.close();
+        if(version=="icbc")
+            mIsUpgradeIcbc=true;
+        return version;
+    }
 }
 
 bool MainWindow::dblOnEdge(QMouseEvent *event) {

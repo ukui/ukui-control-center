@@ -1106,7 +1106,7 @@ updatesettingLayout->addWidget(line23);
     AppMessage->addSpacing(2);
     AppMessage->addWidget(historyUpdateLogWid);
     AppMessage->addStretch();
-    AppMessage->setContentsMargins(0,0,0,0);
+    AppMessage->setContentsMargins(0,0,32,10);
 
     mainTabLayout->setAlignment(Qt::AlignTop);
     mainTabLayout->addWidget(scrollArea);
