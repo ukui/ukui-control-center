@@ -5,6 +5,7 @@
 #include <QMap>
 #include <QVariant>
 #include <QPainter>
+#include <QPainterPath>
 
 class QFrame;
 class QPushButton;
