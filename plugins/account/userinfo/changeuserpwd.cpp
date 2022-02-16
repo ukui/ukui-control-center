@@ -110,7 +110,8 @@ void ChangeUserPwd::initUI(){
     currentPwdLineEdit->setEchoMode(QLineEdit::Password);
     currentPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
     currentPwdLineEdit->setTextMargins(0,0,30,0);
-
+    currentPwdLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    currentPwdLineEdit->installEventFilter(this);
     currentPwdEyeBtn = new QPushButton;
     currentPwdEyeBtn->setFixedSize(QSize(24, 24));
     currentPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
@@ -142,7 +143,8 @@ void ChangeUserPwd::initUI(){
     newPwdLineEdit->setEchoMode(QLineEdit::Password);
     newPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
     newPwdLineEdit->setTextMargins(0,0,30,0);
-
+    newPwdLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    newPwdLineEdit->installEventFilter(this);
     newPwdEyeBtn = new QPushButton;
     newPwdEyeBtn->setFixedSize(QSize(24, 24));
     newPwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
@@ -174,7 +176,8 @@ void ChangeUserPwd::initUI(){
     surePwdLineEdit->setEchoMode(QLineEdit::Password);
     surePwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
     surePwdLineEdit->setTextMargins(0,0,30,0);
-
+    surePwdLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    surePwdLineEdit->installEventFilter(this);
     surePwdEyeBtn = new QPushButton;
     surePwdEyeBtn->setFixedSize(QSize(24, 24));
     surePwdEyeBtn->setIcon(QIcon::fromTheme("ukui-eye-hidden-symbolic"));
@@ -584,3 +587,24 @@ void ChangeUserPwd::keyPressEvent(QKeyEvent * event){
         QDialog::keyPressEvent(event);
     }
 }
+
+//事件过滤如下
+//当接收到这些事件时，需要被过滤掉，所以返回true
+bool ChangeUserPwd::eventFilter(QObject *target, QEvent *event)
+{
+    if (target == currentPwdLineEdit || target == newPwdLineEdit || target == surePwdLineEdit) {
+        if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+
+            if(keyEvent->matches(QKeySequence::Copy) || keyEvent->matches(QKeySequence::Cut))
+            {
+                qDebug() <<"Copy || Cut";
+                return true;
+            }
+        }
+    }
+    return QWidget::eventFilter(target, event);
+    //继续传递该事件到被观察者，由其本身调用相应的事件。
+}
+
