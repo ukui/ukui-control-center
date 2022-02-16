@@ -229,6 +229,15 @@ void CreateUserNew::initUI(){
     mainVerLayout->addSpacing(32);
     mainVerLayout->addLayout(bottomHorLayout);
 
+    usernameLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    nicknameLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    newPwdLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    surePwdLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    usernameLineEdit->installEventFilter(this);
+    nicknameLineEdit->installEventFilter(this);
+    newPwdLineEdit->installEventFilter(this);
+    surePwdLineEdit->installEventFilter(this);
+
     setLayout(mainVerLayout);
 }
 
@@ -539,6 +548,21 @@ bool CreateUserNew::eventFilter(QObject *watched, QEvent *event){
                 adminRadioBtn->setChecked(true);
             } else if (watched == standardFrame){
                 standardRadioBtn->setChecked(true);
+            }
+        }
+    }
+
+    //事件过滤如下
+    //当接收到这些事件时，需要被过滤掉，所以返回true
+    if (watched == usernameLineEdit  || watched == nicknameLineEdit || watched == newPwdLineEdit || watched == surePwdLineEdit) {
+        if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+
+            if(keyEvent->matches(QKeySequence::Copy) || keyEvent->matches(QKeySequence::Cut))
+            {
+                qDebug() <<"Copy || Cut";
+                return true;
             }
         }
     }

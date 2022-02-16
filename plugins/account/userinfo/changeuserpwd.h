@@ -73,7 +73,7 @@ public:
 
 protected:
     void keyPressEvent(QKeyEvent *);
-
+    bool eventFilter(QObject *target, QEvent *event);
 private:
     QString name;
     QString curPwdTip;
