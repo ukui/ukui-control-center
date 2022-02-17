@@ -76,18 +76,8 @@ MainWindow::MainWindow(QWidget *parent) :
     m_effect->setPadding(10);
     m_effect->setBorderRadius(16);
     m_effect->setBlurRadius(16);
-    QString m_initPath =  QString("%1/%2/%3").arg(QDir::homePath()).arg(".cache/ukui-menu").arg("ukui-menu.ini");//构造函数中初始化设置信息
-    QSettings settings(m_initPath, QSettings::IniFormat);
-    settings.beginGroup("application");
-    if (settings.contains("ukui-control-center")){
-        bool isRun = settings.value("application/ukui-control-center").toBool();
-        if (!isRun) {
-            return;
-        }
-    }
+
     ui->setupUi(this);
-    settings.sync();
-    settings.endGroup();
     // 初始化mixer
     mate_mixer_init();
     this->installEventFilter(this);
