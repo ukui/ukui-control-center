@@ -55,7 +55,8 @@ SysdbusRegister::SysdbusRegister()
     mHibernateSet->setIniCodec("UTF-8");
     exitFlag = false;
     toGetDisplayInfo = true;
-    _getDisplayInfoThread();
+    if (!isBacklight())
+         _getDisplayInfoThread();
 
 }
 
