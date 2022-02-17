@@ -30,10 +30,12 @@ INCLUDEPATH += \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        printer.cpp
+        printer.cpp \
+        usbthread.cpp
 
 HEADERS += \
-        printer.h
+        printer.h \
+        usbthread.h
 
 FORMS += \
         printer.ui

@@ -20,9 +20,11 @@
 #include "printer.h"
 #include "ui_printer.h"
 #include <cups/cups.h>
+#include "usbthread.h"
 
 #include <QtPrintSupport/QPrinterInfo>
 #include <QProcess>
+#include <QThread>
 
 #include <QDebug>
 #include <QMouseEvent>
@@ -73,6 +75,15 @@ QWidget *Printer::get_plugin_ui()
         initComponent();
 
         refreshPrinterDevSlot();
+
+        // 开辟线程监听usb插拔
+        QThread *mThread = new QThread;
+        UsbThread *UsbWorker = new UsbThread;
+        UsbWorker->moveToThread(mThread);
+        connect(mThread, &QThread::started, UsbWorker, &UsbThread::run);
+        connect(UsbWorker,&UsbThread::keychangedsignal,this,&Printer::refreshPrinterDevSlot);
+        connect(mThread, &QThread::finished, UsbWorker, &UsbThread::deleteLater);
+         mThread->start();
     }
     return pluginWidget;
 }
@@ -151,12 +162,6 @@ void Printer::initComponent()
         textLabel->setStyleSheet("color: palette(windowText);");
     });
     ui->addLyt->addWidget(mAddWgt);
-    mTimer = new QTimer(this);
-    connect(mTimer, &QTimer::timeout, this, [=] {
-        refreshPrinterDevSlot();
-    });
-
-    mTimer->start(1000);
 }
 
 void Printer::refreshPrinterDevSlot()

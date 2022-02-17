@@ -55,7 +55,8 @@ SysdbusRegister::SysdbusRegister()
     mHibernateSet->setIniCodec("UTF-8");
     exitFlag = false;
     toGetDisplayInfo = true;
-    _getDisplayInfoThread();
+    if (!isBacklight())
+         _getDisplayInfoThread();
 
 }
 
@@ -496,6 +497,27 @@ QString SysdbusRegister::getVerionsId()
     process.waitForFinished();
     QByteArray result = process.readAllStandardOutput().trimmed();
     return result;
+}
+
+bool SysdbusRegister::isBacklight()
+{
+    QString cmd = "";
+    QByteArray buf;
+    QProcess process;
+    QFile file("/proc/cpuinfo");
+    if(!file.open(QIODevice::ReadOnly)){
+        qDebug()<<file.errorString();
+    }
+    buf = file.readAll();
+    file.close();
+    cmd = "cat /sys/class/backlight/*/max_brightness";
+    process.start("bash", QStringList() <<"-c" << cmd);
+    process.waitForFinished();
+    QString strResult =process.readAllStandardOutput()+process.readAllStandardError();
+    strResult = strResult.replace("\n", "");
+    QString pattern("^[0-9]*$");
+    QRegExp reg(pattern);
+    return reg.exactMatch(strResult);
 }
 
 QString SysdbusRegister::showDisplayInfo()
