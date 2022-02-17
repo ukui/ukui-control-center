@@ -516,7 +516,9 @@ void Widget::slotUnifyOutputs()
     QMLOutput *base = mScreen->primaryOutput();
 
     QList<int> clones;
-    updateScreenConfig();
+    if (updateScreenConfig() != 0) {
+        return;
+    }
 
     if (!base) {
         for (QMLOutput *output: mScreen->outputs()) {
@@ -1018,12 +1020,16 @@ void Widget::updateMultiScreen()
     }
 }
 
-void Widget::updateScreenConfig()
+int Widget::updateScreenConfig()
 {
+    if (mConfig->connectedOutputs().size() < 1) {
+        return -1;
+    }
     auto *preOp = new KScreen::GetConfigOperation();
     preOp->exec();
     mPrevConfig = preOp->config()->clone();  //重新获取屏幕当前状态，通过mconfig未必能获取到正确的状态
     preOp->deleteLater();
+    return 0;
 }
 
 void Widget::showZoomtips()
