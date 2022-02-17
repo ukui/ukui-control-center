@@ -118,6 +118,8 @@ public slots:
 
     // dmidecode解析id屏蔽电源功能
     Q_SCRIPTABLE QString getVerionsId();
+
+    bool isBacklight();
 };
 
 #endif // SYSDBUSREGISTER_H
