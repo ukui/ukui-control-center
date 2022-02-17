@@ -72,11 +72,59 @@
 <br>
 
 ## 设 备
-设备设置提供了打印机、鼠标、触摸板、键盘、快捷键、声音六个设置模块。
+设备设置提供了打印机、投屏、触摸板、鼠标、键盘、快捷键、声音六个设置模块。
 
 ### 打印机
 打印机功能提供了打印机程序入口
 ![图 8 打印机-big](image/printer.png)
+
+### 投 屏
+无线投屏提供了在KylinOS上镜像安卓手机的功能
+![图 9 无线投屏主界面-big](image/mainInterface.png)
+
+要使用无线投屏功能，首先需要开启投屏开关
+![图 10 无线投屏开关开启界面-big](image/openInterface.png)
+
+在手机下拉菜单中选择 投屏/无线投屏/手机投屏 等标识界面（以华为手机Mate为例）
+![图 11 手机端无线投屏开启界面-big](image/phoneOpengInterface.png)
+
+接下来手机上会自动搜索并且显示搜索到的接收端设备
+![图 12 手机端无线投屏搜索界面-big](image/phoneSearchInterface.png)
+
+选择您当前KylinOS接收端的设备，如 我的麒麟 等
+![图 13 接收端允许投屏界面-big](image/accessInterface.png)
+
+在KylinOS接收端上会显示是否允许投屏，点击允许
+![图 14 接收端提供PIN码界面-big](image/accessPinInterface.png)
+
+根据KylinOS接收端显示出的PIN码 在手机端输入PIN码 并点击连接
+![图 15 手机端输入PIN码界面-big](image/phonePinInterface.png)
+
+接下来会在KylinOS接收端和投射端显示连接界面
+![图 16 手机端连接界面-big](image/phoneConnectionInterface.png)
+![图 17 接收端连接界面-big](image/receiverConnectionInterface.png)
+
+如成功连接，会在接收端同步镜像出手机端的屏幕，双击屏幕可退出全屏
+![图 18 竖屏投射界面-big](image/verProjectionInterface.png)
+![图 19 横屏投射界面-big](image/horProjectionInterface.png)
+
+如需关闭投屏，可双击屏幕进入窗口化，点击右上角的“X”进行关闭，也可以在手机下拉菜单中，将无线投屏置灰（关闭），即可退出无线投屏
+![图 20 投屏退出界面-big](image/exitInterface.png)
+**FAQ**
+
+1.如未成功投屏，可重新尝试连接，通常情况下手机连接一次即可被信任，下次连接无需输入PIN码（也取决于手机设计，有的手机支持授信后，无认证连接）
+
+2.在投屏界面可以更改接收设备的名称，点击开启投屏右侧的“笔”图标，即可进入修改界面
+![图 21 投射端名称修改界面-big](image/nameChangeInterface.png)
+
+3.当未插入无线网卡，或无线网卡不支持建立投屏所需的连接时，需要插入网卡或者对已插入网卡进行更换处理
+![图 22 投屏功能不可用界面(1)-big](image/unUseInterface.png)
+
+4.当后台服务异常后，会有如下提示，可以尝试重启系统解决此问题
+![图 23 投屏功能不可用界面(2)-big](image/unUseInterface2.jpg)
+
+5.当未安装无线投屏的包或包版本过低时，在控制面板中不会显示投屏功能
+![图 24 投屏功能不可用界面(3)-big](image/unUseInterface3.png)
 
 ### 触摸板
 触摸板提供了以下功能设置
@@ -88,7 +136,7 @@
 3）触摸板鼠标点击开启/关闭
 
 4）触摸滚动方式(禁用滚动,垂直滚动,水平边界滚动,垂直双指滚动,水平双指滚动)
-![图 9 触摸板-big](image/touchpad.png)
+![图 25 触摸板-big](image/touchpad.png)
 
 ### 鼠 标
 对鼠标键、鼠标指针、光标进行个性化设置。
@@ -117,12 +165,12 @@
 
 - 光标速度
 
-![图 10 鼠标设备-big](image/mouse.png)
+![图 26 鼠标设备-big](image/mouse.png)
 
 ### 键 盘
 对键盘进行常规通用设置，并能够根据键盘语言调整键盘布局。
 
-![图 11 键盘设备-big](image/keyboard.png)
+![图 27 键盘设备-big](image/keyboard.png)
 
 1）启用按键重复设置：按下某个按键不放，系统会将该行为作为重复的键盘输入。启用按键重复设置后，可对延时、速度两个选项进行设置。
 
@@ -135,13 +183,13 @@
 ### 快捷键
 查看所有快捷键，添加或删除自定义快捷键。
 
-![图 12 快捷键-big](image/shortcut.png)
+![图 28 快捷键-big](image/shortcut.png)
 
 Tips：系统快捷键不允许修改。
 
 点击“添加自定义快捷键”，弹出添加窗口。
 
-![图 13 添加快捷键](image/add-shortcut.png)
+![图 29 添加快捷键](image/add-shortcut.png)
 
 1）确认添加后，该快捷键的按键会显示“无效”；
 
@@ -152,7 +200,7 @@ Tips：系统快捷键不允许修改。
 ### 声 音
 对输入、输出和系统音效进行设置，如图所示。
 
-![图 14 声音-big](image/audio.png)
+![图 30 声音-big](image/audio.png)
 
 - 主音量大小：调节当前的输出音量，通过移动滑动条来控制系统输出音量大小
 
@@ -192,7 +240,7 @@ Tips：系统快捷键不允许修改。
 
 - 发现的蓝牙设备基础操作：鼠标悬浮到发现的设备上，出现连接按钮，点击连接按钮与设备配对并连接；设备连接后，出现在我的设备一栏；这时鼠标再悬浮到设备上，出现断开按钮和移除按钮，点击断开按钮与设备断开连接，点击移除按钮，移除与设备的配对
 
-![图 15 背景形式选择-big](image/blutooth.png)
+![图 31 背景形式选择-big](image/blutooth.png)
 
 <br>
 
@@ -202,45 +250,45 @@ Tips：系统快捷键不允许修改。
 ### 背 景
 针对桌面背景，提供两种背景形式的选择：颜色、图片。
 
-![图 16 背景-big](image/background.png)
+![图 32 背景-big](image/background.png)
 
 ### 主 题
 主题包括主题模式、图标主题、光标主题。
 
 - 主题模式：
 
-![图 17 主题模式](image/theme.png)
+![图 33 主题模式](image/theme.png)
 
 - 图标主题和光标主题：
 
-![图 18 图标&光标主题](image/theme-cursor.png)
+![图 34 图标&光标主题](image/theme-cursor.png)
 
 - 透明度和特效模式（部分机型不支持）：
 
-![图 19 特效模式](image/theme-effect.png)
+![图 35 特效模式](image/theme-effect.png)
 
 ### 锁 屏
 
 选择在登录界面显示的背景图片。
 
-![图 20 锁屏设置-big](image/screenlock.png)
+![图 36 锁屏设置-big](image/screenlock.png)
 
 ### 字 体
 对字体、大小、等宽进行常规设置。
 
 点击“恢复默认设置”按钮将所有字体设置还原为系统默认状态。
 
-![图 21 字体设置-big](image/font.png)
+![图 37 字体设置-big](image/font.png)
 
 ### 屏 保
 设置屏保程序、等待时间。
 
-![图 22 屏保设置-big](image/screensaver.png)
+![图 38 屏保设置-big](image/screensaver.png)
 
 ### 桌 面
 设置锁定在开始菜单和托盘上的图标。
 
-![图 23 桌面设置-big](image/desktop.png)
+![图 39 桌面设置-big](image/desktop.png)
 <br>
 
 ## 网 络
@@ -248,20 +296,20 @@ Tips：系统快捷键不允许修改。
 
 ### 网络连接
 网络连接包括，可用网络显示(无线,有线)，开启/关闭wifi等功能，具体网络配置可参考“桌面环境”中的“网络”部分。
-![图 24 网络-big](image/netconnect.png)
+![图 40 网络-big](image/netconnect.png)
 
 ### VPN
 打开外部VPN设置程序
-![图 25 VPN-big](image/vpn.png)
+![图 41 VPN-big](image/vpn.png)
 
 ### 代理
 自动代理开启/关闭，手动代理设置(包括HTTP, HTTPS, FTP,SOCKS代理)
-![图 26 代理-big](image/delegate.png)
+![图 42 代理-big](image/delegate.png)
 
 ### 桌面共享
 勾选“允许其他人查看您的桌面”后，可设置访问时需要确认，或者要求输入指定密码。
 
-![图 27 桌面共享-big](image/vino.png)
+![图 43 桌面共享-big](image/vino.png)
 <br>
 
 ## 账 户
@@ -270,17 +318,17 @@ Tips：系统快捷键不允许修改。
 ### 账户信息
 对系统用户进行管理配置，允许管理员创建用户、删除用户、修改用户信息。
 
-![图 28 账户信息设置-big](image/account.png)
+![图 44 账户信息设置-big](image/account.png)
 
 #### 更改用户头像
 点击用户头像，即可进行修改，图片可从本机图片中选择。
 
-![图 29 更改用户头像](image/account-face.png)
+![图 45 更改用户头像](image/account-face.png)
 
 #### 更改密码
 点击“更改密码”，即可修改当前用户的密码。
 
-![图 30 更改密码](image/account-pwd.png)
+![图 46 更改密码](image/account-pwd.png)
 
 #### 更改账户类型
 系统用户类型分两种：标准用户和管理员用户。
@@ -291,7 +339,7 @@ Tips：系统快捷键不允许修改。
 
 Tips：系统至少需要存在一个管理员用户。
 
-![图 31 更改用户类型](image/account-type.png)
+![图 47 更改用户类型](image/account-type.png)
 
 #### 其他用户
 可编辑其他用户信息，添加新用户，删除用户等。
@@ -309,16 +357,16 @@ Tips：系统至少需要存在一个管理员用户。
 7. 启用密码字典；
 8. 密码有效期无限制；
 
-![图 32 添加新用户](image/account-add.png)
+![图 48 添加新用户](image/account-add.png)
 
 - 编辑用户
 
-![图 33 编辑用户](image/account-edit.png)
+![图 49 编辑用户](image/account-edit.png)
 
 ### 云账户
 云账户可用于同步设置配置选项，需要注册登录生效。
 
-![图 34 云账户-big](image/cloudaccount.png)
+![图 50 云账户-big](image/cloudaccount.png)
 #### 登录方式
 - 通过麒麟ID登录中心登录，使用云账户只需拥有麒麟ID即可。
 
@@ -364,28 +412,28 @@ Tips：系统至少需要存在一个管理员用户。
 ### 时间日期
 主界面如图所示：
 
-![图 35 时间和日期-big](image/datetime.png)
+![图 51 时间和日期-big](image/datetime.png)
 
 - 同步网络时间：与互联网上的NTP服务器时间同步
 
 - 手动更改时间：手动设置时间和年月日
 
-![图 36 手动更改时间](image/datetime-change.png)
+![图 52 手动更改时间](image/datetime-change.png)
 
 - 时间格式分12小时和24小时，点击右侧开关立即生效
 
 - 更改时区：如图所示，根据个人需求进行选择
 
-![图 37 时区-big](image/datetime-zone.png)
+![图 53 时区-big](image/datetime-zone.png)
 
 ### 区域语言
 主界面如图所示:
 
-![图 38 区域语言-big](image/area.png)
+![图 54 区域语言-big](image/area.png)
 
 - 更改数据格式：自定义日历、一周第一天、日期、时间
 
-![图 39 更改格式数据](image/area-format.png)
+![图 55 更改格式数据](image/area-format.png)
 
 - 首选语言：系统窗口、菜单及网页的显示语言，首选推荐语言为简体中文
 
@@ -397,14 +445,14 @@ Tips：系统至少需要存在一个管理员用户。
 ### 安全中心
 提供了安全中心的入口(若系统未集成对应功能，则对应功能不显示，一切以实际为准)。
 
-![图 40 安全中心-big](image/security.png)
+![图 56 安全中心-big](image/security.png)
 
 ### 备 份
 - 开始备份：将文件备份到其他驱动器
 
 - 开始还原：查看备份列表，并选择还原点进行恢复
 
-![图 41 备份和还原-big](image/backup.png)
+![图 57 备份和还原-big](image/backup.png)
 
 ### 更 新
 
@@ -418,13 +466,13 @@ Tips：系统至少需要存在一个管理员用户。
 - 更新设置：设置是否允许推送可更新的应用以及是否在全部更新之前自动备份。
 <br>
 
-![图 42 系统更新-big](image/update.png)
+![图 58 系统更新-big](image/update.png)
 <br>
 
 更新完成后，可在更新历史中查看更新情况。
 
 
-![图 43 历史更新-big](image/historylog.png)
+![图 59 历史更新-big](image/historylog.png)
 
 #### 后台更新
 
@@ -433,13 +481,13 @@ Tips：系统至少需要存在一个管理员用户。
 
 - 当有重要更新时，会在后台静默更新，在升级前后用户都会收到通知信息。
 
-![图 44 后台更新-big](image/notiffirst.png)
+![图 60 后台更新-big](image/notiffirst.png)
 
-![图 45 后台更新-big](image/notiend.png)
+![图 61 后台更新-big](image/notiend.png)
 
 - 当有可用更新时，弹出选择界面供用户选择。
 
-![图 47 后台更新-big](image/choicewidget.png)
+![图 62 后台更新-big](image/choicewidget.png)
 
 - 当用户选择立即更新后，会弹出设置>更新界面，进行检查更新
 
@@ -451,21 +499,21 @@ Tips：系统至少需要存在一个管理员用户。
 ### 通 知
 如图所示：
 
-![图 48 通知-big](image/notice.png)
+![图 63 通知-big](image/notice.png)
 
 
 
 ### 搜 索
 
 通过设置提高搜索效率。
-![图 49 搜索-big](image/search.png)
+![图 64 搜索-big](image/search.png)
 
 
 
 ### 关 于
 
 显示本机系统的版本、设备规格、授权激活信息。
-![图 50 通知-big](image/about.png)
+![图 65 通知-big](image/about.png)
 <br>
 
 ## 常见问题
