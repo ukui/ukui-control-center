@@ -213,6 +213,8 @@ private:
     QWidget * pluginWidget;
     HoverWidget *addWgt;
 
+    QGSettings * pSetting;
+
     //增加生物密码
     HoverWidget *addBioFeatureWidget;
     BiometricProxy      *proxy;
@@ -270,6 +272,8 @@ private:
     bool getNoPwdStatus();
     bool isOpenAutoLogin(const QString &userName);
     void initUserPropertyConnection(const QStringList &objPath);
+
+    bool QLabelSetText(QLabel *label, QString string);
 
 private slots:
     void delete_user_slot(bool removefile, QString username);
