@@ -101,6 +101,7 @@ private:
     QString           m_searchKeyWords;
     QVariantMap       m_ModuleMap;
     QGSettings       *m_fontSetting;
+    bool is_ExitBluetooth = false;
 
     QHBoxLayout     *titleLayout;
     QScrollArea *scrollArea = nullptr;
@@ -117,7 +118,7 @@ private:
     bool isExitWirelessDevice();
     bool dblOnEdge(QMouseEvent *event);
     void initStyleSheet();
-    void changeSearchSlot();   
+    void changeSearchSlot();
     void showGuide(QString pluName);
 
 public slots:

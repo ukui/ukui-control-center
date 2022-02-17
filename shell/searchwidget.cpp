@@ -46,6 +46,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     this->setCompleter(m_completer);
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
+    bool is_ExitBluetooth = MainWindow::isExitBluetooth();
 
     connect(this, &QLineEdit::textEdited, this, [ = ] {
         if (text() != "") {
@@ -236,7 +237,7 @@ void SearchWidget::loadxml() {
                         }
 
                         if ((!g_file_test("/usr/sbin/ksc-defender", G_FILE_TEST_EXISTS) && m_searchBoxStruct.fullPagePath.contains("securitycenter",Qt::CaseInsensitive))
-                                || (!MainWindow::isExitBluetooth() && m_searchBoxStruct.fullPagePath.contains("bluetooth",Qt::CaseInsensitive))
+                                || (!is_ExitBluetooth && m_searchBoxStruct.fullPagePath.contains("bluetooth",Qt::CaseInsensitive))
                                 || (!Utils::isCommunity() && m_searchBoxStruct.fullPagePath.contains("update")) ) {
                             break;
                         }

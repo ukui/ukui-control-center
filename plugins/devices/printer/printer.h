@@ -33,7 +33,6 @@
 #include <ukcc/widgets/titlelabel.h>
 #include <ukcc/widgets/fixlabel.h>
 #include <ukcc/widgets/addbtn.h>
-#include <QtConcurrent>
 
 namespace Ui {
 class Printer;

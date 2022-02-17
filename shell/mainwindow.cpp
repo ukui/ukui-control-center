@@ -86,6 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     mate_mixer_init();
     qApp->installEventFilter(this);
+    is_ExitBluetooth = isExitBluetooth();
     initUI();
 }
 
@@ -224,7 +225,7 @@ void MainWindow::initUI() {
                     QFont fontTitle;
                     fontTitle.setPixelSize(font.pointSize() * 18 / 11);
                     fontTitle.setWeight(QFont::Medium);
-                    widget->setFont(fontTitle); 
+                    widget->setFont(fontTitle);
                 } else {
                     font.setWeight(QFont::Normal);
                     widget->setFont(font);
@@ -355,7 +356,7 @@ void MainWindow::initTileBar() {
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setStyleSheet("background-color:palette(windowtext)");
     m_searchWidget->setFocusPolicy(Qt::ClickFocus);
-    
+
     m_queryWid = new QWidget;
     m_queryWid->setParent(m_searchWidget);
     m_queryWid->setFocusPolicy(Qt::NoFocus);
@@ -369,7 +370,7 @@ void MainWindow::initTileBar() {
     QIcon searchIcon = QIcon::fromTheme("edit-find-symbolic");
     m_queryIcon = new QLabel(this);
     m_queryIcon->setPixmap(searchIcon.pixmap(searchIcon.actualSize(QSize(16, 16))));
-    m_queryIcon->setProperty("useIconHighlightEffect",0x10);
+    m_queryIcon->setProperty("useIconHighlightEffect",0x02);
 
     m_queryText = new QLabel(this);
     m_queryText->setText(tr("Search"));
@@ -530,7 +531,7 @@ void MainWindow::loadPlugins(){
 #endif
         qDebug() << "Scan Plugin: " << fileName;
         if (!fileName.endsWith(".so")
-                || ("libukcc-bluetooth.so" == fileName && !isExitBluetooth())
+                || ("libukcc-bluetooth.so" == fileName && !is_ExitBluetooth)
                 ) {
             continue;
         }
@@ -822,6 +823,7 @@ bool MainWindow::isExitsPower()
     delete process;
     QString mOutput = QString(ba.data());
 
+    qDebug()<<"-----------------";
     return mOutput.contains("ii", Qt::CaseSensitive) ? true : false;
 }
 
@@ -925,7 +927,7 @@ bool MainWindow::isExitBluetooth() {
 //    } else
 //        isAddress = false;
 
-    qDebug() << Q_FUNC_INFO << "========================================" << isDevice << __LINE__;
+//    qDebug() << Q_FUNC_INFO << "========================================" << isDevice << __LINE__;
     return isDevice && isAddress;
 }
 
