@@ -24,8 +24,11 @@
 
 #include <QDebug>
 #include <QMouseEvent>
+#include <QThread>
+#include "usbthread.h"
 
 #define ITEMFIXEDHEIGH 58
+#define UEVENT_BUFFER_SIZE 2048
 
 Printer::Printer() : mFirstLoad(true)
 {
@@ -36,7 +39,6 @@ Printer::Printer() : mFirstLoad(true)
 Printer::~Printer()
 {
     if (!mFirstLoad) {
-
     }
 }
 
@@ -57,18 +59,18 @@ QWidget *Printer::pluginUi()
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
 
-//        //~ contents_path /Printer/Add Printers And Scanners
-//        ui->titleLabel->setText(tr("Add Printers And Scanners"));
-
         initUi(pluginWidget);
 
         refreshPrinterDevSlot();
-        mTimer = new QTimer(this);
-        connect(mTimer, &QTimer::timeout, this, [=] {
-            refreshPrinterDevSlot();
-        });
 
-        mTimer->start(1000);
+        // 开辟线程监听usb插拔
+        QThread *mThread = new QThread;
+        UsbThread *UsbWorker = new UsbThread;
+        UsbWorker->moveToThread(mThread);
+        connect(mThread, &QThread::started, UsbWorker, &UsbThread::run);
+        connect(UsbWorker,&UsbThread::keychangedsignal,this,&Printer::refreshPrinterDevSlot);
+        connect(mThread, &QThread::finished, UsbWorker, &UsbThread::deleteLater);
+         mThread->start();
     }
     return pluginWidget;
 }

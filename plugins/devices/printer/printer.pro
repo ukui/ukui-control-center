@@ -12,6 +12,7 @@ TEMPLATE = lib
 CONFIG += plugin \
           link_pkgconfig
 
+
 PKGCONFIG += gsettings-qt
 TARGET = $$qtLibraryTarget(printer)
 DESTDIR = ../..
@@ -23,10 +24,12 @@ INCLUDEPATH += \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-        printer.cpp
+        printer.cpp \
+        usbthread.cpp
 
 HEADERS += \
-        printer.h
+        printer.h \
+        usbthread.h
 
 FORMS +=
 

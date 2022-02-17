@@ -67,7 +67,7 @@ QString Utils::getCpuInfo() {
     delete process;
 
     QString cpuinfo = QString(ba.data());
-    cpuinfo = cpuinfo.remove(QRegExp("\\s"));
+    cpuinfo = cpuinfo.replace(QRegExp("[\\s]+"), " "); //把所有的多余的空格(换行符)转为一个空格
     QStringList list = cpuinfo.split(":");
     cpuType = list.at(1);
 
