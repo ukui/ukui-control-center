@@ -43,6 +43,7 @@
 #include "bluetoothnamelabel.h"
 #include "devicebase.h"
 #include "config.h"
+#include "mycombobox.h"
 
 class BlueToothMain : public QMainWindow
 {
@@ -144,7 +145,7 @@ private:
     QVBoxLayout         * paired_dev_layout = nullptr;
     QVBoxLayout         * main_layout = nullptr;
     QFrame              * frame_2 = nullptr;
-    QComboBox           * cacheDevTypeList = nullptr;
+    myComboBox          * cacheDevTypeList = nullptr;
     QLabel              * label_2 = nullptr;
     QLabel              * loadLabel = nullptr;
 

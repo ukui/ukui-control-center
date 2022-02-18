@@ -239,9 +239,12 @@ void IntelDeviceInfoItem::setDeviceConnectSignals()
 
                 qDebug () << Q_FUNC_INFO << "error:" << errorId << errorText << __LINE__;
                 //BlueToothMain::m_device_pin_flag = false;
-                _DevStatus = DEVSTATUS::ConnectFailed;
-                update();
-                TimedRestoreConnectionErrorDisplay();
+                if (!_MDev->isConnected())
+                {
+                    _DevStatus = DEVSTATUS::ConnectFailed;
+                    update();
+                    TimedRestoreConnectionErrorDisplay();
+                }
             }
         });
     }
@@ -853,6 +856,7 @@ void IntelDeviceInfoItem::DrawFuncBtn(QPainter &painter)
 *************************************************/
 void IntelDeviceInfoItem::MouseClickedFunc()
 {
+    qDebug() << Q_FUNC_INFO << this->parent()->objectName() << __LINE__ ;
     _clicked = true;
     _pressFlag = false;
 

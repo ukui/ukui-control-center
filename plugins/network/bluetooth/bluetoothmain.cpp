@@ -4,6 +4,7 @@
 #include "devicebase.h"
 #include "ImageUtil/imageutil.h"
 
+
 #include <QDBusObjectPath>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusAbstractAdaptor>
@@ -723,7 +724,7 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(bluetoothdevice * device)
     IntelDeviceInfoItem * item  = frame_middle->findChild<IntelDeviceInfoItem *>(device->getDevAddress());
     if (item)
     {
-        qDebug () << Q_FUNC_INFO << "device is exist" << __LINE__;
+        qDebug () << Q_FUNC_INFO << "device is paired!" << __LINE__;
         return;
     }
 
@@ -1189,6 +1190,7 @@ void BlueToothMain::receiveConnectsignal(QString address)
 void BlueToothMain::receiveDisConnectSignal(QString address)
 {
     qDebug() << Q_FUNC_INFO << __LINE__;
+    cacheDevTypeList->setEnabled(false);
     QDBusMessage m = QDBusMessage::createMethodCall(SERVICE,
                                                     PATH,
                                                     INTERFACE,
@@ -1566,7 +1568,7 @@ void BlueToothMain::initMainWindowbottomUI()
     title_layout->addWidget(loadLabel);
     title_layout->addStretch();
 
-    cacheDevTypeList = new QComboBox(frame_bottom);
+    cacheDevTypeList = new myComboBox(frame_bottom);
     cacheDevTypeList->clear();
     cacheDevTypeList->setMinimumWidth(120);
     QStringList devStrList;
@@ -1938,7 +1940,7 @@ void BlueToothMain::changeListOfDiscoveredDevices(int index)
         child = nullptr;
     }
 
-    device_list->setVisible(false);
+    //device_list->setVisible(false);
 
     addDiscoverDevListByFlag(discoverDevFlag);
 }
