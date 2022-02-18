@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>icon-bluetooth/ukui-bluetooth-send-file.svg</file>
+        <file>icon-bluetooth/ukui-bluetooth-send-file-selected.svg</file>
+        <file>icon-bluetooth/ukui-bluetooth-delete-selected.svg</file>
+        <file>icon-bluetooth/ukui-bluetooth-send-file.png</file>
+        <file>icon-bluetooth/ukui-bluetooth-delete.png</file>
+        <file>icon-bluetooth/ukui-bluetooth-warning.svg</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>
