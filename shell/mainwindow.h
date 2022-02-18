@@ -69,6 +69,7 @@ protected:
 private:
     Ui::MainWindow *ui;
     QDBusReply<bool> is_tabletmode;
+    QDBusInterface *m_statusSessionDbus;
 
 private:
     BorderShadowEffect *m_effect;
