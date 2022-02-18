@@ -294,16 +294,18 @@ void UkmediaMainWidget::dealSlot()
 
         QString percent = QString::number(paVolumeToValue(value));
         float balanceVolume = m_pVolumeControl->getBalanceVolume();
+        if (!pressOutputListWidget) {
 
-        m_pOutputWidget->m_pOpVolumePercentLabel->setText(percent+"%");
-        m_pOutputWidget->m_pOpVolumeSlider->blockSignals(true);
-        m_pOutputWidget->m_pOpBalanceSlider->blockSignals(true);
-        m_pOutputWidget->m_pOpBalanceSlider->setValue(balanceVolume*100);
-        m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(value));
+            m_pOutputWidget->m_pOpVolumePercentLabel->setText(percent+"%");
+            m_pOutputWidget->m_pOpVolumeSlider->blockSignals(true);
+            m_pOutputWidget->m_pOpBalanceSlider->blockSignals(true);
+            m_pOutputWidget->m_pOpBalanceSlider->setValue(balanceVolume*100);
+            m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(value));
+            m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
+            m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
+            themeChangeIcons();
+        }
 
-        m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
-        m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
-        themeChangeIcons();
 //        initListWidgetItem();
     });
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
@@ -364,6 +366,7 @@ void UkmediaMainWidget::initListWidgetItem()
 {
     QString outputCardName = findCardName(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->cardMap);
     QString outputPortLabel = findOutputPortLabel(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->sinkPortName);
+
     findOutputListWidgetItem(outputCardName,outputPortLabel);
 
     int vol = m_pVolumeControl->getSinkVolume();
@@ -371,7 +374,6 @@ void UkmediaMainWidget::initListWidgetItem()
     m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(vol));
     m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
     m_pOutputWidget->m_pOpVolumePercentLabel->setText(QString::number(paVolumeToValue(vol))+"%");
-
 
     qDebug() <<"initListWidgetItem" << m_pVolumeControl->defaultOutputCard << outputCardName <<m_pVolumeControl->sinkPortName << outputPortLabel << m_pVolumeControl->defaultSourceName;
 
@@ -1745,8 +1747,10 @@ void UkmediaMainWidget::updateDevicePort()
 void UkmediaMainWidget::updateListWidgetItemSlot()
 {
     qDebug() << "updateListWidgetItemSlot---------";
-
-    initListWidgetItem();
+    if (!pressOutputListWidget)
+        initListWidgetItem();
+    else
+        pressOutputListWidget = false;
 }
 
 /*
@@ -1830,6 +1834,7 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
                 if (strstr(endOutputProfile.toLatin1().data(),"headset_head_unit"))
                     endOutputProfile = "a2dp_sink";
                 profileName = findHighPriorityProfile(index,endOutputProfile);
+                break;
             }
             ++it;
         }
@@ -2687,14 +2692,16 @@ QString UkmediaMainWidget::findHighPriorityProfile(int index,QString profile)
         if (it.key() == index) {
             profileNameMap = it.value();
             for (tempMap=profileNameMap.begin();tempMap!=profileNameMap.end();) {
-                if (includeProfile != "" && tempMap.key().contains(includeProfile) && tempMap.key().contains(profile)) {
+                if (includeProfile != "" && tempMap.key().contains(includeProfile)  && !tempMap.key().contains(includeProfile+"-") \
+                        && tempMap.key().contains(profile) && !tempMap.key().contains(profile+"-")) {
                     priority = tempMap.value();
                     profileName = tempMap.key();
+                    qDebug() << "findHighPriorityProfile" << includeProfile <<tempMap.key() << profile << profileNameMap.count();
                 }
-                else if ( tempMap.key() == profile && tempMap.value() > priority) {
+                else if ( tempMap.key().contains(profile) && tempMap.value() > priority) {
                     priority = tempMap.value();
-                    qDebug() << "findHighPriorityProfile-----" << includeProfile <<tempMap.key() << profile;
                     profileName = tempMap.key();
+                    qDebug() << "findHighPriorityProfile" << includeProfile <<tempMap.key() << profile << profileNameMap.count();
                 }
                 ++tempMap;
             }
@@ -2703,6 +2710,7 @@ QString UkmediaMainWidget::findHighPriorityProfile(int index,QString profile)
     }
     qDebug() << "profile str----------" <<profileStr <<profileName << profile << includeProfile;
     return profileName;
+
 }
 
 void UkmediaMainWidget::findOutputListWidgetItem(QString cardName,QString portLabel)
@@ -2712,13 +2720,14 @@ void UkmediaMainWidget::findOutputListWidgetItem(QString cardName,QString portLa
 
         QListWidgetItem *item = m_pOutputWidget->m_pOutputListWidget->item(row);
         UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pOutputWidget->m_pOutputListWidget->itemWidget(item);
-        qDebug() << "findOutputListWidgetItem" << "card name:" << cardName << wid->deviceLabel->text() << "portLabel" << portLabel << wid->portLabel->text();
-        if (wid->deviceLabel->text() == cardName && wid->portLabel->text() == portLabel) {
+        if (wid->deviceLabel->text() == cardName && wid->portLabel->text() == portLabel /*&& !wid->isPressed*/) {
+            qDebug() << "findOutputListWidgetItem" << "card name:" << cardName << wid->deviceLabel->text() << "portLabel" << portLabel << wid->portLabel->text();
             m_pOutputWidget->m_pOutputListWidget->blockSignals(true);
             m_pOutputWidget->m_pOutputListWidget->setCurrentRow(row);
             m_pOutputWidget->m_pOutputListWidget->blockSignals(false);
             break;
         }
+
     }
 }
 
