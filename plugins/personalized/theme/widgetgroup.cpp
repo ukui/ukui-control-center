@@ -41,6 +41,11 @@ void WidgetGroup::addWidget(ThemeWidget *widget, int id){
         _curWidget = widget;
         emit widgetChanged(_preWidget, _curWidget);
     });
+    connect(widget,&ThemeWidget::clicked,[=]{
+        _preWidget = _curWidget;
+        _curWidget = widget;
+        emit widgetChanged(_preWidget, _curWidget);
+    });
 
 }
 
