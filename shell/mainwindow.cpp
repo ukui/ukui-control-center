@@ -87,6 +87,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mate_mixer_init();
     qApp->installEventFilter(this);
     is_ExitBluetooth = isExitBluetooth();
+    is_ExitPower = isExitsPower();
     initUI();
 }
 
@@ -531,7 +532,7 @@ void MainWindow::loadPlugins(){
 #endif
         qDebug() << "Scan Plugin: " << fileName;
         if (!fileName.endsWith(".so")
-                || ("libukcc-bluetooth.so" == fileName && !is_ExitBluetooth)
+                || ("libukcc-bluetooth.so" == fileName && !is_ExitBluetooth) || ("libpower.so" == fileName && !is_ExitPower)
                 ) {
             continue;
         }
@@ -823,7 +824,6 @@ bool MainWindow::isExitsPower()
     delete process;
     QString mOutput = QString(ba.data());
 
-    qDebug()<<"-----------------";
     return mOutput.contains("ii", Qt::CaseSensitive) ? true : false;
 }
 
