@@ -98,9 +98,9 @@ void LeftWidgetItem::setLabelText(QString text) {
 
 void LeftWidgetItem::setLabelTextIsWhite(bool selected) {
     if(selected) {
-        textLabel->setStyleSheet("color: palette(highlighted-text);");
+        textLabel->setStyleSheet("QLabel{color: palette(highlighted-text);}");
     } else {
-        textLabel->setStyleSheet("color: palette(windowText);");
+        textLabel->setStyleSheet("QLabel{color: palette(windowText);}");
     }
 }
 
