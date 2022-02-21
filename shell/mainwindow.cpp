@@ -154,7 +154,7 @@ void MainWindow::initConnection() {
         }
     });
     //监听平板模式切换
-    QDBusInterface *m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+    m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
                                               "/",
                                               "com.kylin.statusmanager.interface",
                                               QDBusConnection::sessionBus(),this);
@@ -451,6 +451,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
                 maxBtn->setToolTip(tr("Maximize"));
             }
         } else if (event->type() == QEvent::MouseButtonDblClick) {
+            is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
             if (!is_tabletmode) {
                 bool res = dblOnEdge(dynamic_cast<QMouseEvent*>(event));
                 if (res) {
