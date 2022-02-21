@@ -1,0 +1,160 @@
+#ifndef APPUPDATE_H
+#define APPUPDATE_H
+
+#include <QPushButton>
+#include <QWidget>
+#include <QLabel>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QDateTime>
+#include <QTextEdit>
+#include <QToolTip>
+#include "utils.h"
+#include "updatelog.h"
+#include "updatedeleteprompt.h"
+#include <QMetaType>
+#include <QTimer>
+#include "updatedbus.h"
+#include <QCheckBox>
+#include "mylabel.h"
+
+//#include <ukcc/widgets/lightlabel.h>
+#include "Label/fixlabel.h"
+
+class UpdateLog;
+//class UpdateDbus;
+class AppUpdateWid : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit AppUpdateWid(AppAllMsg msg, QWidget *parent = nullptr);
+    ~AppUpdateWid();
+
+    QFrame *AppFrame;
+    UpdateLog *updatelog1;
+    UpdateDbus *m_updateMutual;
+    //缩略界面
+    FixLabel *appIcon;
+    QLabel *appIconName;
+    MyLabel *appNameLab;
+    FixLabel *appVersion;
+    QLabel *appVersionIcon;
+
+    QLabel *progressLab;  //进度
+    QLabel *otherBtnLab;
+    QLabel *versionLab;
+    QPushButton *detaileInfo;
+    QPushButton *updateAPPBtn;
+    QWidget *appTitleWid;
+    QHBoxLayout *iconNameLayout;
+    QHBoxLayout *smallHLayout;
+    QVBoxLayout *largeVLayout;
+    QHBoxLayout *versionlabLayout;
+    QHBoxLayout *otherBtnLayout;
+    QWidget *largeWidget;
+    QVBoxLayout *mainVLayout;
+    //展开界面
+    QTextEdit *someInfoEdit;  //详情内容
+    QPushButton *updatelogBtn;
+//    AppMsg *thisAppMessage;
+    QString chlog;  //更新日志完整内容
+    QString description;  //更新包描述
+    bool eventFilter(QObject *watched, QEvent *event); //过滤tooltip事件
+    QString setDefaultDescription(QString str); //将虚包包名汉化
+    void updateOneApp(bool status);  //控制更新单个app
+    void oneappshowDependSlovePtompt(QStringList pkgname,QStringList description,QStringList deletereason);
+    QString dispalyName;
+    QString modifySizeUnit(long long size);
+    QString modifySpeedUnit(long size, float time);
+    void distUpgradePartial(bool status);
+    void updateaccept();
+    void updatecancel();
+private:
+    bool isCancel = false;
+    bool Cancelfail = false;
+    bool firstDownload = true;
+    long downSize = 0;
+    long preDownSize = 0;
+    long priorSize = 0;
+    int connectTimes = 0;
+    bool downloadFinish = false;
+    bool stopTimer = false;
+    UrlMsg urlmsg;
+    QString path;
+    QString currentPackage;
+    QStringList downloadList;
+    QStringList downloadPackages;
+    AppAllMsg appAllMsg;
+    QProcess *downloadProcess;
+    QProcess *workProcess;
+    QTimer *timer;
+    QString downloadPath;
+//    UpdateDbus *m_updateMutual;
+
+    updatedeleteprompt *oneappdependsloveptompt;
+
+    bool execFun = true;
+
+public:
+    bool isUpdateAll = false;
+    bool isAutoUpgrade = false;
+    bool haveThemeIcon = false;
+    bool downloadstart = false;
+
+public slots:
+    void showDetails();
+    void showUpdateLog();
+    void cancelOrUpdate();
+
+    void showInstallStatues(QStringList appAptName,int progress,QString status,QString detailinfo);
+    void showDownloadStatues(QStringList pkgname,int currentserial,int total,uint downloadedsize,uint totalsize,int speed);
+    void showInstallFinsih(bool state,QStringList pkgname,QString error,QString reason);
+    void OneAppDependResloveResult(bool,bool,QStringList,QStringList,QStringList,QString,QString);
+
+//    void slotDownloadPackages();
+//    void calculateSpeedProgress(); //计算下载速度和进度
+//    void startInstall(QString appName);
+//    void updateAllApp();
+
+    void showUpdateBtn();
+    void hideOrShowUpdateBtnSlot(int result);  //显示或隐藏更新按钮  备份过程中
+private:
+//    void wgetDownload(UrlMsg msg, QString path); //断点续传下载
+//    bool getDownloadSpeed(QString appName, QString fullName, int fileSize); //获取下载速度
+    void initConnect(); //初始化信号槽
+//    void changeDownloadState(int state);
+    type checkSourcesType();
+    QStringList analysis_config_file(char *p_file_path);
+    void remove_last_enter(char *p_src_in_out);
+//    void enableupdateAPPBtn(bool enabled);//取消按钮是否置灰
+
+    QMap<QString, QString> getNameAndIconFromJson(QString pkgname);
+
+    enum Environment{
+        en,
+        zh_cn
+    }environment;
+
+signals:
+    void startWork(QString appName);
+    void startMove(QStringList list, QString appName);
+    void oneappUpdateResultSignal(bool state,QStringList pkgname,QString error,QString reason);
+    void changeUpdateAllSignal(bool isUpdate);
+    void downloadFailedSignal(int exitCode);  //网络异常或者其他情况下下载失败时
+    void filelockedSignal();
+    void appupdateiscancel();
+    void sendProgress(QString pkgName, int Progress, QString type);
+    void changeupdateall();
+    void allappupdatefinishsignal();
+    void startoneappupdate();
+
+
+//    void aptFinish();
+private:
+    void updateAppUi(QString name);
+    QString translationVirtualPackage(QString str);
+    QString pkgIconPath = "";
+    bool get_battery();
+};
+
+#endif // APPUPDATE_H

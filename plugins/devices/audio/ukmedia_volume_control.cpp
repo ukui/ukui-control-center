@@ -557,7 +557,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         if (info.active_port) {
             if (strcmp(sinkPortName.toLatin1().data(),info.active_port->name) != 0) {
                 sinkPortName = info.active_port->name;
-                QTimer::singleShot(100, this, SLOT(timeoutSlot()));
+                QTimer::singleShot(50, this, SLOT(timeoutSlot()));
             }
             else
                 sinkPortName = info.active_port->name;
@@ -703,7 +703,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         if (info.active_port) {
             if (strcmp(sourcePortName.toLatin1().data(),info.active_port->name) != 0) {
                 sourcePortName = info.active_port->name;
-                QTimer::singleShot(100, this, SLOT(timeoutSlot()));
+                QTimer::singleShot(50, this, SLOT(timeoutSlot()));
             }
 	    else
             sourcePortName = info.active_port->name;
@@ -1333,7 +1333,7 @@ void UkmediaVolumeControl::serverInfoCb(pa_context *, const pa_server_info *i, v
     }
     w->updateServer(*i);
     qDebug() << "serverInfoCb" << i->user_name << i->default_sink_name << w->sinkVolume << i->default_source_name;
-    QTimer::singleShot(100, w, [=](){
+    QTimer::singleShot(50, w, [=](){
         qDebug() << "deviceChangedSignal" << w->defaultSinkName <<w->defaultSourceName;
         Q_EMIT w->deviceChangedSignal();
     });

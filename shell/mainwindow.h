@@ -105,6 +105,8 @@ private:
     QHBoxLayout     *titleLayout;
 
     bool mIsNmIcbc;
+    bool mIsUpgradeIcbc = false;
+    bool mIsUpgradesp1 = false;
 
 private:
     void initUI();
@@ -120,6 +122,8 @@ private:
     void initStyleSheet();
     void changeSearchSlot();
     void initNMIcbc();
+
+    QString mIsUpgrade();
 
      void showGuide(QString pluName);
 
