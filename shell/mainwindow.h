@@ -102,6 +102,7 @@ private:
     QVariantMap       m_ModuleMap;
     QGSettings       *m_fontSetting;
     bool is_ExitBluetooth = false;
+    bool is_ExitPower = false;
 
     QHBoxLayout     *titleLayout;
     QScrollArea *scrollArea = nullptr;

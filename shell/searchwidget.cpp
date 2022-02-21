@@ -46,7 +46,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     this->setCompleter(m_completer);
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
-    bool is_ExitBluetooth = MainWindow::isExitBluetooth();
+    is_ExitBluetooth = MainWindow::isExitBluetooth();
 
     connect(this, &QLineEdit::textEdited, this, [ = ] {
         if (text() != "") {
