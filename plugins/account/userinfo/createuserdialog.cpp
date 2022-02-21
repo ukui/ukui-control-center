@@ -428,7 +428,7 @@ void CreateUserDialog::nameLegalityCheck(QString username){
 
     if (username.isEmpty())
         nameTip = tr("The user name cannot be empty");
-    else if (username.startsWith("-")){
+    else if (username.startsWith("-") || (!mOutput.contains("xc") && username.left(1).contains((QRegExp("[0-9]"))))){
         nameTip = tr("Must be begin with lower letters!");
     }
     else if (!mOutput.contains("xc") && username.contains(QRegExp("[A-Z]"))){
