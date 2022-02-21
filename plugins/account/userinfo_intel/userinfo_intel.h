@@ -214,7 +214,7 @@ private:
     bool enter = false;
 
     PictureToWhite *m_pPictureToWhite;
-
+    QString m_userName = "";
 
 private:
     bool getAutomaticLogin(QString username);
