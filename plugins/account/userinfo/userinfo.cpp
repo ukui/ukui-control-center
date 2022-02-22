@@ -45,7 +45,7 @@
 #include "elipsemaskwidget.h"
 #include "passwdcheckutil.h"
 #include "loginedusers.h"
-
+#include "../../../shell/utils/utils.h"
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -62,8 +62,9 @@ extern "C" {
 #include <kysec/libkysec.h>
 #include <kysec/status.h>
 #endif
-
-#define DEFAULTFACE "/usr/share/ukui/faces/default.png"
+#define DEFAULTFACECOMMUNITY "/usr/share/ukui/faces/01-default-community.png"
+#define DEFAULTFACECOMMERCIAL "/usr/share/ukui/faces/01-default-commercial.png"
+#define DEFAULTFACE (Utils::isCommunity())?DEFAULTFACECOMMUNITY:DEFAULTFACECOMMERCIAL
 #define ITEMHEIGH 60
 
 UserInfo::UserInfo() : mFirstLoad(true)
@@ -783,22 +784,26 @@ void UserInfo::setUserConnect(){
     connect(nopwdLoginSBtn, &SwitchButton::checkedChanged, [=](bool checked){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-        bool result = authoriyLogin();
-        if (result == true) {
-            QDBusInterface piface("com.control.center.qt.systemdbus",
-                                  "/",
-                                  "com.control.center.interface",
-                                  QDBusConnection::systemBus());
-
-            if (piface.isValid()){
-                piface.call("setNoPwdLoginStatus", checked, user.username);
-            } else {
-                qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
-            }
-        } else {
+        QDBusInterface piface("com.control.center.qt.systemdbus",
+                              "/",
+                              "com.control.center.interface",
+                              QDBusConnection::systemBus());
+        if (!piface.isValid()){
             nopwdLoginSBtn->blockSignals(true);
             nopwdLoginSBtn->setChecked(!checked);
             nopwdLoginSBtn->blockSignals(false);
+            qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+            return;
+        }
+
+        QDBusReply<int> reply = piface.call("setPid", QCoreApplication::applicationPid());
+        if (reply.isValid()){
+            QDBusReply<int> ret = piface.call("setNoPwdLoginStatus", checked, user.username);
+            if (ret == 0) {
+                nopwdLoginSBtn->blockSignals(true);
+                nopwdLoginSBtn->setChecked(!checked);
+                nopwdLoginSBtn->blockSignals(false);
+            }
         }
     });
 

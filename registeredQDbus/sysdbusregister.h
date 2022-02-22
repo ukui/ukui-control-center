@@ -51,6 +51,7 @@ public:
 public:
     bool checkCreateAuthorization();
     bool checkAuthorization();
+    bool authoriyLogin();
 
 private:
     QString mHibernateFile;
@@ -62,6 +63,7 @@ private:
     qint64 _id;
 
 private:
+    bool isSudoGroupNumber(QString uname);
     int _changeOtherUserPasswd(QString username, QString pwd);
     void _getDisplayInfoThread();
     // 通过I2C调节外接台式屏幕亮度
@@ -82,7 +84,7 @@ public slots:
     Q_SCRIPTABLE int setPid(qint64 id);
 
     // 设置免密登录状态
-    Q_SCRIPTABLE void setNoPwdLoginStatus(bool status,QString username);
+    Q_SCRIPTABLE int setNoPwdLoginStatus(bool status,QString username);
 
     // 获取免密登录状态
     Q_SCRIPTABLE QString getNoPwdLoginStatus();
