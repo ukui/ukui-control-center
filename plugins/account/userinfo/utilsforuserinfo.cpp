@@ -20,7 +20,7 @@ UtilsForUserinfo::UtilsForUserinfo(QObject *parent) : QObject(parent)
     logoBtn->setIconSize(QSize(48, 48));
 
     nickNameLabel = new QLabel();
-    nickNameLabel->setFixedHeight(25);
+    nickNameLabel->setFixedHeight(26);
 
     typeLabel = new QLabel();
     typeLabel->setFixedHeight(20);

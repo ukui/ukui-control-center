@@ -709,15 +709,15 @@ bool UserInfo::setTextDynamic(QLabel *label, QString string){
 
     bool isOverLength = false;
     QFontMetrics fontMetrics(label->font());
-    int labelValueSize = 80;
+    int labelValueSize = 150;
     int fontSize = fontMetrics.width(string);
     QString str = string;
+    qDebug() << "fontSize:" << fontSize << ";labelValueSize:" << labelValueSize;
     if (fontSize > labelValueSize) {
         str = fontMetrics.elidedText(string, Qt::ElideRight, labelValueSize);
         isOverLength = true;
     } else {
-        str = fontMetrics.elidedText(string, Qt::ElideRight, fontSize+5);
-        label->setFixedWidth(fontSize+5);
+
     }
     label->setText(str);
     return isOverLength;
