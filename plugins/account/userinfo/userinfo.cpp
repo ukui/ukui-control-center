@@ -431,6 +431,19 @@ void UserInfo::initComponent(){
         ui->noPwdLoginFrame->setVisible(false);
     }
 
+    // 大连商品交易所，需要隐藏免密登录及自动登录
+    QProcess *process = new QProcess;
+    process->start("grep -r 大连商品交易所 /etc/.kyinfo");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
+    if (mOutput.contains("大连商品交易所")) {
+        ui->autoLoginFrame->setVisible(false);
+        ui->noPwdLoginFrame->setVisible(false);
+    }
+
 #ifdef WITHKYSEC
     if (!kysec_is_disabled() && kysec_get_3adm_status() && (getuid() || geteuid())){
         ui->addUserWidget->hide();
