@@ -194,7 +194,7 @@ void QMLScreen::setScreenCenterPos()
     qreal moveX = 0, moveY = 0;// 移动的值
     bool firstFlag = true;
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
-        if (qmlOutput->output()->isConnected()) {
+        if (qmlOutput->output()->isConnected() && qmlOutput->isVisible()) {
             if (firstFlag == true || localX1 > qmlOutput->x()) {
                 localX1 = qmlOutput->x();
             }
@@ -221,10 +221,12 @@ void QMLScreen::setScreenCenterPos()
     moveY = mY2 - mY1;
 
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
-        qmlOutput->blockSignals(true);
-        qmlOutput->setX(qmlOutput->x() + moveX);
-        qmlOutput->setY(qmlOutput->y() + moveY);
-        qmlOutput->blockSignals(false);
+        if (qmlOutput->isVisible()) {
+            qmlOutput->blockSignals(true);
+            qmlOutput->setX(qmlOutput->x() + moveX);
+            qmlOutput->setY(qmlOutput->y() + moveY);
+            qmlOutput->blockSignals(false);
+        }
     }
 }
 
