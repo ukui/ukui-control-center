@@ -370,10 +370,15 @@ void UkmediaMainWidget::initListWidgetItem()
     findOutputListWidgetItem(outputCardName,outputPortLabel);
 
     int vol = m_pVolumeControl->getSinkVolume();
+    float balanceVolume = m_pVolumeControl->getBalanceVolume();
     m_pOutputWidget->m_pOpVolumeSlider->blockSignals(true);
+    m_pOutputWidget->m_pOpBalanceSlider->blockSignals(true);
     m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(vol));
+    m_pOutputWidget->m_pOpBalanceSlider->setValue(balanceVolume*100);
+    m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
     m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
     m_pOutputWidget->m_pOpVolumePercentLabel->setText(QString::number(paVolumeToValue(vol))+"%");
+
 
     qDebug() <<"initListWidgetItem" << m_pVolumeControl->defaultOutputCard << outputCardName <<m_pVolumeControl->sinkPortName << outputPortLabel << m_pVolumeControl->defaultSourceName;
 
