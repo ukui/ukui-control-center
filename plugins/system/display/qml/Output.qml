@@ -158,12 +158,24 @@ QMLOutput {
             //圆角
             radius: 8;
             //是否点击到屏幕
-            color: root.focus? "#3D6BE5" : "#AEACAD";
+            color: {
+                if (root.isCloneMode) {
+                    return "#3D6BE5";
+                } else {
+                    return root.focus? "#3D6BE5" : "#AEACAD";
+                }
+            }
             smooth: true;
             clip: true;
 
             border {
-                color: root.focus ? "#3498DB" : "#AED6F1";
+                color: {
+                    if (root.isCloneMode) {
+                        return "#3498DB";
+                    } else {
+                        return root.focus ? "#3498DB" : "#AED6F1";
+                    }
+                }
                 width: 1;
 
                 Behavior on color {
