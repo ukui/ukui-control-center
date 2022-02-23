@@ -172,28 +172,26 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
         if (event->type() == QEvent::FocusIn) {
             if (m_searchWidget->text().isEmpty()) {
                 m_animation->stop();
-                m_animation->setStartValue(QRect((m_searchWidget->width()-(m_queryIcon->width()+m_queryText->width()+10))/2,0,
-                                                 m_queryIcon->width()+m_queryText->width()+30,(m_searchWidget->height()+32)/2));
-                m_animation->setEndValue(QRect(8, 0, m_queryIcon->width() + 5,(m_searchWidget->height()+32)/2));
+                m_queryWid->layout()->removeWidget(m_queryText);
+                m_animation->setStartValue(m_queryWid->pos());
+                queryWidCenterPos = QPoint(m_queryWid->pos());
+                m_animation->setEndValue(QPoint(8,0));
                 m_animation->setEasingCurve(QEasingCurve::OutQuad);
                 m_animation->start();
-                m_searchWidget->setTextMargins(30, 1, 0, 1);
             }
             m_isSearching = true;
         } else if (event->type() == QEvent::FocusOut) {
             m_searchKeyWords.clear();
             if (m_searchWidget->text().isEmpty()) {
                 if (m_isSearching) {
-                    m_queryText->adjustSize();
-                    m_animation->setStartValue(QRect(0, 0,
-                                                     m_queryIcon->width()+5,(m_searchWidget->height()+36)/2));
-                    m_animation->setEndValue(QRect((m_searchWidget->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
-                                                   m_queryIcon->width()+m_queryText->width()+30,(m_searchWidget->height()+36)/2));
+                    m_animation->setStartValue(m_queryWid->pos());
+                    m_animation->setEndValue(queryWidCenterPos);
                     m_animation->setEasingCurve(QEasingCurve::InQuad);
                     m_animation->start();
+                    m_queryWid->layout()->addWidget(m_queryText);
                 }
             }
-            m_isSearching=false;
+            m_isSearching = false;
         }
     }
     return QObject::eventFilter(watched, event);
@@ -236,9 +234,6 @@ void MainWindow::initUI() {
     });
 
     initTileBar();
-    m_queryWid->setGeometry(QRect((m_searchWidget->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
-                                        m_queryIcon->width()+m_queryText->width()+10,(m_searchWidget->height()+36)/2));
-    m_queryWid->show();
     initStyleSheet();
 
     //初始化功能列表数据
@@ -357,9 +352,13 @@ void MainWindow::initTileBar() {
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setStyleSheet("background-color:palette(windowtext)");
     m_searchWidget->setFocusPolicy(Qt::ClickFocus);
+    m_searchWidget->setTextMargins(30, 1, 0, 1);
+    QHBoxLayout *searchLayout = new QHBoxLayout(m_searchWidget);
+    searchLayout->setMargin(0);
 
     m_queryWid = new QWidget;
-    m_queryWid->setParent(m_searchWidget);
+    searchLayout->addWidget(m_queryWid);
+    searchLayout->setAlignment(m_queryWid, Qt::AlignHCenter);
     m_queryWid->setFocusPolicy(Qt::NoFocus);
 
     QHBoxLayout* queryWidLayout = new QHBoxLayout;
@@ -381,7 +380,7 @@ void MainWindow::initTileBar() {
     queryWidLayout->addWidget(m_queryText);
 
     m_searchWidget->setContextMenuPolicy(Qt::NoContextMenu);
-    m_animation= new QPropertyAnimation(m_queryWid, "geometry", this);
+    m_animation = new QPropertyAnimation(m_queryWid, "pos", this);
     m_animation->setDuration(100);
     titleLayout->addWidget(m_searchWidget,Qt::AlignCenter);
     connect(m_animation,&QPropertyAnimation::finished,this,&MainWindow::animationFinishedSlot);
@@ -435,16 +434,9 @@ void MainWindow::initTileBar() {
 }
 void MainWindow::animationFinishedSlot()
 {
-    if (m_isSearching) {
-        m_queryWid->layout()->removeWidget(m_queryText);
-        m_queryText->setParent(nullptr);
-        m_searchWidget->setTextMargins(30, 1, 0, 1);
-        if(!m_searchKeyWords.isEmpty()) {
-            m_searchWidget->setText(m_searchKeyWords);
-            m_searchKeyWords.clear();
-        }
-    } else {
-        m_queryWid->layout()->addWidget(m_queryText);
+    if (m_isSearching && !m_searchKeyWords.isEmpty()) {
+       m_searchWidget->setText(m_searchKeyWords);
+       m_searchKeyWords.clear();
     }
 }
 

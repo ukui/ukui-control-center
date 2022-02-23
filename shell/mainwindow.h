@@ -106,6 +106,7 @@ private:
 
     QHBoxLayout     *titleLayout;
     QScrollArea *scrollArea = nullptr;
+    QPoint queryWidCenterPos = QPoint(0,0);
 
 private:
     void initUI();
