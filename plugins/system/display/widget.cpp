@@ -426,7 +426,16 @@ void Widget::slotUnifyOutputs()
             setScreenKDS("expand");
         }
         unifySetconfig = true;
-        setConfig(mPrevConfig);
+        // 缩略图位置与win+p保持一致
+        if (!mKDSCfg.isEmpty()) {
+            QTimer::singleShot(1500, this, [=](){
+               setConfig(mConfig);
+            });
+        } else {
+            setConfig(mPrevConfig);
+        }
+
+
 
         ui->primaryCombo->setEnabled(true);
         mCloseScreenButton->setEnabled(true);
@@ -2019,7 +2028,7 @@ QList<ScreenConfig> Widget::getPreScreenCfg()
 void Widget::setPreScreenCfg(KScreen::OutputList screens)
 {
     QMap<int, KScreen::OutputPtr>::iterator nowIt = screens.begin();
-
+    int enableCount = 0;
     QVariantList retlist;
     while (nowIt != screens.end()) {
         ScreenConfig cfg;
@@ -2028,9 +2037,17 @@ void Widget::setPreScreenCfg(KScreen::OutputList screens)
         cfg.screenPosX = nowIt.value()->pos().x();
         cfg.screenPosY = nowIt.value()->pos().y();
 
+        if (nowIt.value()->isEnabled()) {
+            enableCount++;
+        }
+
         QVariant variant = QVariant::fromValue(cfg);
         retlist << variant;
         nowIt++;
+    }
+
+    if (enableCount < 2) {
+        return;
     }
 
     mUkccInterface.get()->call("setPreScreenCfg", retlist);
