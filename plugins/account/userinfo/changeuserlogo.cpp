@@ -16,7 +16,7 @@
 #include <QFileSystemWatcher>
 
 #include <QDebug>
-
+#include "../../../shell/utils/utils.h"
 #ifdef signals
 #undef signals
 #endif
@@ -65,10 +65,14 @@ void ChangeUserLogo::loadSystemLogo(){
     QDir facesDir = QDir(FACEPATH);
     foreach (QString filename, facesDir.entryList(QDir::Files)) {
         QString fullface = QString("%1%2").arg(FACEPATH).arg(filename);
-        if (fullface.endsWith(".svg"))
+        // 社区版不加载商业默认头像
+        if (Utils::isCommunity() && fullface.endsWith("commercial.png")) {
             continue;
-        if (fullface.endsWith("3.png"))
+        }
+        // 商业版不加载社区默认头像
+        if (!Utils::isCommunity() &&fullface.endsWith("community.png")) {
             continue;
+        }
 
         QPushButton *button = new QPushButton;
         button->setCheckable(true);

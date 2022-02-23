@@ -79,6 +79,33 @@ int SysdbusRegister::setPid(qint64 id){
     return 1;
 }
 
+bool SysdbusRegister::isSudoGroupNumber(QString uname)
+{
+    QString cmd = QString("cat /etc/group | grep sudo | awk -F: '{ print $NF}'");
+    QString output;
+
+    FILE   *stream;
+    char buf[256];
+
+    if ((stream = popen(cmd.toLatin1().data(), "r" )) == NULL){
+        return false;
+    }
+
+    while(fgets(buf, 256, stream) != NULL){
+        output = QString(buf).simplified();
+    }
+
+    pclose(stream);
+
+    QStringList users = output.split(",");
+
+    if (users.contains(uname)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 QString SysdbusRegister::GetComputerInfo() {
     QByteArray ba;
     FILE * fp = NULL;
@@ -118,7 +145,12 @@ QString SysdbusRegister::getNoPwdLoginStatus(){
 }
 
 //设置免密登录状态
-void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username) {
+int SysdbusRegister::setNoPwdLoginStatus(bool status,QString username)
+{
+    //密码校验
+    if (!authoriyLogin()){
+        return 0;
+    }
 
     QString cmd;
     if(true == status){
@@ -127,6 +159,8 @@ void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username) {
         cmd = QString("gpasswd  -d %1 nopasswdlogin").arg(username);
     }
     QProcess::execute(cmd);
+
+    return 1;
 }
 
 // 设置自动登录状态
@@ -276,6 +310,27 @@ bool SysdbusRegister::checkAuthorization(){
 
     result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
                 "org.control.center.qt.systemdbus.action",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyLogin()
+{
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.login",
                 PolkitQt1::UnixProcessSubject(_id),
                 PolkitQt1::Authority::AllowUserInteraction);
 
