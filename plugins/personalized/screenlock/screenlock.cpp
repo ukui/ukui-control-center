@@ -412,11 +412,11 @@ void Screenlock::setupConnect(){
             g_settings_set_boolean(screenlock_settings,SCREENLOCK_ACTIVE_KEY,false);
             //当设置为从不时，禁止系统进入睡眠
             //设置显示器关闭
-            powerSettings->set(SLEEP_DISPLAY_AC_KEY, 0);
-            powerSettings->set(SLEEP_DISPLAY_BATT_KEY,0);
+            powerSettings->set(SLEEP_DISPLAY_AC_KEY, -1);
+            powerSettings->set(SLEEP_DISPLAY_BATT_KEY,-1);
             //设置计算机睡眠
-            powerSettings->set(SLEEP_COMPUTER_AC_KEY, 0);
-            powerSettings->set(SLEEP_COMPUTER_BATT_KEY, 0);
+            powerSettings->set(SLEEP_COMPUTER_AC_KEY, -1);
+            powerSettings->set(SLEEP_COMPUTER_BATT_KEY, -1);
             g_object_unref(screenlock_settings);
             uslider->setValue(lockConvertToSlider(value));
         }else{

@@ -35,7 +35,6 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     setMinimumWidth(550);
     setMaximumWidth(16777215);
     setAttribute(Qt::WA_DeleteOnClose);
-    setStyleSheet("ThemeWidget{background: palette(base); border-radius: 6px;}");
 
     pValue = "";
 
@@ -203,7 +202,7 @@ void ThemeWidget::paintEvent(QPaintEvent *event){
     p.setBrush(opt.palette.color(QPalette::Button));
     p.setPen(Qt::transparent);
     p.setOpacity(0.6);
-    p.drawRoundedRect(this->rect(), 6, 6);
+    p.drawRoundedRect(this->rect(), 12, 12);
     p.restore();
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

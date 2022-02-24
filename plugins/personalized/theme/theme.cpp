@@ -496,10 +496,13 @@ void Theme::initIconTheme(){
             //加入Layout
             if (themedir == "ukui-hp") {
                 ui->iconThemeVerLayout->insertWidget(0, widget);
+                widget->setStyleSheet("ThemeWidget{background: palette(base); border-top-left-radius: 12px;border-top-right-radius: 12px}");
             } else if (themedir == "ukui"){
                 ui->iconThemeVerLayout->insertWidget(1, widget);
+                widget->setStyleSheet("ThemeWidget{background: palette(base); border-radius: 0px}");
             } else {
                 ui->iconThemeVerLayout->addWidget(widget);
+                widget->setStyleSheet("ThemeWidget{background: palette(base); border-bottom-left-radius: 12px;border-bottom-right-radius: 12px}");
             }
             //加入WidgetGround实现获取点击前Widget
             iconThemeWidgetGroup->addWidget(widget);
