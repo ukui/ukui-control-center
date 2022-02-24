@@ -1415,7 +1415,10 @@ void Widget::kdsScreenchangeSlot(QString status)
     if (!mUnifyButton->isChecked()) {
         setPreScreenCfg(mConfig->connectedOutputs());
     }
-
+    //fix bug#107519,由于从镜像变为扩展之后，UnifiedOutputCfg监听到currentModeId改变从而修改了分辨率导致
+    if (status != "copy") {
+        mControlPanel->deleteUnifiedOutputCfg();
+    }
     QTimer::singleShot(2500, this, [=] {
         bool isPreChecked = mUnifyButton->isChecked();
         bool isCheck = (status == "copy") ? true : false;

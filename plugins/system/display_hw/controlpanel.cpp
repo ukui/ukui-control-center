@@ -165,3 +165,11 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
                 this, &ControlPanel::changed);
     }
 }
+
+void ControlPanel::deleteUnifiedOutputCfg()
+{
+    if (mUnifiedOutputCfg) {
+        delete mUnifiedOutputCfg;
+        mUnifiedOutputCfg = nullptr;
+    }
+}
