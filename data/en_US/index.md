@@ -101,7 +101,7 @@ The function buttons at the sending terminal are in the lower part of the main i
 Receiving terminal on / off button: this button is mutually exclusive with the sending terminal on / off button. When the receiving terminal on / off button is turned on, the receiving terminal on / off button needs to be turned off before the sending terminal on / off button can be turned on (the same is true for the receiving terminal turn on / off button). After opening this button, click Find device to pop up the search window, in which the searchable Kylin-OS device at the receiving terminal will be displayed.
 
  Connection process between mobile phone and Kylin-OS:
- 
+
 1) Open the receiving terminal on / off button (close the sending terminal on / off button first).
 
 2) The mobile phone drop-down menu opens the projection (or mobile phone projection / multi screen collaboration).
@@ -354,7 +354,7 @@ As shown in Fig 34:
 
 ![Fig 34 Defaultapp-big](image/35.png)
 
-## Search
+## Investigation
 
 ### Search
 As shown in Fig 35:
