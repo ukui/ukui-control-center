@@ -185,6 +185,10 @@ QWidget *Screenlock::get_plugin_ui(){
         onMaskWidget->setStyleSheet("QWidget{border-radius: 6px;background-color: rgba(0,0,0,0.25);}");
         ui->titleLabel->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
         ui->previewWidget->setStyleSheet("#previewWidget{background: black; border-radius: 8px;}");
+        ui->frame->setStyleSheet("QFrame{background: palette(base); border-top-left-radius: 12px;border-top-right-radius: 12px;}");
+        ui->showMessageFrame->setStyleSheet("QFrame{background: palette(base); border-radius: 0px;}");
+        ui->enableFrame->setStyleSheet("QFrame{background: palette(base); border-radius: 0px;}");
+        ui->frame_2->setStyleSheet("QFrame{background: palette(base); border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;}");
 
         dateLabel->setAlignment(Qt::AlignCenter);
         maskLayout->addWidget(timeLabel);

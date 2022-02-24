@@ -53,7 +53,7 @@ extern "C" {
 
 
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
-#define ITEMHEIGH 72
+#define ITEMHEIGH 64
 
 UserInfo::UserInfo() : mFirstLoad(true)
 {
@@ -575,7 +575,7 @@ void UserInfo::initComponent(){
 void UserInfo::_resetListWidgetHeigh(){
     //设置其他用户控件的总高度
     if (!isDelCurrentUser) {
-        ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1) * (ITEMHEIGH + 2));
+        ui->listWidget->setFixedHeight((allUserInfoMap.count() - 1) * (ITEMHEIGH + 1));
     }
   //  ui->listWidget->setFixedHeight((20) * (ITEMHEIGH + 2));
 }
