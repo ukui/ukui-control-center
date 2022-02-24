@@ -23,11 +23,9 @@
 #include <ukcc/widgets/closebutton.h>
 #include "realizeshortcutwheel.h"
 #include <QApplication>
-extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
 #include <gio/gdesktopappinfo.h>
-}
 
 #define DEFAULTPATH "/usr/share/applications/"
 

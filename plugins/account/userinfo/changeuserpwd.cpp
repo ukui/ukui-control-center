@@ -23,12 +23,8 @@
 #undef signals
 #endif
 
-extern "C" {
-
 #include <glib.h>
 #include <unistd.h>
-
-}
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 

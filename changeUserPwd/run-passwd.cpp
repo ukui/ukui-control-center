@@ -7,7 +7,6 @@
 #undef signals
 #endif
 
-extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
 
@@ -16,9 +15,8 @@ extern "C" {
 #include <errno.h>
 #include <sys/wait.h>
 
-}
-
 #include "run-passwd.h"
+
 
 /* Buffer size for backend output */
 #define BUFSIZE 64
