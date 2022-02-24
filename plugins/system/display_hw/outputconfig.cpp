@@ -308,9 +308,10 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     mOutput->setCurrentModeId(modeID);
 
 
-    if (emitFlag)
+    if (emitFlag) {
         changeItm = RESOLUTION;
         Q_EMIT changed();
+    }
 }
 
 void OutputConfig::slotRotationChanged(int index)
