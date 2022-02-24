@@ -141,6 +141,7 @@ void FunctionSelect::initValue(){
     networkList[NETCONNECT_ICBC].namei18nString = QObject::tr("NetconnectICBC");
     networkList[WLANCONNECT].nameString = QString("WlanConnect");
     networkList[WLANCONNECT].namei18nString = QObject::tr("WlanConnect");
+    networkList[WLANCONNECT].mainShow = false;
 
 
     funcinfoList.append(networkList);
