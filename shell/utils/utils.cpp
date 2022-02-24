@@ -269,10 +269,10 @@ bool Utils::isCommunity()
 
     QString versionID = osSettings.value("VERSION_ID").toString();
 
-    if (versionID.compare("20.04", Qt::CaseSensitive)) {
-        return false;
+    if (!versionID.compare("20.04", Qt::CaseSensitive) || !versionID.compare("22.04", Qt::CaseSensitive)) {
+        return true;
     }
-    return true;
+    return false;
 }
 
 QRect Utils::sizeOnCursor()
