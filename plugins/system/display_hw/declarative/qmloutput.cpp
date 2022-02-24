@@ -46,6 +46,7 @@ QMLOutput::QMLOutput(QQuickItem *parent):
     m_topDock(nullptr),
     m_rightDock(nullptr),
     m_bottomDock(nullptr),
+    pos_clicked(QPointF(0.0,0.0)),
     m_isCloneMode(false)
 {
     connect(this, &QMLOutput::xChanged,
@@ -593,9 +594,13 @@ void QMLOutput::updateRootProperties()
     const float transformedWidth = (m_output->isHorizontal() ? currentOutputWidth() : currentOutputHeight()) * m_screen->outputScale();
     const float transformedHeight = (m_output->isHorizontal() ? currentOutputHeight() : currentOutputWidth()) * m_screen->outputScale();
 
-    const float transformedX = x() + (width() / 2.0) - (transformedWidth / 2.0);
-    const float transformedY = y() + (height() / 2.0) - (transformedHeight / 2.0);
-
-    setPosition(QPointF(transformedX, transformedY));
     setSize(QSizeF(transformedWidth, transformedHeight));
+}
+
+void QMLOutput::setPosClicked(QPointF pos) {
+    this->pos_clicked = pos;
+}
+
+QPointF QMLOutput::posClicked() {
+    return this->pos_clicked;
 }

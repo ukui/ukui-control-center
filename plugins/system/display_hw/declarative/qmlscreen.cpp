@@ -193,6 +193,7 @@ QList<QMLOutput *> QMLScreen::outputs() const
 
 void QMLScreen::setActiveOutput(QMLOutput *output)
 {
+    output->setPosClicked(output->position());
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
         if (qmlOutput->z() > output->z()) {
             qmlOutput->setZ(qmlOutput->z() - 1);
@@ -270,7 +271,7 @@ void QMLScreen::setScreenPosCenter(QMLOutput *output, bool isReleased)
     if (output == nullptr) {
         return;
     }
-    QPointF posBefore = output->position();
+    QPointF posBefore = output->posClicked();
     if ((output->outputPtr()->rotation() == KScreen::Output::Left || output->outputPtr()->rotation() == KScreen::Output::Right)
             && (output->width() > output->height())) {
         qreal fwidth = output->size().width();

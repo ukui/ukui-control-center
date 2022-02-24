@@ -161,6 +161,8 @@ public:
 
     int enableCount() const;
     void setEnableCount(int count = 0);
+    void setPosClicked(QPointF pos);
+    QPointF posClicked();
 
 public Q_SLOTS:
     void updateRootProperties();
@@ -206,6 +208,7 @@ private:
     QMLOutput *m_topDock;
     QMLOutput *m_rightDock;
     QMLOutput *m_bottomDock;
+    QPointF pos_clicked;
 
     bool m_isCloneMode;
     int m_enableCount;
