@@ -15,9 +15,7 @@
 #include <QPainter>
 #include <QPainterPath>
 
-extern "C" {
 #include <glib.h>
-}
 
 #define NICKNAME_LENGTH 32
 

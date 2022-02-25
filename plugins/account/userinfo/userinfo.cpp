@@ -53,10 +53,8 @@
 #undef signals
 #endif
 
-extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
-}
 
 #ifdef WITHKYSEC
 #include <kysec/libkysec.h>

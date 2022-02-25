@@ -31,11 +31,10 @@
 #undef signals
 #endif
 
-extern "C" {
 #include <glib.h>
 #include <gio/gio.h>
 #include <dconf/dconf.h>
-}
+
 #define THEME_QT_SCHEMA  "org.ukui.style"
 #define ICON_QT_KEY      "icon-theme-name"
 

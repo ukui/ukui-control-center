@@ -44,10 +44,7 @@
 #include <KF5/KScreen/kscreen/edid.h>
 #include <KF5/KScreen/kscreen/types.h>
 
-
-extern "C" {
 #include <math.h>
-}
 
 #ifdef signals
 #undef signals
