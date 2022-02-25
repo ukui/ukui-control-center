@@ -1549,6 +1549,13 @@ void Widget::save()
             enableScreenCount++;
         }
     }
+    KScreen::ConfigPtr mPrevConfig = mPreScreenConfig->clone();
+    if (enableScreenCount > 0) {
+        auto *preOp = new KScreen::GetConfigOperation();
+        preOp->exec();
+        mPrevConfig = preOp->config()->clone();  //重新获取屏幕当前状态
+        preOp->deleteLater();
+    }
 
     setKscreenConfig(config);
 
@@ -1566,11 +1573,11 @@ void Widget::save()
     });
 
     if (isRestoreConfig()) {
-        auto *op = new KScreen::SetConfigOperation(mPreScreenConfig);
+        auto *op = new KScreen::SetConfigOperation(mPrevConfig);
         op->exec();
         // 无法知道什么时候执行完操作
         QTimer::singleShot(1000, this, [=]() {
-            writeFile(mDir % mPreScreenConfig->connectedOutputsHash());
+            writeFile(mDir % mPrevConfig->connectedOutputsHash());
         });
     } else {
         mPreKDSCfg.clear();  // 控制面板主动操作，清除win+p标志位
