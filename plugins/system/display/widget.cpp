@@ -151,7 +151,7 @@ bool Widget::eventFilter(QObject *object, QEvent *event)
         if (mOutputIdentifiers.contains(qobject_cast<QQuickView *>(object))) {
             QResizeEvent *e = static_cast<QResizeEvent *>(event);
             const QRect screenSize = object->property("screenSize").toRect();
-            QRect geometry(QPoint(0, 0), qobject_cast<QQuickView *>(object)->size());
+            QRect geometry(QPoint(0, 0), e->size());
             geometry.moveCenter(screenSize.center());
             static_cast<QQuickView *>(object)->setGeometry(geometry);
             // Pass the event further
@@ -1286,11 +1286,12 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
         QQuickView *view = new QQuickView();
 
-        view->setFlags(Qt::FramelessWindowHint | Qt::Tool);
+        view->setFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
         view->setResizeMode(QQuickView::SizeViewToRootObject);
         view->setColor(QColor(Qt::transparent)); //设置背景透明(无背景)
         view->setSource(QUrl("qrc:/qml/OutputIdentifier.qml"));
         view->installEventFilter(this);
+
         QQuickItem *rootObj = view->rootObject();
         if (!rootObj) {
             qWarning() << "Failed to obtain root item";
