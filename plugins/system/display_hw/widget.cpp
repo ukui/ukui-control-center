@@ -1461,6 +1461,7 @@ void Widget::delayApply()
             save();
             enableChangedSlot();
         }
+        mIsUnifyChanged = false;
         mKDSCfg.clear();
         mIsScreenAdd = false;
     });
