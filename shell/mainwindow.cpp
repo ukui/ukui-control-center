@@ -248,9 +248,9 @@ void MainWindow::initStyleSheet() {
                             "QPushButton:pressed{background-color:rgba(251,80,80,20%); border-radius: 4px;}");
 
     // 设置右上角按钮图标
-    minBtn->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
-    maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
-    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"white"));
+    minBtn->setIcon(renderSvg(QIcon::fromTheme("window-minimize-symbolic"), "blue"));
+    maxBtn->setIcon(renderSvg(QIcon::fromTheme("window-maximize-symbolic"), "blue"));
+    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"red"));
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
@@ -629,6 +629,9 @@ void MainWindow::initTileBar() {
     ui->titleLayout->addWidget(minBtn);
     ui->titleLayout->addWidget(maxBtn);
     ui->titleLayout->addWidget(closeBtn);
+    ui->titleLayout->setAlignment(minBtn, Qt::AlignTop);
+    ui->titleLayout->setAlignment(maxBtn, Qt::AlignTop);
+    ui->titleLayout->setAlignment(closeBtn, Qt::AlignTop);
 }
 void MainWindow::animationFinishedSlot()
 {
@@ -849,6 +852,11 @@ const QPixmap MainWindow::renderSvg(const QIcon &icon, QString cgColor) {
                     color.setRed(61);
                     color.setGreen(107);
                     color.setBlue(229);
+                    img.setPixelColor(x, y, color);
+                } else if ("red" == cgColor) {
+                    color.setRed(251);
+                    color.setGreen(80);
+                    color.setBlue(80);
                     img.setPixelColor(x, y, color);
                 } else {
                     return iconPixmap;
