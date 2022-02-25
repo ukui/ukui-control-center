@@ -232,175 +232,183 @@
 <context>
     <name>AppUpdateWid</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="68"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="74"/>
         <source>Lack of local disk space!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="74"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="97"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="390"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="578"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="648"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="802"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="80"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="103"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="404"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="629"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="687"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="850"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="91"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="97"/>
         <source>Network abnormal!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="106"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="122"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="112"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="128"/>
         <source>Download failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="108"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="114"/>
         <source>failed to get from the source!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="124"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="130"/>
         <source>The download cache has been removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="282"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="289"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="292"/>
         <source>Being installed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="305"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="314"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="317"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="326"/>
         <source>Update succeeded!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="324"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="334"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="337"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="347"/>
         <source>Update failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="327"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="340"/>
         <source>Failure reason:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="384"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="559"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="397"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="616"/>
         <source>details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="434"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="499"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="447"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="514"/>
         <source>Update log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="478"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="479"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="484"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="494"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="495"/>
         <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="500"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="813"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="515"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="690"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="691"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="693"/>
         <source>Newest:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="508"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="514"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="523"/>
+        <source>Download completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="530"/>
         <source>Download size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="541"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="557"/>
         <source>Current version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="553"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="610"/>
         <source>back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="601"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="635"/>
+        <source>The battery is below 50% and the update cannot be downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="638"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="649"/>
         <source>A single update will not automatically backup the system, if you want to backup, please click Update All.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="602"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="650"/>
         <source>Prompt information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="605"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="658"/>
         <source>Do not backup, continue to update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="606"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="666"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="659"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="711"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="607"/>
-        <source>Cancel update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="611"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="662"/>
         <source>This time will no longer prompt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="650"/>
-        <source>In the pause</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="674"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="719"/>
         <source>Calculate the download progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="685"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="692"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="730"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="737"/>
         <source>Get depends failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="742"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="787"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="790"/>
         <source>In the update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="170"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="670"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="780"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="176"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="715"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="828"/>
         <source>Ready to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="292"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="294"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="295"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="304"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="306"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="307"/>
         <source>Update succeeded , It is recommended that you restart later!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="299"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="301"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="302"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="311"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="313"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="314"/>
         <source>Update succeeded , It is recommended that you log out later and log in again!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="862"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/appupdate.cpp" line="909"/>
         <source>No content.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -784,12 +792,12 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="243"/>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="255"/>
         <source>Storage Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="250"/>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="274"/>
         <source>Identification Type:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1181,37 +1189,37 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="438"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="441"/>
         <source>Current Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="439"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="447"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="442"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="450"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="440"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="448"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="443"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="451"/>
         <source>New Password Identify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="286"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="406"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="287"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="407"/>
         <source>Inconsistency with pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="368"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="369"/>
         <source>Contains illegal characters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="370"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="371"/>
         <source>Same with old pwd</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1516,42 +1524,42 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="394"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
         <source>The user name cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="396"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="398"/>
         <source>Must be begin with lower letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="399"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="401"/>
         <source>Can not contain capital letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="421"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="423"/>
         <source>Name already in use, change another one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="423"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="425"/>
         <source>Name corresponds to group already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="428"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="430"/>
         <source>Name length must less than %1 letters!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="430"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="432"/>
         <source>Can only contain letters,digits,underline!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="435"/>
+        <location filename="../../../plugins/account/userinfo/createuserdialog.cpp" line="437"/>
         <source>Username&apos;s folder exists, change another one</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1971,7 +1979,7 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="94"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="290"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="319"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="416"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="417"/>
         <source>device Link</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1980,8 +1988,8 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="178"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="221"/>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="285"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="340"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="422"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="341"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="423"/>
         <source>device matched</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1997,13 +2005,13 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="223"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="426"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="427"/>
         <source>device unLink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="301"/>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="353"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="354"/>
         <source>device unlink</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2285,21 +2293,21 @@ Please authenticate yourself to continue</source>
     <name>Fonts</name>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="47"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="97"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="105"/>
         <source>Fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="135"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="181"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="185"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="189"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="193"/>
         <source>Font size</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/fonts/Font size</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="201"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="183"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="191"/>
         <source>Fonts select</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/fonts/Fonts select</extra-contents_path>
@@ -2345,37 +2353,37 @@ Please authenticate yourself to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="201"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="209"/>
         <source>11</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="201"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="209"/>
         <source>12</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="201"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="209"/>
         <source>13</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="201"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="209"/>
         <source>14</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="201"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="209"/>
         <source>15</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="202"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="210"/>
         <source>16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="301"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="318"/>
         <source>Thanks For Using The ukcc</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2412,12 +2420,12 @@ Please authenticate yourself to continue</source>
 <context>
     <name>HistoryUpdateListWig</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="76"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="98"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="78"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/historyupdatelistwig.cpp" line="100"/>
         <source>Failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2861,9 +2869,9 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="283"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="307"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="314"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="655"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="870"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="881"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="651"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="865"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="876"/>
         <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2934,7 +2942,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="383"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="405"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="406"/>
         <source>Please check your information!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2970,95 +2978,100 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="388"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="391"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="397"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="392"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="398"/>
         <source>Account or password error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="392"/>
-        <source>Phone number already in used!</source>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="391"/>
+        <source>See and check your network status!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="393"/>
-        <source>Please check your format!</source>
+        <source>Phone number already in used!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="394"/>
-        <source>Your are reach the limit!</source>
+        <source>Please check your format!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="395"/>
-        <source>Please check your phone number!</source>
+        <source>Your are reach the limit!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="396"/>
+        <source>Please check your phone number!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="397"/>
         <source>Please check your code!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="398"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="399"/>
         <source>User has bound the phone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="399"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="400"/>
         <source>Sending code error occurred!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="400"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="401"/>
         <source>Phone code is expired!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="401"/>
-        <source>Too many failed attemps,please wait!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="402"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="403"/>
         <source>Phone code error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="403"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="404"/>
         <source>Code can not be empty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="404"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="405"/>
         <source>MCode can not be empty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="487"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="488"/>
         <source>Your code is wrong!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="501"/>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="600"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="502"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="601"/>
         <source>Please check your phone!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="845"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="840"/>
         <location filename="../../../plugins/account/networkaccount/maindialog.h" line="55"/>
         <source>Sign in Cloud</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="630"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="631"/>
         <source>Resend ( %1 )</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="635"/>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="402"/>
+        <source>Failed attemps limit reached!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/maindialog.cpp" line="636"/>
         <source>Get</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3066,132 +3079,127 @@ Please authenticate yourself to continue</source>
 <context>
     <name>MainWidget</name>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="487"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="456"/>
         <source>Your account：%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="508"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1220"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1237"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="499"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="960"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1106"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1123"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="877"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="645"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1020"/>
+        <source>Preparing for sync cloud settings to local!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="762"/>
         <source>Sync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="520"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="887"/>
+        <source>OSS may initial failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="891"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1163"/>
+        <source>It&apos;s not a good day to use cloud-sync!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="942"/>
+        <source>See and check your network status!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="511"/>
         <source>Sign in</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/networkaccount/Sign in</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="441"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="426"/>
         <source>Waiting for initialization...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="407"/>
-        <source>Logout failed,please check your connection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1194"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1209"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1080"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1095"/>
         <source>Stop sync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="881"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="766"/>
         <source>Sync your settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="884"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="769"/>
         <source>Your account:%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="885"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="770"/>
         <source>Auto sync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="433"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="419"/>
         <source>The latest time sync is: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="233"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="338"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="636"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="656"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="713"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="978"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="997"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1308"/>
-        <source>Network can not reach!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="574"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="561"/>
         <source>Waitting for sync!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="868"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="753"/>
         <source>Synchronize your personalized settings and data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="746"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="691"/>
         <source>The Cloud Account Service version is out of date!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="943"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="828"/>
         <source>KylinID open error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1023"/>
-        <source>Unauthorized device or OSS falied.
-Please retry or relogin!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1027"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="896"/>
         <source>Authorization failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="673"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="653"/>
         <source>This operation may cover your settings!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1072"/>
-        <source>Please check your connetion!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1293"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1178"/>
         <source>Kylin Cloud Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1296"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1181"/>
         <source>Cloud ID desktop message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="103"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="460"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="470"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1161"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="95"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="447"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="458"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1045"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.h" line="109"/>
         <source>Disconnected</source>
         <translation type="unfinished"></translation>
@@ -3200,64 +3208,64 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="82"/>
-        <location filename="../../mainwindow.cpp" line="396"/>
-        <location filename="../../mainwindow.cpp" line="778"/>
+        <location filename="../../mainwindow.cpp" line="86"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="748"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="376"/>
+        <location filename="../../mainwindow.cpp" line="387"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="405"/>
+        <location filename="../../mainwindow.cpp" line="416"/>
         <source>Main menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="406"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
         <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="418"/>
         <source>Maximize/Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="408"/>
+        <location filename="../../mainwindow.cpp" line="419"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="466"/>
+        <location filename="../../mainwindow.cpp" line="472"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="468"/>
+        <location filename="../../mainwindow.cpp" line="474"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="470"/>
+        <location filename="../../mainwindow.cpp" line="476"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="597"/>
+        <location filename="../../mainwindow.cpp" line="599"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="885"/>
+        <location filename="../../mainwindow.cpp" line="866"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="885"/>
+        <location filename="../../mainwindow.cpp" line="866"/>
         <source>This function has been controlled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3834,11 +3842,6 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.cpp" line="586"/>
-        <source>10minn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="586"/>
         <location filename="../../../plugins/system/power/power.cpp" line="596"/>
         <source>15min</source>
         <translation type="unfinished"></translation>
@@ -3850,6 +3853,7 @@ Please retry or relogin!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../../plugins/system/power/power.cpp" line="586"/>
         <location filename="../../../plugins/system/power/power.cpp" line="596"/>
         <location filename="../../../plugins/system/power/power.cpp" line="615"/>
         <source>10min</source>
@@ -4437,55 +4441,55 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="310"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="339"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="320"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="349"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="329"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="358"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="338"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="367"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="347"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="376"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="357"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="386"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="366"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="395"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="375"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="404"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="384"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="413"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -4551,17 +4555,17 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="133"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="135"/>
         <source>system upgrade new backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="134"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/backup.cpp" line="136"/>
         <source>system upgrade increment backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="666"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="727"/>
         <source>xxx客户端</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5024,114 +5028,119 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>ShareMain</name>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="419"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="440"/>
         <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="436"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="457"/>
         <source>Allow others to view your desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="447"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="468"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="457"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="478"/>
         <source>Require user to enter this password: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="402"/>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="459"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="423"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="480"/>
         <source>Password can not be blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="240"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="240"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
         <source>please select an output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="302"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="312"/>
         <source>Input Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="303"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="313"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="395"/>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="410"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="416"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="431"/>
         <source>Password length must be less than or equal to 8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="475"/>
-        <source>Output</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="488"/>
-        <source>Input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="499"/>
-        <source>Point</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="501"/>
-        <source>Keyboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="503"/>
-        <source>Clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="530"/>
-        <source>Close</source>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="496"/>
+        <source>Protocol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/network/vino/sharemain.cpp" line="532"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="545"/>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="556"/>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="558"/>
+        <source>Keyboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="560"/>
+        <source>Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="587"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="589"/>
         <source>ViewOnly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="540"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="597"/>
         <source>Client Setting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="552"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="609"/>
         <source>Client Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="567"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="624"/>
         <source>Client IP：</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="698"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="759"/>
         <source>退出程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="698"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="759"/>
         <source>确认退出程序！</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5326,248 +5335,321 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>TabWid</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="34"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="48"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="68"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="279"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="309"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="531"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="604"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="743"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="58"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="122"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="139"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="146"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="177"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="215"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="462"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="494"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="848"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="989"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1185"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1200"/>
         <source>Check Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="36"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="60"/>
         <source>initializing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="70"/>
-        <source>Service connection abnormal,please retest!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="85"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="648"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1031"/>
         <source>Prompt information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="92"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="238"/>
         <source>Update now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="93"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="239"/>
         <source>Cancel update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="94"/>
-        <source>No,I Don&apos;t Backup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="102"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="213"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="246"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="390"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1240"/>
         <source>Being updated...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="114"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="122"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="225"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="541"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="630"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="716"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="765"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="130"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="259"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="399"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="876"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1016"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1171"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1244"/>
         <source>UpdateAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="132"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="165"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="857"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="909"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1203"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1221"/>
+        <source>No Information!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="188"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="311"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="334"/>
+        <source>Downloading and installing updates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="220"/>
+        <source>Software source server connection timeout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="222"/>
+        <source>Software source server connection failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="273"/>
         <source>The backup restore partition could not be found. The system will not be backed up in this update!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="137"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="277"/>
         <source>Kylin backup restore tool is doing other operations, please update later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="141"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="280"/>
         <source>The source manager configuration file is abnormal, the system temporarily unable to update!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="146"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="283"/>
         <source>Backup already, no need to backup again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="161"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="297"/>
         <source>Kylin backup restore tool does not exist, this update will not backup the system!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="177"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="312"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1035"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="356"/>
         <source>Backup complete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="154"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="795"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1020"/>
+        <source>The battery is below 50% and the update cannot be downloaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1023"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1030"/>
+        <source>Please back up the system before all updates to avoid unnecessary losses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1033"/>
+        <source>Only Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1034"/>
+        <source>Back And Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="291"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1277"/>
         <source>Start backup,getting progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="181"/>
-        <source>In backup:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="802"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1284"/>
         <source>Failed to write configuration file, this update will not back up the system!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="806"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1288"/>
         <source>Insufficient backup space, this update will not backup your system!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="810"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1292"/>
         <source>Kylin backup restore tool could not find the UUID, this update will not backup the system!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="190"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="371"/>
         <source>Backup interrupted, stop updating!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="198"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="359"/>
+        <source>System is backing up...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="375"/>
         <source>Backup finished!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="202"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="379"/>
         <source>Kylin backup restore tool exception:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="202"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="379"/>
         <source>There will be no backup in this update!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="272"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="454"/>
         <source>Getting update list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="276"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="311"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="459"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="498"/>
         <source>Software source update failed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="332"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="337"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="517"/>
         <source>Update software source :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="337"/>
-        <source>Reconnect times:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="365"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="545"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="388"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="568"/>
         <source>View history</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="422"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="615"/>
         <source>Update Settings</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/upgrade/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="433"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="626"/>
         <source>Allowed to renewable notice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="443"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="636"/>
         <source>Backup current system before updates all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="533"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="748"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="164"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="345"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="852"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1189"/>
         <source>Your system is the latest!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="113"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="543"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="258"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="881"/>
         <source>Updatable app detected on your system!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="569"/>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="728"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="175"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="867"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="919"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1213"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1231"/>
         <source>Last refresh:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="571"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="685"/>
+        <source>Download Limit(Kb/s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="693"/>
+        <source>It will be avaliable in the next download.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="729"/>
+        <source>Automatically download and install updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="731"/>
+        <source>After it is turned on, the system will automatically download and install updates when there is an available network and available backup and restore partitions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="806"/>
+        <source>Ready to install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="920"/>
         <source>Last Checked:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="618"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="984"/>
+        <source>trying to reconnect </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="984"/>
+        <source> times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1004"/>
         <source>Updating the software source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="646"/>
-        <source>This update will not backup the current system, do you want to continue the update?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="653"/>
-        <source>Yes, keep updating</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="654"/>
-        <source>No, backup now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="655"/>
-        <source>Not updated</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="754"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1196"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1218"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1248"/>
         <source>Part of the update failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="775"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1258"/>
         <source>An important update is in progress, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="820"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1295"/>
+        <source>The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1302"/>
         <source>Calculating Capacity...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5648,24 +5730,33 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>TimeZoneChooser</name>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="28"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="29"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="36"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="36"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="44"/>
         <source>Change time zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="48"/>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="163"/>
-        <source>change timezone</source>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="68"/>
+        <source>Search Timezone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="103"/>
+        <source>Change Timezone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="132"/>
+        <source>To select a time zone, please click where near you on the map and select a city from the nearest city</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5744,24 +5835,24 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="405"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="411"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="424"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="430"/>
         <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="143"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="450"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="456"/>
         <location filename="../../../plugins/devices/touchpad/touchpad.cpp" line="144"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="470"/>
+        <location filename="../../../plugins/devices/touchpad/touchpad.ui" line="476"/>
         <source>No touchpad found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6100,12 +6191,12 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UpdateDbus</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="66"/>
-        <source>ukui-control-center</source>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="103"/>
+        <source>System-Upgrade</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="69"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatedbus.cpp" line="106"/>
         <source>ukui-control-center-update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6121,7 +6212,7 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UpdateSource</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/updatesource.cpp" line="54"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/updatesource.cpp" line="80"/>
         <source>Connection failed, please reconnect!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6143,25 +6234,25 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="746"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="842"/>
         <source>Change pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="733"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="829"/>
         <source>Change type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="317"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="133"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="159"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/userinfo/Password</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="336"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="135"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="161"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/userinfo/Type</extra-contents_path>
@@ -6178,13 +6269,13 @@ run start-pulseaudio-x11 manually.</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/userinfo.ui" line="440"/>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="137"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="163"/>
         <source>Login no passwd</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/userinfo/Login no passwd</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="139"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="165"/>
         <source>enable autoLogin</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/userinfo/enable autoLogin</extra-contents_path>
@@ -6230,82 +6321,82 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="66"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="70"/>
         <source>User Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="145"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="171"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="147"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="173"/>
         <source>Admin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="149"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="175"/>
         <source>root</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="428"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="470"/>
         <source>Add new user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="764"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="860"/>
         <source>Del</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="884"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="991"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="884"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="991"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1225"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1350"/>
         <source>Hint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1226"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1351"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1229"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1354"/>
         <source>Trun on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1230"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1355"/>
         <source>Close on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1290"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1415"/>
         <source>Add biometric feature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1759"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1884"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1773"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1898"/>
         <source>Verify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1793"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1918"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6473,8 +6564,8 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2196"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2203"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2239"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2246"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6519,28 +6610,28 @@ the settings will be saved after %1 seconds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1533"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1840"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1575"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1885"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1840"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1885"/>
         <source>please insure at least one output!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1534"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1576"/>
         <source>Open time should be earlier than close time!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1543"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1585"/>
         <source>Warnning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1544"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1586"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation type="unfinished"></translation>
@@ -6554,38 +6645,38 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="103"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="115"/>
         <source>Exec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="154"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="159"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="174"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="191"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="214"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="233"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="333"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="339"/>
         <source>Invalid executable, please re-enter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="410"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="249"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="416"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="248"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="429"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="435"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6595,27 +6686,27 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="81"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="80"/>
         <source>shortcut conflict</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="88"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="87"/>
         <source>invaild shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="125"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="124"/>
         <source>repeated naming</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="241"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="240"/>
         <source>Desktop files(*.desktop)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="248"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="247"/>
         <source>select desktop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6666,18 +6757,24 @@ Common reasons are that the overall screen size is too big, or you enabled more 
 <context>
     <name>m_updatelog</name>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="77"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="614"/>
         <source>History Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="111"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="113"/>
         <source>Update Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="45"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="57"/>
         <source>No content.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="534"/>
+        <location filename="../../../plugins/security-updates/upgrade/src/m_updatelog.cpp" line="567"/>
+        <source>Search content</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
