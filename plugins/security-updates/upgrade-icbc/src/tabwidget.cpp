@@ -41,7 +41,7 @@ void TabWid::initDbus()
     connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitChanged);
     connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
     /*实时更新信号*/
-    connect(updateMutual,&UpdateDbus::DownloadSpeedChanged,this->DownloadHValue,&QComboBox::setCurrentText);
+//    connect(updateMutual,&UpdateDbus::DownloadSpeedChanged,this->DownloadHValue,&QComboBox::setCurrentText);
 
     //    bacupInit();//初始化备份
     checkUpdateBtn->stop();
