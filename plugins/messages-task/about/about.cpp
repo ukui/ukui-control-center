@@ -47,16 +47,6 @@
 #include <QStorageInfo>
 #include <QtMath>
 
-#define THEME_STYLE_SCHEMA "org.ukui.style"
-#define STYLE_NAME_KEY "style-name"
-#define CONTAIN_STYLE_NAME_KEY "styleName"
-#define UKUI_DEFAULT "ukui-default"
-#define UKUI_DARK "ukui-dark"
-
-const QString vTen        = "v10";
-const QString vTenEnhance = "v10.1";
-const QString vFour = "v4";
-
 About::About() : mFirstLoad(true)
 {
     pluginName = tr("About");
@@ -90,6 +80,13 @@ QWidget *About::get_plugin_ui()
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        ui->serviceContent->installEventFilter(this);
+        if (QGSettings::isSchemaInstalled(THEME_STYLE_SCHEMA)) {
+                themeStyleQgsettings = new QGSettings(THEME_STYLE_SCHEMA, QByteArray(), this);
+        } else {
+            themeStyleQgsettings = nullptr;
+            qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
+        }
 
         initSearchText();
         initActiveDbus();
@@ -167,12 +164,6 @@ void About::setupVersionCompenent()
     QString versionID;
     QString version;
 
-    if (QGSettings::isSchemaInstalled(THEME_STYLE_SCHEMA)) {
-            themeStyleQgsettings = new QGSettings(THEME_STYLE_SCHEMA, QByteArray(), this);
-    } else {
-        themeStyleQgsettings = nullptr;
-        qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
-    }
 
     for (QString str : osRes) {
         if (str.contains("VERSION_ID=")) {
@@ -210,16 +201,22 @@ void About::setupVersionCompenent()
             !versionID.compare(vTenEnhance, Qt::CaseInsensitive) ||
             !versionID.compare(vFour, Qt::CaseInsensitive)) {
         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg")); //默认设置为light
+        mPixmap = QPixmap("://img/plugins/about/logo-light.svg");
         if (themeStyleQgsettings != nullptr && themeStyleQgsettings->keys().contains(CONTAIN_STYLE_NAME_KEY)) {
             if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) { //深色模式改为dark
                 ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg"));
+                mPixmap = QPixmap("://img/plugins/about/logo-dark.svg");
             }
             connect(themeStyleQgsettings,&QGSettings::changed,this,[=](QString changedKey) {  //监听主题变化
                 if (changedKey == CONTAIN_STYLE_NAME_KEY) {
                     if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) {
                         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg"));
+                        mPixmap = QPixmap("://img/plugins/about/logo-dark.svg");
+                        emit changeTheme();
                     } else {
                         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg"));
+                        mPixmap = QPixmap("://img/plugins/about/logo-light.svg");
+                        emit changeTheme();
                     }
                 }
             });
@@ -228,6 +225,7 @@ void About::setupVersionCompenent()
         ui->activeFrame->setVisible(false);
         ui->trialButton->setVisible(false);
         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.svg"));
+        mPixmap = QPixmap("://img/plugins/about/logoukui.svg");
     }
 }
 
@@ -259,17 +257,23 @@ void About::setupSerialComponent()
         dateRes = dateReply.arguments().at(0).toString();
     }
     ui->serviceContent->setText(serial);
+    ui->serviceContent->setStyleSheet("color : #2FB3E8");
+    ui->label_8->hide();
+    ui->timeContent->hide();
 
     if (dateRes.isEmpty()) {  //未激活
-        ui->label_8->hide();
-        ui->timeContent->hide();
         ui->activeContent->setText(tr("Inactivated"));
+        if (!ui->serviceContent->text().isEmpty())
+            ui->activeButton->hide();
         ui->activeButton->setText(tr("Active"));
+        activestatus = false;
     } else {    //已激活
         ui->activeButton->hide();
         ui->trialButton->hide();
         ui->activeContent->setText(tr("Activated"));
         ui->timeContent->setText(dateRes);
+        ui->activeButton->setText(tr("Extend"));
+
         QTimer::singleShot( 1, this, [=](){
             QString s1(ntpdate());
             s1.remove(QChar('\n'), Qt::CaseInsensitive);
@@ -302,9 +306,6 @@ void About::setupSerialComponent()
     }
     connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
     connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
-    ui->serviceContent->setText(serial);
-
-
 }
 
 void About::showExtend(QString dateres)
@@ -313,7 +314,6 @@ void About::showExtend(QString dateres)
     ui->timeContent->setText(dateres+QString("(%1)").arg(tr("expired")));
     ui->activeButton->setVisible(true);
     ui->trialButton->setVisible(true);
-    ui->activeButton->setText(tr("Extend"));
 }
 
 char *About::ntpdate()
@@ -399,6 +399,38 @@ int About::getMonth(QString month)
     } else if (month == "Dec") {
         return 12;
     }
+}
+
+bool About::eventFilter(QObject *obj, QEvent *event)
+{
+    if ( obj == ui->serviceContent) {
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton  && !ui->serviceContent->text().isEmpty()){
+                StatusDialog *mDialog = new StatusDialog(pluginWidget);
+                mDialog->mLogoLabel->setPixmap(mPixmap);
+                connect(this,&About::changeTheme,[=](){
+                    mDialog->mLogoLabel->setPixmap(mPixmap);
+                });
+                mDialog->mVersionLabel_1->setText(ui->versionLabel->text());
+                mDialog->mVersionLabel_2->setText(ui->versionContent->text());
+                mDialog->mStatusLabel_1->setText(ui->label_5->text());
+                mDialog->mStatusLabel_2->setText(ui->activeContent->text());
+                mDialog->mSerialLabel_1->setText(ui->label_7->text());
+                mDialog->mSerialLabel_2->setText(ui->serviceContent->text());
+                mDialog->mTimeLabel_1->setText(ui->label_8->text());
+                mDialog->mTimeLabel_2->setText(ui->timeContent->text());
+                if (!activestatus) {
+                    mDialog->mTimeLabel_1->parentWidget()->hide();
+                }
+                mDialog->mExtentBtn->setText(ui->activeButton->text());
+                connect(mDialog->mExtentBtn, &QPushButton::clicked, this, &About::runActiveWindow);
+                mDialog->exec();
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 qlonglong About::calculateTotalRam()

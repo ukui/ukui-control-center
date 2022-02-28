@@ -20,10 +20,12 @@ INCLUDEPATH   +=  \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \
-    about.h
+    about.h \
+    statusdialog.h
 
 SOURCES += \
-    about.cpp
+    about.cpp \
+    statusdialog.cpp
 
 FORMS += \
     about.ui
