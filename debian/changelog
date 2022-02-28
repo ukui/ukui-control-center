@@ -1,3 +1,123 @@
+ukui-control-center (3.0.1-1-148hw) v101.hw; urgency=medium
+
+  * 提交commit: 6e37960e
+  * bug#57985回车键保存修改
+  * 化亮度，插上屏幕时重新获取亮度，避免更换显示器导致亮度值不准确(Feng Chao)
+  * bug#81139创建新用户时用户名对realname&username都进行重名检测
+  * task#68091:亮度调节兼容方案
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 16 Feb 2022 17:35:22 +0800
+
+ukui-control-center (3.0.1-1-147hw) v101.hw; urgency=medium
+
+  * 提交commit: c8db1c5d
+  * bug#998949【控制面板】最大字号英文环境下，控制面板多处显示不全
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 14 Feb 2022 17:22:36 +0800
+
+ukui-control-center (3.0.1-1-146hw) v101.hw; urgency=medium
+
+  * 提交commit: 1b102454
+  * bug#11004域用户登录，除头像外其他按钮置灰
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 11 Feb 2022 14:38:06 +0800
+
+ukui-control-center (3.0.1-1-145hw) v101.hw; urgency=medium
+
+  * 提交commit: 4e06a3ab
+  * bug#95195.face不存在时使用default
+  * bug#80629edp为主屏，扩展模式下关闭edp屏幕，hdmi的“设为主屏”可点击
+  * bug#88360输入新密码后修改当前密码，提示不更新
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 24 Jan 2022 16:36:03 +0800
+
+ukui-control-center (3.0.1-1-144hw) v101.hw; urgency=medium
+
+  * 提交commit: 81132d53
+  * bug#97778【双屏】设置VGA在HDMI上方，不生效
+  * bug#99255双屏扩展模式拔掉一个显示器，修改分辨率为非默认分辨率再插上，显示器控制面板显示位置发生变化
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 14 Jan 2022 18:03:14 +0800
+
+ukui-control-center (3.0.1-1-143.1hw) v101.hw; urgency=medium
+
+  * 提交commit: 471bde29
+  * bug#100917 侧边栏中“系统更新”提示未汉化
+  * bug#102189 时间和日期】修改时区界面主题背景建议修改为白色，适配系统主题
+  * bug#100917 侧边栏中“系统更新”提示未汉化
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 12 Jan 2022 11:38:17 +0800
+
+ukui-control-center (3.0.1-1-142hw) v101.hw; urgency=medium
+
+  * 提交commit:e8c4b9a9
+  * 编译错误
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 05 Jan 2022 14:17:59 +0800
+
+ukui-control-center (3.0.1-1-141hw) v101.hw; urgency=medium
+
+  * 提交commit:1f9c7987
+  * bug#99849控制面板】最大字号英文环境下，控制面板多处显示不全
+  * bug#85822【控制面板】字体中有Ubuntu相关选项
+  * bug#97954【用户手册】设置页中图片编号错乱
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 28 Dec 2021 19:27:19 +0800
+
+ukui-control-center (3.0.1-1-140.1hw) v101.hw; urgency=medium
+
+  * 更新翻译
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 27 Dec 2021 15:34:58 +0800
+
+ukui-control-center (3.0.1-1-139hw) v101.hw; urgency=medium
+
+  * 提交commit:c208d8b9
+  * bug#96808接入双屏后，修改显示器设置文案提醒出现两种
+  * bug#98722修改显示相关信息后，弹窗文案与实际不一致
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 23 Dec 2021 13:56:55 +0800
+
+ukui-control-center (3.0.1-1-138hw) v101.hw; urgency=medium
+
+  * 提交commit: 2a6eeda6
+  * 更新用户手册桌面共享的截图
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 21 Dec 2021 16:36:13 +0800
+
+ukui-control-center (3.0.1-1-137hw) v101.hw; urgency=medium
+
+  * 提交commit:2ee708b8
+  * 用户手册跳转需求
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 17 Dec 2021 10:14:48 +0800
+
+ukui-control-center (3.0.1-1-136hw) v101.hw; urgency=medium
+  * 提交commit:424a8477
+  * bug#94401试用3.5mm耳机插入in口再插拔mic口，控制面板闪退
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 02 Dec 2021 15:06:22 +0800
+
+ukui-control-center (3.0.1-1-135hw) v101.hw; urgency=medium
+
+  * 提交commit:0c092ff0
+  * 添加vnc运行依赖
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 29 Nov 2021 18:08:49 +0800
+
+ukui-control-center (3.0.1-1-134hw) v101.hw; urgency=medium
+
+  * 提交commit:a151bd0fd
+  * bug#8698312号以上字体时输入框左边没有对齐，15和16号字体打开程序输入框和浏览按钮重叠
+  * bug #64175 #80175
+  * bug#83391dbus调用导致进程阻塞
+  * bug#86612扩展模式移动两个缩略图位置后不会自动回到中间位置
+  * bug#85848设置页中图片编号错乱
+  * bug#85738英文系统、字体大小12及以上时，激活状态显示不全，且鼠标悬浮无提示
+  * bug#56584选择时区支持北京
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 29 Oct 2021 10:57:24 +0800
+
 ukui-control-center (3.0.1-1-133hw) v101.hw; urgency=medium
 
   * 提交commit:b3b86c12
