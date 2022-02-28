@@ -206,7 +206,6 @@ void About::setupVersionCompenent()
             if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) { //深色模式改为dark
                 ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg"));
                 mPixmap = QPixmap("://img/plugins/about/logo-dark.svg");
-                emit changeTheme();
             }
             connect(themeStyleQgsettings,&QGSettings::changed,this,[=](QString changedKey) {  //监听主题变化
                 if (changedKey == CONTAIN_STYLE_NAME_KEY) {
