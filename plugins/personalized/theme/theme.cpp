@@ -153,6 +153,10 @@ Theme::Theme()
         }
     }
 
+    ui->systemDefaultLabel->installEventFilter(this);
+    ui->darkModeLabel->installEventFilter(this);
+    ui->lightLabel->installEventFilter(this);
+
     connect(ui->defaultRadioBtn, &QRadioButton::clicked, this, [=]() {
         if (ui->defaultRadioBtn->isChecked()) {
             ui->systemDefaultLabel->setPixmap(QPixmap(QString("://img/plugins/theme/auto-selected.png")));
@@ -265,10 +269,13 @@ void Theme::initSearchText() {
     ui->titleLabel->setText(tr("Theme Mode"));
     //~ contents_path /theme/Theme Mode
     ui->defaultRadioBtn->setText(tr("Automatic"));
+    ui->defaultRadioBtn->setStyleSheet("QRadioButton:checked{color:#2FB3E8}");
     //~ contents_path /theme/Theme Mode
     ui->darkRadioBtn->setText(tr("Dark"));
+    ui->darkRadioBtn->setStyleSheet("QRadioButton:checked{color:#2FB3E8}");
     //~ contents_path /theme/Theme Mode
     ui->lightRadioBtn->setText(tr("Light color"));
+    ui->lightRadioBtn->setStyleSheet("QRadioButton:checked{color:#2FB3E8}");
     //~ contents_path /theme/Icon theme
     ui->iconLabel->setText(tr("Icon theme"));
 
@@ -795,4 +802,23 @@ int Theme::tranConvertToSlider(const double value)
     } else {
         return 5;
     }
+}
+
+
+bool Theme::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress)//判断事件类型
+    {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        if(mouseEvent->button() == Qt::LeftButton) {
+            if (watched == ui->systemDefaultLabel) {
+                emit ui->defaultRadioBtn->click();
+            } else if (watched == ui->darkModeLabel) {
+                emit ui->darkRadioBtn->click();
+            } else if (watched == ui->lightLabel) {
+                emit ui->lightRadioBtn->click();
+            }
+        }
+    }
+    return QObject::eventFilter(watched, event);
 }
