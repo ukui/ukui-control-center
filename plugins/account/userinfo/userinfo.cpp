@@ -543,14 +543,14 @@ void UserInfo::showCreateUserNewDialog(){
 void UserInfo::showDeleteUserExistsDialog(QString pName){
     QStringList loginedusers = getLoginedUsers();
     if (loginedusers.contains(pName)) {
-        QMessageBox::warning(pluginWidget, tr("Warning"), tr("The user is logged in, please delete the user after logging out"));
+        QMessageBox::warning(pluginWidget2, tr("Warning"), tr("The user is logged in, please delete the user after logging out"));
         return;
     }
 
     if (allUserInfoMap.keys().contains(pName)){
         UserInfomation user = allUserInfoMap.value(pName);
 
-        DeleteUserExists dialog(user.username, user.realname, user.uid);
+        DeleteUserExists dialog(user.username, user.realname, user.uid, pluginWidget2);
         dialog.exec();
     }
 }
