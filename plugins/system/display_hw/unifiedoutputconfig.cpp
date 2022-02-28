@@ -267,7 +267,7 @@ void UnifiedOutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag
     mRefreshRate->blockSignals(false);
     Q_FOREACH (const KScreen::OutputPtr &clone, mClones) {
         const QString &id = findBestMode(clone, size, emitFlag);
-        if (id.isEmpty()) {
+        if (id.isEmpty() || id == "auto-fill") {
             // FIXME: Error?
             return;
         }
@@ -413,6 +413,10 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, cons
             }
         }
         mResolution->setResolution(outputSize);
+        if (outputSize != size) {
+            slotResolutionChanged(outputSize, false);
+            id = "auto-fill";
+        }
     }
     return id;
 }

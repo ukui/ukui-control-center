@@ -28,6 +28,7 @@ public:
     void setUnifiedOutput(const KScreen::OutputPtr &output);
     void activateOutputNoParam();
     void changescalemax(const KScreen::OutputPtr &output);
+    void deleteUnifiedOutputCfg();
 
 private:
     void isWayland();
