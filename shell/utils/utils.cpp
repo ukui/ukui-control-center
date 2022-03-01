@@ -23,6 +23,8 @@
 #include <QDir>
 #include <QSettings>
 #include <QProcess>
+#include <QFile>
+#include <QRegularExpression>
 
 #ifdef WITHKYSEC
 #include <kysec/libkysec.h>
@@ -55,23 +57,28 @@ QVariantMap Utils::getModuleHideStatus() {
 }
 
 QString Utils::getCpuInfo() {
-    QString cpuType;
-    // 设置系统环境变量
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("LANG","en_US");
-    QProcess *process = new QProcess;
-    process->setProcessEnvironment(env);
-    process->start("bash" , QStringList() << "-c" << "lscpu | grep 'Model name' ");
-    process->waitForFinished();
-    QByteArray ba = process->readAllStandardOutput();
-    delete process;
+    QFile file("/proc/cpuinfo");
 
-    QString cpuinfo = QString(ba.data());
-    cpuinfo = cpuinfo.replace(QRegExp("[\\s]+"), " "); //把所有的多余的空格(换行符)转为一个空格
-    QStringList list = cpuinfo.split(":");
-    cpuType = list.at(1);
+    if (file.open(QIODevice::ReadOnly)) {
+        QString buffer = file.readAll();
+        QStringList modelLine = buffer.split('\n').filter(QRegularExpression("^model name"));
+        QStringList lines = buffer.split('\n');
 
-    return cpuType;
+        if (modelLine.isEmpty())
+            return "Unknown";
+
+        int count = lines.filter(QRegularExpression("^processor")).count();
+
+        QString result;
+        result.append(modelLine.first().split(':').at(1));
+
+        if (count > 0)
+            result.append(QString(" x %1").arg(count));
+
+        return result;
+    }
+
+    return QString();
 }
 
 
