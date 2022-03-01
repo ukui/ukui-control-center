@@ -31,8 +31,10 @@
 #include <QStringList>
 #include <QSharedPointer>
 #include <QGSettings/QGSettings>
+#include <QMouseEvent>
 
 #include "shell/interface.h"
+#include "statusdialog.h"
 
 namespace Ui {
 class About;
@@ -68,6 +70,7 @@ private:
     void showExtend(QString dateres);
     char *ntpdate();
     int getMonth(QString month);
+    bool eventFilter(QObject *obj, QEvent *event);
 
     qlonglong calculateTotalRam();
 
@@ -96,10 +99,16 @@ private:
     bool mFirstLoad;
 
     QGSettings *themeStyleQgsettings;
+
+    QPixmap mPixmap;
+    bool activestatus = true;
 private slots:
     void runActiveWindow();
     void showPdf();
     void activeSlot(int activeSignal);
+
+Q_SIGNALS:
+    void changeTheme();
 };
 
 #endif // ABOUT_H

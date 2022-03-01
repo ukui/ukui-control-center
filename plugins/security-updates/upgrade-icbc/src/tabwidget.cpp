@@ -36,17 +36,12 @@ void TabWid::initDbus()
     connect(checkUpdateBtn,&QPushButton::clicked,this,&TabWid::checkUpdateBtnClicked);
     connect(this, &TabWid::updateAllSignal, this, &TabWid::updateAllApp);
     connect(historyUpdateLog,&QPushButton::clicked,this,&TabWid::showHistoryWidget);
-    connect(isAutoCheckSBtn,&SwitchButton::checkedChanged,this,&TabWid::isAutoCheckedChanged);
-//    connect(m_pButtonGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked),this, &TabWid::UpgradeModeChangedSlot);
-    connect(isAutoBackupSBtn,&SwitchButton::checkedChanged,this,&TabWid::isAutoBackupChanged);
-    connect(isAutoUpgradeSBtn, &SwitchButton::checkedChanged, this, &TabWid::isAutoUpgradeChanged);
-    //connect(isAutoUpgradeSBtn, &SwitchButton::checkedChanged, this, &TabWid::HideOrShowRadioButton);
     connect(updateSource,&UpdateSource::getReplyFalseSignal,this,&TabWid::getReplyFalseSlot);
-    //connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitSwitchChanged);该函数废弃了
+
     connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitChanged);
     connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
-//    connect(ontimeUpgradeValue,&QComboBox::currentTextChanged,this,&TabWid::ontimeUpgradeValueChanged);
-    //connect(DownloadHValue,static_cast<void (QComboBox::*)(QString)>(&QComboBox:: currentIndexChanged),this,&TabWid::DownloadLimitValueChanged);
+    /*实时更新信号*/
+//    connect(updateMutual,&UpdateDbus::DownloadSpeedChanged,this->DownloadHValue,&QComboBox::setCurrentText);
 
     //    bacupInit();//初始化备份
     checkUpdateBtn->stop();
@@ -57,42 +52,10 @@ void TabWid::initDbus()
 
 }
 
-void TabWid::isAutoUpgradeChanged()
-{
-    QStringList list;
-    if (isAutoUpgradeSBtn->isChecked())
-    {
-        list << "CONTROL_CENTER/autoupdate_allow" << "true";
-//        poweroffUpgradeBtn->show();
-//        ontimeUpgradeBtn->show();
-//            ontimeUpgradeLab->show();
-//            ontimeUpgradeValue->show();
-    }
-    else
-    {
-        list << "CONTROL_CENTER/autoupdate_allow" << "false";
-//        poweroffUpgradeBtn->hide();
-//        ontimeUpgradeBtn->hide();
-//        ontimeUpgradeLab->hide();
-//        ontimeUpgradeValue->hide();
-    }
-    updateSource->getOrSetConf("set", list);
-}
-
 
 void TabWid::dbusFinished()
 {
-    /*获取自动更新开关的状态*/
-    QStringList list;
-    list << "CONTROL_CENTER/autoupdate_allow";
-    QString ret =  updateSource->getOrSetConf("get", list);
-    if (!ret.compare("false"))
-        isAutoUpgradeSBtn->setChecked(false);
-    else
-        isAutoUpgradeSBtn->setChecked(true);
-
     /*获取当前自动更新的状态*/
-    //getAutoUpgradeStatus();
     checkUpdateBtnClicked();
 }
 
@@ -791,13 +754,6 @@ void TabWid::slotUpdateCacheProgress(int progress, QString status)
 
 void TabWid::allComponents()
 {
-
-    /*由于新的控制面板风格ukui3.1，所以将最外层的maintablayout、包裹的滑动模块QScrollArea以及updateTabwidget*/
-    //mainTabLayout = new QVBoxLayout();  //整个页面的主布局
-    //scrollArea = new QScrollArea(this);
-    //scrollArea->setAttribute(Qt::WA_StyledBackground,true);// 后加的,取消和父部件的继承关系
-    // updateTab = new QWidget(this);  //更新页面
-
     /*工行项目新增*/
     mainTabLayout = new QVBoxLayout();  //整个页面的主布局
     scrollArea = new QScrollArea(this);
@@ -812,26 +768,12 @@ void TabWid::allComponents()
     systemWidget->setMaximumSize(QSize(16777215, 16777215));
     systemPortraitLab = new QLabel(systemWidget);
 
-    /*sp2项目？*/
-//    updateTab = new QWidget(this);  //更新页面
-//    AppMessage = new QVBoxLayout();
-//    AppMessage->setAlignment(Qt::AlignTop);
-////    this->setLayout(AppMessage);
-//    updateTab->setLayout(AppMessage);
-//    AppMessage->setContentsMargins(0, 0, 0, 0);
-//    systemWidget = new QFrame();
-//    systemWidget->setFrameShape(QFrame::Box);
-//    systemWidget->setMinimumSize(QSize(550,0));
-//    systemWidget->setMaximumSize(QSize(16777215, 16777215));
-//    systemPortraitLab = new QLabel(systemWidget);
-
     allUpdateWid = new QWidget(this);
     allUpdateLayout = new QVBoxLayout();
     allUpdateLayout->setAlignment(Qt::AlignTop);
     allUpdateWid->setLayout(allUpdateLayout);
     allUpdateLayout->setSpacing(2);
     allUpdateLayout->setMargin(0);
-
 
     /*update*/
     labUpdate = new TitleLabel(this);
@@ -842,7 +784,6 @@ void TabWid::allComponents()
 
     scrollArea->setWidget(updateTab);
     scrollArea->setFrameStyle(0);
-    //    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setWidgetResizable(true);
 
     systemWidget->resize(560,140);
@@ -886,10 +827,7 @@ void TabWid::allComponents()
     detailLabel->hide();
 
     versionInformationLab = new FixLabel();
-//    versionInformationLab->setStyleSheet("font-size:16px;font-weight:500;line-height: 22px;");
-
     inforLayout->setAlignment(Qt::AlignVCenter);
-//    inforLayout->addSpacing(8);
     inforLayout->addWidget(versionInformationLab);
     inforLayout->addSpacing(4);
     inforLayout->addWidget(lastRefreshTime);
@@ -909,11 +847,9 @@ void TabWid::allComponents()
     checkUpdateBtn = new m_button(systemWidget);
     checkUpdateBtn->setDefault(true);
     checkUpdateBtn->start();
-//    checkUpdateBtn->setFixedSize(120,36);
     checkUpdateBtn->adjustSize();
 
     updatedetaileInfo = new QPushButton(this);
-    //    detaileInfo->setText(tr("详情"));
     updatedetaileInfo->setText(tr("details"));
     updatedetaileInfo->hide();
     updatedetaileInfo->setFixedSize(120,36);
@@ -921,7 +857,6 @@ void TabWid::allComponents()
     controlLayout->addWidget(checkUpdateBtn);
     controlLayout->addSpacing(8);
     controlLayout->addWidget(updatedetaileInfo);
-
 
     QWidget *controlWidget = new QWidget(systemWidget);
     controlWidget->setLayout(controlLayout);
@@ -937,7 +872,6 @@ void TabWid::allComponents()
 
     /*******Update Settings*******/
     updateSettingLab = new TitleLabel();
-    //    updateSettingLab->setText(tr("更新设置"));
     //~ contents_path /upgrade/Update Settings
     updateSettingLab->setText(tr("Update Settings"));
     updateSettingLab->setFixedHeight(29);
@@ -947,33 +881,7 @@ void TabWid::allComponents()
     updatesettingLayout = new QVBoxLayout();
     updateSettingWidget->setLayout(updatesettingLayout);
 
-    /*switchbutton1：允许自动更新*/
-    isAutoCheckWidget = new QFrame();
-    isAutoCheckWidget->setFrameShape(QFrame::Box);
-    isAutoCheckWidget->setFixedHeight(60);
-    isAutoCheckLayout = new QHBoxLayout();
-    isAutoCheckedLab = new QLabel();
-    //    isAutoCheckedLab->setText(tr("允许通知可更新的应用"));
-    isAutoCheckedLab->setText(tr("Allowed to renewable notice"));
-    isAutoCheckSBtn = new SwitchButton();
-    isAutoCheckWidget->setLayout(isAutoCheckLayout);
-    isAutoCheckLayout->addSpacing(6);
-    isAutoCheckLayout->addWidget(isAutoCheckedLab);
-    isAutoCheckLayout->addWidget(isAutoCheckSBtn);
-
-    /*没用到的开关：自动下载和安装更新，后期处理以后可以删除了*/
-    isAutoBackupWidget = new QFrame();
-    isAutoBackupWidget->setFrameShape(QFrame::Box);
-    isAutoBackupLayout = new QHBoxLayout();
-    isAutoBackupLab = new QLabel();
-    isAutoBackupLab->setText(tr("Backup current system before updates all"));
-    //    isAutoBackupLab->setText(tr("全部更新前备份系统"));
-    isAutoBackupSBtn = new SwitchButton();
-    isAutoBackupLayout->addWidget(isAutoBackupLab);
-    isAutoBackupLayout->addWidget(isAutoBackupSBtn);
-    isAutoBackupWidget->setLayout(isAutoBackupLayout);
-
-    /*switchbutton3：下载限速*/
+    /*switchbutton：下载限速*/
     DownloadVWidget = new QFrame();
     DownloadVWidget->setFrameShape(QFrame::Box);
     DownloadVLayout = new QVBoxLayout();
@@ -988,13 +896,8 @@ void TabWid::allComponents()
     DownloadHValue->addItems(strList);
     DownloadVLab = new FixLabel();
     DownloadVLab->setText(tr("It will be avaliable in the next download."));
-//    DownloadVLab->setStyleSheet("background:transparent;color:#626c6e;");
-//    DownloadVLab->adjustSize();
     DownloadVLab->setWordWrap(true);
     DownloadVLab->setAlignment(Qt::AlignTop);
-//    QPalette DownloadVlabelPalette = DownloadVLab->palette();
-//    DownloadVlabelPalette.setBrush(QPalette::WindowText, DownloadVlabelPalette.color(QPalette::PlaceholderText));
-//    DownloadVLab->setPalette(DownloadVlabelPalette);
     DownloadHLayout->addSpacing(6);
     DownloadHLayout->addWidget(DownloadHLab);
     DownloadHLayout->addWidget(DownloadHValue);
@@ -1005,94 +908,13 @@ void TabWid::allComponents()
     DownloadVLabLayout->addWidget(DownloadVLab);
     DownloadVWidget->setLayout(DownloadVLayout);
 
-    /*switchbutton2：自动下载和安装更新*/
-    isAutoUpgradeWidget = new QFrame();
-    isAutoUpgradeWidget->setFrameShape(QFrame::Box);
-    isAutoUpgradeLayout = new QVBoxLayout();
-    isAutoUpgradeLab = new QLabel();
-    isAutoUpgradeLab->setText(tr("Automatically download and install updates"));
-    autoUpgradeLab = new FixLabel();
-//    explicit LightLabel(QString text , QWidget *parent = nullptr);
-    autoUpgradeLab->setText(tr("The system will automatically updates when there is an available network and backup."));//The system will automatically updates when there is an available network and backup.//After it is turned on, the system will automatically download and install updates when there is an available network and available backup and restore partitions.
-//    autoUpgradeLab->adjustSize();
-//    autoUpgradeLab->setStyleSheet("background:transparent;color:#626c6e;");
-    autoUpgradeLab->setWordWrap(true);
-    autoUpgradeLab->setAlignment(Qt::AlignTop);
-//    QPalette labelPalette = autoUpgradeLab->palette();
-//    labelPalette.setBrush(QPalette::WindowText, labelPalette.color(QPalette::PlaceholderText));
-//    autoUpgradeLab->setPalette(labelPalette);
-    isAutoUpgradeSBtn = new SwitchButton();
-    autoUpgradeBtnLayout = new QHBoxLayout();
-    autoUpgradeBtnLayout->addSpacing(6);
-    autoUpgradeBtnLayout->addWidget(isAutoUpgradeLab);
-    autoUpgradeBtnLayout->addWidget(isAutoUpgradeSBtn);
-    /*二選一*/
-//    m_pButtonGroup = new QButtonGroup();
-//    poweroffUpgradeBtn = new QRadioButton(tr("Upgrade during poweroff"), this);
-//    ontimeUpgradeBtn = new QRadioButton(tr("Upgrade at period time"), this);
-//    ontimeUpgradeLab = new QLabel();
-//    ontimeUpgradeValue = new QComboBox();
-//    ontimeUpgradeLayout = new QHBoxLayout();
-//    QStringList TimeList;
-//    TimeList<<"1"<<"3"<<"7"<<"15"<<"30";
-//    ontimeUpgradeValue->addItems(TimeList);
-//    ontimeUpgradeValue->setFixedWidth(80);
-//    ontimeUpgradeValue->setEnabled(false);
-//    ontimeUpgradeLab->setText(tr("days to update"));
-////    autoUpgradeLab->adjustSize();
-////    ontimeUpgradeLab->setWordWrap(true);
-////    ontimeUpgradeLab->setAlignment(Qt::AlignTop);
-//    /*字体置灰*/
-////    QPalette ontimeupgradelabelPalette = ontimeUpgradeLab->palette();
-////    ontimeupgradelabelPalette.setBrush(QPalette::WindowText, ontimeupgradelabelPalette.color(QPalette::PlaceholderText));
-////    ontimeUpgradeLab->setPalette(ontimeupgradelabelPalette);
-//    poweroffUpgradeBtn->setProperty("value", "poweroff");
-//    ontimeUpgradeBtn->setProperty("value","fixedtime");
-//    m_pButtonGroup->addButton(poweroffUpgradeBtn);
-//    m_pButtonGroup->addButton(ontimeUpgradeBtn);
-//    isAutoUpgradeLayout->addLayout(autoUpgradeBtnLayout);
-//    isAutoUpgradeLayout->addWidget(autoUpgradeLab);
-//    isAutoUpgradeLayout->addWidget(poweroffUpgradeBtn);
-//    ontimeUpgradeLayout->addWidget(ontimeUpgradeBtn);
-//    ontimeUpgradeLayout->addWidget(ontimeUpgradeValue);
-//    ontimeUpgradeLayout->addWidget(ontimeUpgradeLab);
-//    isAutoUpgradeLayout->addLayout(ontimeUpgradeLayout);
-    //isAutoUpgradeLayout->addWidget(ontimeUpgradeBtn);
-//    isAutoUpgradeWidget->setLayout(isAutoUpgradeLayout);
-    isAutoUpgradeLayout->addLayout(autoUpgradeBtnLayout);
-    autoUpgradeLayout = new QHBoxLayout();
-    autoUpgradeLayout->addSpacing(6);
-    autoUpgradeLayout->addWidget(autoUpgradeLab);
-    isAutoUpgradeLayout->addLayout(autoUpgradeLayout);
-    isAutoUpgradeWidget->setLayout(isAutoUpgradeLayout);
-    /*临时加入的分割线，在后期可以化成一个模块*/
-    QFrame *line12 = new QFrame(this);
-    line12->setMinimumSize(QSize(0, 1));
-    line12->setMaximumSize(QSize(16777215, 1));
-    line12->setLineWidth(0);
-    line12->setFrameShape(QFrame::HLine);
-    line12->setFrameShadow(QFrame::Sunken);
-
-    QFrame *line23 = new QFrame(this);
-    line23->setMinimumSize(QSize(0, 1));
-    line23->setMaximumSize(QSize(16777215, 1));
-    line23->setLineWidth(0);
-    line23->setFrameShape(QFrame::HLine);
-    line23->setFrameShadow(QFrame::Sunken);
-
-
     /*第二个titlelabel的布局*/
     updatesettingLayout->setAlignment(Qt::AlignTop);
-//    updatesettingLayout->addWidget(updateSettingLab);
+    updatesettingLayout->addWidget(updateSettingLab);
 //    updatesettingLayout->addSpacing(10);
-    updatesettingLayout->addWidget(isAutoCheckWidget);
-    updatesettingLayout->setSpacing(2);/*加了两行参数*/
-    updatesettingLayout->setMargin(0);/*加了两行参数*/
-updatesettingLayout->addWidget(line12);
-    updatesettingLayout->addWidget(isAutoUpgradeWidget);
-    updatesettingLayout->setSpacing(2);
-    updatesettingLayout->setMargin(0);
-updatesettingLayout->addWidget(line23);
+
+//    updatesettingLayout->addWidget(isAutoUpgradeWidget);
+
     updatesettingLayout->addWidget(DownloadVWidget);
     updatesettingLayout->setSpacing(2);
     updatesettingLayout->setMargin(0);
@@ -1110,7 +932,6 @@ updatesettingLayout->addWidget(line23);
 
     mainTabLayout->setAlignment(Qt::AlignTop);
     mainTabLayout->addWidget(scrollArea);
-    //    mainTabLayout->setSpacing(0);
     mainTabLayout->setMargin(0);
     this->setLayout(mainTabLayout);
     getAllDisplayInformation();
@@ -1281,32 +1102,7 @@ void TabWid::getAllDisplayInformation()
     }
     lastRefreshTime->setText(tr("Last refresh:") + updatetime);
     versionInformationLab->setText(tr("Last Checked:")+checkedtime);
-    if(checkedstatues == "false")
-    {
-        isAutoCheckSBtn->setChecked(false);
-//        ontimeUpgradeBtn->hide();
-//        poweroffUpgradeBtn->hide();
-//        ontimeUpgradeLab->hide();
-//        ontimeUpgradeValue->hide();
-    }
-    else
-    {
-        isAutoCheckSBtn->setChecked(true);
-//        ontimeUpgradeBtn->show();
-//        poweroffUpgradeBtn->show();
-//        ontimeUpgradeLab->show();
-//        ontimeUpgradeValue->show();
-    }
-    isAutoCheckSBtn->setEnabled(true);
 
-    if(backupStatus == "false")
-    {
-        isAutoBackupSBtn->setChecked(false);
-    }
-    else
-    {
-        isAutoBackupSBtn->setChecked(true);
-    }
     if(downloadlimitstatus == "false")
     {
         DownloadHBtn->setChecked(false);
@@ -1545,7 +1341,6 @@ void TabWid::checkUpdateBtnClicked()
 //                if(wid->updateAPPBtn->text() == tr("Update"))
                     wid->updateAPPBtn->setEnabled(false);
             }
-            isAutoBackupSBtn->setChecked(false);
             checkUpdateBtn->setEnabled(false);
             checkUpdateBtn->start();
             updateMutual->isPointOutNotBackup = false;   //全部更新时不再弹出单个更新未备份提示
@@ -1578,32 +1373,6 @@ void TabWid::checkUpdateBtnClicked()
 
 }
 
-
-void TabWid::DownloadLimitSwitchChanged()//该函数废弃了
-{
-
-    if(DownloadHBtn->isChecked()==false)
-    {
-        qDebug()<<"download limit disabled";
-//        DownloadHValue->hide();
-        DownloadHValue->setEnabled(false);
-        updateMutual->SetDownloadLimit(0,false);
-    }
-    else if (DownloadHBtn->isChecked()==true)
-    {
-        qDebug()<<"download limit enabled";
-//        DownloadHValue->show();
-        DownloadHValue->setEnabled(true);
-        QString dlimit = DownloadHValue->currentText();
-        updateMutual->SetDownloadLimit(dlimit,true);
-    }
-    else
-    {
-        qWarning()<<"download limit disabled,this should not happen";
-        updateMutual->SetDownloadLimit(0,false);
-    }
-}
-
 void TabWid::DownloadLimitValueChanged(const QString &value)
 {
     if(DownloadHBtn->isChecked()==false)
@@ -1625,25 +1394,6 @@ void TabWid::DownloadLimitValueChanged(const QString &value)
     }
 }
 
-//void TabWid::ontimeUpgradeValueChanged(const QString &value)//value=time
-//{
-//    if(ontimeUpgradeBtn->isChecked()==false)
-//    {
-//        updateMutual->interface->call("SetAutoUpgradePeriod","0");
-//        updateMutual->insertInstallStates("allow_unattended_upgrades_shutdown","true");
-//    }
-//    else if (ontimeUpgradeBtn->isChecked()==true)
-//    {
-//        updateMutual->interface->call("SetAutoUpgradePeriod",value);
-//        updateMutual->insertInstallStates("allow_unattended_upgrades_shutdown","false");
-//        updateMutual->insertInstallStates("update_period",value);
-//    }
-//    else
-//    {
-//        updateMutual->interface->call("SetAutoUpgradePeriod","0");
-//        updateMutual->insertInstallStates("allow_unattended_upgrades_shutdown","true");
-//    }
-//}
 
 void TabWid::DownloadLimitChanged()
 {
@@ -1664,32 +1414,6 @@ void TabWid::DownloadLimitChanged()
         DownloadHValue->setEnabled(true);
         QString dlimit = DownloadHValue->currentText();
         updateMutual->SetDownloadLimit(dlimit,true);
-    }
-}
-
-void TabWid::isAutoCheckedChanged()     //自动检测按钮绑定的槽函数
-{
-    if(isAutoCheckSBtn->isChecked() == false)
-    {
-        updateMutual->insertInstallStates("auto_check","false");
-
-    }
-    else if(isAutoCheckSBtn->isChecked() == true)
-    {
-        updateMutual->insertInstallStates("auto_check","true");
-    }
-}
-
-void TabWid::isAutoBackupChanged()
-{
-    if(isAutoBackupSBtn->isChecked() == false)
-    {
-        updateMutual->insertInstallStates("auto_backup","false");
-
-    }
-    else if(isAutoBackupSBtn->isChecked() == true)
-    {
-        updateMutual->insertInstallStates("auto_backup","true");
     }
 }
 
