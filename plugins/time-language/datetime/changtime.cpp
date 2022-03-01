@@ -189,10 +189,34 @@ void ChangtimeDialog::initUi(){
 
 void ChangtimeDialog::hourComboxSetup(){
     ui->hourcomboBox->clear();
+    QString am(tr("AM"));
+    QString pm(tr("PM"));
+    QString ap = QDateTime::currentDateTime().toString("AP");
+
+    // 改变了区域时语言变为英文
+    if (ap == "PM" || ap == "AM") {
+        am = "AM";
+        pm = "PM";
+    }
 
     //获取时间制式，设置时间combobox
-    for (int h = 0; h < 24; h++){
-        ui->hourcomboBox->addItem(QString::number(h));
+    if (!this->m_isEFHour) {
+
+        for (int i = 0; i < 24 ; i++) {
+            if (i == 0) {
+                ui->hourcomboBox->addItem(am+ " " + QString::number(12));
+            } else if (i < 12) {
+                ui->hourcomboBox->addItem(am + " " + QString::number(i));
+            } else if (i == 12) {
+                ui->hourcomboBox->addItem(pm + " " + QString::number(i));
+            } else {
+                ui->hourcomboBox->addItem(pm + " " + QString::number(i - 12));
+            }
+        }
+    } else {
+        for (int h = 0; h < 24; h++){
+            ui->hourcomboBox->addItem(QString::number(h));
+        }
     }
 }
 
@@ -217,17 +241,7 @@ void ChangtimeDialog::initStatus(){
     QDateTime current = QDateTime::currentDateTime();
     QString currenthourStr = current.toString("hh");
     QString currentminStr = current.toString("mm");
-
-    //if date formate is 24 hour
-    if(this->m_isEFHour) {
-        ui->hourcomboBox->setCurrentIndex(currenthourStr.toInt());
-    } else {
-        if (currenthourStr.toInt() > 12) {
-            ui->hourcomboBox->setCurrentIndex(currenthourStr.toInt() - 12);
-        } else {
-            ui->hourcomboBox->setCurrentIndex((currenthourStr.toInt()));
-        }
-    }
+    ui->hourcomboBox->setCurrentIndex(currenthourStr.toInt());
     ui->mincomboBox->setCurrentIndex(currentminStr.toInt());
 }
 

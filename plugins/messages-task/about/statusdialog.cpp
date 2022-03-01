@@ -30,7 +30,7 @@ void StatusDialog::initUI()
     mVersionFrame->setFixedHeight(36);
     mVersionFrame->setFrameShape(QFrame::NoFrame);
     mVersionLabel_1 = new QLabel(mVersionFrame);
-    mVersionLabel_2 = new QLabel(mVersionFrame);
+    mVersionLabel_2 = new FixLabel(mVersionFrame);
     mVersionLabel_1->setFixedWidth(100);
     mVersionLyt->addWidget(mVersionLabel_1);
     mVersionLyt->addWidget(mVersionLabel_2);
@@ -41,7 +41,7 @@ void StatusDialog::initUI()
     mStatusLyt->setSpacing(16);
     mStatusFrame->setFixedHeight(36);
     mStatusFrame->setFrameShape(QFrame::NoFrame);
-    mStatusLabel_1 = new QLabel(mStatusFrame);
+    mStatusLabel_1 = new FixLabel(mStatusFrame);
     mStatusLabel_2 = new QLabel(mStatusFrame);
     mStatusLabel_1->setFixedWidth(100);
     mStatusLyt->addWidget(mStatusLabel_1);
@@ -54,7 +54,7 @@ void StatusDialog::initUI()
     mSerialFrame->setFixedHeight(36);
     mSerialFrame->setFrameShape(QFrame::NoFrame);
     mSerialLabel_1 = new QLabel(mSerialFrame);
-    mSerialLabel_2 = new QLabel(mSerialFrame);
+    mSerialLabel_2 = new FixLabel(mSerialFrame);
     mSerialLabel_1->setFixedWidth(100);
     mSerialLyt->addWidget(mSerialLabel_1);
     mSerialLyt->addWidget(mSerialLabel_2);
@@ -65,7 +65,7 @@ void StatusDialog::initUI()
     mTimeLyt->setSpacing(16);
     mTimeFrame->setFixedHeight(36);
     mTimeFrame->setFrameShape(QFrame::NoFrame);
-    mTimeLabel_1 = new QLabel(mTimeFrame);
+    mTimeLabel_1 = new FixLabel(mTimeFrame);
     mTimeLabel_2 = new QLabel(mTimeFrame);
     mTimeLabel_1->setFixedWidth(100);
     mTimeLyt->addWidget(mTimeLabel_1);
