@@ -1,3 +1,10 @@
+ukui-control-center (3.0.4-2+2022-0228) v101; urgency=medium
+
+  * 提交commit: 1356d737
+  * bug#45515修改主题模式选中样式，图片可选
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 28 Feb 2022 20:30:05 +0800
+
 ukui-control-center (3.0.4-2+2022-0225) v101; urgency=medium
 
   * 提交commit: f93694e8
