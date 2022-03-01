@@ -13,7 +13,7 @@
         <translation type="vanished">已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="505"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="538"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -47,21 +47,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="507"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="540"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="509"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="542"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="511"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="544"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -73,21 +73,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="513"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="546"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="515"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="548"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="517"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="550"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Active Status</extra-contents_path>
@@ -104,7 +104,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="672"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="521"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="554"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -115,8 +115,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="642"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="267"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="519"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="269"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="552"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -134,7 +134,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="62"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="52"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -156,17 +156,17 @@
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="271"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="274"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="313"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="315"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="316"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="276"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
@@ -1240,45 +1240,45 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="414"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1013"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1014"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="439"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1039"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1040"/>
         <source>Turn on :</source>
         <translation>开启</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="472"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1073"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1074"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="500"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1106"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1107"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="533"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1138"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1139"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="835"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1646"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1658"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1647"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1659"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可使用rfkill命令进行查看</translation>
     </message>
@@ -1294,7 +1294,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="712"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1178"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1179"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
     </message>
@@ -1304,7 +1304,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="731"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1195"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1196"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
     </message>
@@ -5500,13 +5500,13 @@ Please retry or relogin!</source>
     <name>Printer</name>
     <message>
         <location filename="../../../plugins/devices/printer/printer.ui" line="91"/>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="66"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="68"/>
         <source>Add Printers And Scanners</source>
         <translation>添加打印机和扫描仪</translation>
         <extra-contents_path>/printer/Add Printers And Scanners</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="118"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="129"/>
         <source>Add printers and scanners</source>
         <translation>添加打印机和扫描仪</translation>
     </message>
@@ -5528,7 +5528,7 @@ Please retry or relogin!</source>
         <translation type="vanished">打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="34"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="36"/>
         <source>Printer</source>
         <translation>打印机</translation>
     </message>
@@ -6013,12 +6013,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>无线局域网</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="159"/>
+        <location filename="../../utils/functionselect.cpp" line="160"/>
         <source>User Info</source>
         <translation>账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="176"/>
+        <location filename="../../utils/functionselect.cpp" line="177"/>
         <source>Date</source>
         <translation>时间日期</translation>
     </message>
@@ -6027,7 +6027,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="193"/>
+        <location filename="../../utils/functionselect.cpp" line="194"/>
         <source>Security Center</source>
         <translation>安全中心</translation>
     </message>
@@ -6050,7 +6050,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">账户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="161"/>
+        <location filename="../../utils/functionselect.cpp" line="162"/>
         <source>Cloud Account</source>
         <translation>云账户</translation>
     </message>
@@ -6059,7 +6059,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">时间日期</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="178"/>
+        <location filename="../../utils/functionselect.cpp" line="179"/>
         <source>Area</source>
         <translation>区域语言</translation>
     </message>
@@ -6068,12 +6068,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">安全中心</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="197"/>
+        <location filename="../../utils/functionselect.cpp" line="198"/>
         <source>Update</source>
         <translation>安全与更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="195"/>
+        <location filename="../../utils/functionselect.cpp" line="196"/>
         <source>Backup</source>
         <translation>备份</translation>
     </message>
@@ -6082,27 +6082,27 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="obsolete">无线局域网</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="199"/>
+        <location filename="../../utils/functionselect.cpp" line="200"/>
         <source>Upgrade</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="214"/>
+        <location filename="../../utils/functionselect.cpp" line="215"/>
         <source>Notice</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="216"/>
+        <location filename="../../utils/functionselect.cpp" line="217"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="218"/>
+        <location filename="../../utils/functionselect.cpp" line="219"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="220"/>
+        <location filename="../../utils/functionselect.cpp" line="221"/>
         <source>Experienceplan</source>
         <translation>体验计划</translation>
     </message>
@@ -7492,6 +7492,18 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
 </context>
 <context>
+    <name>StatusDialog</name>
+    <message>
+        <location filename="../../../plugins/messages-task/about/statusdialog.cpp" line="8"/>
+        <source>About</source>
+        <translation>关于本机</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="obsolete">延长服务</translation>
+    </message>
+</context>
+<context>
     <name>SuccessDiaolog</name>
     <message>
         <source>Reback sign in</source>
@@ -7676,19 +7688,19 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="744"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="844"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1013"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="54"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="129"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="144"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="149"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="179"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="740"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1186"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1228"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1444"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1465"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1499"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1725"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1831"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="49"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="92"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="107"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="112"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="142"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="703"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1007"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1049"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1240"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1261"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1295"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1449"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1555"/>
         <source>Check Update</source>
         <translation>检查更新</translation>
     </message>
@@ -7703,21 +7715,21 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="886"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="343"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="384"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1531"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="306"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="347"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1327"/>
         <source>Prompt information</source>
         <translation>提示信息</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="215"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="212"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="175"/>
         <source>Update now</source>
         <translation>立即更新</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="216"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="213"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="176"/>
         <source>Cancel update</source>
         <translation>取消更新</translation>
     </message>
@@ -7729,9 +7741,9 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="223"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="366"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1045"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="224"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="569"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1887"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="187"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="532"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1611"/>
         <source>Being updated...</source>
         <translation>正在更新...</translation>
     </message>
@@ -7743,51 +7755,51 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="871"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1002"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1049"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="136"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="239"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="583"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1210"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1516"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1700"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1790"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1865"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1895"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="99"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="202"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="546"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1031"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1312"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1424"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1514"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1589"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1619"/>
         <source>UpdateAll</source>
         <translation>全部更新</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="248"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="254"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="217"/>
         <source>The backup restore partition could not be found. The system will not be backed up in this update!</source>
         <translation>未能找到备份还原分区，本次更新不会备份系统！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="252"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="258"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="221"/>
         <source>Kylin backup restore tool is doing other operations, please update later.</source>
         <translation>麒麟备份还原工具正在进行其他操作，请稍后更新</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="255"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="264"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="227"/>
         <source>The source manager configuration file is abnormal, the system temporarily unable to update!</source>
         <translation>源管理器配置文件异常，暂时无法更新！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="258"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="270"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="233"/>
         <source>Backup already, no need to backup again.</source>
         <translation>已备份，无需再次备份</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="272"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="295"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="258"/>
         <source>Kylin backup restore tool does not exist, this update will not backup the system!</source>
         <translation>麒麟备份还原工具不存在，本次更新不会备份系统</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="332"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="515"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="478"/>
         <source>Backup complete.</source>
         <translation>备份完成</translation>
     </message>
@@ -7798,62 +7810,62 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="266"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1079"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="280"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1926"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="243"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1650"/>
         <source>Start backup,getting progress</source>
         <translation>开始备份，正在获取进度</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="875"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1520"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1316"/>
         <source>The battery is below 50% and the update cannot be downloaded</source>
         <translation>电池电量低于 50%，无法下载更新</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="878"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1523"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1319"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="885"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1530"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1326"/>
         <source>Please back up the system before all updates to avoid unnecessary losses</source>
         <translation>请在所有更新前备份系统，以免造成不必要的损失</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="888"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1533"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1329"/>
         <source>Only Update</source>
         <translation>仅更新</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="889"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1534"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1330"/>
         <source>Back And Update</source>
         <translation>备份并更新</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1086"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1938"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1662"/>
         <source>Failed to write configuration file, this update will not back up the system!</source>
         <translation>写入配置文件失败，本次更新不会备份系统！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1090"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1942"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1666"/>
         <source>Insufficient backup space, this update will not backup your system!</source>
         <translation>备份空间不足，本次更新不会备份系统！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1094"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1946"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1670"/>
         <source>Kylin backup restore tool could not find the UUID, this update will not backup the system!</source>
         <translation>麒麟备份还原工具无法找到UUID，本次更新不会备份系统</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="347"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="539"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="502"/>
         <source>Backup interrupted, stop updating!</source>
         <translation>备份过程被中断，停止更新！</translation>
     </message>
@@ -7861,8 +7873,8 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="170"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="286"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="309"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="188"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="427"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="151"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="390"/>
         <source>Downloading and installing updates...</source>
         <translation>正在下载和安装更新...</translation>
     </message>
@@ -7874,55 +7886,55 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="287"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="890"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="311"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="321"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="346"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="574"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1394"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1535"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="274"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="284"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="309"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="537"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1190"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1331"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="335"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="522"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="485"/>
         <source>System is backing up...</source>
         <translation>系统正在备份...</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="351"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="551"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="514"/>
         <source>Backup finished!</source>
         <translation>备份完成！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="355"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="558"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="521"/>
         <source>Kylin backup restore tool exception:</source>
         <translation>麒麟备份还原工具异常：</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="355"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="558"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="521"/>
         <source>There will be no backup in this update!</source>
         <translation>本次更新不会备份系统！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="428"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="709"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="672"/>
         <source>Getting update list</source>
         <translation>正在获取更新列表</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="433"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="468"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="742"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="705"/>
         <source>Software source update failed: </source>
         <translation>软件源更新失败：</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="487"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="786"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="749"/>
         <source>Update software source :</source>
         <translation>更新软件源进度：</translation>
     </message>
@@ -7932,20 +7944,20 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="514"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="219"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="839"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="182"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="781"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="537"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="861"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="802"/>
         <source>View history</source>
         <translation>查看更新历史</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="583"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="942"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="876"/>
         <source>Update Settings</source>
         <translation>更新设置</translation>
         <extra-contents_path>/upgrade/Update Settings</extra-contents_path>
@@ -7957,13 +7969,11 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="594"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="957"/>
         <source>Allowed to renewable notice</source>
         <translation>允许通知可更新的应用</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="604"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="969"/>
         <source>Backup current system before updates all</source>
         <translation>全部更新前备份系统</translation>
     </message>
@@ -7972,25 +7982,24 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="320"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="746"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1015"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="165"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1188"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1230"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1731"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1832"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="128"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1009"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1051"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1455"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1556"/>
         <source>Your system is the latest!</source>
         <translation>您的系统已是最新！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="235"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="773"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="237"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1214"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="200"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1035"/>
         <source>Updatable app detected on your system!</source>
         <translation>检测到你的系统有可更新的应用！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="629"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1013"/>
         <source>Automatically download and install updates</source>
         <translation>自动下载和安装更新</translation>
     </message>
@@ -8001,7 +8010,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="703"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1146"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="967"/>
         <source>Ready to install</source>
         <translation>准备安装</translation>
     </message>
@@ -8010,12 +8019,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="751"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="796"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1025"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="167"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1191"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1233"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1272"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1764"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1843"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="130"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1012"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1054"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1093"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1488"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1567"/>
         <source>No Information!</source>
         <translation>暂无信息！</translation>
     </message>
@@ -8024,36 +8033,36 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="761"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="806"/>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1035"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="177"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1201"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1243"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1282"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1774"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1853"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="140"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1022"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1064"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1103"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1498"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1577"/>
         <source>Last refresh:</source>
         <translation>上次更新：</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="807"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1283"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1104"/>
         <source>Last Checked:</source>
         <translation>上次检测：</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="839"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1369"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1165"/>
         <source>trying to reconnect </source>
         <translation>重新尝试连接</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="839"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1369"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1165"/>
         <source> times</source>
         <translation>次</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="859"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1512"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1308"/>
         <source>Updating the software source</source>
         <translation>正在更新软件源</translation>
     </message>
@@ -8075,20 +8084,20 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1021"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1753"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1816"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1477"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1540"/>
         <source>Part of the update failed!</source>
         <translation>部分更新失败！</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1060"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1907"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1631"/>
         <source>An important update is in progress, please wait.</source>
         <translation>正在进行一项重要更新，请等待。</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1097"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1949"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1673"/>
         <source>The backup restore partition is abnormal. You may not have a backup restore partition.For more details,see /var/log/backup.log</source>
         <translation>备份还原分区异常，您可能没有备份还原分区。更多详细信息，可以参看/var/log/backup.log</translation>
     </message>
@@ -8098,7 +8107,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/upgrade/src/tabwidget.cpp" line="1104"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1957"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1681"/>
         <source>Calculating Capacity...</source>
         <translation>计算系统空间大小</translation>
     </message>
@@ -8119,148 +8128,147 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">全部更新前备份当前系统为可回退的版本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="335"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="298"/>
         <source>Calculated</source>
         <translation>计算完成</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="342"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="305"/>
         <source>There are unresolved dependency conflicts in this update，Please select Dist-upgrade</source>
         <translation>本次更新存在无法解决的依赖冲突，请选择全盘更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="345"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="308"/>
         <source>Dist-upgrade</source>
         <translation>全盘更新</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="383"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="346"/>
         <source>There are unresolved dependency conflicts in this update，Please contact the administrator!</source>
         <translation>本次更新存在无法解决的依赖问题，请联系管理员！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="386"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="349"/>
         <source>Sure</source>
         <translation>好的</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="494"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="457"/>
         <source>In the install...</source>
         <translation>安装中...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="500"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="503"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="463"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="466"/>
         <source>In the download</source>
         <translation>下载中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="500"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="463"/>
         <source>calculating</source>
         <translation>计算中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="587"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="550"/>
         <source>The status of backup completion is abnormal</source>
         <translation>备份状态异常</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="732"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="695"/>
         <source>Software source update successed: </source>
         <translation>软件源更新成功：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="917"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1386"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="853"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1182"/>
         <source>details</source>
         <translation>详情</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="983"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="891"/>
         <source>Download Limit(Kb/s)</source>
         <translation>下载限速(Kb/s)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="990"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="898"/>
         <source>It will be avaliable in the next download.</source>
         <translation>开启后会在下次下载时进行限速。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1016"/>
         <source>The system will automatically updates when there is an available network and backup.</source>
-        <translation>开启后，当网络和备份可用时，系统会自动下载和安装更新。</translation>
+        <translation type="vanished">开启后，当网络和备份可用时，系统会自动下载和安装更新。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1361"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1157"/>
         <source>Dependency conflict exists in this update,need to be completely repaired!</source>
         <translation>本次更新存在包依赖冲突，需要全盘修复以完成更新！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1363"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1159"/>
         <source>packages are going to be removed,Please confirm whether to accept!</source>
         <translation>个软件包将被卸载，请确认是否接受！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1379"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1175"/>
         <source>back</source>
         <translation>收起</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1413"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1209"/>
         <source>Auto-Update is backing up......</source>
         <translation>自动更新进程正在备份中......</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1480"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1276"/>
         <source>The progress is downloading...</source>
         <translation>正在下载并安装更新...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1488"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1284"/>
         <source>The progress is installing...</source>
         <translation>正在下载并安装更新...</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1703"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1748"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1811"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1867"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1427"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1472"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1535"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1591"/>
         <source>update has been canceled!</source>
         <translation>本次更新已取消！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1729"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1453"/>
         <source>This update has been completed！</source>
         <translation>本次更新已完成！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1754"/>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1817"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1478"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1541"/>
         <source>Failure reason:</source>
         <translation>失败原因：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1796"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1520"/>
         <source>Part of the update success!</source>
         <translation>软件包更新成功！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="2047"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1771"/>
         <source>Calculating</source>
         <translation>计算中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="2105"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1829"/>
         <source>Auto-Update progress is installing new file：</source>
         <translation>系统自动更新功能正在安装新文件：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="2126"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1850"/>
         <source>Auto-Update progress finished!</source>
         <translation>系统自动更新完成！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="2134"/>
+        <location filename="../../../plugins/security-updates/upgrade-icbc/src/tabwidget.cpp" line="1858"/>
         <source>Auto-Update progress fail in backup!</source>
         <translation>自动更新安装时备份失败！</translation>
     </message>
@@ -9487,70 +9495,70 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">屏幕缩放 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="604"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="613"/>
         <source>unify output</source>
         <translation>统一输出</translation>
         <extra-contents_path>/display/unify output</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="608"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="617"/>
         <source>night mode</source>
         <translation>色温</translation>
         <extra-contents_path>/display/night mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="557"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="673"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="566"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="682"/>
         <source>Some applications need to be logouted to take effect</source>
         <translation>部分程序需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="545"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="554"/>
         <source>monitor</source>
         <translation>显示器</translation>
         <extra-contents_path>/display/monitor</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="556"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="672"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="565"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="681"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="616"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="625"/>
         <source>Theme follow night mode</source>
         <translation>主题跟随夜间模式变化</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="637"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="646"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="638"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="647"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after 14 seconds</source>
         <translation>是否保留当前修改的配置？将在14秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="642"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="651"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="643"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="652"/>
         <source>Not Save</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="651"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
         <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1969"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1984"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1978"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1993"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -9594,19 +9602,19 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1302"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1311"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1142"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1302"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1309"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1151"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1311"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1318"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1143"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1152"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -9619,7 +9627,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1310"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1319"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

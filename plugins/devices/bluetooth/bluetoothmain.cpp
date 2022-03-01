@@ -982,6 +982,7 @@ void BlueToothMain::adapterConnectFun()
     });
     connect(m_localDevice.data(),&BluezQt::Adapter::discoveringChanged,this,[=](bool discover)
     {
+        qDebug() << Q_FUNC_INFO << discover << __LINE__;
         if(discover){
             m_timer->start();
             loadLabel->setVisible(true);
@@ -1300,7 +1301,18 @@ void BlueToothMain::startDiscovery()
 
     if (!m_localDevice->isDiscovering())
     {
-        m_localDevice->startDiscovery();
+        BluezQt::PendingCall *call = m_localDevice->startDiscovery();
+        connect(call,&BluezQt::PendingCall::finished,this,[=](BluezQt::PendingCall *p)
+        {
+            if(p->error() == 0)
+            {
+                qDebug() << Q_FUNC_INFO << "startDiscovery Success " << m_localDevice->isDiscovering();
+            }
+            else
+            {
+                qDebug() << Q_FUNC_INFO << "startDiscovery fail " << m_localDevice->isDiscovering();
+            }
+        });
     }
 }
 
@@ -1883,6 +1895,7 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
             return ;
         }
 
+        stopDiscovery();
         M_power_on = false;
         adapterPoweredChanged(false);
         //断电后先删除所有扫描到的蓝牙设备
