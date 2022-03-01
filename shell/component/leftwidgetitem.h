@@ -39,12 +39,14 @@ public:
     void isSetLabelPixmapWhite(bool selected);
     void setLabelText(QString text);
     void setLabelTextIsWhite(bool selected);
-
     void setSelected(bool selected);
 
     QString text();
+
+public:
     QLabel * textLabel;
     QLabel * iconLabel;
+    bool is_seletced = false;
 
 private:
     // load svg picture
@@ -53,17 +55,12 @@ private:
     QPixmap drawSymbolicColoredPixmap(const QPixmap &source, QString cgcolor);
 
 private:
-//    QLabel * iconLabel;
-//    QLabel * textLabel;
-
     QWidget * widget;
     QString icoName;
     QString currentThemeMode;
     QLabel * arrows;
     QGSettings * qtSettings;
     QString fileName;
-    bool is_seletced = false;
-
 };
 
 #endif // LEFTWIDGETITEM_H

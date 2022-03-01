@@ -77,16 +77,15 @@ private:
     QMap<QString, CommonInterface*> pluginInstanceMap;
     QMultiMap<QString, QListWidgetItem*> strItemsMap;//存储功能名与二级菜单item的Map,为了实现高亮
     QListWidgetItem *firstItem;
+    QListWidgetItem *mSelectItem;
     bool flagBit;
     QString currentThemeMode;
     QGSettings *qtSettings;
 public slots:
-    void currentLeftitemChanged(QListWidgetItem * cur, QListWidgetItem * pre);
+    void changePageSlot(QListWidgetItem * cur);
 
 Q_SIGNALS:
     void pageChangeSignal();
-
-
 };
 
 #endif // MODULEPAGEWIDGET_H

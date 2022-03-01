@@ -53,12 +53,11 @@ QString PictureUnit::filenameText()
     return _filename;
 }
 
-void PictureUnit::mousePressEvent(QMouseEvent *e)
+void PictureUnit::mouseReleaseEvent(QMouseEvent *e)
 {
     if (e->button() == Qt::LeftButton) {
         emit clicked(_filename);
     }
-//    QLabel::mousePressEvent(e);
 }
 
 void PictureUnit::enterEvent(QEvent *event)
