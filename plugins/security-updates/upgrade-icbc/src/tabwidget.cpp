@@ -30,7 +30,7 @@ void TabWid::initDbus()
     backupThread = new QThread;
     backup->moveToThread(backupThread);
     backupThread->start();
-
+//    connect(updateMutual,&UpdateDbus::DownloadSpeedChanged,this,&TabWid::DownloadSpeedChange);
     connect(updateMutual,&UpdateDbus::sendAppMessageSignal,this,&TabWid::loadingOneUpdateMsgSlot);
     connect(updateMutual,&UpdateDbus::sendFinishGetMsgSignal,this,&TabWid::loadingFinishedSlot);
     connect(checkUpdateBtn,&QPushButton::clicked,this,&TabWid::checkUpdateBtnClicked);
@@ -41,7 +41,10 @@ void TabWid::initDbus()
     connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitChanged);
     connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
     /*实时更新信号*/
-    connect(updateMutual,&UpdateDbus::DownloadSpeedChanged,this->DownloadHValue,&QComboBox::setCurrentText);
+    QDBusConnection::systemBus().connect(
+                "com.kylin.systemupgrade","/com/kylin/systemupgrade",
+                "com.kylin.systemupgrade.interface","DownloadSpeedChanged",
+                this,SLOT(DownloadSpeedChange(QString)));
 
     //    bacupInit();//初始化备份
     checkUpdateBtn->stop();
@@ -1373,30 +1376,61 @@ void TabWid::checkUpdateBtnClicked()
 
 }
 
+void TabWid::DownloadSpeedChange(QString speed)
+{
+    disconnect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitChanged);
+    disconnect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
+    qDebug()<<"===========>recieve signal DownloadSpeedChanged"<<speed;
+    if(speed == "0")
+    {
+        qDebug()<<"speed is 0";
+        updateMutual->insertInstallStates("download_limit_value","0");
+        DownloadHBtn->setChecked(false);
+        DownloadHValue->setEnabled(false);
+    }
+    else
+    {
+        qDebug()<<"speed is "<< speed;
+        updateMutual->insertInstallStates("download_limit_value",speed);
+        DownloadHBtn->setChecked(true);
+        DownloadHValue->setEnabled(true);
+        DownloadHValue->setCurrentText(speed);
+    }
+    connect(DownloadHBtn,&SwitchButton::checkedChanged,this,&TabWid::DownloadLimitChanged);
+    connect(DownloadHValue,&QComboBox::currentTextChanged,this,&TabWid::DownloadLimitValueChanged);
+//    this->update();
+    return;
+//        DownloadHValue->setCurrentText(speed);
+}
+
 void TabWid::DownloadLimitValueChanged(const QString &value)
 {
+    qDebug()<<"access to function DownloadLimitValueChanged";
     if(DownloadHBtn->isChecked()==false)
     {
-        updateMutual->SetDownloadLimit(0,false);
+
         updateMutual->insertInstallStates("download_limit_value","0");
+        updateMutual->SetDownloadLimit(0,false);
     }
     else if (DownloadHBtn->isChecked()==true)
     {
         //int dlimit = DownloadLimitValue->value();
-        updateMutual->SetDownloadLimit(value,true);
+
         updateMutual->insertInstallStates("download_limit_value",value);
+        updateMutual->SetDownloadLimit(value,true);
     }
     else
     {
         qDebug()<<"Download Limit Changed";
-        updateMutual->SetDownloadLimit(0,false);
-        updateMutual->insertInstallStates("download_limit_value","0");
+
+        updateMutual->insertInstallStates("download_limit_value","0");updateMutual->SetDownloadLimit(0,false);
     }
 }
 
 
 void TabWid::DownloadLimitChanged()
 {
+    qDebug()<<"access to function DownloadLimitChanged";
     if(DownloadHBtn->isChecked() == false)
     {
         qDebug()<<"download limit disabled";
