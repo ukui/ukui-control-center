@@ -86,6 +86,8 @@ void LeftWidget::wheelEvent(QWheelEvent* event)
     int step = 0;
     int newValue = 0;
     int oldValue = verticalScrollBar()->value();
+    //! \note reset scroll mode befor scroll
+    setVerticalScrollMode(ScrollMode::ScrollPerItem);
 
     if(event->delta() > maxDeltaPerCall || event->delta() < maxDeltaPerCall*-1){
         goto END;
