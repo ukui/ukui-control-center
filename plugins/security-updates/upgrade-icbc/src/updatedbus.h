@@ -114,6 +114,7 @@ signals:
 //    void emitInameList(QStringList list);
     void sendFinishGetMsgSignal(int size);
     void sendUpdateSize(long size);
+    void DownloadSpeedChanged(QString speed);
 
 public slots:
     void getAptSignal(QString arg, QMap<QString, QVariant> map);

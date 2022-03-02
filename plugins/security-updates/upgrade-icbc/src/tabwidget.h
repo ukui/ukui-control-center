@@ -187,8 +187,8 @@ signals:
 public slots:
     void showHistoryWidget();
     void showDependSlovePtompt(int updatemode, QStringList pkgname,QStringList description,QStringList deletereason);
-    void isAutoCheckedChanged();
-    void isAutoUpgradeChanged();
+//    void isAutoCheckedChanged();
+//    void isAutoUpgradeChanged();
     void slotCancelDownload();
     void loadingOneUpdateMsgSlot(AppAllMsg msg); //逐个加载更新
     void loadingFinishedSlot(int size); //加载完毕信号
@@ -201,7 +201,8 @@ public slots:
     void updatecancel(void);
     void startoneappupdateslot(void);
 
-    void DownloadLimitSwitchChanged();
+//    void DownloadLimitSwitchChanged();
+    void DownloadSpeedChange(QString speed);
     void DownloadLimitValueChanged(const QString &);
     void DownloadLimitChanged();
 //    void ontimeUpgradeValueChanged(const QString &);
@@ -258,7 +259,7 @@ signals:
 public slots:
     void bakeupFinish(int);
     void backupProgress(int);
-    void isAutoBackupChanged();
+//    void isAutoBackupChanged();
 
     void getReplyFalseSlot();
     

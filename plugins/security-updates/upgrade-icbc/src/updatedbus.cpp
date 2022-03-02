@@ -339,6 +339,7 @@ void UpdateDbus::getAppMessageSignal(QMap<QString, QVariant> map, QStringList ur
 
 void UpdateDbus::insertInstallStates(QString item,QString info)
 {
+    qDebug()<<item<<info<<"is the ========value";
     interface->asyncCall("InsertInstallState",item,info);
 }
 
