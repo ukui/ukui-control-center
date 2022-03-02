@@ -367,9 +367,8 @@ void UnifiedOutputConfig::slotRefreshRateChanged(int index)
 
 QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, const QSize &size, bool isUser)
 {
-
     float refreshRate = 0;
-    QString id;
+    QString id = "auto-fill";
     Q_FOREACH (const KScreen::ModePtr &mode, output->modes()) {
         if (mode->size() == size && mode->refreshRate() > refreshRate) {
             refreshRate = mode->refreshRate();
@@ -412,10 +411,12 @@ QString UnifiedOutputConfig::findBestMode(const KScreen::OutputPtr &output, cons
                 }
             }
         }
-        mResolution->setResolution(outputSize);
-        if (outputSize != size) {
-            slotResolutionChanged(outputSize, false);
-            id = "auto-fill";
+        if (outputSize.isValid()) {
+            mResolution->setResolution(outputSize);
+            if (outputSize != size) {
+                slotResolutionChanged(outputSize, false);  //重新填充刷新率
+                id = "auto-fill";  //已经填充了刷新率
+            }
         }
     }
     return id;
