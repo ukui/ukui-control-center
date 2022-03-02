@@ -13,7 +13,7 @@
         <translation type="vanished">已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="538"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="537"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -47,21 +47,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="540"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="539"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="542"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="541"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="544"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="543"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -73,21 +73,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="546"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="545"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="548"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="547"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="550"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="549"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Active Status</extra-contents_path>
@@ -104,7 +104,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="672"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="554"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="553"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -115,8 +115,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="642"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="552"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="268"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="551"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -151,22 +151,22 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="266"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="265"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="274"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="273"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="315"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="314"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="276"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="275"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
@@ -1817,6 +1817,16 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="169"/>
         <source>month</source>
         <translation>月份</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="192"/>
+        <source>AM</source>
+        <translation>上午</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="193"/>
+        <source>PM</source>
+        <translation>下午</translation>
     </message>
 </context>
 <context>

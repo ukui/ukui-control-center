@@ -6,6 +6,8 @@
 #include <QLabel>
 #include <QPushButton>
 
+#include "Label/fixlabel.h"
+
 const QString vTen        = "v10";
 const QString vTenEnhance = "v10.1";
 const QString vFour = "v4";
@@ -29,12 +31,12 @@ private:
 public:
     QLabel *mLogoLabel;
     QLabel *mVersionLabel_1;
-    QLabel *mVersionLabel_2;
-    QLabel *mStatusLabel_1;
+    FixLabel *mVersionLabel_2;
+    FixLabel *mStatusLabel_1;
     QLabel *mStatusLabel_2;
     QLabel *mSerialLabel_1;
-    QLabel *mSerialLabel_2;
-    QLabel *mTimeLabel_1;
+    FixLabel *mSerialLabel_2;
+    FixLabel *mTimeLabel_1;
     QLabel *mTimeLabel_2;
     QPushButton *mExtentBtn;
 
