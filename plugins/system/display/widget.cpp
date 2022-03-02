@@ -1366,7 +1366,7 @@ void Widget::save()
     }
     int flag = mUnifyButton->isChecked() ? 1 : 2;
     showBrightnessFrame(flag);  //成功应用之后，重新显示亮度条,传入是否统一输出,1表示打开，2表示关闭
-	
+
 }
 
 QVariantMap metadata(const KScreen::OutputPtr &output)
@@ -1919,8 +1919,12 @@ void Widget::initNightStatus()
 
     this->mIsNightMode = mNightConfig["Active"].toBool();
     ui->temptSlider->setValue(mNightConfig["CurrentColorTemperature"].toInt());
-    if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01") {
+
+    // 由于kwin设置日落日出模式不生效，但用户选择该模式时，通过将模式改为自定义，再规定时间(17:55:01)来判断处理
+    //处理默认值(为跟随日落日出)的方式同上
+    if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01" ||  mNightConfig["Mode"] != 2) {
         ui->sunradioBtn->setChecked(true);
+        if ( mNightConfig["Mode"] != 2) setNightMode(mNightButton->isChecked());
     } else {
         ui->customradioBtn->setChecked(true);
         QString openTime = mNightConfig["EveningBeginFixed"].toString();
