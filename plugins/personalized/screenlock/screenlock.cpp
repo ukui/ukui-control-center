@@ -82,8 +82,6 @@ Screenlock::~Screenlock()
         delete lockSetting;
         delete lockLoginSettings;
         delete powerSettings;
-        delete addLyt_1;
-        delete addLyt_2;
         if (m_formatsettings)
             delete m_formatsettings;
     }
@@ -187,6 +185,10 @@ QWidget *Screenlock::get_plugin_ui(){
         onMaskWidget->setStyleSheet("QWidget{border-radius: 6px;background-color: rgba(0,0,0,0.25);}");
         ui->titleLabel->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
         ui->previewWidget->setStyleSheet("#previewWidget{background: black; border-radius: 8px;}");
+        ui->frame->setStyleSheet("QFrame{background: palette(base); border-top-left-radius: 12px;border-top-right-radius: 12px;}");
+        ui->showMessageFrame->setStyleSheet("QFrame{background: palette(base); border-radius: 0px;}");
+        ui->enableFrame->setStyleSheet("QFrame{background: palette(base); border-radius: 0px;}");
+        ui->frame_2->setStyleSheet("QFrame{background: palette(base); border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;}");
 
         dateLabel->setAlignment(Qt::AlignCenter);
         maskLayout->addWidget(timeLabel);
@@ -207,12 +209,6 @@ QWidget *Screenlock::get_plugin_ui(){
         initScreenlockStatus();
         initIdleSliderStatus();
         lockbgSize = QSize(400, 240);
-    } else {
-        qApp->activeWindow()->resize(qApp->activeWindow()->size() + QSize(1,1));
-        qApp->processEvents();
-        qApp->activeWindow()->resize(qApp->activeWindow()->size() - QSize(1,1));
-        pluginWidget->hide();
-        pluginWidget->show();
     }
     return pluginWidget;
 }
@@ -312,6 +308,8 @@ void Screenlock::setupComponent(){
             showMessageBtn->setChecked(status);
         } else if ("background" == key) {
             initPreviewStatus();
+            QString filename = lSetting->get(key).toString();
+            setClickedPic(filename);
         }
     });
     //设置布局
@@ -326,7 +324,7 @@ void Screenlock::initButton(){
     localBgd->setToolTip(tr("Local wallpaper"));
     localBgd->setFixedSize(136,56);
     localBgd->setStyleSheet("HoverWidget#localBgd{background: palette(base); border-radius: 12px;}HoverWidget:hover:!pressed#localBgd{background: #2FB3E8; border-radius: 12px;}");
-    addLyt_1 = new QHBoxLayout;
+    addLyt_1 = new QHBoxLayout(pluginWidget);
     QLabel * iconLabel_1 = new QLabel();
     //~ contents_path /screenlock/Local wallpaper
     QLabel * textLabel_1 = new QLabel(tr("Local wall..."));
@@ -362,7 +360,7 @@ void Screenlock::initButton(){
     resetBgd->setObjectName("resetBgd");
     resetBgd->setFixedSize(136,56);
     resetBgd->setStyleSheet("HoverWidget#resetBgd{background: palette(base); border-radius: 12px;}HoverWidget:hover:!pressed#resetBgd{background: #2FB3E8; border-radius: 12px;}");
-    addLyt_2 = new QHBoxLayout;
+    addLyt_2 = new QHBoxLayout(pluginWidget);
     QLabel * iconLabel_2 = new QLabel();
     //~ contents_path /screenlock/Reset
     QLabel * textLabel_2 = new QLabel(tr("Reset"));
@@ -418,11 +416,11 @@ void Screenlock::setupConnect(){
             g_settings_set_boolean(screenlock_settings,SCREENLOCK_ACTIVE_KEY,false);
             //当设置为从不时，禁止系统进入睡眠
             //设置显示器关闭
-            powerSettings->set(SLEEP_DISPLAY_AC_KEY, 0);
-            powerSettings->set(SLEEP_DISPLAY_BATT_KEY,0);
+            powerSettings->set(SLEEP_DISPLAY_AC_KEY, -1);
+            powerSettings->set(SLEEP_DISPLAY_BATT_KEY,-1);
             //设置计算机睡眠
-            powerSettings->set(SLEEP_COMPUTER_AC_KEY, 0);
-            powerSettings->set(SLEEP_COMPUTER_BATT_KEY, 0);
+            powerSettings->set(SLEEP_COMPUTER_AC_KEY, -1);
+            powerSettings->set(SLEEP_COMPUTER_BATT_KEY, -1);
             g_object_unref(screenlock_settings);
             uslider->setValue(lockConvertToSlider(value));
         }else{
@@ -529,17 +527,34 @@ void Screenlock::initScreenlockStatus(){
     pThread = new QThread;
     pWorker = new BuildPicUnitsWorker;
     connect(pWorker, &BuildPicUnitsWorker::pixmapGeneral, this, [=](QPixmap pixmap, BgInfo bgInfo){
-        // 设置当前锁屏壁纸的预览
-        if (bgInfo.filename == bgStr){
-            initPreviewStatus();
-        }
 
         // 线程中构建控件传递会报告event无法install 的警告
         PictureUnit * picUnit = new PictureUnit;
         picUnit->setPixmap(pixmap);
         picUnit->setFilenameText(bgInfo.filename);
 
+        // 设置当前锁屏壁纸的预览
+        if (bgInfo.filename == bgStr){
+            initPreviewStatus();
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width: 0px");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
+        }
+
         connect(picUnit, &PictureUnit::clicked, [=](QString filename){
+            if (prePicUnit != nullptr) {
+                prePicUnit->changeClickedFlag(false);
+                prePicUnit->setStyleSheet("border-width: 0px");
+            }
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
             initPreviewStatus();
             plugin_delay_control();
             qDebug()<<filename;
@@ -732,4 +747,22 @@ bool Screenlock::getLockStatus()
     bool status = lockSetting->value("lockStatus").toBool();
     lockSetting->endGroup();
     return  status;
+}
+
+void Screenlock::setClickedPic(QString fileName)
+{
+    if (prePicUnit != nullptr) {
+        prePicUnit->changeClickedFlag(false);
+        prePicUnit->setStyleSheet("border-width:0px;");
+    }
+    for (int i = flowLayout->count()-1; i>= 0; --i) {
+        QLayoutItem *it = flowLayout->itemAt(i);
+        PictureUnit *picUnit = static_cast<PictureUnit*>(it->widget());
+        if (fileName == picUnit->filenameText()) {
+            picUnit->changeClickedFlag(true);
+            prePicUnit = picUnit;
+            picUnit->setFrameShape(QFrame::Box);
+            picUnit->setStyleSheet(picUnit->clickedStyleSheet);
+        }
+    }
 }

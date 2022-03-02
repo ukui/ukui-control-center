@@ -160,7 +160,7 @@ void InternalStyle::drawPrimitive(QStyle::PrimitiveElement pe, const QStyleOptio
         painter->setRenderHint(QPainter::Antialiasing, true);
         painter->setBrush(option->palette.color(QPalette::Button));
         painter->setPen(Qt::transparent);
-        painter->setOpacity(0.24);
+        painter->setOpacity(0.28);
         painter->drawRoundedRect(widget->rect(), 0, 0);
         painter->restore();
         break;

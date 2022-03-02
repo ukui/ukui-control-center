@@ -53,7 +53,7 @@ extern "C" {
 
 
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
-#define ITEMHEIGH 72
+#define ITEMHEIGH 64
 
 UserInfo::UserInfo() : mFirstLoad(true)
 {

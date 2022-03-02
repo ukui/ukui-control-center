@@ -66,6 +66,19 @@ int main(int argc, char *argv[])
         qDebug() << QObject::tr("ukui-control-center is already running!");
         return EXIT_SUCCESS;
     } else {
+        //控制面板是否被禁用
+        QString m_initPath =  QString("%1/%2/%3").arg(QDir::homePath()).arg(".cache/ukui-menu").arg("ukui-menu.ini");
+        QSettings settings(m_initPath, QSettings::IniFormat);
+        settings.beginGroup("application");
+        if (settings.contains("ukui-control-center")){
+            bool isRun = settings.value("application/ukui-control-center").toBool();
+            if (!isRun) {
+                qDebug() << QObject::tr("ukui-control-center is disabled！");
+                return EXIT_SUCCESS;
+            }
+        }
+        settings.sync();
+        settings.endGroup();
 
         // 加载国际化文件
         QTranslator translator;

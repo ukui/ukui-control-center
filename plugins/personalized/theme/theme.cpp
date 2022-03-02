@@ -153,6 +153,10 @@ Theme::Theme()
         }
     }
 
+    ui->systemDefaultLabel->installEventFilter(this);
+    ui->darkModeLabel->installEventFilter(this);
+    ui->lightLabel->installEventFilter(this);
+
     connect(ui->defaultRadioBtn, &QRadioButton::clicked, this, [=]() {
         if (ui->defaultRadioBtn->isChecked()) {
             ui->systemDefaultLabel->setPixmap(QPixmap(QString("://img/plugins/theme/auto-selected.png")));
@@ -265,10 +269,13 @@ void Theme::initSearchText() {
     ui->titleLabel->setText(tr("Theme Mode"));
     //~ contents_path /theme/Theme Mode
     ui->defaultRadioBtn->setText(tr("Automatic"));
+    ui->defaultRadioBtn->setStyleSheet("QRadioButton:checked{color:#2FB3E8}");
     //~ contents_path /theme/Theme Mode
     ui->darkRadioBtn->setText(tr("Dark"));
+    ui->darkRadioBtn->setStyleSheet("QRadioButton:checked{color:#2FB3E8}");
     //~ contents_path /theme/Theme Mode
     ui->lightRadioBtn->setText(tr("Light color"));
+    ui->lightRadioBtn->setStyleSheet("QRadioButton:checked{color:#2FB3E8}");
     //~ contents_path /theme/Icon theme
     ui->iconLabel->setText(tr("Icon theme"));
 
@@ -388,7 +395,7 @@ void Theme::buildThemeModeLabel(){
     connect(qtSettings,&QGSettings::changed,this,[=](const QString &key){
         if (key == "styleName" && ui->defaultRadioBtn->isChecked() ) {
             autoThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-            qApp->setStyle(new InternalStyle(autoThemeMode));
+            qApp->setStyle(new InternalStyle("ukui"));
         }
     });
     connect(ui->lightRadioBtn,&QRadioButton::clicked,[=]{
@@ -396,7 +403,6 @@ void Theme::buildThemeModeLabel(){
         //intel定制版修改ukui-default为ukui-light，以防主题设置对部分组件不生效
         QString themeMode = "ukui-light";
         QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
-
         qApp->setStyle(new InternalStyle("ukui"));
         if (QString::compare(currentThemeMode, themeMode)) {
             QString tmpMode;
@@ -497,10 +503,13 @@ void Theme::initIconTheme(){
             //加入Layout
             if (themedir == "ukui-hp") {
                 ui->iconThemeVerLayout->insertWidget(0, widget);
+                widget->setStyleSheet("ThemeWidget{background: palette(base); border-top-left-radius: 12px;border-top-right-radius: 12px}");
             } else if (themedir == "ukui"){
                 ui->iconThemeVerLayout->insertWidget(1, widget);
+                widget->setStyleSheet("ThemeWidget{background: palette(base); border-radius: 0px}");
             } else {
                 ui->iconThemeVerLayout->addWidget(widget);
+                widget->setStyleSheet("ThemeWidget{background: palette(base); border-bottom-left-radius: 12px;border-bottom-right-radius: 12px}");
             }
             //加入WidgetGround实现获取点击前Widget
             iconThemeWidgetGroup->addWidget(widget);
@@ -793,4 +802,23 @@ int Theme::tranConvertToSlider(const double value)
     } else {
         return 5;
     }
+}
+
+
+bool Theme::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress)//判断事件类型
+    {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        if(mouseEvent->button() == Qt::LeftButton) {
+            if (watched == ui->systemDefaultLabel) {
+                emit ui->defaultRadioBtn->click();
+            } else if (watched == ui->darkModeLabel) {
+                emit ui->darkRadioBtn->click();
+            } else if (watched == ui->lightLabel) {
+                emit ui->lightRadioBtn->click();
+            }
+        }
+    }
+    return QObject::eventFilter(watched, event);
 }

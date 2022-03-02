@@ -51,8 +51,6 @@ Wallpaper::~Wallpaper()
 {
     if (!mFirstLoad) {
         delete ui;
-        delete addLyt_2;
-        delete addLyt;
         delete xmlhandleObj;
         if (bgsettings){
             delete bgsettings;
@@ -98,13 +96,6 @@ QWidget *Wallpaper::get_plugin_ui(){
         }
         //构建xmlhandle对象
         xmlhandleObj = new XmlHandle();
-    } else {
-        qApp->activeWindow()->resize(qApp->activeWindow()->size() + QSize(1,1));
-        qApp->processEvents();
-        qApp->activeWindow()->resize(qApp->activeWindow()->size() - QSize(1,1));
-        pluginWidget->hide();
-        pluginWidget->show();
-
     }
     return pluginWidget;
 }
@@ -208,7 +199,7 @@ void Wallpaper::setupComponent(){
     resetBgd->setObjectName("resetBgd");
     resetBgd->setFixedSize(136,56);
     resetBgd->setStyleSheet("HoverWidget#resetBgd{background: palette(base); border-radius: 12px;}HoverWidget:hover:!pressed#resetBgd{background: #2FB3E8; border-radius: 12px;}");
-    addLyt_2 = new QHBoxLayout;
+    addLyt_2 = new QHBoxLayout(pluginWidget);
     QLabel * iconLabel_2 = new QLabel();
     //~ contents_path /wallpaper/Reset
     QLabel * textLabel_2 = new QLabel(tr("Reset"));
@@ -252,7 +243,7 @@ void Wallpaper::setupComponent(){
     colWgt = new HoverWidget("");
     colWgt->setObjectName("colWgt");
     colWgt->setStyleSheet("HoverWidget#colWgt{background: palette(button); border-radius: 4px;}HoverWidget:hover:!pressed#colWgt{background: #3D6BE5; border-radius: 4px;}");
-    addLyt = new QHBoxLayout;
+    addLyt = new QHBoxLayout(pluginWidget);
     QLabel * iconLabel = new QLabel();
     QLabel * textLabel = new QLabel(tr("Custom color"));
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
@@ -445,6 +436,7 @@ void Wallpaper::setupConnect(){
         initBgFormStatus();
 
         if (ui->pictureButton->isChecked()) {
+
             QString fileName = bgsettings->get(FILENAME).toString();
             setClickedPic(fileName);
         }
@@ -743,14 +735,14 @@ void Wallpaper::del_wallpaper(){
 
 void Wallpaper::setClickedPic(QString fileName)
 {
+    if (prePicUnit != nullptr) {
+        prePicUnit->changeClickedFlag(false);
+        prePicUnit->setStyleSheet("border-width:0px;");
+    }
     for (int i = picFlowLayout->count()-1; i>= 0; --i) {
         QLayoutItem *it = picFlowLayout->itemAt(i);
         PictureUnit *picUnit = static_cast<PictureUnit*>(it->widget());
         if (fileName == picUnit->filenameText()) {
-            if (prePicUnit != nullptr) {
-                prePicUnit->changeClickedFlag(false);
-                prePicUnit->setStyleSheet("border-width:0px;");
-            }
             picUnit->changeClickedFlag(true);
             prePicUnit = picUnit;
             picUnit->setFrameShape(QFrame::Box);

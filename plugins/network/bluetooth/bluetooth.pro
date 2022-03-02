@@ -51,6 +51,7 @@ SOURCES += \
     inteldeviceinfoitem.cpp \
     intelmsgbox.cpp \
     loadinglabel.cpp \
+    mycombobox.cpp \
     ukccbluetoothconfig.cpp
 
 HEADERS += \
@@ -63,6 +64,7 @@ HEADERS += \
     inteldeviceinfoitem.h \
     intelmsgbox.h \
     loadinglabel.h \
+    mycombobox.h \
     ukccbluetoothconfig.h
 
 INSTALLS += target

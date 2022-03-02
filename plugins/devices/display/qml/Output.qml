@@ -62,8 +62,6 @@ QMLOutput {
             } else {
                 if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
                     saveWidth = root.currentOutputWidth * screen.outputScale
-                } else {
-                    saveWidth = root.currentOutputHeight * screen.outputScale
                 }
             }
             return saveWidth;
@@ -74,18 +72,31 @@ QMLOutput {
             } else {
                 if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
                     saveHeight = root.currentOutputHeight * screen.outputScale
-                } else {
-                    saveHeight = root.currentOutputWidth * screen.outputScale
                 }
             }
             return saveHeight;
         }
 
+
+
         anchors.centerIn: parent;
         //是否激活时的透明度
         opacity: root.output.enabled ? 1.0 : 0.3;
         transformOrigin: Item.Center;
-        rotation: 0;
+        rotation: {
+            if (output.rotation === KScreenOutput.None) {
+                return 0;
+            }
+            if (output.rotation === KScreenOutput.Inverted) {
+                return 180;
+            }
+            if (output.rotation === KScreenOutput.Left) {
+                return 90;
+            }
+            if (output.rotation === KScreenOutput.Right) {
+                return 270;
+            }
+        }
 
         hoverEnabled: true;
         preventStealing: true;
@@ -213,6 +224,21 @@ QMLOutput {
                     right: parent.right;
                     leftMargin: 5;
                     rightMargin: 5;
+                }
+
+                rotation: {
+                    if (output.rotation === KScreenOutput.None) {
+                        return 0;
+                    }
+                    if (output.rotation === KScreenOutput.Inverted) {
+                        return 180;
+                    }
+                    if (output.rotation === KScreenOutput.Left) {
+                        return 270;
+                    }
+                    if (output.rotation === KScreenOutput.Right) {
+                        return 90;
+                    }
                 }
 
                 Text {

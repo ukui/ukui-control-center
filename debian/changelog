@@ -1,3 +1,215 @@
+ukui-control-center (3.0.4-2+2022-0228) v101; urgency=medium
+
+  * 提交commit: 1356d737
+  * bug#45515修改主题模式选中样式，图片可选
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 28 Feb 2022 20:30:05 +0800
+
+ukui-control-center (3.0.4-2+2022-0225) v101; urgency=medium
+
+  * 提交commit: f93694e8
+  * bug#45464修改最小化最大小关闭按钮样式及颜色
+  * bug#45519修改锁屏控件圆角
+  * bug#107569永不时设置电源管理之为-1
+  * bug#45519修改图标主题圆角
+  * bug#1051544k屏由扩展切为镜像预览不居中的问题
+  * bug#45499修改透明度
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 25 Feb 2022 10:34:09 +0800
+
+ukui-control-center (3.0.4-2+2022-0221) v101; urgency=medium
+
+  * 提交commit: 9f830e31
+  * bug#104487平板模式切回pc模式后双击无法缩小控制面板
+  * bug#105687将光标放在蓝牙设备分类选项上，双指滑动触摸板，界面显示控制面板相关小窗口
+  * bug#45515整行可选中效果
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 21 Feb 2022 11:28:52 +0800
+
+ukui-control-center (3.0.4-2+2022-0218) v101; urgency=medium
+
+  * 提交commit: 1881d5e6
+  * bug#106555当控制面板被禁用时返回
+  * bug#104066修改预览旋转效果
+  * bug#106325改主题从黑色到自动控制面板无法拖动
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 18 Feb 2022 16:41:09 +0800
+
+ukui-control-center (3.0.4-2+2022-0215) v101; urgency=medium
+
+  * 提交commit: 9e2762ad
+  * bug#103735加载背景模块更新wallpaper.xml
+  * bug#45529添加锁屏图片选中效果
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 15 Feb 2022 09:49:05 +0800
+
+ukui-control-center (3.0.4-2+2022-0211.1) v101; urgency=medium
+
+  * 提交commit: 11663b
+  * bug#105977平板模式点击背景锁屏闪退 
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 11 Feb 2022 14:35:01 +0800
+
+ukui-control-center (3.0.4-2+2022-0211) v101; urgency=medium
+
+  * 提交commit: f9303871
+  * bug#105451使用命令行参数无法打开背景页面
+  * bug#105667缩小窗口，控件适应窗口大小
+  * bug#105797 【PTOF】【蓝牙】链接多个设备后，移除已连接的设备后，“我的设备”小标题不会消失（必现）
+  * bug#105442 在控制面板搜索选项处，搜索蓝牙会显示一个“show icon on taskbar”选项
+  * bug#105556修改调节条与选择框对齐
+  * bug#104336修改模块底部边距
+  * bug#105572最大化时 仅在平板模式支持 居左显示
+  * bug#105338用户名label变化，最大宽度180
+  * bug#45632隐藏分割线
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 11 Feb 2022 14:12:18 +0800
+
+ukui-control-center (3.0.4-2+2022-0124) v101; urgency=medium
+
+  * 提交commit: 575505fa
+  * bug#104657首次插入3.5mm耳机，输出音量为板载音量而非默认的28%耳机音量
+  * bug#85973连接小米air 2s 耳机后，在声音界面切换输出设备speaker/蓝牙耳机输出，出现控制面板卡死或控制面板闪退的现象
+
+ -- zhoubin <zhoubin@kylin>  Mon, 24 Jan 2022 11:45:15 +0800
+
+ukui-control-center (3.0.4-2+2022-0120) v101; urgency=medium
+
+  * 提交commit: 403d86f8 
+  * bug#103490锁屏或壁纸界面图片未加载完全点击别的模块后再点击壁纸重叠的问题
+  * bug#102054配对蓝牙设备（耳机或音响）后，在系统设置/声音下将输出设备切换为本机speaker后再切回到蓝牙设备，发现声音无法切换到蓝牙设备。（专项测试无此问题，1230版本取法切换输出设备-bug101872）
+  * bug#10378鼠标在左侧滚动区域边缘位置滚动条消失
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 20 Jan 2022 15:35:33 +0800
+
+ukui-control-center (3.0.4-2+2022-0119) v101; urgency=medium
+
+  * 提交commit: 9ad6a1e0
+  * bug#103484修改显示部分的搜索项
+  * bug#100352 【专项测试】【蓝牙】重启蓝牙服务后，测试机蓝牙名称显示变为“BlueZ 5.53”
+  * bug#101657 【蓝牙】使用手指滑动蓝牙列表时，可能会触发蓝牙设备的误连接
+  * bug#99138 【蓝牙】更换图标主题为基础或经典后，图标显示未统一（必现）
+  * bug##103688，#103437添加仅平板模式支持的提示，区分本地壁纸与锁屏
+  * bug#103381修改主题后无法拖拽窗口的问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 19 Jan 2022 10:51:33 +0800
+
+ukui-control-center (3.0.4-2+2022-0118) v101; urgency=medium
+
+  * 提交commit: 30e1c941
+  * bug#103353 【蓝牙】深色主题下，连接设备时设备图标短暂消失
+  * bug#102100/bug#98599/101838
+ 
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 18 Jan 2022 09:35:18 +0800
+
+ukui-control-center (3.0.4-2+2022-0112) v101; urgency=medium
+
+  * 提交commit: 4cc5ea28
+  * bug#89055修改滚动类型及文案
+  * bug#102369 【UI】【声音】【控制面板】提示音量按钮大小过小与设计不符，与输出音量、声道平衡、输入音量按钮大小不统一（必现）
+  * bug#101960【蓝牙】控制面板-搜索蓝牙，会显示一项为“在任务栏显示蓝牙图标"
+  * bug#102123 【蓝牙】鼠标悬浮/点击蓝牙设备列表时透明度应统一设计稿（深色模式和浅色模式都应统一）
+  * bug#102125 【蓝牙】链接手机设备后，手机端取消配对，使用测试机再次链接手机，弹出配对弹窗未操作时，此时设备状态先显示链接中，然后显示未连接（必现）
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 12 Jan 2022 10:15:24 +0800
+
+ukui-control-center (3.0.4-2+2022-0107.1) v101; urgency=medium
+
+  * 提交commit: 252f1675
+  * bug#97904修改自动旋转的显示
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 07 Jan 2022 16:44:04 +0800
+
+ukui-control-center (3.0.4-2+2022-0107) v101; urgency=medium
+
+  * 提交commit: 7fe3729e 
+  * bug#99465通过鼠标点击跳转搜索
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 07 Jan 2022 10:18:53 +0800
+
+ukui-control-center (3.0.4-2+2022-0106.1) v101.1; urgency=medium
+
+  * 提交commit: d4e707
+  * bug#89095
+  * Bug: #101364区分本地壁纸与本地锁屏
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 06 Jan 2022 14:36:17 +0800
+
+ukui-control-center (3.0.4-2+2022-0106) v101; urgency=medium
+
+  * 提交commit: a156f60a
+  * 适配sp2显示模块以解决显示部分Bug: #98114，#97904，#97808，#91847
+  * bug#94488唤醒最小化状态置顶
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 06 Jan 2022 10:10:09 +0800
+
+ukui-control-center (3.0.4-2+2021-1230) v101; urgency=medium
+
+  * 提交commit: d6885516
+  * BUG#89095
+  * bug#100254修改导航处滑动条显示以解决触摸滑动失效
+  * bug#100290/bug#100424/bug#100488
+  * Bug: #99247，#99279 修改模块名解决搜索跳转问题
+  * bug#100254修改导航处滑动条显示以解决触摸滑动失效
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 30 Dec 2021 16:42:26 +0800
+
+ukui-control-center (3.0.4-2+2021-1228) v101; urgency=medium
+
+  * 提交commit: 854b0d13
+  * bug#98626 【蓝牙】蓝牙设备分类功能暂未进入版本(必现)
+  * bug#98595 【蓝牙】蓝牙主界面存在部分与设计不符(必现)
+  * bug#98646 【蓝牙】更改主题图标模式为经典后，界面显示与设计图不符
+
+ -- zhoubin <zhoubin@kylinos.cn>  Tue, 28 Dec 2021 19:37:10 +0800
+
+ukui-control-center (3.0.4-2+2021-1227) v101; urgency=medium
+
+  * 提交commit:0ddcd322
+  * fix bug82292
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 27 Dec 2021 16:33:07 +0800
+
+ukui-control-center (3.0.4-2+2021-1223) v101; urgency=medium
+
+  * 提交commit:c7251d54
+  * Bug:#46495去除添加可用设备条目
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 23 Dec 2021 11:14:50 +0800
+
+ukui-control-center (3.0.4-2+2021-1222) v101; urgency=medium
+
+  * 提交commit: f681aae2
+  * Bug: #99190修改搜索条目
+  * bug#98626 【蓝牙】蓝牙设备分类功能暂未进入版本(必现)
+  * bug#[200~98595 【蓝牙】蓝牙主界面存在部分与设计不符(必现)
+  * Bug: #94817修改壁纸选中效果
+  * bug#96245修改图标主题图片
+  * bug#94770修改滚动条默认隐藏、按钮默认无灰色、右侧三联按键不留间隔、icon与文字间隔、用户名及类型字号
+  * bug#94770修改滑动条默认不显示
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 22 Dec 2021 13:57:16 +0800
+
+ukui-control-center (3.0.4-2+2021-1208) v101; urgency=medium
+
+  * 提交commit:c37f0a89
+  * bug#94768修改窗口图标跟随主题变化
+  * bug#94803修改主题模式图标
+  * bug#46495添加“添加可用设备”条目到search.xml
+  * bug#94775修改frame高度固定
+  * bug#94803修改间距及图标
+  * bug#94898,bug#94890修改滑块大小及圆角
+  * bug#94824去掉标题并修改滑块大小
+  * bug#53237修改search.xml中ChineseFunc的拼写
+  * bug#85324 【UKUI V3.1】【Intel 1011版本】【蓝牙】当前连接/断连设备单击鼠标即可实现，hp笔记本是触摸本，如果使用触摸的情况下容易误触多个设备同时连接(必现)
+  * bug#90511 【蓝牙】蓝牙主界面存在部分设计与UI设计图不符（必现）
+  * bug#90511 【蓝牙】蓝牙主界面存在部分设计与UI设计图不符（必现）
+  * bug#91440修改输入用户名后的光标位置
+  * bug#88926修改触控板速度为指针速度
+  * bug#47757修改色温从冷到暖
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 08 Dec 2021 10:19:03 +0800
+
 ukui-control-center (3.0.4-2+2021-1104) v101; urgency=medium
 
   * 提交commit:b221e1f5

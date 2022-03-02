@@ -42,9 +42,6 @@ PictureUnit::PictureUnit()
 
 PictureUnit::~PictureUnit()
 {
-    if (settingsCreate){
-        delete dgsettings;
-    }
 }
 void PictureUnit::setFilenameText(QString fn)
 {

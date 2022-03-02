@@ -76,18 +76,8 @@ MainWindow::MainWindow(QWidget *parent) :
     m_effect->setPadding(10);
     m_effect->setBorderRadius(16);
     m_effect->setBlurRadius(16);
-    QString m_initPath =  QString("%1/%2/%3").arg(QDir::homePath()).arg(".cache/ukui-menu").arg("ukui-menu.ini");//构造函数中初始化设置信息
-    QSettings settings(m_initPath, QSettings::IniFormat);
-    settings.beginGroup("application");
-    if (settings.contains("ukui-control-center")){
-        bool isRun = settings.value("application/ukui-control-center").toBool();
-        if (!isRun) {
-            return;
-        }
-    }
+
     ui->setupUi(this);
-    settings.sync();
-    settings.endGroup();
     // 初始化mixer
     mate_mixer_init();
     this->installEventFilter(this);
@@ -164,7 +154,7 @@ void MainWindow::initConnection() {
         }
     });
     //监听平板模式切换
-    QDBusInterface *m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
+    m_statusSessionDbus = new QDBusInterface("com.kylin.statusmanager.interface",
                                               "/",
                                               "com.kylin.statusmanager.interface",
                                               QDBusConnection::sessionBus(),this);
@@ -258,9 +248,9 @@ void MainWindow::initStyleSheet() {
                             "QPushButton:pressed{background-color:rgba(251,80,80,20%); border-radius: 4px;}");
 
     // 设置右上角按钮图标
-    minBtn->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
-    maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
-    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"white"));
+    minBtn->setIcon(renderSvg(QIcon::fromTheme("window-minimize-symbolic"), "blue"));
+    maxBtn->setIcon(renderSvg(QIcon::fromTheme("window-maximize-symbolic"), "blue"));
+    closeBtn->setIcon(renderSvg(QIcon::fromTheme("window-close-symbolic"),"red"));
 }
 
 void MainWindow::sltMessageReceived(const QString &msg) {
@@ -461,6 +451,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
                 maxBtn->setToolTip(tr("Maximize"));
             }
         } else if (event->type() == QEvent::MouseButtonDblClick) {
+            is_tabletmode = m_statusSessionDbus->call("get_current_tabletmode");
             if (!is_tabletmode) {
                 bool res = dblOnEdge(dynamic_cast<QMouseEvent*>(event));
                 if (res) {
@@ -638,6 +629,9 @@ void MainWindow::initTileBar() {
     ui->titleLayout->addWidget(minBtn);
     ui->titleLayout->addWidget(maxBtn);
     ui->titleLayout->addWidget(closeBtn);
+    ui->titleLayout->setAlignment(minBtn, Qt::AlignTop);
+    ui->titleLayout->setAlignment(maxBtn, Qt::AlignTop);
+    ui->titleLayout->setAlignment(closeBtn, Qt::AlignTop);
 }
 void MainWindow::animationFinishedSlot()
 {
@@ -858,6 +852,11 @@ const QPixmap MainWindow::renderSvg(const QIcon &icon, QString cgColor) {
                     color.setRed(61);
                     color.setGreen(107);
                     color.setBlue(229);
+                    img.setPixelColor(x, y, color);
+                } else if ("red" == cgColor) {
+                    color.setRed(251);
+                    color.setGreen(80);
+                    color.setBlue(80);
                     img.setPixelColor(x, y, color);
                 } else {
                     return iconPixmap;
