@@ -52,10 +52,6 @@ UkmediaVolumeControl::UkmediaVolumeControl():
     m_connected(false),
     m_config_filename(nullptr) {
 
-    //创建声音初始化记录文件
-//    customSoundFile = new CustomSound();
-//    customSoundFile->createAudioFile();
-
     profileNameMap.clear();
     connectToPulse(this);
 }
@@ -592,23 +588,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
             else
                 sinkPortName = info.active_port->name;
         }
-//        qDebug() << "customSoundFile isexist?" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) << sinkPortName << sinkVolume << volume;
-
         defaultOutputCard = info.card;
-//        if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sinkPortName)) && (sinkVolume != volume || sinkMuted != info.mute))
-//        {
-//            sinkVolume = volume;
-//            sinkMuted = info.mute;
-//            Q_EMIT updateVolume(sinkVolume,sinkMuted);
-//        }
-//        //特殊情况(没有输出端口的情况下也要发送信号同步音量)
-//        else if((sinkVolume != volume || sinkMuted != info.mute) && sinkPortName == "")
-//        {
-//            sinkVolume = volume;
-//            sinkMuted = info.mute;
-//            Q_EMIT updateVolume(sinkVolume,sinkMuted);
-//            qDebug() << "无输出端口情况下发送 updateSink 信号";
-//        }
 
         if (sinkMuted != info.mute || sinkVolume != volume) {
             sinkMuted =info.mute;
@@ -774,21 +754,6 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
                 sourcePortName = info.active_port->name;
         }
         defaultInputCard = info.card;
-//        qDebug() << "customSoundFile isExist?" << customSoundFile->isExist(stringRemoveUnrecignizedChar(sourcePortName)) << sourcePortName << sourceVolume << volume;
-//        if (customSoundFile->isExist(stringRemoveUnrecignizedChar(sourcePortName)) && (sourceVolume != volume || sourceMuted != info.mute)) {
-//            sourceVolume = volume;
-//            sourceMuted = info.mute;
-//            Q_EMIT updateSourceVolume(sourceVolume,sourceMuted);
-//        }
-//        //特殊情况(没有输入端口的情况下也要发送信号同步音量)
-//        else if((sourceVolume != volume || sourceMuted != info.mute) && sourcePortName == "")
-//        {
-//            sourceVolume = volume;
-//            sourceMuted = info.mute;
-//            Q_EMIT updateSourceVolume(sourceVolume,sourceMuted);
-
-//            qDebug() << "无输入端口情况下发送 updateSourceVolume 信号";
-//        }
 
         if (sourceMuted != info.mute || sourceVolume != volume) {
             sourceMuted =info.mute;
@@ -1261,11 +1226,12 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
         volume = i->volume.values[0];
 
     w->channel = i->volume.channels;
-    w->defaultOutputCard = i->card;
     w->sinkIndex = i->index;
 
-    if(i->active_port)
+    if(i->active_port){
         w->sinkPortName = i->active_port->name;
+        w->defaultOutputCard = i->card;
+    }
 
     if(w->sinkVolume != volume || w->sinkMuted != i->mute)
     {

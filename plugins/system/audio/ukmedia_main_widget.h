@@ -93,8 +93,12 @@ extern "C" {
 #define PA_VOLUME_NORMAL 65536.0
 #define UKMEDIA_VOLUME_NORMAL 100.0
 
-#define MIC_CARDNAME "alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"
-#define MIC_PORTLABEL "内置麦克风（sof-hda-dsp）"
+#define INTELDNS_SINK_CARDNAME "alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"
+#define INTELDNS_SINK_PORTNAME "扬声器（sof-hda-dsp）"
+
+
+#define INTELDNS_SOURCE_CARDNAME "alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"
+#define INTELDNS_SOURCE_PORTNAME "内置麦克风（sof-hda-dsp）"
 
 #ifdef __GNUC__
 #define CA_CLAMP(x, low, high)                                          \
