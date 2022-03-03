@@ -67,7 +67,8 @@ MsgBox::MsgBox(QWidget *parent, const QString txt):
     else
         closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
 
-    closeBtn->setStyleSheet("QPushButton:hover{background:transparent; border-radius: 4px;}"
+    closeBtn->setStyleSheet("QPushButton{background:transparent; border-radius: 4px;}"
+                            "QPushButton:hover{background:transparent; border-radius: 4px;}"
                             "QPushButton:hover{background:rgba(251,80,80,50%); border-radius: 4px;}"
                             "QPushButton:pressed{background-color:rgba(251,80,80,80%); border-radius: 4px;}");
 
