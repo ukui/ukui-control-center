@@ -2516,6 +2516,11 @@ void UkmediaMainWidget::initOutputComboboxItem()
 {
     QString outputCardName = findCardName(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->cardMap);
     QString outputPortLabel = findOutputPortLabel(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->sinkPortName);
+    if(m_pVolumeControl->defaultSinkName == "inteldns_sink")
+    {
+        outputCardName = INTELDNS_SINK_CARDNAME;
+        outputPortLabel = INTELDNS_SINK_PORTNAME;
+    }
     findOutputComboboxItem(outputCardName,outputPortLabel);
 
     //当输出中有hdmi设备时切换时更新音量
@@ -2532,8 +2537,8 @@ void UkmediaMainWidget::initInputComboboxItem()
     QString inputPortLabel = findInputPortLabel(m_pVolumeControl->defaultInputCard,m_pVolumeControl->sourcePortName);
     if(m_pVolumeControl->defaultSourceName == "inteldns_source")
     {
-        inputCardName = MIC_CARDNAME;
-        inputPortLabel = MIC_PORTLABEL;
+        inputCardName = INTELDNS_SOURCE_CARDNAME;
+        inputPortLabel = INTELDNS_SOURCE_PORTNAME;
     }
     findInputComboboxItem(inputCardName,inputPortLabel);
 }

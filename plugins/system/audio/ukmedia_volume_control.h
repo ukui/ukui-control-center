@@ -241,7 +241,6 @@ private:
 
     gboolean m_connected;
     gchar* m_config_filename;
-//  /  CustomSound *customSoundFile;
 };
 
 
