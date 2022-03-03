@@ -3,6 +3,7 @@
 #include "ui_itemwidget.h"
 #include <QDebug>
 #include <QTextCodec>
+#include <QMouseEvent>
 #define ORG_UKUI_STYLE            "org.ukui.style"
 #define STYLE_NAME                "styleName"
 #define STYLE_NAME_KEY_DARK       "ukui-dark"
@@ -62,7 +63,6 @@ Itemwidget::Itemwidget(QString itemname,QWidget *parent) :
 
     color1=ui->label->palette().windowText().color();
     color2=ui->label_2->palette().windowText().color();
-//    qDebug()<<ui->label->palette().windowText().color()<<color2;
 
     const QByteArray id(ORG_UKUI_STYLE);
     if (QGSettings::isSchemaInstalled(id)) {
@@ -87,40 +87,33 @@ Itemwidget::~Itemwidget()
 
 }
 
-void Itemwidget::on_pushButton_clicked()
+void Itemwidget::startMovieSlot()
 {
-    if(status==-1) {
-        status=1;
-        ui->label_3->setMovie(movie);
-        movie->start();
-        ui->pushButton->setIcon(QIcon(":/img/plugins/gesture/pause.png"));
-        color1_pre=ui->label->palette().windowText().color();
-        color2_pre=ui->label_2->palette().windowText().color();
+    ui->label_3->setMovie(movie);
+    movie->start();
+    ui->pushButton->setIcon(QIcon(":/img/plugins/gesture/pause.png"));
+    color1_pre = ui->label->palette().windowText().color();
+    color2_pre = ui->label_2->palette().windowText().color();
 
-        color1=QColor(47, 179, 232,255);
-        color2=QColor(63, 184, 233,150);
-    } else if (status==1) {
-        status=-1;
-        movie->stop();
-        ui->pushButton->setIcon(QIcon(":/img/plugins/gesture/play.png"));
-        color1=color1_pre;
-        color2=color2_pre;
-        ui->label_3->setPixmap(currentpix);
-    }
-
+    color1=QColor(47, 179, 232,255);
+    color2=QColor(63, 184, 233,150);
 }
-void Itemwidget::enterEvent(QEvent *)
-{
-//    qDebug()<<"鼠标移入";
-    on_pushButton_clicked();
-}
-void Itemwidget::leaveEvent(QEvent *)
-{
-//    qDebug()<<"鼠标移出";
-    if(status==1){
-        on_pushButton_clicked();
-    }
 
+void Itemwidget::stopMovieSlot()
+{
+    movie->stop();
+    ui->pushButton->setIcon(QIcon(":/img/plugins/gesture/play.png"));
+    color1 = color1_pre;
+    color2 = color2_pre;
+    ui->label_3->setPixmap(currentpix);
+}
+
+void Itemwidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    qDebug() << Q_FUNC_INFO;
+    if (event->button() == Qt::LeftButton) {
+        Q_EMIT picClicked();
+    }
 }
 void Itemwidget::paintEvent(QPaintEvent*)
 {
@@ -128,7 +121,6 @@ void Itemwidget::paintEvent(QPaintEvent*)
     overPalette.setColor(QPalette::WindowText, color1);
     ui->label->setPalette(overPalette);
     QPalette normalPalette; //正常的步骤
-//    color.setAlphaF(0.65);   //设置透明度为0.3
     normalPalette.setColor(QPalette::WindowText, color2);
     ui->label_2->setPalette(normalPalette);
 

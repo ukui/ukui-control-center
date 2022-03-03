@@ -59,7 +59,6 @@ public:
 
     void additem();
 
-public:
 private:
 
     QSettings *gesturesetting=nullptr;
@@ -69,15 +68,9 @@ private:
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;
-//    HoverWidget * addWgt;
-//    QLabel * rightBtn;
-//    SwitchButton * moreBtn;
     bool mFirstLoad;
 
-private slots:
-
-
-public slots:
+    Itemwidget *mCurrentItem = nullptr;
 
 };
 
