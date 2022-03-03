@@ -42,7 +42,7 @@ public:
     bool disabledSig;
 
 protected:
-    void mousePressEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *);
     void resizeEvent(QResizeEvent *);
     void paintEvent(QPaintEvent *);
     void drawBg(QPainter * painter);

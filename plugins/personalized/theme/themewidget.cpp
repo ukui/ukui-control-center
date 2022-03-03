@@ -185,11 +185,11 @@ void ThemeWidget::setValue(QString value){
 QString ThemeWidget::getValue(){
     return pValue;
 }
-void ThemeWidget::mousePressEvent(QMouseEvent *event){
+void ThemeWidget::mouseReleaseEvent(QMouseEvent *event){
     if (event->button() == Qt::LeftButton){
         emit clicked();
     }
-    QWidget::mousePressEvent(event);
+    QWidget::mouseReleaseEvent(event);
 }
 //子类化一个QWidget，为了能够使用样式表，则需要提供paintEvent事件。
 //这是因为QWidget的paintEvent()是空的，而样式表要通过paint被绘制到窗口中。

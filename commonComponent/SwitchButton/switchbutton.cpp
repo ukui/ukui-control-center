@@ -123,7 +123,7 @@ void SwitchButton::drawSlider(QPainter *painter){
     painter->restore();
 }
 
-void SwitchButton::mousePressEvent(QMouseEvent *){
+void SwitchButton::mouseReleaseEvent(QMouseEvent *){
     checked = !checked;
     emit checkedChanged(checked);
 

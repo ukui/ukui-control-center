@@ -18,26 +18,32 @@ class Itemwidget : public QWidget
 public:
     explicit Itemwidget(QString itemname,QWidget *parent = nullptr);
     ~Itemwidget();
+
+public:
     QSettings *gesturesetting=nullptr;
+    int status = -1;
+
 protected:
-    void enterEvent(QEvent *);
-    void leaveEvent(QEvent *);
-private slots:
-    void on_pushButton_clicked();
+    void mouseReleaseEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent*);
+
+public slots:
+    void startMovieSlot();
+    void stopMovieSlot();
 
 private:
     Ui::Itemwidget *ui;
     QMovie *movie;
     QPixmap currentpix;
-    int status=-1;//播放状态
-    QGSettings * stylegsetting=nullptr;
+
+    QGSettings * stylegsetting = nullptr;
     QColor color1;
     QColor color2;
     QColor color1_pre;
     QColor color2_pre;
-//    QPalette pe1;
 
+Q_SIGNALS:
+    void picClicked();
 };
 
 #endif // ITEMWIDGET_H

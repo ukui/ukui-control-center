@@ -35,11 +35,8 @@ Gesture::Gesture() : mFirstLoad(true)
 
 Gesture::~Gesture()
 {
-    if (!mFirstLoad)
-    {
-
+    if (!mFirstLoad) {
         delete ui;
-
     }
     delete gesturesetting;
 }
@@ -93,7 +90,14 @@ void Gesture::additem()
     gesturesetting->sync();
     gesturesetting->endGroup();
     for(int i=0;i<giflist.count();i++) {
-        Itemwidget * item=new Itemwidget(list.key(i),ui->frame);
+        Itemwidget * item=new Itemwidget(list.key(i), ui->frame);
+        connect(item, &Itemwidget::picClicked, this, [=](){
+            if (mCurrentItem != nullptr) {
+                mCurrentItem->stopMovieSlot();
+            }
+            mCurrentItem = item;
+            item->startMovieSlot();
+        });
         gifFlowLayout->addWidget(item);
     }
 }
