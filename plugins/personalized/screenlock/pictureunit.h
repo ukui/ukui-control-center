@@ -41,7 +41,7 @@ public:
     QString clickedStyleSheet;
 
 protected:
-    void mousePressEvent(QMouseEvent * e);
+    void mouseReleaseEvent(QMouseEvent * e);
     void enterEvent(QEvent *event);
     void leaveEvent(QEvent *event);
 

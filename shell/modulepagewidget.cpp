@@ -86,6 +86,8 @@ void LeftWidget::wheelEvent(QWheelEvent* event)
     int step = 0;
     int newValue = 0;
     int oldValue = verticalScrollBar()->value();
+    //! \note reset scroll mode befor scroll
+    setVerticalScrollMode(ScrollMode::ScrollPerItem);
 
     if(event->delta() > maxDeltaPerCall || event->delta() < maxDeltaPerCall*-1){
         goto END;
@@ -207,6 +209,8 @@ void ModulePageWidget::initUI(){
         leftListWidget->viewport()->setStyleSheet("background-color: transparent");
         leftListWidget->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
         connect(leftListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentLeftitemChanged(QListWidgetItem*,QListWidgetItem*)));
+
+        connect(leftListWidget, &QListWidget::itemClicked, this, &ModulePageWidget::changePageSlot);
         QListWidget * topListWidget = new QListWidget;
         topListWidget->setAttribute(Qt::WA_DeleteOnClose);
         topListWidget->setResizeMode(QListView::Adjust);
@@ -270,16 +274,12 @@ void ModulePageWidget::initUI(){
     //左侧二级菜单标题及上侧二级菜单标题随功能页变化联动
     connect(ui->leftStackedWidget, &QStackedWidget::currentChanged, this, [=](int index){
         QString titleString = mkvConverter->keycodeTokeyi18nstring(index);
-          //qDebug()<<titleString;
-        //        ui->mtitleLabel->setText(titleString);
-//        ui->mmtitleLabel->setText(titleString);
-
     });
     QString name=tmpList.at(0).namei18nString;
     QList<QListWidgetItem *> currentItemList = strItemsMap.values(name);
     qDebug()<<name;
     firstItem=currentItemList.at(1);
-    currentLeftitemChanged(currentItemList.at(1),nullptr);
+    changePageSlot(currentItemList.at(1));
     qApp->installEventFilter(this);
 }
 
@@ -338,33 +338,35 @@ void ModulePageWidget::highlightItem(QString text){
     lefttmpListWidget->setCurrentItem(currentItemList.at(1)); //QMultiMap 先添加的vlaue在后面
 }
 
-void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetItem *pre){
-    //获取当前QListWidget
-    QListWidget * currentLeftListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
-    if (pre != nullptr){
-        LeftWidgetItem * preWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(pre));
-        //取消高亮
-        //        if(!pluginInstanceMap.contains(curWidgetItem->text()))return;
-        preWidgetItem->setSelected(false);
-        preWidgetItem->setLabelTextIsWhite(false);
-        preWidgetItem->isSetLabelPixmapWhite(false);
+void ModulePageWidget::changePageSlot(QListWidgetItem *cur)
+{
+    if (mSelectItem != cur) {
+        mSelectItem = cur;
     } else {
-        LeftWidgetItem * preWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(firstItem));
-        //取消高亮
-        preWidgetItem->setSelected(false);
-        preWidgetItem->setLabelTextIsWhite(false);
-        preWidgetItem->isSetLabelPixmapWhite(false);
+        return;
     }
+
+    QListWidget * currentLeftListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
+    for (int i = 0; i < currentLeftListWidget->count(); i++) {
+        QListWidgetItem *item = currentLeftListWidget->item(i);
+        LeftWidgetItem *itemWidget = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(item));
+        if (itemWidget != nullptr) {
+            if (itemWidget->is_seletced) {
+                itemWidget->setSelected(false);
+                itemWidget->setLabelTextIsWhite(false);
+                itemWidget->isSetLabelPixmapWhite(false);
+            }
+        }
+    }
+
     LeftWidgetItem * curWidgetItem = dynamic_cast<LeftWidgetItem *>(currentLeftListWidget->itemWidget(cur));
-    if (pluginInstanceMap.contains(curWidgetItem->text())){
+    if ((curWidgetItem != nullptr) && pluginInstanceMap.contains(curWidgetItem->text())){
         CommonInterface * pluginInstance = pluginInstanceMap[curWidgetItem->text()];
         refreshPluginWidget(pluginInstance);
-        //高亮
+        // 高亮
         curWidgetItem->setSelected(true);
         curWidgetItem->setLabelTextIsWhite(true);
         curWidgetItem->isSetLabelPixmapWhite(true);
-    } else {
-        //        qDebug() << "plugin widget not fount!";
     }
     emit pageChangeSignal();
 }
