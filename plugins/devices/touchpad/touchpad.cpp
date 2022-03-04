@@ -56,79 +56,9 @@ bool _deviceHasProperty (XDevice * device, const char * property_name);
 
 Touchpad::Touchpad()
 {
-    ui = new Ui::Touchpad;
-    double touchpadMotionAccel = 0.0;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-    initSearch();
+    mFirstLoad = true;
     pluginName = tr("Trackpad");
     pluginType = DEVICES;
-
-    //~ contents_path /touchpad/Touchpad Settings
-    ui->titleLabel->setText(tr("Touchpad Settings"));
-    ui->titleLabel->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
-
-    ui->touchpadSpeedSlider->setStyleSheet( "QSlider::groove:horizontal {"
-                                       "border: 0px none;"
-                                       "background: palette(button);"
-                                       "height: 8px;"
-                                       "border-radius: 5px;"
-                                       "}"
-
-                                       "QSlider::handle:horizontal {"
-
-                                       "height: 40px;"
-                                       "width: 36px;"
-                                       "margin: 30px;"
-                                       "border-image: url(://img/plugins/mouse/slider.svg);"
-                                       "margin: -20 -4px;"
-                                       "}"
-
-                                       "QSlider::add-page:horizontal {"
-                                       "background: palette(button);"
-                                       "border-radius: 20px;"
-                                       "}"
-
-                                       "QSlider::sub-page:horizontal {"
-                                       "background: #2FB3E8;"
-                                       "border-radius: 5px;"
-                                       "}");
-
-    ui->touchpadSpeedSlider->setFixedHeight(60);
-    ui->touchpadSpeedSlider->setMinimum(0);
-    ui->touchpadSpeedSlider->setMaximum(35);
-    ui->touchpadSpeedSlider->setPageStep(1);
-    ui->touchpadSpeedSlider->installEventFilter(this);
-
-    const QByteArray id(TOUCHPAD_SCHEMA);
-
-    if (QGSettings::isSchemaInstalled(TOUCHPAD_SCHEMA)){
-        tpsettings = new QGSettings(id);
-        setupComponent();
-
-        if (findSynaptics()){
-            qDebug() << "Touch Devices Available";
-            ui->tipLabel->hide();
-            initTouchpadStatus();
-        } else {
-            ui->clickFrame->hide();
-            ui->enableFrame->hide();
-            ui->scrollingFrame->hide();
-            ui->typingFrame->hide();
-            ui->motionAccelFrame->hide();
-        }
-    }
-
-    touchpadMotionAccel = tpsettings->get(TOUCHPAD_MOTION_ACCEL).toDouble();
-    touchpadMotionAccel = touchpadMotionAccel == -1 ? 20 : (ui->touchpadSpeedSlider->maximum() - (touchpadMotionAccel*10 -3));
-    ui->touchpadSpeedSlider->setValue(touchpadMotionAccel*1);
-
-    connect(ui->touchpadSpeedSlider,&QSlider::sliderMoved,this,[=](int value){
-           //printf("%s %d %d\n",__FUNCTION__,__LINE__,ui->touchpadSpeedSlider->maximum() - value+3);
-           tpsettings->set(TOUCHPAD_MOTION_ACCEL, (ui->touchpadSpeedSlider->maximum() - value+3)/10.0);
-    });
 }
 
 Touchpad::~Touchpad()
@@ -198,6 +128,79 @@ int Touchpad::get_plugin_type(){
 }
 
 QWidget *Touchpad::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::Touchpad;
+        double touchpadMotionAccel = 0.0;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+        initSearch();
+        //~ contents_path /touchpad/Touchpad Settings
+        ui->titleLabel->setText(tr("Touchpad Settings"));
+        ui->titleLabel->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
+
+        ui->touchpadSpeedSlider->setStyleSheet( "QSlider::groove:horizontal {"
+                                           "border: 0px none;"
+                                           "background: palette(button);"
+                                           "height: 8px;"
+                                           "border-radius: 5px;"
+                                           "}"
+
+                                           "QSlider::handle:horizontal {"
+
+                                           "height: 40px;"
+                                           "width: 36px;"
+                                           "margin: 30px;"
+                                           "border-image: url(://img/plugins/mouse/slider.svg);"
+                                           "margin: -20 -4px;"
+                                           "}"
+
+                                           "QSlider::add-page:horizontal {"
+                                           "background: palette(button);"
+                                           "border-radius: 20px;"
+                                           "}"
+
+                                           "QSlider::sub-page:horizontal {"
+                                           "background: #2FB3E8;"
+                                           "border-radius: 5px;"
+                                           "}");
+
+        ui->touchpadSpeedSlider->setFixedHeight(60);
+        ui->touchpadSpeedSlider->setMinimum(0);
+        ui->touchpadSpeedSlider->setMaximum(35);
+        ui->touchpadSpeedSlider->setPageStep(1);
+        ui->touchpadSpeedSlider->installEventFilter(this);
+
+        const QByteArray id(TOUCHPAD_SCHEMA);
+
+        if (QGSettings::isSchemaInstalled(TOUCHPAD_SCHEMA)){
+            tpsettings = new QGSettings(id);
+            setupComponent();
+
+            if (findSynaptics()){
+                qDebug() << "Touch Devices Available";
+                ui->tipLabel->hide();
+                initTouchpadStatus();
+            } else {
+                ui->clickFrame->hide();
+                ui->enableFrame->hide();
+                ui->scrollingFrame->hide();
+                ui->typingFrame->hide();
+                ui->motionAccelFrame->hide();
+            }
+        }
+
+        touchpadMotionAccel = tpsettings->get(TOUCHPAD_MOTION_ACCEL).toDouble();
+        touchpadMotionAccel = touchpadMotionAccel == -1 ? 20 : (ui->touchpadSpeedSlider->maximum() - (touchpadMotionAccel*10 -3));
+        ui->touchpadSpeedSlider->setValue(touchpadMotionAccel*1);
+
+        connect(ui->touchpadSpeedSlider,&QSlider::sliderMoved,this,[=](int value){
+               //printf("%s %d %d\n",__FUNCTION__,__LINE__,ui->touchpadSpeedSlider->maximum() - value+3);
+               tpsettings->set(TOUCHPAD_MOTION_ACCEL, (ui->touchpadSpeedSlider->maximum() - value+3)/10.0);
+        });
+    }
     return pluginWidget;
 }
 
