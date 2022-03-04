@@ -227,8 +227,8 @@ void Screensaver::initComponent()
     QMap<QString, SSThemeInfo>::iterator it = infoMap.begin();
     for (int index = 2; it != infoMap.end(); it++) {
         SSThemeInfo info = (SSThemeInfo)it.value();
-        if (!screensaverList.contains(info.name))
-            continue;
+        // if (!screensaverList.contains(info.name))  //开放所有下载的第三方屏保，接口保留
+        //     continue;
         ui->programCombox->addItem(info.name);
         ui->programCombox->setItemData(index, QVariant::fromValue(info));
         index++;
@@ -239,13 +239,6 @@ void Screensaver::initComponent()
     QListView* view = qobject_cast<QListView *>(ui->programCombox->view());
     Q_ASSERT(view != nullptr);
     view->setRowHidden(1, true);  //隐藏纯黑，使用隐藏，防止以后会需要纯黑
-    //不能使用隐藏，隐藏也会占用显示条目，隐藏太多项会导致显示异常！！！
-//    for (int i = 1; i < ui->programCombox->count() - 1; ++i) {   //不隐藏UKUI和自定义
-//        if (!screensaverList.contains(ui->programCombox->itemText(i))) {  //不隐藏列表中的屏保
-//          //  view->setRowHidden(i, true);
-//          ui->programCombox->removeItem(i);        
-//        }
-//    }
     //初始化滑动条
     QStringList scaleList;
     scaleList<< tr("5min") << tr("10min") << tr("15min") << tr("30min") << tr("1hour")
@@ -324,6 +317,10 @@ void Screensaver::initThemeStatus()
     }
 
     mode = g_settings_get_enum(screensaver_settings, MODE_KEY);
+    if (mode == MODE_BLANK_ONLY) {  //如果是黑屏，则设置为UKUI
+        g_settings_set_enum(screensaver_settings, MODE_KEY, MODE_DEFAULT_UKUI);
+        mode = MODE_DEFAULT_UKUI;
+    } 
 
     if (mode == MODE_DEFAULT_UKUI) {
         ui->programCombox->setCurrentIndex(INDEX_MODE_DEFAULT_UKUI); //UKUI
@@ -351,12 +348,12 @@ void Screensaver::initThemeStatus()
             QString dest =  (infoMap.find(name) != infoMap.end()) ? infoMap.value(name).name : "";
 
             if (dest == "") {
-                ui->programCombox->setCurrentIndex(INDEX_MODE_BLANK_ONLY);
+                ui->programCombox->setCurrentIndex(INDEX_MODE_DEFAULT_UKUI);
             } else {
                 ui->programCombox->setCurrentText(dest);
             }
         } else {
-            ui->programCombox->setCurrentIndex(INDEX_MODE_BLANK_ONLY); //no data, default Blank_Only
+            ui->programCombox->setCurrentIndex(INDEX_MODE_DEFAULT_UKUI); //no data, default
         }
         g_strfreev(strv);
     }
