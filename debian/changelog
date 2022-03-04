@@ -1,3 +1,116 @@
+ukui-control-center (3.0.1-1-70.25update49) v101; urgency=medium
+
+  * 提交commit: 9bd114c4
+  * 规避夜间模式默认值问题
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 04 Mar 2022 09:36:58 +0800
+
+ukui-control-center (3.0.1-1-70.25update48) v101; urgency=medium
+
+  * 提交commit: 24f06c33
+  * bug#108257【前线】【外部禅道编号8216】【超翔TZ830-V3】12小时制手动修改时间异常
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 02 Mar 2022 09:44:01 +0800
+
+ukui-control-center (3.0.1-1-70.25update47) v101; urgency=medium
+
+  * 提交commit: e8ab92bd
+  * bug#11566页隐藏服务有效时间，方法为点击序列号后显示服务到期时间等内容
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 28 Feb 2022 19:34:08 +0800
+
+ukui-control-center (3.0.1-1-70.25update46) v101; urgency=medium
+
+  * 提交commit: bcb211b6
+  * bug#107405系统字体大小调节为16，控制面板界面网络模块，有线网络、无线局域网显示不完整
+  * icbc二期项目开发：取消btn，实时监控限速
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 25 Feb 2022 10:57:18 +0800
+
+ukui-control-center (3.0.1-1-70.25update45) v101; urgency=medium
+
+  * 提交commit: dc7e25f2
+  * bug#102445切换输出设备异常：输出设备“扬声器”，“数字输出”调整声道平衡后，切换输出设备再调节主音量大小会使声道平衡重归0%
+  * bug#107404通过win+p切换显示模式，预览框的双屏位置对换，实际拖动效果相反
+  * bug#107300:【前线】【外部禅道编号7964】补丁包验证衍生镜像模式显示器预览框位置显示未居中
+  * bug#107452:【前线】【外部禅道编号7964】【长城F323】补丁包验证衍生镜像模式显示器预览框显示错误
+  * bug#107269 【前线】【外部禅道编号7911】【长城F323】【蓝牙】补丁包验证出现蓝关闭|打开蓝牙开关，蓝牙列表为空
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 23 Feb 2022 16:54:52 +0800
+
+ukui-control-center (3.0.1-1-70.25update44) v101; urgency=medium
+
+  * 提交commit: 5d3bad33
+  * 外接Type-c显示器后，无法选择显示器自带喇叭或耳机孔输出声音
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 21 Feb 2022 11:16:40 +0800
+
+ukui-control-center (3.0.1-1-70.25update43) v101; urgency=medium
+
+  * 提交commit: 88af5ade
+  * bug#107073外接Type-c显示器后，无法选择显示器自带喇叭或耳机孔输出声音
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 18 Feb 2022 16:33:17 +0800
+
+ukui-control-center (3.0.1-1-70.25update42) v101; urgency=medium
+
+  * 提交commit: 88af5ade
+  * bug#105789调节任务栏声音大小，概率性出现拖动声音进度条，进度出现跳动的情况
+  * 添加投屏用户手册
+
+ -- zhoubin <zhoubin@kylinos.cn>  Thu, 17 Feb 2022 18:13:33 +0800
+
+ukui-control-center (3.0.1-1-70.25update41) v101; urgency=medium
+
+  * 提交commit: e876c9dc
+  * 同步云帐户插件到最新稳定版本(彭代欣)
+  * bug#11456大商所项目隐藏自动登录和免密登录
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 16 Feb 2022 17:15:29 +0800
+
+ukui-control-center (3.0.1-1-70.25update40) v101; urgency=medium
+
+  * 提交commit: fa4f4760
+
+ -- zhoubin <zhoubin@kylinos.cn>  Mon, 14 Feb 2022 17:15:18 +0800
+
+ukui-control-center (3.0.1-1-70.25update39.1) v101; urgency=medium
+
+  * 提交commit: 50cc60e2
+  * bug#106050前线】【外部禅道编号7233】【长城F129】【时间和日期】更改时区，按下ENTER键后修改不生效; 
+  * story#11187 电源管理与CPU调频绑定
+
+ -- zhoubin <zhoubin@kylinos.cn>  Sat, 12 Feb 2022 13:48:30 +0800
+
+ukui-control-center (3.0.1-1-70.25update38) v101; urgency=medium
+
+  * 提交commit: 0ec7739d
+  * bug#105854接双屏并关掉edp，在edp界面修改缩放或分辨率，再次点击这个屏幕会弹回HDMI
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 11 Feb 2022 14:45:42 +0800
+
+ukui-control-center (3.0.1-1-70.25update37) v101; urgency=medium
+
+  * commit:af86701
+
+ -- zhoubin <zhoubin@kylinos.cn>  Fri, 28 Jan 2022 08:22:09 +0800
+
+ukui-control-center (3.0.1-1-70.25update36) v101; urgency=medium
+
+  * 提交commit: 1283e3b0
+  * bug#104117,104411
+  * bug#103997 【前线】【7792】[F229][229FBE18][229FEE10][Kylin V10 SP1_1216][蓝牙8822CE]机器连接蓝牙设备，有概率连接上蓝牙设备后又立马断开连接
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 26 Jan 2022 16:47:46 +0800
+
+ukui-control-center (3.0.1-1-70.25update35) v101; urgency=medium
+
+  * 提交commit: 6d868958
+  * bug#85240 扩展模式下，在控制面板-显示器，拖拽改变屏幕AB的位置后，放大/还原控制面板窗口，两个显示器的缩略图重叠/分离
+  * bug#105075:【前线】【外部禅道7801】【宝新创PF215T】修改刷新率后，进行重启，刷新率发生变化未保存
+
+ -- zhoubin <zhoubin@kylinos.cn>  Wed, 26 Jan 2022 14:45:42 +0800
+
 ukui-control-center (3.0.1-1-70.25update34) v101; urgency=medium
 
   * 提交commit: 98bf6162
