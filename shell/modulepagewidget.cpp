@@ -50,7 +50,7 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     ui->widget->setMaximumWidth(1200);
 
     // 左侧二级菜单样式
-    ui->leftStackedWidget->setStyleSheet("border: none;");
+    ui->leftStackedWidget->setStyleSheet("QStackedWidget{border: none;}");
     ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //初始化记录标志位
