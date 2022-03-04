@@ -1759,7 +1759,7 @@ bool TabWid::get_battery()
             battery_value += Ele_surplus;
             qDebug() << "battery value : " << Ele_surplus;
         }
-        return true;
+//        return true;
     }
     /*如果电池总电量小于50不可升级*/
     if (battery_value < 50)
