@@ -61,7 +61,7 @@ public:
     void initSearch();
 private:
     Ui::Touchpad *ui;
-
+    bool mFirstLoad;
     QString pluginName;
     int pluginType;
     QWidget * pluginWidget;

@@ -33,27 +33,7 @@ Printer::Printer() : mFirstLoad(true)
 {
     pluginName = tr("Printers");
     pluginType = DEVICES;
-    ui = new Ui::Printer;
-    pluginWidget = new QWidget;
-    pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
-    pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
-    ui->setupUi(pluginWidget);
-    const QByteArray idd(THEME_QT_SCHEMA);
-    if  (QGSettings::isSchemaInstalled(idd)){
-        qtSettings = new QGSettings(idd);
-    }
 
-    ui->title2Label->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
-
-
-    ui->listWidget->setSpacing(0);
-
-
-    pTimer = new QTimer(this);
-    pTimer->setInterval(1000);
-    connect(pTimer, SIGNAL(timeout()), this, SLOT(refreshPrinterDev()));
-
-    initComponent();
 }
 
 Printer::~Printer()
@@ -70,6 +50,30 @@ int Printer::get_plugin_type(){
 }
 
 QWidget *Printer::get_plugin_ui(){
+    if (mFirstLoad) {
+        mFirstLoad = false;
+        ui = new Ui::Printer;
+        pluginWidget = new QWidget;
+        pluginWidget->setAttribute(Qt::WA_StyledBackground,true);
+        pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        ui->setupUi(pluginWidget);
+        const QByteArray idd(THEME_QT_SCHEMA);
+        if  (QGSettings::isSchemaInstalled(idd)){
+            qtSettings = new QGSettings(idd);
+        }
+
+        ui->title2Label->setStyleSheet("QLabel{font-size: 14px; color: palette(windowText);}");
+
+
+        ui->listWidget->setSpacing(0);
+
+
+        pTimer = new QTimer(this);
+        pTimer->setInterval(1000);
+        connect(pTimer, SIGNAL(timeout()), this, SLOT(refreshPrinterDev()));
+
+        initComponent();
+    }
     return pluginWidget;
 }
 
