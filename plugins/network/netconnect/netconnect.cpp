@@ -413,7 +413,7 @@ bool NetConnect::getwifiisEnable()
 
 bool NetConnect::eventFilter(QObject *w, QEvent *e)
 {
-    if (e->type() == QEvent::MouseButtonPress) {
+    if (e->type() == QEvent::MouseButtonRelease) {
         if (w->objectName().startsWith("Lan")) {
             runExternalApp(1, w->objectName().mid(3));
         } else runExternalApp(0, w->objectName().mid(4));
