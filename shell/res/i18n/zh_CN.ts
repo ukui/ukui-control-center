@@ -1037,12 +1037,12 @@ Please authenticate yourself to continue</source>
         <translation>设备状态：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="243"/>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="255"/>
         <source>Storage Type:</source>
         <translation>存储类型：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="250"/>
+        <location filename="../../../plugins/account/userinfo/biometricmoreinfo.ui" line="274"/>
         <source>Identification Type:</source>
         <translation>验证类型：</translation>
     </message>
@@ -1591,14 +1591,19 @@ Please authenticate yourself to continue</source>
         <translation>修改用户名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="174"/>
+        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="181"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="193"/>
+        <location filename="../../../plugins/account/userinfo/changeusername.ui" line="200"/>
         <source>Save</source>
         <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changeusername.cpp" line="22"/>
+        <source>Name already in use, change it.</source>
+        <translation>该用户名已存在，请更改。</translation>
     </message>
 </context>
 <context>
@@ -4311,7 +4316,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="386"/>
+        <location filename="../../mainwindow.cpp" line="385"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4321,43 +4326,43 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="82"/>
-        <location filename="../../mainwindow.cpp" line="406"/>
-        <location filename="../../mainwindow.cpp" line="755"/>
+        <location filename="../../mainwindow.cpp" line="405"/>
+        <location filename="../../mainwindow.cpp" line="754"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="415"/>
+        <location filename="../../mainwindow.cpp" line="414"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="416"/>
+        <location filename="../../mainwindow.cpp" line="415"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="417"/>
+        <location filename="../../mainwindow.cpp" line="416"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="418"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="476"/>
+        <location filename="../../mainwindow.cpp" line="475"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="478"/>
+        <location filename="../../mainwindow.cpp" line="477"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="480"/>
+        <location filename="../../mainwindow.cpp" line="479"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4366,17 +4371,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="861"/>
+        <location filename="../../mainwindow.cpp" line="860"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="861"/>
+        <location filename="../../mainwindow.cpp" line="860"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="606"/>
+        <location filename="../../mainwindow.cpp" line="605"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -6204,55 +6209,55 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="328"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="331"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="338"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="341"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="347"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="350"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="356"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="359"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="365"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="368"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="375"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="378"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="384"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="387"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="393"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="396"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="402"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="405"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -7524,22 +7529,22 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>TimeZoneChooser</name>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="34"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="36"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="35"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="44"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="43"/>
         <source>Change time zone</source>
         <translation>更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="68"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="67"/>
         <source>Search Timezone</source>
         <translation>搜索时区</translation>
     </message>
@@ -7557,7 +7562,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">更改时区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="103"/>
+        <location filename="../../../plugins/time-language/datetime/worldMap/timezonechooser.cpp" line="102"/>
         <source>Change Timezone</source>
         <translation>更改时区</translation>
     </message>
@@ -8202,42 +8207,42 @@ run start-pulseaudio-x11 manually.</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1274"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1293"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1275"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1294"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1278"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1297"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1279"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1298"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1339"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1358"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1808"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1827"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1822"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1841"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1842"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1861"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -8252,17 +8257,17 @@ run start-pulseaudio-x11 manually.</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="796"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="799"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="916"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="923"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="916"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="923"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -8272,12 +8277,12 @@ run start-pulseaudio-x11 manually.</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="778"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="781"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="765"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="768"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -8372,7 +8377,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation>其他用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="447"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="450"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
         <extra-contents_path>/userinfo/Add new user</extra-contents_path>
@@ -8632,8 +8637,8 @@ the settings will be saved after %1 seconds</source>
         <translation>修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在%1秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2140"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="2147"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2154"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -8678,13 +8683,13 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1799"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1808"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1498"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1799"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1808"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>

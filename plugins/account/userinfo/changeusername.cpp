@@ -1,12 +1,14 @@
 #include "changeusername.h"
 #include "ui_changeusername.h"
-
+#include <QJsonArray>
 
 extern void qt_blurImage(QImage &blurImage, qreal radius, bool quality, int transposed);
 
-ChangeUserName::ChangeUserName(QWidget *parent) :
+ChangeUserName::ChangeUserName(QStringList usernames, QStringList realnames, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::ChangeUserName)
+    ui(new Ui::ChangeUserName),
+    _usernames(usernames),
+    _realnames(realnames)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
@@ -16,7 +18,12 @@ ChangeUserName::ChangeUserName(QWidget *parent) :
     ui->saveBtn->setEnabled(false);
 
     connect(ui->lineEdit, &QLineEdit::textChanged, this, [=](QString txt){
-        if (!txt.isEmpty()){
+        if (_usernames.contains(txt) || _realnames.contains(txt)){
+            ui->tipLabel->setText(tr("Name already in use, change it."));
+        } else {
+            ui->tipLabel->setText(tr(""));
+        }
+        if (!txt.isEmpty() && ui->tipLabel->text().isEmpty()){
             ui->saveBtn->setEnabled(true);
         } else {
             ui->saveBtn->setEnabled(false);

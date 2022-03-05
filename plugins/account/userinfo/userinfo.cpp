@@ -1054,7 +1054,19 @@ void UserInfo::changeUserType(int atype, QString username){
 }
 
 void UserInfo::showChangeNameDialog(){
-    ChangeUserName * dialog = new ChangeUserName;
+    QStringList usernames;
+    QStringList realnames;
+    QMap<QString, UserInfomation>::iterator it = allUserInfoMap.begin();
+    for (; it != allUserInfoMap.end(); it++){
+        UserInfomation user = it.value();
+
+        if (QString::compare(user.username, g_get_user_name()) == 0)
+            continue;
+
+        usernames.append(user.username);
+        realnames.append(user.realname);
+    }
+    ChangeUserName * dialog = new ChangeUserName(usernames, realnames, pluginWidget);
     connect(dialog, &ChangeUserName::sendNewName, [=](QString name){
         changeUserName(name);
     });
