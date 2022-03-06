@@ -425,21 +425,12 @@ void Screenlock::setupConnect(){
             uslider->setValue(lockConvertToSlider(value));
         }else{
             QString powerMode = mSettings->get(POWER_MODE).toString();
-            if (powerMode == "balance") {
                 //设置显示器关闭
-                powerSettings->set(SLEEP_DISPLAY_AC_KEY, DISPLAY_BALANCE_AC);
-                powerSettings->set(SLEEP_DISPLAY_BATT_KEY, DISPLAY_BALANCE_BA);
+                powerSettings->set(SLEEP_DISPLAY_AC_KEY, (value + 5) * 60);
+                powerSettings->set(SLEEP_DISPLAY_BATT_KEY, (value + 5) * 60);
                 //设置计算机睡眠
-                powerSettings->set(SLEEP_COMPUTER_AC_KEY, COMPUTER_BALANCE_AC);
-                powerSettings->set(SLEEP_COMPUTER_BATT_KEY, COMPUTER_BALANCE_BA);
-            } else if (powerMode == "saving") {
-                //设置显示器关闭
-                powerSettings->set(SLEEP_DISPLAY_AC_KEY, DISPLAY_SAVING);
-                powerSettings->set(SLEEP_DISPLAY_BATT_KEY, DISPLAY_SAVING);
-                //设置计算机睡眠
-                powerSettings->set(SLEEP_COMPUTER_AC_KEY, COMPUTER_SAVING);
-                powerSettings->set(SLEEP_COMPUTER_BATT_KEY, COMPUTER_SAVING);
-            }
+                powerSettings->set(SLEEP_COMPUTER_AC_KEY, (value + 5) * 60);
+                powerSettings->set(SLEEP_COMPUTER_BATT_KEY, (value + 5) * 60);
             g_settings_set_boolean(screenlock_settings,SCREENLOCK_ACTIVE_KEY,true);
             g_object_unref(screenlock_settings);
             g_settings_set_int(session_settings, IDLE_DELAY_KEY, value);
