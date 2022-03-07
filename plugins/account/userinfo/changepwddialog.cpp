@@ -185,7 +185,9 @@ void ChangePwdDialog::setupConnect(){
         curPwdTip = re;
 
         if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
-            ui->tipLabel->setText(curPwdTip);
+            if (QLabelSetText(ui->tipLabel, curPwdTip)) {
+                ui->tipLabel->setToolTip(curPwdTip);
+            }
         }
 
         if (curPwdTip.isEmpty()){
@@ -239,7 +241,9 @@ void ChangePwdDialog::setupConnect(){
             }
 
             if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
-                ui->tipLabel->setText(curPwdTip);
+                if (QLabelSetText(ui->tipLabel, curPwdTip)) {
+                    ui->tipLabel->setToolTip(curPwdTip);
+                }
             }
 
             if (curPwdTip.isEmpty()){
@@ -454,6 +458,20 @@ void ChangePwdDialog::refreshConfirmBtnStatus(){
         else
             ui->confirmPushBtn->setEnabled(true);
     }
+}
+
+bool ChangePwdDialog::QLabelSetText(QLabel *label, QString string)
+{
+    bool is_over_length = false;
+    QFontMetrics fontMetrics(label->font());
+    int fontSize = fontMetrics.width(string);
+    QString str = string;
+    if (fontSize > label->width() - 5) {
+        str = fontMetrics.elidedText(string, Qt::ElideRight, label->width() - 10);
+        is_over_length = true;
+    }
+    label->setText(str);
+    return is_over_length;
 }
 
 
