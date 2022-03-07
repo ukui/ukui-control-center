@@ -122,15 +122,15 @@ void UnifiedOutputConfig::initUi()
     roatateLayout->addWidget(rotateLabel);
     roatateLayout->addWidget(mRotation);
 
-    QFrame *rotateFrame = new QFrame(this);
-    rotateFrame->setFrameShape(QFrame::Shape::Box);
-    rotateFrame->setLayout(roatateLayout);
+    mRotateFrame = new QFrame(this);
+    mRotateFrame->setFrameShape(QFrame::Shape::Box);
+    mRotateFrame->setLayout(roatateLayout);
 
-    rotateFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    rotateFrame->setMinimumSize(552, 50);
-    rotateFrame->setMaximumSize(960, 50);
+    mRotateFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    mRotateFrame->setMinimumSize(552, 50);
+    mRotateFrame->setMaximumSize(960, 50);
 
-    vbox->addWidget(rotateFrame);
+    vbox->addWidget(mRotateFrame);
 
     // 统一输出刷新率下拉框
     mRefreshRate = new QComboBox(this);
