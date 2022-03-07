@@ -34,6 +34,7 @@
 #include <glib.h>
 #include <gio/gio.h>
 #include <dconf/dconf.h>
+#include <dconf/common/dconf-paths.h>
 
 #define THEME_QT_SCHEMA  "org.ukui.style"
 #define ICON_QT_KEY      "icon-theme-name"

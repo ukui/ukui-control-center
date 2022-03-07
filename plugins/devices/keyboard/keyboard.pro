@@ -20,7 +20,7 @@ INCLUDEPATH   +=  \
                  /usr/include/KF5 \
                  /usr/include/xcb \
 
-LIBS          +=  -L$$[QT_INSTALL_LIBS] -lgsettings-qt -lX11 -lxkbfile
+LIBS          +=  -L$$[QT_INSTALL_LIBS] -lgsettings-qt -lX11
 
 CONFIG        += link_pkgconfig \
                  C++11
@@ -33,42 +33,12 @@ PKGCONFIG     += libmatekbd \
 SOURCES += \
     keyboardcontrol.cpp \
     kbdlayoutmanager.cpp \
- \#    tastenbrett.cpp
     keyboardmain.cpp \
-    preview/debug.cpp \
-    preview/geometry_components.cpp \
-    preview/geometry_parser.cpp \
-    preview/kbpreviewframe.cpp \
-    preview/keyaliases.cpp \
-    preview/keyboard_config.cpp \
-    preview/keyboardlayout.cpp \
-    preview/keyboardpainter.cpp \
-    preview/keysym2ucs.cpp \
-    preview/keysymhelper.cpp \
-    preview/symbol_parser.cpp \
-    preview/x11_helper.cpp \
-    preview/xkb_rules.cpp
 
 HEADERS += \
     keyboardcontrol.h \
     kbdlayoutmanager.h \
- \#    tastenbrett.h
     keyboardmain.h \
-    preview/config-keyboard.h \
-    preview/config-workspace.h \
-    preview/debug.h \
-    preview/geometry_components.h \
-    preview/geometry_parser.h \
-    preview/kbpreviewframe.h \
-    preview/keyaliases.h \
-    preview/keyboard_config.h \
-    preview/keyboardlayout.h \
-    preview/keyboardpainter.h \
-    preview/keysym2ucs.h \
-    preview/keysymhelper.h \
-    preview/symbol_parser.h \
-    preview/x11_helper.h \
-    preview/xkb_rules.h
 
 FORMS += \
     kbdlayoutmanager.ui \
