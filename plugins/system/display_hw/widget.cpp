@@ -935,6 +935,11 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, const KScreen::Outp
                                  frame->setTextLableValue(QString::number(frame->slider->value()));
                                  output->setBrightness(frame->slider->value());
                                  setKscreenConfig(this->currentConfig());
+                                 Q_FOREACH (const KScreen::OutputPtr &pOutput, mPrevConfig->outputs()) {
+                                     if (Utils::outputName(pOutput) == name) {
+                                         pOutput->setBrightness(frame->slider->value());
+                                     }
+                                 }
             });
         });
     }
