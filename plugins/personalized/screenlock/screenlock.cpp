@@ -414,6 +414,7 @@ void Screenlock::setupConnect(){
         if(value==-1){
             //qDebug()<<"never";           
             g_settings_set_boolean(screenlock_settings,SCREENLOCK_ACTIVE_KEY,false);
+	    g_settings_set_int(session_settings, IDLE_DELAY_KEY, -1);
             //当设置为从不时，禁止系统进入睡眠
             //设置显示器关闭
             powerSettings->set(SLEEP_DISPLAY_AC_KEY, -1);
@@ -421,25 +422,26 @@ void Screenlock::setupConnect(){
             //设置计算机睡眠
             powerSettings->set(SLEEP_COMPUTER_AC_KEY, -1);
             powerSettings->set(SLEEP_COMPUTER_BATT_KEY, -1);
+            g_object_unref(session_settings);
             g_object_unref(screenlock_settings);
             uslider->setValue(lockConvertToSlider(value));
         }else{
             QString powerMode = mSettings->get(POWER_MODE).toString();
-                //设置显示器关闭
-                powerSettings->set(SLEEP_DISPLAY_AC_KEY, (value + 5) * 60);
-                powerSettings->set(SLEEP_DISPLAY_BATT_KEY, (value + 5) * 60);
-                //设置计算机睡眠
-                powerSettings->set(SLEEP_COMPUTER_AC_KEY, (value + 5) * 60);
-                powerSettings->set(SLEEP_COMPUTER_BATT_KEY, (value + 5) * 60);
+            //设置显示器关闭
+            powerSettings->set(SLEEP_DISPLAY_AC_KEY, (value + 5) * 60);
+            powerSettings->set(SLEEP_DISPLAY_BATT_KEY, (value + 5) * 60);
+            //设置计算机睡眠
+            powerSettings->set(SLEEP_COMPUTER_AC_KEY, (value + 5) * 60);
+            powerSettings->set(SLEEP_COMPUTER_BATT_KEY, (value + 5) * 60);
             g_settings_set_boolean(screenlock_settings,SCREENLOCK_ACTIVE_KEY,true);
+            g_settings_set_int(screenlock_settings, IDLE_DELAY_KEY, value);
             g_object_unref(screenlock_settings);
-            g_settings_set_int(session_settings, IDLE_DELAY_KEY, value);
+	    g_settings_set_int(session_settings, IDLE_DELAY_KEY, 1);
             g_object_unref(session_settings);
             //qDebug()<<"value"<<value;
         }
     });
-
-    connect(qSessionSetting, &QGSettings::changed, this,[=](const QString& key){
+    connect(lSetting, &QGSettings::changed, this,[=](const QString& key){
         if ("idleDelay" == key) {
             screenlock_settings=g_settings_new(SCREENLOCK_BG_SCHEMA);
             auto lock_value=g_settings_get_boolean(screenlock_settings,SCREENLOCK_ACTIVE_KEY);
@@ -447,7 +449,7 @@ void Screenlock::setupConnect(){
                 uslider->setValue(lockConvertToSlider(-1));
                 return;
             }
-            auto value = qSessionSetting->get(key).toInt();
+            auto value = lSetting->get(key).toInt();
             uslider->setValue(lockConvertToSlider(value));
         }
     });
@@ -475,9 +477,10 @@ bool Screenlock::writeInit(QString group, QString key, uint32_t value)
 void Screenlock::initIdleSliderStatus(){
     int minutes;
     session_settings = g_settings_new(SESSION_SCHEMA);
-    minutes = g_settings_get_int(session_settings, IDLE_DELAY_KEY);
+    //minutes = g_settings_get_int(session_settings, IDLE_DELAY_KEY);
 
     screenlock_settings=g_settings_new(SCREENLOCK_BG_SCHEMA);
+    minutes = g_settings_get_int(screenlock_settings, IDLE_DELAY_KEY);
     bool lock_value=g_settings_get_boolean(screenlock_settings,SCREENLOCK_ACTIVE_KEY);
     qDebug()<<"lock"<<lock_value;
     if(!lock_value){
