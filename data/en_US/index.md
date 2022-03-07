@@ -302,20 +302,20 @@ The update history can be seen here.
 
  
 
-### Background update
+#### Background update
 
 Background update is mainly used for important update operations in the background, and to remind users of available update content.
 <br>
 
 - When there is an important update, the update will be silently in the background, and the user will receive the notification information before and after the upgrade.
 
-![图 44 后台更新-big](/Users/dadadali/source/ukui-control-center/data/en_US/image/notiffirst.png)
+![图 44 后台更新-big](image/notiffirst.png)
 
-![图 45 后台更新-big](/Users/dadadali/source/ukui-control-center/data/en_US/image/notiend.png)
+![图 45 后台更新-big](image/notiend.png)
 
 - When there are available updates, the selection interface will pop up for users to select.
 
-![图 47 后台更新-big](/Users/dadadali/source/ukui-control-center/data/en_US/image/choicewidget.png)
+![图 47 后台更新-big](image/choicewidget.png)
 
 - After the user selects immediate update, the Settings > update interface will pop up to check the update
 
