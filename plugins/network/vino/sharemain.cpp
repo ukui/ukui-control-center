@@ -32,7 +32,8 @@ ShareMain::ShareMain(QWidget *parent) :
     QWidget(parent),
     mSettingsIni(Q_NULLPTR),
     mIsOpen(0),
-    mNeedPwd(1)
+    mNeedPwd(1),
+    mProtocol("vnc")
 {
     mVlayout = new QVBoxLayout(this);
     mVlayout->setContentsMargins(0, 0, 32, 0);
@@ -50,9 +51,7 @@ ShareMain::ShareMain(QWidget *parent) :
     update_inputs();
     update_auth();
     update_clients();
-
-    connect(krd, &ComKylinRemoteDesktopInterface::Changed,
-            this, &ShareMain::onChanged);
+    initComponentStatus();
 }
 
 ShareMain::~ShareMain()
@@ -68,15 +67,14 @@ void ShareMain::initData()
 {
     QString confFile = QDir::homePath()+"/.config/kylin-remote-desktop/krd.ini";
     mSettingsIni = new QSettings(confFile, QSettings::IniFormat);
-    if(!QFile::exists(confFile))
-    {
+    if(!QFile::exists(confFile)) {
         mSettingsIni->setValue("mIsOpen", "0");
         mSettingsIni->setValue("password", "");
         mSettingsIni->setValue("mNeedPwd", "1");
+        mSettingsIni->setValue("protocol", mProtocol);
         mIsOpen = mSettingsIni->value("mIsOpen").toInt();
         mNeedPwd = mSettingsIni->value("mNeedPwd").toInt();
-    }
-    else {
+    } else {
         mIsOpen = mSettingsIni->value("mIsOpen").toInt();
         mNeedPwd = mSettingsIni->value("mNeedPwd").toInt();
         if(mIsOpen == 1) {
@@ -89,12 +87,12 @@ void ShareMain::initData()
 
             mSecurityPwdFrame->setVisible(true);
             mSecurityTitleLabel->setVisible(true);
-        }
-        else if(mIsOpen == 0)
-        {
+        } else if(mIsOpen == 0) {
             qDebug() << "ZDEBUG " << "enable setchecked true " << __LINE__ ;
             mEnableBtn->setChecked(false);
         }
+        QString protocol = mSettingsIni->value("protocol").toString();
+        mProtocol = protocol.isEmpty() ? mProtocol : protocol;
     }
 }
 
@@ -104,6 +102,7 @@ void ShareMain::initUI()
     initEnableUI();
     initPwdUI();
     initOutputUI();
+    initProtocolUI();
     initInputUI();
     initClientUI();
     setFrame();
@@ -118,8 +117,7 @@ void ShareMain::initConnection()
     connect(mPointBtn, &SwitchButton::checkedChanged, this, &ShareMain::onPointerClickedSlot);
     connect(mKeyboardBtn, &SwitchButton::checkedChanged, this, &ShareMain::onKeyboardClickedSlot);
     connect(mClipboardBtn, &SwitchButton::checkedChanged, this, &ShareMain::onClipboardClickedSlot);
-    //connect(mViewOnlyNBtn, &QPushButton::toggled, this, &ShareMain::viewBoxSlot);
-    //connect(mCloseBtn, &QPushButton::released, this, &ShareMain::on_pb_close_clicked);
+    connect(mBtnGroup, QOverload<int>::of(&QButtonGroup::buttonClicked), this, &ShareMain::onProtocolSelectSlot);
 }
 
 void ShareMain::onChanged(int type)
@@ -168,9 +166,7 @@ void ShareMain::update_outputs()
                 button->setChecked(true);
             }
         }
-    }
-    else
-    {
+    } else {
         output_list.first()->setChecked(true);
     }
 }
@@ -180,7 +176,6 @@ void ShareMain::update_inputs()
     mPointBtn->setChecked(input & 0x1);
     mKeyboardBtn->setChecked(input & 0x2);
     mClipboardBtn->setChecked(krd->clipBoard());
-//    ui->wl_speed->setValue(krd->wheelSpeed());
     mMaxClientSpinBox->setValue(krd->allowedMaxClient());
 }
 
@@ -189,7 +184,6 @@ void ShareMain::update_auth()
     checkPwdEnableState();
 
     QString pwd = mSettingsIni->value("password").toString();
-    //if(!(mSettingsIni->value("password", "NULL") == "NULL"))
     mPwdLineEdit->setText(pwd);
 }
 
@@ -203,6 +197,15 @@ void ShareMain::update_clients()
         mTbClients->setItem(row, 0, new QTableWidgetItem(QString::number(client.value("id").toInt())));
         mTbClients->setItem(row, 1, new QTableWidgetItem(QString(client.value("ip").toString())));
         mTbClients->setItem(row, 2, new QTableWidgetItem(QString::number(client.value("viewOnly").toBool())));
+    }
+}
+
+void ShareMain::initComponentStatus()
+{
+    if (!mProtocol.compare("vnc")) {
+        mVncRadioBtn->setChecked(true);
+    } else {
+        mRdpRadioBtn->setChecked(true);
     }
 }
 
@@ -244,8 +247,11 @@ void ShareMain::on_pb_start_clicked()
     mSettingsIni->setValue("mIsOpen","1");
     mIsOpen = mSettingsIni->value("mIsOpen").toInt();
 
-    krd->Start(output);
-    qDebug() << "ZDEBUG " << "start " << __LINE__ ;
+    if (!mProtocol.compare("vnc")) {
+        krd->Start(output);
+    } else {
+        krd->StartRDP(output);
+    }
 
 }
 
@@ -306,6 +312,15 @@ void ShareMain::on_pb_passwd_clicked()
         krd->SetPassword(pwd);
 }
 
+void ShareMain::onProtocolSelectSlot(int protocol)
+{
+    QString pro = protocol ? "rdp" : "vnc";
+    mProtocol = pro;
+    mSettingsIni->setValue("protocol", pro);
+    on_pb_start_clicked();
+    pwdInputSlot(mPwdLineEdit->text());
+}
+
 void ShareMain::enableSlot(bool status)
 {
     qDebug() << "ZDEBUG " << "enableSlot " << __LINE__ ;
@@ -314,12 +329,12 @@ void ShareMain::enableSlot(bool status)
 
     setFrameVisible(status);
 
-    if(status)
-      on_pb_start_clicked();
-    else
-      exitAllClient();
+    if(status) {
+        on_pb_start_clicked();
+    } else {
+        exitAllClient();
+    }
 
-    checkPwdEnableState();
     qDebug() << "ZDEBUG " << "enableSlot " << __LINE__ ;
 
     //viewBoxSlot(!mViewBtn->isChecked());
@@ -345,8 +360,7 @@ void ShareMain::checkPwdEnableState()
     if(mNeedPwd == 1) {
         mPwdBtn->setChecked(true);
         pwdEnableSlot(true);
-    }
-    else {
+    } else {
         mPwdBtn->setChecked(false);
         pwdEnableSlot(false);
     }
@@ -354,11 +368,12 @@ void ShareMain::checkPwdEnableState()
 
 void ShareMain::setFrameVisible(bool visible)
 {
-    mEnableBtn->setChecked(visible);
-
     //mControlFrame->setVisible(visible);
     mSecurityPwdFrame->setVisible(visible);
     mSecurityTitleLabel->setVisible(visible);
+    mProtocolTitleLabel->setVisible(visible);
+    mVncProtocolFrame->setVisible(visible);
+    mRdpProtocalFrame->setVisible(visible);
 }
 
 void ShareMain::pwdEnableSlot(bool status)
@@ -383,34 +398,22 @@ void ShareMain::pwdEnableSlot(bool status)
 
 void ShareMain::pwdInputSlot(const QString &pwd)
 {
-    if (pwd.length() <= 8 && !pwd.isEmpty()) {
-
-        mHintLabel->setText(tr(""));
-        mHintLabel->setVisible(false);
-        krd->SetPassword(pwd);
-        //if(mSettingsIni->value("password", "NULL") == "NULL")
-        mSettingsIni->setValue("password", pwd);
-        if( pwd.length() == 8 && mNeedPwd == 1)
-        {
-            mHintLabel->setText(tr("Password length must be less than or equal to 8"));
-            mHintLabel->setVisible(true);
-            mHintLabel->setStyleSheet("color:red;");
-        }
-
-    } else if (pwd.isEmpty() && mPwdLineEdit->text().isEmpty()) {
-
+    if (pwd.isEmpty() && mPwdLineEdit->text().isEmpty()) {
         mHintLabel->setText(tr("Password can not be blank"));
         mHintLabel->setStyleSheet("color:red;");
         mHintLabel->setVisible(true);
         krd->SetPassword(pwd);
         mSettingsIni->setValue("password", pwd);
-
-    } else {
-
+    } else if (pwd.length() <= 8 && !pwd.isEmpty()) {
+        mHintLabel->setText(tr(""));
+        mHintLabel->setVisible(false);
+        krd->SetPassword(pwd);
+        //if(mSettingsIni->value("password", "NULL") == "NULL")
+        mSettingsIni->setValue("password", pwd);
+    } else if (pwd.length() > 8) {
         mHintLabel->setText(tr("Password length must be less than or equal to 8"));
         mHintLabel->setStyleSheet("color:red;");
         mHintLabel->setVisible(true);
-        mPwdLineEdit->setText(pwd.mid(0, 8));
     }
 }
 
@@ -468,6 +471,42 @@ void ShareMain::initPwdUI()
     pwdHLayout->addWidget(mPwdBtn);
 
     mSecurityPwdFrame->setLayout(pwdHLayout);
+}
+
+void ShareMain::initProtocolUI()
+{
+    mProtocolTitleLabel = new QLabel(tr("Protocol"), this);
+
+    mVncProtocolFrame = new QFrame(this);
+    mVncProtocolFrame->setFrameShape(QFrame::Shape::Box);
+    mVncProtocolFrame->setMinimumSize(550, 50);
+    mVncProtocolFrame->setMaximumSize(960, 50);
+
+    mVncRadioBtn = new QRadioButton("VNC", mVncProtocolFrame);
+    QHBoxLayout *vncHLayout = new QHBoxLayout(this);
+    vncHLayout->addWidget(mVncRadioBtn);
+    vncHLayout->addStretch();
+
+    mVncProtocolFrame->setLayout(vncHLayout);
+
+    mRdpProtocalFrame = new QFrame(this);
+    mRdpProtocalFrame->setFrameShape(QFrame::Shape::Box);
+    mRdpProtocalFrame->setMinimumSize(550, 50);
+    mRdpProtocalFrame->setMaximumSize(960, 50);
+
+    mRdpRadioBtn = new QRadioButton("RDP", mRdpProtocalFrame);
+    QHBoxLayout *rdpHLayout = new QHBoxLayout(this);
+    rdpHLayout->addWidget(mRdpRadioBtn);
+    rdpHLayout->addStretch();
+
+    mRdpProtocalFrame->setLayout(rdpHLayout);
+
+    mBtnGroup = new QButtonGroup(this);
+    mBtnGroup->addButton(mVncRadioBtn);
+    mBtnGroup->addButton(mRdpRadioBtn);
+
+    mBtnGroup->setId(mVncRadioBtn, Protocol::VNC);
+    mBtnGroup->setId(mRdpRadioBtn, Protocol::RDP);
 }
 
 void ShareMain::initOutputUI()
@@ -608,6 +647,10 @@ void ShareMain::setFrame()
 
     mVlayout->addWidget(mSecurityTitleLabel);
     mVlayout->addWidget(mSecurityPwdFrame);
+
+    mVlayout->addWidget(mProtocolTitleLabel);
+    mVlayout->addWidget(mVncProtocolFrame);
+    mVlayout->addWidget(mRdpProtocalFrame);
 
     mVlayout->addWidget(mOutputTitleLabel);
     mVlayout->addWidget(mOutputFrame);

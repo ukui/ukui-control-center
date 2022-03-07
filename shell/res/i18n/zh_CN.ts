@@ -6280,7 +6280,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation>系统升级增量备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="666"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="727"/>
         <source>xxx客户端</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6874,12 +6874,12 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>ShareMain</name>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="419"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="440"/>
         <source>Share</source>
         <translation>共享</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="436"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="457"/>
         <source>Allow others to view your desktop</source>
         <translation>允许其他人查看您的桌面</translation>
     </message>
@@ -6888,7 +6888,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">允许连接控制屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="447"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="468"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
@@ -6897,100 +6897,105 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">您必须为本机机器确认每次访问</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="457"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="478"/>
         <source>Require user to enter this password: </source>
         <translation>要求用户输入此密码: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="402"/>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="459"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="423"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="480"/>
         <source>Password can not be blank</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="240"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
         <source>Warning</source>
         <translatorcomment>警告</translatorcomment>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="240"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
         <source>please select an output</source>
         <translation>请选择一个输出屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="302"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="312"/>
         <source>Input Password</source>
         <translation>输入密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="303"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="313"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="395"/>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="410"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="416"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="431"/>
         <source>Password length must be less than or equal to 8</source>
         <translation>密码长度需小于等于8</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="475"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="496"/>
+        <source>Protocol</source>
+        <translation>协议</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="532"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="488"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="545"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="499"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="556"/>
         <source>Point</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="501"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="558"/>
         <source>Keyboard</source>
         <translation>键盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="503"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="560"/>
         <source>Clipboard</source>
         <translation>剪切板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="530"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="587"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="532"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="589"/>
         <source>ViewOnly</source>
         <translation>仅查看</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="540"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="597"/>
         <source>Client Setting</source>
         <translation>客户端配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="552"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="609"/>
         <source>Client Number</source>
         <translation>客户端最大可连接数</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="567"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="624"/>
         <source>Client IP：</source>
         <translation>客户端IP地址：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="698"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="759"/>
         <source>退出程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="698"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="759"/>
         <source>确认退出程序！</source>
         <translation type="unfinished"></translation>
     </message>

@@ -115,6 +115,13 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("Start"), argumentList);
     }
 
+    inline QDBusPendingReply<int> StartRDP(const QString &output)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(output);
+        return asyncCallWithArgumentList(QStringLiteral("StartRDP"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
     void Changed(int type);
 };

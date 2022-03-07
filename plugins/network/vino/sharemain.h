@@ -42,21 +42,11 @@
 #include "SwitchButton/switchbutton.h"
 #include "krd.h"
 
-#if 0
-const QByteArray kVinoSchemas = "org.gnome.Vino";
-const QString kVinoViewOnlyKey = "view-only";
-const QString kVinoPromptKey = "prompt-enabled";
-const QString kAuthenticationKey = "authentication-methods";
-const QString kVncPwdKey = "vnc-password";
 
-const QByteArray kUkccVnoSchmas = "org.ukui.control-center.vino";
-const QString kUkccPromptKey = "remote";
-
-enum RequestPwd {
-    NOPWD,
-    NEEDPWD
+enum Protocol{
+    VNC,
+    RDP,
 };
-#endif
 
 class ShareMain : public QWidget
 {
@@ -77,6 +67,8 @@ private:
     QFrame *mInputFrame;
     QFrame *mClientFrame;
     QFrame *mClientNumFrame;
+    QFrame *mVncProtocolFrame;
+    QFrame *mRdpProtocalFrame;
 
     SwitchButton *mEnableBtn;  // 允许其他人查看桌面
     SwitchButton *mViewBtn;    // 允许连接控制屏幕
@@ -112,6 +104,7 @@ private:
     QLabel *mOutputTitleLabel;
     QLabel *mInputTitleLabel;
     QLabel *mClientTitleLabel;
+    QLabel *mProtocolTitleLabel;
 
     QLineEdit *mPwdLineEdit;
 
@@ -121,24 +114,22 @@ private:
     ComKylinRemoteDesktopInterface *krd;
     QList<QRadioButton*> output_list;
 
+    QRadioButton *mVncRadioBtn;
+    QRadioButton *mRdpRadioBtn;
+    QButtonGroup *mBtnGroup;
+
     QSettings* mSettingsIni;       //配置文件
     int mIsOpen;
     int mNeedPwd;
+    QString mProtocol;
 
-    //QRadioButton *mNoticeWBtn;
-    //QRadioButton *mNoticeOBtn;
-    //QRadioButton *mNoticeNBtn;
-    //QLabel *mAccessLabel;
-    //SwitchButton *mAccessBtn;  // 为本机确认每次访问
-    //QGSettings *mVinoGsetting;
-    //QSystemTrayIcon *mSysTrayIcon;
-    //static bool mIsOpening = false;
 private:
 
     void initUI();
     void initTitleLabel();
     void initEnableUI();
     void initPwdUI();
+    void initProtocolUI();      // 协议选择
     void initOutputUI();
     void initInputUI();
     void initClientUI();
@@ -155,14 +146,10 @@ private:
     void update_auth();
     void update_clients();
 
+    void initComponentStatus();
+
     void savePwdEnableState();
     void checkPwdEnableState();
-
-    //void initShareStatus(bool isConnnect, bool isPwd);
-    //void initEnableStatus();
-    //void setVinoService(bool status);
-    //void initSysTrayIcon();
-    //void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
 private slots:
     void enableSlot(bool status);
     void pwdEnableSlot(bool status);
@@ -178,11 +165,7 @@ private slots:
     void on_pb_close_clicked();
     void exitAllClient();
     void on_pb_passwd_clicked();
-
-    //void viewBoxSlot();
-    //void accessSlot(bool status);
-    //void closeAllClient();
-    //void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);//托盘槽函数声明
+    void onProtocolSelectSlot(int protocol);
 };
 
 #endif // SHAREMAIN_H
