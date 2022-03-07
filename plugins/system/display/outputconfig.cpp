@@ -21,6 +21,7 @@
 #include <KF5/KScreen/kscreen/edid.h>
 
 #include "ComboBox/combobox.h"
+#include "shell/utils/utils.h"
 
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),
@@ -96,13 +97,13 @@ void OutputConfig::initUi()
 
     rotateLayout->addWidget(mRotation);
 
-    QFrame *rotateFrame = new QFrame(this);
-    rotateFrame->setFrameShape(QFrame::Shape::Box);
-    rotateFrame->setLayout(rotateLayout);
+    mRotateFrame = new QFrame(this);
+    mRotateFrame->setFrameShape(QFrame::Shape::Box);
+    mRotateFrame->setLayout(rotateLayout);
 
-    rotateFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    rotateFrame->setMinimumSize(550, 50);
-    rotateFrame->setMaximumSize(960, 50);
+    mRotateFrame->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    mRotateFrame->setMinimumSize(550, 50);
+    mRotateFrame->setMaximumSize(960, 50);
 
     mRotation->addItem(tr("arrow-up"), KScreen::Output::None);
     mRotation->addItem(tr("90° arrow-right"), KScreen::Output::Right);
@@ -112,7 +113,7 @@ void OutputConfig::initUi()
             this, &OutputConfig::slotRotationChanged);
     mRotation->setCurrentIndex(mRotation->findData(mOutput->rotation()));
 
-    vbox->addWidget(rotateFrame);
+    vbox->addWidget(mRotateFrame);
 
     // 刷新率下拉框
     mRefreshRate = new QComboBox(this);
@@ -208,10 +209,16 @@ void OutputConfig::initConnection()
     });
 }
 
+void OutputConfig::hideComponent()
+{
+    mRotateFrame->setVisible(Utils::isDell());
+}
+
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
 {
     mOutput = output;
     initUi();
+    hideComponent();
 }
 
 KScreen::OutputPtr OutputConfig::output() const
