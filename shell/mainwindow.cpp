@@ -174,7 +174,9 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
                 m_animation->stop();
                 m_queryWid->layout()->removeWidget(m_queryText);
                 m_animation->setStartValue(m_queryWid->pos());
-                queryWidCenterPos = QPoint(m_queryWid->pos());
+                if (m_queryWid->pos().x() > 20) {
+                    queryWidCenterPos = QPoint(m_queryWid->pos());
+                }
                 m_animation->setEndValue(QPoint(8,0));
                 m_animation->setEasingCurve(QEasingCurve::OutQuad);
                 m_animation->start();
