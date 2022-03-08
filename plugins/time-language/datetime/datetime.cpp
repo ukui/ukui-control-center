@@ -369,6 +369,9 @@ void DateTime::initConnect()
 
     connect(syncTimeBtn, &SwitchButton::checkedChanged, this,[=](bool status) {
         synctimeFormatSlot(status,true); //按钮被改变，需要修改
+        if (!status) {
+            syncNetworkRetLabel->setText("");
+        }
     });
 
     connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
