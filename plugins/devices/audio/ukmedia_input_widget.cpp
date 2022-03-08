@@ -28,6 +28,7 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pInputDeviceWidget = new QFrame(m_pInputWidget);
     m_pVolumeWidget = new QFrame(m_pInputWidget);
     m_pInputLevelWidget = new QFrame(m_pInputWidget);
+    m_pNoiseReducteWidget = new QFrame(m_pInputWidget);
 
     m_pInputListWidget = new QListWidget(this);
     m_pInputListWidget->setFixedHeight(250);
@@ -52,16 +53,18 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pInputDeviceWidget->setFrameShape(QFrame::Shape::Box);
     m_pVolumeWidget->setFrameShape(QFrame::Shape::Box);
     m_pInputLevelWidget->setFrameShape(QFrame::Shape::Box);
-
+    m_pNoiseReducteWidget->setFrameShape(QFrame::Shape::Box);
     //设置大小
-    m_pInputWidget->setMinimumSize(550,422);
-    m_pInputWidget->setMaximumSize(960,422);
+    m_pInputWidget->setMinimumSize(550,473);
+    m_pInputWidget->setMaximumSize(960,473);
     m_pInputDeviceWidget->setMinimumSize(550,319);
     m_pInputDeviceWidget->setMaximumSize(960,319);
     m_pVolumeWidget->setMinimumSize(550,50);
     m_pVolumeWidget->setMaximumSize(960,50);
     m_pInputLevelWidget->setMinimumSize(550,50);
     m_pInputLevelWidget->setMaximumSize(960,50);
+    m_pNoiseReducteWidget->setMinimumSize(550,50);
+    m_pNoiseReducteWidget->setMaximumSize(960,50);
 
     m_pInputLabel = new TitleLabel(this);
     m_pInputLabel->setText(tr("Input"));
@@ -84,6 +87,11 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pIpVolumeSlider->setOrientation(Qt::Horizontal);
     m_pIpVolumeSlider->setRange(0,100);
     m_pInputIconBtn->setFocusPolicy(Qt::NoFocus);
+
+   //~ contents_path /audio/Noise
+    m_pNoiseReducteLabel = new QLabel(tr("Noise Reduction"));
+    m_pNoiseReducteButton = new SwitchButton;
+
     //输入设备添加布局
     QVBoxLayout *m_pInputDeviceLayout = new QVBoxLayout(m_pInputDeviceWidget);
     m_pInputDeviceLabel->setFixedSize(150,32);
@@ -123,12 +131,23 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pInputLevelWidget->setLayout(m_pSoundLayout);
     m_pInputLevelWidget->layout()->setContentsMargins(0,0,0,0);
 
+    //智能降噪
+    QHBoxLayout *noiseReducteLayout = new QHBoxLayout(m_pNoiseReducteWidget);
+    noiseReducteLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    noiseReducteLayout->addWidget(m_pNoiseReducteLabel);
+    noiseReducteLayout->addWidget(m_pNoiseReducteButton);
+    noiseReducteLayout->addItem(new QSpacerItem(16,20,QSizePolicy::Fixed));
+    noiseReducteLayout->setSpacing(0);
+    m_pNoiseReducteWidget->setLayout(noiseReducteLayout);
+    m_pNoiseReducteWidget->layout()->setContentsMargins(0,0,0,0);
+
     //进行整体布局
     m_pVlayout = new QVBoxLayout(m_pInputWidget);
 
     m_pVlayout->addWidget(m_pInputDeviceWidget);
     m_pVlayout->addWidget(m_pVolumeWidget);
     m_pVlayout->addWidget(m_pInputLevelWidget);
+    m_pVlayout->addWidget(m_pNoiseReducteWidget);
     m_pVlayout->setSpacing(1);
     m_pInputWidget->setLayout(m_pVlayout);
     m_pInputWidget->layout()->setContentsMargins(0,0,0,0);

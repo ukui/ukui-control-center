@@ -52,6 +52,7 @@ extern "C" {
 #include <QDomDocument>
 #include <QGSettings>
 #include <QAudioInput>
+#include <QProcess>
 #include <set>
 
 #define UKUI_THEME_SETTING "org.ukui.style"
@@ -76,6 +77,7 @@ extern "C" {
 #define UKUI_LOGOUT_MUSIC_KEY "logout-music"
 #define UKUI_WAKEUP_MUSIC_KEY "weakup-music"
 
+#define DNS_NOISE_REDUCTION "dns-noise-reduction"
 #define EVENT_SOUNDS_KEY "event-sounds"
 #define INPUT_SOUNDS_KEY "input-feedback-sounds"
 #define SOUND_THEME_KEY "theme-name"
@@ -231,6 +233,7 @@ private Q_SLOTS:
     void logoutMusicButtonSwitchChangedSlot(bool status); //注销音乐开关
     void wakeButtonSwitchChangedSlot(bool status); //唤醒音乐开关
     void alertSoundButtonSwitchChangedSlot(bool status);
+    void noiseReductionButtonSwitchChangedSlot(bool status); //降噪开关
     void bootMusicSettingsChanged();
 
     void windowClosedComboboxChangedSlot(int index);
@@ -295,6 +298,8 @@ private:
     int reconnectTime;
     QTimer *time;
 
+    bool pressOutputListWidget = false;
+    bool pressInputListWidget = false;
     QTimer *timeSlider;
     bool mousePress = false;
     bool mouseReleaseState = false;
