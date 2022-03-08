@@ -31,6 +31,8 @@
 #include <QPropertyAnimation>
 #include <QVariantMap>
 #include <QGSettings/QGSettings>
+#include <QSpacerItem>
+#include <QHBoxLayout>
 
 #include "interface.h"
 #include "homepagewidget.h"
@@ -101,6 +103,8 @@ private:
     QVariantMap       m_ModuleMap;
     QGSettings       *m_fontSetting;
 
+    QSpacerItem *mItem = nullptr;
+    QHBoxLayout* queryWidLayout = nullptr;
 
 private:
     void initUI();

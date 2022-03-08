@@ -271,9 +271,6 @@ void MainWindow::initUI() {
     });
 
     initTileBar();
-    m_queryWid->setGeometry(QRect((m_searchWidget->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
-                                        m_queryIcon->width()+m_queryText->width()+10,(m_searchWidget->height()+36)/2));
-    m_queryWid->show();
     initStyleSheet();
 
     //初始化功能列表数据
@@ -365,13 +362,17 @@ void MainWindow::initTileBar() {
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setFocusPolicy(Qt::ClickFocus);
     //m_searchWidget->installEventFilter(this);
+    QHBoxLayout *mLyt = new QHBoxLayout(m_searchWidget);
 
     m_queryWid = new QWidget;
     m_queryWid->setParent(m_searchWidget);
     m_queryWid->setFocusPolicy(Qt::NoFocus);
+    mItem = new QSpacerItem(20 , 20 ,QSizePolicy::Expanding);
 
-    QHBoxLayout* queryWidLayout = new QHBoxLayout;
-    queryWidLayout->setContentsMargins(0, 0, 0, 0);
+    mLyt->addWidget(m_queryWid);
+
+    queryWidLayout = new QHBoxLayout;
+    queryWidLayout->setContentsMargins(4, 0, 0, 0);
     queryWidLayout->setAlignment(Qt::AlignJustify);
     queryWidLayout->setSpacing(0);
     m_queryWid->setLayout(queryWidLayout);
@@ -422,7 +423,7 @@ void MainWindow::initTileBar() {
     titleLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     changeSearchSlot();
-    m_searchWidget->setFixedWidth(350);
+    m_searchWidget->resize(350 , 36);
 
     ui->titleLayout->addWidget(mTitleIcon);
     ui->titleLayout->addSpacing(8);
@@ -445,11 +446,15 @@ void MainWindow::animationFinishedSlot()
         m_queryWid->layout()->removeWidget(m_queryText);
         m_queryText->setParent(nullptr);
         m_searchWidget->setTextMargins(30, 1, 0, 1);
+
+        // 增加弹簧固定搜索图标框居右显示
+        queryWidLayout->insertItem(1 , mItem);
         if(!m_searchKeyWords.isEmpty()) {
             m_searchWidget->setText(m_searchKeyWords);
             m_searchKeyWords.clear();
         }
     } else {
+        queryWidLayout->removeItem(mItem);
         m_queryWid->layout()->addWidget(m_queryText);
     }
 }
