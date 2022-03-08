@@ -1,4 +1,4 @@
-#include "ukmedia_volume_control.h"
+﻿#include "ukmedia_volume_control.h"
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -459,8 +459,10 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
         p.available = info.ports[i]->available;
         p.direction = info.ports[i]->direction;
         p.latency_offset = info.ports[i]->latency_offset;
-        for (pa_card_profile_info2 ** p_profile = info.ports[i]->profiles2; *p_profile != nullptr; ++p_profile)
-            p.profiles.push_back((*p_profile)->name);
+        if (info.ports[i]->profiles2)
+            for (pa_card_profile_info2 ** p_profile = info.ports[i]->profiles2; *p_profile != nullptr; ++p_profile) {
+                p.profiles.push_back((*p_profile)->name);
+            }
         if (p.direction == 1 && p.available != PA_PORT_AVAILABLE_NO) {
 //            portMap.insertMulti(p.name,p.description.data());
             qDebug() << " add sink port name "<< info.index << p.name << p.description.data();
@@ -542,7 +544,8 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
     //默认的输出音量
     if (info.name && strcmp(defaultSinkName.data(),info.name) == 0) {
 
-        sinkIndex= info.index;int volume;
+        sinkIndex= info.index;
+        int volume;
         channel = info.volume.channels;
         if (info.volume.channels >= 2)
             volume = MAX(info.volume.values[0],info.volume.values[1]);
@@ -554,9 +557,9 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         if (info.active_port) {
             if (strcmp(sinkPortName.toLatin1().data(),info.active_port->name) != 0) {
                 sinkPortName = info.active_port->name;
-                QTimer::singleShot(100, this, SLOT(timeoutSlot()));
-	    }
-	    else
+                QTimer::singleShot(50, this, SLOT(timeoutSlot()));
+            }
+            else
                 sinkPortName = info.active_port->name;
         }
         defaultOutputCard = info.card;
@@ -699,15 +702,15 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
     if (info.name && strcmp(defaultSourceName.data(),info.name) == 0) {
         if (info.active_port) {
             if (strcmp(sourcePortName.toLatin1().data(),info.active_port->name) != 0) {
-                sourceIndex = info.index;
-                defaultInputCard = info.card;
                 sourcePortName = info.active_port->name;
-                QTimer::singleShot(100, this, SLOT(timeoutSlot()));
+                QTimer::singleShot(50, this, SLOT(timeoutSlot()));
             }
 	    else
             sourcePortName = info.active_port->name;
 
         }
+        sourceIndex = info.index;
+        defaultInputCard = info.card;
         if (sourceVolume != volume || sourceMuted != info.mute) {
             sourceVolume = volume;
             sourceMuted = info.mute;
@@ -732,6 +735,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
         sourcePortMap.insert(info.card,temp);
     }
     qDebug() << "update source";
+
     if (is_new)
         updateDeviceVisibility();
 }
@@ -1155,7 +1159,17 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
         volume = i->volume.values[0];
     w->defaultOutputCard = i->card;
     w->sinkIndex= i->index;
-    w->sinkVolume = volume;
+
+    if(i->active_port)
+        w->sinkPortName = i->active_port->name;
+    else
+        w->sinkPortName = "";
+
+    if(w->sinkVolume != volume || w->sinkMuted){
+        w->sinkVolume = volume;
+        w->sinkMuted  = i->mute;
+        Q_EMIT w->updateVolume(w->sinkVolume,w->sinkMuted);
+    }
 }
 
 void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i, int eol, void *userdata) {
@@ -1171,8 +1185,25 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
     if (eol > 0) {
         return;
     }
+    int volume;
+    if(i->volume.channels >= 2)
+        volume = MAX(i->volume.values[0],i->volume.values[1]);
+    else
+        volume = i->volume.values[0];
+
     w->defaultInputCard = i->card;
     w->sourceIndex = i->index;
+
+    if(i->active_port)
+        w->sourcePortName = i->active_port->name;
+    else
+        w->sourcePortName = "" ;
+
+    if(w->sourceVolume != volume || w->sourceMuted != i->mute){
+        w->sourceVolume = volume;
+        w->sourceMuted  = i->mute;
+        Q_EMIT w->updateSourceVolume(w->sourceVolume,w->sourceMuted);
+    }
 }
 
 void UkmediaVolumeControl::sinkCb(pa_context *c, const pa_sink_info *i, int eol, void *userdata) {
@@ -1300,13 +1331,12 @@ void UkmediaVolumeControl::serverInfoCb(pa_context *, const pa_server_info *i, v
     if(!(o = pa_context_get_source_info_by_name(w->getContext(),i->default_source_name,sourceIndexCb,w))) {
         w->showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
     }
-    if(!(o = pa_context_get_source_info_by_name(w->getContext(),i->default_source_name,sourceCb,w))) {
-        w->showError(tr("pa_context_get_source_info_by_name() failed").toUtf8().constData());
-    }
-    qDebug() << "serverInfoCb" << i->user_name << i->default_sink_name << w->sinkVolume << i->default_source_name;
     w->updateServer(*i);
-
-    QTimer::singleShot(100, w, SLOT(timeoutSlot()));
+    qDebug() << "serverInfoCb" << i->user_name << i->default_sink_name << w->sinkVolume << i->default_source_name;
+    QTimer::singleShot(50, w, [=](){
+        qDebug() << "deviceChangedSignal" << w->defaultSinkName <<w->defaultSourceName;
+        Q_EMIT w->deviceChangedSignal();
+    });
 
     decOutstanding(w);
 }
