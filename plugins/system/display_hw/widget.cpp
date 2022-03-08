@@ -683,7 +683,7 @@ bool Widget::isRestoreConfig()
         msg.setWindowTitle(tr("Hint"));
         msg.setText(QString(tr("The screen %1 has been modified, whether to save it ? "
                        "<br/>"
-                       "<font style= 'color:#626c6e'>the settings will be saved after 14 seconds</font>")).arg(config_name));
+                       "<font style= 'color:#626c6e'>the settings will be saved after 29 seconds</font>")).arg(config_name));
         msg.addButton(tr("Save"), QMessageBox::RejectRole);
         msg.addButton(tr("Not Save"), QMessageBox::AcceptRole);
 
