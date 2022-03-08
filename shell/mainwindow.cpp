@@ -261,7 +261,7 @@ void MainWindow::initUI() {
                     QFont fontTitle;
                     fontTitle.setPixelSize(font.pointSize() * 18 / 11);
                     fontTitle.setWeight(QFont::Medium);
-                    widget->setFont(fontTitle); 
+                    widget->setFont(fontTitle);
                 } else {
                     font.setWeight(QFont::Normal);
                     widget->setFont(font);
@@ -273,9 +273,6 @@ void MainWindow::initUI() {
     initNMIcbc();
     initTileBar();
     mIsUpgrade();
-    m_queryWid->setGeometry(QRect((m_searchWidget->width() - (m_queryIcon->width()+m_queryText->width()+10))/2,0,
-                                        m_queryIcon->width()+m_queryText->width()+10,(m_searchWidget->height()+36)/2));
-    m_queryWid->show();
     initStyleSheet();
 
     //初始化功能列表数据
@@ -375,12 +372,16 @@ void MainWindow::initTileBar() {
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setStyleSheet("background-color:palette(windowtext)");
     m_searchWidget->setFocusPolicy(Qt::ClickFocus);
-    
+    QHBoxLayout *mLyt = new QHBoxLayout(m_searchWidget);
+
     m_queryWid = new QWidget;
     m_queryWid->setParent(m_searchWidget);
     m_queryWid->setFocusPolicy(Qt::NoFocus);
+    m_spacerItem = new QSpacerItem(20, 20, QSizePolicy::Expanding);
 
-    QHBoxLayout* queryWidLayout = new QHBoxLayout;
+    mLyt->addWidget(m_queryWid);
+
+    queryWidLayout = new QHBoxLayout;
     queryWidLayout->setContentsMargins(0, 0, 0, 0);
     queryWidLayout->setAlignment(Qt::AlignJustify);
     queryWidLayout->setSpacing(0);
@@ -432,7 +433,7 @@ void MainWindow::initTileBar() {
     titleLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     changeSearchSlot();
-    m_searchWidget->setFixedWidth(350);
+    m_searchWidget->resize(350, 36);
 
     titleLayout->addWidget(mTitleIcon);
     titleLayout->addSpacing(8);
@@ -455,11 +456,15 @@ void MainWindow::animationFinishedSlot()
         m_queryWid->layout()->removeWidget(m_queryText);
         m_queryText->setParent(nullptr);
         m_searchWidget->setTextMargins(30, 1, 0, 1);
+
+        // 增加弹簧固定搜索图标框居左显示
+        queryWidLayout->insertItem(1, m_spacerItem);
         if(!m_searchKeyWords.isEmpty()) {
             m_searchWidget->setText(m_searchKeyWords);
             m_searchKeyWords.clear();
         }
     } else {
+        queryWidLayout->removeItem(m_spacerItem);
         m_queryWid->layout()->addWidget(m_queryText);
     }
 }
@@ -686,77 +691,43 @@ void MainWindow::initLeftsideBar(){
 
 QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     QString iname = bname.toLower();
-    int itype = kvConverter->keystringTokeycode(bname);
 
     QPushButton * leftsidebarBtn = new QPushButton();
     leftsidebarBtn->setAttribute(Qt::WA_DeleteOnClose);
     leftsidebarBtn->setCheckable(true);
-    //    leftsidebarBtn->setFixedSize(QSize(60, 56)); //Widget Width 60
-    leftsidebarBtn->setFixedSize(155,40);  //一级菜单按钮显示的宽度
+    leftsidebarBtn->setFixedHeight(40);
 
-    QPushButton * iconBtn = new QPushButton(leftsidebarBtn);
-    iconBtn->setCheckable(true);
-    iconBtn->setFixedSize(QSize(24, 24));
-    iconBtn->setFocusPolicy(Qt::NoFocus);
-
-    QString iconHomePageBtnQss = QString("QPushButton{border:  none;}");
-    QString iconBtnQss = QString("QPushButton:checked{border:  none;}"
-                                 "QPushButton:!checked{border: none;}");
+    QLabel * iconLabel = new QLabel(leftsidebarBtn);
     QString path = QString("://img/primaryleftmenu/%1.svg").arg(iname);
-    QPixmap pix = ImageUtil::loadSvg(path, "default");
-    //单独设置HomePage按钮样式
-    if (iname == "homepage") {
-        iconBtn->setFlat(true);
-        iconBtn->setStyleSheet(iconHomePageBtnQss);
-    } else {
-        iconBtn->setStyleSheet(iconBtnQss);
-    }
-    iconBtn->setIcon(pix);
+    QPixmap pix = ImageUtil::loadSvg(path, "default" );
+    iconLabel->setPixmap(pix);
+    iconLabel->setFixedWidth(pix.width());
 
-    QLabel * textLabel = new QLabel(leftsidebarBtn);
+    FixLabel * textLabel = new FixLabel(leftsidebarBtn);
     textLabel->setText(tipName);
-    QSizePolicy textLabelPolicy = textLabel->sizePolicy();
-    textLabelPolicy.setHorizontalPolicy(QSizePolicy::Fixed);
-    textLabelPolicy.setVerticalPolicy(QSizePolicy::Fixed);
-    textLabel->setSizePolicy(textLabelPolicy);
+    textLabel->setFixedWidth(100);
     textLabel->setScaledContents(true);
 
-    leftMicBtnGroup->addButton(iconBtn, itype);
-
-    connect(iconBtn, &QPushButton::toggled, this, [=] (bool checked) {
-        QString path = QString("://img/primaryleftmenu/%1.svg").arg(iname);
-        QPixmap pix;
-        if (checked) {
-            pix = ImageUtil::loadSvg(path, "white");
-            textLabel->setStyleSheet("color:white");
-        } else {
-            pix = ImageUtil::loadSvg(path, "default");
-            textLabel->setStyleSheet("color:palette(windowText)");
-        }
-        iconBtn->setIcon(pix);
-    });
-
-    connect(iconBtn, &QPushButton::clicked, leftsidebarBtn, &QPushButton::click);
-
     connect(leftsidebarBtn, &QPushButton::toggled, this, [=](bool checked) {
-        iconBtn->setChecked(checked);
+        if (iname == "homepage")
+            return;
         QString path = QString("://img/primaryleftmenu/%1.svg").arg(iname);
         QPixmap pix;
         if (checked) {
             pix = ImageUtil::loadSvg(path, "white");
-            textLabel->setStyleSheet("color:white");
+            textLabel->setStyleSheet("FixLabel{color:white}");
         } else {
             pix = ImageUtil::loadSvg(path, "default");
-            textLabel->setStyleSheet("color:palette(windowText)");
+            textLabel->setStyleSheet("FixLabel{color:palette(windowText)}");
         }
-        iconBtn->setIcon(pix);
+        iconLabel->setPixmap(pix);
     });
 
     QHBoxLayout * btnHorLayout = new QHBoxLayout();
-    btnHorLayout->addWidget(iconBtn, Qt::AlignCenter);
-    btnHorLayout->addWidget(textLabel);
+    btnHorLayout->addWidget(iconLabel, Qt::AlignCenter);
+    btnHorLayout->addWidget(textLabel, Qt::AlignLeft);
     btnHorLayout->addStretch();
-    btnHorLayout->setSpacing(10);
+    btnHorLayout->addSpacing(8);
 
     leftsidebarBtn->setLayout(btnHorLayout);
 
@@ -848,7 +819,7 @@ void MainWindow::initStyleSheet() {
     ui->centralWidget->setAttribute(Qt::WA_TranslucentBackground);
     ui->leftsidebarWidget->setMinimumWidth(176); //一级菜单宽度
 
- 
+
 
     // 设置左上角按钮图标
     backBtn->setIcon(QIcon("://img/titlebar/back.svg"));
@@ -908,7 +879,6 @@ void MainWindow::showGuide(QString pluName)
 
 void MainWindow::setModuleBtnHightLight(int id) {
     leftBtnGroup->button(id)->setChecked(true);
-    leftMicBtnGroup->button(id)->setChecked(true);
 }
 
 QMap<QString, QObject *> MainWindow::exportModule(int type) {

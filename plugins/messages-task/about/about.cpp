@@ -274,7 +274,7 @@ void About::setupSerialComponent()
         ui->timeContent->setText(dateRes);
         ui->activeButton->setText(tr("Extend"));
 
-        QTimer::singleShot( 1, this, [=](){
+        QTimer::singleShot(1, this, [=](){
             QString s1(ntpdate());
             s1.remove(QChar('\n'), Qt::CaseInsensitive);
             s1.replace(QRegExp("[\\s]+"), " ");   //把所有的多余的空格转为一个空格
@@ -322,7 +322,7 @@ char *About::ntpdate()
     int portno = 123;     //NTP is port 123
     int maxlen = 1024;        //check our buffers
     int i;          // misc var i
-    unsigned char msg[48]={010,0,0,0,0,0,0,0,0};    // the packet we send
+    unsigned char msg[48]={010, 0, 0, 0, 0, 0, 0, 0, 0};    // the packet we send
     unsigned long  buf[maxlen]; // the buffer we get back
     struct protoent *proto;
     struct sockaddr_in server_addr;
@@ -359,7 +359,7 @@ char *About::ntpdate()
 
     struct sockaddr saddr;
     socklen_t saddr_l = sizeof (saddr);
-    i=recvfrom(s,buf,48,0,&saddr,&saddr_l);
+    i=recvfrom(s, buf, 48, 0, &saddr, &saddr_l);
     if (-1 == i) {
         perror("recvfr");
         return NULL;

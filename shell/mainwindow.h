@@ -32,11 +32,13 @@
 #include <QVariantMap>
 #include <QGSettings/QGSettings>
 #include <QHBoxLayout>
+#include <QSpacerItem>
 
 #include "interface.h"
 #include "homepagewidget.h"
 #include "modulepagewidget.h"
 #include "searchwidget.h"
+#include "../commonComponent/Label/fixlabel.h"
 
 class QLabel;
 class QPushButton;
@@ -95,6 +97,8 @@ private:
     QLabel            *m_queryText  = nullptr;
     QPropertyAnimation *m_animation = nullptr;
     QWidget           *m_queryWid   = nullptr;
+    QHBoxLayout *queryWidLayout = nullptr;
+    QSpacerItem *m_spacerItem = nullptr;
     bool              m_isSearching = false;
     QString           m_searchKeyWords;
     QVariantMap       m_ModuleMap;
