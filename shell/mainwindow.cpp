@@ -367,7 +367,7 @@ void MainWindow::initTileBar() {
     m_queryWid = new QWidget;
     m_queryWid->setParent(m_searchWidget);
     m_queryWid->setFocusPolicy(Qt::NoFocus);
-    mItem = new QSpacerItem(20 , 20 ,QSizePolicy::Expanding);
+    m_spacerItem = new QSpacerItem(20, 20, QSizePolicy::Expanding);
 
     mLyt->addWidget(m_queryWid);
 
@@ -448,13 +448,13 @@ void MainWindow::animationFinishedSlot()
         m_searchWidget->setTextMargins(30, 1, 0, 1);
 
         // 增加弹簧固定搜索图标框居右显示
-        queryWidLayout->insertItem(1 , mItem);
+        queryWidLayout->insertItem(1, m_spacerItem);
         if(!m_searchKeyWords.isEmpty()) {
             m_searchWidget->setText(m_searchKeyWords);
             m_searchKeyWords.clear();
         }
     } else {
-        queryWidLayout->removeItem(mItem);
+        queryWidLayout->removeItem(m_spacerItem);
         m_queryWid->layout()->addWidget(m_queryText);
     }
 }
