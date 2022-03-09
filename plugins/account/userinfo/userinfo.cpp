@@ -67,7 +67,7 @@
 
 UserInfo::UserInfo() : mFirstLoad(true)
 {
-    pluginName = tr("User Info");
+    pluginName = QObject::tr("User Info");
     pluginType = ACCOUNT;
 }
 

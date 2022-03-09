@@ -4845,19 +4845,18 @@ folder will be deleted!</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="61"/>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="60"/>
         <source>Add Layout</source>
         <translation>添加布局</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="237"/>
+        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="236"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/kbdlayoutmanager.cpp" line="291"/>
         <source>Keyboard Preview</source>
-        <translation>布局预览</translation>
+        <translation type="vanished">布局预览</translation>
     </message>
 </context>
 <context>
@@ -5607,7 +5606,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="376"/>
+        <location filename="../../mainwindow.cpp" line="378"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5616,44 +5615,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="344"/>
-        <location filename="../../mainwindow.cpp" line="396"/>
-        <location filename="../../mainwindow.cpp" line="868"/>
+        <location filename="../../mainwindow.cpp" line="346"/>
+        <location filename="../../mainwindow.cpp" line="398"/>
+        <location filename="../../mainwindow.cpp" line="870"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="405"/>
+        <location filename="../../mainwindow.cpp" line="407"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="406"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="409"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="408"/>
+        <location filename="../../mainwindow.cpp" line="410"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="458"/>
+        <location filename="../../mainwindow.cpp" line="460"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="460"/>
+        <location filename="../../mainwindow.cpp" line="462"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="462"/>
+        <location filename="../../mainwindow.cpp" line="464"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -5662,12 +5661,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="993"/>
+        <location filename="../../mainwindow.cpp" line="995"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="993"/>
+        <location filename="../../mainwindow.cpp" line="995"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -8608,8 +8607,9 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">远程桌面</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="70"/>
         <source>User Info</source>
-        <translation type="vanished">帐户信息</translation>
+        <translation>帐户信息</translation>
     </message>
     <message>
         <source>Date</source>
