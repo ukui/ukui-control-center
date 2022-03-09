@@ -208,7 +208,6 @@ void ModulePageWidget::initUI(){
         leftListWidget->setStyleSheet("QListWidget{background-color: transparent}");
         leftListWidget->viewport()->setStyleSheet("background-color: transparent");
         leftListWidget->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
-        connect(leftListWidget, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(currentLeftitemChanged(QListWidgetItem*,QListWidgetItem*)));
 
         connect(leftListWidget, &QListWidget::itemClicked, this, &ModulePageWidget::changePageSlot);
         QListWidget * topListWidget = new QListWidget;
@@ -283,8 +282,7 @@ void ModulePageWidget::initUI(){
     qApp->installEventFilter(this);
 }
 
-void ModulePageWidget::switchPage(QObject *plugin, bool recorded){
-
+void ModulePageWidget::switchPage(QObject *plugin, bool recorded) {
     CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
     QString name; int type;
     name = pluginInstance->get_plugin_name();
@@ -296,7 +294,6 @@ void ModulePageWidget::switchPage(QObject *plugin, bool recorded){
     //设置左侧菜单
     ui->leftStackedWidget->setCurrentIndex(type);
 
-
     QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
     if (lefttmpListWidget->currentItem() != nullptr){
         LeftWidgetItem * widget = dynamic_cast<LeftWidgetItem *>(lefttmpListWidget->itemWidget(lefttmpListWidget->currentItem()));
@@ -307,7 +304,6 @@ void ModulePageWidget::switchPage(QObject *plugin, bool recorded){
     }
     //设置左侧及上侧的当前Item及功能Widget
     highlightItem(name);
-
 }
 
 void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
@@ -336,6 +332,7 @@ void ModulePageWidget::highlightItem(QString text){
     //高亮左侧二级菜单
     QListWidget * lefttmpListWidget = dynamic_cast<QListWidget *>(ui->leftStackedWidget->currentWidget());
     lefttmpListWidget->setCurrentItem(currentItemList.at(1)); //QMultiMap 先添加的vlaue在后面
+    changePageSlot(currentItemList.at(1));
 }
 
 void ModulePageWidget::changePageSlot(QListWidgetItem *cur)
