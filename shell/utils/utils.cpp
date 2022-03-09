@@ -271,3 +271,13 @@ bool Utils::isCommunity()
     }
     return true;
 }
+
+bool Utils::isDell()
+{
+    QProcess *wifiPro = new QProcess();
+    wifiPro->start("dpkg -l  | grep dell-recovery");
+    wifiPro->waitForFinished();
+    QString output = wifiPro->readAllStandardOutput();
+    delete wifiPro;
+    return !output.isEmpty();
+}

@@ -51,6 +51,7 @@ protected:
 
 private:
     void initConnection();
+    void hideComponent();
 
 protected:
     KScreen::OutputPtr mOutput;
@@ -62,6 +63,8 @@ protected:
     QComboBox *mScale = nullptr;
     QComboBox *mRefreshRate = nullptr;
     QComboBox *mMonitor = nullptr;
+
+    QFrame    *mRotateFrame;
 
     bool mShowScaleOption = false;
     bool mIsWayland = false;
