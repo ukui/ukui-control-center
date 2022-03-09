@@ -547,7 +547,6 @@ void MainWindow::loadPlugins(){
                 || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
                 || (("libukcc-bluetooth.so" == fileName || "libbluetooth.so" == fileName) && isBluetooth(fileName))
-                //|| ("libbluetooth.so" == fileName && !isExitBluetooth())
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
                 || ("libnetconnect-icbc.so" == fileName && !mIsNmIcbc)

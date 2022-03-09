@@ -2,7 +2,7 @@
 #include <QStyle>
 #include <QPushButton>
 #include <QAbstractButton>
-#include <ukcc/widgets/imageutil.h>
+#include "ImageUtil/imageutil.h"
 #include <QChar>
 
 #include "devremovedialog.h"
