@@ -24,7 +24,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QThread>
-
+#include <QLabel>
 #include <QTimer>
 
 #include "pwdcheckthread.h"
@@ -73,6 +73,8 @@ public:
 protected:
     void paintEvent(QPaintEvent *);
     void keyPressEvent(QKeyEvent *);
+
+    bool QLabelSetText(QLabel *label, QString string);
 
 private:
     Ui::ChangePwdDialog *ui;
