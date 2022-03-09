@@ -19,7 +19,6 @@
  */
 #include "kbdlayoutmanager.h"
 #include "ui_layoutmanager.h"
-#include "preview/keyboardpainter.h"
 #include <ukcc/widgets/closebutton.h>
 
 #include <QPainter>
@@ -282,15 +281,6 @@ void KbdLayoutManager::preview()
             variantID = layList.at(1);
         }
     }
-
-    KeyboardPainter* layoutPreview = new KeyboardPainter();
-
-
-    qDebug() << " layoutID:"  << layoutID << "variantID:" << variantID <<endl;
-    layoutPreview->generateKeyboardLayout(layoutID, variantID, "pc104", "");
-    layoutPreview->setWindowTitle(tr("Keyboard Preview"));
-    layoutPreview->setModal(true);
-    layoutPreview->exec();
 }
 
 void KbdLayoutManager::kbd_trigger_available_countries(char *countryid){
