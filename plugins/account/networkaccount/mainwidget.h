@@ -79,6 +79,7 @@ public:
     bool            isAvaliable();
 
 protected:
+    bool eventFilter(QObject *watched, QEvent *event);
 private:
     void            checkUserStatus();
     void            startSync();
@@ -106,6 +107,7 @@ private:
     QVBoxLayout         *m_workLayout;
     QStackedWidget      *m_stackedWidget;
     QWidget             *m_nullwidgetContainer;
+    QString             msgtext;
     QString             m_szCode = tr("Disconnected");
     QString             m_szConfPath;
     QStringList         m_szItemlist = {"wallpaper","ukui-screensaver","font","avatar","ukui-menu","ukui-panel","ukui-panel2",

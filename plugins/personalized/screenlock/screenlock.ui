@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>673</width>
-    <height>978</height>
+    <height>981</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -416,7 +416,7 @@
          <number>16</number>
         </property>
         <item>
-         <widget class="QPushButton" name="browserLocalwpBtn">
+         <widget class="FixBtn" name="browserLocalwpBtn">
           <property name="minimumSize">
            <size>
             <width>132</width>
@@ -435,7 +435,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="browserOnlinewpBtn">
+         <widget class="FixBtn" name="browserOnlinewpBtn">
           <property name="minimumSize">
            <size>
             <width>132</width>
@@ -490,6 +490,13 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>FixBtn</class>
+   <extends>QPushButton</extends>
+   <header>fixbtn.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
