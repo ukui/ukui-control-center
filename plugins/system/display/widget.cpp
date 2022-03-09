@@ -1283,7 +1283,7 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 
         QQuickView *view = new QQuickView();
 
-        view->setFlags(Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint);
+        view->setFlags(Qt::Tool | Qt::FramelessWindowHint);
         view->setResizeMode(QQuickView::SizeViewToRootObject);
         view->setColor(QColor(Qt::transparent)); //设置背景透明(无背景)
         view->setSource(QUrl("qrc:/qml/OutputIdentifier.qml"));
