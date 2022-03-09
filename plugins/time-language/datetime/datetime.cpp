@@ -282,8 +282,8 @@ void DateTime::changezoneSlot()
 
     m_timezone->setWindowModality(Qt::ApplicationModal);
     m_timezone->show();
-
-    m_timezone->setMarkedTimeZoneSlot(m_zoneinfo->getCurrentTimzone());
+    QDBusReply<QVariant> tz = m_datetimeiproperties->call("Get", "org.freedesktop.timedate1", "Timezone");
+    m_timezone->setMarkedTimeZoneSlot(tz.value().toString());
 }
 
 void DateTime::changezoneSlot(QString zone)
