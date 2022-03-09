@@ -4,12 +4,12 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="52"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="47"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="377"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="537"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -23,12 +23,12 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="140"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="138"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="147"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="145"/>
         <source>Kylin Linux Desktop V10 (SP1)</source>
         <translation>银河麒麟桌面操作系统V10 (SP1)</translation>
     </message>
@@ -37,69 +37,85 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="183"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="181"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="271"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="379"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="539"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="310"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="381"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="541"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="358"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="383"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="543"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="406"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="404"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="460"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="545"/>
         <source>Desktop</source>
         <translation>桌面</translation>
+        <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="490"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="547"/>
         <source>User</source>
         <translation>用户名</translation>
+        <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="536"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="549"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
+        <extra-contents_path>/about/Active Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="566"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="576"/>
+        <source>DateRes</source>
+        <translation>服务到期时间</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="606"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="632"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="672"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="553"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
+        <extra-contents_path>/about/Protocol</extra-contents_path>
     </message>
     <message>
         <source>Service serial number</source>
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="602"/>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="642"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="268"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="551"/>
         <source>Active</source>
         <translation>激活</translation>
+        <extra-contents_path>/about/Active</extra-contents_path>
     </message>
     <message>
         <source>Trial version disclaimer</source>
@@ -114,19 +130,17 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="55"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="52"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="255"/>
         <source>The system has expired. The expiration time is:</source>
-        <translation>您的系统已激活，技术服务已到期：</translation>
+        <translation type="vanished">您的系统已激活，技术服务已到期：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="257"/>
         <source>Extended</source>
-        <translation>延长服务</translation>
+        <translation type="vanished">延长服务</translation>
     </message>
     <message>
         <source>Disk:</source>
@@ -137,14 +151,24 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="259"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="265"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="246"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="273"/>
         <source>Activated</source>
         <translation>已激活</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="275"/>
+        <source>Extend</source>
+        <translation>延长服务</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="314"/>
+        <source>expired</source>
+        <translation>已过期</translation>
     </message>
     <message>
         <source>UNKNOWN</source>
@@ -1716,17 +1740,17 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="61"/>
-        <source>     B</source>
+        <source>   B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="174"/>
-        <source>     R</source>
+        <source>   R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/wallpaper/colordialog.ui" line="199"/>
-        <source>     G</source>
+        <source>   G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4136,8 +4160,8 @@ folder will be deleted!</source>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="95"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="447"/>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="458"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1045"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.h" line="109"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1066"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.h" line="111"/>
         <source>Disconnected</source>
         <translation>未连接</translation>
     </message>
@@ -4153,19 +4177,19 @@ Please retry for login!</source>
     </message>
     <message>
         <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="499"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="960"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1106"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1123"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="981"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1127"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1144"/>
         <source>Exit</source>
         <translation>退出登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="762"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="783"/>
         <source>Sync</source>
         <translation>同步中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="511"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="512"/>
         <source>Sign in</source>
         <translation>登录</translation>
         <extra-contents_path>/networkaccount/Sign in</extra-contents_path>
@@ -4179,60 +4203,60 @@ Please retry for login!</source>
         <translation type="vanished">登录失败，请检查你的网络连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1080"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1095"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1101"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1116"/>
         <source>Stop sync</source>
         <translation>结束同步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="766"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="787"/>
         <source>Sync your settings</source>
         <translation>同步您的设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="645"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1020"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="664"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1041"/>
         <source>Preparing for sync cloud settings to local!</source>
         <translation>准备同步设置到本地!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="769"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="790"/>
         <source>Your account:%1</source>
         <translation>您的云账户：%1</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="770"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="791"/>
         <source>Auto sync</source>
         <translation>自动同步</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="887"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="908"/>
         <source>OSS may initial failed!</source>
         <translation>文件传输初始化失败！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="891"/>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1163"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="912"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1184"/>
         <source>It&apos;s not a good day to use cloud-sync!</source>
         <translation>当前网络可能会产生不好的体验！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="942"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="963"/>
         <source>See and check your network status!</source>
         <translation>请检查您的网络状态！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="561"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="562"/>
         <source>Waitting for sync!</source>
         <translation>等待同步！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="753"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="773"/>
         <source>Synchronize your personalized settings and data</source>
         <translation>同步您账户的数据以及个性化设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="653"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="672"/>
         <source>This operation may cover your settings!</source>
         <translation>该操作可能覆盖您现有的设置！</translation>
     </message>
@@ -4251,12 +4275,12 @@ Please retry for login!</source>
         <translation type="vanished">网络不可达！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="691"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="710"/>
         <source>The Cloud Account Service version is out of date!</source>
         <translation>云账户服务版本已经过期，请升级！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="828"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="849"/>
         <source>KylinID open error!</source>
         <translation>麒麟ID客户端打开失败!</translation>
     </message>
@@ -4266,7 +4290,7 @@ Please retry or relogin!</source>
         <translation type="vanished">设备凭证已过期，请重新登录！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="896"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="917"/>
         <source>Authorization failed!</source>
         <translation>认证失败，请重新登录！</translation>
     </message>
@@ -4275,7 +4299,7 @@ Please retry or relogin!</source>
         <translation type="vanished">请检查您的网络情况！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1178"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1199"/>
         <source>Kylin Cloud Account</source>
         <translation>云账户</translation>
     </message>
@@ -4285,7 +4309,7 @@ Please retry or relogin!</source>
         <translation>该操作可能覆盖您目前的快捷键！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1181"/>
+        <location filename="../../../plugins/account/networkaccount/mainwidget.cpp" line="1202"/>
         <source>Cloud ID desktop message</source>
         <translation>云账户消息</translation>
     </message>
@@ -4333,7 +4357,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="387"/>
+        <location filename="../../mainwindow.cpp" line="388"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4343,43 +4367,43 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="86"/>
-        <location filename="../../mainwindow.cpp" line="407"/>
-        <location filename="../../mainwindow.cpp" line="748"/>
+        <location filename="../../mainwindow.cpp" line="408"/>
+        <location filename="../../mainwindow.cpp" line="753"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="416"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="417"/>
+        <location filename="../../mainwindow.cpp" line="418"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="418"/>
+        <location filename="../../mainwindow.cpp" line="419"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="419"/>
+        <location filename="../../mainwindow.cpp" line="420"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="472"/>
+        <location filename="../../mainwindow.cpp" line="477"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="474"/>
+        <location filename="../../mainwindow.cpp" line="479"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="476"/>
+        <location filename="../../mainwindow.cpp" line="481"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4388,17 +4412,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="866"/>
+        <location filename="../../mainwindow.cpp" line="871"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="866"/>
+        <location filename="../../mainwindow.cpp" line="871"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="599"/>
+        <location filename="../../mainwindow.cpp" line="604"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -6001,7 +6025,7 @@ Please retry or relogin!</source>
         <translation type="vanished">日</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="80"/>
+        <location filename="../../main.cpp" line="82"/>
         <source>ukui-control-center</source>
         <translation>设置</translation>
     </message>
@@ -7090,6 +7114,14 @@ run start-pulseaudio-x11 manually.</source>
     </message>
 </context>
 <context>
+    <name>StatusDialog</name>
+    <message>
+        <location filename="../../../plugins/messages-task/about/statusdialog.cpp" line="8"/>
+        <source>About</source>
+        <translation>关于本机</translation>
+    </message>
+</context>
+<context>
     <name>SuccessDiaolog</name>
     <message>
         <source>Reback sign in</source>
@@ -7923,8 +7955,8 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>UkccAbout</name>
     <message>
-        <location filename="../../ukccabout.cpp" line="60"/>
-        <location filename="../../ukccabout.cpp" line="82"/>
+        <location filename="../../ukccabout.cpp" line="76"/>
+        <location filename="../../ukccabout.cpp" line="98"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -7933,12 +7965,12 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../ukccabout.cpp" line="89"/>
+        <location filename="../../ukccabout.cpp" line="105"/>
         <source>Version: </source>
         <translation>版本: </translation>
     </message>
     <message>
-        <location filename="../../ukccabout.cpp" line="104"/>
+        <location filename="../../ukccabout.cpp" line="120"/>
         <source>Service and Support:</source>
         <translation>服务与支持团队:</translation>
     </message>
@@ -7951,7 +7983,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">版本</translation>
     </message>
     <message>
-        <location filename="../../ukccabout.cpp" line="96"/>
+        <location filename="../../ukccabout.cpp" line="112"/>
         <source>The control panel provides a friendly graphical user interface to manage common configuration items of the operating system. System configuration provides system, equipment, personalization, network, account, time and date, account, time and date, update, notification and operation module operations. </source>
         <translation>“设置”提供了一个友好的用户图形界面，以及易于操作的功能模块划分，比如：系统、设备、主题、时间日期、语言、更新和安全等模块。您可以更改系统设置来自定系统。</translation>
     </message>
