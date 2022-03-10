@@ -105,6 +105,7 @@ private:
     QGSettings       *m_fontSetting;
 
     QHBoxLayout     *titleLayout;
+    QPoint queryWidCenterPos = QPoint(0,0);
 
     bool mIsNmIcbc;
     bool mIsUpgradeIcbc = false;
