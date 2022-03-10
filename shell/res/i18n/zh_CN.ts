@@ -1496,21 +1496,21 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="441"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="445"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="442"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="450"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="446"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="454"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="177"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="443"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="451"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="447"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="455"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
@@ -1519,12 +1519,12 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="369"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="373"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="371"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="375"/>
         <source>Same with old pwd</source>
         <translation>与旧密码相同</translation>
     </message>
@@ -1541,8 +1541,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码长度需要大于5个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="287"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="407"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="291"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="411"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -6280,7 +6280,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation>系统升级增量备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="727"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="709"/>
         <source>xxx客户端</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6874,12 +6874,12 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>ShareMain</name>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="440"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="422"/>
         <source>Share</source>
         <translation>共享</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="457"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="439"/>
         <source>Allow others to view your desktop</source>
         <translation>允许其他人查看您的桌面</translation>
     </message>
@@ -6888,7 +6888,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">允许连接控制屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="468"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="450"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
@@ -6897,105 +6897,104 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">您必须为本机机器确认每次访问</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="478"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="460"/>
         <source>Require user to enter this password: </source>
         <translation>要求用户输入此密码: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="423"/>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="480"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="402"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="462"/>
         <source>Password can not be blank</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="243"/>
         <source>Warning</source>
         <translatorcomment>警告</translatorcomment>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="243"/>
         <source>please select an output</source>
         <translation>请选择一个输出屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="312"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="308"/>
         <source>Input Password</source>
         <translation>输入密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="313"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="309"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="416"/>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="431"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="414"/>
         <source>Password length must be less than or equal to 8</source>
         <translation>密码长度需小于等于8</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="496"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="478"/>
         <source>Protocol</source>
         <translation>协议</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="532"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="514"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="545"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="527"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="556"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="538"/>
         <source>Point</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="558"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="540"/>
         <source>Keyboard</source>
         <translation>键盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="560"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="542"/>
         <source>Clipboard</source>
         <translation>剪切板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="587"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="569"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="589"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="571"/>
         <source>ViewOnly</source>
         <translation>仅查看</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="597"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="579"/>
         <source>Client Setting</source>
         <translation>客户端配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="609"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="591"/>
         <source>Client Number</source>
         <translation>客户端最大可连接数</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="624"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="606"/>
         <source>Client IP：</source>
         <translation>客户端IP地址：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="759"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="741"/>
         <source>退出程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="759"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="741"/>
         <source>确认退出程序！</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8628,38 +8627,43 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>Wallpaper</name>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="103"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="80"/>
         <source>Desktop Background</source>
         <translation>桌面背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="292"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="119"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="275"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="121"/>
         <source>Select from</source>
         <translation>选择背景形式</translation>
         <extra-contents_path>/wallpaper/Select from</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="362"/>
+        <source>Mode</source>
+        <translation>显示方式</translation>
     </message>
     <message>
         <source>Picture options</source>
         <translation type="vanished">图片放置方式</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="421"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="121"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="573"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="123"/>
         <source>Browser local wp</source>
         <translation>浏览本地壁纸</translation>
         <extra-contents_path>/wallpaper/Browser local wp</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="440"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="125"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="592"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="127"/>
         <source>Reset to default</source>
         <translation>恢复默认设置</translation>
         <extra-contents_path>/wallpaper/Reset to default</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="402"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="123"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.ui" line="554"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="125"/>
         <source>Browser online wp</source>
         <translation>浏览线上壁纸</translation>
         <extra-contents_path>/wallpaper/Browser online wp</extra-contents_path>
@@ -8681,17 +8685,17 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="51"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="52"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="140"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="142"/>
         <source>picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="140"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="142"/>
         <source>color</source>
         <translation>颜色</translation>
     </message>
@@ -8700,25 +8704,29 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="obsolete">添加自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="160"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
         <source>wallpaper</source>
-        <translation type="vanished">平铺</translation>
+        <translation>平铺</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
         <source>centered</source>
-        <translation type="vanished">居中</translation>
+        <translation>居中</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
         <source>scaled</source>
-        <translation type="vanished">比例放大</translation>
+        <translation>填充</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
         <source>stretched</source>
-        <translation type="vanished">伸展</translation>
+        <translation>拉伸</translation>
     </message>
     <message>
         <source>zoom</source>
@@ -8729,48 +8737,48 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">适合宽度</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="470"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="496"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="470"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="496"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="510"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="552"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="511"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="553"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="537"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="579"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="512"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="554"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="580"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="513"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="555"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="539"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="581"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="514"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="556"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="540"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="582"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="515"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="557"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="541"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="583"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>

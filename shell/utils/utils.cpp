@@ -297,3 +297,15 @@ bool Utils::isExitBattery()
     delete brightnessInterface;
     return hasBat;
 }
+
+bool Utils::isDalian()
+{
+    QFile file("/etc/.kyinfo");
+
+    if (file.open(QIODevice::ReadOnly)) {
+        QString buffer = file.readAll();
+        if (buffer.contains("大连商品交易所"))
+            return true;
+    }
+    return false;
+}
