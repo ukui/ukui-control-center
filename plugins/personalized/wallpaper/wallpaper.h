@@ -103,6 +103,7 @@ public:
     void setClickedPic(QString fileName);
 private:
     void setLockBackground(QString bg);
+    void initBgOption(); // 背景放置方式
 
 private:
     Ui::Wallpaper *ui;
@@ -141,6 +142,7 @@ private:
 
     bool settingsCreate;
     bool mFirstLoad;
+    bool mIsDalian;
 
 public slots:
     void resetDefaultWallpaperSlot();

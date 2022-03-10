@@ -38,6 +38,7 @@ QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2 -O2
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    ../../../shell/utils/utils.cpp \
     colordialog.cpp \
     colorpreview.cpp \
     colorsquare.cpp \
@@ -50,6 +51,7 @@ SOURCES += \
     workerobject.cpp
 
 HEADERS += \
+    ../../../shell/utils/utils.h \
     colordialog.h \
     colorpreview.h \
     colorsquare.h \
