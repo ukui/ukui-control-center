@@ -8522,7 +8522,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="92"/>
         <source>Noise Reduction</source>
-        <translation type="unfinished"></translation>
+        <translation>智能降噪</translation>
         <extra-contents_path>/audio/Noise</extra-contents_path>
     </message>
     <message>
