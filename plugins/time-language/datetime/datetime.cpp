@@ -282,8 +282,8 @@ void DateTime::changezoneSlot()
 
     m_timezone->setWindowModality(Qt::ApplicationModal);
     m_timezone->show();
-
-    m_timezone->setMarkedTimeZoneSlot(m_zoneinfo->getCurrentTimzone());
+    QDBusReply<QVariant> tz = m_datetimeiproperties->call("Get", "org.freedesktop.timedate1", "Timezone");
+    m_timezone->setMarkedTimeZoneSlot(tz.value().toString());
 }
 
 void DateTime::changezoneSlot(QString zone)
@@ -369,6 +369,9 @@ void DateTime::initConnect()
 
     connect(syncTimeBtn, &SwitchButton::checkedChanged, this,[=](bool status) {
         synctimeFormatSlot(status,true); //按钮被改变，需要修改
+        if (!status) {
+            syncNetworkRetLabel->setText("");
+        }
     });
 
     connect(m_timezone, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
