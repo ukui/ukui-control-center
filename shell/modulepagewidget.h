@@ -62,6 +62,10 @@ private:
 private:
     bool flagBit;
 
+Q_SIGNALS:
+    void hScrollBarShow();
+    void hScrollBarHide();
+
 
 };
 
