@@ -69,14 +69,14 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="TitleLabel" name="titleLabel">
+       <widget class="TitleLabel" name="titleLabel" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="text">
+        <property name="text" stdset="0">
          <string>Desktop Background</string>
         </property>
        </widget>
@@ -537,7 +537,7 @@
             <number>24</number>
            </property>
            <item>
-            <widget class="QPushButton" name="browserOnlinewpBtn">
+            <widget class="FixBtn" name="browserOnlinewpBtn">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -556,7 +556,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="browserLocalwpBtn">
+            <widget class="FixBtn" name="browserLocalwpBtn">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -575,7 +575,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="resetBtn">
+            <widget class="FixBtn" name="resetBtn">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -617,6 +617,18 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>TitleLabel</class>
+   <extends>QWidget</extends>
+   <header>titlelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixBtn</class>
+   <extends>QPushButton</extends>
+   <header>fixbtn.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
