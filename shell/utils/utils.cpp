@@ -281,3 +281,15 @@ bool Utils::isDell()
     delete wifiPro;
     return !output.isEmpty();
 }
+
+bool Utils::isDalian()
+{
+    QFile file("/etc/.kyinfo");
+
+    if (file.open(QIODevice::ReadOnly)) {
+        QString buffer = file.readAll();
+        if (buffer.contains("大连商品交易所"))
+            return true;
+    }
+    return false;
+}
