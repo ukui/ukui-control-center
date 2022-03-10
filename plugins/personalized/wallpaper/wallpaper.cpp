@@ -21,6 +21,7 @@
 #include "ui_wallpaper.h"
 #include "pictureunit.h"
 #include "MaskWidget/maskwidget.h"
+#include "../shell/utils/utils.h"
 
 #include <QDBusReply>
 #include <QDBusInterface>
@@ -46,7 +47,7 @@ enum{
 #define COLORITEMWIDTH 56
 #define COLORITEMHEIGH 56
 
-Wallpaper::Wallpaper() : mFirstLoad(true)
+Wallpaper::Wallpaper() : mFirstLoad(true), mIsDalian(Utils::isDalian())
 {
     pluginName = tr("Background");
     pluginType = PERSONALIZED;
@@ -92,6 +93,7 @@ QWidget *Wallpaper::get_plugin_ui() {
             bgsettings = new QGSettings(id, QByteArray(), this);
             setupConnect();
             initBgFormStatus();
+            initBgOption();
         }
         // 构建xmlhandle对象
         xmlhandleObj = new XmlHandle();
@@ -142,6 +144,14 @@ void Wallpaper::setupComponent(){
     colorFlowLayout = new FlowLayout(ui->colorListWidget);
     colorFlowLayout->setContentsMargins(0, 0, 0, 0);
     ui->colorListWidget->setLayout(colorFlowLayout);
+
+    // 背景放置方式
+    QStringList optionList;
+    optionList << tr("scaled") << tr("wallpaper") << tr("centered") << tr("stretched");
+    ui->showModeComboBox->addItem(optionList.at(0), "scaled");
+    ui->showModeComboBox->addItem(optionList.at(1), "wallpaper");
+    ui->showModeComboBox->addItem(optionList.at(2), "centered");
+    ui->showModeComboBox->addItem(optionList.at(3), "stretched");
 
     colWgt = new HoverWidget("");
     colWgt->setObjectName("colWgt");
@@ -295,11 +305,7 @@ void Wallpaper::setupConnect(){
         colorFlowLayout->addWidget(button);
     }
 
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
-    connect(ui->formComBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=](int index){
-#else
     connect(ui->formComBox, QOverload<int>::of(&QComboBox::currentIndexChanged), [=](int index){
-#endif
         Q_UNUSED(index)
         //切换
         int currentPage = ui->formComBox->currentData(Qt::UserRole).toInt();
@@ -307,8 +313,10 @@ void Wallpaper::setupConnect(){
 
         if (currentPage == COLOR){
             ui->wallpaperWidget->setMaximumHeight(600);
+            ui->modeFrame->setVisible(false);
         } else if (currentPage == PICTURE) {
             ui->wallpaperWidget->setMaximumHeight(16777215);
+            ui->modeFrame->setVisible(true && mIsDalian);
         }
 
     });
@@ -316,6 +324,13 @@ void Wallpaper::setupConnect(){
     connect(bgsettings, &QGSettings::changed, [=](QString key){
 
         initBgFormStatus();
+        if (key == "pictureOptions") {
+            QString option = bgsettings->get(OPTIONS).toString();
+            int index = ui->showModeComboBox->findData(option);
+            ui->showModeComboBox->blockSignals(true);
+            ui->showModeComboBox->setCurrentIndex(index);
+            ui->showModeComboBox->blockSignals(false);
+        }
 
         //GSettings key picture-filename 这里收到 pictureFilename的返回值
         if (!QString::compare(key, "pictureFilename")){
@@ -378,14 +393,13 @@ int Wallpaper::_getCurrentBgForm(){
 void Wallpaper::initBgFormStatus(){
     initPreviewStatus();
 
-
     int currentIndex = _getCurrentBgForm();
     //设置当前背景形式
-//    ui->formComBox->blockSignals(true);
     ui->formComBox->setCurrentIndex(currentIndex);
-//    ui->formComBox->blockSignals(false);
     ui->substackedWidget->setCurrentIndex(currentIndex);
     ui->previewStackedWidget->setCurrentIndex(currentIndex);
+
+    ui->modeFrame->setVisible(!currentIndex && mIsDalian);
 
     //根据背景形式选择显示组件
     showComponent(currentIndex);
@@ -399,6 +413,16 @@ void Wallpaper::setLockBackground(QString bg) {
     mLockLoginSettings->beginGroup("greeter");
     mLockLoginSettings->setValue("color", bg);
     mLockLoginSettings->endGroup();
+}
+
+void Wallpaper::initBgOption()
+{
+    QString option = bgsettings->get(OPTIONS).toString();
+    int index = ui->showModeComboBox->findData(option);
+    ui->showModeComboBox->setCurrentIndex(index);
+    connect(ui->showModeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
+        bgsettings->set(OPTIONS, ui->showModeComboBox->itemData(index).toString());
+    });
 }
 
 void Wallpaper::initPreviewStatus(){

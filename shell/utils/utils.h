@@ -46,6 +46,7 @@ namespace Utils
     bool isWayland();
     bool isCommunity();
     bool isDell();
+    bool isDalian();
 
 }
 #endif // UTILS_H
