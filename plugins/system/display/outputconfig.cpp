@@ -290,7 +290,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     }
     mRefreshRate->blockSignals(false);
 
-    if (!mIsModeInit)
+    if (!mIsModeInit || mOutput->currentModeId().isEmpty())
         mOutput->setCurrentModeId(modeID);
 
     if (emitFlag)
