@@ -23,10 +23,11 @@ ChangeUserName::ChangeUserName(QStringList usernames, QStringList realnames, QWi
 
         if (_usernames.contains(txt) || _realnames.contains(txt)){
             ui->tipLabel->setText(tr("Name already in use, change another one."));
+        } else if (ui->lineEdit->text().contains(":")) {
+            ui->tipLabel->setText(tr("Can't contains ':'."));
         } else {
             ui->tipLabel->setText(tr(""));
         }
-
 
         if (!txt.isEmpty() && ui->tipLabel->text().isEmpty()){
             ui->saveBtn->setEnabled(true);

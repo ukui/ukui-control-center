@@ -1219,9 +1219,8 @@ Please authenticate yourself to continue</source>
 <context>
     <name>Biometrics</name>
     <message>
-        <location filename="../../../plugins/account/biometrics/biometrics.cpp" line="24"/>
         <source>Biometrics</source>
-        <translation>生物识别与密码</translation>
+        <translation type="vanished">生物识别与密码</translation>
     </message>
 </context>
 <context>
@@ -1728,6 +1727,11 @@ Please authenticate yourself to continue</source>
         <location filename="../../../plugins/account/userinfo/changeusername.cpp" line="25"/>
         <source>Name already in use, change another one.</source>
         <translation>该用户名已存在，请更改。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changeusername.cpp" line="27"/>
+        <source>Can&apos;t contains &apos;:&apos;.</source>
+        <translation>不能包含“:”。</translation>
     </message>
 </context>
 <context>
@@ -6574,138 +6578,138 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1527"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1557"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1543"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1573"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1550"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1580"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1557"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1587"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1564"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1594"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1329"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1359"/>
         <source>Failed to initialize stream_restore extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1571"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1601"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1578"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1608"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1594"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1624"/>
         <source>Connection failed, attempting reconnect</source>
         <translation>连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1346"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1376"/>
         <source>pa_ext_stream_restore_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="212"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1461"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1536"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1491"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1566"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1224"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1690"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1255"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1720"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1243"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1274"/>
         <source>Source output callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1275"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1306"/>
         <source>Client callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1291"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1322"/>
         <source>Server info callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1363"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1393"/>
         <source>Failed to initialize device manager extension: %s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1382"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1412"/>
         <source>pa_ext_device_manager_read() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1399"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1429"/>
         <source>pa_context_get_sink_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1412"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1442"/>
         <source>pa_context_get_source_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1425"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1438"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1455"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1468"/>
         <source>pa_context_get_sink_input_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1451"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1481"/>
         <source>pa_context_get_client_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1487"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1517"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1614"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1644"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1126"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1144"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1130"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1148"/>
         <source>Card callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1184"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1215"/>
         <source>Sink callback failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1167"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1205"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1181"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1236"/>
         <source>Source callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8493,27 +8497,33 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>UkmediaInputWidget</name>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="67"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="70"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="73"/>
         <source>Input Device:</source>
         <translation>选择输入设备</translation>
         <extra-contents_path>/audio/Input Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="73"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="76"/>
         <source>Volume</source>
         <translation>音量大小</translation>
         <extra-contents_path>/audio/Volume</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="78"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="81"/>
         <source>Input Level</source>
         <translation>输入反馈</translation>
         <extra-contents_path>/audio/Input Level</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/audio/ukmedia_input_widget.cpp" line="92"/>
+        <source>Noise Reduction</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/audio/Noise</extra-contents_path>
     </message>
     <message>
         <source>Low</source>
@@ -8779,14 +8789,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="322"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="335"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="827"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="831"/>
         <source>pa_context_set_default_source() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="327"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1301"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1304"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1332"/>
         <source>pa_context_get_source_info_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8807,48 +8816,48 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="402"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="516"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="518"/>
         <source> (unavailable)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="404"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="513"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="515"/>
         <source> (unplugged)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="616"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="619"/>
         <source>Failed to read data from stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="666"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="669"/>
         <source>Peak detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="667"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="670"/>
         <source>Failed to create monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="682"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="685"/>
         <source>Failed to connect monitoring stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="786"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="790"/>
         <source>Ignoring sink-input due to it being designated as an event and thus handled by the Event widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1092"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1096"/>
         <source>Establishing connection to PulseAudio. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1298"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1329"/>
         <source>pa_context_get_sink_info_by_name() failed</source>
         <translation type="unfinished"></translation>
     </message>
