@@ -584,7 +584,7 @@ void Power::setupComponent()
     }
 
     //关闭显示器
-    closeStringList << tr("5min") << tr("10minn") << tr("15min") << tr("30min") << tr("1h") << tr("2h") << tr("never");
+    closeStringList << tr("5min") << tr("10min") << tr("15min") << tr("30min") << tr("1h") << tr("2h") << tr("never");
     mCloseComboBox->insertItem(0, closeStringList.at(0), QVariant::fromValue(5));
     mCloseComboBox->insertItem(1, closeStringList.at(1), QVariant::fromValue(10));
     mCloseComboBox->insertItem(2, closeStringList.at(2), QVariant::fromValue(15));

@@ -79,6 +79,8 @@ public:
     bool            isAvaliable();
 
 protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+
 private:
     void            checkUserStatus();
     void            startSync();
@@ -116,6 +118,7 @@ private:
     QWidget             *m_infoWidget;
     QHBoxLayout         *m_infoLayout;
     QThread             *thread;
+    QString msgtext;
     bool                m_bAutoSyn = true;
     bool                m_bTokenValid = false; //是否是有效用户
     bool                m_isOpenDialog = false; //对话框是否打开

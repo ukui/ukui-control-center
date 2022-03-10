@@ -103,7 +103,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent) {
             m_itemList->get_item(i)->get_swbtn()->setDisabledFlag(false);
         }
     }
-    
+
     layoutUI();
     dbusInterface();
     //初始化登录信息
@@ -507,6 +507,7 @@ void MainWidget::initMemoryAlloc() {
     m_welcomeLayout = new QVBoxLayout;
     m_welcomeImage = new QSvgWidget(":/new/image/96_color.svg");
     m_welcomeMsg = new TitleLabel(this);
+    m_welcomeMsg->installEventFilter(this);
     //~ contents_path /networkaccount/Sign in
     m_login_btn  = new QPushButton(tr("Sign in"),this);
     m_svgHandler = new SVGHandler(this);
@@ -625,6 +626,24 @@ bool MainWidget::isAvaliable() {
     return true;
 }
 
+bool MainWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_welcomeMsg) {
+        if (event->type() == QEvent::Paint) {
+            QFontMetrics  fontMetrics(m_welcomeMsg->font());
+            int fontSize = fontMetrics.width(msgtext);
+            if (fontSize > this->width() - 40) {
+                m_welcomeMsg->setText(fontMetrics.elidedText(msgtext, Qt::ElideRight, this->width() - 40));
+                m_welcomeMsg->setToolTip(msgtext);
+            } else {
+                m_welcomeMsg->setText(msgtext);
+                m_welcomeMsg->setToolTip("");
+            }
+        }
+    }
+    return QWidget::eventFilter(watched , event);
+}
+
 void MainWidget::initSignalSlots() {
     for (int btncnt = 0;btncnt < m_itemList->get_list().size();btncnt ++) {
 
@@ -688,7 +707,8 @@ void MainWidget::initSignalSlots() {
             on_login_out();
         }
         m_login_btn->hide();
-        m_welcomeMsg->setText(tr("The Cloud Account Service version is out of date!"));
+        msgtext = tr("The Cloud Account Service version is out of date!");
+        m_welcomeMsg->setText(msgtext);
     });
 
     //连接信号
@@ -750,7 +770,8 @@ void MainWidget::init_gui() {
     m_mainWidget->setWindowFlags(Qt::FramelessWindowHint | Qt::CustomizeWindowHint);
 
     m_login_btn->setFixedSize(180,36);
-    m_welcomeMsg->setText(tr("Synchronize your personalized settings and data"));
+    msgtext = tr("Synchronize your personalized settings and data");
+    m_welcomeMsg->setText(msgtext);
 
     m_exitCloud_btn->setStyleSheet("QPushButton[on=true]{background-color:#3790FA;border-radius:4px;}");
     m_exitCloud_btn->setProperty("on",false);

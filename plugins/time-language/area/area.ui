@@ -289,7 +289,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
-         <widget class="QLabel" name="weeklabel">
+         <widget class="FixLabel" name="weeklabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -304,7 +304,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>16777215</width>
+            <width>120</width>
             <height>16777215</height>
            </size>
           </property>
@@ -608,6 +608,11 @@
    <class>TitleLabel</class>
    <extends>QLabel</extends>
    <header>titlelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixLabel</class>
+   <extends>QLabel</extends>
+   <header>fixlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
