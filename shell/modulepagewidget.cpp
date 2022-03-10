@@ -64,6 +64,13 @@ void ModulePageWidget::initUI() {
             ui->scrollArea->verticalScrollBar()->setHidden(false);
         }
     });
+    connect(ui->scrollArea->horizontalScrollBar(), &QScrollBar::rangeChanged, this, [=](){
+        if (ui->scrollArea->horizontalScrollBar()->maximum() == 0) {
+            emit hScrollBarHide();
+        } else {
+            emit hScrollBarShow();
+        }
+    });
 
     //设置qss之后,点击屏保再主页进入插件会卡死,原因未知
 //    ui->scrollArea->setStyleSheet("QScrollArea{background-color: palette(window);}");

@@ -303,6 +303,16 @@ void MainWindow::initUI() {
             modulepageWidget->mCurrentPluName =  "";
         }
     });
+    connect(modulepageWidget, &ModulePageWidget::hScrollBarHide, this, [=]() {
+        m_searchWidget->setFixedWidth(350);
+    });
+    connect(modulepageWidget, &ModulePageWidget::hScrollBarShow, this, [=]() {
+        QTimer::singleShot(1, this, [=]() {
+            if (m_searchWidget->width() > backBtn->x() - mOptionBtn->x()) {
+                m_searchWidget->setFixedWidth(mOptionBtn->x() - backBtn->x() - mOptionBtn->width() - 16);
+            }
+        });
+    });
 
     //top left return button
     connect(backBtn, &QPushButton::clicked, this, [=]{
