@@ -62,15 +62,22 @@ QString Utils::getCpuInfo() {
     if (file.open(QIODevice::ReadOnly)) {
         QString buffer = file.readAll();
         QStringList modelLine = buffer.split('\n').filter(QRegularExpression("^model name"));
+        QStringList modelLineWayland = buffer.split('\n').filter(QRegularExpression("^Hardware"));
         QStringList lines = buffer.split('\n');
 
-        if (modelLine.isEmpty())
-            return "Unknown";
+        if (modelLine.isEmpty()) {
+            if (modelLineWayland.isEmpty()) {
+                return "Unknown";
+            }
+            modelLine = modelLineWayland;
+        }
+
 
         int count = lines.filter(QRegularExpression("^processor")).count();
 
         QString result;
         result.append(modelLine.first().split(':').at(1));
+        result = result.trimmed();
 
         if (count > 0)
             result.append(QString(" x %1").arg(count));
