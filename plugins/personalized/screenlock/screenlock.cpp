@@ -407,9 +407,9 @@ void Screenlock::initButton(){
 
 void Screenlock::setupConnect(){
     //屏保时间
+    session_settings = g_settings_new(SESSION_SCHEMA);
     connect(uslider, &QSlider::valueChanged, this, [=]{
         int value = convertToLocktime(qRound(uslider->value()/10.00)*10);
-        session_settings = g_settings_new(SESSION_SCHEMA);
         screenlock_settings=g_settings_new(SCREENLOCK_BG_SCHEMA);
         if(value==-1){
             //qDebug()<<"never";           
