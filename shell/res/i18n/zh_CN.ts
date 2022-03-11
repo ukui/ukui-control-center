@@ -635,6 +635,34 @@
     </message>
 </context>
 <context>
+    <name>AptProxyDialog</name>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="26"/>
+        <source>Set Apt Proxy</source>
+        <translation>设置APT代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="43"/>
+        <source>Server Address</source>
+        <translation>服务器地址</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="61"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="82"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/aptproxydialog.cpp" line="86"/>
+        <source>Confirm</source>
+        <translation>确定</translation>
+    </message>
+</context>
+<context>
     <name>Area</name>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="26"/>
@@ -904,7 +932,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
 you can restore them to ensure the integrity of your system.</source>
-        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
@@ -5629,80 +5657,133 @@ Wireless will be temporarily disconnected when the screen projection on</source>
 <context>
     <name>Proxy</name>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="53"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="41"/>
         <source>Auto Proxy</source>
         <translation>自动设置代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="129"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="133"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="101"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="148"/>
         <source>Auto proxy</source>
         <translation>开启自动代理</translation>
         <extra-contents_path>/proxy/Auto proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="204"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="176"/>
         <source>Auto url</source>
         <translation>自动配置URL</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="270"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="242"/>
         <source>Manual Proxy</source>
         <translation>手动设置代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="346"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="135"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="302"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="150"/>
         <source>Manual proxy</source>
         <translation>开启手动代理</translation>
         <extra-contents_path>/proxy/Manual proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="436"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="392"/>
         <source>Http Proxy</source>
         <translation>HTTP代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="481"/>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="648"/>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="796"/>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="944"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="437"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="604"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="752"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="900"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="516"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="472"/>
         <source>Cetification</source>
         <translation>认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="603"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="559"/>
         <source>Https Proxy</source>
         <translation>HTTPS代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="751"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="707"/>
         <source>Ftp Proxy</source>
         <translation>FTP代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="899"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="855"/>
         <source>Socks Proxy</source>
         <translation>SOCKS代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.ui" line="1041"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="997"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
         <translation>忽略的主机列表，请使用英文分号（；）</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1037"/>
+        <source>Apt Proxy</source>
+        <translation>APT代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1089"/>
+        <source>Open</source>
+        <translation>打开</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1151"/>
+        <source>Server Address : </source>
+        <translation>服务器地址：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1158"/>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1194"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1187"/>
+        <source>Port : </source>
+        <translation>端口：</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.ui" line="1220"/>
+        <source>Edit</source>
+        <translation>编辑</translation>
     </message>
     <message>
         <source>proxy</source>
         <translation type="vanished">代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="47"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="48"/>
         <source>Proxy</source>
         <translation>代理</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="276"/>
+        <source>The apt proxy  has been turned off and needs to be restarted to take effect</source>
+        <translation>apt代理功能已关闭 需重启后生效</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="277"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="469"/>
+        <source>Reboot Later</source>
+        <translation>稍后重启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="278"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="470"/>
+        <source>Reboot Now</source>
+        <translation>立即重启</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="468"/>
+        <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
+        <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
     </message>
 </context>
 <context>
@@ -9570,10 +9651,9 @@ the settings will be saved after 14 seconds</source>
         <translation>不保存</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 the settings will be saved after %1 seconds</source>
-        <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
+        <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1982"/>
@@ -9591,11 +9671,6 @@ the settings will be saved after 9 seconds</source>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
 The settings will be saved after 9 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与 显卡兼容性问题，有可能显示不正常。系统将在9秒后保存配置</translation>
-    </message>
-    <message>
-        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
-the settings will be saved after %1 seconds</source>
-        <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display
@@ -9631,6 +9706,12 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="1318"/>
         <source>Warning</source>
         <translation>警告</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
+        <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
+the settings will be saved after %1 seconds</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1152"/>
