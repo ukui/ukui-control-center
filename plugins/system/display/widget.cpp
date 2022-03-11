@@ -744,16 +744,16 @@ bool Widget::isCloneMode()
 
 bool Widget::isBacklight()
 {
-    QString cmd = "ukui-power-backlight-helper --get-max-brightness";
-    QProcess process;
-    process.start(cmd);
-    process.waitForFinished();
-    QString result = process.readAllStandardOutput().trimmed();
-
-    QString pattern("^[0-9]*$");
-    QRegExp reg(pattern);
-
-    return reg.exactMatch(result);
+    QDBusInterface brightnessInterface("org.ukui.upower",
+                                       "/",
+                                       "org.ukui.upower",
+                                       QDBusConnection::sessionBus());
+    if (!brightnessInterface.isValid()) {
+        qDebug() << "Create UPower Interface Failed : " << QDBusConnection::systemBus().lastError();
+        return false;
+    }
+    QDBusReply<QString> reply = brightnessInterface.call("MachineType");
+    return !reply.value().compare("book");
 }
 
 QString Widget::getMonitorType()
