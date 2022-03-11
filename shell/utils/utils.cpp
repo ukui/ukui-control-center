@@ -79,9 +79,6 @@ QString Utils::getCpuInfo() {
         result.append(modelLine.first().split(':').at(1));
         result = result.trimmed();
 
-        if (count > 0)
-            result.append(QString(" x %1").arg(count));
-
         return result;
     }
 
