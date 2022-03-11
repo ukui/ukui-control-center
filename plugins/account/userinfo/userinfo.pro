@@ -11,7 +11,7 @@ include($$PROJECT_COMPONENTSOURCE/imageutil.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/button.pri)
 
-QT       += widgets dbus gui
+QT       += widgets dbus gui network
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -24,7 +24,7 @@ INCLUDEPATH   +=  \
                  $$PROJECT_COMPONENTSOURCE \
                  $$PROJECT_ROOTDIR \
 
-LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam -lkysec   -lpwquality
+LIBS          += -L$$[QT_INSTALL_LIBS] -lcrypt -lpolkit-qt5-core-1 -lpam -lkysec   -lpwquality -lcryptopp -lcrypt
 DEFINES += ENABLEPQ
 DEFINES += WITHKYSEC
 

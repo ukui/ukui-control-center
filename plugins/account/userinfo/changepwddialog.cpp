@@ -77,10 +77,39 @@ ChangePwdDialog::ChangePwdDialog(bool _isCurrentUser, QString _username, QWidget
 
     pcThread = new PwdCheckThread();
 
+    remoteUser = isRemoteUser();
 
     initPwdChecked();
     setupComponent();
     setupConnect();
+}
+bool ChangePwdDialog::isRemoteUser(){
+
+    FILE * stream;
+    char output[256];
+
+    char * command = "cat /etc/passwd | awk -F : '{print$1}'";
+    bool result;
+
+    QStringList userslist;
+
+    if ((stream = popen(command, "r")) == NULL){
+        return false;
+    }
+
+    while(fgets(output, 256, stream) != NULL){
+        userslist.append(QString(output).simplified());
+    }
+
+    if (userslist.contains(currentUserName)){
+        result = false;
+    } else {
+        result = true;
+    }
+
+    pclose(stream);
+    return result;
+
 }
 
 ChangePwdDialog::~ChangePwdDialog()
@@ -128,7 +157,10 @@ bool ChangePwdDialog::checkOtherPasswd(QString name, QString pwd){
 
 void ChangePwdDialog::initPwdChecked(){
 
-
+    if (remoteUser){
+        enablePwdQuality = false;
+        return;
+    }
 
 #ifdef ENABLEPQ
     int ret;
@@ -179,6 +211,19 @@ void ChangePwdDialog::setupComponent(){
     refreshConfirmBtnStatus();
 }
 
+bool ChangePwdDialog::isDaShangSuo()
+{
+    // 大连商品交易所
+    QProcess *process = new QProcess;
+    process->start("grep -r 大连商品交易所 /etc/.kyinfo");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
+    return mOutput.contains("大连商品交易所");
+}
+
 void ChangePwdDialog::setupConnect(){
 
     connect(pcThread, &PwdCheckThread::complete, this, [=](QString re){
@@ -195,7 +240,6 @@ void ChangePwdDialog::setupConnect(){
         }
 
         if (re.isEmpty()){ //密码校验成功
-
             this->accept();
 
             emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
@@ -227,50 +271,96 @@ void ChangePwdDialog::setupConnect(){
 //            pcThread->start();
 
 //        });
+        if (remoteUser) {
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
+                // 大连商品交易所，同步修改密码
+                if (isDaShangSuo()) {
+                    QNetworkRequest request;
+                    QNetworkAccessManager* naManager = new QNetworkAccessManager(this);
+                    QMetaObject::Connection connRet = QObject::connect(naManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
+                    Q_ASSERT(connRet);
 
-        connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
-//            pwdLegalityCheck();
+                    request.setUrl(QUrl("https//iam.dce.com.cn"));
 
-//            ui->confirmPushBtn->setEnabled(false);
+                    // 设置请求头
+                    QString appId = "875500bf-2035-4942-8c97-2ef31168734a";
+                    QString secret = "8d4097a9-29d7-4e2a-86be-d80a148b667f";
+                    QString timeStamp = QString::number(QDateTime::currentMSecsSinceEpoch() / 1000);
+                    QString appToken = appId + secret + timeStamp;
+                    QCryptographicHash SHA256(QCryptographicHash::Sha256);
+                    SHA256.addData(appToken.toLatin1().data());
 
-//            timerForCheckPwd->start();
+                    QJsonObject headerJson;
+                    headerJson.insert("X-App-Token", SHA256.result().data());
+                    headerJson.insert("X-App-Id", appId);
+                    headerJson.insert("X-Timestamp", timeStamp);
+                    headerJson.insert("Content-Type", "application/json");
 
-            if (!txt.isEmpty()){
-                curPwdTip = "";
-                pwdLegalityCheck();
-            }
+                    request.setHeader(QNetworkRequest::ContentTypeHeader, headerJson);
 
-            if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
-                if (QLabelSetText(ui->tipLabel, curPwdTip)) {
-                    ui->tipLabel->setToolTip(curPwdTip);
+                    // 发送post请求
+                    QJsonObject bodyJson;
+                    bodyJson.insert("userName", currentUserName);
+                    bodyJson.insert("oldPassword", QString::fromStdString(encryptByPublicKey(ui->curPwdLineEdit->text().toStdString())));
+                    bodyJson.insert("newPassword", QString::fromStdString(encryptByPublicKey(ui->pwdLineEdit->text().toStdString())));
+
+                    QJsonDocument m_httpDocum;
+                    m_httpDocum.setObject(bodyJson);
+                    QByteArray  m_httpData = m_httpDocum.toJson(QJsonDocument::Compact);
+                    QNetworkReply* reply = naManager->post(request, m_httpData);
+
+                } else {
+                    this->accept();
+
+                    emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
                 }
-            }
+            });
+        } else {
 
-            if (curPwdTip.isEmpty()){
-                pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
-            }
+            connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
+    //            pwdLegalityCheck();
+
+    //            ui->confirmPushBtn->setEnabled(false);
+
+    //            timerForCheckPwd->start();
+
+                if (!txt.isEmpty()){
+                    curPwdTip = "";
+                    pwdLegalityCheck();
+                }
+
+                if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
+                    if (QLabelSetText(ui->tipLabel, curPwdTip)) {
+                        ui->tipLabel->setToolTip(curPwdTip);
+                    }
+                }
+
+                if (curPwdTip.isEmpty()){
+                    pwdTip.isEmpty() ? ui->tipLabel->setText(pwdSureTip) : ui->tipLabel->setText(pwdTip);
+                }
 
 
-            refreshConfirmBtnStatus();
-        });
+                refreshConfirmBtnStatus();
+            });
 
-        connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
+            connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
 
-            if (pwdChecking)
-                return;
+                if (pwdChecking)
+                    return;
 
-            pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
+                pcThread->setArgs(currentUserName, ui->curPwdLineEdit->text());
 
-            pcThread->start();
+                pcThread->start();
 
-            pwdChecking = true;
+                pwdChecking = true;
 
-            refreshCancelBtnStatus();
+                refreshCancelBtnStatus();
 
-//            this->accept();
+    //            this->accept();
 
-//            emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
-        });
+    //            emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+            });
+        }
     } else {
         connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
             this->accept();
@@ -278,8 +368,6 @@ void ChangePwdDialog::setupConnect(){
             emit passwd_send2(ui->pwdLineEdit->text());
         });
     }
-
-
 
     connect(ui->pwdLineEdit, &QLineEdit::textChanged, [=]{
         pwdLegalityCheck();
@@ -305,6 +393,80 @@ void ChangePwdDialog::setupConnect(){
 //        reject();
         close();
     });
+}
+
+void LoadKey( const string& filename, RSA::PublicKey& PublicKey )
+{
+    // DER Encode Key - X.509 key format
+    PublicKey.Load(
+        FileSource( filename.c_str(), true, NULL, true /*binary*/ ).Ref()
+    );
+}
+
+string ChangePwdDialog::encryptByPublicKey(string data) {
+    string cipher;
+    string result;
+    try
+    {
+        ////////////////////////////////////////////////
+        // Generate keys
+        AutoSeededRandomPool rng;
+        InvertibleRSAFunction parameters;
+        parameters.GenerateRandomWithKeySize( rng, 1024 );
+        RSA::PrivateKey privateKey( parameters );
+        RSA::PublicKey publicKey( parameters );
+        LoadKey("/var/idlink_publicKey",publicKey);
+        CryptoPP::RSAES_PKCS1v15_Encryptor e(publicKey);
+
+        StringSource( data, true,
+                new PK_EncryptorFilter( rng, e,
+                new CryptoPP::Base64Encoder(new CryptoPP::StringSink(cipher))) // PK_EncryptorFilter
+              ); // StringSource
+
+        std::regex pattern(" |\n|\r|\t");
+        std::string fmt = "";
+        result = std::regex_replace(cipher, pattern, fmt);
+    }
+    catch( CryptoPP::Exception& e )
+    {
+        cout << "Caught Exception..." << endl;
+        cout << e.what() << endl;
+    }
+
+    return result;
+}
+
+void ChangePwdDialog::requestFinished(QNetworkReply* reply) {
+    qDebug() << "reply " << reply << "*********";
+    if (reply->error() != QNetworkReply::NoError) {
+        QMessageBox::information(this, tr("Tips"), tr("timed out, Modified failed!"));
+    }
+    QByteArray responseData = reply->readAll();
+    QJsonParseError json_error;
+    QJsonDocument doucment = QJsonDocument::fromJson(responseData, &json_error);
+    if (json_error.error == QJsonParseError::NoError) {
+        if (doucment.isObject()) {
+            const QJsonObject obj = doucment.object();
+            qDebug() << obj;
+            if (obj.contains("result")) {
+                bool result = obj.value("result").toBool();
+                if (result) {
+                    // tips success
+                    QMessageBox::information(this, tr("Tips"), tr("Remote modified successfully!"));
+                    this->accept();
+
+                    emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+                }
+            }
+            if (obj.contains("errorCode")) {
+                QString errorCode = obj.value("errorCode").toString();
+                if (errorCode != nullptr && obj.contains("errorMsg")) {
+                    QString errorMsg = obj.value("errorMsg").toString();
+                    QMessageBox::information(this, tr("Tips"), errorMsg);
+                }
+            }
+        }
+    }
 }
 
 void ChangePwdDialog::setFace(QString iconfile){

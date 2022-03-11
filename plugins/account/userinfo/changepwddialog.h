@@ -27,7 +27,95 @@
 #include <QLabel>
 #include <QTimer>
 
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
+#include <QJsonObject>
+#include <QJsonParseError>
+#include <QProcess>
+
+#include <QMessageBox>
+
 #include "pwdcheckthread.h"
+
+#include "cryptopp/rsa.h"
+using CryptoPP::RSA;
+using CryptoPP::InvertibleRSAFunction;
+using CryptoPP::RSAES_OAEP_SHA_Encryptor;
+using CryptoPP::RSAES_OAEP_SHA_Decryptor;
+
+#include "cryptopp/sha.h"
+using CryptoPP::SHA1;
+
+#include "cryptopp/filters.h"
+using CryptoPP::StringSink;
+using CryptoPP::StringSource;
+using CryptoPP::PK_EncryptorFilter;
+using CryptoPP::PK_DecryptorFilter;
+
+#include "cryptopp/files.h"
+using CryptoPP::FileSink;
+using CryptoPP::FileSource;
+
+#include "cryptopp/osrng.h"
+using CryptoPP::AutoSeededRandomPool;
+
+#include "cryptopp/secblock.h"
+using CryptoPP::SecByteBlock;
+
+#include "cryptopp/cryptlib.h"
+using CryptoPP::Exception;
+using CryptoPP::DecodingResult;
+
+#include <string>
+using std::string;
+
+#include <exception>
+using std::exception;
+
+#include <iostream>
+using std::cout;
+using std::cerr;
+using std::endl;
+
+#include <assert.h>
+#include <regex>
+#include "cryptopp/base64.h"
+
+#include <cryptopp/filters.h>
+using CryptoPP::StringSink;
+using CryptoPP::StringSource;
+using CryptoPP::PK_EncryptorFilter;
+using CryptoPP::PK_DecryptorFilter;
+
+#include <iostream> //std:cerr
+#include <sstream>  //std::stringstream
+#include <string>
+#include <random>
+using std::string;
+#include <exception>
+using std::exception;
+using std::cout;
+using std::cerr;
+using std::endl;
+#include <assert.h>
+#include <regex>
+//#include "encrypt.h"
+#include "cryptopp/base64.h"
+#include "cryptopp/aes.h"
+#include "cryptopp/files.h"   // FileSource, FileSink
+#include "cryptopp/osrng.h"    // AutoSeededRandomPool
+#include "cryptopp/modes.h"    // CFB_Mode
+#include "cryptopp/hex.h"      // HexEncoder
+#include "cryptopp/base64.h"   // Base64Encoder
+#include "cryptopp/gcm.h"      // GCM模式支持
+#include "cryptopp/sha.h"
+#include "cryptopp/rsa.h"      // RSAES_OAEP_SHA_Decryptor
+using namespace CryptoPP;
+using namespace std;
+using std::string;
+using std::random_device;
+using std::default_random_engine;
 
 #ifdef ENABLEPQ
 extern "C" {
@@ -58,6 +146,7 @@ public:
     void initPwdChecked();
     void setupComponent();
     void setupConnect();
+    bool isDaShangSuo();
 
     void refreshConfirmBtnStatus();
     void refreshCancelBtnStatus();
@@ -68,6 +157,8 @@ public:
     void setAccountType(QString text);
     void haveCurrentPwdEdit(bool have);
 
+    bool isRemoteUser();
+
     bool isCurrentUser;
 
 protected:
@@ -75,6 +166,7 @@ protected:
     void keyPressEvent(QKeyEvent *);
 
     bool QLabelSetText(QLabel *label, QString string);
+    string encryptByPublicKey(string data);
 
 private:
     Ui::ChangePwdDialog *ui;
@@ -86,6 +178,7 @@ private:
     QString pwdTip;
     QString pwdSureTip;
     QString curPwdTip;
+    bool remoteUser;
 
     bool enablePwdQuality;
     bool pwdChecking;
@@ -102,10 +195,12 @@ private:
 
 private Q_SLOTS:
     void pwdLegalityCheck();
+    void requestFinished(QNetworkReply* reply);
 
 Q_SIGNALS:
     void passwd_send(QString oldpwd, QString pwd);
     void passwd_send2(QString pwd);
+    void passwd_send3(QString currentpwd, QString pwd);
     void pwdCheckOver();
 };
 

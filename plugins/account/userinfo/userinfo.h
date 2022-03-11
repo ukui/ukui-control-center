@@ -46,6 +46,7 @@
 #include "biometricenroll.h"
 #include "biometricmoreinfo.h"
 #include "fixbtn.h"
+#include "pwdchangethread.h"
 
 #ifdef ENABLEPQ
 extern "C" {
@@ -129,6 +130,7 @@ public:
     void initComponent();
     void initAllUserStatus();
     int isDomainUser(const char* username);
+    bool isDaShangSuo();
 
     //初始化生物特征组件
     void initBioComonent();
@@ -212,6 +214,8 @@ private:
     int pluginType;
     QWidget * pluginWidget;
     HoverWidget *addWgt;
+
+    PwdChangeThread * pcgThread;
 
     QGSettings * pSetting;
 
