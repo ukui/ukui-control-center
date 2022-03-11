@@ -932,7 +932,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
 you can restore them to ensure the integrity of your system.</source>
-        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
+        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损、删除时还原它们，保证系统的完整性。</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
@@ -9711,7 +9711,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
-        <translation>修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
+        <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1152"/>
