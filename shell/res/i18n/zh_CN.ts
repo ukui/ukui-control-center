@@ -1630,40 +1630,57 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="174"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="446"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="568"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="175"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="447"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="455"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="569"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="577"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="176"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="448"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="456"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="570"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="578"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="195"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="207"/>
         <source>Authentication failed, input authtok again!</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="387"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="400"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="410"/>
+        <source>Tips</source>
+        <translation>提示</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="387"/>
+        <source>timed out, Modified failed!</source>
+        <translation>连接超时，修改失败！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="400"/>
+        <source>Remote modified successfully!</source>
+        <translation>远程修改成功！</translation>
     </message>
     <message>
         <source>Pwd input error, re-enter!</source>
         <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="361"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="483"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="363"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="485"/>
         <source>Same with old pwd</source>
         <translation>与旧密码相同</translation>
     </message>
@@ -1680,8 +1697,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码长度需要大于5个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="269"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="399"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="315"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="521"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -6681,55 +6698,55 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="305"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="307"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="315"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="317"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="324"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="326"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="333"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="335"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="342"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="344"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="352"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="354"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="361"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="363"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="370"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="372"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="379"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="381"/>
         <source>max sequence %1
 </source>
         <translation type="unfinished"></translation>
@@ -9216,47 +9233,47 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="513"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="520"/>
         <source>Pwd Changed Succes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1351"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1358"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1352"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1359"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1355"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1362"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1356"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1363"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1426"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1433"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1901"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1908"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1915"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1922"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1935"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1942"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -9271,17 +9288,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="855"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="862"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="996"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1003"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="996"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1003"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -9291,12 +9308,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="837"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="844"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="824"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="831"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -9392,7 +9409,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>其他用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="447"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="454"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
         <extra-contents_path>/userinfo/Add new user</extra-contents_path>
@@ -9656,8 +9673,8 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1982"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1997"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1978"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1993"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
