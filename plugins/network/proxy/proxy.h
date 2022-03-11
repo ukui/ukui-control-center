@@ -23,10 +23,17 @@
 
 #include <QObject>
 #include <QtPlugin>
-
+#include <QFileSystemWatcher>
 #include <QDialog>
 #include <QLineEdit>
+#include <QFile>
+#include <QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusError>
+#include <QDBusReply>
+#include <QMessageBox>
 #include "certificationdialog.h"
+#include "aptproxydialog.h"
 
 #include <QGSettings>
 
@@ -83,6 +90,7 @@ public:
     const QString name() const  Q_DECL_OVERRIDE;
 
 public:
+    void initTitleLabel();
     void initSearchText();
     void setupStylesheet();
     void setupComponent();
@@ -98,6 +106,11 @@ public:
 
     int _getCurrentProxyMode();
     void _setSensitivity();
+    static void setAptProxy(QString host ,QString port ,bool status); //  apt代理对应的配置文件的写入或删除
+    static QHash<QString, QVariant> getAptProxy();
+    void setAptInfo();
+
+    void reboot(); // 调用重启接口
 
 private:
     Ui::Proxy *ui;
@@ -109,17 +122,23 @@ private:
 private:
     SwitchButton * autoSwitchBtn;
     SwitchButton * manualSwitchBtn;
+    SwitchButton * mAptBtn;
 
     QGSettings * proxysettings;
     QGSettings * httpsettings;
     QGSettings * securesettings;
     QGSettings * ftpsettings;
     QGSettings * sockssettings;
+    QGSettings * aptsettings;
 
     bool settingsCreate;
     bool mFirstLoad;
 
+    QFileSystemWatcher *mfileWatch_1;
+    QFileSystemWatcher *mfileWatch_2;
+
 public slots:
+    void setAptProxySlot();  //处理apt代理前端交互逻辑
     void proxyModeChangedSlot(bool checked);
 
 };

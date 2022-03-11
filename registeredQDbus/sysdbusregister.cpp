@@ -53,6 +53,8 @@ SysdbusRegister::SysdbusRegister()
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
     mHibernateSet->setIniCodec("UTF-8");
+    QString filename = "/usr/share/ukui-control-center/shell/res/apt.ini";
+    aptSettings = new QSettings(filename, QSettings::IniFormat, this);
     exitFlag = false;
     toGetDisplayInfo = true;
     if (!isBacklight())
@@ -534,4 +536,65 @@ QString SysdbusRegister::showDisplayInfo()
     return retString;
 }
 
+bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
+{
+    QStringList keys = aptSettings->childGroups();
+    aptSettings->beginGroup("Info");
+    aptSettings->setValue("open", open);
+    aptSettings->setValue("ip", ip);
+    aptSettings->setValue("port", port);
+    aptSettings->endGroup();
+    QString content_http = QString("%1%2%3%4%5%6").arg("Acquire::http::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString profile_http = QString("%1%2%3%4%5").arg("export http_proxy=\"http://").arg(ip).arg(":").arg(port).arg("\"\n");
+    QString profile_https = QString("%1%2%3%4%5").arg("export https_proxy=\"https://").arg(ip).arg(":").arg(port).arg("\"\n");
 
+    QString dirName  = "/etc/apt/apt.conf.d/";
+    QString fileName = "/etc/apt/apt.conf.d/80apt-proxy";
+    QString dirName_1  = "/etc/profile.d/";
+    QString fileName_1 = "/etc/profile.d/80apt-proxy.sh";
+    QDir AptDir(dirName);
+    QDir ProDir(dirName_1);
+    QFile AptProxyFile(fileName);
+    QFile AptProxyProFile(fileName_1);
+
+    if (AptDir.exists() && ProDir.exists()) {
+        if (open) {    //开关开启则创建对应文件，未开启则删掉对应文件
+            if (AptProxyFile.exists() && AptProxyProFile.exists()) {
+               AptProxyFile.remove();
+               AptProxyProFile.remove();
+            }
+            AptProxyFile.open(QIODevice::ReadWrite | QIODevice::Text);
+            AptProxyProFile.open(QIODevice::ReadWrite | QIODevice::Text);
+            //写入内容,这里需要转码，否则报错
+            QByteArray str = content_http.toUtf8();
+            QByteArray str_1 = content_https.toUtf8();
+            QByteArray str_2 = profile_http.toUtf8();
+            QByteArray str_3 = profile_https.toUtf8();
+            //写入QByteArray格式字符串
+            AptProxyFile.write(str);
+            AptProxyFile.write(str_1);
+            AptProxyProFile.write(str_2);
+            AptProxyProFile.write(str_3);
+        } else {
+            if (AptProxyFile.exists() && AptProxyProFile.exists()) {
+               AptProxyFile.remove();
+               AptProxyProFile.remove();
+            }
+        }
+    }else {
+           return false;
+    }
+    return true;
+}
+
+QHash<QString, QVariant> SysdbusRegister::getaptproxy()
+{
+    QHash<QString, QVariant> mAptInfo;
+    aptSettings->beginGroup("Info");
+    mAptInfo.insert("open" ,  aptSettings->value("open").toBool());
+    mAptInfo.insert("ip" ,  aptSettings->value("ip").toString());
+    mAptInfo.insert("port" ,  aptSettings->value("port").toString());
+    aptSettings->endGroup();
+    return mAptInfo;
+}

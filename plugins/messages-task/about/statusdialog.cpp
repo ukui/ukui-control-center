@@ -16,9 +16,9 @@ StatusDialog::~StatusDialog()
 
 void StatusDialog::initUI()
 {
-    this->setFixedSize(450 , 384);
+    this->setFixedSize(450, 384);
     QVBoxLayout *vLyt = new QVBoxLayout(this);
-    vLyt->setContentsMargins(24 , 16 , 24 , 40);
+    vLyt->setContentsMargins(24, 16, 24, 40);
     vLyt->setSpacing(8);
 
     mLogoLabel = new QLabel(this);
