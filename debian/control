@@ -40,6 +40,7 @@ Build-Depends: debhelper-compat (= 12),
                libddcutil-dev(>=0.9.9-5kylin1),
                libkylin-chkname-dev(>=1.0.10kylin4),
                libukcc-dev,
+	       libcups2-dev,
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center

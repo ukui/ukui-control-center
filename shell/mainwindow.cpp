@@ -196,6 +196,14 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
             m_isSearching = false;
         }
     }
+
+    if (watched == homepageWidget) {
+        if (event->type() == QEvent::Paint) {
+            QTimer::singleShot(1, this, [=]() {
+                m_searchWidget->setFixedWidth(350 > mOptionBtn->x() - titleLabel->x() - titleLabel->width() ? (mOptionBtn->x() - m_searchWidget->x() - 16) : 350);
+            });
+        }
+    }
     return QObject::eventFilter(watched, event);
 }
 
@@ -289,6 +297,7 @@ void MainWindow::initUI() {
 
     //加载首页Widget
     homepageWidget = new HomePageWidget(this);
+    homepageWidget->installEventFilter(this);
     ui->stackedWidget->addWidget(homepageWidget);
 
     //加载左侧边栏一级菜单

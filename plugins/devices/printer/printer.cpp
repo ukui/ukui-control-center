@@ -21,6 +21,7 @@
 
 #include <QtPrintSupport/QPrinterInfo>
 #include <QProcess>
+#include <cups/cups.h>
 
 #include <QDebug>
 #include <QMouseEvent>
@@ -189,40 +190,34 @@ void Printer::initComponent()
 
 void Printer::refreshPrinterDevSlot()
 {
-    QStringList printer = QPrinterInfo::availablePrinterNames();
-    bool IsListChange = false;
-
-    for (int num = 0; num < printer.count(); num++) {
-        QStringList env = QProcess::systemEnvironment();
-
-        env << "LANG=en_US";
-
-        QProcess *process = new QProcess;
-        process->setEnvironment(env);
-        process->start("lpstat -p "+printer.at(num));
-        process->waitForFinished();
-
-        QString ba = process->readAllStandardOutput();
-        delete process;
-        QString printer_stat = QString(ba.data());
-
-        bool flag = printer_stat.contains("disable", Qt::CaseSensitive)
-                    || printer_stat.contains("Unplugged or turned off", Qt::CaseSensitive);
+    cups_dest_t *dests;
+    int num_dests = cupsGetDests(&dests);
+    cups_dest_t *dest;
+    int i;
+    bool isListChange = false;
+    for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
+        // 获取打印机状态，3为空闲，4为忙碌，5为不可用
+        const char*  value = cupsGetOption("printer-state", dest->num_options, dest->options);
+//        qDebug()<<dest->name<<"----------------"<<value;
+        if (value == nullptr)
+            continue;
+         // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
+         bool flag = (atoi(value) == 5 ? true : false);
 
         if (flag) {
-            if (mPrinterList.contains(printer.at(num))) {
-                mPrinterList.removeOne(printer.at(num));
-                IsListChange = true;
+            if (mPrinterList.contains(QString(dest->name))) {
+                mPrinterList.removeOne(QString(dest->name));
+                isListChange = true;
             }
         } else {
-            if (!mPrinterList.contains(printer.at(num))) {
-                mPrinterList.append(printer.at(num));
-                IsListChange = true;
+            if (!mPrinterList.contains(QString(dest->name))) {
+                mPrinterList.append(QString(dest->name));
+                isListChange = true;
             }
         }
     }
     //打印机列表内容有变化，则清空再构建一遍
-    if (IsListChange) {
+    if (isListChange) {
         initPrinterUi();
     }
 
