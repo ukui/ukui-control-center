@@ -103,8 +103,7 @@ private:
     QVariantMap       m_ModuleMap;
     QGSettings       *m_fontSetting;
 
-    QSpacerItem *m_spacerItem = nullptr;
-    QHBoxLayout *queryWidLayout = nullptr;
+    QPoint queryWidCenterPos = QPoint(0,0);
 
 private:
     void initUI();
