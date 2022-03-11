@@ -932,7 +932,7 @@ you can restore them to ensure the integrity of your system.</source>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="69"/>
         <source>Back up your files to other drives, and when the original files are lost, damaged, or deleted, 
 you can restore them to ensure the integrity of your system.</source>
-        <translation type="unfinished"></translation>
+        <translation>将您的文件备份到其他驱动器，当源文件丢失、受损或被删除时可以还原它们，保证系统的完整性。</translation>
     </message>
     <message>
         <location filename="../../../plugins/security-updates/backup/backup.ui" line="113"/>
@@ -4567,7 +4567,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="395"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4576,44 +4576,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="415"/>
-        <location filename="../../mainwindow.cpp" line="624"/>
-        <location filename="../../mainwindow.cpp" line="821"/>
+        <location filename="../../mainwindow.cpp" line="437"/>
+        <location filename="../../mainwindow.cpp" line="639"/>
+        <location filename="../../mainwindow.cpp" line="804"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="424"/>
+        <location filename="../../mainwindow.cpp" line="446"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="425"/>
+        <location filename="../../mainwindow.cpp" line="447"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="426"/>
+        <location filename="../../mainwindow.cpp" line="448"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="427"/>
+        <location filename="../../mainwindow.cpp" line="449"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="480"/>
+        <location filename="../../mainwindow.cpp" line="495"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="482"/>
+        <location filename="../../mainwindow.cpp" line="497"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="484"/>
+        <location filename="../../mainwindow.cpp" line="499"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4622,17 +4622,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="956"/>
+        <location filename="../../mainwindow.cpp" line="938"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="956"/>
+        <location filename="../../mainwindow.cpp" line="938"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="629"/>
+        <location filename="../../mainwindow.cpp" line="644"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -9711,7 +9711,7 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <location filename="../../../plugins/system/display/widget.cpp" line="660"/>
         <source>After modifying the resolution or refresh rate, due to compatibility issues between the display device and the graphics card, the display may be abnormal or unable to display 
 the settings will be saved after %1 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1152"/>
