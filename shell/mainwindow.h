@@ -31,6 +31,8 @@
 #include <QPropertyAnimation>
 #include <QVariantMap>
 #include <QGSettings/QGSettings>
+#include <QSpacerItem>
+#include <QHBoxLayout>
 
 #include "interface.h"
 #include "homepagewidget.h"
@@ -101,6 +103,7 @@ private:
     QVariantMap       m_ModuleMap;
     QGSettings       *m_fontSetting;
 
+    QPoint queryWidCenterPos = QPoint(0,0);
 
 private:
     void initUI();

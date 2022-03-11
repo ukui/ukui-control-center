@@ -71,6 +71,10 @@ private:
     bool flagBit;
     CommonInterface * currentPlugin = nullptr;
 
+Q_SIGNALS:
+    void hScrollBarShow();
+    void hScrollBarHide();
+
 public slots:
     void currentLeftitemChanged(QListWidgetItem * cur, QListWidgetItem * pre);
 

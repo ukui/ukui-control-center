@@ -416,7 +416,7 @@
          <number>16</number>
         </property>
         <item>
-         <widget class="QPushButton" name="browserLocalwpBtn">
+         <widget class="FixBtn" name="browserLocalwpBtn">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -435,7 +435,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="browserOnlinewpBtn">
+         <widget class="FixBtn" name="browserOnlinewpBtn">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -495,6 +495,11 @@
    <class>TitleLabel</class>
    <extends>QLabel</extends>
    <header>titlelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixBtn</class>
+   <extends>QPushButton</extends>
+   <header>fixbtn.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

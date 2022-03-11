@@ -385,7 +385,7 @@
                   <number>24</number>
                  </property>
                  <item>
-                  <widget class="QPushButton" name="browserOnlinewpBtn">
+                  <widget class="FixBtn" name="browserOnlinewpBtn">
                    <property name="minimumSize">
                     <size>
                      <width>150</width>
@@ -404,7 +404,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="browserLocalwpBtn">
+                  <widget class="FixBtn" name="browserLocalwpBtn">
                    <property name="minimumSize">
                     <size>
                      <width>150</width>
@@ -423,7 +423,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="resetBtn">
+                  <widget class="FixBtn" name="resetBtn">
                    <property name="minimumSize">
                     <size>
                      <width>150</width>
@@ -531,6 +531,11 @@
    <class>TitleLabel</class>
    <extends>QLabel</extends>
    <header>titlelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FixBtn</class>
+   <extends>QPushButton</extends>
+   <header>fixbtn.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

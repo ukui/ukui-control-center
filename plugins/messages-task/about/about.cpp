@@ -21,11 +21,18 @@
 
 #include "about.h"
 #include "ui_about.h"
-#include "shell/utils/utils.h"
 
 #include <KFormat>
 #include <unistd.h>
 #include <QFile>
+#include <QTimer>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+#include "../../../shell/utils/utils.h"
 
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
@@ -39,16 +46,6 @@
 #include <QDebug>
 #include <QStorageInfo>
 #include <QtMath>
-
-#define THEME_STYLE_SCHEMA "org.ukui.style"
-#define STYLE_NAME_KEY "style-name"
-#define CONTAIN_STYLE_NAME_KEY "styleName"
-#define UKUI_DEFAULT "ukui-default"
-#define UKUI_DARK "ukui-dark"
-
-const QString vTen        = "v10";
-const QString vTenEnhance = "v10.1";
-const QString vFour = "v4";
 
 About::About() : mFirstLoad(true)
 {
@@ -83,6 +80,13 @@ QWidget *About::get_plugin_ui()
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        ui->serviceContent->installEventFilter(this);
+        if (QGSettings::isSchemaInstalled(THEME_STYLE_SCHEMA)) {
+                themeStyleQgsettings = new QGSettings(THEME_STYLE_SCHEMA, QByteArray(), this);
+        } else {
+            themeStyleQgsettings = nullptr;
+            qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
+        }
 
         initSearchText();
         initActiveDbus();
@@ -123,18 +127,25 @@ void About::setupDesktopComponent()
         }
     }
 
-    QString name = qgetenv("USER");
-    if (name.isEmpty()) {
-        name = qgetenv("USERNAME");
-    }
+    qlonglong uid = getuid();
+    QDBusInterface user("org.freedesktop.Accounts",
+                        "/org/freedesktop/Accounts",
+                        "org.freedesktop.Accounts",
+                        QDBusConnection::systemBus());
+    QDBusMessage result = user.call("FindUserById", uid);
+    QString userpath = result.arguments().value(0).value<QDBusObjectPath>().path();
+    QDBusInterface *userInterface = new QDBusInterface ("org.freedesktop.Accounts",
+                                          userpath,
+                                        "org.freedesktop.Accounts.User",
+                                        QDBusConnection::systemBus());
+    QString userName = userInterface->property("RealName").value<QString>();
 
-    ui->userContent->setText(name);
+    ui->userContent->setText(userName);
 }
 
 void About::setupKernelCompenent()
 {
     QString memorySize;
-    QString cpuType;
 
     QString kernal = QSysInfo::kernelType() + " " + QSysInfo::kernelVersion();
     memorySize = getTotalMemory();
@@ -142,8 +153,7 @@ void About::setupKernelCompenent()
     ui->kernalContent->setText(kernal);
     ui->memoryContent->setText(memorySize);
 
-    cpuType = Utils::getCpuInfo();
-    ui->cpuContent->setText(cpuType);
+    ui->cpuContent->setText(Utils::getCpuInfo());
     ui->diskContent->setVisible(false);
 }
 
@@ -154,12 +164,6 @@ void About::setupVersionCompenent()
     QString versionID;
     QString version;
 
-    if (QGSettings::isSchemaInstalled(THEME_STYLE_SCHEMA)) {
-            themeStyleQgsettings = new QGSettings(THEME_STYLE_SCHEMA, QByteArray(), this);
-    } else {
-        themeStyleQgsettings = nullptr;
-        qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
-    }
 
     for (QString str : osRes) {
         if (str.contains("VERSION_ID=")) {
@@ -197,16 +201,22 @@ void About::setupVersionCompenent()
             !versionID.compare(vTenEnhance, Qt::CaseInsensitive) ||
             !versionID.compare(vFour, Qt::CaseInsensitive)) {
         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg")); //默认设置为light
+        mPixmap = QPixmap("://img/plugins/about/logo-light.svg");
         if (themeStyleQgsettings != nullptr && themeStyleQgsettings->keys().contains(CONTAIN_STYLE_NAME_KEY)) {
             if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) { //深色模式改为dark
                 ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg"));
+                mPixmap = QPixmap("://img/plugins/about/logo-dark.svg");
             }
             connect(themeStyleQgsettings,&QGSettings::changed,this,[=](QString changedKey) {  //监听主题变化
                 if (changedKey == CONTAIN_STYLE_NAME_KEY) {
                     if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) {
                         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg"));
+                        mPixmap = QPixmap("://img/plugins/about/logo-dark.svg");
+                        emit changeTheme();
                     } else {
                         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg"));
+                        mPixmap = QPixmap("://img/plugins/about/logo-light.svg");
+                        emit changeTheme();
                     }
                 }
             });
@@ -215,6 +225,7 @@ void About::setupVersionCompenent()
         ui->activeFrame->setVisible(false);
         ui->trialButton->setVisible(false);
         ui->logoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.svg"));
+        mPixmap = QPixmap("://img/plugins/about/logoukui.svg");
     }
 }
 
@@ -240,29 +251,186 @@ void About::setupSerialComponent()
     } else {
         serial = serialReply.value();
     }
+    QDBusMessage dateReply = activeInterface.get()->call("date");
+    QString dateRes;
+    if (dateReply.type() == QDBusMessage::ReplyMessage) {
+        dateRes = dateReply.arguments().at(0).toString();
+    }
+    ui->serviceContent->setText(serial);
+    ui->serviceContent->setStyleSheet("color : #2FB3E8");
+    ui->label_8->hide();
+    ui->timeContent->hide();
 
-    if (1 == status) {
-        ui->activeContent->setText(tr("Activated"));
+    if (dateRes.isEmpty()) {  //未激活
+        ui->activeContent->setText(tr("Inactivated"));
+        if (!ui->serviceContent->text().isEmpty())
+            ui->activeButton->hide();
+        ui->activeButton->setText(tr("Active"));
+        activestatus = false;
+    } else {    //已激活
         ui->activeButton->hide();
         ui->trialButton->hide();
-    } else {
-        QDBusMessage dateReply = activeInterface.get()->call("date");
-        QString dateRes;
-        if (dateReply.type() == QDBusMessage::ReplyMessage) {
-            dateRes = dateReply.arguments().at(0).toString();
-            if (!dateRes.isEmpty()) {
-                ui->activeContent->setText(tr("The system has expired. The expiration time is:")
-                                           + dateRes);
-                ui->activeButton->setText(tr("Extended"));
-            } else {
-                ui->activeContent->setText(tr("Inactivated"));
+        ui->activeContent->setText(tr("Activated"));
+        ui->timeContent->setText(dateRes);
+        ui->activeButton->setText(tr("Extend"));
+
+        QTimer::singleShot(1, this, [=](){
+            QString s1(ntpdate());
+            s1.remove(QChar('\n'), Qt::CaseInsensitive);
+            s1.replace(QRegExp("[\\s]+"), " ");   //把所有的多余的空格转为一个空格
+            if (s1.isEmpty()) {    //未连接上网络
+                ui->timeContent->setText(dateRes);
+            } else {    //获取到网络时间
+                QStringList list_1 = s1.split(" ");
+                QStringList list_2 = dateRes.split("-");
+
+                if (QString(list_2.at(0)).toInt() > QString(list_1.at(4)).toInt() ) { //未到服务到期时间
+                    ui->timeContent->setText(dateRes);
+                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(4)).toInt()) {
+                    if (QString(list_2.at(1)).toInt() > getMonth(list_1.at(1))) {
+                        ui->timeContent->setText(dateRes);
+                    } else if (QString(list_2.at(1)).toInt() == getMonth(list_1.at(1))) {
+                        if (QString(list_2.at(2)).toInt() > QString(list_1.at(2)).toInt()) {
+                            ui->timeContent->setText(dateRes);
+                        } else {   // 已过服务到期时间
+                            showExtend(dateRes);
+                        }
+                    } else {
+                        showExtend(dateRes);
+                    }
+                } else {
+                    showExtend(dateRes);
+                }
+            }
+        });
+    }
+    connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
+    connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
+}
+
+void About::showExtend(QString dateres)
+{
+    ui->timeContent->setStyleSheet("color:red;");
+    ui->timeContent->setText(dateres+QString("(%1)").arg(tr("expired")));
+    ui->activeButton->setVisible(true);
+    ui->trialButton->setVisible(true);
+}
+
+char *About::ntpdate()
+{
+    char *hostname=(char *)"200.20.186.76";
+    int portno = 123;     //NTP is port 123
+    int maxlen = 1024;        //check our buffers
+    int i;          // misc var i
+    unsigned char msg[48]={010, 0, 0, 0, 0, 0, 0, 0, 0};    // the packet we send
+    unsigned long  buf[maxlen]; // the buffer we get back
+    struct protoent *proto;
+    struct sockaddr_in server_addr;
+    int s;  // socket
+    long tmit;   // the time -- This is a time_t sort of
+
+    proto = getprotobyname("udp");
+    s = socket(PF_INET, SOCK_DGRAM, proto->p_proto);
+    if (-1 == s) {
+        perror("socket");
+        return NULL;
+    }
+
+    memset( &server_addr, 0, sizeof( server_addr ));
+    server_addr.sin_family=AF_INET;
+    server_addr.sin_addr.s_addr = inet_addr(hostname);
+
+    server_addr.sin_port=htons(portno);
+
+    i=sendto(s,msg,sizeof(msg),0,(struct sockaddr *)&server_addr,sizeof(server_addr));
+    if (-1 == i) {
+        perror("sendto");
+        return NULL;
+    }
+
+    // 设置超时
+    struct timeval timeout;
+    timeout.tv_sec = 1;
+    timeout.tv_usec = 0;//微秒
+    if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) == -1) {
+        perror("setsockopt failed:");
+        return NULL;
+    }
+
+    struct sockaddr saddr;
+    socklen_t saddr_l = sizeof (saddr);
+    i=recvfrom(s, buf, 48, 0, &saddr, &saddr_l);
+    if (-1 == i) {
+        perror("recvfr");
+        return NULL;
+    }
+
+    tmit=ntohl((time_t)buf[4]);    // get transmit time
+
+    tmit -= 2208988800U;
+
+    return ctime(&tmit);
+}
+
+int About::getMonth(QString month)
+{
+    if (month == "Jan") {
+        return 1;
+    } else if (month == "Feb") {
+        return 2;
+    } else if (month == "Mar") {
+        return 3;
+    } else if (month == "Apr") {
+        return 4;
+    } else if (month == "May") {
+        return 5;
+    } else if (month == "Jun") {
+        return 6;
+    } else if (month == "Jul") {
+        return 7;
+    } else if (month == "Aug") {
+        return 8;
+    } else if (month == "Sep" || month == "Sept") {
+        return 9;
+    } else if (month == "Oct") {
+        return 10;
+    } else if (month == "Nov") {
+        return 11;
+    } else if (month == "Dec") {
+        return 12;
+    }
+}
+
+bool About::eventFilter(QObject *obj, QEvent *event)
+{
+    if ( obj == ui->serviceContent) {
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton  && !ui->serviceContent->text().isEmpty()){
+                StatusDialog *mDialog = new StatusDialog(pluginWidget);
+                mDialog->mLogoLabel->setPixmap(mPixmap);
+                connect(this,&About::changeTheme,[=](){
+                    mDialog->mLogoLabel->setPixmap(mPixmap);
+                });
+                mDialog->mVersionLabel_1->setText(ui->versionLabel->text());
+                mDialog->mVersionLabel_2->setText(ui->versionContent->text());
+                mDialog->mStatusLabel_1->setText(ui->label_5->text());
+                mDialog->mStatusLabel_2->setText(ui->activeContent->text());
+                mDialog->mSerialLabel_1->setText(ui->label_7->text());
+                mDialog->mSerialLabel_2->setText(ui->serviceContent->text());
+                mDialog->mTimeLabel_1->setText(ui->label_8->text());
+                mDialog->mTimeLabel_2->setText(ui->timeContent->text());
+                if (!activestatus) {
+                    mDialog->mTimeLabel_1->parentWidget()->hide();
+                }
+                mDialog->mExtentBtn->setText(ui->activeButton->text());
+                connect(mDialog->mExtentBtn, &QPushButton::clicked, this, &About::runActiveWindow);
+                mDialog->exec();
+                return true;
             }
         }
     }
-    ui->serviceContent->setText(serial);
-
-    connect(ui->activeButton, &QPushButton::clicked, this, &About::runActiveWindow);
-    connect(ui->trialButton, &QPushButton::clicked, this, &About::showPdf);
+    return false;
 }
 
 qlonglong About::calculateTotalRam()
@@ -373,6 +541,16 @@ void About::initSearchText()
     ui->cpuLabel->setText(tr("CPU"));
     //~ contents_path /about/Memory
     ui->memoryLabel->setText(tr("Memory"));
+    //~ contents_path /about/Desktop
+    ui->label_3->setText(tr("Desktop"));
+    //~ contents_path /about/User
+    ui->label_6->setText(tr("User"));
+    //~ contents_path /about/Active Status
+    ui->label_5->setText(tr("Active Status"));
+    //~ contents_path /about/Active
+    ui->activeButton->setText(tr("Active"));
+    //~ contents_path /about/Protocol
+    ui->trialButton->setText(tr("Protocol"));
     ui->diskLabel->setVisible(false);
 }
 
