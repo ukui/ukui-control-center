@@ -105,6 +105,8 @@ QWidget *UserInfo::get_plugin_ui() {
         // 构建System dbus调度对象
         sysdispatcher = new SystemDbusDispatcher(this);
 
+        pcgThread = new PwdChangeThread;
+
         // 获取系统全部用户信息，用户Uid大于等于1000的
         _acquireAllUsersInfo();
 
@@ -217,7 +219,9 @@ void UserInfo::_acquireAllUsersInfo(){
         ui->liveFrame->setVisible(true);
     } else {
         ui->currentUserFrame->setVisible(true);
-        ui->autoLoginFrame->setVisible(true);
+        if (!isDaShangSuo()) {
+            ui->autoLoginFrame->setVisible(true);
+        }
         ui->liveFrame->setVisible(false);
     }
     initUserPropertyConnection(objectpaths);
@@ -421,6 +425,19 @@ void UserInfo::readCurrentPwdConf(){
 #endif
 }
 
+bool UserInfo::isDaShangSuo()
+{
+    // 大连商品交易所
+    QProcess *process = new QProcess;
+    process->start("grep -r 大连商品交易所 /etc/.kyinfo");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
+    return mOutput.contains("大连商品交易所");
+}
+
 void UserInfo::initComponent(){
 
     //root需要屏蔽部分功能
@@ -431,15 +448,7 @@ void UserInfo::initComponent(){
         ui->noPwdLoginFrame->setVisible(false);
     }
 
-    // 大连商品交易所，需要隐藏免密登录及自动登录
-    QProcess *process = new QProcess;
-    process->start("grep -r 大连商品交易所 /etc/.kyinfo");
-    process->waitForFinished();
-
-    QByteArray ba = process->readAllStandardOutput();
-    delete process;
-    QString mOutput = QString(ba.data());
-    if (mOutput.contains("大连商品交易所")) {
+    if (isDaShangSuo()) {
         ui->autoLoginFrame->setVisible(false);
         ui->noPwdLoginFrame->setVisible(false);
     }
@@ -509,6 +518,14 @@ void UserInfo::initComponent(){
         UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
         showChangePwdDialog(user.username);
+    });
+
+    connect(pcgThread, &PwdChangeThread::complete, this, [=](QString re){
+        QString primaryText;
+        primaryText = re.simplified().isEmpty() ? tr("Pwd Changed Succes") : re;
+
+        QMessageBox::warning(NULL, "", primaryText, QMessageBox::Yes);
+
     });
 
     //修改当前用户类型的回调
@@ -1250,6 +1267,12 @@ void UserInfo::showChangePwdDialog(QString username){
             }
 
 
+        });
+        connect(dialog, &ChangePwdDialog::passwd_send3, this, [=](QString currentpwd, QString pwd){
+
+            pcgThread->setArgs(currentpwd, pwd);
+
+            pcgThread->start();
         });
         dialog->exec();
 
