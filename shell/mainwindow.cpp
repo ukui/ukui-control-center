@@ -392,7 +392,6 @@ void MainWindow::initTileBar() {
     m_queryWid->setFocusPolicy(Qt::NoFocus);
     mLyt->addWidget(m_queryWid);
     mLyt->setAlignment(m_queryWid, Qt::AlignHCenter);
-    m_queryWid->setStyleSheet("background : red");
 
     QHBoxLayout* queryWidLayout = new QHBoxLayout;
     queryWidLayout->setContentsMargins(0, 0, 0, 0);
