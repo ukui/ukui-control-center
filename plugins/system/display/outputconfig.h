@@ -58,6 +58,7 @@ private:
     void initConnection();
     void initDpiConnection();
     QString scaleToString(double scale);
+    void initRadeon();
 
 protected:
     KScreen::OutputPtr mOutput;
@@ -75,6 +76,7 @@ protected:
     bool mIsWayland = false;
     bool mIsFirstLoad = true;
     bool mIsRestore = true;  //非restore时不再去修改刷新率/分辨率，避免修改多次导致显示重复
+    bool mIsRadeon;
 
     KScreen::ConfigPtr mConfig = nullptr;
 

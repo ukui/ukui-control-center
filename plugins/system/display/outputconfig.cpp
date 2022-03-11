@@ -16,6 +16,7 @@
 #include <QComboBox>
 #include <QGSettings>
 #include <QDBusInterface>
+#include <QProcess>
 
 #include <KF5/KScreen/kscreen/output.h>
 #include <KF5/KScreen/kscreen/edid.h>
@@ -23,12 +24,14 @@
 #include <ukcc/widgets/combobox.h>
 
 double mScaleres = 0;
+const float kRadeonRate = 59.9402;
 CONFIG changeItm = INIT;
 
 OutputConfig::OutputConfig(QWidget *parent) :
     QWidget(parent),
     mOutput(nullptr)
 {
+    initRadeon();
     initDpiConnection();
 }
 
@@ -277,6 +280,17 @@ QString OutputConfig::scaleToString(double scale)
     return QString::number(scale * 100) + "%";
 }
 
+void OutputConfig::initRadeon()
+{
+    QProcess process;
+    process.start("lspci -v");
+    process.waitForFinished();
+    QString output = process.readAll();
+    output = output.simplified();
+    mIsRadeon = true;
+    qDebug() << Q_FUNC_INFO << mIsRadeon;
+}
+
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
 {
     mOutput = output;
@@ -296,6 +310,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
         return;
     }
     bool mIsModeInit = false;
+    bool isRadeonRate = false;
     QString modeID;
     KScreen::ModePtr selectMode;
     KScreen::ModePtr currentMode = mOutput->currentMode();
@@ -324,6 +339,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
     for (int i = 0, total = modes.count(); i < total; ++i) {
         const KScreen::ModePtr mode = modes.at(i);
 
+        isRadeonRate = false;
         bool alreadyExisted = false;
         for (int j = 0; j < mRefreshRate->count(); ++j) {
             if (refreshRateToText(mode->refreshRate()) == mRefreshRate->itemText(j)) {
@@ -331,7 +347,11 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
                 break;
             }
         }
-        if (alreadyExisted == false) {   //不添加已经存在的项
+
+        if ((mIsRadeon && qFuzzyCompare(mode->refreshRate(), kRadeonRate)))
+            isRadeonRate = true;
+
+        if (alreadyExisted == false && !isRadeonRate) {   //不添加已经存在的项
             mRefreshRate->blockSignals(true);
             mRefreshRate->addItem(refreshRateToText(mode->refreshRate()), mode->id());
             mRefreshRate->blockSignals(false);
