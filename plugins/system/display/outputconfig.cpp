@@ -211,7 +211,7 @@ void OutputConfig::initConnection()
 
 void OutputConfig::hideComponent()
 {
-    mRotateFrame->setVisible(Utils::isDell());
+    mRotateFrame->setVisible(!Utils::isDell());
 }
 
 void OutputConfig::setOutput(const KScreen::OutputPtr &output)
