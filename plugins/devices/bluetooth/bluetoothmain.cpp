@@ -397,6 +397,7 @@ void BlueToothMain::RefreshWindowUiState()
         }
         else
         {
+            not_hci_node = false;
             M_adapter_flag = true;
             ShowNormalMainWindow();
         }
