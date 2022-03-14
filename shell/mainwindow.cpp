@@ -890,11 +890,11 @@ bool MainWindow::isExitBluetooth() {
     bool isDevice = str_output.contains(QString("bluetooth"), Qt::CaseInsensitive);
     bool isAddress = true;
 
-    QByteArray bluetoothId("org.ukui.bluetooth");
-    if (QGSettings::isSchemaInstalled(bluetoothId)) {
-        QGSettings bluetoothGSetting(bluetoothId);
-        isAddress = bluetoothGSetting.get("adapter-address").toString().isEmpty() ? false : true;
-    }
+//    QByteArray bluetoothId("org.ukui.bluetooth");
+//    if (QGSettings::isSchemaInstalled(bluetoothId)) {
+//        QGSettings bluetoothGSetting(bluetoothId);
+//        isAddress = bluetoothGSetting.get("adapter-address").toString().isEmpty() ? false : true;
+//    }
 
     return isDevice && isAddress;
 }
