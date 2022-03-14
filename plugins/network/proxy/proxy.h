@@ -129,7 +129,6 @@ private:
     QGSettings * securesettings;
     QGSettings * ftpsettings;
     QGSettings * sockssettings;
-    QGSettings * aptsettings;
 
     bool settingsCreate;
     bool mFirstLoad;

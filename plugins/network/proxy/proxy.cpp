@@ -99,7 +99,6 @@ QWidget *Proxy::get_plugin_ui() {
         const QByteArray iddd(HTTPS_PROXY_SCHEMA);
         const QByteArray iid(FTP_PROXY_SCHEMA);
         const QByteArray iiid(SOCKS_PROXY_SCHEMA);
-        const QByteArray iVd(APT_PROXY_SCHEMA);
 
         initTitleLabel();
         initSearchText();
@@ -108,7 +107,7 @@ QWidget *Proxy::get_plugin_ui() {
 
         if (QGSettings::isSchemaInstalled(id) && QGSettings::isSchemaInstalled(idd) &&
                 QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
-                QGSettings::isSchemaInstalled(iiid) && QGSettings::isSchemaInstalled(iVd)){
+                QGSettings::isSchemaInstalled(iiid)){
 
             settingsCreate = true;
             proxysettings = new QGSettings(id);
@@ -116,7 +115,6 @@ QWidget *Proxy::get_plugin_ui() {
             securesettings = new QGSettings(iddd);
             ftpsettings = new QGSettings(iid);
             sockssettings = new QGSettings(iiid);
-            aptsettings = new QGSettings(iVd);
 
             setupConnect();
             initProxyModeStatus();
@@ -241,7 +239,6 @@ void Proxy::setupConnect(){
         if (mAptBtn->isChecked()) {
             if (!file.exists()) {
                 mAptBtn->setChecked(false);
-                aptsettings->set(APT_PROXY_ENABLED , false);
                 ui->mAPTFrame_2->hide();
                 setAptProxy("" ,0 ,false);
             }
@@ -253,7 +250,6 @@ void Proxy::setupConnect(){
         if (mAptBtn->isChecked()) {
             if (!file.exists()) {
                 mAptBtn->setChecked(false);
-                aptsettings->set(APT_PROXY_ENABLED , false);
                 ui->mAPTFrame_2->hide();
                 setAptProxy("" ,0 ,false);
             }
@@ -267,7 +263,6 @@ void Proxy::setupConnect(){
            emit ui->mEditBtn->click();
        } else {  // 关闭APT代理，删除对应的配置文件
            if (QString(qgetenv("http_proxy").data()).isEmpty()) {
-               aptsettings->set(APT_PROXY_ENABLED , false);
                ui->mAPTFrame_2->hide();
                setAptProxy("" ,0 ,false);
            } else {
@@ -278,13 +273,11 @@ void Proxy::setupConnect(){
                QPushButton *nowbtn =   mReboot->addButton(tr("Reboot Now"), QMessageBox::AcceptRole);
                mReboot->exec();
                if (mReboot->clickedButton() == nowbtn) {  //选择了立即重启，一秒后系统会重启
-                   aptsettings->set(APT_PROXY_ENABLED , false);
                    ui->mAPTFrame_2->hide();
                    setAptProxy("" ,0 ,false);
                    sleep(1);
                    reboot();
                } else {  //选择了稍后重启,删掉对应文件，但删不了已生效的环境变量
-                   aptsettings->set(APT_PROXY_ENABLED , false);
                    ui->mAPTFrame_2->hide();
                    setAptProxy("" ,0 ,false);
                }
