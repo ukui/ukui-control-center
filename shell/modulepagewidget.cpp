@@ -22,6 +22,7 @@
 
 #include <QListWidgetItem>
 #include <QDebug>
+#include <QScrollBar>
 
 #include "mainwindow.h"
 #include "interface.h"
@@ -46,12 +47,12 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     ui->leftbarWidget->setMaximumWidth(216);
 
     // 右侧Widget大小限定(限制了最小宽度)
-    ui->widget->setMinimumWidth(650);
+//    ui->widget->setMinimumWidth(650);
     ui->widget->setMaximumWidth(1200);
 
     // 左侧二级菜单样式
     ui->leftStackedWidget->setStyleSheet("border: none;");
-    ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //初始化记录标志位
     flagBit = true;
@@ -60,6 +61,14 @@ ModulePageWidget::ModulePageWidget(QWidget *parent) :
     mkvConverter = new KeyValueConverter(); //继承QObject，No Delete
 
     ui->topsideWidget->hide();
+
+    connect(ui->scrollArea->horizontalScrollBar(), &QScrollBar::rangeChanged, this, [=](){
+        if (ui->scrollArea->horizontalScrollBar()->maximum() == 0) {
+            emit hScrollBarHide();
+        } else {
+            emit hScrollBarShow();
+        }
+    });
 
     getModuleStatus();
     initUI();
@@ -139,7 +148,6 @@ void ModulePageWidget::initUI() {
             strItemsMap.insert(single.namei18nString, topitem);
 
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
-
             pluginInstanceMap.insert(single.namei18nString, pluginInstance);
 
         }

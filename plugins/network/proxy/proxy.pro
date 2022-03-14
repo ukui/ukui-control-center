@@ -8,7 +8,7 @@ include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
 
-QT       += widgets
+QT       += widgets dbus
 
 TEMPLATE = lib
 CONFIG += plugin
@@ -33,10 +33,13 @@ PKGCONFIG     += gio-2.0 \
 #DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+    aptproxydialog.cpp \
     proxy.cpp \
     certificationdialog.cpp
 
 HEADERS += \
+    aptinfo.h \
+    aptproxydialog.h \
     proxy.h \
     certificationdialog.h
 

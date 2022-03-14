@@ -48,6 +48,7 @@ Build-Depends: debhelper-compat (= 12),
                yhkylin-backup-tools-dev(>=4.0.13-kylin19)[!sw64],
                libukui-log4qt-dev[!sw64],
                libddcutil-dev(>=0.9.9-5kylin1),
+	       libcrypto++-dev,
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-control-center

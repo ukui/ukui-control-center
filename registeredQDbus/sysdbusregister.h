@@ -59,6 +59,7 @@ private:
 private:
     QString mHibernateFile;
     QSettings *mHibernateSet;
+    QSettings  *aptSettings;
 
     volatile bool exitFlag;
     volatile bool toGetDisplayInfo;
@@ -118,6 +119,12 @@ public slots:
 
     // dmidecode解析id屏蔽电源功能
     Q_SCRIPTABLE QString getVerionsId();
+
+    //设置apt代理
+    Q_SCRIPTABLE bool setaptproxy(QString ip , QString port ,bool open);
+
+    //获取apt代理信息
+    Q_SCRIPTABLE QHash<QString , QVariant> getaptproxy();
 
     bool isBacklight();
 };

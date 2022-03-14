@@ -129,6 +129,7 @@ public:
     void initComponent();
     void initAllUserStatus();
     int isDomainUser(const char* username);
+    bool isDaShangSuo();
 
     //初始化生物特征组件
     void initBioComonent();
