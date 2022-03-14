@@ -705,8 +705,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     QPushButton * leftsidebarBtn = new QPushButton();
     leftsidebarBtn->setAttribute(Qt::WA_DeleteOnClose);
     leftsidebarBtn->setCheckable(true);
-    //    leftsidebarBtn->setFixedSize(QSize(60, 56)); //Widget Width 60
-    leftsidebarBtn->setFixedHeight(56);
+    leftsidebarBtn->setFixedSize(155,40);
 
     QLabel * iconLabel = new QLabel(leftsidebarBtn);
     QString path = QString("://img/primaryleftmenu/%1.svg").arg(iname);
