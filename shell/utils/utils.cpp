@@ -275,11 +275,21 @@ bool Utils::isCommunity()
 bool Utils::isDell()
 {
     QProcess *wifiPro = new QProcess();
-    wifiPro->start("dpkg -l  | grep dell-recovery");
+    QString shellOutput = "";
+    wifiPro->start("dpkg -l | grep dell-recovery");
     wifiPro->waitForFinished();
-    QString output = wifiPro->readAllStandardOutput();
+
+    QString output = wifiPro->readAll();
     delete wifiPro;
-    return !output.isEmpty();
+    shellOutput += output;
+    QStringList slist = shellOutput.split("\n");
+
+    for (QString res : slist) {
+        if (res.contains("dell-recovery")) {
+            return true;
+        }
+    }
+    return false;
 }
 
 bool Utils::isDalian()
