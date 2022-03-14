@@ -59,6 +59,7 @@ private:
 
 private:
     QString realname;
+    QString oldName;
     QStringList namesIsExists;
 
     QDBusInterface * cniface;

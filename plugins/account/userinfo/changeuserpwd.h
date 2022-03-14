@@ -42,7 +42,7 @@ public:
 
     void makeSurePwqualityEnabled();
 
-    void updateTipLableInfo(QString info);
+    void updateTipLableInfo(QLabel *label, QString info);
     void refreshConfirmBtnStatus();
     void refreshCloseBtnStatus();
 public:
@@ -54,14 +54,19 @@ public:
     QVBoxLayout * surePwdWithTipVerLayout;
     QHBoxLayout * surePwdHorLayout;
     QHBoxLayout * bottomBtnsHorLayout;
+    QHBoxLayout *curTipHorLayout;
+    QHBoxLayout *newTipHorLayout;
+    QHBoxLayout *sureTipHorLayout;
 
     QPushButton * cancelBtn;
     QPushButton * confirmBtn;
 
-    QLabel * currentPwdLabel;
-    QLabel * newPwdLabel;
-    QLabel * surePwdLabel;
-    QLabel * tipLabel;
+    QLabel *currentPwdLabel;
+    QLabel *curTipLabel;
+    QLabel *newPwdLabel;
+    QLabel *newTipLabel;
+    QLabel *surePwdLabel;
+    QLabel *tipLabel;
 
     QLineEdit * currentPwdLineEdit;
     QLineEdit * newPwdLineEdit;

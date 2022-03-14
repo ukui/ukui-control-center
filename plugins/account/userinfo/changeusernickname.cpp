@@ -139,16 +139,19 @@ void ChangeUserNickname::setConnect(){
         }
     });
 
+    oldName = nickNameLineEdit->text();
     connect(nickNameLineEdit, &QLineEdit::textEdited, this, [=](QString txt){
         if (namesIsExists.contains(txt)){
             tipLabel->show();
             confirmBtn->setEnabled(false);
-        } else if(nickNameLineEdit->text().length() >= NICKNAME_LENGTH) {
-            QString tipinfo = tr("nickName length must less than %1 letters!").arg(NICKNAME_LENGTH);
+        } else if(nickNameLineEdit->text().length() > NICKNAME_LENGTH) {
+            nickNameLineEdit->setText(oldName);
+            QString tipinfo = tr("The length must be 1~%1 characters!").arg(NICKNAME_LENGTH);
             setTextDynamicInNick(tipLabel, tipinfo);
             tipLabel->show();
-            confirmBtn->setEnabled(false);
+            confirmBtn->setEnabled(true);
         } else {
+            oldName = txt;
             tipLabel->hide();
             confirmBtn->setEnabled(true);
         }
