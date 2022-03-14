@@ -3,6 +3,8 @@
 #include <QDebug>
 
 Bluetooth::Bluetooth() : mFirstLoad(true) {
+    qDebug() << Q_FUNC_INFO << "++Bluetooth========================" << __LINE__;
+
     pluginName = tr("Bluetooth");
     pluginType = DEVICES;
 }

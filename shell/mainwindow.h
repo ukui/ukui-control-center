@@ -60,6 +60,8 @@ public:
 public:
     QMap<QString, QObject *> exportModule(int);
     void setModuleBtnHightLight(int id);
+    bool isBluetooth(QString);
+    static bool isD2000Bluetooth();
     static bool isExitBluetooth();
     void bootOptionsFilter(QString opt);
     void bootOptionsSwitch(int moduleNum, int funcNum);

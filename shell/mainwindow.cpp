@@ -561,7 +561,7 @@ void MainWindow::loadPlugins(){
                 || (fileName == "libexperienceplan.so")
                 || ("libnetworkaccount.so" == fileName && !isExitsCloudAccount())
                 || (!QGSettings::isSchemaInstalled(kVinoSchemas) && "libvino.so" == fileName)
-                || ("libbluetooth.so" == fileName && !isExitBluetooth())
+                || (("libukcc-bluetooth.so" == fileName || "libbluetooth.so" == fileName) && isBluetooth(fileName))
                 || ("libtouchscreen.so" == fileName && !isExitTouchScreen())
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
                 || ("libnetconnect-icbc.so" == fileName && !mIsNmIcbc)
@@ -840,6 +840,45 @@ void MainWindow::initStyleSheet() {
     minBtn->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
     maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
     closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
+}
+
+bool MainWindow::isBluetooth(QString  strSoName) {
+
+    qDebug() << Q_FUNC_INFO<< "+++++===================" << __LINE__;
+    if(isD2000Bluetooth())//isD2000
+    {
+        qDebug() << Q_FUNC_INFO<< "isD2000Bluetooth" << __LINE__;
+
+        if (strSoName == "libbluetooth.so")
+            return true;
+        else if (strSoName == "libukcc-bluetooth.so" && !isExitBluetooth())
+        {
+            qDebug() << Q_FUNC_INFO<< "+++++==================="<< "true" << __LINE__;
+
+            return true;
+        }
+        else
+            return false;
+    }
+    else
+    {
+        if (strSoName == "libukcc-bluetooth.so")
+            return true;
+        else if (strSoName =="libbluetooth.so" && !isExitBluetooth())
+            return true;
+        else
+            return false;
+    }
+}
+bool MainWindow::isD2000Bluetooth() {
+    QProcess process;
+    process.start("lscpu");
+    process.waitForFinished();
+    QByteArray output = process.readAllStandardOutput();
+    QString str_output = output;
+    bool isDevice = str_output.contains(QString("D2000"), Qt::CaseInsensitive);
+    qDebug() << Q_FUNC_INFO << isDevice <<__LINE__;
+    return isDevice;
 }
 
 bool MainWindow::isExitBluetooth() {

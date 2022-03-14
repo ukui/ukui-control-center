@@ -2,6 +2,7 @@ TEMPLATE = subdirs
 SUBDIRS = \
           devices/bluetooth \
           devices/shortcut \
+          devices/ukcc-bluetooth \
           messages-task/experienceplan \
           messages-task/notice \
           messages-task/search \

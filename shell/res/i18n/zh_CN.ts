@@ -1269,8 +1269,10 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="414"/>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1014"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1313"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
+        <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="439"/>
@@ -1282,12 +1284,15 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="472"/>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1074"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1413"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
+        <extra-contents_path>/bluetooth/Bluetooth adapter</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="500"/>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1107"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1451"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
@@ -1323,6 +1328,7 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="712"/>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1179"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1518"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
     </message>
@@ -1333,18 +1339,62 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="731"/>
         <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1196"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1550"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
         <source>Refresh</source>
         <translation type="vanished">刷新</translation>
     </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1354"/>
+        <source>Local device:</source>
+        <translation>本机设备：</translation>
+        <extra-contents_path>/bluetooth/Local device:</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1598"/>
+        <source>All</source>
+        <translation>所有</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1599"/>
+        <source>Audio</source>
+        <translation>音频设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1600"/>
+        <source>Peripherals</source>
+        <translation>键鼠设备</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1601"/>
+        <source>PC</source>
+        <translation>电脑</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1602"/>
+        <source>Phone</source>
+        <translation>手机</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1603"/>
+        <source>Other</source>
+        <translation>其他</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1668"/>
+        <source>Bluetooth driver abnormal</source>
+        <translation>蓝牙设备异常！</translation>
+    </message>
 </context>
 <context>
     <name>Bluetooth</name>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetooth.cpp" line="6"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetooth.cpp" line="8"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetooth.cpp" line="75"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -1363,18 +1413,27 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="93"/>
         <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="188"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothnamelabel.cpp" line="82"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothnamelabel.cpp" line="209"/>
         <source>Can now be found as &quot;%1&quot;</source>
         <translation>现在可被发现为&quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="104"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothnamelabel.cpp" line="93"/>
         <source>Tip</source>
         <translation>提示</translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/bluetooth/bluetoothnamelabel.cpp" line="105"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothnamelabel.cpp" line="94"/>
         <source>The length of the device name does not exceed %1 characters !</source>
         <translation>设备名称长度不能超过%1字符！</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothnamelabel.cpp" line="26"/>
+        <source>Click to change the device name</source>
+        <translation>修改设备名称</translation>
     </message>
 </context>
 <context>
@@ -2716,6 +2775,59 @@ folder will be deleted!</source>
     </message>
 </context>
 <context>
+    <name>DevRemoveDialog</name>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devremovedialog.cpp" line="40"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devremovedialog.cpp" line="47"/>
+        <source>After it is removed, the PIN code must be matched for the next connection.</source>
+        <translation>移除后，需要重新配对pin。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devremovedialog.cpp" line="74"/>
+        <source>Remove</source>
+        <translation>移除</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devremovedialog.cpp" line="82"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devremovedialog.cpp" line="105"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devremovedialog.cpp" line="114"/>
+        <source>Are you sure to remove %1 ?</source>
+        <translation>确定要移除%1?</translation>
+    </message>
+</context>
+<context>
+    <name>DevRenameDialog</name>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devrenamedialog.cpp" line="79"/>
+        <source>Rename</source>
+        <translation>重命名</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devrenamedialog.cpp" line="95"/>
+        <source>Name</source>
+        <translation>名字</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devrenamedialog.cpp" line="110"/>
+        <source>The input character length exceeds the limit</source>
+        <translation>输入超过了限制</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devrenamedialog.cpp" line="119"/>
+        <source>OK</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/devrenamedialog.cpp" line="132"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+</context>
+<context>
     <name>DeviceInfoItem</name>
     <message>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="33"/>
@@ -2741,6 +2853,53 @@ folder will be deleted!</source>
         <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="149"/>
         <source>Device not connected</source>
         <translation>设备未连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="20"/>
+        <source>Connecting</source>
+        <translation>连接中</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="21"/>
+        <source>Disconnecting</source>
+        <translation>断连中</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="22"/>
+        <source>Connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="23"/>
+        <source>Not Connected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="24"/>
+        <source>Connect fail</source>
+        <translation>连接失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="25"/>
+        <source>Disconnect fail</source>
+        <translation>断连失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="138"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="505"/>
+        <source>send file</source>
+        <translation>发送文件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="144"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="513"/>
+        <source>remove</source>
+        <translation>移除</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/deviceinfoitem.cpp" line="148"/>
+        <source>disconnect</source>
+        <translation>断开</translation>
     </message>
 </context>
 <context>
@@ -3584,6 +3743,53 @@ folder will be deleted!</source>
         <location filename="../../../plugins/network/vino/inputpwddialog.cpp" line="90"/>
         <source>less than or equal to 8</source>
         <translation>密码长度需要小于等于８</translation>
+    </message>
+</context>
+<context>
+    <name>IntelDeviceInfoItem</name>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="16"/>
+        <source>Connecting</source>
+        <translation>连接中</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="17"/>
+        <source>Disconnecting</source>
+        <translation>断连中</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="18"/>
+        <source>Connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="19"/>
+        <source>Not connected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="20"/>
+        <source>Connect fail</source>
+        <translation>连接失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="21"/>
+        <source>Disconnect fail</source>
+        <translation>断连失败</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="115"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="475"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="479"/>
+        <source>Send files</source>
+        <translation>发送文件</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="120"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="490"/>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/inteldeviceinfoitem.cpp" line="494"/>
+        <source>remove</source>
+        <translation>移除</translation>
     </message>
 </context>
 <context>
@@ -4639,12 +4845,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="938"/>
+        <location filename="../../mainwindow.cpp" line="977"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="938"/>
+        <location filename="../../mainwindow.cpp" line="977"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -4822,6 +5028,29 @@ Please retry or relogin!</source>
         <location filename="../../../plugins/devices/mouse/mousecontrol.cpp" line="220"/>
         <source>Large</source>
         <translation>较大</translation>
+    </message>
+</context>
+<context>
+    <name>MsgBox</name>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/intelmsgbox.cpp" line="33"/>
+        <source>Sure to remove %1 ?</source>
+        <translation>确定要移除%1?</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/intelmsgbox.cpp" line="55"/>
+        <source>After removal, the next connection requires matching PIN code !</source>
+        <translation>移除后，需要重新配对pin。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/intelmsgbox.cpp" line="81"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/ukcc-bluetooth/intelmsgbox.cpp" line="89"/>
+        <source>Remove</source>
+        <translation>移除</translation>
     </message>
 </context>
 <context>
@@ -9673,8 +9902,8 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1978"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1993"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1982"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1997"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
