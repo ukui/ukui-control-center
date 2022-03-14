@@ -888,15 +888,8 @@ bool MainWindow::isExitBluetooth() {
     QByteArray output = process.readAllStandardOutput();
     QString str_output = output;
     bool isDevice = str_output.contains(QString("bluetooth"), Qt::CaseInsensitive);
-    bool isAddress = true;
 
-//    QByteArray bluetoothId("org.ukui.bluetooth");
-//    if (QGSettings::isSchemaInstalled(bluetoothId)) {
-//        QGSettings bluetoothGSetting(bluetoothId);
-//        isAddress = bluetoothGSetting.get("adapter-address").toString().isEmpty() ? false : true;
-//    }
-
-    return isDevice && isAddress;
+    return isDevice;
 }
 
 void MainWindow::changeSearchSlot() {
