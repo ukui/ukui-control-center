@@ -67,6 +67,7 @@ QWidget *Printer::get_plugin_ui(){
 
         ui->listWidget->setSpacing(0);
 
+        refreshPrinterDev();
 
         pTimer = new QTimer(this);
         pTimer->setInterval(1000);
