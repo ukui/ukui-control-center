@@ -4,34 +4,34 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="520"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="521"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="521"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="522"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/about/about.cpp" line="187"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="522"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="523"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="584"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="585"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="586"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="525"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="526"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
@@ -41,12 +41,12 @@
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="526"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="527"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="455"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="456"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>《试用免责协议》</translation>
     </message>
@@ -71,22 +71,27 @@
         <translation>通过向我们发送诊断数据，提升系统体验以及更快的解决你的问题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="456"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="446"/>
+        <source>Copyright © 2009-%1 KylinSoft. All rights reserved.</source>
+        <translation>版权所有 © 2009-%1 麒麟软件 保留所有权利。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/about.cpp" line="457"/>
         <source>and</source>
         <translation>和</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="457"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="458"/>
         <source>&lt;&lt;Privacy&gt;&gt;</source>
         <translation>《用户隐私协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="547"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="548"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="557"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="558"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
@@ -95,7 +100,7 @@
         <translation type="vanished">未激活(试用期)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="646"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="647"/>
         <source>Trial expiration time</source>
         <translation>试用到期时间</translation>
     </message>
@@ -152,9 +157,9 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="571"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="572"/>
         <source>Version</source>
-        <translation>版本</translation>
+        <translation>版本名称</translation>
         <extra-contents_path>/About/version</extra-contents_path>
     </message>
     <message>
@@ -166,42 +171,41 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="445"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
-        <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
+        <translation type="vanished">版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="573"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="574"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="576"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="578"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="523"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="524"/>
         <location filename="../../../plugins/system/about/about.cpp" line="914"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="580"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="582"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/About/User</extra-contents_path>
@@ -215,7 +219,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="584"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="585"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -228,8 +232,8 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="648"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="654"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="649"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="655"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -263,13 +267,13 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="644"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="652"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="645"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="653"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="660"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="661"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -5606,7 +5610,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="378"/>
+        <location filename="../../mainwindow.cpp" line="397"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5615,44 +5619,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="346"/>
-        <location filename="../../mainwindow.cpp" line="398"/>
-        <location filename="../../mainwindow.cpp" line="870"/>
+        <location filename="../../mainwindow.cpp" line="365"/>
+        <location filename="../../mainwindow.cpp" line="417"/>
+        <location filename="../../mainwindow.cpp" line="889"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="407"/>
+        <location filename="../../mainwindow.cpp" line="426"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="408"/>
+        <location filename="../../mainwindow.cpp" line="427"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="409"/>
+        <location filename="../../mainwindow.cpp" line="428"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="410"/>
+        <location filename="../../mainwindow.cpp" line="429"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="460"/>
+        <location filename="../../mainwindow.cpp" line="479"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="462"/>
+        <location filename="../../mainwindow.cpp" line="481"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="464"/>
+        <location filename="../../mainwindow.cpp" line="483"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -5661,12 +5665,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="995"/>
+        <location filename="../../mainwindow.cpp" line="1014"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="995"/>
+        <location filename="../../mainwindow.cpp" line="1014"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -6340,32 +6344,32 @@ Please retry or relogin!</source>
 <context>
     <name>OutputConfig</name>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="78"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="81"/>
         <source>resolution</source>
         <translation>分辨率</translation>
         <extra-contents_path>/Display/resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="113"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="116"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="123"/>
         <source>orientation</source>
         <translation>方向</translation>
         <extra-contents_path>/Display/orientation</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="131"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="134"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="140"/>
         <source>arrow-up</source>
         <translation>不旋转</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="132"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="135"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="141"/>
         <source>90° arrow-right</source>
         <translation>90° 顺时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="134"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="137"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="143"/>
         <source>arrow-down</source>
         <translation>上下颠倒</translation>
@@ -6379,13 +6383,13 @@ Please retry or relogin!</source>
         <translation type="vanished">部分程序需要注销生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="133"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="136"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="142"/>
         <source>90° arrow-left</source>
         <translation>90° 逆时针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="150"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="153"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="155"/>
         <source>frequency</source>
         <translation>刷新率</translation>
@@ -6396,18 +6400,18 @@ Please retry or relogin!</source>
         <translation type="vanished">刷新率</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="352"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="372"/>
         <source>auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="191"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="194"/>
         <source>screen zoom</source>
         <translation>缩放屏幕</translation>
         <extra-contents_path>/Display/screen zoom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/outputconfig.cpp" line="451"/>
+        <location filename="../../../plugins/system/display/outputconfig.cpp" line="471"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="282"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="289"/>
         <location filename="../../../plugins/system/display_hw/outputconfig.cpp" line="398"/>
@@ -6976,17 +6980,17 @@ Please retry or relogin!</source>
         <translation type="vanished">打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="35"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="36"/>
         <source>Printer</source>
         <translation>打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="113"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="114"/>
         <source>Printers And Scanners</source>
         <translation>打印机和扫描仪</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="177"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="178"/>
         <source>Add</source>
         <translation>添加</translation>
         <extra-contents_path>/Printer/Add</extra-contents_path>
