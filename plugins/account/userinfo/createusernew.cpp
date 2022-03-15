@@ -17,9 +17,13 @@
 
 #include <kylin-chkname.h>
 
+#include "../../../shell/utils/utils.h"
+
 #define USER_LENGTH 32
 #define NICKNAME_LENGTH 32
-#define DEFAULTFACE "/usr/share/ukui/faces/default.png"
+#define DEFAULTFACECOMMUNITY "/usr/share/ukui/faces/01-default-community.png"
+#define DEFAULTFACECOMMERCIAL "/usr/share/ukui/faces/01-default-commercial.png"
+#define DEFAULTFACE (Utils::isCommunity())?DEFAULTFACECOMMUNITY:DEFAULTFACECOMMERCIAL
 
 CreateUserNew::CreateUserNew(QStringList allUsers, QWidget *parent) :
     QDialog(parent),
@@ -50,7 +54,7 @@ void CreateUserNew::initUI(){
     usernameLabel->setText(tr("UserName"));
     usernameTipLabel = new QLabel();
     QFont ft;
-    ft.setPointSize(12);
+    ft.setPixelSize(14);
     usernameTipLabel->setFont(ft);
     usernameTipLabel->setFixedSize(QSize(340, 24));
     usernameTipLabel->setStyleSheet("color:red;");

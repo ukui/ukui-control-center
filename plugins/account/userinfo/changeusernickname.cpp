@@ -70,6 +70,9 @@ void ChangeUserNickname::initUI(){
     setTextDynamicInNick(nickNameLabel, tr("NickName"));
 
     tipLabel = new QLabel();
+    QFont ft;
+    ft.setPixelSize(14);
+    tipLabel->setFont(ft);
     tipLabel->setFixedSize(QSize(300, 36));
     QString tipinfo = tr("nickName already in use.");
     setTextDynamicInNick(tipLabel, tipinfo);

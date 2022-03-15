@@ -101,7 +101,7 @@ void ChangeUserPwd::initUI(){
     setTextDynamicInPwd(currentPwdLabel, tr("Current Pwd"));
     curTipLabel = new QLabel();
     QFont ft;
-    ft.setPointSize(12);
+    ft.setPixelSize(14);
     curTipLabel->setFont(ft);
     curTipLabel->setFixedSize(QSize(322, 24));
     curTipLabel->setStyleSheet("color:red;");
