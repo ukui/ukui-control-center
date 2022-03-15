@@ -31,8 +31,10 @@
 #include <QStringList>
 #include <QSharedPointer>
 #include <QGSettings/QGSettings>
+#include <QMouseEvent>
 
 #include "shell/interface.h"
+#include "statusdialog.h"
 
 namespace Ui {
 class About;
@@ -58,13 +60,17 @@ private:
     void initUI();
     QStringList  readFile(QString filePath);
 
-    void initTitleLabel();
     void initSearchText();
     void initActiveDbus();
     void setupDesktopComponent();
     void setupKernelCompenent();
     void setupVersionCompenent();
     void setupSerialComponent();
+    bool QLabelSetText(QLabel *label, QString string);
+    void showExtend(QString dateres);
+    char *ntpdate();
+    int getMonth(QString month);
+    bool eventFilter(QObject *obj, QEvent *event);
 
     qlonglong calculateTotalRam();
 
@@ -73,6 +79,8 @@ private:
     QString getTotalMemory();
 
     QStringList getUserDefaultLanguage();
+
+
 private:
     Ui::About *ui;
     QString pluginName;
@@ -91,10 +99,16 @@ private:
     bool mFirstLoad;
 
     QGSettings *themeStyleQgsettings;
+
+    QPixmap mPixmap;
+    bool activestatus = true;
 private slots:
     void runActiveWindow();
     void showPdf();
     void activeSlot(int activeSignal);
+
+Q_SIGNALS:
+    void changeTheme();
 };
 
 #endif // ABOUT_H

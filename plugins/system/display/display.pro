@@ -8,6 +8,7 @@ include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
 include($$PROJECT_COMPONENTSOURCE/closebutton.pri)
 include($$PROJECT_COMPONENTSOURCE/uslider.pri)
 include($$PROJECT_COMPONENTSOURCE/label.pri)
+include($$PROJECT_COMPONENTSOURCE/button.pri)
 
 QT            += widgets core gui quickwidgets quick xml KScreen dbus concurrent KConfigCore
 TEMPLATE = lib
