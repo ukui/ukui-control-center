@@ -102,6 +102,8 @@ public:
     QString nickNameTip;
     QString newPwdTip;
     QString surePwdTip;
+    QString oldName;
+    QString oldNickName;
 
     QStringList _allNames;
 

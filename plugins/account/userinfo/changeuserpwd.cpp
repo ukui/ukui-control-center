@@ -382,7 +382,7 @@ void ChangeUserPwd::setupConnect(){
         connect(currentPwdLineEdit, &QLineEdit::textEdited, [=](QString txt){
             if (!txt.isEmpty()){
                 curPwdTip = "";
-                updateTipLableInfo(curTipLabel,curPwdTip);
+                updateTipLableInfo(curTipLabel, curPwdTip);
 
                 //再次校验新密码，需要保证"与旧密码相同"等条件生效
                 checkPwdLegality();
@@ -544,7 +544,9 @@ void ChangeUserPwd::checkPwdLegality(){
     }
 
     //设置新密码的提示
-    updateTipLableInfo(newTipLabel,newPwdTip);
+    if (!newPwdLineEdit->text().isEmpty() || newPwdLineEdit->hasFocus()) {
+        updateTipLableInfo(newTipLabel,newPwdTip);
+    }
 
     updateTipLableInfo(tipLabel,surePwdTip);
 
@@ -607,6 +609,25 @@ bool ChangeUserPwd::eventFilter(QObject *target, QEvent *event)
             }
         }
     }
+    if (event->type() == QEvent::FocusOut) {
+        if (target == currentPwdLineEdit) {
+            if (currentPwdLineEdit->text().isEmpty()) {
+                curPwdTip = tr("current pwd cannot be empty!");
+                updateTipLableInfo(curTipLabel, curPwdTip);
+            }
+        } else if (target == newPwdLineEdit) {
+            if (newPwdLineEdit->text().isEmpty()) {
+                newPwdTip = tr("new pwd cannot be empty!");
+                updateTipLableInfo(newTipLabel, newPwdTip);
+            }
+        } else if (target == surePwdLineEdit) {
+            if (surePwdLineEdit->text().isEmpty()) {
+                surePwdTip = tr("sure pwd cannot be empty!");
+                updateTipLableInfo(tipLabel, surePwdTip);
+            }
+        }
+    }
+
     return QWidget::eventFilter(target, event);
     //继续传递该事件到被观察者，由其本身调用相应的事件。
 }

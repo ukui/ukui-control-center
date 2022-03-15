@@ -315,6 +315,11 @@ void CreateUserNew::initUI(){
 void CreateUserNew::setConnect(){
 
     connect(usernameLineEdit, &QLineEdit::textEdited, this, [=](QString txt){
+        if (usernameLineEdit->text().length() > USER_LENGTH) {
+            usernameLineEdit->setText(oldName);
+        } else {
+            oldName = txt;
+        }
         nameLegalityCheck(txt);
     });
 
@@ -411,6 +416,15 @@ void CreateUserNew::refreshConfirmBtnStatus(){
         confirmBtn->setEnabled(false);
     else
         confirmBtn->setEnabled(true);
+
+    if (((usernameLineEdit->text().length() >= USER_LENGTH) || (nicknameLineEdit->text().length() >= NICKNAME_LENGTH))
+            && newPwdTip.isEmpty() && surePwdTip.isEmpty()
+            && !usernameLineEdit->text().isEmpty()
+            && !nicknameLineEdit->text().isEmpty()
+            && !newPwdLineEdit->text().isEmpty()
+            && !surePwdLineEdit->text().isEmpty()) {
+        confirmBtn->setEnabled(true);
+    }
 }
 
 bool CreateUserNew::isHomeUserExists(QString username)
@@ -450,9 +464,11 @@ void CreateUserNew::nameLegalityCheck2(QString nickname){
         nickNameTip = tr("The nick name cannot be empty");
     } else if (_allNames.contains(nickname)){
         nickNameTip = tr("nickName already in use.");
-    } else if(nickname.length() >= NICKNAME_LENGTH) {
+    } else if(nickname.length() > NICKNAME_LENGTH) {
+        nicknameLineEdit->setText(oldNickName);
         nickNameTip = tr("nickName length must less than %1 letters!").arg(NICKNAME_LENGTH);
     } else {
+        oldNickName = nickname;
         nickNameTip = tr("");
     }
 
@@ -585,6 +601,30 @@ bool CreateUserNew::eventFilter(QObject *watched, QEvent *event){
                 adminRadioBtn->setChecked(true);
             } else if (watched == standardFrame){
                 standardRadioBtn->setChecked(true);
+            }
+        }
+    }
+
+    if (event->type() == QEvent::FocusOut) {
+        if (watched == usernameLineEdit) {
+            if (usernameLineEdit->text().isEmpty()) {
+                userNameTip = tr("Username's length must be between 1 and %1 characters!").arg(USER_LENGTH);
+                setCunTextDynamic(usernameTipLabel, userNameTip);
+            }
+        } else if (watched == nicknameLineEdit) {
+            if (nicknameLineEdit->text().isEmpty()) {
+                nickNameTip = tr("The nick name cannot be empty");
+                setCunTextDynamic(nicknameTipLabel, nickNameTip);
+            }
+        } else if (watched == newPwdLineEdit) {
+            if (newPwdLineEdit->text().isEmpty()) {
+                newPwdTip = tr("new pwd cannot be empty!");
+                setCunTextDynamic(newpwdTipLabel, newPwdTip);
+            }
+        } else if (watched == surePwdLineEdit) {
+            if (surePwdLineEdit->text().isEmpty()) {
+                surePwdTip = tr("sure pwd cannot be empty!");
+                setCunTextDynamic(tipLabel, surePwdTip);
             }
         }
     }
