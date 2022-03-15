@@ -442,7 +442,8 @@ void About::initUI(QWidget *widget)
     mActivationLayout_1->addLayout(mActivationLayout);
     mActivationLayout_1->addWidget(mActivationBtn);
 
-    mTipLabel = new FixLabel(tr("Copyright © 2009-2021 KylinSoft. All rights reserved.") , Aboutwidget);
+    QString currentyear("2022");
+    mTipLabel = new FixLabel(QString(tr("Copyright © 2009-%1 KylinSoft. All rights reserved.")).arg(currentyear) , Aboutwidget);
     mTipLabel->setContentsMargins(16 , 0 , 0 , 0);
 
     mBtnFrame = new QFrame(Aboutwidget);
@@ -711,18 +712,17 @@ void About::setVersionNumCompenent()
 //         }
 //     }
     mInterVersionFrame->hide();
-    QString InfoPath = "/etc/.kyinfo";
+    QString InfoPath = "/etc/os-release";
     QFile file(InfoPath);
     int pos = -1;
     if (file.exists()) {
          QStringList mCentent = readFile(InfoPath);
           for (QString str : mCentent) {
-              if (str.contains("dist_id=")) {
-                  QRegExp rx("^(.*)Release-(.*)-(.*).iso$");
+              if (str.contains("KYLIN_RELEASE_ID=")) {
+                  QRegExp rx("^KYLIN_RELEASE_ID=\"(.*)\"$");
                   pos = rx.indexIn(str);
-//                  qDebug()<<rx.cap(1)<<"-----------"<<rx.cap(2)<<"---------------"<<rx.cap(3);
                   if (pos > -1) {
-                      mVersionNumberLabel_2->setText(rx.cap(2));
+                      mVersionNumberLabel_2->setText(rx.cap(1));
                       break;
                   }
               }
@@ -933,7 +933,7 @@ void About::setupSystemVersion()
         mVersionNumFrame->hide();
         mDiskFrame->hide();
         mHoldWidget->hide();
-        mHoldTitleLabel->hide();        
+        mHoldTitleLabel->hide();
         return;
     } else {
         mPrivacyFrame->hide();
