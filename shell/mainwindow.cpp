@@ -872,11 +872,13 @@ bool MainWindow::isBluetooth(QString  strSoName) {
 }
 bool MainWindow::isD2000Bluetooth() {
     QProcess process;
-    process.start("lscpu");
+    //process.start("lscpu");
+    process.start("dpkg -l |grep ukui-bluetooth");
     process.waitForFinished();
     QByteArray output = process.readAllStandardOutput();
     QString str_output = output;
-    bool isDevice = str_output.contains(QString("D2000"), Qt::CaseInsensitive);
+    //bool isDevice = str_output.contains(QString("D2000"), Qt::CaseInsensitive);
+    bool isDevice = str_output.contains(QString("1.0.0-1kylin2"), Qt::CaseInsensitive);
     qDebug() << Q_FUNC_INFO << isDevice <<__LINE__;
     return isDevice;
 }
