@@ -71,6 +71,10 @@ void ChangeUserLogo::loadSystemLogo(){
         if (!Utils::isCommunity() &&fullface.endsWith("community.png")) {
             continue;
         }
+        // 升级后 default.png 不存在导致开始菜单无头像显示 #108837
+        if (fullface.endsWith("default.png")) {
+            continue;
+        }
 
         QPushButton *button = new QPushButton;
         button->setCheckable(true);
