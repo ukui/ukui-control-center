@@ -1160,6 +1160,10 @@ void Widget::applyNightModeSlot()
 void Widget::setScreenKDS(QString kdsConfig)
 {
     KScreen::OutputList screens = mConfig->connectedOutputs();
+    Q_FOREACH(KScreen::OutputPtr output, screens)
+        if (!output.isNull() && kdsConfig == "copy")
+            output->setEnabled(true);
+
     if (kdsConfig == "expand") {
         Q_FOREACH(KScreen::OutputPtr output, screens) {
             if (!output.isNull() && !mUnifyButton->isChecked()) {
@@ -1195,9 +1199,6 @@ void Widget::setScreenKDS(QString kdsConfig)
          }
     } else if ((!mUnifyButton->isChecked() && kdsConfig != "copy") ||
                  (mUnifyButton->isChecked() && kdsConfig == "copy")) {  // 过滤重复应用
-        Q_FOREACH(KScreen::OutputPtr output, screens)
-            if (!output.isNull() && kdsConfig == "copy")
-                output->setEnabled(true);
 
         mKDSCfg.clear();
     }
