@@ -100,7 +100,7 @@ void Printer::initComponent(){
     addWgt->setObjectName("addwgt");
     addWgt->setMinimumSize(QSize(580, 64));
     addWgt->setMaximumSize(QSize(16777215, 64));
-    addWgt->setStyleSheet("HoverWidget#addwgt{background: palette(base); border-radius: 4px;}HoverWidget:hover:!pressed#addwgt{background: #2FB3E8; border-radius: 4px;}");
+    addWgt->setStyleSheet("HoverWidget#addwgt{background: palette(base); border-radius: 12px;}HoverWidget:hover:!pressed#addwgt{background: #2FB3E8; border-radius: 12px;}");
 
     QHBoxLayout *addLyt = new QHBoxLayout;
 
