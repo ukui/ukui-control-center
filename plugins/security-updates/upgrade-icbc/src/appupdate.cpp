@@ -289,7 +289,7 @@ void AppUpdateWid::updateAppUi(QString name)
 
     appIconName = new QLabel(this);
 //    appIconName->setMinimumWidth(130);
-    appIconName->setMaximumWidth(400);
+//    appIconName->setMaximumWidth(400);
     appIcon = new FixLabel(appIconName);
     appNameLab = new MyLabel(appIconName);
     //    appNameLab->setMinimumWidth(140);
@@ -317,13 +317,13 @@ void AppUpdateWid::updateAppUi(QString name)
     detaileInfo->setText(tr("details"));
     //detaileInfo->setFixedSize(60,30);
 //    detaileInfo->adjustSize();
-    detaileInfo->setMaximumWidth(95);
+//    detaileInfo->setMaximumWidth(95);
     detaileInfo->setFlat(true);
 
     updateAPPBtn = new QPushButton(this);
     //    updateAPPBtn->setText(tr("更新"));
     updateAPPBtn->setText(tr("Update"));
-    updateAPPBtn->setFixedWidth(95);
+//    updateAPPBtn->setFixedWidth(95);
     //updateAPPBtn->setFixedSize(70,40);
 //    updateAPPBtn->adjustSize();
 
@@ -334,7 +334,7 @@ void AppUpdateWid::updateAppUi(QString name)
     versionLab = new QLabel(this);
     versionLab->setMargin(0);
 //    versionLab->setMinimumWidth(250);
-    versionLab->setMaximumWidth(450);
+//    versionLab->setMaximumWidth(450);
     versionLab->setFixedHeight(60);
 
     versionlabLayout->setAlignment(Qt::AlignLeft);
@@ -357,7 +357,7 @@ void AppUpdateWid::updateAppUi(QString name)
     otherBtnLayout->addWidget(detaileInfo,1,Qt::AlignRight);
     otherBtnLayout->addSpacing(1);
     otherBtnLayout->addWidget(updateAPPBtn,1,Qt::AlignRight);
-    updateAPPBtn->setFixedWidth(110);
+    updateAPPBtn->setFixedWidth(100);
 //    otherBtnLayout->setAlignment(Qt::AlignLeft);
     otherBtnLab->setLayout(otherBtnLayout);
 
