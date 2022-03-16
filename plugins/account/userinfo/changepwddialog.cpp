@@ -343,7 +343,7 @@ void ChangePwdDialog::setupConnect(){
         } else {
 
             connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
-    //            pwdLegalityCheck();
+                pwdLegalityCheck();
 
     //            ui->confirmPushBtn->setEnabled(false);
 
@@ -351,7 +351,6 @@ void ChangePwdDialog::setupConnect(){
 
                 if (!txt.isEmpty()){
                     curPwdTip = "";
-                    pwdLegalityCheck();
                 }
 
                 if (pwdTip.isEmpty() && pwdSureTip.isEmpty()){
