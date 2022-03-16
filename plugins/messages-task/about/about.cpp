@@ -145,16 +145,24 @@ void About::setupDesktopComponent()
 
 void About::setupKernelCompenent()
 {
-    QString memorySize;
-
+    QString memorySize("0GB");
     QString kernal = QSysInfo::kernelType() + " " + QSysInfo::kernelVersion();
-    memorySize = getTotalMemory();
-
     ui->kernalContent->setText(kernal);
-    ui->memoryContent->setText(memorySize);
 
     ui->cpuContent->setText(Utils::getCpuInfo());
     ui->diskContent->setVisible(false);
+
+    QDBusInterface *memoryDbus = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                             "/",
+                                                             "com.control.center.interface",
+                                                             QDBusConnection::systemBus());
+   if (memoryDbus->isValid()) {
+       QDBusReply<QString>  result = memoryDbus->call("getMemory");
+       memorySize.append( result + "GB");
+   }
+   if (memorySize == "0GB")
+       memorySize = getTotalMemory();
+    ui->memoryContent->setText(memorySize);
 }
 
 void About::setupVersionCompenent()

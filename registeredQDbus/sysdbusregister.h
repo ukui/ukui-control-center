@@ -126,6 +126,9 @@ public slots:
     //获取apt代理信息
     Q_SCRIPTABLE QHash<QString , QVariant> getaptproxy();
 
+    //获取内存大小
+    Q_SCRIPTABLE QString getMemory();
+
     bool isBacklight();
 };
 
