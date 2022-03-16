@@ -158,6 +158,7 @@ public:
     void haveCurrentPwdEdit(bool have);
 
     bool isRemoteUser();
+    bool isSudoGroupNumber(QString uname);
 
     bool isCurrentUser;
 

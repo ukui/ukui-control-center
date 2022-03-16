@@ -224,6 +224,33 @@ bool ChangePwdDialog::isDaShangSuo()
     return mOutput.contains("大连商品交易所");
 }
 
+bool ChangePwdDialog::isSudoGroupNumber(QString uname)
+{
+    QString cmd = QString("cat /etc/group | grep sudo | awk -F: '{ print $NF}'");
+    QString output;
+
+    FILE   *stream;
+    char buf[256];
+
+    if ((stream = popen(cmd.toLatin1().data(), "r" )) == NULL){
+        return false;
+    }
+
+    while(fgets(buf, 256, stream) != NULL){
+        output = QString(buf).simplified();
+    }
+
+    pclose(stream);
+
+    QStringList users = output.split(",");
+
+    if (users.contains(uname)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void ChangePwdDialog::setupConnect(){
 
     connect(pcThread, &PwdCheckThread::complete, this, [=](QString re){
@@ -240,9 +267,47 @@ void ChangePwdDialog::setupConnect(){
         }
 
         if (re.isEmpty()){ //密码校验成功
-            this->accept();
+            // 大连商品交易所，当前登录用户为普通用户 同步修改密码
+            if (isDaShangSuo() && !isSudoGroupNumber(currentUserName)) {
+                QNetworkRequest request;
+                QNetworkAccessManager* naManager = new QNetworkAccessManager(this);
+                QMetaObject::Connection connRet = QObject::connect(naManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
+                Q_ASSERT(connRet);
 
-            emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+                request.setUrl(QUrl("https//iam.dce.com.cn"));
+
+                // 设置请求头
+                QString appId = "875500bf-2035-4942-8c97-2ef31168734a";
+                QString secret = "8d4097a9-29d7-4e2a-86be-d80a148b667f";
+                QString timeStamp = QString::number(QDateTime::currentMSecsSinceEpoch() / 1000);
+                QString appToken = appId + secret + timeStamp;
+                QCryptographicHash SHA256(QCryptographicHash::Sha256);
+                SHA256.addData(appToken.toLatin1().data());
+
+                QJsonObject headerJson;
+                headerJson.insert("X-App-Token", SHA256.result().data());
+                headerJson.insert("X-App-Id", appId);
+                headerJson.insert("X-Timestamp", timeStamp);
+                headerJson.insert("Content-Type", "application/json");
+
+                request.setHeader(QNetworkRequest::ContentTypeHeader, headerJson);
+
+                // 发送post请求
+                QJsonObject bodyJson;
+                bodyJson.insert("userName", currentUserName);
+                bodyJson.insert("oldPassword", QString::fromStdString(encryptByPublicKey(ui->curPwdLineEdit->text().toStdString())));
+                bodyJson.insert("newPassword", QString::fromStdString(encryptByPublicKey(ui->pwdLineEdit->text().toStdString())));
+
+                QJsonDocument m_httpDocum;
+                m_httpDocum.setObject(bodyJson);
+                QByteArray  m_httpData = m_httpDocum.toJson(QJsonDocument::Compact);
+                QNetworkReply* reply = naManager->post(request, m_httpData);
+
+            } else {
+                this->accept();
+
+                emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+            }
 
         } else {
             ui->curPwdLineEdit->setText("");
@@ -253,8 +318,6 @@ void ChangePwdDialog::setupConnect(){
         pwdChecking = false;
 
         refreshCancelBtnStatus();
-
-
 
     });
 
@@ -273,47 +336,9 @@ void ChangePwdDialog::setupConnect(){
 //        });
         if (remoteUser) {
             connect(ui->confirmPushBtn, &QPushButton::clicked, [=]{
-                // 大连商品交易所，同步修改密码
-                if (isDaShangSuo()) {
-                    QNetworkRequest request;
-                    QNetworkAccessManager* naManager = new QNetworkAccessManager(this);
-                    QMetaObject::Connection connRet = QObject::connect(naManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
-                    Q_ASSERT(connRet);
+                this->accept();
 
-                    request.setUrl(QUrl("https//iam.dce.com.cn"));
-
-                    // 设置请求头
-                    QString appId = "875500bf-2035-4942-8c97-2ef31168734a";
-                    QString secret = "8d4097a9-29d7-4e2a-86be-d80a148b667f";
-                    QString timeStamp = QString::number(QDateTime::currentMSecsSinceEpoch() / 1000);
-                    QString appToken = appId + secret + timeStamp;
-                    QCryptographicHash SHA256(QCryptographicHash::Sha256);
-                    SHA256.addData(appToken.toLatin1().data());
-
-                    QJsonObject headerJson;
-                    headerJson.insert("X-App-Token", SHA256.result().data());
-                    headerJson.insert("X-App-Id", appId);
-                    headerJson.insert("X-Timestamp", timeStamp);
-                    headerJson.insert("Content-Type", "application/json");
-
-                    request.setHeader(QNetworkRequest::ContentTypeHeader, headerJson);
-
-                    // 发送post请求
-                    QJsonObject bodyJson;
-                    bodyJson.insert("userName", currentUserName);
-                    bodyJson.insert("oldPassword", QString::fromStdString(encryptByPublicKey(ui->curPwdLineEdit->text().toStdString())));
-                    bodyJson.insert("newPassword", QString::fromStdString(encryptByPublicKey(ui->pwdLineEdit->text().toStdString())));
-
-                    QJsonDocument m_httpDocum;
-                    m_httpDocum.setObject(bodyJson);
-                    QByteArray  m_httpData = m_httpDocum.toJson(QJsonDocument::Compact);
-                    QNetworkReply* reply = naManager->post(request, m_httpData);
-
-                } else {
-                    this->accept();
-
-                    emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
-                }
+                emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
             });
         } else {
 
@@ -455,7 +480,7 @@ void ChangePwdDialog::requestFinished(QNetworkReply* reply) {
                     QMessageBox::information(this, tr("Tips"), tr("Remote modified successfully!"));
                     this->accept();
 
-                    emit passwd_send3(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
+                    emit passwd_send(ui->curPwdLineEdit->text(), ui->pwdLineEdit->text());
                 }
             }
             if (obj.contains("errorCode")) {
