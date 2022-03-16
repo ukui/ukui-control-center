@@ -73,15 +73,19 @@ void addShortcutDialog::initSetup()
 
     ui->execLineEdit->setReadOnly(true);
 
-    ui->label_4->setStyleSheet("color: red");
+    ui->label_4->setStyleSheet("color: red; font-size: 14px;");
+    ui->label_5->setStyleSheet("color: red; font-size: 14px;");
     ui->label_4->setText("");
-
+    ui->label_5->setText("");
     ui->certainBtn->setDisabled(true);
     shortcutLine = new ShortcutLine(systemEntry, &customEntry);
     ui->horizontalLayout_2->addWidget(shortcutLine);
     shortcutLine->setMinimumWidth(280);
     shortcutLine->setFixedHeight(36);
     shortcutLine->setPlaceholderText(tr("Please enter a shortcut"));
+
+    shortcutLine->installEventFilter(this);
+    ui->nameLineEdit->installEventFilter(this);
 
     connect(shortcutLine, &ShortcutLine::shortCutAvailable, this, [=](const int &flag){
         if (flag == 0 || (flag == -2 && editSeq == shortcutLine->keySequence())) {  //快捷键正常
@@ -232,7 +236,13 @@ void addShortcutDialog::openProgramFileDialog()
 
 void addShortcutDialog::refreshCertainChecked(int triggerFlag)
 {
-    ui->label_4->setText("");
+    if (!ui->nameLineEdit->text().isEmpty()) {
+        ui->label_5->setText("");
+    }
+    if (!shortcutLine->text().isEmpty()) {
+        ui->label_4->setText("");
+    }
+
     if (!execIsAvailable || keyIsAvailable != 3 || !nameIsAvailable) {
         ui->certainBtn->setDisabled(true);
 
@@ -244,16 +254,18 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
                 ui->label_4->setText(tr("Shortcut conflict"));  //快捷键冲突
             } else if (keyIsAvailable == 2 && !shortcutLine->text().isEmpty()) {
                 ui->label_4->setText(tr("Invalid shortcut"));  //快捷键无效
-            } else if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
-                ui->label_4->setText(tr("Name repetition"));  //名称重复
+            }
+            if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
+                ui->label_5->setText(tr("Name repetition"));  //名称重复
             } else {
 
             }
             break;
         case 2:
             if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
-                ui->label_4->setText(tr("Name repetition"));  //名称重复
-            } else if (keyIsAvailable == 1 && !shortcutLine->text().isEmpty()) {
+                ui->label_5->setText(tr("Name repetition"));  //名称重复
+            }
+            if (keyIsAvailable == 1 && !shortcutLine->text().isEmpty()) {
                 ui->label_4->setText(tr("Shortcut conflict"));  //快捷键冲突
             } else if (keyIsAvailable == 2 && !shortcutLine->text().isEmpty()) {
                 ui->label_4->setText(tr("Invalid shortcut"));  //快捷键无效
@@ -270,8 +282,9 @@ void addShortcutDialog::refreshCertainChecked(int triggerFlag)
                 ui->label_4->setText(tr("Invalid shortcut"));  //快捷键无效
             } else if (!execIsAvailable && !ui->execLineEdit->text().isEmpty()) {
                 ui->label_4->setText(tr("Invalid application"));  //程序无效
-            } else if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
-                ui->label_4->setText(tr("Name repetition"));  //名称重复
+            }
+            if (!nameIsAvailable && !ui->nameLineEdit->text().isEmpty()) {
+                ui->label_5->setText(tr("Name repetition"));  //名称重复
             } else {
 
             }
@@ -446,4 +459,20 @@ void addShortcutDialog::setIcon(const QString &iconname)
         }
         execIcon->setPixmap(QPixmap(iconPath).scaled(QSize(24,24), Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
     }
+}
+
+bool addShortcutDialog::eventFilter(QObject *o, QEvent *e)
+{
+    if (e->type() == QEvent::FocusOut) {
+        if (o == shortcutLine) {
+            if (shortcutLine->text().isEmpty()) {
+                ui->label_4->setText(tr("Shortcut cannot be empty"));
+            }
+        } else if (o == ui->nameLineEdit) {
+            if (ui->nameLineEdit->text().isEmpty()) {
+                ui->label_5->setText(tr("Name cannot be empty"));
+            }
+        }
+    }
+    return QDialog::eventFilter(o, e);
 }

@@ -68,6 +68,9 @@ public:
     void setKeyIsAvailable(const int key);
     void setIcon(const QString &iconname);
 
+protected:
+    bool eventFilter(QObject *o, QEvent *e);
+
 private:
     Ui::addShortcutDialog *ui;
 

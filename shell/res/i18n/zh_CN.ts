@@ -9957,7 +9957,7 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/devices/shortcut/shortcut.cpp" line="711"/>
         <source> or </source>
-        <translation type="unfinished"></translation>
+        <translation> 或 </translation>
     </message>
     <message>
         <source>disable</source>
@@ -12191,17 +12191,18 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="158"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="174"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="197"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="248"/>
         <source>Key</source>
         <translation>按键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="309"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="222"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="293"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12210,13 +12211,13 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">无效的可执行程序，请重新选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="359"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="215"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="342"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="219"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="378"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="361"/>
         <source>Save</source>
         <translation>确定</translation>
     </message>
@@ -12250,52 +12251,62 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation>添加快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="84"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="85"/>
         <source>Please enter a shortcut</source>
         <translation>请输入快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="207"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="211"/>
         <source>Desktop files(*.desktop)</source>
         <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="214"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="218"/>
         <source>select desktop</source>
         <translation>选择桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="242"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="261"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="272"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="252"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="273"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="284"/>
         <source>Invalid application</source>
-        <translation>该应用不可用</translation>
+        <translation>此应用不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="244"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="257"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="268"/>
-        <source>Shortcut conflict</source>
-        <translation>该快捷键组合已被占用</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="246"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="259"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="270"/>
-        <source>Invalid shortcut</source>
-        <translation>该快捷键组合不可用</translation>
-    </message>
-    <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="248"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="255"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="274"/>
-        <source>Name repetition</source>
-        <translation>该快捷键名称重复</translation>
-    </message>
-    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="254"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="269"/>
         <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="280"/>
+        <source>Shortcut conflict</source>
+        <translation>此快捷键组合已被占用</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="256"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="271"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="282"/>
+        <source>Invalid shortcut</source>
+        <translation>此快捷键组合不可用</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="259"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="266"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="287"/>
+        <source>Name repetition</source>
+        <translation>此快捷键名称重复</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="293"/>
         <source>Unknown error</source>
         <translation>未知错误</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="469"/>
+        <source>Shortcut cannot be empty</source>
+        <translation>快捷键不能为空</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="473"/>
+        <source>Name cannot be empty</source>
+        <translation>名称不能为空</translation>
     </message>
 </context>
 <context>
