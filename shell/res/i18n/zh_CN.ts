@@ -4664,12 +4664,17 @@ folder will be deleted!</source>
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="64"/>
+        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="56"/>
+        <source>Must be 1-64 characters long</source>
+        <translation>长度必须为1-64个字符</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="70"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="68"/>
+        <location filename="../../../plugins/system/about/hostnamedialog.cpp" line="74"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
@@ -4682,13 +4687,11 @@ folder will be deleted!</source>
         <translation>设置密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="98"/>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="118"/>
         <source>Password can not be blank</source>
-        <translation>密码不能为空</translation>
+        <translation type="vanished">密码不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="78"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="79"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -4698,14 +4701,18 @@ folder will be deleted!</source>
         <translation>系统设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="82"/>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="62"/>
+        <source>Must be 1-8 characters long</source>
+        <translation type="unfinished">长度必须为1-8个字符</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="83"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/vino/inputpwddialog.cpp" line="122"/>
         <source>less than or equal to 8</source>
-        <translation>密码长度需要小于等于８</translation>
+        <translation type="vanished">密码长度需要小于等于８</translation>
     </message>
 </context>
 <context>

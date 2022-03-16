@@ -111,8 +111,6 @@ void ShareMain::initUI()
     mPwdsLabel = new QLabel(tr("Require user to enter this password: "), this);
 
     mPwdinputBtn = new QPushButton(this);
-    mPwdinputBtn->setContentsMargins(26,8,26,8);
-    mPwdinputBtn->setFixedSize(QSize(120, 36));
 
     pwdHLayout->addWidget(mPwdsLabel);
     pwdHLayout->addWidget(mPwdinputBtn);

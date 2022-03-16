@@ -28,7 +28,7 @@ void HostNameDialog::InitUi()
     setFixedSize(480 ,160 );
     QVBoxLayout *mInputPwdLyt = new QVBoxLayout(this);
     mInputPwdLyt->setContentsMargins(24, 24, 24, 24);
-    mInputPwdLyt->setSpacing(8);
+    mInputPwdLyt->setSpacing(0);
 
     QFrame *mInputPwdFrame = new QFrame(this);
     mInputPwdFrame->setFixedSize(432, 36);
@@ -50,6 +50,12 @@ void HostNameDialog::InitUi()
     mLyt_1->addWidget(mHostNameLabel);
     mLyt_1->addWidget(mHostNameEdit);
 
+    mTipLabel = new QLabel(this);
+    mTipLabel->setFixedSize(432, 24);
+    mTipLabel->setContentsMargins(114, 0, 0, 0);
+    mTipLabel->setText(tr("Must be 1-64 characters long"));
+    mTipLabel->setStyleSheet("QLabel{color : red; font-size : 14px}");
+    mTipLabel->setVisible(false);
 
     QFrame *mInputPwdFrame_1 = new QFrame(this);
     mInputPwdFrame_1->setFixedWidth(432);
@@ -72,16 +78,22 @@ void HostNameDialog::InitUi()
     mLyt_2->addWidget(mConfirmBtn);
 
     mInputPwdLyt->addWidget(mInputPwdFrame);
+    mInputPwdLyt->addWidget(mTipLabel);
     mInputPwdLyt->addStretch();
     mInputPwdLyt->addWidget(mInputPwdFrame_1);
 }
 
 void HostNameDialog::initConnect()
 {
-    connect(mHostNameEdit, &QLineEdit::textEdited, this, [=]() {
+    connect(mHostNameEdit, &QLineEdit::textEdited, this, [=](QString pwd) {
         if (mHostNameEdit->text().isEmpty()) {
              mConfirmBtn->setEnabled(false);
+             mTipLabel->setVisible(true);
+        } else if (pwd.length() > 64){
+            mHostNameEdit->setText(pwd.mid(0, 64));
+            mTipLabel->setVisible(true);
         } else {
+            mTipLabel->setVisible(false);
             mConfirmBtn->setEnabled(true);
         }
     });
@@ -100,7 +112,6 @@ void HostNameDialog::initConnect()
 
 void HostNameDialog::setEdit()
 {
-    mHostNameEdit->setMaxLength(64);
     QRegExp rx("[a-z][a-zA-Z0-9.-]*");
     QRegExpValidator *validator = new QRegExpValidator(rx , this);
     mHostNameEdit->setValidator(validator);

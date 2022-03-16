@@ -6,6 +6,7 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QLabel>
 
 #include "shell/utils/utils.h"
 
@@ -30,6 +31,7 @@ private:
     QString mfirsthostname;
     QPushButton *mCancelBtn;
     QPushButton *mConfirmBtn;
+    QLabel *mTipLabel;
 
 };
 

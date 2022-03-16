@@ -31,7 +31,7 @@ void InputPwdDialog::setupInit()
 
     QVBoxLayout *mInputPwdLyt = new QVBoxLayout(this);
     mInputPwdLyt->setContentsMargins(24, 24, 24, 24);
-    mInputPwdLyt->setSpacing(8);
+    mInputPwdLyt->setSpacing(0);
 
     QFrame *mInputPwdFrame = new QFrame(this);
     mInputPwdFrame->setFixedSize(432, 36);
@@ -57,9 +57,10 @@ void InputPwdDialog::setupInit()
     mstatus = false;
 
     mHintLabel = new QLabel(this);
-    mHintLabel->setFixedSize(432,36);
-    mHintLabel->setContentsMargins(80, 0, 0, 0);
-    mHintLabel->setStyleSheet("color:red;");
+    mHintLabel->setFixedSize(432,24);
+    mHintLabel->setContentsMargins(84, 0, 0, 0);
+    mHintLabel->setText(tr("Must be 1-8 characters long"));
+    mHintLabel->setStyleSheet("QLabel{color:red; font-size : 14px}");
 
     QFrame *mInputPwdFrame_1 = new QFrame(this);
     mInputPwdFrame_1->setFixedSize(432, 48);
@@ -95,10 +96,10 @@ void InputPwdDialog::setupInit()
         if (mgsettings->get(kVncPwdKey).toString() == "keyring") {
             mpwd->setText("");
             mConfirmBtn->setEnabled(false);
-            mHintLabel->setText(tr("Password can not be blank"));
             mHintLabel->setVisible(true);
         } else {
             mpwd->setText(QByteArray::fromBase64(mgsettings->get(kVncPwdKey).toString().toLatin1()));
+            mHintLabel->setVisible(false);
         }
     }
 
@@ -112,17 +113,15 @@ void InputPwdDialog::mpwdInputSlot(const QString &pwd)
     if (pwd.length() <= 8 && !pwd.isEmpty()) {
         QByteArray text = pwd.toLocal8Bit();
         secPwd = text.toBase64();
-        mHintLabel->setText("");
+        mHintLabel->setVisible(false);
     } else if (pwd.isEmpty()) {
         mConfirmBtn->setEnabled(false);
-        mHintLabel->setText(tr("Password can not be blank"));
-        mHintLabel->setStyleSheet("color:red;");
+        mHintLabel->setVisible(true);
         secPwd = NULL;
     } else {
-        mHintLabel->setText(tr("less than or equal to 8"));
-        mHintLabel->setStyleSheet("color:red;");
         mpwd->setText(pwd.mid(0, 8));
         QByteArray text = pwd.mid(0, 8).toLocal8Bit();
+        mHintLabel->setVisible(true);
         secPwd = text.toBase64();
     }
 }
