@@ -14,6 +14,7 @@
 #include <iostream>
 #include <QDebug>
 #include <QThread>
+#include <QProcess>
 
 #define UEVENT_BUFFER_SIZE 2048
 
@@ -44,14 +45,17 @@ void UsbThread::usbDeviceIdentify(const QString &str)
           &&  str.contains("pci")
           && !str.right( str.size() -1 - str.lastIndexOf('/') ).contains(":")
           && !str.right( str.size() -1 - str.lastIndexOf('/') ).contains(".")) {
-            emit keychangedsignal();
+            QString path = QString("/sys") + str.right(str.size() - 1 - str.indexOf('@'));
+            QString deviceType = getDeivceTypeFromPath(path);
+            if (deviceType == "07")
+                emit addsignal();
     }
     // unbind@/devices/pci0000:00/0000:00:11.0/0000:02:01.0/usb1/1-1
     if (  str.contains("unbind")
       &&  str.contains("pci")
       && !str.right( str.size() -1 - str.lastIndexOf('/') ).contains(":")
       && !str.right( str.size() -1 - str.lastIndexOf('/') ).contains(".")) {
-        emit keychangedsignal();
+        emit removesignal();
     }
     return;
 }
@@ -81,4 +85,34 @@ int UsbThread::init_sock()
         return -1;
     }
     return hotplug_sock;
+}
+
+QString UsbThread::getDeivceTypeFromPath(const QString &path)
+{
+    QString res;
+    QString bInterfaceClass;
+    QStringList bInterfaceClassPathList = getRetFromCommand(QStringList{"find", path ,"-name", "bInterfaceClass"}).split("\n");
+    for (int i = 0; i < bInterfaceClassPathList.size(); i++) {
+        bInterfaceClass = getRetFromCommand(QStringList{"cat", bInterfaceClassPathList.at(i)});
+        if (bInterfaceClass == "00" || bInterfaceClass == "ff"){
+            continue;
+        }
+        res = bInterfaceClass;
+    }
+    return res;
+}
+
+QString UsbThread::getRetFromCommand(const QStringList &command)
+{
+    QProcess proc;
+    QStringList options;
+    options << "-c"<< command.join(" ");
+    proc.closeWriteChannel();
+    proc.start("bash", options);
+    proc.waitForFinished();
+    QString res = QString(proc.readAll());
+    proc.close();
+    if(res.right(1) == "\n")
+        res.chop(1);
+    return res;
 }

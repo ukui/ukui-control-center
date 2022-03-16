@@ -17,9 +17,12 @@ public:
 private:
     void usbDeviceIdentify(const QString &str);
     int init_sock();
+    QString getDeivceTypeFromPath(const QString &path);
+    QString getRetFromCommand(const QStringList &command);
 
 signals:
-    void keychangedsignal();
+    void addsignal();
+    void removesignal();
 };
 
 #endif // USBTHREAD_H

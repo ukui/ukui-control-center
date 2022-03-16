@@ -27,10 +27,10 @@ void IconButton::reLoadIcon()
 QPixmap IconButton::loadSvg(const QString &path, int size) {
     int origSize = size;
     const auto ratio = qApp->devicePixelRatio();
-    if ( 2 == ratio) {
+    if (  ratio >= 2) {
         size += origSize;
-    } else if (3 == ratio) {
-        size += origSize;
+    } else {
+        size *= ratio;
     }
     QPixmap pixmap(size, size);
     QSvgRenderer renderer(path);

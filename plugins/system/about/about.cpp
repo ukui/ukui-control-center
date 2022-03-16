@@ -35,6 +35,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <QSvgRenderer>
 
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
@@ -152,7 +153,7 @@ void About::initUI(QWidget *widget)
     mInformationLayout->setContentsMargins(16, 16, 16, 8);
 
     mLogoLabel = new FixLabel(mInformationFrame);
-    mLogoLabel->setFixedSize(140,64);
+    mLogoLabel->setFixedSize(130, 50);
 
     mInformationLayout->addWidget(mLogoLabel);
 
@@ -253,9 +254,10 @@ void About::initUI(QWidget *widget)
     mHostNameLabel_2->setFixedHeight(30);
 
     mHostNameLabel_3 = new FixLabel(mHostNameFrame);
-    mHostNameLabel_3->setFixedSize(16 ,24);
+    mHostNameLabel_3->setFixedSize(16, 16);
     mHostNameLabel_3->setProperty("useIconHighlightEffect", 0x8);
     mHostNameLabel_3->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(mHostNameLabel_3->size()));
+    mHostNameLabel_3->setScaledContents(true);
 
     mHostNameLabel_2->installEventFilter(this);
     mHostNameLabel_3->installEventFilter(this);
@@ -554,7 +556,7 @@ void About::retranslateUi()
         process.startDetached(cmd);
     });
 
-    mEducateIconLabel->setPixmap(QPixmap(":/help-app.png").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+    mEducateIconLabel->setPixmap(QPixmap(":/help-app.png").scaled(mEducateIconLabel->size(), Qt::KeepAspectRatio));
     mEducateBtn->setText(tr("See user manual>>"));
     mEducateBtn->setStyleSheet("background: transparent;color:#2FB3E8;font-size:16px;font-family:Microsoft YaHei;"
                   "border-width:1px;text-decoration:underline;border-style:none none none;border-color:#2FB3E8;");
@@ -789,17 +791,17 @@ void About::setupVersionCompenent()
     if (!versionID.compare(vTen, Qt::CaseInsensitive) ||
             !versionID.compare(vTenEnhance, Qt::CaseInsensitive) ||
             !versionID.compare(vFour, Qt::CaseInsensitive)) {
-        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio)); //默认设置为light
+        mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-light.svg", 130, 50)); //默认设置为light
         if (themeStyleQgsettings != nullptr && themeStyleQgsettings->keys().contains(CONTAIN_STYLE_NAME_KEY)) {
             if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) { //深色模式改为dark
-                mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+                mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-dark.svg", 130, 50));
             }
             connect(themeStyleQgsettings,&QGSettings::changed,this,[=](QString changedKey) {  //监听主题变化
                 if (changedKey == CONTAIN_STYLE_NAME_KEY) {
                     if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) {
-                        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-dark.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+                        mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-dark.svg", 130, 50));
                     } else {
-                        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logo-light.svg").scaled(mLogoLabel->size(), Qt::KeepAspectRatio));
+                        mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-light.svg", 130, 50));
                     }
                 }
             });
@@ -808,7 +810,7 @@ void About::setupVersionCompenent()
         mActivationFrame->setVisible(false);
         mTrialLabel->setVisible(false);
         mAndLabel->setVisible(false);
-        mLogoLabel->setPixmap(QPixmap("://img/plugins/about/logoukui.svg"));
+        mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logoukui.svg", 130, 50));
     }
 
 }
@@ -1318,5 +1320,27 @@ void About::ChangedSlot()
                                         QDBusConnection::systemBus());
     QString userName = userInterface->property("RealName").value<QString>();
     mUsernameLabel_2->setText(userName);
+}
+
+QPixmap About::loadSvg(const QString &path, int width, int height) {
+    const auto ratio = qApp->devicePixelRatio();
+    if (ratio >= 2) {
+        width += width;
+        height += height;
+    } else {
+        height *= ratio;
+        width *= ratio;
+    }
+    QPixmap pixmap(width, height);
+    QSvgRenderer renderer(path);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter;
+    painter.begin(&pixmap);
+    renderer.render(&painter);
+    painter.end();
+
+    pixmap.setDevicePixelRatio(ratio);
+    return pixmap;
 }
 

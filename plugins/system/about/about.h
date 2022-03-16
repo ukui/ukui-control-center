@@ -96,6 +96,8 @@ private:
     QStringList  readFile(QString filepath);
     QString getTotalMemory();
 
+    QPixmap loadSvg(const QString &path, int width, int height);
+
     void setFrame_NoFrame(QFrame *frame);
     void setFrame_Box(QFrame *frame);
 private:

@@ -69,7 +69,14 @@ QWidget *Printer::pluginUi()
         UsbThread *UsbWorker = new UsbThread;
         UsbWorker->moveToThread(mThread);
         connect(mThread, &QThread::started, UsbWorker, &UsbThread::run);
-        connect(UsbWorker,&UsbThread::keychangedsignal,this,&Printer::refreshPrinterDevSlot);
+        connect(UsbWorker, &UsbThread::addsignal, this, [=](){
+            sleep(1);
+            refreshPrinterDevSlot();
+        });
+        connect(UsbWorker, &UsbThread::removesignal, this, [=](){
+            sleep(1);
+            refreshPrinterDevSlot();
+        });
         connect(mThread, &QThread::finished, UsbWorker, &UsbThread::deleteLater);
          mThread->start();
     }
@@ -198,10 +205,10 @@ void Printer::refreshPrinterDevSlot()
     for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
         // 获取打印机状态，3为空闲，4为忙碌，5为不可用
         const char*  value = cupsGetOption("printer-state", dest->num_options, dest->options);
-//        qDebug()<<dest->name<<"----------------"<<value;
+        qDebug()<<dest->name<<"----------------"<<value;
         if (value == nullptr)
             continue;
-         // 标志位flag用来判断该打印机是否可用，flag1用来决定是否新增窗口(为真则加)
+         // 标志位flag用来判断该打印机是否可用
          bool flag = (atoi(value) == 5 ? true : false);
 
         if (flag) {
