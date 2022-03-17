@@ -459,7 +459,9 @@ void CreateUserDialog::nameLegalityCheck(QString username){
     if (homeDir.contains(username) && nameTip.isEmpty()) {
      nameTip = tr("Username's folder exists, change another one");
     }
-
+    if (!ui->pwdLineEdit->text().isEmpty()) {
+        pwdLegalityCheck(ui->pwdLineEdit->text());
+    }
     ui->tipLabel->setText(nameTip);
 
     if (nameTip.isEmpty()){
