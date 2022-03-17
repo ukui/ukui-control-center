@@ -178,7 +178,7 @@
                <item>
                 <widget class="QLabel" name="label_2">
                  <property name="text">
-                  <string>Copyright © 2009-2021 KylinSoft. All rights reserved.</string>
+                  <string>Copyright © 2009-2022 KylinSoft. All rights reserved.</string>
                  </property>
                  <property name="wordWrap">
                   <bool>true</bool>
@@ -517,7 +517,7 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
                <item>
-                <widget class="QLabel" name="label_5">
+                <widget class="FixLabel" name="label_5">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>

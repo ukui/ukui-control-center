@@ -41,9 +41,13 @@
         <translation type="vanished">版权所有 @ 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.ui" line="181"/>
         <source>Copyright © 2009-2021 KylinSoft. All rights reserved.</source>
-        <translation>版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
+        <translation type="vanished">版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/messages-task/about/about.ui" line="181"/>
+        <source>Copyright © 2009-2022 KylinSoft. All rights reserved.</source>
+        <translation>版权所有 © 2009-2022 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
@@ -1267,51 +1271,51 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="414"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1014"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="415"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1015"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1313"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="439"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1040"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="440"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1041"/>
         <source>Turn on :</source>
         <translation>开启</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="472"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1074"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="473"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1075"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1413"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
         <extra-contents_path>/bluetooth/Bluetooth adapter</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="500"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1107"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="501"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1108"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1451"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="533"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1139"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="534"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1140"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="835"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1658"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="836"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1659"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1659"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1660"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可使用rfkill命令进行查看</translation>
     </message>
@@ -1326,8 +1330,8 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="712"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1179"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="713"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1180"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1518"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
@@ -1337,8 +1341,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="731"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1196"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="732"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1197"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1550"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
@@ -4801,7 +4805,7 @@ Please retry or relogin!</source>
     <message>
         <location filename="../../mainwindow.cpp" line="437"/>
         <location filename="../../mainwindow.cpp" line="639"/>
-        <location filename="../../mainwindow.cpp" line="804"/>
+        <location filename="../../mainwindow.cpp" line="803"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -4845,12 +4849,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="977"/>
+        <location filename="../../mainwindow.cpp" line="969"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="977"/>
+        <location filename="../../mainwindow.cpp" line="969"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -5909,7 +5913,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="101"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="148"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="146"/>
         <source>Auto proxy</source>
         <translation>开启自动代理</translation>
         <extra-contents_path>/proxy/Auto proxy</extra-contents_path>
@@ -5926,7 +5930,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.ui" line="302"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="150"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="148"/>
         <source>Manual proxy</source>
         <translation>开启手动代理</translation>
         <extra-contents_path>/proxy/Manual proxy</extra-contents_path>
@@ -6010,24 +6014,24 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="276"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="271"/>
         <source>The apt proxy  has been turned off and needs to be restarted to take effect</source>
         <translation>apt代理功能已关闭 需重启后生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="277"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="469"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="272"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="462"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="278"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="470"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="273"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="463"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="468"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="461"/>
         <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
         <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
     </message>
@@ -9902,8 +9906,8 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1982"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1997"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1986"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2001"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -9942,14 +9946,14 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1311"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1315"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="1151"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1311"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1318"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1315"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1322"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -9973,7 +9977,7 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1319"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1323"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>

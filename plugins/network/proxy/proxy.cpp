@@ -419,6 +419,8 @@ void Proxy::setAptProxy(QString host, QString port, bool status)
                                                              QDBusConnection::systemBus());
     if (mAptproxyDbus->isValid())
         QDBusReply<bool> reply = mAptproxyDbus->call("setaptproxy", host, port , status);
+    delete mAptproxyDbus;
+    mAptproxyDbus = nullptr;
 }
 
 QHash<QString, QVariant> Proxy::getAptProxy()
@@ -451,6 +453,8 @@ QHash<QString, QVariant> Proxy::getAptProxy()
            mAptInfo.insert(it.arg, it.out.variant());
        }
    }
+   delete mAptproxyDbus;
+   mAptproxyDbus = nullptr;
    return mAptInfo;
 }
 
