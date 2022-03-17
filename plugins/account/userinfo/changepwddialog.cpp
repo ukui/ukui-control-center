@@ -229,7 +229,7 @@ void ChangePwdDialog::setupConnect(){
 //        });
 
         connect(ui->curPwdLineEdit, &QLineEdit::textChanged, [=](QString txt){
-//            pwdLegalityCheck();
+            pwdLegalityCheck();
 
 //            ui->confirmPushBtn->setEnabled(false);
 
