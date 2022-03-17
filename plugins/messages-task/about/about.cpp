@@ -155,7 +155,7 @@ void About::setupKernelCompenent()
     QDBusInterface *memoryDbus = new QDBusInterface("com.control.center.qt.systemdbus",
                                                              "/",
                                                              "com.control.center.interface",
-                                                             QDBusConnection::systemBus());
+                                                             QDBusConnection::systemBus(), this);
    if (memoryDbus->isValid()) {
        QDBusReply<QString>  result = memoryDbus->call("getMemory");
        memorySize.append(result + "GB");
