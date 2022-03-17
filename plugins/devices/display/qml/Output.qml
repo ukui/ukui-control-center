@@ -60,9 +60,7 @@ QMLOutput {
         width: {
             if (allowResetSize === false && saveWidth > 0.0) {
             } else {
-                if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
-                    saveWidth = root.currentOutputWidth * screen.outputScale
-                }
+                saveWidth = root.currentOutputWidth * screen.outputScale
             }
             return saveWidth;
         }
@@ -70,9 +68,7 @@ QMLOutput {
         height: {
             if (allowResetSize === false && saveHeight > 0.0) {
             } else {
-                if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
-                    saveHeight = root.currentOutputHeight * screen.outputScale
-                }
+                saveHeight = root.currentOutputHeight * screen.outputScale
             }
             return saveHeight;
         }
