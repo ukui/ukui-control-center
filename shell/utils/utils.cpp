@@ -22,6 +22,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QSettings>
+#include <QRegularExpression>
 
 #ifdef WITHKYSEC
 #include <kysec/libkysec.h>
@@ -173,24 +174,34 @@ QVariantMap Utils::getModuleHideStatus() {
 }
 
 QString Utils::getCpuInfo() {
-    QString cpuType;
-    // 设置系统环境变量
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("LANG","en_US");
-    QProcess *process = new QProcess;
-    process->setProcessEnvironment(env);
-    process->start("bash" , QStringList() << "-c" << "lscpu | grep 'Model name' ");
-    process->waitForFinished();
-    QByteArray ba = process->readAllStandardOutput();
-    delete process;
+    QFile file("/proc/cpuinfo");
 
-    QString cpuinfo = QString(ba.data());
-    cpuinfo = cpuinfo.remove(QRegExp("\\s"));
-    QStringList list = cpuinfo.split(":");
-    cpuType = list.at(1);
+    if (file.open(QIODevice::ReadOnly)) {
+        QString buffer = file.readAll();
+        QStringList modelLine = buffer.split('\n').filter(QRegularExpression("^model name"));
+        QStringList modelLineWayland = buffer.split('\n').filter(QRegularExpression("^Hardware"));
+        QStringList lines = buffer.split('\n');
 
-    return cpuType;
+        if (modelLine.isEmpty()) {
+            if (modelLineWayland.isEmpty()) {
+                return "Unknown";
+            }
+            modelLine = modelLineWayland;
+        }
+
+
+        int count = lines.filter(QRegularExpression("^processor")).count();
+
+        QString result;
+        result.append(modelLine.first().split(':').at(1));
+        result = result.trimmed();
+
+        return result;
+    }
+
+    return QString();
 }
+
 
 bool Utils::isExistEffect() {
     QString filename = QDir::homePath() + "/.config/ukui-kwinrc";
