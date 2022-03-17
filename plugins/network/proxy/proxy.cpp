@@ -416,7 +416,7 @@ void Proxy::setAptProxy(QString host, QString port, bool status)
     QDBusInterface *mAptproxyDbus = new QDBusInterface("com.control.center.qt.systemdbus",
                                                              "/",
                                                              "com.control.center.interface",
-                                                             QDBusConnection::systemBus());
+                                                             QDBusConnection::systemBus(), this);
     if (mAptproxyDbus->isValid())
         QDBusReply<bool> reply = mAptproxyDbus->call("setaptproxy", host, port , status);
 }
@@ -427,7 +427,7 @@ QHash<QString, QVariant> Proxy::getAptProxy()
     QDBusInterface *mAptproxyDbus = new QDBusInterface("com.control.center.qt.systemdbus",
                                                              "/",
                                                              "com.control.center.interface",
-                                                             QDBusConnection::systemBus());
+                                                             QDBusConnection::systemBus(), this);
    if (mAptproxyDbus->isValid()) {
        QDBusMessage result = mAptproxyDbus->call("getaptproxy");
 
