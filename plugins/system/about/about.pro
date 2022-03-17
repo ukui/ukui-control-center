@@ -1,7 +1,7 @@
 include(../../../env.pri)
 
 QT       += widgets dbus KI18n KCoreAddons \
-             widgets dbus concurrent
+             widgets dbus concurrent svg
 TEMPLATE = lib
 CONFIG += plugin \
           link_pkgconfig
