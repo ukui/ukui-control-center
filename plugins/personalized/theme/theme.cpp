@@ -70,7 +70,7 @@
 #define PERSONALSIE_SAVE_TRAN_KEY "save-transparency"
 
 const QString kDefCursor =           "DMZ-White";
-const QString UbuntuVesionEnhance =  "20.10";
+const QString UbuntuVesionEnhance =  "22.04";
 const QString kXder =                "XRender";
 
 const int transparency = 85;
@@ -464,7 +464,7 @@ void Theme::initIconTheme() {
     }
     foreach (QString themedir, IconThemeList) {
         count++;
-        if ((Utils::isCommunity() && (!themedir.compare("ukui") || !themedir.compare("ukui-classical")))
+        if ((Utils::isCommunity() && (!themedir.compare("ukui") || !themedir.compare("ukui-classical") || !themedir.compare("ukui-fashion")))
                 || (!Utils::isCommunity() && themedir.startsWith("ukui-icon-theme-")) ||
                 (Utils::isTablet() && (themedir.startsWith("ukui-hp") || !themedir.compare("ukui") || themedir.startsWith("ukui-classical")))) {
             if ("ukui-icon-theme-basic" == themedir  || "ukui-icon-theme-default" == themedir) {

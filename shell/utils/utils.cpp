@@ -189,7 +189,7 @@ bool Utils::isCommunity()
 
     QString versionID = osSettings.value("VERSION_ID").toString();
 
-    if (versionID.compare("20.04", Qt::CaseSensitive)) {
+    if (versionID.compare("22.04", Qt::CaseSensitive)) {
         return false;
     }
     return true;
