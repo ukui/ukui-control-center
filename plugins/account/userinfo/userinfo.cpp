@@ -430,6 +430,7 @@ void UserInfo::initComponent(){
 #endif
 
     ui->listWidget->setStyleSheet("QListWidget::Item:hover{background:palette(base);}");
+    ui->listWidget->setSelectionMode(QAbstractItemView::NoSelection);
 
     addWgt = new HoverWidget("");
     addWgt->setObjectName("addwgt");
