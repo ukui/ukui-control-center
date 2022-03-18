@@ -44,7 +44,8 @@ protected Q_SLOTS:
 Q_SIGNALS:
     void changed();
     void scaleChanged(double scale);
-
+    void toSetScreenPos();
+    
 protected:
     virtual void initUi();
     double getScreenScale();

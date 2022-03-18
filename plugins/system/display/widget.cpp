@@ -1354,6 +1354,11 @@ void Widget::save()
         }
     }
 
+    for (QMLOutput *qmlOutput : mScreen->outputs()) {
+        if (!qmlOutput->allowResetSize()) {
+            qmlOutput->setAllowResetSize(true);
+        }
+    }
     if (isRestoreConfig()) {
         auto *op = new KScreen::SetConfigOperation(mPrevSaveConfig);
         op->exec();
@@ -1641,6 +1646,18 @@ void Widget::initConnection()
     });
 
     mControlPanel = new ControlPanel(this);
+
+    connect(mControlPanel, &ControlPanel::toSetScreenPos, this, [=](const KScreen::OutputPtr &output){
+        for (QMLOutput *qmlOutput : mScreen->outputs()) {
+            if (output && qmlOutput->output() == output) {
+                qmlOutput->currentOutputSizeChanged(); //触发qml修改长和宽
+                qmlOutput->setAllowResetSize(false);   //使save时不再去修改qml的长和宽，save后复位
+                qmlOutput->updateRootProperties();
+                mScreen->setScreenPos(qmlOutput, false);
+            }
+        }
+    });
+
     connect(mControlPanel, &ControlPanel::changed, this, &Widget::changed);
     connect(this, &Widget::changed, this, [=]() {
             changedSlot();
