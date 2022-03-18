@@ -45,7 +45,8 @@ QMLOutput::QMLOutput(QQuickItem *parent):
     m_topDock(nullptr),
     m_rightDock(nullptr),
     m_bottomDock(nullptr),
-    m_isCloneMode(false)
+    m_isCloneMode(false),
+    m_allowResetSize(true)
 {
     connect(this, &QMLOutput::xChanged,
             this, static_cast<void(QMLOutput::*)()>(&QMLOutput::moved));
@@ -294,6 +295,19 @@ void QMLOutput::setOutputY(int y)
     pos.setY(y);
     m_output->setPos(pos);
     Q_EMIT outputYChanged();
+}
+
+void QMLOutput::setAllowResetSize(bool t_allowResetSize)
+{
+    if (t_allowResetSize != m_allowResetSize) {
+        m_allowResetSize = t_allowResetSize;
+        Q_EMIT allowResetSizeChanged();
+    }
+}
+
+bool QMLOutput::allowResetSize() const
+{
+    return m_allowResetSize;
 }
 
 bool QMLOutput::isCloneModeShow() const

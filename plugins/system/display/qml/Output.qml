@@ -38,6 +38,8 @@ QMLOutput {
     property bool isDragEnabled: true;
     property bool isToggleButtonVisible: false;
     property bool hasMoved: false;
+    property var saveWidth: 0.0;
+    property var saveHeight: 0.0;
 
     width: monitorMouseArea.width;
     height: monitorMouseArea.height;
@@ -56,19 +58,27 @@ QMLOutput {
     MouseArea {
         id: monitorMouseArea;
         width: {
-            if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
-               return root.currentOutputWidth * screen.outputScale;
+            if (allowResetSize === false && saveWidth > 0.0) {
             } else {
-               return root.currentOutputHeight * screen.outputScale;
+                if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
+                    saveWidth = root.currentOutputWidth * screen.outputScale
+                } else {
+                    saveWidth = root.currentOutputHeight * screen.outputScale
+                }
             }
+            return saveWidth;
         }
 
         height: {
-            if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
-                return root.currentOutputHeight * screen.outputScale;
+            if (allowResetSize === false && saveHeight > 0.0) {
             } else {
-                return root.currentOutputWidth * screen.outputScale;
+                if (output.rotation === KScreenOutput.None || output.rotation === KScreenOutput.Inverted) {
+                    saveHeight = root.currentOutputHeight * screen.outputScale
+                } else {
+                    saveHeight = root.currentOutputWidth * screen.outputScale
+                }
             }
+            return saveHeight;
         }
 
         anchors.centerIn: parent;

@@ -305,6 +305,7 @@ void OutputConfig::slotRotationChanged(int index)
     mOutput->setRotation(rotation);
     mOutput->blockSignals(false);
 
+    Q_EMIT toSetScreenPos();//要在save之前修正坐标
     Q_EMIT changed();
 }
 

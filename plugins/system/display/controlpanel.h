@@ -38,6 +38,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void changed();
     void scaleChanged(double scale);
+    void toSetScreenPos(const KScreen::OutputPtr &output);
 
 private Q_SLOTS:
     void addOutput(const KScreen::OutputPtr &output, bool connectChanged);
