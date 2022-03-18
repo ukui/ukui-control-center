@@ -541,7 +541,7 @@ KScreen::OutputPtr Widget::findOutput(const KScreen::ConfigPtr &config, const QV
 
 void Widget::setHideModuleInfo()
 {
-    mCPU = getCpuInfo();
+    mCPU = Utils::getCpuInfo();
     if (!mCPU.startsWith(kCpu, Qt::CaseInsensitive)) {
         ui->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
         ui->quickWidget->setClearColor(Qt::transparent);
@@ -695,30 +695,6 @@ bool Widget::isRestoreConfig()
         break;
     }
     return res;
-}
-
-QString Widget::getCpuInfo()
-{
-    QDBusInterface youkerInterface("com.kylin.assistant.systemdaemon",
-                                   "/com/kylin/assistant/systemdaemon",
-                                   "com.kylin.assistant.systemdaemon",
-                                   QDBusConnection::systemBus());
-    if (!youkerInterface.isValid()) {
-        qCritical() << "Create youker Interface Failed When Get Computer info: " <<
-            QDBusConnection::systemBus().lastError();
-        return QString();
-    }
-
-    QDBusReply<QMap<QString, QVariant> > cpuinfo;
-    QString cpuType;
-    cpuinfo = youkerInterface.call("get_cpu_info");
-    if (!cpuinfo.isValid()) {
-        qDebug() << "cpuinfo is invalid" << endl;
-    } else {
-        QMap<QString, QVariant> res = cpuinfo.value();
-        cpuType = res["CpuVersion"].toString();
-    }
-    return cpuType;
 }
 
 bool Widget::isCloneMode()

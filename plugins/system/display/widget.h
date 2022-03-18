@@ -163,7 +163,6 @@ private:
     bool isLaptopScreen();
     bool isVisibleBrightness();
 
-    QString getCpuInfo();
     QString getMonitorType();
 
     int getPrimaryScreenID();
