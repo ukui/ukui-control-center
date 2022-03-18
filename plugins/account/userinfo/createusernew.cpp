@@ -17,15 +17,19 @@
 
 #include <kylin-chkname.h>
 
+#include "../../../shell/utils/utils.h"
+
 #define USER_LENGTH 32
 #define NICKNAME_LENGTH 32
-#define DEFAULTFACE "/usr/share/ukui/faces/default.png"
+#define DEFAULTFACECOMMUNITY "/usr/share/ukui/faces/01-default-community.png"
+#define DEFAULTFACECOMMERCIAL "/usr/share/ukui/faces/01-default-commercial.png"
+#define DEFAULTFACE (Utils::isCommunity())?DEFAULTFACECOMMUNITY:DEFAULTFACECOMMERCIAL
 
 CreateUserNew::CreateUserNew(QStringList allUsers, QWidget *parent) :
     QDialog(parent),
     _allNames(allUsers)
 {
-    setFixedSize(QSize(520, 608));
+    setFixedSize(QSize(520, 572));
     setWindowTitle(tr("CreateUserNew"));
 
     //确认密码检测是否开启
@@ -48,28 +52,55 @@ void CreateUserNew::initUI(){
     usernameLabel = new QLabel;
     usernameLabel->setFixedSize(100, 24);
     usernameLabel->setText(tr("UserName"));
+    usernameTipLabel = new QLabel();
+    QFont ft;
+    ft.setPixelSize(14);
+    usernameTipLabel->setFont(ft);
+    usernameTipLabel->setFixedSize(QSize(340, 24));
+    usernameTipLabel->setStyleSheet("color:red;");
+
     nicknameLabel = new QLabel;
     nicknameLabel->setFixedSize(100, 24);
     nicknameLabel->setText(tr("NickName"));
+    nicknameTipLabel = new QLabel();
+    nicknameTipLabel->setFont(ft);
+    nicknameTipLabel->setFixedSize(QSize(340, 24));
+    nicknameTipLabel->setStyleSheet("color:red;");
+
+    hostnameLabel = new QLabel(tr("HostName"));
+    hostnameLabel->setFixedSize(100, 24);
+    hostnameTipLabel = new QLabel();
+    hostnameTipLabel->setFont(ft);
+    hostnameTipLabel->setFixedSize(QSize(340, 24));
+    hostnameTipLabel->setStyleSheet("color:red;");
+
     newPwdLabel = new QLabel;
     newPwdLabel->setFixedSize(100, 24);
     newPwdLabel->setText(tr("Pwd"));
+    newpwdTipLabel = new QLabel();
+    newpwdTipLabel->setFont(ft);
+    newpwdTipLabel->setFixedSize(QSize(340, 24));
+    newpwdTipLabel->setStyleSheet("color:red;");
+
     surePwdLabel = new QLabel;
     surePwdLabel->setFixedSize(100, 24);
     surePwdLabel->setText(tr("SurePwd"));
     tipLabel = new QLabel;
+    tipLabel->setFont(ft);
     tipLabel->setFixedSize(340, 36);
     tipLabel->setStyleSheet("color:red;");
 
     usernameLineEdit = new QLineEdit;
-    usernameLineEdit->setFixedWidth(340);
+    usernameLineEdit->setFixedSize(340, 36);
     nicknameLineEdit = new QLineEdit;
-    nicknameLineEdit->setFixedWidth(340);
+    nicknameLineEdit->setFixedSize(340, 36);
+    hostnameLineEdit = new QLineEdit;
+    hostnameLineEdit->setFixedSize(340, 36);
     newPwdLineEdit = new QLineEdit;
-    newPwdLineEdit->setFixedWidth(340);
+    newPwdLineEdit->setFixedSize(340, 36);
     newPwdLineEdit->setEchoMode(QLineEdit::Password);
     surePwdLineEdit = new QLineEdit;
-    surePwdLineEdit->setFixedWidth(340);
+    surePwdLineEdit->setFixedSize(340, 36);
     surePwdLineEdit->setEchoMode(QLineEdit::Password);
 
     //用户名
@@ -79,6 +110,11 @@ void CreateUserNew::initUI(){
     usernameHorLayout->addWidget(usernameLabel);
     usernameHorLayout->addStretch();
     usernameHorLayout->addWidget(usernameLineEdit);
+    usernameTipHorLayout = new QHBoxLayout;
+    usernameTipHorLayout->setSpacing(0);
+    usernameTipHorLayout->setMargin(0);
+    usernameTipHorLayout->addStretch();
+    usernameTipHorLayout->addWidget(usernameTipLabel);
 
     //用户昵称
     nicknameHorLayout = new QHBoxLayout;
@@ -87,6 +123,24 @@ void CreateUserNew::initUI(){
     nicknameHorLayout->addWidget(nicknameLabel);
     nicknameHorLayout->addStretch();
     nicknameHorLayout->addWidget(nicknameLineEdit);
+    nicknameTipHorLayout = new QHBoxLayout;
+    nicknameTipHorLayout->setSpacing(0);
+    nicknameTipHorLayout->setMargin(0);
+    nicknameTipHorLayout->addStretch();
+    nicknameTipHorLayout->addWidget(nicknameTipLabel);
+
+    // 计算机名
+    hostnameHorLayout = new QHBoxLayout;
+    hostnameHorLayout->setSpacing(8);
+    hostnameHorLayout->setMargin(0);
+    hostnameHorLayout->addWidget(hostnameLabel);
+    hostnameHorLayout->addStretch();
+    hostnameHorLayout->addWidget(hostnameLineEdit);
+    hostnameTipHorLayout = new QHBoxLayout;
+    hostnameTipHorLayout->setSpacing(0);
+    hostnameTipHorLayout->setMargin(0);
+    hostnameTipHorLayout->addStretch();
+    hostnameTipHorLayout->addWidget(hostnameTipLabel);
 
     //密码
     newPwdHorLayout = new QHBoxLayout;
@@ -95,6 +149,11 @@ void CreateUserNew::initUI(){
     newPwdHorLayout->addWidget(newPwdLabel);
     newPwdHorLayout->addStretch();
     newPwdHorLayout->addWidget(newPwdLineEdit);
+    newPwdTipHorLayout = new QHBoxLayout;
+    newPwdTipHorLayout->setSpacing(0);
+    newPwdTipHorLayout->setMargin(0);
+    newPwdTipHorLayout->addStretch();
+    newPwdTipHorLayout->addWidget(newpwdTipLabel);
 
     //确认密码
     surePwdHorLayout = new QHBoxLayout;
@@ -146,27 +205,29 @@ void CreateUserNew::initUI(){
     //管理员RadioButton布局
     admin1VerLayout = new QVBoxLayout;
     admin1VerLayout->setSpacing(0);
-    admin1VerLayout->setContentsMargins(0, 4, 0, 0);
+    admin1VerLayout->setContentsMargins(0, 20, 0, 0);
     admin1VerLayout->addWidget(adminRadioBtn);
     admin1VerLayout->addStretch();
 
     admin2VerLayout = new QVBoxLayout;
-    admin2VerLayout->setSpacing(4);
+    admin2VerLayout->setSpacing(0);
     admin2VerLayout->setMargin(0);
+    admin2VerLayout->addStretch();
     admin2VerLayout->addWidget(adminLabel);
     admin2VerLayout->addWidget(adminDetailLabel);
+    admin2VerLayout->addStretch();
 
     adminHorLayout = new QHBoxLayout;
     adminHorLayout->setSpacing(8);
-    adminHorLayout->setContentsMargins(16, 14, 0, 0);
+    adminHorLayout->setContentsMargins(16, 0, 0, 0);
     adminHorLayout->addLayout(admin1VerLayout);
     adminHorLayout->addLayout(admin2VerLayout);
     adminHorLayout->addStretch();
 
     //管理员区域
     adminFrame = new QFrame;
-    adminFrame->setMinimumSize(QSize(473, 88));
-    adminFrame->setMaximumSize(QSize(16777215, 88));
+    adminFrame->setMinimumSize(QSize(473, 78));
+    adminFrame->setMaximumSize(QSize(16777215, 78));
     adminFrame->setFrameShape(QFrame::Box);
     adminFrame->setFrameStyle(QFrame::Plain);
     adminFrame->setLayout(adminHorLayout);
@@ -175,27 +236,29 @@ void CreateUserNew::initUI(){
     //标准用户RadioButton布局
     standard1VerLayout = new QVBoxLayout;
     standard1VerLayout->setSpacing(0);
-    standard1VerLayout->setContentsMargins(0, 4, 0, 0);
+    standard1VerLayout->setContentsMargins(0, 20, 0, 0);
     standard1VerLayout->addWidget(standardRadioBtn);
     standard1VerLayout->addStretch();
 
     standard2VerLayout = new QVBoxLayout;
-    standard2VerLayout->setSpacing(4);
+    standard2VerLayout->setSpacing(0);
     standard2VerLayout->setMargin(0);
+    standard2VerLayout->addStretch();
     standard2VerLayout->addWidget(standardLabel);
     standard2VerLayout->addWidget(standardDetailLabel);
+    standard2VerLayout->addStretch();
 
     standardHorLayout = new QHBoxLayout;
     standardHorLayout->setSpacing(8);
-    standardHorLayout->setContentsMargins(16, 14, 0, 0);
+    standardHorLayout->setContentsMargins(16, 0, 0, 0);
     standardHorLayout->addLayout(standard1VerLayout);
     standardHorLayout->addLayout(standard2VerLayout);
     standardHorLayout->addStretch();
 
     //标准用户区域
     standardFrame = new QFrame;
-    standardFrame->setMinimumSize(QSize(473, 88));
-    standardFrame->setMaximumSize(QSize(16777215, 88));
+    standardFrame->setMinimumSize(QSize(473, 80));
+    standardFrame->setMaximumSize(QSize(16777215, 80));
     standardFrame->setFrameShape(QFrame::Box);
     standardFrame->setFrameStyle(QFrame::Plain);
     standardFrame->setLineWidth(1);
@@ -215,18 +278,26 @@ void CreateUserNew::initUI(){
     bottomHorLayout->addWidget(confirmBtn);
 
     mainVerLayout = new QVBoxLayout;
+    mainVerLayout->setContentsMargins(24, 28, 24, 16);
     mainVerLayout->setSpacing(0);
-    mainVerLayout->setContentsMargins(24, 35, 24, 24);
     mainVerLayout->addLayout(usernameHorLayout);
+    mainVerLayout->addLayout(usernameTipHorLayout);
+
     mainVerLayout->addLayout(nicknameHorLayout);
+    mainVerLayout->addLayout(nicknameTipHorLayout);
+
+//    mainVerLayout->addLayout(hostnameHorLayout);
+//    mainVerLayout->addLayout(hostnameTipHorLayout);
+
     mainVerLayout->addLayout(newPwdHorLayout);
+    mainVerLayout->addLayout(newPwdTipHorLayout);
+
     mainVerLayout->addLayout(surePwdHorLayout);
     mainVerLayout->addLayout(tipHorLayout);
-    mainVerLayout->addSpacing(24);
     mainVerLayout->addLayout(typeNoteHorLayout);
     mainVerLayout->addWidget(adminFrame);
     mainVerLayout->addWidget(standardFrame);
-    mainVerLayout->addSpacing(32);
+    mainVerLayout->addSpacing(24);
     mainVerLayout->addLayout(bottomHorLayout);
 
     usernameLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -244,6 +315,11 @@ void CreateUserNew::initUI(){
 void CreateUserNew::setConnect(){
 
     connect(usernameLineEdit, &QLineEdit::textEdited, this, [=](QString txt){
+        if (usernameLineEdit->text().length() > USER_LENGTH) {
+            usernameLineEdit->setText(oldName);
+        } else {
+            oldName = txt;
+        }
         nameLegalityCheck(txt);
     });
 
@@ -265,16 +341,6 @@ void CreateUserNew::setConnect(){
         }
 
         setCunTextDynamic(tipLabel, surePwdTip);
-
-        if (surePwdTip.isEmpty()){
-            if (!newPwdTip.isEmpty()){
-                setCunTextDynamic(tipLabel, newPwdTip);
-            } else if (!userNameTip.isEmpty()){
-                setCunTextDynamic(tipLabel, userNameTip);
-            } else if (!nickNameTip.isEmpty()){
-                setCunTextDynamic(tipLabel, nickNameTip);
-            }
-        }
 
         refreshConfirmBtnStatus();
     });
@@ -350,6 +416,15 @@ void CreateUserNew::refreshConfirmBtnStatus(){
         confirmBtn->setEnabled(false);
     else
         confirmBtn->setEnabled(true);
+
+    if (((usernameLineEdit->text().length() >= USER_LENGTH) || (nicknameLineEdit->text().length() >= NICKNAME_LENGTH))
+            && newPwdTip.isEmpty() && surePwdTip.isEmpty()
+            && !usernameLineEdit->text().isEmpty()
+            && !nicknameLineEdit->text().isEmpty()
+            && !newPwdLineEdit->text().isEmpty()
+            && !surePwdLineEdit->text().isEmpty()) {
+        confirmBtn->setEnabled(true);
+    }
 }
 
 bool CreateUserNew::isHomeUserExists(QString username)
@@ -389,23 +464,15 @@ void CreateUserNew::nameLegalityCheck2(QString nickname){
         nickNameTip = tr("The nick name cannot be empty");
     } else if (_allNames.contains(nickname)){
         nickNameTip = tr("nickName already in use.");
-    } else if(nickname.length() >= NICKNAME_LENGTH) {
+    } else if(nickname.length() > NICKNAME_LENGTH) {
+        nicknameLineEdit->setText(oldNickName);
         nickNameTip = tr("nickName length must less than %1 letters!").arg(NICKNAME_LENGTH);
     } else {
+        oldNickName = nickname;
         nickNameTip = tr("");
     }
 
-    setCunTextDynamic(tipLabel, nickNameTip);
-
-    if (nickNameTip.isEmpty()){
-        if (!userNameTip.isEmpty()){
-            setCunTextDynamic(tipLabel, userNameTip);
-        } else if (!newPwdTip.isEmpty()){
-            setCunTextDynamic(tipLabel, newPwdTip);
-        } else if (!surePwdTip.isEmpty()){
-            setCunTextDynamic(tipLabel, surePwdTip);
-        }
-    }
+    setCunTextDynamic(nicknameTipLabel, nickNameTip);
 
     refreshConfirmBtnStatus();
 
@@ -426,18 +493,11 @@ void CreateUserNew::nameLegalityCheck(QString username){
         userNameTip = tr("Username's folder exists, change another one");
     }
 
-    setCunTextDynamic(tipLabel, userNameTip);
-
-    if (userNameTip.isEmpty()){
-
-        if (!newPwdTip.isEmpty()){
-            setCunTextDynamic(tipLabel, newPwdTip);
-        } else if (!surePwdTip.isEmpty()){
-            setCunTextDynamic(tipLabel, surePwdTip);
-        } else if (!nickNameTip.isEmpty()){
-            setCunTextDynamic(tipLabel, nickNameTip);
-        }
+    if (!newPwdLineEdit->text().isEmpty()) {
+        pwdLegalityCheck(newPwdLineEdit->text());
     }
+
+    setCunTextDynamic(usernameTipLabel, userNameTip);
 
     refreshConfirmBtnStatus();
 }
@@ -489,16 +549,9 @@ void CreateUserNew::pwdLegalityCheck(QString pwd){
         }
     }
 
-    setCunTextDynamic(tipLabel, newPwdTip);
-    if (newPwdTip.isEmpty()){
-        if (!surePwdTip.isEmpty()){
-            setCunTextDynamic(tipLabel, surePwdTip);
-        } else if (!userNameTip.isEmpty()){
-            setCunTextDynamic(tipLabel, userNameTip);
-        } else if (!nickNameTip.isEmpty()){
-            setCunTextDynamic(tipLabel, nickNameTip);
-        }
-    }
+    setCunTextDynamic(newpwdTipLabel, newPwdTip);
+
+    setCunTextDynamic(tipLabel, surePwdTip);
 
     refreshConfirmBtnStatus();
 }
@@ -548,6 +601,30 @@ bool CreateUserNew::eventFilter(QObject *watched, QEvent *event){
                 adminRadioBtn->setChecked(true);
             } else if (watched == standardFrame){
                 standardRadioBtn->setChecked(true);
+            }
+        }
+    }
+
+    if (event->type() == QEvent::FocusOut) {
+        if (watched == usernameLineEdit) {
+            if (usernameLineEdit->text().isEmpty()) {
+                userNameTip = tr("Username's length must be between 1 and %1 characters!").arg(USER_LENGTH);
+                setCunTextDynamic(usernameTipLabel, userNameTip);
+            }
+        } else if (watched == nicknameLineEdit) {
+            if (nicknameLineEdit->text().isEmpty()) {
+                nickNameTip = tr("The nick name cannot be empty");
+                setCunTextDynamic(nicknameTipLabel, nickNameTip);
+            }
+        } else if (watched == newPwdLineEdit) {
+            if (newPwdLineEdit->text().isEmpty()) {
+                newPwdTip = tr("new pwd cannot be empty!");
+                setCunTextDynamic(newpwdTipLabel, newPwdTip);
+            }
+        } else if (watched == surePwdLineEdit) {
+            if (surePwdLineEdit->text().isEmpty()) {
+                surePwdTip = tr("sure pwd cannot be empty!");
+                setCunTextDynamic(tipLabel, surePwdTip);
             }
         }
     }

@@ -92,14 +92,23 @@ void ChangeUserPwd::makeSurePwqualityEnabled(){
 
 void ChangeUserPwd::initUI(){
 
-    setFixedSize(QSize(480, 242));
+    setFixedSize(QSize(480, 266));
     setWindowTitle(tr("Change password"));
 
     //当前密码
     currentPwdLabel = new QLabel();
-    currentPwdLabel->setFixedWidth(100);
+    currentPwdLabel->setFixedSize(100,24);
     setTextDynamicInPwd(currentPwdLabel, tr("Current Pwd"));
-
+    curTipLabel = new QLabel();
+    QFont ft;
+    ft.setPixelSize(14);
+    curTipLabel->setFont(ft);
+    curTipLabel->setFixedSize(QSize(322, 24));
+    curTipLabel->setStyleSheet("color:red;");
+    curTipHorLayout = new QHBoxLayout;
+    curTipHorLayout->setContentsMargins(110, 0, 0, 0);
+    curTipHorLayout->addStretch();
+    curTipHorLayout->addWidget(curTipLabel);
     currentPwdLineEdit = new QLineEdit();
     currentPwdLineEdit->setFixedSize(QSize(322, 36));
     currentPwdLineEdit->setPlaceholderText(tr("Current Pwd"));
@@ -130,9 +139,16 @@ void ChangeUserPwd::initUI(){
 
     //新密码
     newPwdLabel = new QLabel();
-    newPwdLabel->setFixedWidth(100);
+    newPwdLabel->setFixedSize(100,24);
     setTextDynamicInPwd(newPwdLabel, tr("New Pwd"));
-
+    newTipLabel = new QLabel();
+    newTipLabel->setFont(ft);
+    newTipLabel->setFixedSize(QSize(322, 24));
+    newTipLabel->setStyleSheet("color:red;");
+    newTipHorLayout = new QHBoxLayout;
+    newTipHorLayout->setContentsMargins(110, 0, 0, 0);
+    newTipHorLayout->addStretch();
+    newTipHorLayout->addWidget(newTipLabel);
     newPwdLineEdit = new QLineEdit();
     newPwdLineEdit->setFixedSize(QSize(322, 36));
     newPwdLineEdit->setPlaceholderText(tr("New Pwd"));
@@ -163,7 +179,7 @@ void ChangeUserPwd::initUI(){
 
     //确认密码
     surePwdLabel = new QLabel();
-    surePwdLabel->setFixedWidth(100);
+    surePwdLabel->setFixedSize(100,24);
     setTextDynamicInPwd(surePwdLabel, tr("Sure Pwd"));
 
     surePwdLineEdit = new QLineEdit();
@@ -195,12 +211,13 @@ void ChangeUserPwd::initUI(){
     surePwdHorLayout->addWidget(surePwdLineEdit);
 
     tipLabel = new QLabel();
+    tipLabel->setFont(ft);
     tipLabel->setFixedSize(QSize(322, 30));
     tipLabel->setStyleSheet("color:red;");
 
     tipHorLayout = new QHBoxLayout;
     tipHorLayout->setSpacing(0);
-    tipHorLayout->setContentsMargins(0, 0, 0, 0);
+    tipHorLayout->setContentsMargins(110, 0, 0, 0);
     tipHorLayout->addStretch();
     tipHorLayout->addWidget(tipLabel);
 
@@ -212,12 +229,14 @@ void ChangeUserPwd::initUI(){
 
     //中部输入区域
     contentVerLayout = new QVBoxLayout;
-    contentVerLayout->setSpacing(16);
+    contentVerLayout->setSpacing(0);
     contentVerLayout->setContentsMargins(24, 0, 35, 0);
     if (isCurrentUser){
         contentVerLayout->addLayout(currentPwdHorLayout);
+        contentVerLayout->addLayout(curTipHorLayout);
     }
     contentVerLayout->addLayout(newPwdHorLayout);
+    contentVerLayout->addLayout(newTipHorLayout);
     contentVerLayout->addLayout(surePwdWithTipVerLayout);
 
     //底部“取消”、“确定”按钮
@@ -271,15 +290,7 @@ void ChangeUserPwd::setupConnect(){
             surePwdTip = "";
         }
 
-        updateTipLableInfo(surePwdTip);
-
-        if (surePwdTip.isEmpty()){
-            if (!newPwdTip.isEmpty()){
-                updateTipLableInfo(newPwdTip);
-            } else if (!curPwdTip.isEmpty()){
-                updateTipLableInfo(curPwdTip);
-            }
-        }
+        updateTipLableInfo(tipLabel,surePwdTip);
 
         refreshConfirmBtnStatus();
     });
@@ -352,7 +363,7 @@ void ChangeUserPwd::setupConnect(){
                     curPwdTip = tr("Authentication failed, input authtok again!");
                 }
 
-                updateTipLableInfo(curPwdTip);
+                updateTipLableInfo(tipLabel,curPwdTip);
 
                 //重置当前密码输入框
                 currentPwdLineEdit->setText("");
@@ -371,7 +382,7 @@ void ChangeUserPwd::setupConnect(){
         connect(currentPwdLineEdit, &QLineEdit::textEdited, [=](QString txt){
             if (!txt.isEmpty()){
                 curPwdTip = "";
-                updateTipLableInfo(curPwdTip);
+                updateTipLableInfo(curTipLabel, curPwdTip);
 
                 //再次校验新密码，需要保证"与旧密码相同"等条件生效
                 checkPwdLegality();
@@ -432,12 +443,12 @@ void ChangeUserPwd::setupStatus(QString n){
     refreshConfirmBtnStatus();
 }
 
-void ChangeUserPwd::updateTipLableInfo(QString info){
+void ChangeUserPwd::updateTipLableInfo(QLabel *Label,QString info){
 
-    if (setTextDynamicInPwd(tipLabel, info)){
-        tipLabel->setToolTip(info);
+    if (setTextDynamicInPwd(Label, info)){
+        Label->setToolTip(info);
     } else {
-        tipLabel->setToolTip("");
+        Label->setToolTip("");
     }
 }
 
@@ -523,7 +534,6 @@ void ChangeUserPwd::checkPwdLegality(){
         }
     }
 
-
     //防止先输入确认密码，再输入密码后tipLabel无法刷新
     if (!surePwdLineEdit->text().isEmpty()){
         if (QString::compare(newPwdLineEdit->text(), surePwdLineEdit->text()) == 0){
@@ -534,15 +544,14 @@ void ChangeUserPwd::checkPwdLegality(){
     }
 
     //设置新密码的提示
-    updateTipLableInfo(newPwdTip);
-
-    if (newPwdTip.isEmpty()){
-        if (!surePwdTip.isEmpty()){
-            updateTipLableInfo(surePwdTip);
-        } else if (!curPwdTip.isEmpty()){
-            updateTipLableInfo(curPwdTip);
-        }
+    if (!newPwdLineEdit->text().isEmpty() || newPwdLineEdit->hasFocus()) {
+        updateTipLableInfo(newTipLabel,newPwdTip);
     }
+
+    updateTipLableInfo(tipLabel,surePwdTip);
+
+    updateTipLableInfo(curTipLabel,curPwdTip);
+
 }
 
 bool ChangeUserPwd::setTextDynamicInPwd(QLabel *label, QString string){
@@ -600,6 +609,25 @@ bool ChangeUserPwd::eventFilter(QObject *target, QEvent *event)
             }
         }
     }
+    if (event->type() == QEvent::FocusOut) {
+        if (target == currentPwdLineEdit) {
+            if (currentPwdLineEdit->text().isEmpty()) {
+                curPwdTip = tr("current pwd cannot be empty!");
+                updateTipLableInfo(curTipLabel, curPwdTip);
+            }
+        } else if (target == newPwdLineEdit) {
+            if (newPwdLineEdit->text().isEmpty()) {
+                newPwdTip = tr("new pwd cannot be empty!");
+                updateTipLableInfo(newTipLabel, newPwdTip);
+            }
+        } else if (target == surePwdLineEdit) {
+            if (surePwdLineEdit->text().isEmpty()) {
+                surePwdTip = tr("sure pwd cannot be empty!");
+                updateTipLableInfo(tipLabel, surePwdTip);
+            }
+        }
+    }
+
     return QWidget::eventFilter(target, event);
     //继续传递该事件到被观察者，由其本身调用相应的事件。
 }

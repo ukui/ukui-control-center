@@ -46,6 +46,7 @@ public:
     QVBoxLayout * mainVerLayout;
     QHBoxLayout * usernameHorLayout;
     QHBoxLayout * nicknameHorLayout;
+    QHBoxLayout *hostnameHorLayout;
     QHBoxLayout * newPwdHorLayout;
     QHBoxLayout * surePwdHorLayout;
     QHBoxLayout * tipHorLayout;
@@ -57,9 +58,14 @@ public:
     QVBoxLayout * standard1VerLayout;
     QVBoxLayout * standard2VerLayout;
     QHBoxLayout * bottomHorLayout;
+    QHBoxLayout *usernameTipHorLayout;
+    QHBoxLayout *nicknameTipHorLayout;
+    QHBoxLayout *hostnameTipHorLayout;
+    QHBoxLayout *newPwdTipHorLayout;
 
     QLabel * usernameLabel;
     QLabel * nicknameLabel;
+    QLabel *hostnameLabel;
     QLabel * newPwdLabel;
     QLabel * surePwdLabel;
     QLabel * tipLabel;
@@ -68,9 +74,15 @@ public:
     QLabel * adminDetailLabel;
     QLabel * standardLabel;
     QLabel * standardDetailLabel;
+    QLabel *usernameTipLabel;
+    QLabel *nicknameTipLabel;
+    QLabel *hostnameTipLabel;
+    QLabel *newpwdTipLabel;
+
 
     QLineEdit * usernameLineEdit;
     QLineEdit * nicknameLineEdit;
+    QLineEdit *hostnameLineEdit;
     QLineEdit * newPwdLineEdit;
     QLineEdit * surePwdLineEdit;
 
@@ -90,6 +102,8 @@ public:
     QString nickNameTip;
     QString newPwdTip;
     QString surePwdTip;
+    QString oldName;
+    QString oldNickName;
 
     QStringList _allNames;
 
