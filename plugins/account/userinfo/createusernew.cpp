@@ -266,8 +266,10 @@ void CreateUserNew::initUI(){
     standardFrame->installEventFilter(this);
 
     cancelBtn = new QPushButton;
+    cancelBtn->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     cancelBtn->setText(tr("Cancel"));
     confirmBtn = new QPushButton;
+    confirmBtn->setFocusPolicy(Qt::FocusPolicy::NoFocus);
     confirmBtn->setText(tr("Confirm"));
 
     bottomHorLayout = new QHBoxLayout;
