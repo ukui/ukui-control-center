@@ -13,7 +13,7 @@
         <translation type="vanished">已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="537"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="546"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -51,21 +51,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="539"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="548"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="541"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="550"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="543"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="552"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -77,21 +77,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="545"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="554"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="547"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="556"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="549"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="558"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Active Status</extra-contents_path>
@@ -108,7 +108,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="672"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="553"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="562"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -119,8 +119,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="642"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="268"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="551"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="277"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="560"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -155,22 +155,22 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="265"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="274"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="273"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="282"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="314"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="323"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="275"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="284"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
@@ -4849,12 +4849,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="969"/>
+        <location filename="../../mainwindow.cpp" line="971"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="969"/>
+        <location filename="../../mainwindow.cpp" line="971"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -6020,18 +6020,18 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.cpp" line="272"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="462"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="466"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
     <message>
         <location filename="../../../plugins/network/proxy/proxy.cpp" line="273"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="463"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="467"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="461"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="465"/>
         <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
         <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
     </message>
@@ -6634,163 +6634,163 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="45"/>
+        <location filename="../../utils/utils.cpp" line="46"/>
         <source>Go to monitor settings page</source>
         <translation>管理和配置显示和监视器</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="46"/>
+        <location filename="../../utils/utils.cpp" line="47"/>
         <source>Go to defaultapp settings page</source>
         <translation>选择默认应用</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="50"/>
+        <location filename="../../utils/utils.cpp" line="51"/>
         <source>Go to printer settings page</source>
         <translation>打印机管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="51"/>
+        <location filename="../../utils/utils.cpp" line="52"/>
         <source>Go to projection settings page</source>
         <translation>投屏设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="52"/>
+        <location filename="../../utils/utils.cpp" line="53"/>
         <source>Go to mouse settings page</source>
         <translation>配置鼠标选项</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="53"/>
+        <location filename="../../utils/utils.cpp" line="54"/>
         <source>Go to touchpad settings page</source>
         <translation>触摸板管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="55"/>
+        <location filename="../../utils/utils.cpp" line="56"/>
         <source>Go to keyboard settings page</source>
         <translation>键盘设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="56"/>
+        <location filename="../../utils/utils.cpp" line="57"/>
         <source>Go to shortcut settings page</source>
         <translation>配置快捷键</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="58"/>
+        <location filename="../../utils/utils.cpp" line="59"/>
         <source>Go to bluetooth settings page</source>
         <translation>蓝牙设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="60"/>
+        <location filename="../../utils/utils.cpp" line="61"/>
         <source>Go to background settings page</source>
         <translation>配置桌面壁纸</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="61"/>
+        <location filename="../../utils/utils.cpp" line="62"/>
         <source>Go to theme settings page</source>
         <translation>配置主题</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="62"/>
+        <location filename="../../utils/utils.cpp" line="63"/>
         <source>Go to screenlock settings page</source>
         <translation>锁屏设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="63"/>
+        <location filename="../../utils/utils.cpp" line="64"/>
         <source>Go to screensaver settings page</source>
         <translation>屏保设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="64"/>
+        <location filename="../../utils/utils.cpp" line="65"/>
         <source>Go to fonts settings page</source>
         <translation>配置用户字体</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="67"/>
         <location filename="../../utils/utils.cpp" line="68"/>
+        <location filename="../../utils/utils.cpp" line="69"/>
         <source>Go to netconnect settings page</source>
         <translation>网络连接</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="69"/>
+        <location filename="../../utils/utils.cpp" line="70"/>
         <source>Go to wlanconnect settings page</source>
         <translation>无线局域网</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="71"/>
+        <location filename="../../utils/utils.cpp" line="72"/>
         <source>Go to proxy settings page</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="73"/>
+        <location filename="../../utils/utils.cpp" line="74"/>
         <source>Go to userinfo settings page</source>
         <translation>管理用户信息</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="74"/>
+        <location filename="../../utils/utils.cpp" line="75"/>
         <source>Go to cloudaccount settings page</source>
         <translation>配置您的网络账户</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="77"/>
+        <location filename="../../utils/utils.cpp" line="78"/>
         <source>Go to area settings page</source>
         <translation>区域语言</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="79"/>
+        <location filename="../../utils/utils.cpp" line="80"/>
         <source>Go to update settings page</source>
         <translation>更新管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="80"/>
+        <location filename="../../utils/utils.cpp" line="81"/>
         <source>Go to backup settings page</source>
         <translation>备份管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="81"/>
+        <location filename="../../utils/utils.cpp" line="82"/>
         <source>Go to upgrade settings page</source>
         <translation>更新设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="84"/>
+        <location filename="../../utils/utils.cpp" line="85"/>
         <source>Go to about settings page</source>
         <translation>此系统的信息</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="85"/>
+        <location filename="../../utils/utils.cpp" line="86"/>
         <source>Go to search settings page</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="47"/>
+        <location filename="../../utils/utils.cpp" line="48"/>
         <source>Go to power settings page</source>
         <translation>配置电源管理</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="76"/>
+        <location filename="../../utils/utils.cpp" line="77"/>
         <source>Go to datetime settings page</source>
         <translation>管理日期和时间</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="65"/>
+        <location filename="../../utils/utils.cpp" line="66"/>
         <source>Go to desktop settings page</source>
         <translation>配置托盘，开始菜单图标</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="57"/>
+        <location filename="../../utils/utils.cpp" line="58"/>
         <source>Go to audio settings page</source>
         <translation>音量设置</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="83"/>
+        <location filename="../../utils/utils.cpp" line="84"/>
         <source>Go to notice settings page</source>
         <translation>通知管理模块</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="70"/>
+        <location filename="../../utils/utils.cpp" line="71"/>
         <source>Go to vpn settings page</source>
         <translation>VPN模块</translation>
     </message>
     <message>
-        <location filename="../../utils/utils.cpp" line="48"/>
+        <location filename="../../utils/utils.cpp" line="49"/>
         <source>Go to autoboot settings page</source>
         <translation>自动启动的应用程序</translation>
     </message>
@@ -9466,47 +9466,47 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="520"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="521"/>
         <source>Pwd Changed Succes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1358"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1359"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1359"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1360"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1362"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1363"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1363"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1364"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1433"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1434"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1908"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1909"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1922"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1923"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1942"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1943"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -9521,17 +9521,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="862"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="863"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1003"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1004"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1003"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1004"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -9541,12 +9541,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="844"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="845"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="831"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="832"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -9642,7 +9642,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>其他用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="454"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="455"/>
         <source>Add new user</source>
         <translation>添加新用户</translation>
         <extra-contents_path>/userinfo/Add new user</extra-contents_path>
@@ -9759,7 +9759,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="obsolete">添加自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="174"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="176"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
@@ -9784,56 +9784,58 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>拉伸</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="150"/>
         <source>zoom</source>
-        <translation type="vanished">缩放</translation>
+        <translation>适应</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="150"/>
         <source>spanned</source>
-        <translation type="vanished">适合宽度</translation>
+        <translation>跨区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="504"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="506"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="504"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="506"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="544"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="586"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="546"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="588"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="545"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="587"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="547"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="589"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="546"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="588"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="548"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="590"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="547"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="589"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="549"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="591"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="548"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="590"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="550"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="592"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="549"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="591"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="551"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="593"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -9906,8 +9908,8 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1986"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2001"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1980"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1995"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -9946,14 +9948,14 @@ If something goes wrong, the settings will be restored after %1 seconds</source>
         <translation type="vanished">修改分辨率或刷新率后，由于显示设备与显卡存在兼容性问题，有可能显示不正常或者无法显示．如果出现异常，系统将在%1秒后还原设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1315"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1292"/>
         <source>please insure at least one output!</source>
         <translation>请确保至少开启一个屏幕!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1151"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1315"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1322"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1127"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1292"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1299"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -9964,7 +9966,7 @@ the settings will be saved after %1 seconds</source>
         <translation>是否保留当前修改的配置？将在%1秒后自动保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1152"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1128"/>
         <source>Open time should be earlier than close time!</source>
         <translation>开启时间必须大于关闭时间！</translation>
     </message>
@@ -9977,7 +9979,7 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1323"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1300"/>
         <source>Sorry, your configuration could not be applied.
 Common reasons are that the overall screen size is too big, or you enabled more displays than supported by your GPU.</source>
         <translation>抱歉，配置不能应用.</translation>
