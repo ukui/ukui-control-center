@@ -168,6 +168,7 @@ private:
     int getPrimaryScreenID();
 
     void setScreenIsApply(bool isApply);
+    void setUkccMode();
 
     void changescale();
     void updateScaleComStatus();
@@ -235,6 +236,7 @@ private:
     bool mIsBattery = false;
     bool mIsScreenAdd = false;
     bool mIsRestore = false;
+    bool mIsUkccChange = false;
     QString firstAddOutputName;
     QShortcut *mApplyShortcut;
     QVector<BrightnessFrame*> BrightnessFrameV;

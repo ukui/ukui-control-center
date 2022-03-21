@@ -435,8 +435,6 @@ void Widget::slotUnifyOutputs()
             setConfig(mPrevConfig);
         }
 
-
-
         ui->primaryCombo->setEnabled(true);
         mCloseScreenButton->setEnabled(true);
         ui->showMonitorframe->setVisible(true);
@@ -797,6 +795,16 @@ int Widget::getPrimaryScreenID()
 void Widget::setScreenIsApply(bool isApply)
 {
     mIsScreenAdd = !isApply;
+}
+
+void Widget::setUkccMode()
+{
+    QDBusInterface ukccIfc("org.ukui.ukcc.session",
+                           "/",
+                           "org.ukui.ukcc.session.interface",
+                           QDBusConnection::sessionBus());
+    ukccIfc.call("setScreenMode", "first");
+    mIsUkccChange = true;
 }
 
 void Widget::showNightWidget(bool judge)
@@ -1211,14 +1219,21 @@ void Widget::setActiveScreen(QString status)
 //通过win+p修改，不存在按钮影响亮度显示的情况，直接就应用了，此时每个屏幕的openFlag是没有修改的，需要单独处理(setScreenKDS)
 void Widget::kdsScreenchangeSlot(QString status)
 {
+    // 不响应自身变化;
+    if (mIsUkccChange) {
+        mIsUkccChange = false;
+        return;
+    }
+
     qDebug() << Q_FUNC_INFO << status;
+
     bool isCheck = (status == "copy") ? true : false;
     mKDSCfg = status;
     setScreenKDS(mKDSCfg);
     if (mConfig->connectedOutputs().count() >= 2) {
         mUnifyButton->setChecked(isCheck);
     }
-    QTimer::singleShot(1500, this, [=]{ //需要延时
+    QTimer::singleShot(2000, this, [=]{ //需要延时
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
                 continue;
@@ -1233,8 +1248,9 @@ void Widget::kdsScreenchangeSlot(QString status)
         } else {
             showBrightnessFrame(2);
         }
+        mScreen->setConfig(mConfig);
+        mainScreenButtonSelect(ui->primaryCombo->currentIndex());
     });
-
 }
 
 void Widget::delayApply()
@@ -1607,6 +1623,7 @@ void Widget::checkOutputScreen(bool judge)
 
     ui->primaryCombo->setCurrentIndex(index);
 	ui->primaryCombo->blockSignals(false);
+    setUkccMode();
 }
 
 
@@ -1696,11 +1713,11 @@ void Widget::initConnection()
     });
 
     QDBusConnection::sessionBus().connect(QString(),
-                                              QString("/"),
-                                              "org.ukui.ukcc.session.interface",
-                                              "screenChanged",
-                                              this,
-                                              SLOT(kdsScreenchangeSlot(QString)));
+                                          QString("/"),
+                                          "org.ukui.ukcc.session.interface",
+                                          "screenChanged",
+                                          this,
+                                          SLOT(kdsScreenchangeSlot(QString)));
 
 
     QDBusConnection::sessionBus().connect(QString(),
