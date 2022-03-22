@@ -1322,7 +1322,7 @@ void Widget::slotIdentifyOutputs(KScreen::ConfigOperation *op)
 #else
         view->setProperty("screenSize", QRect(outputPos, logicalSize));
 #endif
-
+        view->resize(rootObj->size().toSize());
         mOutputIdentifiers << view;
     }
 
