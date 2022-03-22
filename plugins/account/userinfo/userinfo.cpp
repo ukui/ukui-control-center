@@ -345,6 +345,8 @@ void UserInfo::initUI(){
 
     //root需要屏蔽部分功能
     if (!getuid()){
+        currentNickNameChangeLabel->setEnabled(false);
+        currentNickNameLabel->setEnabled(false);
         changeCurrentPwdBtn->setEnabled(false);
         changeCurrentTypeBtn->setEnabled(false);
         currentUserlogoBtn->setEnabled(false);

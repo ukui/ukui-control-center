@@ -9,7 +9,7 @@ class PwdCheckThread : public QThread
     Q_OBJECT
 
 public:
-    explicit PwdCheckThread();
+    explicit PwdCheckThread(QObject *parent = nullptr);
     ~PwdCheckThread();
 
 public:
