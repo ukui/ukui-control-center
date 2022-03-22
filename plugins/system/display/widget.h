@@ -172,6 +172,7 @@ private:
 
     void changescale();
     void updateScaleComStatus();
+    void updatePreview();
 
 private:
     Ui::DisplayWindow *ui;

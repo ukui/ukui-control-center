@@ -1155,32 +1155,6 @@ void Widget::setScreenKDS(QString kdsConfig)
                 output->setCurrentModeId("0");
             }
         }
-
-         KScreen::OutputList screensPre = mPrevConfig->connectedOutputs();
-
-         KScreen::OutputPtr mainScreen = mPrevConfig->primaryOutput();
-         mainScreen->setPos(QPoint(0, 0));
-
-         KScreen::OutputPtr preIt = mainScreen;
-         QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
-
-         while (nowIt != screensPre.end()) {
-             if (nowIt.value() != mainScreen) {
-                 nowIt.value()->setPos(QPoint(preIt->pos().x() + preIt->size().width(), 0));
-                 KScreen::ModeList modes = preIt->modes();
-                 Q_FOREACH (const KScreen::ModePtr &mode, modes) {
-                     if (preIt->currentModeId() == mode->id()) {
-                         if (preIt->rotation() != KScreen::Output::Rotation::Left && preIt->rotation() != KScreen::Output::Rotation::Right) {
-                             nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().width(), 0));
-                         } else {
-                             nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().height(), 0));
-                         }
-                     }
-                 }
-                 preIt = nowIt.value();
-             }
-             nowIt++;
-         }
     } else if ((!mUnifyButton->isChecked() && kdsConfig != "copy") ||
                  (mUnifyButton->isChecked() && kdsConfig == "copy")) {  // 过滤重复应用
 
@@ -1225,15 +1199,13 @@ void Widget::kdsScreenchangeSlot(QString status)
         return;
     }
 
-    qDebug() << Q_FUNC_INFO << status;
-
     bool isCheck = (status == "copy") ? true : false;
     mKDSCfg = status;
     setScreenKDS(mKDSCfg);
     if (mConfig->connectedOutputs().count() >= 2) {
         mUnifyButton->setChecked(isCheck);
     }
-    QTimer::singleShot(2000, this, [=]{ //需要延时
+    QTimer::singleShot(1500, this, [=]{ //需要延时
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
                 continue;
@@ -1248,8 +1220,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         } else {
             showBrightnessFrame(2);
         }
-        mScreen->setConfig(mConfig);
-        mainScreenButtonSelect(ui->primaryCombo->currentIndex());
+        updatePreview();
     });
 }
 
@@ -1803,6 +1774,7 @@ void Widget::writeScreenXml()
     g_object_unref(rr_screen);
 }
 
+
 void Widget::setNightMode(const bool nightMode)
 {
     QDBusInterface colorIft("org.ukui.KWin",
@@ -2171,4 +2143,17 @@ void Widget::updateScaleComStatus()
     } else {
         ui->scaleCombo->setEnabled(true);
     }
+}
+
+void Widget::updatePreview()
+{
+    if (mConfig->connectedOutputs().size() < 1) {
+        return;
+    }
+    auto *preOp = new KScreen::GetConfigOperation();
+    preOp->exec();
+    mConfig = preOp->config()->clone();
+    preOp->deleteLater();
+    mScreen->setConfig(mConfig);
+    mainScreenButtonSelect(ui->primaryCombo->currentIndex());
 }
