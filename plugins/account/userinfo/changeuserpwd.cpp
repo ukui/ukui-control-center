@@ -44,7 +44,7 @@ ChangeUserPwd::ChangeUserPwd(QString n, QWidget *parent) :
     isChecking = false;
 
     //构造密码校验线程
-    thread1ForCheckPwd = new PwdCheckThread();
+    thread1ForCheckPwd = new PwdCheckThread(this);
 
     makeSurePwqualityEnabled();
 
@@ -331,7 +331,7 @@ void ChangeUserPwd::setupConnect(){
     //需要区分的connect
     if (isCurrentUser){
 
-        connect(thread1ForCheckPwd, &PwdCheckThread::complete, [=](QString re){
+        connect(thread1ForCheckPwd, &PwdCheckThread::complete, this, [=](QString re){
 
             curPwdTip = re;
 
@@ -343,11 +343,11 @@ void ChangeUserPwd::setupConnect(){
 
                 char * cmd = g_strdup_printf("/usr/bin/changeuserpwd '%s' '%s'", currentPwdLineEdit->text().toLatin1().data(), newPwdLineEdit->text().toLatin1().data());
 
-                FILE   *stream;
-                char buf[256];
+                FILE   *stream = NULL;
+                char buf[256] = {0};
 
                 if ((stream = popen(cmd, "r" )) == NULL){
-                    return -1;
+                    return;
                 }
 
                 while(fgets(buf, 256, stream) != NULL){

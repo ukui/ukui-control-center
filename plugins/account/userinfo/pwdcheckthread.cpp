@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-PwdCheckThread::PwdCheckThread()
+PwdCheckThread::PwdCheckThread(QObject *parent):QThread(parent)
 {
 }
 
