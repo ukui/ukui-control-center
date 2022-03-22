@@ -106,7 +106,8 @@ static gboolean rfkill_event(GIOChannel *chan,
     close(fd);
 
     if (g_str_has_prefix(sysname, "tpacpi_bluetooth_sw") == TRUE ||
-        g_str_has_prefix(sysname, "ideapad_bluetooth") == TRUE)
+        g_str_has_prefix(sysname, "ideapad_bluetooth") == TRUE   ||
+        g_str_has_prefix(sysname, "dell-bluetooth") == TRUE)
     {
         spe_bt_node = true;
         qDebug () << Q_FUNC_INFO <<  "spe_bt_node:" << spe_bt_node  << __LINE__;
@@ -401,6 +402,7 @@ void BlueToothMain::RefreshWindowUiState()
             M_adapter_flag = true;
             ShowNormalMainWindow();
         }
+        qDebug() << Q_FUNC_INFO << spe_bt_node << M_adapter_flag << not_hci_node << __LINE__;
 
         adapterConnectFun();
     }
