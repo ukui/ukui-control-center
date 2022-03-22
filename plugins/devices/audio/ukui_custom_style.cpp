@@ -60,7 +60,9 @@ UkmediaVolumeSlider::UkmediaVolumeSlider(QWidget *parent,bool needTip)
         m_pTiplabel = new UkuiMediaSliderTipLabel();
         m_pTiplabel->setWindowFlags(Qt::ToolTip);
     //    qApp->installEventFilter(new AppEventFilter(this));
-        m_pTiplabel->setFixedSize(52,30);
+    /*  108831 【声音】16号字体时，调整声道平衡为左“-100%”，文字显示不全 */
+    //    m_pTiplabel->setFixedSize(52,30);
+        m_pTiplabel->setFixedSize(70,30);
         m_pTiplabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     }
 }

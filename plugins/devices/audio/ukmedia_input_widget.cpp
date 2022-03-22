@@ -94,7 +94,9 @@ UkmediaInputWidget::UkmediaInputWidget(QWidget *parent) : QWidget(parent)
     m_pInputIconBtn->setFocusPolicy(Qt::NoFocus);
     //输入设备添加布局
     QVBoxLayout *m_pInputDeviceLayout = new QVBoxLayout(m_pInputDeviceWidget);
-    m_pInputLabel->setFixedSize(83,24);
+    /*   109120 【控制面板|声音】16号系统字体下，声音界面的输入二字显示不全   */
+//    m_pInputLabel->setFixedSize(83,24);
+    m_pInputLabel->setFixedSize(83,30);
     m_pInputDeviceCombobox->setFixedHeight(32);
     m_pInputDeviceCombobox->setFixedSize(600,32);
     m_pInputDeviceLabel->setFixedSize(150,32);
