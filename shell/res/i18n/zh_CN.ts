@@ -1520,38 +1520,38 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="207"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="607"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="631"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="208"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="608"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="616"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="632"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="640"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="209"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="609"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="617"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="633"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="641"/>
         <source>New Password Identify</source>
         <translation>新密码确认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="442"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="455"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="465"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="466"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="479"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="489"/>
         <source>Tips</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="442"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="466"/>
         <source>timed out, Modified failed!</source>
         <translation>连接超时，修改失败!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="455"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="479"/>
         <source>Remote modified successfully!</source>
         <translation>远程修改成功！</translation>
     </message>
@@ -1560,12 +1560,12 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="535"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="559"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="537"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="561"/>
         <source>Same with old pwd</source>
         <translation>与旧密码相同</translation>
     </message>
@@ -1582,8 +1582,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">密码长度需要大于5个字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="379"/>
-        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="573"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="403"/>
+        <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="597"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -4374,7 +4374,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="388"/>
+        <location filename="../../mainwindow.cpp" line="413"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4384,43 +4384,43 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../mainwindow.cpp" line="86"/>
-        <location filename="../../mainwindow.cpp" line="408"/>
-        <location filename="../../mainwindow.cpp" line="753"/>
+        <location filename="../../mainwindow.cpp" line="433"/>
+        <location filename="../../mainwindow.cpp" line="767"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="417"/>
+        <location filename="../../mainwindow.cpp" line="442"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="418"/>
+        <location filename="../../mainwindow.cpp" line="443"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="419"/>
+        <location filename="../../mainwindow.cpp" line="444"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="420"/>
+        <location filename="../../mainwindow.cpp" line="445"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="477"/>
+        <location filename="../../mainwindow.cpp" line="491"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="479"/>
+        <location filename="../../mainwindow.cpp" line="493"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="481"/>
+        <location filename="../../mainwindow.cpp" line="495"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4429,17 +4429,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="871"/>
+        <location filename="../../mainwindow.cpp" line="885"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="871"/>
+        <location filename="../../mainwindow.cpp" line="885"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="604"/>
+        <location filename="../../mainwindow.cpp" line="618"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -6042,7 +6042,7 @@ Please retry or relogin!</source>
         <translation type="vanished">日</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="82"/>
+        <location filename="../../main.cpp" line="80"/>
         <source>ukui-control-center</source>
         <translation>设置</translation>
     </message>
@@ -8758,7 +8758,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="obsolete">添加自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="170"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="172"/>
         <source>Custom color</source>
         <translation>自定义颜色</translation>
     </message>
@@ -8783,56 +8783,58 @@ run start-pulseaudio-x11 manually.</source>
         <translation>拉伸</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
         <source>zoom</source>
-        <translation type="vanished">缩放</translation>
+        <translation>适应</translation>
     </message>
     <message>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="157"/>
         <source>spanned</source>
-        <translation type="vanished">适合宽度</translation>
+        <translation>跨区</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="496"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="498"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="496"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="498"/>
         <source>allFiles(*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="536"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="578"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="580"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="537"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="579"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="539"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="581"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="538"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="580"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="540"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="582"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="539"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="581"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="541"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="583"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="540"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="582"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="542"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="584"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="541"/>
-        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="583"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="543"/>
+        <location filename="../../../plugins/personalized/wallpaper/wallpaper.cpp" line="585"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
