@@ -154,11 +154,13 @@ void Wallpaper::setupComponent(){
 
     // 背景放置方式
     QStringList optionList;
-    optionList << tr("scaled") << tr("wallpaper") << tr("centered") << tr("stretched");
+    optionList << tr("scaled") << tr("wallpaper") << tr("centered") << tr("stretched") << tr("zoom") << tr("spanned");
     ui->showModeComboBox->addItem(optionList.at(0), "scaled");
     ui->showModeComboBox->addItem(optionList.at(1), "wallpaper");
     ui->showModeComboBox->addItem(optionList.at(2), "centered");
     ui->showModeComboBox->addItem(optionList.at(3), "stretched");
+    ui->showModeComboBox->addItem(optionList.at(4), "zoom");
+    ui->showModeComboBox->addItem(optionList.at(5), "spanned");
 
     colWgt = new HoverWidget("");
     colWgt->setObjectName("colWgt");
