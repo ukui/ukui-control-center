@@ -83,7 +83,7 @@ void BiometricEnrollDialog::setProcessed(bool val)
 void BiometricEnrollDialog::setupInit()
 {
     setWindowTitle(tr(""));
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 

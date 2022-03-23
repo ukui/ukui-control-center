@@ -204,7 +204,7 @@ void CreateGroupDialog::signalsBind()
 void CreateGroupDialog::setupInit()
 {
     setWindowTitle(tr("Add user group"));
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 

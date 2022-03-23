@@ -86,7 +86,7 @@ void ColorDialog::setupInit()
 {
     qDebug() << "setup init";
     // 窗口属性
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);//开启窗口无边框
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);//开启窗口无边框
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowTitle(tr("Custom color"));

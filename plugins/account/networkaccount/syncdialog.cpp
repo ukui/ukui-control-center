@@ -119,7 +119,7 @@ void SyncDialog::initUI() {
     mMainLayout->addLayout(mHBoxLayout);
     setLayout(mMainLayout);
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setModal(true);
     hide();
 }

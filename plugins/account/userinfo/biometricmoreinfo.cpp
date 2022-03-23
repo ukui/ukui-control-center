@@ -201,7 +201,7 @@ void BiometricMoreInfoDialog::on_closeBtn_clicked()
 void BiometricMoreInfoDialog::setupInit()
 {
     setWindowTitle(tr(""));
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
 

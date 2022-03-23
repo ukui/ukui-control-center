@@ -38,7 +38,7 @@ ChangtimeDialog::ChangtimeDialog(bool hour,QWidget *parent) : QDialog(parent),
     m_isEFHour(hour)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
     ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
