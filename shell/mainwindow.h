@@ -67,6 +67,7 @@ public:
     QString pluginBtnHoverColor(QString styleName, bool hoverFlag);
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;

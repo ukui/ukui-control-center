@@ -26,10 +26,14 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include <QThread>
+#include <QDBusConnection>
 #include "usbthread.h"
 
 #define ITEMFIXEDHEIGH 58
 #define UEVENT_BUFFER_SIZE 2048
+
+#define PRINTER_PATH "/com/redhat/PrinterSpooler"
+#define PRINTER_SERVICE  "com.redhat.PrinterSpooler"
 
 Printer::Printer() : mFirstLoad(true)
 {
@@ -64,21 +68,24 @@ QWidget *Printer::pluginUi()
 
         refreshPrinterDevSlot();
 
-        // 开辟线程监听usb插拔
-        QThread *mThread = new QThread;
-        UsbThread *UsbWorker = new UsbThread;
-        UsbWorker->moveToThread(mThread);
-        connect(mThread, &QThread::started, UsbWorker, &UsbThread::run);
-        connect(UsbWorker, &UsbThread::addsignal, this, [=](){
-            sleep(1);
-            refreshPrinterDevSlot();
-        });
-        connect(UsbWorker, &UsbThread::removesignal, this, [=](){
-            sleep(1);
-            refreshPrinterDevSlot();
-        });
-        connect(mThread, &QThread::finished, UsbWorker, &UsbThread::deleteLater);
-         mThread->start();
+        if (!QDBusConnection::systemBus().connect(QString(), PRINTER_PATH, PRINTER_SERVICE, "PrinterAdded", this, SIGNAL(addsignal(QString)))) {
+            qDebug()<<"failed to add D-Bus signal receiver(addprinter)";
+        }
+        if (!QDBusConnection::systemBus().connect(QString(), PRINTER_PATH, PRINTER_SERVICE, "PrinterRemoved", this, SIGNAL(removesignal(QString)))) {
+            qDebug()<<"failed to add D-Bus signal receiver(removeprinter)";
+        }
+
+        // 监听打印机增删信号
+         connect(this, &Printer::addsignal, [=](const QString &printerName){
+             qDebug()<<"addPrinter : "<<printerName;
+             QTimer::singleShot(1000, this, [=]() {
+                 refreshPrinterDevSlot();
+             });
+         });
+         connect(this, &Printer::removesignal, [=](const QString &printerName){
+             qDebug()<<"removePrinter : "<<printerName;
+             refreshPrinterDevSlot();
+         });
     }
     return pluginWidget;
 }
@@ -201,7 +208,7 @@ void Printer::refreshPrinterDevSlot()
     int num_dests = cupsGetDests(&dests);
     cups_dest_t *dest;
     int i;
-    bool isListChange = false;
+    mPrinterList.clear();
     for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
         // 获取打印机状态，3为空闲，4为忙碌，5为不可用
         const char*  value = cupsGetOption("printer-state", dest->num_options, dest->options);
@@ -214,19 +221,15 @@ void Printer::refreshPrinterDevSlot()
         if (flag) {
             if (mPrinterList.contains(QString(dest->name))) {
                 mPrinterList.removeOne(QString(dest->name));
-                isListChange = true;
             }
         } else {
             if (!mPrinterList.contains(QString(dest->name))) {
                 mPrinterList.append(QString(dest->name));
-                isListChange = true;
             }
         }
     }
-    //打印机列表内容有变化，则清空再构建一遍
-    if (isListChange) {
-        initPrinterUi();
-    }
+
+    initPrinterUi();
 
     if (mPrinterList.count() == 0) {
         mPrinterListFrame->setVisible(false);

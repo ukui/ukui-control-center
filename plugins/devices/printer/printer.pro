@@ -6,7 +6,7 @@
 
 include(../../../env.pri)
 
-QT       += widgets printsupport
+QT       += widgets printsupport dbus
 
 LIBS          += -L$$[QT_INSTALL_LIBS] -lcups
 
