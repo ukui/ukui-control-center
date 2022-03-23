@@ -70,6 +70,8 @@ public:
     BluezQt::AdapterPtr getDefaultAdapter();
     void adapterConnectFun();
     void cleanPairDevices();
+
+    bool isSpebluetooth();
 protected:
     void leaveEvent(QEvent *event);
 

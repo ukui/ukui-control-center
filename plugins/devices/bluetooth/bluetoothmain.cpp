@@ -199,11 +199,29 @@ void rfkill_exit(void)
     watch = 0;
 }
 
+bool BlueToothMain::isSpebluetooth()
+{
+    QProcess process;
+    process.start("rfkill list");
+    process.waitForFinished();
+    QByteArray output = process.readAllStandardOutput();
+    QString str_output = output;
+    bool isDevice1 = str_output.contains(QString("tpacpi_bluetooth_sw"), Qt::CaseInsensitive);
+    qDebug() << Q_FUNC_INFO << isDevice1 <<__LINE__;
+    bool isDevice2 = str_output.contains(QString("ideapad_bluetooth"), Qt::CaseInsensitive);
+    qDebug() << Q_FUNC_INFO << isDevice2 <<__LINE__;
+    bool isDevice3 = str_output.contains(QString("dell-bluetooth"), Qt::CaseInsensitive);
+    qDebug() << Q_FUNC_INFO << isDevice3 <<__LINE__;
+
+    return isDevice1||isDevice2||isDevice3;
+}
+
 BlueToothMain::BlueToothMain(QWidget *parent)
     : QMainWindow(parent)
 {
     rfkill_init();
     //rfkill_set_idx();//会导致蓝牙自启动
+    spe_bt_node = isSpebluetooth();
     if(QGSettings::isSchemaInstalled("org.ukui.bluetooth"))
     {
         settings = new QGSettings("org.ukui.bluetooth");
@@ -299,7 +317,7 @@ void BlueToothMain::InitAllTimer()
 
     //开启时延迟2s后开启扫描，留点设备回连时间
     delayStartDiscover_timer = new QTimer(this);
-    delayStartDiscover_timer->setInterval(500);
+    delayStartDiscover_timer->setInterval(2000);
     connect(delayStartDiscover_timer,&QTimer::timeout,this,[=]
     {
         qDebug() << __FUNCTION__ << "delayStartDiscover_timer:timeout" << __LINE__ ;
