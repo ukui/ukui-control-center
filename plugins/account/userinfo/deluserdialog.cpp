@@ -31,7 +31,7 @@ DelUserDialog::DelUserDialog(QWidget *parent) :
     ui(new Ui::DelUserDialog)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
 
     setupComonpent();
