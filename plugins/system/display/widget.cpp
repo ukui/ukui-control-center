@@ -803,7 +803,8 @@ void Widget::setUkccMode()
                            "/",
                            "org.ukui.ukcc.session.interface",
                            QDBusConnection::sessionBus());
-    ukccIfc.call("setScreenMode", "first");
+    QString mode = mCloseScreenButton->isChecked() ? "extend" : "first";
+    ukccIfc.call("setScreenMode", mode);
     mIsUkccChange = true;
 }
 
@@ -1198,7 +1199,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         mIsUkccChange = false;
         return;
     }
-
+    qDebug() << Q_FUNC_INFO << status;
     bool isCheck = (status == "copy") ? true : false;
     mKDSCfg = status;
     setScreenKDS(mKDSCfg);
@@ -2147,13 +2148,13 @@ void Widget::updateScaleComStatus()
 
 void Widget::updatePreview()
 {
-    if (mConfig->connectedOutputs().size() < 1) {
+    if (mConfig->connectedOutputs().size() < 1 || isCloneMode()) {
         return;
     }
     auto *preOp = new KScreen::GetConfigOperation();
     preOp->exec();
     mConfig = preOp->config()->clone();
     preOp->deleteLater();
-    mScreen->setConfig(mConfig);
+    setConfig(mConfig);
     mainScreenButtonSelect(ui->primaryCombo->currentIndex());
 }
