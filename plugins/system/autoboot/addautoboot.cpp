@@ -34,7 +34,7 @@ AddAutoBoot::AddAutoBoot(QWidget *parent) :
     ui(new Ui::AddAutoBoot)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
 
     initStyle();

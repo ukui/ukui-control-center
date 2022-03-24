@@ -14,7 +14,7 @@ AppDetail::AppDetail(QString Name,QString key, QGSettings *gsettings, QWidget *p
     m_gsettings(gsettings)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowTitle(appName);
 
