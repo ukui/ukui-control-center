@@ -90,6 +90,7 @@ QWidget *About::pluginUi()
 
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
+        pluginWidget->setObjectName("pluginWidget");
 
         initUI(pluginWidget);
         initSearchText();
@@ -1133,9 +1134,10 @@ bool About::eventFilter(QObject *obj, QEvent *event)
             if (mouseEvent->button() == Qt::LeftButton ){
                 QString str = Utils::getHostName();
                 HostNameDialog *mdialog = new HostNameDialog(pluginWidget);
+                QWidget *widget = qApp->activeWindow(); // 记录mainwindow的地址，exec之后，activeWindow会变成空值
                 mdialog->exec();
                 if (str !=  Utils::getHostName()) {
-                    QMessageBox *mReboot = new QMessageBox(pluginWidget);
+                    QMessageBox *mReboot = new QMessageBox(widget);
                     mReboot->setIcon(QMessageBox::Warning);
                     mReboot->setText(tr("The system needs to be restarted to set the HostName, whether to reboot"));
                     mReboot->addButton(tr("Reboot Now"), QMessageBox::AcceptRole);
