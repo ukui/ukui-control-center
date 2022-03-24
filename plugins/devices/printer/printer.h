@@ -86,6 +86,10 @@ private:
 public slots:
     void refreshPrinterDevSlot();
 
+signals:
+    void addsignal(QString);
+    void removesignal(QString);
+
 };
 
 #endif // PRINTER_H

@@ -207,6 +207,14 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
     return QObject::eventFilter(watched, event);
 }
 
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_F1) {
+        if (!event->isAutoRepeat()) //避免重复触发该事件
+            onF1ButtonClicked();
+    }
+}
+
 void MainWindow::initUI() {
     ui->setupUi(this);
     QRect screenSize = Utils::sizeOnCursor();
@@ -336,7 +344,7 @@ void MainWindow::initUI() {
     }
 
     //快捷键
-    new QShortcut(QKeySequence(Qt::Key_F1), this, SLOT(onF1ButtonClicked()));
+//    new QShortcut(QKeySequence(Qt::Key_F1), this, SLOT(onF1ButtonClicked()));
 }
 
 void MainWindow::initTileBar() {

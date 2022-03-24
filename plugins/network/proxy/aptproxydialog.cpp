@@ -4,7 +4,7 @@
 #include <QSpacerItem>
 #include <QLabel>
 #include <QPushButton>
-#include <proxy.h>
+#include "proxy.h"
 
 AptProxyDialog::AptProxyDialog(QWidget *parent ):
     QDialog(parent)
@@ -103,7 +103,7 @@ void AptProxyDialog::initConnect()
         }
     });
 
-    connect(mCancelBtn, &QPushButton::clicked, this, [=]() {      
+    connect(mCancelBtn, &QPushButton::clicked, this, [=]() {
         this->close();
     });
 
