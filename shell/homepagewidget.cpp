@@ -168,6 +168,9 @@ void HomePageWidget::initUI() {
         for (int funcIndex = 0; funcIndex < tmpList.size(); funcIndex++){
             FuncInfo single = tmpList.at(funcIndex);
 
+            QGSettings *plugin_settings = setGsettingsPath(list_path, single.nameString);
+            vecGsettins.insert(single.nameString, plugin_settings);
+
             //跳过插件不存在的功能项
             if (!moduleMap.contains(single.namei18nString)){
                 continue;
@@ -190,9 +193,6 @@ void HomePageWidget::initUI() {
             AllWidth += label->width();
             if (AllWidth > 200)
                  label->setVisible(false);
-
-            QGSettings *plugin_settings = setGsettingsPath(list_path ,  single.nameString);
-            vecGsettins.insert(single.nameString , plugin_settings);
 
             // 监听该插件是否启用
             if (plugin_settings) {
@@ -363,7 +363,7 @@ QPixmap HomePageWidget::drawSymbolicColoredPixmap(const QPixmap &source, COLOR c
                     color.setGreen(highLightColor.green());
                     color.setBlue(highLightColor.blue());
                     img.setPixelColor(x, y, color);
-                } 
+                }
                 else {
                     return source;
                 }
