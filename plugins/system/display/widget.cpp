@@ -409,7 +409,7 @@ void Widget::slotUnifyOutputs()
             for (int i = 1; i< preScreenCfg.count(); i++) {
                 if (posX == preScreenCfg.at(i).screenPosX) {
                     isOverlap = true;
-                    setScreenKDS("expand");
+                    setScreenKDS("expand", true);
                     break;
                 }
             }
@@ -423,7 +423,7 @@ void Widget::slotUnifyOutputs()
                 }
             }
         } else {
-            setScreenKDS("expand");
+            setScreenKDS("expand", true);
         }
         unifySetconfig = true;
         // 缩略图位置与win+p保持一致
@@ -1142,7 +1142,7 @@ void Widget::applyNightModeSlot()
 }
 
 
-void Widget::setScreenKDS(QString kdsConfig)
+void Widget::setScreenKDS(QString kdsConfig, bool isUkcc = false)
 {
     KScreen::OutputList screens = mConfig->connectedOutputs();
     Q_FOREACH(KScreen::OutputPtr output, screens)
@@ -1154,6 +1154,34 @@ void Widget::setScreenKDS(QString kdsConfig)
             if (!output.isNull() && !mUnifyButton->isChecked()) {
                 output->setEnabled(true);
                 output->setCurrentModeId("0");
+            }
+        }
+
+        if (isUkcc) {
+            KScreen::OutputList screensPre = mPrevConfig->connectedOutputs();
+
+            KScreen::OutputPtr mainScreen = mPrevConfig->primaryOutput();
+            mainScreen->setPos(QPoint(0, 0));
+
+            KScreen::OutputPtr preIt = mainScreen;
+            QMap<int, KScreen::OutputPtr>::iterator nowIt = screensPre.begin();
+
+            while (nowIt != screensPre.end()) {
+                if (nowIt.value() != mainScreen) {
+                    nowIt.value()->setPos(QPoint(preIt->pos().x() + preIt->size().width(), 0));
+                    KScreen::ModeList modes = preIt->modes();
+                    Q_FOREACH (const KScreen::ModePtr &mode, modes) {
+                        if (preIt->currentModeId() == mode->id()) {
+                            if (preIt->rotation() != KScreen::Output::Rotation::Left && preIt->rotation() != KScreen::Output::Rotation::Right) {
+                                nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().width(), 0));
+                            } else {
+                                nowIt.value()->setPos(QPoint(preIt->pos().x() + mode->size().height(), 0));
+                            }
+                        }
+                    }
+                    preIt = nowIt.value();
+                }
+                nowIt++;
             }
         }
     } else if ((!mUnifyButton->isChecked() && kdsConfig != "copy") ||

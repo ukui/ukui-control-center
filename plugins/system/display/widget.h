@@ -81,7 +81,7 @@ public:
     int scaleToSlider(const float value);
 
     void initUiComponent();
-    void setScreenKDS(QString kdsConfig);
+    void setScreenKDS(QString kdsConfig, bool isUkcc);
     void setActiveScreen(QString status = "");
     void addBrightnessFrame(QString name, bool openFlag, QString edidHash);
     void showBrightnessFrame(const int flag = 0);
