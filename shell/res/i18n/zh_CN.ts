@@ -4,94 +4,94 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="521"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="524"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="522"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="525"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="187"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="523"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="189"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="526"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="584"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="587"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="586"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="589"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="526"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="529"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="249"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="251"/>
         <source>HostName</source>
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="527"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="530"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="456"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="459"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>《试用免责协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="207"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="209"/>
         <source>InterVersion</source>
         <translation>内部版本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="389"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="392"/>
         <source>Privacy and agreement</source>
         <translation>隐私和协议</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="399"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="402"/>
         <source>Send optional diagnostic data</source>
         <translation>发送可选诊断数据</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="401"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="404"/>
         <source>By sending us diagnostic data, improve the system experience and solve your problems faster</source>
         <translation>通过向我们发送诊断数据，提升系统体验以及更快的解决你的问题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="446"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="449"/>
         <source>Copyright © 2009-%1 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-%1 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="457"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="460"/>
         <source>and</source>
         <translation>和</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="458"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="461"/>
         <source>&lt;&lt;Privacy&gt;&gt;</source>
         <translation>《用户隐私协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="548"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="551"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="558"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="561"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
@@ -100,32 +100,32 @@
         <translation type="vanished">未激活(试用期)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="647"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="650"/>
         <source>Trial expiration time</source>
         <translation>试用到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="997"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1000"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1002"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1005"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1138"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1142"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1139"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1143"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1140"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1144"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -138,9 +138,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="907"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="916"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1272"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="910"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="919"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1276"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -157,7 +157,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="572"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="575"/>
         <source>Version</source>
         <translation>版本名称</translation>
         <extra-contents_path>/About/version</extra-contents_path>
@@ -175,37 +175,37 @@
         <translation type="vanished">版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="574"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="576"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="578"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="524"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="914"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="527"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="917"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="580"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="582"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="585"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/About/User</extra-contents_path>
@@ -219,7 +219,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="585"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="588"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -232,8 +232,8 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="649"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="655"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="652"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="658"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -250,7 +250,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="64"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="65"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -267,13 +267,13 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="645"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="653"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="648"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="656"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="661"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="664"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -2142,7 +2142,7 @@ Please authenticate yourself to continue</source>
 <context>
     <name>ChangeUserLogo</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="133"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="137"/>
         <source>System Logos</source>
         <translation>系统头像</translation>
     </message>
@@ -2151,58 +2151,58 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">本地头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="108"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="112"/>
         <source>User logo</source>
         <translation>用户头像</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="142"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="146"/>
         <source>Select Local Logo</source>
         <translation>选择本地图片</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="151"/>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="290"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="155"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="294"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="153"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="157"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="285"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="289"/>
         <source>select custom face file</source>
         <translation>选择自定义头像文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="286"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="290"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="287"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="291"/>
         <source>Position: </source>
         <translation>位置：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="288"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="292"/>
         <source>FileName: </source>
         <translation>文件名：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="289"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="293"/>
         <source>FileType: </source>
         <translation>文件类型：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="305"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="309"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="306"/>
+        <location filename="../../../plugins/account/userinfo/changeuserlogo.cpp" line="310"/>
         <source>The avatar is larger than 1M, please choose again</source>
         <translation>警告，头像大于1M请重新选择</translation>
     </message>
@@ -2919,8 +2919,9 @@ change system settings</source>
 <context>
     <name>CreateUserNew</name>
     <message>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="48"/>
         <source>CreateUserNew</source>
-        <translation type="vanished">新建用户</translation>
+        <translation>新建用户</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="54"/>
@@ -2973,49 +2974,49 @@ change system settings</source>
         <translation>标准用户不能修改系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="269"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="270"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="271"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="273"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="338"/>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="548"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="340"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="550"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="464"/>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="616"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="466"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="618"/>
         <source>The nick name cannot be empty</source>
         <translation>用户昵称不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="466"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="468"/>
         <source>nickName already in use.</source>
         <translation>该用户昵称已存在。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="469"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="471"/>
         <source>nickName length must less than %1 letters!</source>
         <translation>用户昵称长度必须小于%1！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="611"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="613"/>
         <source>Username&apos;s length must be between 1 and %1 characters!</source>
         <translation>用户名长度必须介于1到%1个字符之间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="621"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="623"/>
         <source>new pwd cannot be empty!</source>
         <translation>新密码不能为空！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="626"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="628"/>
         <source>sure pwd cannot be empty!</source>
         <translation>确认密码不能为空！</translation>
     </message>
@@ -3056,12 +3057,12 @@ change system settings</source>
         <translation type="vanished">用户名仅能包含字母，数字及下划线</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="493"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="495"/>
         <source>Username&apos;s folder exists, change another one</source>
         <translation>用户目录已存在，请更改</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="518"/>
+        <location filename="../../../plugins/account/userinfo/createusernew.cpp" line="520"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
@@ -5656,7 +5657,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="397"/>
+        <location filename="../../mainwindow.cpp" line="405"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5665,44 +5666,44 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="365"/>
-        <location filename="../../mainwindow.cpp" line="417"/>
-        <location filename="../../mainwindow.cpp" line="889"/>
+        <location filename="../../mainwindow.cpp" line="373"/>
+        <location filename="../../mainwindow.cpp" line="425"/>
+        <location filename="../../mainwindow.cpp" line="897"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="426"/>
+        <location filename="../../mainwindow.cpp" line="434"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="427"/>
+        <location filename="../../mainwindow.cpp" line="435"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="428"/>
+        <location filename="../../mainwindow.cpp" line="436"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="429"/>
+        <location filename="../../mainwindow.cpp" line="437"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="479"/>
+        <location filename="../../mainwindow.cpp" line="487"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="481"/>
+        <location filename="../../mainwindow.cpp" line="489"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="483"/>
+        <location filename="../../mainwindow.cpp" line="491"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -5711,12 +5712,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1014"/>
+        <location filename="../../mainwindow.cpp" line="1022"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1014"/>
+        <location filename="../../mainwindow.cpp" line="1022"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -7026,17 +7027,17 @@ Please retry or relogin!</source>
         <translation type="vanished">打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="36"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="40"/>
         <source>Printer</source>
         <translation>打印机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="114"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="128"/>
         <source>Printers And Scanners</source>
         <translation>打印机和扫描仪</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/printer/printer.cpp" line="178"/>
+        <location filename="../../../plugins/devices/printer/printer.cpp" line="192"/>
         <source>Add</source>
         <translation>添加</translation>
         <extra-contents_path>/Printer/Add</extra-contents_path>
@@ -9052,63 +9053,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1133"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1130"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1143"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1140"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1152"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1149"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1161"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1158"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1170"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1167"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1180"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1177"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1189"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1186"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1198"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1195"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1207"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1204"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -11323,27 +11324,27 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="997"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="999"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="965"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="967"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="966"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="968"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="969"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="971"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="970"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="972"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
@@ -11360,12 +11361,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="993"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="995"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="995"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="997"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
@@ -11404,12 +11405,12 @@ E-mail: support@kylinos.cn</source>
         <translation>免密登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="546"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="548"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="546"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="548"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
