@@ -98,13 +98,15 @@ QWidget *About::pluginUi()
 
         setupVersionCompenent();
         setVersionNumCompenent();
+        setupDesktopComponent();
         setHostNameCompenet();
         setupSystemVersion();
-        setupDesktopComponent();
         setupKernelCompenent();
-        setupDiskCompenet();
         setupSerialComponent();
         setPrivacyCompent();
+
+        if (!mDiskFrame->isHidden())
+            setupDiskCompenet();
     }
     return pluginWidget;
 }
@@ -872,8 +874,9 @@ void About::setupDiskCompenet()
             continue;
         diskResult.replace(QRegExp("[\\s]+"), " ");
         diskInfo = diskResult.split(" ");
-        if (diskInfo.at(5) == "disk" && (!diskInfo.at(0).contains("fd")) &&
-               (diskInfo.at(2)!="1")) { //过滤掉可移动硬盘
+
+        if (diskInfo.count() >= 6 && diskInfo.at(5) == "disk" && (!diskInfo.at(0).contains("fd")) &&
+               (diskInfo.at(2) !="1")) { //过滤掉可移动硬盘
             QStringList totalSize;
             totalSize.append(diskInfo.at(3));
             disk2.insert(diskInfo.at(0),totalSize); //硬盘信息分类存储，用以兼容多硬盘电脑
