@@ -526,16 +526,12 @@
     </plugin>
     <plugin name="gesture">
         <pinyinPlugin>shoushiyindao</pinyinPlugin>
-        <pinyinfunc>shoushiyindao</pinyinfunc>
         <ChinesePlugin>手势引导</ChinesePlugin>
-        <ChineseFunc>手势引导</ChineseFunc>
         <EnglishFunc>Gesture Guidance</EnglishFunc>
     </plugin>
     <plugin name="about">
         <pinyinPlugin>guanyuyuzhichi</pinyinPlugin>
-        <pinyinfunc>guanyuyuzhichi</pinyinfunc>
         <ChinesePlugin>关于与支持</ChinesePlugin>
-        <ChineseFunc>关于与支持</ChineseFunc>
         <EnglishFunc>About and Support</EnglishFunc>
     </plugin>
     <plugin name="pen">
