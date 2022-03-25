@@ -29,9 +29,6 @@ CreateUserNew::CreateUserNew(QStringList allUsers, QWidget *parent) :
     QDialog(parent),
     _allNames(allUsers)
 {
-    setFixedSize(QSize(520, 572));
-    setWindowTitle(tr("CreateUserNew"));
-
     //确认密码检测是否开启
     makeSurePwdNeedCheck();
 
@@ -46,6 +43,9 @@ CreateUserNew::~CreateUserNew()
 }
 
 void CreateUserNew::initUI(){
+
+    setFixedSize(QSize(520, 572));
+    setWindowTitle(tr("CreateUserNew"));
 
     typeBtnGroup = new QButtonGroup;
 
