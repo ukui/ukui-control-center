@@ -70,7 +70,7 @@ const QString DisplaySet::name() const
 
 bool DisplaySet::isShowOnHomePage() const
 {
-    return !Utils::isCommunity() && !Utils::isWayland();
+    return !Utils::isWayland();
 }
 
 QIcon DisplaySet::icon() const
@@ -80,7 +80,7 @@ QIcon DisplaySet::icon() const
 
 bool DisplaySet::isEnable() const
 {
-    return !Utils::isCommunity() && !Utils::isWayland();
+    return !Utils::isWayland();
 }
 
 void DisplaySet::requestBackend()

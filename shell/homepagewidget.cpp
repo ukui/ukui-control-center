@@ -98,8 +98,9 @@ void HomePageWidget::initUI() {
         }
 
         // pangw 无安全模块 不显示
-        if (modulenameString == "security" && Utils::isWayland()) {
-            continue;
+        if ((modulenameString == "security" || modulenameString == "update")
+                   && (Utils::isWayland() || Utils::isCommunity())) {
+                     continue;
         }
 
         //构建首页10个模块
