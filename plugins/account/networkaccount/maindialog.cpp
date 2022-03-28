@@ -115,7 +115,7 @@ MainDialog::MainDialog(QWidget *parent) : QDialog(parent)
     //主窗口布局样式设置
     //setStyleSheet("Dialog_login_reg{border-radius:6px;}");
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setModal(true);
 
     m_workLayout->setSpacing(0);
