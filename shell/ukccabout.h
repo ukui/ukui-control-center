@@ -28,11 +28,16 @@
 #include <QPushButton>
 #include <QTextEdit>
 
+#include "ukcc/widgets/fixlabel.h"
+
 class UkccAbout : public QDialog
 {
     Q_OBJECT
 public:
     explicit UkccAbout(QWidget *parent = nullptr);
+
+protected:
+    bool eventFilter(QObject *watch, QEvent *event);
 
 private:
     QLabel *mUkccIcon;
@@ -43,7 +48,7 @@ private:
     QLabel *mUkccCenterTitle;
     QLabel *mUkccVersion;
     QLabel *mUkccDeveloper;
-    QPushButton *mUkccDeveloperEmailBtn;
+    FixLabel *mUkccDeveloperEmailLabel;
 
     QTextEdit *mUkccDetail;
 

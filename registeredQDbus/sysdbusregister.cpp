@@ -373,7 +373,7 @@ int SysdbusRegister::_getI2CBrightness(QString type) {
     QString result = vcpPro->readAllStandardOutput().trimmed();
     if (result == "")
         return -1;
-        
+
     QString bri=result.split(" ").at(9);
     bool ok;
     int bright=bri.toInt(&ok,16);
@@ -430,7 +430,7 @@ bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
     aptSettings->setValue("port", port);
     aptSettings->endGroup();
     QString content_http = QString("%1%2%3%4%5%6").arg("Acquire::http::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
-    QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"https://").arg(ip).arg(":").arg(port).arg("\";\n");
     QString profile_http = QString("%1%2%3%4%5").arg("export http_proxy=\"http://").arg(ip).arg(":").arg(port).arg("\"\n");
     QString profile_https = QString("%1%2%3%4%5").arg("export https_proxy=\"https://").arg(ip).arg(":").arg(port).arg("\"\n");
 

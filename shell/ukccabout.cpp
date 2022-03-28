@@ -23,6 +23,8 @@
 #include <QVariant>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QMouseEvent>
+#include <QDebug>
 
 UkccAbout::UkccAbout(QWidget *parent)
     : QDialog(parent) {
@@ -37,6 +39,19 @@ UkccAbout::UkccAbout(QWidget *parent)
     XAtomHelper::getInstance()->setWindowMotifHint(this->winId(), hints);
     initUI();
     initConnection();
+}
+
+bool UkccAbout::eventFilter(QObject *watch, QEvent *event)
+{
+    if ( watch == mUkccDeveloperEmailLabel) {
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton){
+                QDesktopServices::openUrl(QUrl(QLatin1String("mailto:support@kylinos.cn")));
+            }
+        }
+    }
+    return QDialog::eventFilter(watch, event);
 }
 
 void UkccAbout::initUI() {
@@ -102,21 +117,22 @@ void UkccAbout::initUI() {
     mUkccDetailLayout->addSpacing(32);
 
     mUkccDeveloper = new QLabel(tr("Service and Support:"));
+    QFontMetrics fontMetrics(this->font());
+    int fontSize = fontMetrics.width(mUkccDeveloper->text());
+    mUkccDeveloper->setFixedWidth(fontSize + 4);
 
-    mUkccDeveloperLayout->addSpacing(32);
+
+    mUkccDeveloperLayout->setContentsMargins(32, 0, 32, 0);
+
+    mUkccDeveloperEmailLabel = new FixLabel("support@kylinos.cn");
+    mUkccDeveloperEmailLabel->installEventFilter(this);
+    mUkccDeveloperEmailLabel->setFocusPolicy(Qt::NoFocus);
+    mUkccDeveloperEmailLabel->setContentsMargins(0,0,0,0);
+    mUkccDeveloperEmailLabel->setCursor( QCursor(Qt::PointingHandCursor));
+    mUkccDeveloperEmailLabel->setStyleSheet("FixLabel{text-decoration: underline} ");
+
     mUkccDeveloperLayout->addWidget(mUkccDeveloper);
-
-    mUkccDeveloperEmailBtn = new QPushButton("support@kylinos.cn");
-    mUkccDeveloperEmailBtn->setFocusPolicy(Qt::NoFocus);
-    mUkccDeveloperEmailBtn->setContentsMargins(0,0,0,0);
-    mUkccDeveloperEmailBtn->setCursor( QCursor(Qt::PointingHandCursor));
-    mUkccDeveloperEmailBtn->setStyleSheet("QPushButton{background: transparent;border-radius: 4px;text-decoration: underline;} ");
-
-    mUkccDeveloperLayout->addWidget(mUkccDeveloperEmailBtn);
-    mUkccDeveloperLayout->setAlignment(Qt::AlignLeft);
-    connect(mUkccDeveloperEmailBtn, &QPushButton::clicked, this,[=] {
-        QDesktopServices::openUrl(QUrl(QLatin1String("mailto:support@kylinos.cn")));
-    });
+    mUkccDeveloperLayout->addWidget(mUkccDeveloperEmailLabel);
 
     mMainVLayout->addLayout(mTitleLayout);
     mMainVLayout->addSpacing(42);
