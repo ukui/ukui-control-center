@@ -158,7 +158,10 @@ void About::setupKernelCompenent()
                                                              QDBusConnection::systemBus(), this);
    if (memoryDbus->isValid()) {
        QDBusReply<QString>  result = memoryDbus->call("getMemory");
-       memorySize.append(result + "GB");
+       if (!result.value().isEmpty()) {
+            memorySize.clear();
+            memorySize.append(result + "GB");
+       }
    }
    if (memorySize == "0GB")
        memorySize = getTotalMemory();
@@ -496,7 +499,7 @@ QString About::getTotalMemory()
 //    int nPow = ceil(log(memtotal)/log(2.0));
 //    memtotal = pow(2.0, nPow);
 
-    return QString::number(memtotal) + " GB";
+    return QString::number(memtotal) + "GB";
 }
 
 QStringList About::totalMemory()
