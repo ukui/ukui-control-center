@@ -545,7 +545,7 @@ bool SysdbusRegister::setaptproxy(QString ip, QString port, bool open)
     aptSettings->setValue("port", port);
     aptSettings->endGroup();
     QString content_http = QString("%1%2%3%4%5%6").arg("Acquire::http::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
-    QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"http://").arg(ip).arg(":").arg(port).arg("\";\n");
+    QString content_https = QString("%1%2%3%4%5%6").arg("Acquire::https::Proxy ").arg("\"https://").arg(ip).arg(":").arg(port).arg("\";\n");
     QString profile_http = QString("%1%2%3%4%5").arg("export http_proxy=\"http://").arg(ip).arg(":").arg(port).arg("\"\n");
     QString profile_https = QString("%1%2%3%4%5").arg("export https_proxy=\"https://").arg(ip).arg(":").arg(port).arg("\"\n");
 
