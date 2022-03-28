@@ -159,10 +159,9 @@ void About::setupKernelCompenent()
    if (memoryDbus->isValid()) {
        QDBusReply<QString>  result = memoryDbus->call("getMemory");
        if (!result.value().isEmpty()) {
-           memorySize.clear();
+            memorySize.clear();
             memorySize.append(result + "GB");
        }
-
    }
    if (memorySize == "0GB")
        memorySize = getTotalMemory();
