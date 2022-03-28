@@ -232,6 +232,14 @@ void Power::setHibernateTime(QString hibernate) {
     mUkccInterface->call("setSuspendThenHibernate", hibernate);
 }
 
+void Power::keychanged()
+{
+    QDBusReply<QVariant> BatteryInfo = mPowerInterface->call("Get", "org.freedesktop.UPower", "OnBattery");
+    isBattery = BatteryInfo.value().toBool();
+    qDebug()<<"isBattery : "<<isBattery;
+    initModeStatus();
+}
+
 void Power::setupComponent() {
 
     if (!hasBat){
@@ -358,30 +366,45 @@ void Power::setupConnect() {
             // 省电模式
             settings->set(POWER_POLICY_KEY, 1);
             if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
-                settings->set(POWER_POLICY_AC, 1);
-                settings->set(POWER_POLICY_BATTARY, 1);
+                if (isBattery) {
+                    settings->set(POWER_POLICY_BATTARY, 1);
+                } else {
+                    settings->set(POWER_POLICY_AC, 1);
+                }
             }
         } else if (id == SAVING) {
             mUkccpersonpersonalize->set("custompower", false);
             // 省电模式
             settings->set(POWER_POLICY_KEY, 2);
             if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
-                settings->set(POWER_POLICY_AC, 2);
-                settings->set(POWER_POLICY_BATTARY, 2);
+                if (isBattery) {
+                    settings->set(POWER_POLICY_BATTARY, 2);
+                } else {
+                    settings->set(POWER_POLICY_AC, 2);
+                }
             }
         } else if (id == PERFORMANCE) {
             mUkccpersonpersonalize->set("custompower", false);
             // 性能模式
             settings->set(POWER_POLICY_KEY, 0);
             if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
-                settings->set(POWER_POLICY_AC, 0);
-                settings->set(POWER_POLICY_BATTARY, 0);
+                if (isBattery) {
+                    settings->set(POWER_POLICY_BATTARY, 0);
+                } else {
+                    settings->set(POWER_POLICY_AC, 0);
+                }
             }
         }else {
             //自定义模式下的POWER_POLICY_KEY的值与切换前的模式有关，这里不做设置
             mUkccpersonpersonalize->set("custompower", true);
             initCustomPlanStatus();
         }
+    });
+
+    connect(settings, &QGSettings::changed, [=](QString key) {
+        qDebug()<<key;
+        if (key == "powerPolicyAc" || key == "powerPolicyBattery")
+            initModeStatus();
     });
 
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
@@ -470,16 +493,25 @@ void Power::setupConnect() {
 void Power::initModeStatus() {
     int power_policy = settings->get(POWER_POLICY_KEY).toInt();
     if (settings->keys().contains("powerPolicyAc") && settings->keys().contains("powerPolicyBattery")) {
-        power_policy = settings->get(POWER_POLICY_AC).toInt();
-        settings->set(POWER_POLICY_BATTARY, power_policy);
+        if (isBattery) {
+            power_policy = settings->get(POWER_POLICY_BATTARY).toInt();
+        } else {
+          power_policy = settings->get(POWER_POLICY_AC).toInt();
+        }
     }
     bool powerStatus = mUkccpersonpersonalize->get("custompower").toBool();
     if (power_policy == 1 && !powerStatus) {
+        ui->balanceRadioBtn->blockSignals(true);
         ui->balanceRadioBtn->setChecked(true);
+        ui->balanceRadioBtn->blockSignals(false);
     } else if (power_policy == 2 && !powerStatus) {
+        ui->savingRadioBtn->blockSignals(true);
         ui->savingRadioBtn->setChecked(true);
+        ui->savingRadioBtn->blockSignals(false);
     } else if (power_policy == 0 && !powerStatus) {
-         ui->performanceRadioBtn->setChecked(true);
+        ui->performanceRadioBtn->blockSignals(true);
+        ui->performanceRadioBtn->setChecked(true);
+        ui->performanceRadioBtn->blockSignals(false);
     }else {
         ui->custdomRadioBtn->setChecked(true);
         ui->acBtn->setChecked(true);
@@ -740,5 +772,18 @@ void Power::initDbus() {
     mUkccInterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                         "/",
                                         "com.control.center.interface",
-                                        QDBusConnection::systemBus());
+                                        QDBusConnection::systemBus(), this);
+
+    mPowerInterface = new QDBusInterface("org.freedesktop.UPower",
+                                         "/org/freedesktop/UPower",
+                                         "org.freedesktop.DBus.Properties",
+                                         QDBusConnection::systemBus(), this);
+    if (mPowerInterface->isValid()) {
+        QDBusReply<QVariant> BatteryInfo = mPowerInterface->call("Get", "org.freedesktop.UPower", "OnBattery");
+        isBattery = BatteryInfo.value().toBool();
+        QDBusConnection::systemBus().connect(QString(), QString("/org/freedesktop/UPower"),
+                                              QString("org.freedesktop.DBus.Properties"), "PropertiesChanged", this,
+                                              SLOT(keychanged()));
+    }
+
 }

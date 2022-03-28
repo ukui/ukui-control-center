@@ -94,6 +94,7 @@ private:
     bool mFirstLoad;
     bool isExitsLid;
     bool isExitHibernate;
+    bool isBattery;
 
     bool hasBat;
     bool mIsLenovoId = false;
@@ -103,6 +104,7 @@ private:
     ComboxFrame *mBatteryAct;
 
     QDBusInterface *mUkccInterface;
+    QDBusInterface *mPowerInterface;
 
 private:
     void initGeneralSet();
@@ -115,6 +117,7 @@ private:
 private slots:
     void setIdleTime(int idleTime);
     void setHibernateTime(QString hibernate);
+    void keychanged();
 };
 
 #endif // POWER_H

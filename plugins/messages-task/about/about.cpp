@@ -158,6 +158,7 @@ void About::setupKernelCompenent()
                                                              QDBusConnection::systemBus(), this);
    if (memoryDbus->isValid()) {
        QDBusReply<QString>  result = memoryDbus->call("getMemory");
+       memorySize.clear();
        memorySize.append(result + "GB");
    }
    if (memorySize == "0GB")
