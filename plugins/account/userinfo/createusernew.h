@@ -108,6 +108,7 @@ public:
     QStringList _allNames;
 
     bool enablePwdQuality;
+    bool hasNickName = false;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
