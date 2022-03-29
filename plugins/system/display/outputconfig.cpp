@@ -24,7 +24,7 @@
 #include <ukcc/widgets/combobox.h>
 
 double mScaleres = 0;
-const float kRadeonRate = 59.9402;
+QList<float> kRadeonRate{59.9402, 29.98};
 CONFIG changeItm = INIT;
 
 OutputConfig::OutputConfig(QWidget *parent) :
@@ -287,7 +287,7 @@ void OutputConfig::initRadeon()
     process.waitForFinished();
     QString output = process.readAll();
     output = output.simplified();
-    mIsRadeon = true;
+    mIsRadeon = output.contains("radeon", Qt::CaseInsensitive);
     qDebug() << Q_FUNC_INFO << mIsRadeon;
 }
 
@@ -348,7 +348,7 @@ void OutputConfig::slotResolutionChanged(const QSize &size, bool emitFlag)
             }
         }
 
-        if ((mIsRadeon && qFuzzyCompare(mode->refreshRate(), kRadeonRate)))
+        if ((mIsRadeon && kRadeonRate.contains(mode->refreshRate())))
             isRadeonRate = true;
 
         if (alreadyExisted == false && !isRadeonRate) {   //不添加已经存在的项
