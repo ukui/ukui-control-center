@@ -117,21 +117,25 @@ void UkccAbout::initUI() {
     mUkccDetailLayout->addWidget(mUkccDetail);
     mUkccDetailLayout->addSpacing(32);
 
-    mUkccDeveloper = new QLabel(tr("Service and Support:"));
+    mUkccDeveloperEmailLabel = new QLabel("support@kylinos.cn");
+    mUkccDeveloperEmailLabel->installEventFilter(this);
+    mUkccDeveloperEmailLabel->setCursor( QCursor(Qt::PointingHandCursor));
+    mUkccDeveloperEmailLabel->setStyleSheet("QLabel{text-decoration: underline} ");
+    QFontMetrics fontMetrics(this->font());
+    int fontSize = fontMetrics.width(mUkccDeveloperEmailLabel->text());
+    mUkccDeveloperEmailLabel->setFixedWidth(fontSize + 4);
+
+    mUkccDeveloper = new FixLabel();
+    mUkccDeveloper->setText(tr("Service and Support:"));
+
+    int width_1 = 420 - 68 - mUkccDeveloperEmailLabel->width();
+    int width_2 = fontMetrics.width(mUkccDeveloper->text());
+    mUkccDeveloper->setFixedWidth(width_2 > width_1 ? width_1 : width_2);
 
     mUkccDeveloperLayout->setContentsMargins(32, 0, 32, 0);
     mUkccDeveloperLayout->addWidget(mUkccDeveloper);
-
-    mUkccDeveloperEmailLabel = new FixLabel;
-    mUkccDeveloperEmailLabel->installEventFilter(this);
-    mUkccDeveloperEmailLabel->setFocusPolicy(Qt::NoFocus);
-    mUkccDeveloperEmailLabel->setContentsMargins(0,0,0,0);
-    mUkccDeveloperEmailLabel->setCursor( QCursor(Qt::PointingHandCursor));
-    mUkccDeveloperEmailLabel->setStyleSheet("FixLabel{text-decoration: underline} ");
-    mUkccDeveloperEmailLabel->setText("support@kylinos.cn");
-
     mUkccDeveloperLayout->addWidget(mUkccDeveloperEmailLabel);
-    mUkccDeveloperLayout->setAlignment(Qt::AlignLeft);
+    mUkccDeveloperLayout->addStretch();
 
     mMainVLayout->addLayout(mTitleLayout);
     mMainVLayout->addSpacing(42);
