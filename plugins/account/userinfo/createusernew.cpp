@@ -92,15 +92,20 @@ void CreateUserNew::initUI(){
 
     usernameLineEdit = new QLineEdit;
     usernameLineEdit->setFixedSize(340, 36);
+    usernameLineEdit->setPlaceholderText(tr("Required"));
     nicknameLineEdit = new QLineEdit;
     nicknameLineEdit->setFixedSize(340, 36);
+    nicknameLineEdit->setPlaceholderText(tr("Required"));
     hostnameLineEdit = new QLineEdit;
     hostnameLineEdit->setFixedSize(340, 36);
+    hostnameLineEdit->setPlaceholderText(tr("Required"));
     newPwdLineEdit = new QLineEdit;
     newPwdLineEdit->setFixedSize(340, 36);
+    newPwdLineEdit->setPlaceholderText(tr("Required"));
     newPwdLineEdit->setEchoMode(QLineEdit::Password);
     surePwdLineEdit = new QLineEdit;
     surePwdLineEdit->setFixedSize(340, 36);
+    surePwdLineEdit->setPlaceholderText(tr("verification"));
     surePwdLineEdit->setEchoMode(QLineEdit::Password);
 
     //用户名
@@ -317,6 +322,10 @@ void CreateUserNew::initUI(){
 void CreateUserNew::setConnect(){
 
     connect(usernameLineEdit, &QLineEdit::textEdited, this, [=](QString txt){
+        if(!hasNickName) {
+            nicknameLineEdit->setText(txt);
+            nameLegalityCheck2(txt);
+        }
         if (usernameLineEdit->text().length() > USER_LENGTH) {
             usernameLineEdit->setText(oldName);
         } else {
@@ -326,6 +335,11 @@ void CreateUserNew::setConnect(){
     });
 
     connect(nicknameLineEdit, &QLineEdit::textEdited, this, [=](QString txt){
+        if (nicknameLineEdit->text().isEmpty()) {
+            hasNickName = false;
+        } else {
+            hasNickName = true;
+        }
 
         nameLegalityCheck2(txt);
 
