@@ -47,8 +47,8 @@ private:
     QLabel *mUkccCenterIcon;
     QLabel *mUkccCenterTitle;
     QLabel *mUkccVersion;
-    QLabel *mUkccDeveloper;
-    FixLabel *mUkccDeveloperEmailLabel;
+    FixLabel *mUkccDeveloper;
+    QLabel *mUkccDeveloperEmailLabel;
 
     QTextEdit *mUkccDetail;
 
