@@ -147,6 +147,7 @@ public:
     void setupComponent();
     void setupConnect();
     bool isDaShangSuo();
+    bool isSudoGroupNumber(QString uname);
 
     void refreshConfirmBtnStatus();
     void refreshCancelBtnStatus();
