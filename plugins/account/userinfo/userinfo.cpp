@@ -621,10 +621,21 @@ void UserInfo::initComponent(){
     else
         setBiometricDeviceVisible(false);
 
+    QProcess *process = new QProcess;
+    process->start("dpkg -l | grep kim-client");
+    process->waitForFinished();
+
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+    QString mOutput = QString(ba.data());
+
     UserInfomation user = allUserInfoMap.value(g_get_user_name());
     if (isDomainUser(user.username.toLatin1().data())) {
+        // 工行修改密码按钮置灰
+        if (mOutput.contains("icbc")) {
+            ui->changePwdBtn->setEnabled(false);
+        }
         ui->changeGroupBtn->setEnabled(false);
-        ui->changePwdBtn->setEnabled(false);
         ui->changeTypeBtn->setEnabled(false);
         ui->nameChangeWidget->setEnabled(false);
         autoLoginSwitchBtn->setEnabled(false);
