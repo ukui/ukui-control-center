@@ -18,6 +18,7 @@
 
 #include <ukcc/widgets/switchbutton.h>
 #include <ukcc/widgets/titlelabel.h>
+#include <ukcc/widgets/uslider.h>
 
 const QByteArray kMouseSchemas = "org.ukui.peripherals-mouse";
 const QString kDominantHandKey = "left-handed";
@@ -105,7 +106,7 @@ private:
     SwitchButton *mPointerPositionBtn;
     SwitchButton *mBlinkingCursorOnTextBtn;
 
-    QSlider *mWheelSpeedSlider;
+    Uslider *mWheelSpeedSlider;
     QSlider *mDoubleClickIntervalSlider;
     QSlider *mPointerSpeedSlider;
     QSlider *mCursorSpeedSlider;

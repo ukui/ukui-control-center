@@ -189,6 +189,7 @@ void MouseUI::setWheelSpeedFrame()
     mWheelSpeedFrame->setMinimumSize(550, 60);
     mWheelSpeedFrame->setMaximumSize(16777215, 60);
 
+
     QHBoxLayout *wheelSpeedHLayout = new QHBoxLayout();
 
     //~ contents_path /Mouse/Wheel speed
@@ -196,10 +197,12 @@ void MouseUI::setWheelSpeedFrame()
     mWheelSpeedLabel->setMinimumWidth(140);
     mWheelSpeedSlowLabel = new QLabel(tr("Slow"), this);
     mWheelSpeedSlowLabel->setMinimumWidth(40);
-    mWheelSpeedSlider = new QSlider(Qt::Horizontal);
+    QStringList wheelSpeed;
+    wheelSpeed<< " " << " " << " " << " " <<" ";
+    mWheelSpeedSlider = new Uslider(wheelSpeed);
     // 1=3行，2=6行，3=9行，4=12行，5=15行
-    mWheelSpeedSlider->setMinimum(1);
-    mWheelSpeedSlider->setMaximum(5);
+    mWheelSpeedSlider->setRange(1,5);
+    mWheelSpeedSlider->setTickInterval(1);
     mWheelSpeedSlider->setPageStep(1);
     mWheelSpeedFastLabel = new QLabel(tr("Fast"), this);
     mWheelSpeedFastLabel->setMinimumWidth(40);
@@ -208,6 +211,7 @@ void MouseUI::setWheelSpeedFrame()
     wheelSpeedHLayout->addWidget(mWheelSpeedSlowLabel);
     wheelSpeedHLayout->addWidget(mWheelSpeedSlider);
     wheelSpeedHLayout->addWidget(mWheelSpeedFastLabel);
+    wheelSpeedHLayout->setContentsMargins(8,0,0,0);
 
     mWheelSpeedFrame->setLayout(wheelSpeedHLayout);
 }
