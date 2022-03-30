@@ -169,7 +169,7 @@ void TimezoneMap::popListActiveSlot(int index) {
 }
 
 void TimezoneMap::setTimezone(QString timezone) {
-    timezone = (timezone == "Asia/Beijing" ? "Asia/Shanghai" : timezone);
+//    timezone = (timezone == "Asia/Beijing" ? "Asia/Shanghai" : timezone);
     m_nearestZones.clear();
     int index = m_zoninfo->getZoneInfoByZone(m_totalZones, timezone);
     if (index > -1) {
