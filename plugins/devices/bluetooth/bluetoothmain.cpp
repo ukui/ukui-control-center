@@ -828,6 +828,11 @@ void BlueToothMain::ShowSpecialMainWindow()
     frame_middle->setVisible(false);
     frame_bottom->setVisible(false);
 
+    //修复部分机型rfkill block后没有power off信号导致，显示开关为开的问题
+    disconnect(open_bluetooth,SIGNAL(checkedChanged(bool)),nullptr,nullptr);
+    open_bluetooth->setChecked(false);
+    connect(open_bluetooth,SIGNAL(checkedChanged(bool)),this,SLOT(onClick_Open_Bluetooth(bool)));
+
     StackedWidget->setCurrentWidget(normal_main_widget);
 }
 
