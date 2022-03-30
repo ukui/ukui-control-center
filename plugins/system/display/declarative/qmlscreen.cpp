@@ -129,7 +129,12 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
     connect(qmloutput, SIGNAL(heightChanged(bool)),
             this, SLOT(setScreenPos(bool)));
 
+    connect(qmloutput, &QMLOutput::visibleChanged, this, [=](){
+        viewSizeChanged();
+    });
+
     qmloutput->updateRootProperties();
+    viewSizeChanged();
 }
 
 void QMLScreen::removeOutput(int outputId)
@@ -194,7 +199,7 @@ void QMLScreen::setScreenCenterPos()
     qreal moveX = 0, moveY = 0;// 移动的值
     bool firstFlag = true;
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
-        if (qmlOutput->output()->isConnected()) {
+        if (qmlOutput->output()->isConnected() && qmlOutput->isVisible()) {
             if (firstFlag == true || localX1 > qmlOutput->x()) {
                 localX1 = qmlOutput->x();
             }
@@ -214,17 +219,19 @@ void QMLScreen::setScreenCenterPos()
     mX1 = localX1 + (localX2-localX1)/2;
     mY1 = localY1 + (localY2-localY1)/2;
 
-    mX2 = (width() - (localX2 - localX1))/2 + (localX2-localX1)/2;
-    mY2 = (height() - (localY2 - localY1))/2 + (localY2-localY1)/2;
+    mX2 = width()/2;
+    mY2 = height()/2;
 
     moveX = mX2 - mX1;
     moveY = mY2 - mY1;
 
     Q_FOREACH (QMLOutput *qmlOutput, m_outputMap) {
-        qmlOutput->blockSignals(true);
-        qmlOutput->setX(qmlOutput->x() + moveX);
-        qmlOutput->setY(qmlOutput->y() + moveY);
-        qmlOutput->blockSignals(false);
+        if (qmlOutput->isVisible()) {
+            qmlOutput->blockSignals(true);
+            qmlOutput->setX(qmlOutput->x() + moveX);
+            qmlOutput->setY(qmlOutput->y() + moveY);
+            qmlOutput->blockSignals(false);
+        }
     }
 }
 
@@ -430,7 +437,9 @@ void QMLScreen::viewSizeChanged()
 {
     //TO fix bug#85240
 //    updateOutputsPlacement();
-    setScreenCenterPos();
+    QTimer::singleShot(0,this,[=]{
+        setScreenCenterPos();
+    });
 }
 
 void QMLScreen::updateCornerOutputs()
