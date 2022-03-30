@@ -395,11 +395,21 @@ void UserInfo::buildAndSetupUsers(){
                 }
             });
 
+            QProcess *process = new QProcess;
+            process->start("dpkg -l | grep kim-client");
+            process->waitForFinished();
+
+            QByteArray ba = process->readAllStandardOutput();
+            delete process;
+            QString mOutput = QString(ba.data());
             // 域用户用户信息不可设置
             if (isDomainUser(user.username.toLatin1().data())) {
+                // 工行修改密码按钮置灰
+                if (mOutput.contains("icbc")) {
+                    changeCurrentPwdBtn->setEnabled(false);
+                }
                 currentNickNameChangeLabel->setEnabled(false);
-                currentNickNameLabel->setEnabled(false);
-                changeCurrentPwdBtn->setEnabled(false);
+                currentNickNameLabel->setEnabled(false);   
                 changeCurrentGroupsBtn->setEnabled(false);
                 changeCurrentTypeBtn->setEnabled(false);
                 nopwdLoginSBtn->setEnabled(false);
