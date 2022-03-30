@@ -940,7 +940,7 @@ void BlueToothMain::releaseBluetoothDiscovery(bool value , bool ccIsOpen)
     qDebug() << Q_FUNC_INFO << m.arguments().at(0).value<bool>() <<__LINE__;
     qDebug() << Q_FUNC_INFO << m.arguments().at(1).value<bool>() <<__LINE__;
     // 发送Message
-    QDBusMessage response = QDBusConnection::sessionBus().call(m);
+    QDBusMessage response = QDBusConnection::sessionBus().call(m, QDBus::NoBlock);
 }
 
 void BlueToothMain::receiveBluetoothDiscovery(bool value , bool ccIsOpen)
@@ -951,7 +951,7 @@ void BlueToothMain::receiveBluetoothDiscovery(bool value , bool ccIsOpen)
     qDebug() << Q_FUNC_INFO << m.arguments().at(0).value<bool>() <<__LINE__;
     qDebug() << Q_FUNC_INFO << m.arguments().at(1).value<bool>() <<__LINE__;
     // 发送Message
-    QDBusMessage response = QDBusConnection::sessionBus().call(m);
+    QDBusMessage response = QDBusConnection::sessionBus().call(m, QDBus::NoBlock);
 }
 
 void BlueToothMain::Refresh_load_Label_icon()
