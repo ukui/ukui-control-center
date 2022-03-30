@@ -1786,14 +1786,20 @@ void Widget::usdScreenModeChangedSlot(int status)
         mIscloneMode = false;
     }
 
-    QTimer::singleShot(500, this, [=](){
+    int time = 1500;
+    if (mIscloneMode) {
+        time = 0;
+        QTimer::singleShot(2500, this, [=](){ //设置镜像后，有概率会显示为扩展，原因未知，需要刷新才可以变为正常.这里处理会导致多次变化.
+            this->update();
+        });
+    }
+    QTimer::singleShot(time, this, [=](){
         if (mKdsStatus != status) {
             mKdsStatus = status;
             slotUnifyOutputs();
         }
         showBrightnessFrame();
     });
-
     initMultScreenStatus();
 }
 
