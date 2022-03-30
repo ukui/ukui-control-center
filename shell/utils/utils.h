@@ -47,6 +47,7 @@ namespace Utils
     bool isWayland();
     bool isCommunity();
     bool isTablet();
+    bool isZJY();
     QString getHostName();
 }
 #endif // UTILS_H

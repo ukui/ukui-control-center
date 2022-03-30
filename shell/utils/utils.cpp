@@ -251,3 +251,16 @@ QString Utils::getHostName()
     hostname.replace(QString("\n"),QString(""));
     return hostname;
 }
+
+bool Utils::isZJY()
+{
+    QString filename = "/etc/os-release";
+    QSettings osSettings(filename, QSettings::IniFormat);
+
+    QString versionID = osSettings.value("PROJECT_CODENAME").toString();
+
+    if (versionID.compare("v10sp1-zyj", Qt::CaseSensitive)) {
+        return false;
+    }
+    return true;
+}
