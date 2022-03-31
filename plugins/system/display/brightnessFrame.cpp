@@ -52,6 +52,7 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
     layout->addWidget(slider);
     layout->addWidget(labelValue);
 
+    this->i2cBus = "-1";
     this->outputEnable = true;
     this->connectFlag = true;
     this->exitFlag = false;
@@ -192,7 +193,7 @@ int BrightnessFrame::getDDCBrighthess()
     while (--times) {
         if (this->edidHash == "" || exitFlag)
             return -1;
-        reply = ukccIfc.call("getDisplayBrightness", this->edidHash);
+        reply = ukccIfc.call("getDisplayBrightness", this->edidHash, this->i2cBus);
         if (reply.isValid() && reply.value() >= 0 && reply.value() <= 100) {
             return reply.value();
         }
@@ -213,7 +214,7 @@ void BrightnessFrame::setDDCBrightness(const int &value)
 
 
     if (mLock.tryLock()) {
-        ukccIfc.call("setDisplayBrightness", QString::number(value), this->edidHash);
+        ukccIfc.call("setDisplayBrightness", QString::number(value), this->edidHash, this->i2cBus);
         mLock.unlock();
     }
 }
@@ -226,4 +227,10 @@ void BrightnessFrame::updateEdidHash(const QString &edid)
 QString BrightnessFrame::getEdidHash()
 {
     return this->edidHash;
+}
+
+void BrightnessFrame::setI2cbus(QString busNum)
+{
+    this->i2cBus = busNum;
+    return;
 }

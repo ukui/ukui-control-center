@@ -56,7 +56,7 @@ SysdbusRegister::SysdbusRegister()
     QString filename = "/usr/share/ukui-control-center/shell/res/apt.ini";
     aptSettings = new QSettings(filename, QSettings::IniFormat, this);
     exitFlag = false;
-    toGetDisplayInfo = true;
+    toGetDisplayInfo = false; //不自动扫描i2c接口，否则会导致刚开始从display获取到i2c时无法正常运行_createDisplayInfo.
     if (!isBacklight())
          _getDisplayInfoThread();
 
@@ -65,6 +65,11 @@ SysdbusRegister::SysdbusRegister()
 SysdbusRegister::~SysdbusRegister()
 {
     exitFlag = true;
+    for (int j = 0; j < displayInfo_V.size(); j++) {
+        if (displayInfo_V[j].ddca_dh_loc) {
+            ddca_close_display(displayInfo_V[j].ddca_dh_loc);
+        }
+    }
 }
 
 void SysdbusRegister::exitService() {
@@ -396,10 +401,7 @@ void SysdbusRegister::_getDisplayInfoThread()
                         }
                     }
                     if (false == edidExist) {
-                        struct displayInfo display;
-                        display.edidHash = edidHash;
-                        display._DDC = false;
-                        display.I2C_busType = QString::number(dlist_loc->info[i].path.path.i2c_busno);
+                        struct displayInfo display = _createDisplayInfo(edidHash, QString::number(dlist_loc->info[i].path.path.i2c_busno), false, false);
                         display.I2C_brightness = _getI2CBrightness(display.I2C_busType);
                         displayInfo_V.append(display);
                     }
@@ -417,16 +419,10 @@ void SysdbusRegister::_getDisplayInfoThread()
                         }
                     }
                     if (!edidExist) {
-                        struct displayInfo display;
-                        DDCA_Display_Identifier did;
-                        DDCA_Display_Ref ddca_dref;
-                        display._DDC = true;
-                        display.edidHash = edidHash;
-                        display.I2C_busType = QString::number(dlist_loc->info[i].path.path.i2c_busno);
-                        ddca_create_edid_display_identifier(dlist_loc->info[i].edid_bytes,&did);
-                        ddca_create_display_ref(did,&ddca_dref);
-                        ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc);
-                        displayInfo_V.append(display);
+                        struct displayInfo display = _createDisplayInfo(edidHash, QString::number(dlist_loc->info[i].path.path.i2c_busno), true, false);;
+                        if (display.ddca_dh_loc) {
+                            displayInfo_V.append(display);
+                        }
                     }
                 }
             }
@@ -436,11 +432,12 @@ void SysdbusRegister::_getDisplayInfoThread()
     });
 }
 
-void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash)
+void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash,  QString i2cBus)
 {
     bool edidExist = false;
     for (int j = 0; j < displayInfo_V.size(); j++) {
-        if (displayInfo_V[j].edidHash == edidHash) {
+        if ((!displayInfo_V[j]._getI2C && displayInfo_V[j].edidHash == edidHash) ||
+             (displayInfo_V[j]._getI2C && i2cBus == displayInfo_V[j].I2C_busType)) {
             edidExist = true;
             if (true == displayInfo_V[j]._DDC) {
                 uint8_t new_sh = brightness.toUInt() >> 8;
@@ -453,16 +450,30 @@ void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash)
         }
     }
     if (!edidExist) {
-        getDisplayInfo();
+        if (i2cBus != "-1") {
+            toGetDisplayInfo = false;
+            struct displayInfo display = _createDisplayInfo(edidHash, i2cBus, true, true);
+            uint8_t new_sh = brightness.toUInt() >> 8;
+            uint8_t new_sl = brightness.toUInt() & 0xff;
+            if (display.ddca_dh_loc) {
+                displayInfo_V.append(display);
+                ddca_set_non_table_vcp_value(display.ddca_dh_loc,0x10,new_sh,new_sl);
+            } else {
+                getDisplayInfo();
+            }
+        } else {
+            getDisplayInfo();
+        }
     }
     return;
 }
 
-int SysdbusRegister::getDisplayBrightness(QString edidHash)
+int SysdbusRegister::getDisplayBrightness(QString edidHash,  QString i2cBus)
 {
     bool edidExist = false;
     for (int j = 0; j < displayInfo_V.size(); j++) {
-        if (displayInfo_V[j].edidHash == edidHash) {
+        if ((!displayInfo_V[j]._getI2C && displayInfo_V[j].edidHash == edidHash) ||
+             (displayInfo_V[j]._getI2C && i2cBus == displayInfo_V[j].I2C_busType)) {
             edidExist = true;
             if (true == displayInfo_V[j]._DDC) {
                 DDCA_Non_Table_Vcp_Value  valrec;
@@ -475,7 +486,7 @@ int SysdbusRegister::getDisplayBrightness(QString edidHash)
                     return -2;
                 }
             } else {
-                if (displayInfo_V[j].I2C_brightness >=0 && displayInfo_V[j].I2C_brightness <= 100) {
+                if (displayInfo_V[j].I2C_brightness >= 0 && displayInfo_V[j].I2C_brightness <= 100) {
                     return displayInfo_V[j].I2C_brightness;
                 } else {
                     getDisplayInfo();
@@ -485,7 +496,25 @@ int SysdbusRegister::getDisplayBrightness(QString edidHash)
         }
     }
     if (!edidExist) {
-        getDisplayInfo();
+        if (i2cBus != "-1") {
+            toGetDisplayInfo = false;
+            struct displayInfo display = _createDisplayInfo(edidHash, i2cBus, true, true);
+            DDCA_Non_Table_Vcp_Value  valrec;
+            if (display.ddca_dh_loc) {
+                displayInfo_V.append(display);
+                if (ddca_get_non_table_vcp_value(display.ddca_dh_loc,0x10,&valrec) == 0) {
+    //                uint16_t max_val = valrec.mh << 8 | valrec.ml; 暂未使用
+                    uint16_t cur_val = valrec.sh << 8 | valrec.sl;
+                    return cur_val;
+                } else {
+                    return -2;
+                }
+            } else {
+                getDisplayInfo();
+            }
+        } else {
+            getDisplayInfo();
+        }
     }
     return -2;
 }
@@ -527,7 +556,11 @@ QString SysdbusRegister::showDisplayInfo()
     QString retString = "";
     for (int j = 0; j < displayInfo_V.size(); j++) {
         if (true == displayInfo_V[j]._DDC) {
-            retString = retString + "<DDC>" + " bus=" + displayInfo_V[j].I2C_busType;
+            QString getI2c = "false";
+            if (displayInfo_V[j]._getI2C) {
+                getI2c = "true";
+            }
+            retString = retString + "<DDC>" + " i2cBus=" + getI2c + " bus=" + displayInfo_V[j].I2C_busType;
         } else {
             retString = retString + "<I2C>" + " bus=" + displayInfo_V[j].I2C_busType + "("+QString::number(displayInfo_V[j].I2C_brightness)+")";
         }
@@ -638,4 +671,24 @@ QString SysdbusRegister::getMemory()
     qDebug()<<"memory : "<<memorysize;
     return QString::number(memorysize);
 
+}
+
+struct displayInfo SysdbusRegister::_createDisplayInfo(QString edidHash, QString busType, bool ddc, bool getI2C)
+{
+    struct displayInfo display;
+    DDCA_Display_Identifier did;
+    DDCA_Display_Ref ddca_dref;
+    display._getI2C = getI2C;
+    display._DDC = ddc;
+    display.edidHash = edidHash;
+    display.I2C_busType = busType;
+    if (ddca_create_busno_display_identifier(busType.toInt(), &did) == 0) {
+        if (ddca_create_display_ref(did,&ddca_dref) == 0) {
+            if (ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc) == 0) {
+                return display;
+            }
+        }
+    }
+    display.ddca_dh_loc = nullptr;
+    return display;
 }

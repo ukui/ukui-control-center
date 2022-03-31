@@ -93,6 +93,7 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
+    getAllI2Cbus();
 
     firstAddOutputName = "";
     mCloseScreenButton = new SwitchButton(this);
@@ -873,6 +874,12 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
         frame = new BrightnessFrame(name, true);
     } else if(!mIsBattery) {
         frame = new BrightnessFrame(name, false, edidHash);
+        for (QMap<QString, QString>::const_iterator it = I2CbusMap.constBegin(); it != I2CbusMap.constEnd(); ++it) {
+            if (name.contains(it.key(), Qt::CaseInsensitive)) {
+                frame->setI2cbus(it.value());
+                break;
+            }
+        }
     }
     if (frame != nullptr) {
         BrightnessFrameV.push_back(frame);
@@ -2185,4 +2192,51 @@ void Widget::updatePreview()
     preOp->deleteLater();
     setConfig(mConfig);
     mainScreenButtonSelect(ui->primaryCombo->currentIndex());
+}
+
+void Widget::getAllI2Cbus()
+{
+    QMap<QString, QString> msg;
+    QString cmd = "find /sys/class/drm/card0-*/*/ -name '*i2c-[0-9]*'";
+    QProcess process;
+    process.start("bash", QStringList() <<"-c"<<cmd);
+    process.waitForFinished();
+    QString strResult = process.readAllStandardOutput();
+    QStringList resultList = strResult.split("\n"); //所有结果
+
+    qDebug()<<"read i2c process result = "<<resultList;
+    for (int i = 0; i < resultList.size(); i++) {
+        QStringList i2cList = resultList.at(i).split("/"); //切割每一行结果
+        if (i2cList.size() >= 5) {
+            if (!msg.keys().contains(i2cList.at(4))) {
+                //当不存在时就添加
+                msg.insert(i2cList.at(4), resultList.at(i));
+            } else {
+                //已经存在，但是内容更少时也重新替换,drm中文件是嵌套的，可能存在包含关系，故做此处理
+                if (msg[i2cList.at(4)].size() > resultList.at(i).size()) {
+                    msg[i2cList.at(4)] = resultList.at(i);
+                }
+            }
+        }
+    }
+    QMap<QString, QString>::const_iterator it;
+    for (it = msg.constBegin(); it != msg.constEnd(); ++it) {
+        qDebug()<<" ----------MAP-MSG--------- "<<it.key()<<" "<<it.value();
+        //显示器名只取中间的(HDMI\VGA...)，因为后面的内容kscreen和内核提供的不一定一致
+        //因此当有多个HDMI接口时此方式并不适用
+        QString name = it.key().split("-").at(1);
+        QStringList i2cList = it.value().split("/");
+        QString i2cStr = i2cList.at(i2cList.size() - 2);
+        QString busNum = i2cStr.split("-").at(1);
+        if (QString::number(busNum.toInt()) == busNum) {
+            if (I2CbusMap.keys().contains(name)) {
+                qDebug()<<"Unable to get the correct bus number from the kernel ... "<<name;
+                I2CbusMap.clear(); //如果出现了一样的，表明有重复的接口，舍弃使用内核提供的bus号
+                return;
+            }
+            qDebug()<<" i2c-name = "<<name<<" *** "<<"i2c-bus="<<busNum;
+            I2CbusMap.insert(name, busNum);
+        }
+    }
+    return;
 }
