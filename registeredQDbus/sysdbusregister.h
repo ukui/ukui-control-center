@@ -128,6 +128,10 @@ public slots:
     //修改/etc/hosts文件内的主机名
     Q_SCRIPTABLE void sethostname(QString hostname);
 
+    //获取内存大小
+    Q_SCRIPTABLE QString getMemory();
+
+
 };
 
 #endif // SYSDBUSREGISTER_H

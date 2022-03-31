@@ -848,11 +848,27 @@ void About::setupDesktopComponent()
 /* 获取CPU信息 */
 void About::setupKernelCompenent()
 {
-    QString memorySize;
+    QString memorySize("0GB");
     QString cpuType;
 
     QString kernal = QSysInfo::kernelType() + " " + QSysInfo::kernelVersion();
-    memorySize = getTotalMemory();
+    getTotalMemory();
+
+    QDBusInterface *memoryDbus = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                             "/",
+                                                             "com.control.center.interface",
+                                                             QDBusConnection::systemBus(), this);
+   if (memoryDbus->isValid()) {
+       QDBusReply<QString>  result = memoryDbus->call("getMemory");
+       qDebug()<<"memory :"<<result;
+       if (!result.value().isEmpty()) {
+            memorySize.clear();
+            memorySize.append(result + "GB" + mMemAvaliable);
+       }
+   }
+   if (memorySize == "0GB")
+       memorySize = mMemtotal + mMemAvaliable;
+
     qDebug()<<kernal;
     mKernelLabel_2->setText(kernal);
     mMemoryLabel_2->setText(memorySize);
@@ -1224,7 +1240,7 @@ QStringList About::readFile(QString filepath)
     }
 }
 
-QString About::getTotalMemory()
+void About::getTotalMemory()
 {
     const QString fileName = "/proc/meminfo";
     QFile meninfoFile(fileName);
@@ -1276,7 +1292,8 @@ QString About::getTotalMemory()
 //    int nPow = ceil(log(memtotal)/log(2.0));
 //    memtotal = pow(2.0, nPow);
 
-    return QString::number(memtotal) + "GB (" + QString::number(memAvaliable, 'f', 1)+ "GB "+tr("avaliable") +")";
+    mMemtotal = QString("%1%2").arg(QString::number(memtotal)).arg("GB");
+    mMemAvaliable = QString("%1%2%3%4%5").arg("(").arg(QString::number(memAvaliable, 'f', 1)).arg("GB").arg(tr("avaliable")).arg(")");
 }
 
 void About::setFrame_Box(QFrame *frame)

@@ -94,7 +94,7 @@ private:
 
     QStringList getUserDefaultLanguage();
     QStringList  readFile(QString filepath);
-    QString getTotalMemory();
+    void getTotalMemory();
 
     QPixmap loadSvg(const QString &path, int width, int height);
 
@@ -186,6 +186,9 @@ private:
     hp::QRCodeInterface *app;//hp插件
 
     QSpacerItem *item;
+
+    QString mMemtotal;
+    QString mMemAvaliable;
 
 Q_SIGNALS:
     void resize();
