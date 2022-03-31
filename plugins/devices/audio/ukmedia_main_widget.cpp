@@ -305,8 +305,8 @@ void UkmediaMainWidget::dealSlot()
             m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
             themeChangeIcons();
         }
-
-//        initListWidgetItem();
+        //fixed bug:110751 宝新创PF215T
+        initListWidgetItem();
     });
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
         QString percent = QString::number(paVolumeToValue(value));
@@ -2649,6 +2649,12 @@ QString UkmediaMainWidget::findInputPortLabel(int index,QString portName)
     QMap<QString,QString>portMap;
     QMap<QString,QString>::iterator tempMap;
     QString portLabel = "";
+
+    /* fixed bug:112415 宝新创PF215T */
+    if(index < 0 || portName == ""){
+        index = 1;
+    }
+
     for (it = m_pVolumeControl->inputPortMap.begin();it != m_pVolumeControl->inputPortMap.end();) {
         if (it.key() == index) {
             portMap = it.value();
