@@ -283,6 +283,9 @@ void NetConnect::getNetList() {
         getWifiListDone(reply, this->TlanList, isWayland);
         wifilist.clear();
         for (int i = 1; i < reply.value().length(); i++) {
+            if (reply.value().at(i).size() < 2) {
+                continue;
+            }
             QString wifiName;
             if (isWayland) {
                 wifiName = reply.value().at(i).at(0) + reply.value().at(i).at(5);
