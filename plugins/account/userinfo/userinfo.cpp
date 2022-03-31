@@ -521,6 +521,15 @@ void UserInfo::buildItemForUsersAndSetConnect(UserInfomation user){
     connect(this, &UserInfo::userTypeChanged, utils, [=](QString n){
         utils->refreshDelStatus(!isLastAdmin(user.username));
         utils->refreshTypeStatus(!isLastAdmin(user.username));
+#ifdef WITHKYSEC
+        if (!kysec_is_disabled() && kysec_get_3adm_status()){
+            if (user.username == "secadm" || user.username == "auditadm"){
+                utils->refreshDelStatus(false);
+                utils->refreshPwdStatus(false);
+                utils->refreshTypeStatus(false);
+            }
+        }
+#endif
     });
 
     QDBusInterface tmpProperty("org.freedesktop.Accounts",
