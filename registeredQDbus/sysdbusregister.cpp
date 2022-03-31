@@ -514,6 +514,46 @@ void SysdbusRegister::sethostname(QString hostname)
     }
 }
 
+QString SysdbusRegister::getMemory()
+{
+    float memorysize(0.0);
+    // 设置系统环境变量
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG","en_US");
+    QProcess *process = new QProcess;
+    process->setProcessEnvironment(env);
+    process->start("bash" , QStringList() << "-c" << "dmidecode -t memory | grep Size ");
+    process->waitForFinished();
+    QByteArray ba = process->readAllStandardOutput();
+    delete process;
+
+    QString sizeinfo = QString(ba.data());
+    QStringList size_list = sizeinfo.split('\n');
+    for (QString str : size_list) {
+        str.remove(QRegExp("\\s"));
+        if (str.split(':').at(0) == "Size") {
+            QString res = str.split(':').at(1);
+            QRegExp rx("^\\d");
+            if (rx.indexIn(res) == 0){
+                QRegExp rx_1("^(.*)MB$");
+                QRegExp rx_2("^(.*)GB$");
+                int pos_1 = rx_1.indexIn(res);
+                int pos_2 = rx_2.indexIn(res);
+                if (pos_1 > -1) {
+                    qDebug()<<rx_1.cap(1);
+                    memorysize +=  ceil(rx_1.cap(1).toFloat()/1024);
+                }
+                if (pos_2 > -1) {
+                    qDebug()<<rx_2.cap(1);
+                    memorysize +=  rx_2.cap(1).toFloat();
+                }
+            }
+        }
+    }
+    qDebug()<<"memory : "<<memorysize;
+    return QString::number(memorysize);
+}
+
 void SysdbusRegister::getDisplayInfo()
 {
     toGetDisplayInfo = true;
