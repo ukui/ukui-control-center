@@ -28,6 +28,7 @@ public:
     void updateEdidHash(const QString &edid);
     QString getEdidHash();
     QString getOutputName();
+    void setI2cbus(QString busNum);
 private:
     FixLabel *labelName = nullptr;
     QLabel *labelValue = nullptr;
@@ -42,6 +43,7 @@ private:
     QFuture<void> threadRun;
     volatile bool threadRunFlag;
     FixLabel *labelMsg = nullptr;
+    QString i2cBus;
 };
 
 #endif // BRIGHTNESSFRAME_H

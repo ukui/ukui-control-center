@@ -31,6 +31,7 @@
 
 struct displayInfo {
     bool   _DDC;           //是否采用DDC处理，当DDC失败时使用I2C
+    bool   _getI2C;        //是否从参数中获取I2C的bus号
     DDCA_Display_Handle ddca_dh_loc;   //显示器句柄
     QString edidHash;      //edid信息的hash值(md5)
 
@@ -55,6 +56,7 @@ private:
 
     // 通过I2C获取外接台式屏幕亮度
     int _getI2CBrightness(QString type);
+    struct displayInfo _createDisplayInfo(QString edidHash, QString busType, bool ddc, bool getI2C);
 
 private:
     QString mHibernateFile;
@@ -114,8 +116,8 @@ public slots:
     //新亮度相关的接口
     Q_SCRIPTABLE void getDisplayInfo();
     Q_SCRIPTABLE QString showDisplayInfo();
-    Q_SCRIPTABLE void setDisplayBrightness(QString brightness, QString edidHash);
-    Q_SCRIPTABLE int getDisplayBrightness(QString edidHash);
+    Q_SCRIPTABLE void setDisplayBrightness(QString brightness, QString edidHash,  QString i2cBus = "-1");
+    Q_SCRIPTABLE int getDisplayBrightness(QString edidHash, QString i2cBus = "-1");
 
     // dmidecode解析id屏蔽电源功能
     Q_SCRIPTABLE QString getVerionsId();

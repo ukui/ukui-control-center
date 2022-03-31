@@ -88,6 +88,7 @@ public:
 
     QList<ScreenConfig> getPreScreenCfg();
     void setPreScreenCfg(KScreen::OutputList screens);
+    void getAllI2Cbus();
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
@@ -246,6 +247,7 @@ private:
     QString     mKDSCfg;
     bool unifySetconfig = false;
     QDBusInterface *dbusEdid = nullptr;
+    QMap<QString, QString> I2CbusMap;
 };
 
 #endif // WIDGET_H
