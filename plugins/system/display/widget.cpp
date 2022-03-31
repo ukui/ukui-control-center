@@ -2226,7 +2226,11 @@ void Widget::getAllI2Cbus()
         //因此当有多个HDMI接口时此方式并不适用
         QString name = it.key().split("-").at(1);
         QStringList i2cList = it.value().split("/");
-        QString i2cStr = i2cList.at(i2cList.size() - 2);
+        QString i2cStr = i2cList.at(i2cList.size() - 1);
+        if (!i2cStr.contains("i2c-",Qt::CaseInsensitive)) {
+            i2cStr = i2cList.at(i2cList.size() - 2);
+        }
+
         QString busNum = i2cStr.split("-").at(1);
         if (QString::number(busNum.toInt()) == busNum) {
             if (I2CbusMap.keys().contains(name)) {
