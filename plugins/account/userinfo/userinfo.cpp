@@ -128,7 +128,7 @@ const QString UserInfo::name() const {
 
 bool UserInfo::isShowOnHomePage() const
 {
-    return true;
+    return !isIntel();
 }
 
 QIcon UserInfo::icon() const
@@ -138,7 +138,7 @@ QIcon UserInfo::icon() const
 
 bool UserInfo::isEnable() const
 {
-    return true;
+    return !isIntel();
 }
 
 void UserInfo::initSearchText() {
