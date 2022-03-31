@@ -122,12 +122,12 @@ QWidget *UserInfoIntel::pluginUi(){
 
 const QString UserInfoIntel::name() const {
 
-    return QStringLiteral("Userinfo");
+    return QStringLiteral("UserinfoIntel");
 }
 
 bool UserInfoIntel::isShowOnHomePage() const
 {
-    return false;
+    return isIntel();
 }
 
 QIcon UserInfoIntel::icon() const

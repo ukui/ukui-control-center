@@ -58,7 +58,8 @@ public:
     }
     QPushButton *pluginBtn = nullptr;
 
-    bool isIntel(){
+    bool isIntel() const
+    {
         QString sysVersion = "/etc/apt/ota_version";
         QFile file(sysVersion);
         return file.exists();
