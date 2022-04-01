@@ -1726,44 +1726,55 @@ bool TabWid::get_battery()
                                  "/org/freedesktop/UPower",
                                  "org.freedesktop.UPower",
                                  QDBusConnection::systemBus() );
-    if (!m_interface1.isValid()) {
+    if (!m_interface1.isValid())
+    {
         qDebug() << "电源管理器dbus接口初始化失败";
         return true;
     }
 
     QDBusReply<QList<QDBusObjectPath>> obj_reply = m_interface1.call("EnumerateDevices");
 
-    if (obj_reply.isValid()) {
+    if (obj_reply.isValid())
+    {
+        qDebug()<<"come into EnumerateDevices";
         for (QDBusObjectPath op : obj_reply.value())
+        {
             users << op.path();
-        if (users.size()==1 || users.isEmpty()) {
+        }
+        if (users.size()==1 || users.isEmpty())
+        {
             qDebug()<<"无法获取电量值,判断此电脑为台式电脑";
             return true;
         }
-        foreach (QString str, users) {
-            if (str == users.at(0) || str == users.at(users.size() - 1)) {
-                continue ;
-            }
+        foreach (QString str, users)
+        {
             QDBusInterface m_interface( "org.freedesktop.UPower",
                                         str,
                                         "org.freedesktop.DBus.Properties",
                                         QDBusConnection::systemBus());
 
-            if (!m_interface.isValid()) {
+            if (!m_interface.isValid())
+            {
                 qDebug() << "电源管理器dbus接口初始化失败";
                 return true;
             }
 
             QDBusReply<QVariant> obj_reply = m_interface.call("Get","org.freedesktop.UPower.Device","Percentage");
+            qDebug()<<"obj_reply is "<<obj_reply;
             int Ele_surplus = obj_reply.value().toInt();
+            qDebug()<<"Ele_surplus is"<<Ele_surplus;
             battery_value += Ele_surplus;
+            qDebug() << "battery_value is "<<battery_value;
             qDebug() << "battery value : " << Ele_surplus;
         }
-//        return true;
     }
     /*如果电池总电量小于50不可升级*/
     if (battery_value < 50)
+    {
+        qDebug() << "battery value < 50%:"<<battery_value;
         return false;
+    }
+    qDebug() << "battery value > 50%";
     return true;
 }
 
@@ -1821,7 +1832,15 @@ void TabWid::updateAllApp(bool status)
 
 void TabWid::disupdateallaccept()
 {
-    distUpgradeAllApp(true);
+    foreach (AppUpdateWid *wid, widgetList) {
+        wid->hide();
+    }
+    connect(updateMutual->interface,SIGNAL(UpdateDloadAndInstStaChanged(QStringList,int,QString,QString)),this,SLOT(getAllProgress(QStringList,int,QString,QString)));
+    connect(updateMutual->interface,SIGNAL(UpdateDownloadInfo(QStringList,int,int,uint,uint,int)),this,SLOT(showDownloadInfo(QStringList,int,int,uint,uint,int)));
+    connect(updateMutual->interface,SIGNAL(UpdateInstallFinished(bool,QStringList,QString,QString)),this,SLOT(hideUpdateBtnSlot(bool,QStringList,QString,QString)));
+    updateMutual->DistUpgradeSystem(true);
+//    distUpgradeAllApp(true);
+
 }
 
 bool TabWid::distUpgradeAllApp(bool status)
