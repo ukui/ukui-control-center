@@ -93,6 +93,7 @@ QWidget *Wallpaper::pluginUi() {
             setupConnect();
             initBgFormStatus();
             initBgOption();
+            hideComponent();
         }
         // 构建xmlhandle对象
         xmlhandleObj = new XmlHandle();
@@ -412,6 +413,11 @@ void Wallpaper::initBgOption()
     connect(ui->showModeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
         bgsettings->set(OPTIONS, ui->showModeComboBox->itemData(index).toString());
     });
+}
+
+void Wallpaper::hideComponent()
+{
+    ui->onlineBtn->setHidden(Utils::isZJY());
 }
 
 void Wallpaper::initPreviewStatus(){
