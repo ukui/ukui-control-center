@@ -1032,10 +1032,6 @@ int Widget::updateScreenConfig()
 void Widget::showZoomtips()
 {
     int ret;
-    QDBusInterface ifc("org.gnome.SessionManager",
-                       "/org/gnome/SessionManager",
-                       "org.gnome.SessionManager",
-                       QDBusConnection::sessionBus());
     QMessageBox msg(this->topLevelWidget());
     msg.setWindowTitle(tr("Hint"));
     msg.setText(tr("The zoom function needs to log out to take effect"));
@@ -1046,7 +1042,7 @@ void Widget::showZoomtips()
 
     switch (ret) {
     case QMessageBox::AcceptRole:
-        ifc.call("logout");
+        system("ukui-session-tools --logout");
         break;
     case QMessageBox::RejectRole:
         break;
