@@ -364,6 +364,7 @@ bool UkmediaVolumeControl::setSinkPort(const gchar *sinkName, const gchar *portN
 bool UkmediaVolumeControl::setSourcePort(const gchar *sourceName, const gchar *portName)
 {
     qDebug() << "setSourcePort" << sourceName << portName;
+    sourcePortName = portName;
     pa_operation* o;
     if (!(o = pa_context_set_source_port_by_name(getContext(), sourceName, portName, nullptr, nullptr))) {
         showError(tr("pa_context_set_source_port_by_name() failed").toUtf8().constData());
@@ -1196,8 +1197,10 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
 
     if(i->active_port)
         w->sourcePortName = i->active_port->name;
-    else
+    else if(strcmp(i->name,"noiseReduceSource")!=0)
         w->sourcePortName = "" ;
+//    else
+//        w->sourcePortName = "" ;
 
     if(w->sourceVolume != volume || w->sourceMuted != i->mute){
         w->sourceVolume = volume;
