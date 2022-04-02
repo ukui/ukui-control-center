@@ -75,6 +75,8 @@ public:
     void setScreenPos(QMLOutput *output, bool isReleased);
 
     void setScreenCenterPos();
+    QPointF getAllPos();
+
 public Q_SLOTS:
     void setActiveOutput()
     {
@@ -124,6 +126,7 @@ private:
     QMLOutput *m_topmost = nullptr;
     QMLOutput *m_rightmost = nullptr;
     QMLOutput *m_bottommost = nullptr;
+    QPointF allPosBefore = QPointF(0, 0);
 };
 
 #endif // QMLSCREEN_H
