@@ -1475,7 +1475,6 @@ void Widget::applyNightModeSlot()
 
 void Widget::setMultiScreenSlot(int index)
 {
-    qDebug() << index  << "================================";
     QString mode;
     switch (index) {
 //    case 0:
@@ -1878,7 +1877,7 @@ void Widget::usdScreenModeChangedSlot(int status)
         mIscloneMode = false;
     }
 
-    QTimer::singleShot(500, this, [=](){
+    QTimer::singleShot(1500, this, [=](){
         if (mKdsStatus != status) {
             mKdsStatus = status;
             slotUnifyOutputs();
