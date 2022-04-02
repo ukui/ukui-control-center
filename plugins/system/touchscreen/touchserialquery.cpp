@@ -84,7 +84,7 @@ static int find_event_from_touchId(int pId ,char *_event,char *devnode,int max_l
     return ret;
 }
 
-static int find_serial_from_event(char *_name, char *_event, char *_serial, int max_len)
+static int find_serial_from_event(char *_name, char *_event, char *_serial, char *_touchpid,char *_touchvid,int max_len)
 {
     int ret = -1;
     if((NULL == _name) || (NULL == _event))
@@ -136,12 +136,24 @@ static int find_serial_from_event(char *_name, char *_event, char *_serial, int 
         if((NULL!=ret) && (0 == strcmp(_event, pEvent)))
         {
             const char *pSerial = udev_device_get_sysattr_value(dev, "serial");
+            const char *pVID = udev_device_get_sysattr_value(dev, "idVendor");
+            const char *pPID = udev_device_get_sysattr_value(dev, "idProduct");
             //printf(" _serial:%s\n  pSerial: %s\n",_serial, pSerial);
             if(NULL == pSerial)
             {
-                continue;
+                pSerial="";
+            }
+            if(NULL == pVID)
+            {
+                pVID="kydefault";
+            }
+            if(NULL == pPID)
+            {
+                pPID="kydefault";
             }
             strncpy(_serial, pSerial, max_len>0?(max_len-1):max_len);
+            strncpy(_touchpid, pPID, max_len>0?(max_len-1):max_len);
+            strncpy(_touchvid, pVID, max_len>0?(max_len-1):max_len);
             ret = Success;
             //printf(" _serial:%s\n  pSerial: %s\n",_serial, pSerial);
             break;
@@ -155,11 +167,11 @@ static int find_serial_from_event(char *_name, char *_event, char *_serial, int 
     return ret;
 }
 
-int findSerialFromId(int touchid,char *touchname,char *_touchserial,char *devnode,int maxlen)
+int findSerialFromId(int touchid,char *touchname,char *_touchserial,char *_touchpid,char *_touchvid,char *devnode,int maxlen)
 {
     char event[32]={0};
     int ret=find_event_from_touchId(touchid, event,devnode, 32);
-    ret=find_serial_from_event(touchname, event,_touchserial,maxlen);
+    ret=find_serial_from_event(touchname, event,_touchserial,_touchpid,_touchvid,maxlen);
     if(!strcmp(_touchserial,""))
         strncpy(_touchserial,"kydefault",maxlen>0?(maxlen-1):maxlen);
     return ret;
