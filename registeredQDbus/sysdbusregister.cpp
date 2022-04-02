@@ -488,30 +488,33 @@ void SysdbusRegister::sethostname(QString hostname)
 {
     QString fileName = "/etc/hosts";
     QString strAll;
-    QStringList strList;
     QFile readFile(fileName);
     if(readFile.open(QIODevice::ReadWrite | QIODevice::Text))
     {
-        QTextStream stream(&readFile);
-        strAll = stream.readAll();
+        QTextStream stream_1(&readFile);
+        int count = 0;
+        while(!stream_1.atEnd())
+        {
+            if (count != 0)
+                strAll.append("\n");
+            count++;
+            QString oneLine = stream_1.readLine();  //读取一行
+            if(oneLine.contains("127.0.1.1")) {
+                QString tempStr = QString("%1%2").arg("127.0.1.1       ").arg(hostname);
+                strAll.append(tempStr);
+                continue;
+            }
+            strAll.append(oneLine);
+        }
     }
     readFile.close();
     QFile writeFile(fileName);
-    if(writeFile.open(QIODevice::ReadWrite|QIODevice::Text))
+    if(writeFile.open(QIODevice::WriteOnly | QIODevice::Text))
     {
-            QTextStream stream(&writeFile);
-            strList=strAll.split("\n");
-            for(int i=0;i<strList.count();i++)
-            {
-                if(strList.at(i).contains("127.0.1.1"))
-                {
-                    QString tempStr = QString("%1%2").arg("127.0.1.1       ").arg(hostname);
-                    stream<<tempStr<<'\n';
-                    continue;
-                }
-                stream<<strList.at(i)<<'\n';
-            }
+            QTextStream stream_2(&writeFile);
+            stream_2<<strAll;
     }
+    writeFile.close();
 }
 
 QString SysdbusRegister::getMemory()

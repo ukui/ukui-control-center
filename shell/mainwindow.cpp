@@ -154,8 +154,10 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
         if (event->type() == QEvent::WindowStateChange) {
             if (this->windowState() == Qt::WindowMaximized) {
                 maxBtn->setIcon(QIcon::fromTheme("window-restore-symbolic"));
+                maxBtn->setToolTip(tr("Normal"));
             } else {
                 maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
+                maxBtn->setToolTip(tr("Maximize"));
             }
         } else if (event->type() == QEvent::MouseButtonDblClick) {
             bool res = dblOnEdge(dynamic_cast<QMouseEvent*>(event));
@@ -433,7 +435,7 @@ void MainWindow::initTileBar() {
 
     mOptionBtn->setToolTip(tr("Main menu"));
     minBtn->setToolTip(tr("Minimize"));
-    maxBtn->setToolTip(tr("Maximize/Normal"));
+    maxBtn->setToolTip(tr("Maximize"));
     closeBtn->setToolTip(tr("Close"));
 
     QIcon titleIcon = QIcon::fromTheme("ukui-control-center");
