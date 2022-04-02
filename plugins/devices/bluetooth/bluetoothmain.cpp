@@ -732,11 +732,15 @@ void BlueToothMain::onClick_Open_Bluetooth(bool ischeck)
     else
     {
         //receiveBluetoothDiscovery(false);
+        for (auto item : m_localDevice->devices()) {
+            if (item->isConnected() && item->isPaired())
+                receiveDisConnectSignal(item->address());
+        }
         BluezQt::PendingCall *call = m_localDevice->setPowered(false);
         //断电后先删除所有扫描到的蓝牙设备
         clearAllDeviceItemUi();
         clearTimer();
-
+        adapterPoweredChanged(false);
         connect(call,&BluezQt::PendingCall::finished,this,[=](BluezQt::PendingCall *p){
             if(p->error() == 0){
                 qDebug() << Q_FUNC_INFO << m_localDevice->isPowered();
@@ -919,7 +923,7 @@ void BlueToothMain::receiveDisConnectSignal(QString address)
     m << address;
     qDebug() << Q_FUNC_INFO << m.arguments().at(0).value<QString>() <<__LINE__;
     // 发送Message
-    QDBusMessage response = QDBusConnection::sessionBus().call(m);
+    QDBusMessage response = QDBusConnection::sessionBus().call(m,QDBus::NoBlock);
 }
 
 void BlueToothMain::receiveRemoveSignal(QString address)
