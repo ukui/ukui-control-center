@@ -40,7 +40,7 @@ QHash<QString, QString> XCursorTheme::alternatives;
 XCursorTheme::XCursorTheme(const QDir &themeDir)
     : CursorTheme(themeDir.dirName())
 {
-    // Directory information   
+    // Directory information
 
     setName(themeDir.dirName());
     setPath(themeDir.path());
@@ -199,10 +199,11 @@ qulonglong XCursorTheme::loadCursor(const QString &name, int size) const
         size = defaultCursorSize();
 
     // Load the cursor images
-    XcursorImages *images = xcLoadImages(name, size);
+
+    XcursorImages *images = xcLoadImages(findAlternative(name), size);
 
     if (!images)
-        images = xcLoadImages(findAlternative(name), size);
+        images = xcLoadImages(name, size);
 
     if (!images)
         return None;
@@ -222,10 +223,9 @@ QImage XCursorTheme::loadImage(const QString &name, int size) const
         size = defaultCursorSize();
 
     // Load the image
-    XcursorImage *xcimage = xcLoadImage(name, size);
-
+    XcursorImage *  xcimage = xcLoadImage(findAlternative(name), size);
     if (!xcimage)
-        xcimage = xcLoadImage(findAlternative(name), size);
+        xcimage = xcLoadImage(name, size);
 
     if (!xcimage) {
         return QImage();
