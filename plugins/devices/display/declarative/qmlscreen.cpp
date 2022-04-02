@@ -564,7 +564,9 @@ QPointF QMLScreen::getAllPos()
 {
     QPointF pos(QPointF(0, 0));
     for (QMLOutput *qmlOutput : m_outputMap) {
-        pos = pos + qmlOutput->position();
+        if (qmlOutput->isVisible()) {
+            pos = pos + qmlOutput->position();
+        }
     }
     return pos;
 }
