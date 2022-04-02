@@ -48,6 +48,46 @@ UpdateDbus::UpdateDbus(QObject *parent)
     setImportantStatus(true);
 
 }
+void UpdateDbus::disconnectDbusSignal()
+{
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("kum_apt_signal"), this, SLOT(getAptSignal(QString, QMap<QString, QVariant>)));
+
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("important_app_message_signal"), this, SLOT(getAppMessageSignal(QMap<QString, QVariant>, QStringList, QStringList, QStringList, QStringList, QString, bool)));
+
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("get_message_finished_signal"), this, SLOT(slotFinishGetMessage(QString)));
+
+    QDBusConnection::systemBus().disconnect(QString("cn.kylinos.KylinUpdateManager"), QString("/cn/kylinos/KylinUpdateManager"),
+                                         QString("cn.kylinos.KylinUpdateManager"),
+                                         QString("copy_finish"), this, SLOT(slotCopyFinished(QString)));
+}
+void UpdateDbus::SetDownloadLimit(QString value,bool whetherlimit)
+{
+    interface->call("set_downloadspeed_max",value,whetherlimit);
+}
+
+int UpdateDbus::GetDownloadLimit(void)
+{
+    QDBusPendingReply<int> reply = interface->call("get_downloadspeed_limit_value");
+    if (!reply.isValid())
+    {
+        qDebug()<<"error getting download speed limit value";
+        return -1;
+    }
+    if (reply.argumentAt(0)==true)
+    {
+        return reply.argumentAt(1).toInt();
+    }
+    else
+    {
+        return -2;
+    }
+}
 
 void UpdateDbus::onRequestSendDesktopNotify(QString message)
 {
@@ -55,8 +95,12 @@ void UpdateDbus::onRequestSendDesktopNotify(QString message)
                          "/org/freedesktop/Notifications",
                          "org.freedesktop.Notifications",
                          QDBusConnection::sessionBus());
+    if (!notifyMsg.compare(message)) {
+        return ;
+    }
+    notifyMsg = message;
     QList<QVariant> args;
-    args<<(tr("ukui-control-center"))
+    args<<(tr("System-Upgrade"))
        <<((unsigned int) 0)
       <<("ukui-control-center")
      <<tr("ukui-control-center-update") //显示的是什么类型的信息  控制面板-更新提示
@@ -94,7 +138,7 @@ bool UpdateDbus::fileLock()
 
     umask(0000);
     //O_TRUNC 为先清空，再写入
-    int fd = open(lockPath.toStdString().c_str(), O_RDWR | O_CREAT | O_TRUNC,0666);
+    int fd = open(lockPath.toUtf8().data(), O_RDWR | O_CREAT | O_TRUNC,0666);
     if (fd < 0) {
         qDebug()<<"文件锁打开异常";
         return false;
@@ -115,13 +159,12 @@ void UpdateDbus::fileUnLock()
         chmod("/tmp/lock/",0777);
     }
     umask(0000);
-    int fd = open(lockPath.toStdString().c_str(), O_RDWR | O_CREAT,0666);
+    int fd = open(lockPath.toUtf8().data(), O_RDWR | O_CREAT,0666);
     if (fd < 0) {
         qDebug()<<"解锁时文件锁打开异常";
         return;
     }
     flock(fd, LOCK_UN);
-    close(fd);
     system("rm /tmp/lock/kylin-update.lock");
 }
 
@@ -170,7 +213,6 @@ void UpdateDbus::setImportantStatus(bool status)
 //安装和升级
 bool UpdateDbus::installAndUpgrade(QString pkgName)
 {
-    fileLock();
     // 有参数的情况下  传参调用dbus接口并保存返回值
     interface->asyncCall("install_and_upgrade",pkgName);
 
@@ -307,7 +349,6 @@ void UpdateDbus::getAptSignal(QString arg, QMap<QString, QVariant> map)
     aptStatus = arg;
 
     qDebug() << "安装状态" << arg;
-
 
     QVariantMap::Iterator it;
     for (it = map.begin(); it != map.end(); ++it) {

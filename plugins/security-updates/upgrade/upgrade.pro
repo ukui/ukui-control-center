@@ -1,15 +1,12 @@
 include(../../../env.pri)
 include($$PROJECT_COMPONENTSOURCE/switchbutton.pri)
-include($$PROJECT_COMPONENTSOURCE/label.pri)
-include($$PROJECT_COMPONENTSOURCE/fixbtn.pri)
+include($$PROJECT_COMPONENTSOURCE/button.pri)
 
 QT       +=  core gui widgets network dbus sql
 
 TEMPLATE = lib
 CONFIG += plugin link_pkgconfig c++11
 PKGCONFIG += gsettings-qt
-
-LIBS          +=  -L$$[QT_INSTALL_LIBS] -lXi -lgsettings-qt
 
 TARGET = $$qtLibraryTarget(upgrade)
 DESTDIR = ../..
