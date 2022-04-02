@@ -104,7 +104,8 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
             this, &QMLScreen::outputEnabledChanged);
     connect(output.data(), &KScreen::Output::posChanged,
             this, &QMLScreen::outputPositionChanged);
-    connect(output.data(), &KScreen::Output::posChanged,
+
+    connect(qmloutput, &QMLOutput::visibleChanged,
             this, [=](){
         viewSizeChanged();
     });
@@ -134,6 +135,7 @@ void QMLScreen::addOutput(const KScreen::OutputPtr &output)
             this, SLOT(setScreenPos(bool)));
 
     qmloutput->updateRootProperties();
+    viewSizeChanged();
 }
 
 void QMLScreen::removeOutput(int outputId)
@@ -183,7 +185,7 @@ void QMLScreen::setActiveOutput(QMLOutput *output)
             qmlOutput->setZ(qmlOutput->z() - 1);
         }
     }
-
+    this->allPosBefore = getAllPos();
     output->setZ(m_outputMap.count());
     // 中屏幕
     output->setFocus(true);
@@ -236,7 +238,6 @@ void QMLScreen::setScreenCenterPos()
 
 void QMLScreen::setScreenPos(QMLOutput *output, bool isReleased)
 {
-    QPointF posBefore = output->position();
     // 镜像模式下跳过屏幕旋转处理
     if (output->isCloneMode()) {
         return;
@@ -309,8 +310,8 @@ void QMLScreen::setScreenPos(QMLOutput *output, bool isReleased)
     }
 
     setScreenCenterPos();
-    QPointF posAfter = output->position();
-    if (isReleased && !(posBefore == posAfter)) {
+    QPointF posAfter = getAllPos();
+    if (isReleased && !(this->allPosBefore == posAfter)) {
         Q_EMIT released();
     }
 }
@@ -555,4 +556,17 @@ void QMLScreen::updateOutputsPlacement()
     QTimer::singleShot(0, this, [scale, this] {
         setOutputScale(scale);
     });
+}
+
+//显示器坐标位置是相对的，如果只用单个显示器的坐标去判断是否修改并不准确，会导致移动了缩略图但是实际显示器的
+//坐标不去修改，所以这里做和处理，用总的坐标去判断
+QPointF QMLScreen::getAllPos()
+{
+    QPointF pos(QPointF(0, 0));
+    for (QMLOutput *qmlOutput : m_outputMap) {
+        if (qmlOutput->isVisible()) {
+            pos = pos + qmlOutput->position();
+        }
+    }
+    return pos;
 }
