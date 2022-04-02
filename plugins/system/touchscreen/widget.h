@@ -84,13 +84,13 @@ class Widget : public QWidget
   private:
     void loadQml();
     void save(QString touchname,QString touchid,QString screenname);
-    void initTouchConfig(QString touchserial,QString touchname,QString screenname);
+    void initTouchConfig(QString touchserial,QString touchpid,QString touchvid,QString touchname,QString screenname);
     void writeTouchConfig();
-    void writeTouchConfig(QString touchname,QString touchid,QString touchserial,QString devnode ,QString screenname);
-    bool Configserialisexit(QString touchserial,QString devnode,QString touchname);
+    void writeTouchConfig(QString touchname,QString touchid,QString touchserial,QString touchpid,QString touchvid,QString devnode ,QString screenname);
+    bool Configserialisexit(QString touchserial,QString touchpid,QString touchvid,QString devnode,QString touchname);
     void cleanTouchConfig(int touchcount);
     int  compareserial(int touchcount);
-    int comparescreenname(QString _touchserial,QString _touchname ,QString _screenname);
+    int comparescreenname(QString _touchserial,QString _touchpid,QString _touchvid,QString _touchname ,QString _screenname);
     void resetPrimaryCombo();
     void resettouchscreenCombo();
     void addOutputToMonitorCombo(const KScreen::OutputPtr &output);
