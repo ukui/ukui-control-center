@@ -930,20 +930,6 @@ void Widget::outputAdded(const KScreen::OutputPtr &output)
     mPreScreenConfig = mConfig->clone();
     QString name = Utils::outputName(output);
     addBrightnessFrame(name, output->isEnabled());
-    // 刷新缩放选项，监听新增显示屏的mode变化
-    changescale();
-    if (output->isConnected()) {
-        connect(output.data(), &KScreen::Output::currentModeIdChanged,
-                this, [=]() {
-            if (output->currentMode()) {
-                if (ui->scaleCombo) {
-                    ui->scaleCombo->blockSignals(true);
-                    changescale();
-                    ui->scaleCombo->blockSignals(false);
-                }
-            }
-        });
-    }
 
     // 刷新缩放选项，监听新增显示屏的mode变化
     changescale();
@@ -1432,6 +1418,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         }
         enableChangedSlot();
         mainScreenButtonSelect(ui->primaryCombo->currentIndex());
+        changescale();
     });
 }
 
