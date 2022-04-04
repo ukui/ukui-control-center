@@ -469,7 +469,7 @@ void ShareMain::initPwdUI()
     pwdHLayout->addWidget(mPwdsLabel);
     pwdHLayout->addStretch();
     pwdHLayout->addWidget(mPwdLineEdit);
-    pwdHLayout->addStretch();
+    pwdHLayout->addStretch(15);
     pwdHLayout->addWidget(mHintLabel);
     pwdHLayout->addWidget(mPwdBtn);
 
