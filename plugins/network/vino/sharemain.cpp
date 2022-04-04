@@ -153,6 +153,7 @@ void ShareMain::update_outputs()
             continue;
         qDebug() << "add output" << output;
         QRadioButton *button = new QRadioButton(output, this);
+        connect(button, &QRadioButton::clicked, this, &ShareMain::on_pb_start_clicked);
         output_list.append(button);
         mOutputHLayout->addWidget(button);
     }
