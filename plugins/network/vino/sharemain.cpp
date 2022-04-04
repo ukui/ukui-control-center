@@ -161,13 +161,15 @@ void ShareMain::update_outputs()
 
     if (!output.isEmpty()) {
         foreach (QRadioButton *button, output_list) {
-            if (button->text() == output)
-            {
+            if (button->text() == output) {
                 button->setChecked(true);
             }
         }
     } else {
         output_list.first()->setChecked(true);
+    }
+    if (outputs.count() <= 1) {
+        output_list.first()->setEnabled(false);
     }
 }
 void ShareMain::update_inputs()
@@ -207,6 +209,7 @@ void ShareMain::initComponentStatus()
     } else {
         mRdpRadioBtn->setChecked(true);
     }
+
 }
 
 void ShareMain::onPointerClickedSlot(bool checked)

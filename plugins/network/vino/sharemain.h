@@ -70,14 +70,13 @@ private:
     QFrame *mVncProtocolFrame;
     QFrame *mRdpProtocalFrame;
 
-    SwitchButton *mEnableBtn;  // 允许其他人查看桌面
-    SwitchButton *mViewBtn;    // 允许连接控制屏幕
-    SwitchButton *mPwdBtn;    // 要求用户输入密码
-    SwitchButton *mOutputBtn;    // 选择output按钮
-    SwitchButton *mPointBtn;    // 选择output按钮
-    SwitchButton *mKeyboardBtn;    // 选择output按钮
-    SwitchButton *mClipboardBtn;    // 选择output按钮
-    SwitchButton *mMaxClientBtn;    // 选择output按钮
+    SwitchButton *mEnableBtn;    // 允许其他人查看桌面
+    SwitchButton *mViewBtn;      // 允许连接控制屏幕
+    SwitchButton *mPwdBtn;       // 要求用户输入密码
+    SwitchButton *mPointBtn;     // 选择output按钮
+    SwitchButton *mKeyboardBtn;  // 选择output按钮
+    SwitchButton *mClipboardBtn; // 选择output按钮
+    SwitchButton *mMaxClientBtn; // 选择output按钮
 
     QTableWidget  *mTbClients;
     QSpinBox *mMaxClientSpinBox;
