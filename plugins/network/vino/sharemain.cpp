@@ -414,6 +414,7 @@ void ShareMain::pwdInputSlot(const QString &pwd)
         //if(mSettingsIni->value("password", "NULL") == "NULL")
         mSettingsIni->setValue("password", pwd);
     } else if (pwd.length() > 8) {
+        mPwdLineEdit->setText(mPwdLineEdit->text().mid(0, 8));
         mHintLabel->setText(tr("Password length must be less than or equal to 8"));
         mHintLabel->setStyleSheet("color:red;");
         mHintLabel->setVisible(true);
