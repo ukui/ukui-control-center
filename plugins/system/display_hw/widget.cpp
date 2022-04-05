@@ -1858,16 +1858,29 @@ void Widget::checkOutputScreen(bool judge)
     } else {
         QList<ScreenConfig> preScreenCfg = getPreScreenCfg();
         KScreen::OutputList screens = mConfig->connectedOutputs();
-        Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
-            Q_FOREACH(KScreen::OutputPtr output, screens) {
-                if (!cfg.screenId.compare(output->name())) {
-                    output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
-                    output->setPrimary(cfg.primary);
+
+        if (!preScreenCfg.isEmpty()) {
+            Q_FOREACH(ScreenConfig cfg, preScreenCfg) {
+                Q_FOREACH(KScreen::OutputPtr output, screens) {
+                    if (!cfg.screenId.compare(output->name())) {
+                        output->setPos(QPoint(cfg.screenPosX, cfg.screenPosY));
+                    }
                 }
             }
+        } else {
+            KScreen::OutputPtr enableOutput;
+            Q_FOREACH(KScreen::OutputPtr output, screens) {
+                if (output->isEnabled()) {
+                    enableOutput = output;
+                    break;
+                }
+            }
+            newPrimary->setEnabled(judge);
+            newPrimary->setPos(QPoint(enableOutput->size().width(), 0));
         }
         setExtendPrimaryScreen();
     }
+
     newPrimary->setEnabled(judge);
 
 
