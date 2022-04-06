@@ -1803,12 +1803,12 @@ void Widget::usdScreenModeChangedSlot(int status)
     QStringList keys = scaleGSettings->keys();
     if (keys.contains("scalingFactor")) {
         scale = scaleGSettings->get(SCALE_KEY).toDouble();
+        changescale();
+        QTimer::singleShot(3000, this, [=](){
+            if (scale != scaleGSettings->get(SCALE_KEY).toDouble())
+                showZoomtips();
+        });
     }
-    changescale();
-    QTimer::singleShot(3000, this, [=](){
-        if (scale != scaleGSettings->get(SCALE_KEY).toDouble())
-            showZoomtips();
-    });
 
 
 }
