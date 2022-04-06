@@ -120,7 +120,7 @@ bool UkmediaVolumeControl::setSourceMute(bool status)
 bool UkmediaVolumeControl::setSourceVolume(int index,int value)
 {
     pa_cvolume v = m_pDefaultSink->volume;
-    v.channels = 2;
+    v.channels = inputChannel;
     for (int i=0;i<v.channels;i++)
         v.values[i] = value;
 
@@ -701,6 +701,9 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
 
     //默认的输出音量
     if (info.name && strcmp(defaultSourceName.data(),info.name) == 0) {
+        sourceIndex = info.index;
+        inputChannel = info.volume.channels;
+        defaultInputCard = info.card;
         if (info.active_port) {
             if (strcmp(sourcePortName.toLatin1().data(),info.active_port->name) != 0) {
                 sourcePortName = info.active_port->name;
@@ -708,10 +711,7 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
             }
 	    else
             sourcePortName = info.active_port->name;
-
         }
-        sourceIndex = info.index;
-        defaultInputCard = info.card;
         if (sourceVolume != volume || sourceMuted != info.mute) {
             sourceVolume = volume;
             sourceMuted = info.mute;
