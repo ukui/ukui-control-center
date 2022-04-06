@@ -199,11 +199,10 @@ qulonglong XCursorTheme::loadCursor(const QString &name, int size) const
         size = defaultCursorSize();
 
     // Load the cursor images
-
-    XcursorImages *images = xcLoadImages(findAlternative(name), size);
+    XcursorImages *images = xcLoadImages(name, size);
 
     if (!images)
-        images = xcLoadImages(name, size);
+        images = xcLoadImages(findAlternative(name), size);
 
     if (!images)
         return None;
@@ -223,9 +222,10 @@ QImage XCursorTheme::loadImage(const QString &name, int size) const
         size = defaultCursorSize();
 
     // Load the image
-    XcursorImage *  xcimage = xcLoadImage(findAlternative(name), size);
+    XcursorImage *xcimage = xcLoadImage(name, size);
+
     if (!xcimage)
-        xcimage = xcLoadImage(name, size);
+        xcimage = xcLoadImage(findAlternative(name), size);
 
     if (!xcimage) {
         return QImage();

@@ -338,7 +338,7 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
 
     connect(button,&QPushButton::clicked,[=](){
         iconLabel->setStyleSheet("border: 2px");
-        iconLabel->setStyleSheet(QString("QLabel#iconlabel{border-radius: 6px;\
+        iconLabel->setStyleSheet(QString("QLabel#iconlabel{border-radius: 10px;\
                                             border-width: 2px;border-style: solid;border-color: %1;}").arg(stringColor));
     });
 
@@ -347,7 +347,7 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
     connect(iconLabel,&IconLabel::enterWidget,[=](){
         if (!button->isChecked()) {
             iconLabel->setStyleSheet("border: 1px");
-            iconLabel->setStyleSheet(QString("QLabel#iconlabel{border-radius: 6px;\
+            iconLabel->setStyleSheet(QString("QLabel#iconlabel{border-radius: 10px;\
                                              border-width: 1px;border-style: solid;border-color: %1;}").arg(stringColor));
         }
 
@@ -844,7 +844,7 @@ void Theme::resetBtnClickSlot() {
         effectSwitchBtn->setChecked(true);
         qtSettings->reset(THEME_TRAN_KEY);
         qtSettings->reset(PEONY_TRAN_KEY);
-        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);   
+        personliseGsettings->reset(PERSONALSIE_TRAN_KEY);
         ui->tranSlider->setValue(transparency);
     }
 
