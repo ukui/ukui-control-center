@@ -181,6 +181,7 @@ void PhoneAuthDialog::initUI(){
         qDebug() << "connect to cn.kylinos.SSOBackend 4failed";
     connect(m_interface3, SIGNAL(QRStatusChange(QString, QString,int)), this, SLOT(QRStatusChangedSlots(QString, QString,int)));
     m_qrTimeout = new QTimer();
+    m_qrTimeout->start(1000);
     connect(m_qrTimeout,&QTimer::timeout,this,[=](){
         if (qrstatus) {
             m_qrTimeout->stop();
@@ -190,14 +191,10 @@ void PhoneAuthDialog::initUI(){
             getQRCodeFromURL(qrcode);
             qrcode = beautifyQRCode(qrcode);
             m_qr->setPixmap(qrcode);
+            m_qr->show();
         }
 
     });
-    QPixmap qrcode;
-    getQRCodeFromURL(qrcode);
-    qrcode = beautifyQRCode(qrcode);
-    m_qr->setPixmap(qrcode);
-    m_qr->show();
 
     this->setLayout(p_mainLayout);
     connect(wechatAuthBtn, &QPushButton::clicked, this, [=](){
