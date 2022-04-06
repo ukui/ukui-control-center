@@ -1,4 +1,4 @@
-#ifndef UKMEDIAVOLUMECONTROL_H
+﻿#ifndef UKMEDIAVOLUMECONTROL_H
 #define UKMEDIAVOLUMECONTROL_H
 
 #include <pulse/ext-stream-restore.h>
@@ -142,7 +142,8 @@ public:
     int sinkInputVolume; //sink input 音量
     bool sinkInputMuted; //sink input 静音状态
     float balance; //平衡音量值
-    int channel; //通道数
+    int channel; //
+    int inputChannel;
     QString sinkPortName; //输出设备端口名
     QString sourcePortName; //输入设备端口名
     int defaultOutputCard;
