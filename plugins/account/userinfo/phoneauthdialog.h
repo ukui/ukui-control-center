@@ -72,7 +72,7 @@ private:
 
     bool phonestatus;
     bool codestatus;
-    bool qrstatus;
+    bool qrstatus = false;
     bool is_phoneVerifyChecked;
     bool is_nightTheme;
 };

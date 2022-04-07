@@ -63,12 +63,12 @@ Touchpad::Touchpad()
 
 Touchpad::~Touchpad()
 {
-    delete ui;
-    if (QGSettings::isSchemaInstalled(TOUCHPAD_SCHEMA)){
-        delete tpsettings;
+    if (!mFirstLoad) {
+        delete ui;
+        if (QGSettings::isSchemaInstalled(TOUCHPAD_SCHEMA)){
+            delete tpsettings;
+        }
     }
-
-
 }
 
 bool Touchpad::eventFilter(QObject *obj, QEvent *event)
