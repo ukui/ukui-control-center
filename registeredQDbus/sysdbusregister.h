@@ -28,6 +28,7 @@
 #include <QVector>
 #include <ddcutil_c_api.h>
 #include <ddcutil_types.h>
+#include "../shell/utils/utils.h"
 
 struct displayInfo {
     bool   _DDC;           //是否采用DDC处理，当DDC失败时使用I2C
@@ -68,6 +69,8 @@ private:
     QVector<struct displayInfo> displayInfo_V;
 
     qint64 _id;
+    bool onlyI2C;
+    QString cpuInfo;
 
 private:
     int _changeOtherUserPasswd(QString username, QString pwd);

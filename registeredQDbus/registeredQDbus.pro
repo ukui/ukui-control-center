@@ -31,8 +31,10 @@ INSTALLS += \
     inst3 \
 
 HEADERS += \
-    sysdbusregister.h
+    sysdbusregister.h \
+    ../shell/utils/utils.h
 
 SOURCES += \
     main.cpp \
-    sysdbusregister.cpp
+    sysdbusregister.cpp \
+    ../shell/utils/utils.cpp

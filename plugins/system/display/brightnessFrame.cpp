@@ -184,7 +184,7 @@ QString BrightnessFrame::getOutputName()
 
 int BrightnessFrame::getDDCBrighthess()
 {
-    int times = 40;
+    int times = 60;
     QDBusInterface ukccIfc("com.control.center.qt.systemdbus",
                            "/",
                            "com.control.center.interface",
@@ -197,7 +197,7 @@ int BrightnessFrame::getDDCBrighthess()
         if (reply.isValid() && reply.value() >= 0 && reply.value() <= 100) {
             return reply.value();
         }
-        sleep(2);
+        sleep(1);
     }
     return -1;
 }
