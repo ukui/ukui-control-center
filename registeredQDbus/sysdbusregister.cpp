@@ -50,13 +50,15 @@ QStringList ddcProIdList;
 
 SysdbusRegister::SysdbusRegister()
 {
+    onlyI2C = false;
+    cpuInfo = "";
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
     mHibernateSet->setIniCodec("UTF-8");
     QString filename = "/usr/share/ukui-control-center/shell/res/apt.ini";
     aptSettings = new QSettings(filename, QSettings::IniFormat, this);
     exitFlag = false;
-    toGetDisplayInfo = false; //不自动扫描i2c接口，否则会导致刚开始从display获取到i2c时无法正常运行_createDisplayInfo.
+    toGetDisplayInfo = true;
     if (!isBacklight())
          _getDisplayInfoThread();
 
@@ -295,31 +297,40 @@ void SysdbusRegister::_setI2CBrightness(QString brightness, QString type) {
 //    vcpPro->waitForStarted();
 //    vcpPro->waitForFinished();
     vcpPro->startDetached(program, arg);
+    vcpPro->deleteLater();
 }
 
 int SysdbusRegister::_getI2CBrightness(QString type) {
     QString program = "/usr/sbin/i2ctransfer";
     QStringList arg;
-    arg<<"-f"<<"-y"<<type<<"w5@0x37"<<"0x51"<<"0x82"<<"0x01"<<"0x10"<<"0xac";
     QProcess *vcpPro = new QProcess();
-    vcpPro->start(program, arg);
-    vcpPro->waitForStarted();
-    vcpPro->waitForFinished();
-    arg.clear();
-    arg<<"-f"<<"-y"<<type<<"r16@0x37";
-    usleep(40000);
-    vcpPro->start(program, arg);
-    vcpPro->waitForStarted();
-    vcpPro->waitForFinished();
-    QString result = vcpPro->readAllStandardOutput().trimmed();
-    if (result == "")
-        return -1;
-    QString bri=result.split(" ").at(9);
-    bool ok;
-    int bright=bri.toInt(&ok,16);
-    if(ok && bright >= 0 && bright <= 100)
-        return bright;
+    for (int i = 0; i < 3; i++) {
+        arg.clear();
+        arg<<"-f"<<"-y"<<type<<"w5@0x37"<<"0x51"<<"0x82"<<"0x01"<<"0x10"<<"0xac";
+        vcpPro->start(program, arg);
+        vcpPro->waitForStarted();
+        vcpPro->waitForFinished();
+        arg.clear();
+        arg<<"-f"<<"-y"<<type<<"r16@0x37";
+        usleep(40000);
+        vcpPro->start(program, arg);
+        vcpPro->waitForStarted();
+        vcpPro->waitForFinished();
+        QString result = vcpPro->readAllStandardOutput().trimmed();
+        if (result == "") {
+            vcpPro->deleteLater();
+            return -1;
+        }
+        QString bri=result.split(" ").at(9);
+        bool ok;
+        int bright=bri.toInt(&ok,16);
+        if(ok && ((bright >= 10 && bright <= 100) || (i >= 2 && bright >= 0))) {
+            vcpPro->deleteLater();
+            return bright;
+        }
+    }
 
+    vcpPro->deleteLater();
     return -1;
 }
 
@@ -370,9 +381,15 @@ void SysdbusRegister::_getDisplayInfoThread()
 {
     QtConcurrent::run([=] {  //运行独立线程去获取ddc信息，不能每次重新运行run，会导致获取的信息不对
         while (true) {
+            if (cpuInfo == "") {
+                cpuInfo = Utils::getCpuInfo();
+                if (cpuInfo.contains("D2000", Qt::CaseInsensitive)) {
+                    onlyI2C = true;
+                }
+            }
             if (exitFlag)
                 return;
-            if (!toGetDisplayInfo) {
+            if (!toGetDisplayInfo || onlyI2C) {
                 sleep(1);
                 continue;
             }
@@ -450,17 +467,13 @@ void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash,
         }
     }
     if (!edidExist) {
-        if (i2cBus != "-1") {
-            toGetDisplayInfo = false;
-            struct displayInfo display = _createDisplayInfo(edidHash, i2cBus, true, true);
-            uint8_t new_sh = brightness.toUInt() >> 8;
-            uint8_t new_sl = brightness.toUInt() & 0xff;
-            if (display.ddca_dh_loc) {
-                displayInfo_V.append(display);
-                ddca_set_non_table_vcp_value(display.ddca_dh_loc,0x10,new_sh,new_sl);
-            } else {
-                getDisplayInfo();
-            }
+        if (i2cBus != "-1" && onlyI2C) {
+            struct displayInfo display;
+            display = _createDisplayInfo(edidHash, i2cBus, false, true);
+            display.I2C_brightness = _getI2CBrightness(display.I2C_busType);
+            _setI2CBrightness(brightness, display.I2C_busType);
+            display.I2C_brightness = brightness.toInt();
+            displayInfo_V.append(display);
         } else {
             getDisplayInfo();
         }
@@ -496,22 +509,11 @@ int SysdbusRegister::getDisplayBrightness(QString edidHash,  QString i2cBus)
         }
     }
     if (!edidExist) {
-        if (i2cBus != "-1") {
-            toGetDisplayInfo = false;
-            struct displayInfo display = _createDisplayInfo(edidHash, i2cBus, true, true);
-            DDCA_Non_Table_Vcp_Value  valrec;
-            if (display.ddca_dh_loc) {
-                displayInfo_V.append(display);
-                if (ddca_get_non_table_vcp_value(display.ddca_dh_loc,0x10,&valrec) == 0) {
-    //                uint16_t max_val = valrec.mh << 8 | valrec.ml; 暂未使用
-                    uint16_t cur_val = valrec.sh << 8 | valrec.sl;
-                    return cur_val;
-                } else {
-                    return -2;
-                }
-            } else {
-                getDisplayInfo();
-            }
+        if (i2cBus != "-1" && onlyI2C) {
+            struct displayInfo display;
+            display = _createDisplayInfo(edidHash, i2cBus, false, true);
+            display.I2C_brightness = _getI2CBrightness(display.I2C_busType);
+            displayInfo_V.append(display);
         } else {
             getDisplayInfo();
         }
@@ -555,14 +557,14 @@ QString SysdbusRegister::showDisplayInfo()
 {
     QString retString = "";
     for (int j = 0; j < displayInfo_V.size(); j++) {
-        if (true == displayInfo_V[j]._DDC) {
-            QString getI2c = "false";
-            if (displayInfo_V[j]._getI2C) {
-                getI2c = "true";
-            }
+        QString getI2c = "false";
+        if (displayInfo_V[j]._getI2C) {
+            getI2c = "true";
+        }
+        if (true == displayInfo_V[j]._DDC) {   
             retString = retString + "<DDC>" + " i2cBus=" + getI2c + " bus=" + displayInfo_V[j].I2C_busType;
         } else {
-            retString = retString + "<I2C>" + " bus=" + displayInfo_V[j].I2C_busType + "("+QString::number(displayInfo_V[j].I2C_brightness)+")";
+            retString = retString + "<I2C>" + " i2cBus=" + getI2c + " bus=" + displayInfo_V[j].I2C_busType + "("+QString::number(displayInfo_V[j].I2C_brightness)+")";
         }
         retString = retString + " edidHash=" + displayInfo_V[j].edidHash + "\r\n";
     }
@@ -682,10 +684,12 @@ struct displayInfo SysdbusRegister::_createDisplayInfo(QString edidHash, QString
     display._DDC = ddc;
     display.edidHash = edidHash;
     display.I2C_busType = busType;
-    if (ddca_create_busno_display_identifier(busType.toInt(), &did) == 0) {
-        if (ddca_create_display_ref(did,&ddca_dref) == 0) {
-            if (ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc) == 0) {
-                return display;
+    if (ddc) {
+        if (ddca_create_busno_display_identifier(busType.toInt(), &did) == 0) {
+            if (ddca_create_display_ref(did,&ddca_dref) == 0) {
+                if (ddca_open_display2(ddca_dref,false,&display.ddca_dh_loc) == 0) {
+                    return display;
+                }
             }
         }
     }
