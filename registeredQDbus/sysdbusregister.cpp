@@ -42,10 +42,12 @@
 #include <gio/gio.h>
 
 #include <QtConcurrent/QtConcurrent>
+#include <QDBusMessage>
 
 QStringList ddcProIdList;
 
 SysdbusRegister::SysdbusRegister()
+    : QDBusContext()
 {
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
@@ -146,7 +148,10 @@ QString SysdbusRegister::getNoPwdLoginStatus(){
 int SysdbusRegister::setNoPwdLoginStatus(bool status,QString username)
 {
     //密码校验
-    if (!authoriyLogin()){
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyLogin(conn.interface()->servicePid(msg.service()).value())){
         return 0;
     }
 
@@ -320,8 +325,10 @@ bool SysdbusRegister::checkAuthorization(){
     }
 }
 
-bool SysdbusRegister::authoriyLogin()
+bool SysdbusRegister::authoriyLogin(qint64 id)
 {
+    _id = id;
+
     if (_id == 0)
         return false;
 

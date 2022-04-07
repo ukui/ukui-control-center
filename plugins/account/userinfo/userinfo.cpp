@@ -815,15 +815,13 @@ void UserInfo::setUserConnect(){
             return;
         }
 
-        QDBusReply<int> reply = piface.call("setPid", QCoreApplication::applicationPid());
-        if (reply.isValid()){
-            QDBusReply<int> ret = piface.call("setNoPwdLoginStatus", checked, user.username);
-            if (ret == 0) {
-                nopwdLoginSBtn->blockSignals(true);
-                nopwdLoginSBtn->setChecked(!checked);
-                nopwdLoginSBtn->blockSignals(false);
-            }
+        QDBusReply<int> ret = piface.call("setNoPwdLoginStatus", checked, user.username);
+        if (ret == 0) {
+            nopwdLoginSBtn->blockSignals(true);
+            nopwdLoginSBtn->setChecked(!checked);
+            nopwdLoginSBtn->blockSignals(false);
         }
+
     });
 
     connect(addUserBtn, &AddBtn::clicked, [=]{
