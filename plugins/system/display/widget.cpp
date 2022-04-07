@@ -1,4 +1,4 @@
-#include "widget.h"
+﻿#include "widget.h"
 #include "controlpanel.h"
 #include "declarative/qmloutput.h"
 #include "declarative/qmlscreen.h"
@@ -1797,6 +1797,20 @@ void Widget::usdScreenModeChangedSlot(int status)
         showBrightnessFrame();
     });
     initMultScreenStatus();
+
+    // 显示模式切换导致缩放变化提示注销
+    double scale = 1.0;
+    QStringList keys = scaleGSettings->keys();
+    if (keys.contains("scalingFactor")) {
+        scale = scaleGSettings->get(SCALE_KEY).toDouble();
+        changescale();
+        QTimer::singleShot(3000, this, [=](){
+            if (scale != scaleGSettings->get(SCALE_KEY).toDouble())
+                showZoomtips();
+        });
+    }
+
+
 }
 
 void Widget::initConnection()
