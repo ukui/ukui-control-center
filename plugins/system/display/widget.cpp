@@ -857,8 +857,15 @@ void Widget::clearOutputIdentifiers()
 
 void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
 {
-    if (mIsBattery && name != firstAddOutputName)  //笔记本非内置
+    if (mIsBattery && name != firstAddOutputName && !name.contains("edp",Qt::CaseInsensitive))  //笔记本非内置
         return;
+    if (mIsBattery) {  //是笔记本，清空亮度条仅保留笔记本亮度条
+        int j = BrightnessFrameV.size();
+        for (int i = 0; i < j; ++i) {
+            BrightnessFrameV[BrightnessFrameV.size() - 1]->deleteLater();
+            BrightnessFrameV.pop_back();
+        }
+    }
     for (int i = 0; i < BrightnessFrameV.size(); ++i) {  //已经有了
         if (name == BrightnessFrameV[i]->getOutputName()) {
             if (edidHash != BrightnessFrameV[i]->getEdidHash()) {//更换了同一接口的显示器
@@ -870,7 +877,7 @@ void Widget::addBrightnessFrame(QString name, bool openFlag, QString edidHash)
         }
     }
     BrightnessFrame *frame = nullptr;
-    if (mIsBattery && name == firstAddOutputName) {
+    if (mIsBattery) {
         frame = new BrightnessFrame(name, true);
     } else if(!mIsBattery) {
         frame = new BrightnessFrame(name, false, edidHash);
