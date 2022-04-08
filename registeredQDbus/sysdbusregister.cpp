@@ -207,11 +207,21 @@ void SysdbusRegister::setSuspendThenHibernate(QString time) {
     mHibernateSet->sync();
 }
 
-void SysdbusRegister::setPasswdAging(int days, QString username) {
+int SysdbusRegister::setPasswdAging(int days, QString username) {
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyPasswdAging(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
     QString cmd;
 
     cmd = QString("chage -M %1 %2").arg(days).arg(username);
     QProcess::execute(cmd);
+
+    return 1;
 }
 
 int SysdbusRegister::_changeOtherUserPasswd(QString username, QString pwd){
@@ -369,6 +379,29 @@ bool SysdbusRegister::authoriyAutoLogin(qint64 id)
 
     result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
                 "org.control.center.qt.systemdbus.action.autologin",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyPasswdAging(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.passwdaging",
                 PolkitQt1::UnixProcessSubject(_id),
                 PolkitQt1::Authority::AllowUserInteraction);
 

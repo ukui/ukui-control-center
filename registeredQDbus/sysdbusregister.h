@@ -55,6 +55,7 @@ public:
     bool checkAuthorization();
     bool authoriyLogin(qint64 id);
     bool authoriyAutoLogin(qint64 id);
+    bool authoriyPasswdAging(qint64 id);
 
 private:
     QString mHibernateFile;
@@ -102,7 +103,7 @@ public slots:
     Q_SCRIPTABLE void setSuspendThenHibernate(QString time);
 
     // 设置密码时效
-    Q_SCRIPTABLE void setPasswdAging(int days, QString username);
+    Q_SCRIPTABLE int setPasswdAging(int days, QString username);
 
     // 提权修改其他用户密码
     Q_SCRIPTABLE int changeOtherUserPasswd(QString username, QString pwd);
