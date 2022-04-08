@@ -167,7 +167,14 @@ int SysdbusRegister::setNoPwdLoginStatus(bool status,QString username)
 }
 
 // 设置自动登录状态
-void SysdbusRegister::setAutoLoginStatus(QString username) {
+int SysdbusRegister::setAutoLoginStatus(QString username) {
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyAutoLogin(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
     QString filename = "/etc/lightdm/lightdm.conf";
     QSharedPointer<QSettings>  autoSettings = QSharedPointer<QSettings>(new QSettings(filename, QSettings::IniFormat));
     autoSettings->beginGroup("SeatDefaults");
@@ -176,6 +183,8 @@ void SysdbusRegister::setAutoLoginStatus(QString username) {
 
     autoSettings->endGroup();
     autoSettings->sync();
+
+    return 1;
 }
 
 QString SysdbusRegister::getSuspendThenHibernate() {
@@ -325,6 +334,7 @@ bool SysdbusRegister::checkAuthorization(){
     }
 }
 
+
 bool SysdbusRegister::authoriyLogin(qint64 id)
 {
     _id = id;
@@ -336,6 +346,29 @@ bool SysdbusRegister::authoriyLogin(qint64 id)
 
     result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
                 "org.control.center.qt.systemdbus.action.login",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyAutoLogin(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.autologin",
                 PolkitQt1::UnixProcessSubject(_id),
                 PolkitQt1::Authority::AllowUserInteraction);
 
