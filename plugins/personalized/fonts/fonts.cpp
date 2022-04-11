@@ -89,6 +89,7 @@ QWidget *Fonts::pluginUi() {
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
+        ui->titleLabel->setContentsMargins(14, 0, 0, 0);
 
         initModel();
         initSearchText();
