@@ -37,6 +37,7 @@ void TouchpadUI::initUI()
 
     mTouchpadSetTitleLabel = new TitleLabel(this);
     mTouchpadSetTitleLabel->setText(tr("Touchpad Setting"));
+    mTouchpadSetTitleLabel->setContentsMargins(14, 0, 0, 0);
 
     /* MouseDisable */
     mMouseDisableFrame = new QFrame(this);
@@ -49,10 +50,10 @@ void TouchpadUI::initUI()
     mMouseDisableBtn = new SwitchButton(this);
     //~ contents_path /Touchpad/Disable touchpad when using the mouse
     mMouseDisableLabel = new QLabel(tr("Disable touchpad when using the mouse"), this);
-    MouseDisableHLayout->addSpacing(7);
     MouseDisableHLayout->addWidget(mMouseDisableLabel);
     MouseDisableHLayout->addStretch();
     MouseDisableHLayout->addWidget(mMouseDisableBtn);
+    MouseDisableHLayout->setContentsMargins(12, 0, 14, 0);
 
     mMouseDisableFrame->setLayout(MouseDisableHLayout);
 
@@ -69,16 +70,17 @@ void TouchpadUI::initUI()
     mPointerSpeedLabel->setMinimumWidth(200);
     mPointerSpeedSlowLabel = new QLabel(tr("Slow"), this);
     mPointerSpeedFastLabel = new QLabel(tr("Fast"), this);
+    mPointerSpeedFastLabel->setContentsMargins(8, 0, 13, 0);
     mPointerSpeedSlider = new QSlider(Qt::Horizontal);
     mPointerSpeedSlider->setMinimum(10);
     mPointerSpeedSlider->setMaximum(1000);
     mPointerSpeedSlider->setSingleStep(50);
     mPointerSpeedSlider->setPageStep(50);
-    pointerSpeedHLayout->addSpacing(7);
     pointerSpeedHLayout->addWidget(mPointerSpeedLabel);
     pointerSpeedHLayout->addWidget(mPointerSpeedSlowLabel);
     pointerSpeedHLayout->addWidget(mPointerSpeedSlider);
     pointerSpeedHLayout->addWidget(mPointerSpeedFastLabel);
+    pointerSpeedHLayout->setContentsMargins(12, 0, 0, 0);
 
     mPointerSpeedFrame->setLayout(pointerSpeedHLayout);
 
@@ -93,10 +95,10 @@ void TouchpadUI::initUI()
     mTypingDisableBtn = new SwitchButton(this);
      //~ contents_path /Touchpad/Disable touchpad when typing
     mTypingDisableLabel = new QLabel(tr("Disable touchpad when typing"), this);
-    TypingDisableHLayout->addSpacing(7);
     TypingDisableHLayout->addWidget(mTypingDisableLabel);
     TypingDisableHLayout->addStretch();
     TypingDisableHLayout->addWidget(mTypingDisableBtn);
+    TypingDisableHLayout->setContentsMargins(12, 0, 14, 0);
 
     mTypingDisableFrame->setLayout(TypingDisableHLayout);
 
@@ -111,10 +113,10 @@ void TouchpadUI::initUI()
     mClickBtn = new SwitchButton(this);
     //~ contents_path /Touchpad/Touch and click on the touchpad
     mClickLabel = new QLabel(tr("Touch and click on the touchpad"), this);
-    ClickHLayout->addSpacing(7);
     ClickHLayout->addWidget(mClickLabel);
     ClickHLayout->addStretch();
     ClickHLayout->addWidget(mClickBtn);
+    ClickHLayout->setContentsMargins(12, 0, 14, 0);
 
     mClickFrame->setLayout(ClickHLayout);
 
@@ -129,10 +131,10 @@ void TouchpadUI::initUI()
     mScrollSlideBtn = new SwitchButton(this);
      //~ contents_path /Touchpad/Scroll bar slides with finger
     mScrollSlideLabel = new QLabel(tr("Scroll bar slides with finger"), this);
-    ScrollSlideHLayout->addSpacing(7);
     ScrollSlideHLayout->addWidget(mScrollSlideLabel);
     ScrollSlideHLayout->addStretch();
     ScrollSlideHLayout->addWidget(mScrollSlideBtn);
+    ScrollSlideHLayout->setContentsMargins(12, 0, 14, 0);
 
     mScrollSlideFrame->setLayout(ScrollSlideHLayout);
 
@@ -150,9 +152,9 @@ void TouchpadUI::initUI()
     mScrollTypeComBox->addItem(tr("Two-finger scrolling in the middle area"), V_FINGER_KEY);
     mScrollTypeComBox->addItem(tr("Edge scrolling"), V_EDGE_KEY);
     mScrollTypeComBox->addItem(tr("Disable scrolling"), N_SCROLLING);
-    ScrollAreaHLayout->addSpacing(7);
     ScrollAreaHLayout->addWidget(mScrollAreaLabel);
     ScrollAreaHLayout->addWidget(mScrollTypeComBox);
+    ScrollAreaHLayout->setContentsMargins(12, 0, 14, 0);
 
     mScrollAreaFrame->setLayout(ScrollAreaHLayout);
 

@@ -210,12 +210,11 @@ void MouseUI::setWheelSpeedFrame()
     mWheelSpeedFastLabel = new QLabel(tr("Fast"), this);
     mWheelSpeedFastLabel->setMinimumWidth(40);
     mWheelSpeedFastLabel->setContentsMargins(8, 0, 13, 0);
-    wheelSpeedHLayout->addSpacing(4);
     wheelSpeedHLayout->addWidget(mWheelSpeedLabel);
     wheelSpeedHLayout->addWidget(mWheelSpeedSlowLabel);
     wheelSpeedHLayout->addWidget(mWheelSpeedSlider);
     wheelSpeedHLayout->addWidget(mWheelSpeedFastLabel);
-    wheelSpeedHLayout->setContentsMargins(8,0,0,0);
+    wheelSpeedHLayout->setContentsMargins(12, 0, 0, 0);
 
     mWheelSpeedFrame->setLayout(wheelSpeedHLayout);
 }
@@ -243,13 +242,12 @@ void MouseUI::setDoubleClickFrame()
     mDoubleClickIntervalLongLabel = new QLabel(tr("Long"), this);
     mDoubleClickIntervalLongLabel->setContentsMargins(8, 0, 0, 0);
     mDoubleClickIntervalLongLabel->setMinimumWidth(40);
-    doubleClickIntervalHLayout->addSpacing(4);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalLabel);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalShortLabel);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalSlider);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalLongLabel);
     doubleClickIntervalHLayout->addWidget(new MyLabel());
-    doubleClickIntervalHLayout->setContentsMargins(8,0,12,0);
+    doubleClickIntervalHLayout->setContentsMargins(12, 0, 12, 0);
 
     mDoubleClickIntervalFrame->setLayout(doubleClickIntervalHLayout);
 }
@@ -277,12 +275,11 @@ void MouseUI::setPointerSpeedFrame()
     mPointerSpeedFastLabel = new QLabel(tr("Fast"), this);
     mPointerSpeedFastLabel->setContentsMargins(8, 0, 13, 0);
     mPointerSpeedFastLabel->setMinimumWidth(40);
-    pointerSpeedHLayout->addSpacing(4);
     pointerSpeedHLayout->addWidget(mPointerSpeedLabel);
     pointerSpeedHLayout->addWidget(mPointerSpeedSlowLabel);
     pointerSpeedHLayout->addWidget(mPointerSpeedSlider);
     pointerSpeedHLayout->addWidget(mPointerSpeedFastLabel);
-    pointerSpeedHLayout->setContentsMargins(8,0,0,0);
+    pointerSpeedHLayout->setContentsMargins(12, 0, 0, 0);
 
     mPointerSpeedFrame->setLayout(pointerSpeedHLayout);
 }
@@ -301,11 +298,10 @@ void MouseUI::setMouseAccelerationFrame()
     //~ contents_path /Mouse/Mouse acceleration
     mMouseAccelerationLabel = new QLabel(tr("Mouse acceleration"), this);
     mMouseAccelerationLabel->setMinimumWidth(140);
-    mouseAccelerationHLayout->addSpacing(4);
     mouseAccelerationHLayout->addWidget(mMouseAccelerationLabel);
     mouseAccelerationHLayout->addStretch();
     mouseAccelerationHLayout->addWidget(mMouseAccelerationBtn);
-    mouseAccelerationHLayout->setContentsMargins(8,0,14,0);
+    mouseAccelerationHLayout->setContentsMargins(12, 0, 14, 0);
 
     mMouseAccelerationFrame->setLayout(mouseAccelerationHLayout);
 }
@@ -324,11 +320,10 @@ void MouseUI::setPointerPositionFrame()
     mPointerPositionLabel = new QLabel(tr("Show pointer position when pressing ctrl"), this);
     mPointerPositionLabel->setMinimumWidth(140);
     mPointerPositionBtn = new SwitchButton(this);
-    PointerPositionHLayout->addSpacing(4);
     PointerPositionHLayout->addWidget(mPointerPositionLabel);
     PointerPositionHLayout->addStretch();
     PointerPositionHLayout->addWidget(mPointerPositionBtn);
-    PointerPositionHLayout->setContentsMargins(8,0,14,0);
+    PointerPositionHLayout->setContentsMargins(12, 0, 14, 0);
 
     mPointerPositionFrame->setLayout(PointerPositionHLayout);
 }
@@ -382,11 +377,10 @@ void MouseUI::setBlinkCursorFrame()
     mBlinkingCursorOnTextLabel = new QLabel(tr("Blinking cursor in text area"), this);
     mBlinkingCursorOnTextLabel->setMinimumWidth(140);
     mBlinkingCursorOnTextBtn = new SwitchButton(this);
-    blinkingCursorOnTextHLayout->addSpacing(4);
     blinkingCursorOnTextHLayout->addWidget(mBlinkingCursorOnTextLabel);
     blinkingCursorOnTextHLayout->addStretch();
     blinkingCursorOnTextHLayout->addWidget(mBlinkingCursorOnTextBtn);
-    blinkingCursorOnTextHLayout->setContentsMargins(8,0,14,0);
+    blinkingCursorOnTextHLayout->setContentsMargins(12, 0, 14, 0);
 
     mBlinkingCursorOnTextFrame->setLayout(blinkingCursorOnTextHLayout);
 }
@@ -414,12 +408,11 @@ void MouseUI::setCursorSpeedFrame()
     mCursorSpeedFastlabel = new QLabel(tr("Fast"), this);
     mCursorSpeedFastlabel->setContentsMargins(8, 0, 13, 0);
     mCursorSpeedFastlabel->setMinimumWidth(40);
-    cursorSpeedHLayout->addSpacing(4);
     cursorSpeedHLayout->addWidget(mCursorSpeedlabel);
     cursorSpeedHLayout->addWidget(mCursorSpeedSlowlabel);
     cursorSpeedHLayout->addWidget(mCursorSpeedSlider);
     cursorSpeedHLayout->addWidget(mCursorSpeedFastlabel);
-    cursorSpeedHLayout->setContentsMargins(8, 0, 0, 0);
+    cursorSpeedHLayout->setContentsMargins(12, 0, 0, 0);
 
     mCursorSpeedFrame->setLayout(cursorSpeedHLayout);
 }
