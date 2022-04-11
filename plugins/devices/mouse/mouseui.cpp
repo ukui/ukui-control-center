@@ -91,12 +91,14 @@ void MouseUI::initUI()
 
     mMouseTitleLabel = new TitleLabel(this);
     mMouseTitleLabel->setText(tr("Mouse"));
+    mMouseTitleLabel->setContentsMargins(14,0,0,0);
     setDominantHandFrame();
     setWheelSpeedFrame();
     setDoubleClickFrame();
 
     mPointerTitleLabel = new TitleLabel(this);
     mPointerTitleLabel->setText(tr("Pointer"));
+    mPointerTitleLabel->setContentsMargins(14,0,0,0);
     setPointerSpeedFrame();
     setMouseAccelerationFrame();
     setPointerPositionFrame();
@@ -104,6 +106,7 @@ void MouseUI::initUI()
 
     mCursorTitleLabel = new TitleLabel(this);
     mCursorTitleLabel->setText(tr("Cursor"));
+    mCursorTitleLabel->setContentsMargins(14,0,0,0);
     setBlinkCursorFrame();
     setCursorSpeedFrame();
 
@@ -171,7 +174,7 @@ void MouseUI::setDominantHandFrame()
     mDominantRadioGroup = new QButtonGroup(this);
     mDominantRadioGroup->addButton(mDominantHandLeftRadio);
     mDominantRadioGroup->addButton(mDominantHandRightRadio);
-    dominantHandHLayout->addSpacing(7);
+    dominantHandHLayout->addSpacing(4);
     dominantHandHLayout->addWidget(mDominantHandLabel);
     dominantHandHLayout->addWidget(mDominantHandLeftRadio);
     dominantHandHLayout->addSpacing(80);
@@ -206,7 +209,8 @@ void MouseUI::setWheelSpeedFrame()
     mWheelSpeedSlider->setPageStep(1);
     mWheelSpeedFastLabel = new QLabel(tr("Fast"), this);
     mWheelSpeedFastLabel->setMinimumWidth(40);
-    wheelSpeedHLayout->addSpacing(7);
+    mWheelSpeedFastLabel->setContentsMargins(8, 0, 13, 0);
+    wheelSpeedHLayout->addSpacing(4);
     wheelSpeedHLayout->addWidget(mWheelSpeedLabel);
     wheelSpeedHLayout->addWidget(mWheelSpeedSlowLabel);
     wheelSpeedHLayout->addWidget(mWheelSpeedSlider);
@@ -237,13 +241,15 @@ void MouseUI::setDoubleClickFrame()
     mDoubleClickIntervalSlider->setSingleStep(100);
     mDoubleClickIntervalSlider->setPageStep(100);
     mDoubleClickIntervalLongLabel = new QLabel(tr("Long"), this);
+    mDoubleClickIntervalLongLabel->setContentsMargins(8, 0, 0, 0);
     mDoubleClickIntervalLongLabel->setMinimumWidth(40);
-    doubleClickIntervalHLayout->addSpacing(7);
+    doubleClickIntervalHLayout->addSpacing(4);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalLabel);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalShortLabel);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalSlider);
     doubleClickIntervalHLayout->addWidget(mDoubleClickIntervalLongLabel);
     doubleClickIntervalHLayout->addWidget(new MyLabel());
+    doubleClickIntervalHLayout->setContentsMargins(8,0,12,0);
 
     mDoubleClickIntervalFrame->setLayout(doubleClickIntervalHLayout);
 }
@@ -269,12 +275,14 @@ void MouseUI::setPointerSpeedFrame()
     mPointerSpeedSlider->setSingleStep(50);
     mPointerSpeedSlider->setPageStep(50);
     mPointerSpeedFastLabel = new QLabel(tr("Fast"), this);
+    mPointerSpeedFastLabel->setContentsMargins(8, 0, 13, 0);
     mPointerSpeedFastLabel->setMinimumWidth(40);
-    pointerSpeedHLayout->addSpacing(7);
+    pointerSpeedHLayout->addSpacing(4);
     pointerSpeedHLayout->addWidget(mPointerSpeedLabel);
     pointerSpeedHLayout->addWidget(mPointerSpeedSlowLabel);
     pointerSpeedHLayout->addWidget(mPointerSpeedSlider);
     pointerSpeedHLayout->addWidget(mPointerSpeedFastLabel);
+    pointerSpeedHLayout->setContentsMargins(8,0,0,0);
 
     mPointerSpeedFrame->setLayout(pointerSpeedHLayout);
 }
@@ -293,10 +301,11 @@ void MouseUI::setMouseAccelerationFrame()
     //~ contents_path /Mouse/Mouse acceleration
     mMouseAccelerationLabel = new QLabel(tr("Mouse acceleration"), this);
     mMouseAccelerationLabel->setMinimumWidth(140);
-    mouseAccelerationHLayout->addSpacing(7);
+    mouseAccelerationHLayout->addSpacing(4);
     mouseAccelerationHLayout->addWidget(mMouseAccelerationLabel);
     mouseAccelerationHLayout->addStretch();
     mouseAccelerationHLayout->addWidget(mMouseAccelerationBtn);
+    mouseAccelerationHLayout->setContentsMargins(8,0,14,0);
 
     mMouseAccelerationFrame->setLayout(mouseAccelerationHLayout);
 }
@@ -315,10 +324,11 @@ void MouseUI::setPointerPositionFrame()
     mPointerPositionLabel = new QLabel(tr("Show pointer position when pressing ctrl"), this);
     mPointerPositionLabel->setMinimumWidth(140);
     mPointerPositionBtn = new SwitchButton(this);
-    PointerPositionHLayout->addSpacing(7);
+    PointerPositionHLayout->addSpacing(4);
     PointerPositionHLayout->addWidget(mPointerPositionLabel);
     PointerPositionHLayout->addStretch();
     PointerPositionHLayout->addWidget(mPointerPositionBtn);
+    PointerPositionHLayout->setContentsMargins(8,0,14,0);
 
     mPointerPositionFrame->setLayout(PointerPositionHLayout);
 }
@@ -346,7 +356,7 @@ void MouseUI::setPointerSizeFrame()
     mPointerSizeRadioGroup->addButton(mPointerSizeSmallRadio);
     mPointerSizeRadioGroup->addButton(mPointerSizeMediumRadio);
     mPointerSizeRadioGroup->addButton(mPointerSizeLargeRadio);
-    pointerSizeHLayout->addSpacing(7);
+    pointerSizeHLayout->addSpacing(4);
     pointerSizeHLayout->addWidget(mPointerSizeLabel);
     pointerSizeHLayout->addWidget(mPointerSizeSmallRadio);
     pointerSizeHLayout->addSpacing(50);
@@ -372,10 +382,11 @@ void MouseUI::setBlinkCursorFrame()
     mBlinkingCursorOnTextLabel = new QLabel(tr("Blinking cursor in text area"), this);
     mBlinkingCursorOnTextLabel->setMinimumWidth(140);
     mBlinkingCursorOnTextBtn = new SwitchButton(this);
-    blinkingCursorOnTextHLayout->addSpacing(7);
+    blinkingCursorOnTextHLayout->addSpacing(4);
     blinkingCursorOnTextHLayout->addWidget(mBlinkingCursorOnTextLabel);
     blinkingCursorOnTextHLayout->addStretch();
     blinkingCursorOnTextHLayout->addWidget(mBlinkingCursorOnTextBtn);
+    blinkingCursorOnTextHLayout->setContentsMargins(8,0,14,0);
 
     mBlinkingCursorOnTextFrame->setLayout(blinkingCursorOnTextHLayout);
 }
@@ -401,12 +412,14 @@ void MouseUI::setCursorSpeedFrame()
     mCursorSpeedSlider->setSingleStep(200);
     mCursorSpeedSlider->setPageStep(200);
     mCursorSpeedFastlabel = new QLabel(tr("Fast"), this);
+    mCursorSpeedFastlabel->setContentsMargins(8, 0, 13, 0);
     mCursorSpeedFastlabel->setMinimumWidth(40);
-    cursorSpeedHLayout->addSpacing(7);
+    cursorSpeedHLayout->addSpacing(4);
     cursorSpeedHLayout->addWidget(mCursorSpeedlabel);
     cursorSpeedHLayout->addWidget(mCursorSpeedSlowlabel);
     cursorSpeedHLayout->addWidget(mCursorSpeedSlider);
     cursorSpeedHLayout->addWidget(mCursorSpeedFastlabel);
+    cursorSpeedHLayout->setContentsMargins(8, 0, 0, 0);
 
     mCursorSpeedFrame->setLayout(cursorSpeedHLayout);
 }
