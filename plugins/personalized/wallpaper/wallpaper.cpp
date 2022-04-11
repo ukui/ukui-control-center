@@ -628,3 +628,10 @@ void Wallpaper::setClickedPic(QString fileName) {
         }
     }
 }
+
+void Wallpaper::settingForIntel()
+{
+    ui->selectLabel->setVisible(false);
+    ui->formComBox->setVisible(false);
+    ui->onlineBtn->setVisible(false);
+}
