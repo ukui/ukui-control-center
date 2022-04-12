@@ -122,7 +122,9 @@ bool DateEdit::eventFilter(QObject *obj, QEvent *event) {
         focusFlag = false;
         hoverFlag = false;
         repaint();
-        Q_EMIT changeDate();
+        if (this->date() != QDateTime::currentDateTime().date() && !this->calendarWidget()->isVisible()) {
+            Q_EMIT changeDate();
+        }
     }
 
 
