@@ -522,3 +522,14 @@ void Area::showMessageBox(int flag)
     }
     return;
 }
+
+void Area::settingForIntel()
+{
+    ui->languageframe_2->setVisible(false);
+    ui->firstDayFrame->setVisible(false);
+    ui->line->setVisible(false);
+    ui->line_3->setVisible(false);
+    ui->languageFrame->setVisible(false);
+    ui->title3Label->setVisible(false);
+    ui->summaryLabel->setVisible(false);
+}

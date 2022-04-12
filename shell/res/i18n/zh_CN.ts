@@ -9217,21 +9217,27 @@ E-mail: support@kylinos.cn</source>
         <translation>锁屏界面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="448"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="205"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="165"/>
+        <source>Show message on lock screen</source>
+        <translation>锁屏时显示消息</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="473"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="123"/>
         <source>Browse</source>
         <translation>浏览</translation>
         <extra-contents_path>/Screenlock/Browse</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="455"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="480"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="125"/>
         <source>Online Picture</source>
         <translation>线上图片</translation>
         <extra-contents_path>/Screenlock/Online Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="487"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="512"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="134"/>
         <source>Reset To Default</source>
         <translation>恢复默认</translation>
@@ -9242,14 +9248,14 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">锁屏设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="281"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="319"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="121"/>
         <source>Lock screen when screensaver boot</source>
         <translation>激活屏保时锁定屏幕</translation>
         <extra-contents_path>/Screenlock/Lock screen when screensaver boot</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="364"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="389"/>
         <source>Lock screen delay</source>
         <translation>此时间段后锁屏</translation>
     </message>
@@ -9270,7 +9276,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">浏览本地壁纸</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="211"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.ui" line="262"/>
         <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="119"/>
         <source>Show picture of screenlock on screenlogin</source>
         <translation>显示锁屏壁纸在登录页面</translation>
@@ -9342,7 +9348,7 @@ E-mail: support@kylinos.cn</source>
         <translation>2h</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="463"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="485"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</source>
         <translation>图片文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp)</translation>
     </message>
@@ -9351,32 +9357,32 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="505"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="527"/>
         <source>select custom wallpaper file</source>
         <translation>选择自定义壁纸文件</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="506"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="528"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="507"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="529"/>
         <source>Position: </source>
         <translation>位置： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="508"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="530"/>
         <source>FileName: </source>
         <translation>文件名： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="509"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="531"/>
         <source>FileType: </source>
         <translation>文件类型： </translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="510"/>
+        <location filename="../../../plugins/personalized/screenlock/screenlock.cpp" line="532"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>

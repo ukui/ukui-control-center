@@ -105,19 +105,19 @@ int DateTime::pluginTypes()
 QWidget *DateTime::pluginUi()
 {
     if (mFirstLoad) {  
-        pluginWidget = new QWidget;    
-        QTimer::singleShot(1, this, [=]() {    
+        pluginWidget = new QWidget;
         mFirstLoad = false;
         ui = new Ui::DateTime;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
-        initUI();
-        initTitleLabel();
-        initStatus();
-        initComponent();
-        initConnect();
-        connectToServer();
-        initTimeShow();
+        QTimer::singleShot(1, this, [=]() {    
+            initUI();
+            initTitleLabel();
+            initStatus();
+            initComponent();
+            initConnect();
+            connectToServer();
+            initTimeShow();
         });
     } else {
         fillTimeCombox(m_formTimeBtn->isChecked());
@@ -939,6 +939,14 @@ int DateTime::getRegionFormat()
     result.append(language);
     int formatIndex = result.at(0) == "zh_CN.UTF-8" ? 1 : 0;
     return formatIndex;
+}
+
+void DateTime::settingForIntel()
+{
+    ui->chgzonebtn->setVisible(false);
+    ui->frame_3->setVisible(false);
+    ui->TilleFrame->setVisible(false);
+    ui->frame_7->setVisible(false);
 }
 
 CGetSyncRes::CGetSyncRes(DateTime *dataTimeUI,QString successMSG,QString failMSG)
