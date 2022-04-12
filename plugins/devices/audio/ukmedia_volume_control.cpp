@@ -1503,16 +1503,17 @@ void UkmediaVolumeControl::subscribeCb(pa_context *c, pa_subscription_event_type
             if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_REMOVE) {
                 qDebug() << "remove cards------";
                 //移除outputPort
-
                 w->removeOutputPortMap(index);
                 w->removeInputPortMap(index);
+
+                Q_EMIT w->updatePortSignal();
+
                 w->removeCardMap(index);
                 w->removeCardProfileMap(index);
 
                 w->removeProfileMap();
                 w->removeInputProfile();
                 w->removeCard(index);
-                Q_EMIT w->updatePortSignal();
             }
             else {
                 pa_operation *o;
