@@ -3753,7 +3753,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="64"/>
         <source>Update</source>
-        <translation>备份</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../../utils/keyvalueconverter.cpp" line="67"/>
@@ -6086,7 +6086,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="195"/>
         <source>Update</source>
-        <translation>备份</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="193"/>
