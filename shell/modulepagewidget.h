@@ -47,6 +47,7 @@ public:
     void switchPage(QObject * plugin, bool recorded = true);
     void refreshPluginWidget(CommonInterface * plu);
     void highlightItem(QString text);
+    void pluginLeave();
 
 private:
     void getModuleStatus();
@@ -70,6 +71,7 @@ private:
     QMultiMap<QString, QListWidgetItem*> strItemsMap;
 
     bool flagBit;
+    CommonInterface *prePlu = nullptr;
 
 Q_SIGNALS:
     void hScrollBarShow();

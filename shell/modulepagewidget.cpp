@@ -209,8 +209,10 @@ void ModulePageWidget::switchPage(QObject *plugin, bool recorded){
 void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
     ui->scrollArea->takeWidget();
     delete(ui->scrollArea->widget());
-
-
+    if (prePlu) {
+        prePlu->plugin_leave();
+    }
+    prePlu = plu;
     ui->scrollArea->setWidget(plu->get_plugin_ui());
     mCurrentPluName = plu->name();
 
@@ -268,5 +270,12 @@ void ModulePageWidget::currentLeftitemChanged(QListWidgetItem *cur, QListWidgetI
         curWidgetItem->isSetLabelPixmapWhite(true);
     } else {
         qDebug() << "plugin widget not fount!";
+    }
+}
+
+void ModulePageWidget::pluginLeave()
+{
+    if (prePlu) {
+        prePlu->plugin_leave();
     }
 }
