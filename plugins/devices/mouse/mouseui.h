@@ -59,6 +59,8 @@ public:
     MouseUI(QWidget *parent = nullptr);
     ~MouseUI();
 
+    void hideOnIntel();
+
 private:
     QFrame *mDominantHandFrame;         // 惯用手
     QFrame *mWheelSpeedFrame;           // 滚轮速度
@@ -69,6 +71,13 @@ private:
     QFrame *mPointerSizeFrame;          // 指针大小
     QFrame *mBlinkingCursorOnTextFrame; // 文本区域闪烁光标
     QFrame *mCursorSpeedFrame;          // 光标速度
+
+    QFrame *mDominantAndWheelLine;
+    QFrame *mWheelAndDoubleLine;
+    QFrame *mPointerAndMouseLine;
+    QFrame *mMouseAndPointerPositionLine;
+    QFrame *mPositionAndSizeLine;
+    QFrame *mBlinkAndCursorspeedLine;
 
     TitleLabel *mMouseTitleLabel;
     QLabel *mDominantHandLabel;

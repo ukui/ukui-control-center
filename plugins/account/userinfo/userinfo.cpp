@@ -890,13 +890,30 @@ void UserInfo::currentUserPropertyChangedSlot(QString property, QMap<QString, QV
 
     if (propertyMap.keys().contains("AccountType") && getuid()){
         bool current = propertyMap.value("AccountType").toBool();
-
         //刷新当前用户类型
         QString cType = _accountTypeIntToString(current);
         if (setTextDynamic(currentUserTypeLabel, cType)){
             currentUserTypeLabel->setToolTip(cType);
         }
+        showMessageBox();
     }
+}
+
+void UserInfo::showMessageBox()
+{
+    QMessageBox msg(qApp->activeWindow());
+    msg.setIcon(QMessageBox::Warning);
+
+    msg.setText(tr("Modify the account type need to logout to take effect, whether to logout?"));
+    msg.addButton(tr("logout later"), QMessageBox::NoRole);
+    msg.addButton(tr("logout now"), QMessageBox::ApplyRole);
+
+    int ret = msg.exec();
+
+    if (ret == 1) {
+        system("ukui-session-tools --logout");
+    }
+    return;
 }
 
 void UserInfo::newUserCreateDoneSlot(QDBusObjectPath op){

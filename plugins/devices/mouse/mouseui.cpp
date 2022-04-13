@@ -1,4 +1,4 @@
-#include "mouseui.h"
+﻿#include "mouseui.h"
 
 MyLabel::MyLabel()
 {
@@ -60,6 +60,16 @@ QFrame* MouseUI::myLine()
     return line;
 }
 
+void MouseUI::hideOnIntel()
+{
+    mDominantAndWheelLine->hide();
+    mWheelSpeedFrame->hide();
+    mWheelAndDoubleLine->hide();
+    mDoubleClickIntervalFrame->hide();
+    mPointerAndMouseLine->hide();
+    mMouseAccelerationFrame->hide();
+}
+
 void MouseUI::initUI()
 {
     //鼠标
@@ -111,31 +121,31 @@ void MouseUI::initUI()
     setCursorSpeedFrame();
 
     /* add all frame to widget */
-    QFrame *dominantAndWheelLine =myLine();
-    QFrame *wheelAndDoubleLine = myLine();
-    QFrame *pointerAndMouseLine = myLine();
-    QFrame *mouseAndPointerPositionLine = myLine();
-    QFrame *positionAndSizeLine = myLine();
-    QFrame *blinkAndCursorspeedLine = myLine();
+    mDominantAndWheelLine =myLine();
+    mWheelAndDoubleLine = myLine();
+    mPointerAndMouseLine = myLine();
+    mMouseAndPointerPositionLine = myLine();
+    mPositionAndSizeLine = myLine();
+    mBlinkAndCursorspeedLine = myLine();
 
     mouseLyt->addWidget(mDominantHandFrame);
-    mouseLyt->addWidget(dominantAndWheelLine);
+    mouseLyt->addWidget(mDominantAndWheelLine);
     mouseLyt->addWidget(mWheelSpeedFrame);
-    mouseLyt->addWidget(wheelAndDoubleLine);
+    mouseLyt->addWidget(mWheelAndDoubleLine);
     mouseLyt->addWidget(mDoubleClickIntervalFrame);
     mouseLyt->setSpacing(0);
 
     pointerLyt->addWidget(mPointerSpeedFrame);
-    pointerLyt->addWidget(pointerAndMouseLine);
+    pointerLyt->addWidget(mPointerAndMouseLine);
     pointerLyt->addWidget(mMouseAccelerationFrame);
-    pointerLyt->addWidget(mouseAndPointerPositionLine);
+    pointerLyt->addWidget(mMouseAndPointerPositionLine);
     pointerLyt->addWidget(mPointerPositionFrame);
-    pointerLyt->addWidget(positionAndSizeLine);
+    pointerLyt->addWidget(mPositionAndSizeLine);
     pointerLyt->addWidget(mPointerSizeFrame);
     pointerLyt->setSpacing(0);
 
     cursorLyt->addWidget(mBlinkingCursorOnTextFrame);
-    cursorLyt->addWidget(blinkAndCursorspeedLine);
+    cursorLyt->addWidget(mBlinkAndCursorspeedLine);
     cursorLyt->addWidget(mCursorSpeedFrame);
     cursorLyt->setSpacing(0);
 

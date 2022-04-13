@@ -2298,23 +2298,23 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="101"/>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="114"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="469"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="470"/>
         <source>Current Pwd</source>
         <translation>当前密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="143"/>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="154"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="470"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="478"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="471"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="479"/>
         <source>New Pwd</source>
         <translation>新密码</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="183"/>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="187"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="471"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="479"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="472"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="480"/>
         <source>Sure Pwd</source>
         <translation>确认新密码</translation>
     </message>
@@ -2330,7 +2330,7 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="288"/>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="542"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="543"/>
         <source>Inconsistency with pwd</source>
         <translation>与新密码不同</translation>
     </message>
@@ -2340,22 +2340,22 @@ Please authenticate yourself to continue</source>
         <translation>密码输入错误,重新输入!</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="504"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="505"/>
         <source>Contains illegal characters!</source>
         <translation>含有非法字符！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="615"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="616"/>
         <source>current pwd cannot be empty!</source>
         <translation>当前密码不能为空！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="620"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="621"/>
         <source>new pwd cannot be empty!</source>
         <translation>新密码不能为空！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="625"/>
+        <location filename="../../../plugins/account/userinfo/changeuserpwd.cpp" line="626"/>
         <source>sure pwd cannot be empty!</source>
         <translation>确认密码不能为空！</translation>
     </message>
@@ -2368,11 +2368,6 @@ Please authenticate yourself to continue</source>
         <translation>用户类型</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="70"/>
-        <source>Ensure that must have admin on system</source>
-        <translation>请确保计算机上至少有一个管理员</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="80"/>
         <source>administrator</source>
         <translation>管理员用户</translation>
@@ -2383,27 +2378,32 @@ Please authenticate yourself to continue</source>
         <translation>标准用户</translation>
     </message>
     <message>
+        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="70"/>
+        <source>Select account type (Ensure have admin on system):</source>
+        <translation>选择账户类型（请保证系统内至少有一个管理账户）：</translation>
+    </message>
+    <message>
         <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="84"/>
-        <source>Users can make any changes they need</source>
-        <translation>管理员用户可以更改任何系统配置</translation>
+        <source>change system settings, install and upgrade software.</source>
+        <translation>管理员帐户可以更改系统任何配置，包括安装和升级软件</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="86"/>
-        <source>Users cannot change system settings</source>
-        <translation>标准用户不能修改用户配置</translation>
+        <source>use most software, cannot change system settings.</source>
+        <translation>标准用户可以使用绝大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="137"/>
+        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="139"/>
         <source>Note: Effective After Logout!!!</source>
         <translation>注意：更改用户类型注销后生效！！！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="148"/>
+        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="150"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="151"/>
+        <location filename="../../../plugins/account/userinfo/changeusertype.cpp" line="153"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -3651,32 +3651,36 @@ folder will be deleted!</source>
 <context>
     <name>DeleteUserExists</name>
     <message>
-        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="59"/>
-        <source>Delete user &apos;</source>
-        <translation>删除用户‘</translation>
-    </message>
-    <message>
         <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="60"/>
+        <source>Delete user &apos;</source>
+        <translation>是否删除用户“</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="61"/>
         <source>&apos;? And:</source>
-        <translation>’？并执行：</translation>
+        <translation>”？并执行：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="85"/>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="86"/>
+        <source>Keep desktop, files, favorites, music of the user</source>
+        <translation>保留该用户下所属的桌面、文件、收藏夹、音乐等数据</translation>
+    </message>
+    <message>
         <source>Keep user&apos;s home folder</source>
-        <translation>保留用户家目录</translation>
+        <translation type="vanished">保留用户家目录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="119"/>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="120"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="121"/>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="122"/>
         <source>Confirm</source>
-        <translation>确定</translation>
+        <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="87"/>
+        <location filename="../../../plugins/account/userinfo/deleteuserexists.cpp" line="88"/>
         <source>Delete whole data belong user</source>
         <translation>删除该用户所有数据</translation>
     </message>
@@ -4540,28 +4544,28 @@ folder will be deleted!</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="258"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="141"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="264"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="142"/>
         <source>Fonts select</source>
         <translation>字体选择</translation>
         <extra-contents_path>/Fonts/Fonts select</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="146"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="139"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="140"/>
         <source>Font size</source>
         <translation>字体大小</translation>
         <extra-contents_path>/Fonts/Font size</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="358"/>
-        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="143"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="370"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.cpp" line="144"/>
         <source>Mono font</source>
         <translation>等宽字体</translation>
         <extra-contents_path>/Fonts/Mono font</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="409"/>
+        <location filename="../../../plugins/personalized/fonts/fonts.ui" line="421"/>
         <source>Reset to default</source>
         <translation>恢复默认设置</translation>
     </message>
@@ -5124,57 +5128,57 @@ folder will be deleted!</source>
         <translation type="vanished">输入法设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="50"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="51"/>
         <source>Input settings</source>
         <translation>输入法设置</translation>
         <extra-contents_path>/Keyboard/Input settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="88"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="89"/>
         <source>Key repeat</source>
         <translation>按键重复</translation>
         <extra-contents_path>/Keyboard/Key repeat</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="110"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="111"/>
         <source>Delay</source>
         <translation>延迟</translation>
         <extra-contents_path>/Keyboard/Delay</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="112"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="113"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="114"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="115"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="140"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="142"/>
         <source>Speed</source>
         <translation>速度</translation>
         <extra-contents_path>/Keyboard/Speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="142"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="144"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="144"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="146"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="170"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="173"/>
         <source>Input test</source>
         <translation>输入测试</translation>
         <extra-contents_path>/Keyboard/Input test</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="191"/>
+        <location filename="../../../plugins/devices/keyboard/keyboardmain.cpp" line="194"/>
         <source>Key tips</source>
         <translation>按键提示</translation>
         <extra-contents_path>/Keyboard/Key tips</extra-contents_path>
@@ -6060,119 +6064,119 @@ Please retry or relogin!</source>
 <context>
     <name>MouseUI</name>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="93"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="103"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="99"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="110"/>
         <source>Pointer</source>
         <translation>指针</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="106"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="118"/>
         <source>Cursor</source>
         <translation>光标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="165"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="178"/>
         <source>Dominant hand</source>
         <translation>鼠标主按钮</translation>
         <extra-contents_path>/Mouse/Dominant hand</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="167"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="180"/>
         <source>Left hand</source>
         <translation>左键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="168"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="181"/>
         <source>Right hand</source>
         <translation>右键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="196"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="209"/>
         <source>Wheel speed</source>
         <translation>滚轮速度</translation>
         <extra-contents_path>/Mouse/Wheel speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="198"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="264"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="396"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="211"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="278"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="411"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="207"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="271"/>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="403"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="220"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="285"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="418"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="230"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="243"/>
         <source>Double-click interval time</source>
         <translation>双击间隔时长</translation>
         <extra-contents_path>/Mouse/Double-click interval time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="232"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="245"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="239"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="252"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="262"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="276"/>
         <source>Pointer speed</source>
         <translation>指针速度</translation>
         <extra-contents_path>/Mouse/Pointer speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="294"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="309"/>
         <source>Mouse acceleration</source>
         <translation>鼠标加速</translation>
         <extra-contents_path>/Mouse/Mouse acceleration</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="315"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="330"/>
         <source>Show pointer position when pressing ctrl</source>
         <translation>按Ctrl键时显示指针位置</translation>
         <extra-contents_path>/Mouse/Show pointer position when pressing ctrl</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="337"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="352"/>
         <source>Pointer size</source>
         <translation>指针大小</translation>
         <extra-contents_path>/Mouse/Pointer size</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="339"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="354"/>
         <source>Small(recommend)</source>
         <translation>小（推荐）</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="340"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="355"/>
         <source>Medium</source>
         <translation>中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="341"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="356"/>
         <source>Large</source>
         <translation>大</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="372"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="387"/>
         <source>Blinking cursor in text area</source>
         <translation>文本区域光标闪烁</translation>
         <extra-contents_path>/Mouse/Blinking cursor in text area</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="394"/>
+        <location filename="../../../plugins/devices/mouse/mouseui.cpp" line="409"/>
         <source>Cursor speed</source>
         <translation>光标速度</translation>
         <extra-contents_path>/Mouse/Cursor speed</extra-contents_path>
@@ -9076,63 +9080,63 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">连接失败，尝试重新连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1140"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1164"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="322"/>
         <source>min length %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1150"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1174"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="332"/>
         <source>min digit num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1159"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1183"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="341"/>
         <source>min upper num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1168"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1192"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="350"/>
         <source>min lower num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1177"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1201"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="359"/>
         <source>min other num %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1187"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1211"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="369"/>
         <source>min char class %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1196"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1220"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="378"/>
         <source>max repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1205"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1229"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="387"/>
         <source>max class repeat %1
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1214"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1238"/>
         <location filename="../../../plugins/account/userinfo_intel/userinfo_intel.cpp" line="396"/>
         <source>max sequence %1
 </source>
@@ -10828,7 +10832,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">未发现触控板设备</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="51"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="52"/>
         <source>Disable touchpad when using the mouse</source>
         <translation>插入鼠标时禁用触控板</translation>
         <extra-contents_path>/Touchpad/Disable touchpad when using the mouse</extra-contents_path>
@@ -10839,57 +10843,57 @@ E-mail: support@kylinos.cn</source>
         <extra-contents_path>/Touchpad/Cursor Speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="70"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="71"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="71"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="72"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="95"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="97"/>
         <source>Disable touchpad when typing</source>
         <translation>打字时禁用触控板</translation>
         <extra-contents_path>/Touchpad/Disable touchpad when typing</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="113"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="115"/>
         <source>Touch and click on the touchpad</source>
         <translation>触控板轻触点击</translation>
         <extra-contents_path>/Touchpad/Touch and click on the touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="131"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="133"/>
         <source>Scroll bar slides with finger</source>
         <translation>滚动条跟随手指滑动</translation>
         <extra-contents_path>/Touchpad/Scroll bar slides with finger</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="148"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="150"/>
         <source>Scrolling area</source>
         <translation>滚动区域</translation>
         <extra-contents_path>/Touchpad/Scrolling area</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="152"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="154"/>
         <source>Disable scrolling</source>
         <translation>禁止滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="151"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="153"/>
         <source>Edge scrolling</source>
         <translation>边界滚动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="68"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="69"/>
         <source>Pointer Speed</source>
         <translation>指针速度</translation>
         <extra-contents_path>/Touchpad/Pointer Speed</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="150"/>
+        <location filename="../../../plugins/devices/touchpad/touchpadui.cpp" line="152"/>
         <source>Two-finger scrolling in the middle area</source>
         <translation>中间区域滚动</translation>
     </message>
@@ -11347,27 +11351,42 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">管理员用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1009"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1033"/>
         <source>root</source>
         <translation>Root</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="977"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1001"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="978"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="907"/>
+        <source>Modify the account type need to logout to take effect, whether to logout?</source>
+        <translation>更改账户类型需要注销后生效，是否注销？</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="908"/>
+        <source>logout later</source>
+        <translation>稍后注销</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="909"/>
+        <source>logout now</source>
+        <translation>立即注销</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1002"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="981"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1005"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="982"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1006"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
@@ -11384,12 +11403,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1005"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1029"/>
         <source>Standard</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1007"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1031"/>
         <source>Admin</source>
         <translation>管理员</translation>
     </message>
@@ -11428,12 +11447,12 @@ E-mail: support@kylinos.cn</source>
         <translation>免密登录</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="558"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="567"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="558"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="567"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -11901,7 +11920,7 @@ E-mail: support@kylinos.cn</source>
     </message>
     <message>
         <location filename="../../../plugins/system/display/widget.cpp" line="309"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1975"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1989"/>
         <source>Custom Time</source>
         <translation>自定义</translation>
     </message>
@@ -11952,7 +11971,7 @@ E-mail: support@kylinos.cn</source>
         <translation>屏幕%1已修改，是否保存？&lt;br/&gt;&lt;font style= &apos;color:#626c6e&apos;&gt;系统将在%2秒后自动保存。&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1975"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1989"/>
         <source>Follow the sunrise and sunset</source>
         <translation>跟随日出日落</translation>
     </message>
@@ -12047,7 +12066,7 @@ the settings will be saved after %1 seconds</source>
         <translation>稍后注销</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="1975"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="1989"/>
         <source>All Day</source>
         <translation>全天</translation>
     </message>
@@ -12056,10 +12075,10 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">跟随日出日落(17:55-06:23)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2242"/>
         <location filename="../../../plugins/system/display/widget.cpp" line="2256"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2179"/>
-        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2186"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2270"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2192"/>
+        <location filename="../../../plugins/system/display_hw/widget.cpp" line="2199"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -12282,7 +12301,7 @@ Common reasons are that the overall screen size is too big, or you enabled more 
     </message>
     <message>
         <location filename="../../../plugins/devices/shortcut/addshortcutdialog.ui" line="342"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="219"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="254"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -12316,65 +12335,65 @@ Common reasons are that the overall screen size is too big, or you enabled more 
         <translation type="vanished">添加快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="72"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="73"/>
         <source>Add Shortcut</source>
         <translation>添加快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="85"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="86"/>
         <source>Please enter a shortcut</source>
         <translation>请输入快捷键</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="211"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="212"/>
         <source>Desktop files(*.desktop)</source>
         <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="218"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="253"/>
         <source>select desktop</source>
         <translation>选择桌面</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="252"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="273"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="284"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="289"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="310"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="321"/>
         <source>Invalid application</source>
         <translation>此应用不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="254"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="269"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="280"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="291"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="306"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="317"/>
         <source>Shortcut conflict</source>
         <translation>此快捷键组合已被占用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="256"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="271"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="282"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="293"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="308"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="319"/>
         <source>Invalid shortcut</source>
         <translation>此快捷键组合不可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="259"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="266"/>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="287"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="296"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="303"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="324"/>
         <source>Name repetition</source>
         <translation>此快捷键名称重复</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="293"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="330"/>
         <source>Unknown error</source>
         <translation>未知错误</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="469"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="506"/>
         <source>Shortcut cannot be empty</source>
         <translation>快捷键不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="473"/>
+        <location filename="../../../plugins/devices/shortcut/addshortcutdialog.cpp" line="510"/>
         <source>Name cannot be empty</source>
         <translation>名称不能为空</translation>
     </message>
