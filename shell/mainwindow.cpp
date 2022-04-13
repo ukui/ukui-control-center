@@ -49,7 +49,8 @@
 #include <kysec/status.h>
 #endif
 
-const QByteArray kVinoSchemas    = "org.gnome.Vino";
+const QByteArray kVinoSchemas = "org.gnome.Vino";
+const QString kDesktopfp = "/usr/share/applications/yhkylin-backup-tools.desktop";
 
 #define KYLIN_USER_GUIDE_PATH                    "/"
 #define KYLIN_USER_GUIDE_SERVICE              "com.kylinUserGuide.hotel"
@@ -576,7 +577,8 @@ void MainWindow::loadPlugins(){
                 || ("libwlanconnect-icbc.so" == fileName && !mIsNmIcbc)
                 || ("libnetconnect.so" == fileName && mIsNmIcbc)
                 || ("libupgrade.so" == fileName && !mIsUpgradesp1)
-                || ("libupgrade-icbc.so" == fileName && !mIsUpgradeIcbc)) {
+                || ("libupgrade-icbc.so" == fileName && !mIsUpgradeIcbc)
+                || ("libbackup.so" == fileName && !QFile::exists(kDesktopfp))) {
             continue;
         }
 
