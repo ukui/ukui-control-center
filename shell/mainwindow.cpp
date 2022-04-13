@@ -313,9 +313,7 @@ void MainWindow::initUI() {
         if (index){ //首页部分组件样式
             titleLabel->setHidden(true);
             mTitleIcon->setHidden(true);
-            QTimer::singleShot(1, this, [=](){
-                ui->leftsidebarWidget->setVisible(true);
-            });
+            ui->leftsidebarWidget->setVisible(true);
 
             //左上角显示字符/返回按钮
             backBtn->setVisible(true);
@@ -323,9 +321,7 @@ void MainWindow::initUI() {
             ui->stackedWidget->setStyleSheet("QStackedWidget#stackedWidget{background: palette(base); border-bottom-right-radius: 6px;}");
         } else { //次页部分组件样式
             //左侧边栏显示/不显示
-            QTimer::singleShot(1, this, [=](){
-                ui->leftsidebarWidget->setVisible(false);
-            });
+            ui->leftsidebarWidget->setVisible(false);
             if (modulepageWidget) {
                 modulepageWidget->pluginLeave();
             }
