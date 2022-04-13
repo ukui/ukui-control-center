@@ -128,6 +128,7 @@
         <file>secondaryleftmenu/Userinfointel.svg</file>
         <file>secondaryleftmenu/System Recovery.svg</file>
         <file>secondaryleftmenu/Wallpaper.svg</file>
+        <file>secondaryleftmenu/TouchCalibrate.svg</file>
     </qresource>
     <qresource prefix="/">
         <file>global.qss</file>
