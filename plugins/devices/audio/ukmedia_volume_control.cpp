@@ -433,6 +433,7 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
     QMap<QString,QString> tempOutput;
     QList<QString> profileName;
     QMap<QString,QString>portMap;
+    QMap<QString,QString>outputPortNameLabelMap;
     QMap<QString,QString>inputPortNameLabelMap;
     QMap<QString,int> profilePriorityMap;
     std::set<pa_card_profile_info2 *, profile_prio_compare> profile_priorities;
@@ -472,11 +473,10 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
             QList<QString> portProfileName;
             for (auto p_profile : p.profiles) {
                 portProfileName.append(p_profile.data());
-                QString portName = p.description.data();
-                QString profileName = p_profile.data();
-                profileNameMap.insertMulti(portName,profileName);
+                outputPortNameLabelMap.insertMulti(p.description.data(),p_profile.data());
                 qDebug() << "ctf profilename map insert -----------" << p.description.data() << p_profile.data();
             }
+            profileNameMap.insertMulti(info.index,outputPortNameLabelMap);
             cardProfileMap.insertMulti(info.index,portProfileName);
         }
         else if (p.direction == 2 && p.available != PA_PORT_AVAILABLE_NO){
@@ -1511,8 +1511,8 @@ void UkmediaVolumeControl::subscribeCb(pa_context *c, pa_subscription_event_type
                 w->removeCardMap(index);
                 w->removeCardProfileMap(index);
 
-                w->removeProfileMap();
-                w->removeInputProfile();
+                w->removeProfileMap(index);
+                w->removeInputProfile(index);
                 w->removeCard(index);
             }
             else {
@@ -1913,21 +1913,18 @@ void UkmediaVolumeControl::removeCardProfileMap(int index)
     }
 }
 
-void UkmediaVolumeControl::removeProfileMap()
+void UkmediaVolumeControl::removeProfileMap(int index)
 {
-    QMap<QString,QString>::iterator it;
+    qDebug() << "removeProfileMap" << index << profileNameMap;
+
+    QMap<int,QMap<QString,QString>>::iterator it;
     for (it=profileNameMap.begin();it!=profileNameMap.end();) {
-        qDebug() << "ctf ------------" << profileNameMap.count();
-        qDebug() << "removeProfileMap" <<it.key() <<it.value();
-
-        if (!isExitOutputPort(it.value())) {
-
-            it = profileNameMap.erase(it);
-            continue;
+        if(it.key() == index){
+            profileNameMap.erase(it);
+            break;
         }
         ++it;
     }
-
 }
 
 bool UkmediaVolumeControl::isExitOutputPort(QString name)
@@ -1947,20 +1944,15 @@ bool UkmediaVolumeControl::isExitOutputPort(QString name)
     return false;
 }
 
-void UkmediaVolumeControl::removeInputProfile()
+void UkmediaVolumeControl::removeInputProfile(int index)
 {
-    QMap<int, QMap<QString,QString>>::iterator it;
-    QMap<QString,QString>::iterator at;
-    QMap<QString,QString> temp;
-    for (it=inputPortProfileNameMap.begin();it!=inputPortProfileNameMap.end();) {
-        temp = it.value();
-        for (at=temp.begin();at!=temp.end();) {
+    qDebug() << "removeInputProfile" << index << inputPortProfileNameMap;
 
-            if (!isExitInputPort(at.value())) {
-                it = inputPortProfileNameMap.erase(it);
-                return;
-            }
-            ++at;
+    QMap<int, QMap<QString,QString>>::iterator it;
+    for (it=inputPortProfileNameMap.begin();it!=inputPortProfileNameMap.end();) {
+        if(index == it.key()){
+            inputPortProfileNameMap.erase(it);
+            break;
         }
         ++it;
     }

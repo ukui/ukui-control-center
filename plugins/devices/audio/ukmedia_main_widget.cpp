@@ -1784,24 +1784,32 @@ void UkmediaMainWidget::outputListWidgetCurrentRowChangedSlot(int row)
         setCardProfile(cardName,"a2dp_sink");
     }
 
-    QMap<QString,QString>::iterator it;
+    QMap<int ,QMap<QString,QString>>::iterator outputProfileMap;
     QMap<int ,QMap<QString,QString>>::iterator inputProfileMap;
+    QMap<QString,QString> tempMap;
+    QMap<QString,QString>::iterator at;
     QString endOutputProfile = "";
     QString endInputProfile = "";
-    int count,i;
-    for (it=m_pVolumeControl->profileNameMap.begin(),i=0;it!= m_pVolumeControl->profileNameMap.end();++i) {
-        if (it.key() == wid->portLabel->text()) {
-            count = i;
-            endOutputProfile = it.value();
+
+    int currentCardIndex = findCardIndex(wid->deviceLabel->text(),m_pVolumeControl->cardMap);
+    for(outputProfileMap = m_pVolumeControl->profileNameMap.begin();outputProfileMap != m_pVolumeControl->profileNameMap.end();){
+        if(outputProfileMap.key() == currentCardIndex){
+            tempMap = outputProfileMap.value();
+            for(at = tempMap.begin();at != tempMap.end();){
+                if(at.key() == wid->portLabel->text())
+                    endOutputProfile = at.value();
+
+                ++at;
+            }
         }
-        ++it;
+        ++outputProfileMap;
     }
 
     if (inputCurrrentItem != nullptr) {
         QMap <QString,QString>::iterator it;
         QMap <QString,QString> temp;
         int index = findCardIndex(inputWid->deviceLabel->text(),m_pVolumeControl->cardMap);
-        for (inputProfileMap=m_pVolumeControl->inputPortProfileNameMap.begin(),count=0;inputProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();count++) {
+        for (inputProfileMap=m_pVolumeControl->inputPortProfileNameMap.begin();inputProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();) {
             if (inputProfileMap.key() == index) {
                 temp = inputProfileMap.value();
                 for(it = temp.begin(); it != temp.end();){
@@ -1878,16 +1886,17 @@ void UkmediaMainWidget::inputListWidgetCurrentRowChangedSlot(int row)
         isCheckBluetoothInput = false;
     }
 
-    QMap<int, QMap<QString,QString>>::iterator it;
+    QMap<int, QMap<QString,QString>>::iterator inputProfileMap;
+    QMap<int, QMap<QString,QString>>::iterator outputProfileMap;
     QMap <QString,QString> temp;
     QMap<QString,QString>::iterator at;
     QString endOutputProfile = "";
     QString endInputProfile = "";
 
     int index = findCardIndex(wid->deviceLabel->text(),m_pVolumeControl->cardMap);
-    for (it=m_pVolumeControl->inputPortProfileNameMap.begin();it!= m_pVolumeControl->inputPortProfileNameMap.end();) {
-        if (it.key() == index) {
-            temp = it.value();
+    for (inputProfileMap=m_pVolumeControl->inputPortProfileNameMap.begin();inputProfileMap!= m_pVolumeControl->inputPortProfileNameMap.end();) {
+        if (inputProfileMap.key() == index) {
+            temp = inputProfileMap.value();
             for(at=temp.begin();at!=temp.end();){
                 if(at.key() == wid->portLabel->text()){
                     endInputProfile = at.value();
@@ -1895,14 +1904,23 @@ void UkmediaMainWidget::inputListWidgetCurrentRowChangedSlot(int row)
                 ++at;
             }
         }
-        ++it;
+        ++inputProfileMap;
     }
     if (outputCurrrentItem != nullptr) {
-        for (at=m_pVolumeControl->profileNameMap.begin();at!= m_pVolumeControl->profileNameMap.end();) {
-            if (at.key() == outputWid->portLabel->text()) {
-                 endOutputProfile = at.value();
+        QMap<QString,QString> tempMap;
+        QMap<QString,QString>::iterator at;
+        int index = findCardIndex(outputWid->deviceLabel->text(),m_pVolumeControl->cardMap);
+        for(outputProfileMap = m_pVolumeControl->profileNameMap.begin(); outputProfileMap != m_pVolumeControl->profileNameMap.end();){
+            if(outputProfileMap.key() == index){
+                tempMap = outputProfileMap.value();
+                for(at = tempMap.begin(); at != tempMap.end();){
+                    if(outputWid->portLabel->text() == at.key()){
+                        endOutputProfile = at.value();
+                    }
+                    ++at;
+                }
             }
-            ++at;
+            ++outputProfileMap;
         }
     }
 
