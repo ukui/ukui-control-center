@@ -2,6 +2,10 @@
 #define CHANGEUSERTYPE_H
 
 #include <QDialog>
+#include <QWidget>
+#include <QApplication>
+#include <QMessageBox>
+#include <ukcc/widgets/lightlabel.h>
 
 class QHBoxLayout;
 class QVBoxLayout;
@@ -45,12 +49,12 @@ public:
     QButtonGroup * cutTypesBtnGroup;
 
     QLabel * cutNickNameLabel;
-    QLabel * cutUserTypeLabel;
+    LightLabel * cutUserTypeLabel;
     QLabel * cutNoteLabel;
     QLabel * cutAdminLabel;
     QLabel * cutStandardLabel;
-    QLabel * cutAdminNoteLabel;
-    QLabel * cutStandardNoteLabel;
+    LightLabel * cutAdminNoteLabel;
+    LightLabel * cutStandardNoteLabel;
     QLabel * tipLabel;
 
     QPushButton * cutUserLogoBtn;

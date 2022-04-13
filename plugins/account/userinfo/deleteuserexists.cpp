@@ -25,7 +25,8 @@ DeleteUserExists::DeleteUserExists(QString name, QString nick, qint64 uid, QWidg
     _nick(nick),
     _id(uid)
 {
-    setFixedSize(QSize(520, 308));
+    setFixedHeight(280);
+    setMinimumWidth(520);
     setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
     setAttribute(Qt::WA_TranslucentBackground);
 
@@ -68,7 +69,7 @@ void DeleteUserExists::initUI(){
 
     noteHorLayout = new QHBoxLayout;
     noteHorLayout->setSpacing(0);
-    noteHorLayout->setMargin(0);
+    noteHorLayout->setMargin(10);
     noteHorLayout->addWidget(noteLabel);
 
     //
@@ -82,19 +83,19 @@ void DeleteUserExists::initUI(){
     removeWholeRadioBtn->setChecked(true);
 
     removeButKeepFilesLabel = new QLabel;
-    removeButKeepFilesLabel->setText(tr("Keep user's home folder"));
+    removeButKeepFilesLabel->setText(tr("Keep desktop, files, favorites, music of the user"));
     removeWholeLabel = new QLabel;
     removeWholeLabel->setText(tr("Delete whole data belong user"));
 
     removeButKeepFilesHorLayout = new QHBoxLayout;
     removeButKeepFilesHorLayout->setSpacing(9);
-    removeButKeepFilesHorLayout->setContentsMargins(16, 0, 0, 0);
+    removeButKeepFilesHorLayout->setContentsMargins(10, 0, 0, 0);
     removeButKeepFilesHorLayout->addWidget(removeButKeepFilesRadioBtn);
     removeButKeepFilesHorLayout->addWidget(removeButKeepFilesLabel);
 
     removeWholeHorLayout = new QHBoxLayout;
     removeWholeHorLayout->setSpacing(9);
-    removeWholeHorLayout->setContentsMargins(16, 0, 0, 0);
+    removeWholeHorLayout->setContentsMargins(10, 0, 0, 0);
     removeWholeHorLayout->addWidget(removeWholeRadioBtn);
     removeWholeHorLayout->addWidget(removeWholeLabel);
 
@@ -121,28 +122,29 @@ void DeleteUserExists::initUI(){
     confirmBtn->setText(tr("Confirm"));
 
     bottomBtnsHorLayout = new QHBoxLayout;
-    bottomBtnsHorLayout->setSpacing(16);
+
     bottomBtnsHorLayout->setContentsMargins(0, 0, 0, 0);
     bottomBtnsHorLayout->addStretch();
     bottomBtnsHorLayout->addWidget(cancelBtn);
+    bottomBtnsHorLayout->addSpacing(16);
     bottomBtnsHorLayout->addWidget(confirmBtn);
+    bottomBtnsHorLayout->addSpacing(8);
 
     contentVerLayout = new QVBoxLayout;
     contentVerLayout->setSpacing(0);
-    contentVerLayout->setContentsMargins(24, 0, 24, 0);
+    contentVerLayout->setContentsMargins(24, 0, 24, 12);
     contentVerLayout->addLayout(noteHorLayout);
-    contentVerLayout->addSpacing(15);
+    contentVerLayout->addSpacing(8);
     contentVerLayout->addWidget(removeButKeepFilesFrame);
     contentVerLayout->addSpacing(8);
     contentVerLayout->addWidget(removeWholeFrame);
-    contentVerLayout->addSpacing(28);
+    contentVerLayout->addSpacing(33);
     contentVerLayout->addLayout(bottomBtnsHorLayout);
 
     mainVerLayout = new QVBoxLayout;
     mainVerLayout->setSpacing(0);
     mainVerLayout->setContentsMargins(0, 14, 0, 24);
     mainVerLayout->addLayout(titleHorLayout);
-    mainVerLayout->addSpacing(20);
     mainVerLayout->addLayout(contentVerLayout);
 
     setLayout(mainVerLayout);

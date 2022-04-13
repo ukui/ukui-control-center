@@ -21,7 +21,7 @@ ChangeUserType::ChangeUserType(QString objpath, QWidget *parent) :
     QDialog(parent),
     _objpath(objpath)
 {
-    setFixedSize(QSize(520, 446));
+    setMinimumSize(QSize(520, 390));
     setWindowTitle(tr("UserType"));
 
     cutiface = new QDBusInterface("org.freedesktop.Accounts",
@@ -43,7 +43,7 @@ void ChangeUserType::initUI(){
 
     cutNickNameLabel = new QLabel();
     cutNickNameLabel->setFixedHeight(24);
-    cutUserTypeLabel = new QLabel();
+    cutUserTypeLabel = new LightLabel();
     cutUserTypeLabel->setFixedHeight(24);
 
     cutUserLogoBtn = new QPushButton();
@@ -67,7 +67,7 @@ void ChangeUserType::initUI(){
 
     cutNoteLabel = new QLabel;
     cutNoteLabel->setFixedHeight(24);
-    cutNoteLabel->setText(tr("Ensure that must have admin on system"));
+    cutNoteLabel->setText(tr("Select account type (Ensure have admin on system):"));
 
     cutAdminRadioBtn = new QRadioButton;
     cutAdminRadioBtn->setFixedSize(QSize(16, 16));
@@ -80,10 +80,10 @@ void ChangeUserType::initUI(){
     cutAdminLabel->setText(tr("administrator"));
     cutStandardLabel = new QLabel;
     cutStandardLabel->setText(tr("standard user"));
-    cutAdminNoteLabel = new QLabel;
-    cutAdminNoteLabel->setText(tr("Users can make any changes they need"));
-    cutStandardNoteLabel = new QLabel;
-    cutStandardNoteLabel->setText(tr("Users cannot change system settings"));
+    cutAdminNoteLabel = new LightLabel;
+    cutAdminNoteLabel->setText(tr("change system settings, install and upgrade software."));
+    cutStandardNoteLabel = new LightLabel;
+    cutStandardNoteLabel->setText(tr("use most software, cannot change system settings."));
 
 
     cutAdminInfoHorLayout = new QHBoxLayout;
@@ -108,26 +108,28 @@ void ChangeUserType::initUI(){
     cutStandardInfo2HorLayout->addWidget(cutStandardNoteLabel);
 
     cutAdminVerLayout = new QVBoxLayout;
-    cutAdminVerLayout->setSpacing(9);
+    cutAdminVerLayout->setSpacing(5);
     cutAdminVerLayout->setContentsMargins(20, 0, 0, 0);
     cutAdminVerLayout->addLayout(cutAdminInfoHorLayout);
     cutAdminVerLayout->addLayout(cutAdminInfo2HorLayout);
+    cutAdminVerLayout->addStretch();
     cutStandardVerLayout = new QVBoxLayout;
-    cutStandardVerLayout->setSpacing(9);
+    cutStandardVerLayout->setSpacing(5);
     cutStandardVerLayout->setContentsMargins(20, 0, 0, 0);
     cutStandardVerLayout->addLayout(cutStandardInfoHorLayout);
     cutStandardVerLayout->addLayout(cutStandardInfo2HorLayout);
+    cutStandardVerLayout->addStretch();
 
     cutAdminFrame = new QFrame;
-    cutAdminFrame->setMinimumSize(QSize(473, 88));
-    cutAdminFrame->setMaximumSize(QSize(16777215, 88));
+    cutAdminFrame->setMinimumSize(QSize(473, 80));
+    cutAdminFrame->setMaximumSize(QSize(16777215, 80));
     cutAdminFrame->setFrameShape(QFrame::Box);
     cutAdminFrame->setFrameShadow(QFrame::Plain);
     cutAdminFrame->setLayout(cutAdminVerLayout);
     cutAdminFrame->installEventFilter(this);
     cutStandardFrame = new QFrame;
-    cutStandardFrame->setMinimumSize(QSize(473, 88));
-    cutStandardFrame->setMaximumSize(QSize(16777215, 88));
+    cutStandardFrame->setMinimumSize(QSize(473, 80));
+    cutStandardFrame->setMaximumSize(QSize(16777215, 80));
     cutStandardFrame->setFrameShape(QFrame::Box);
     cutStandardFrame->setFrameShadow(QFrame::Plain);
     cutStandardFrame->setLayout(cutStandardVerLayout);
@@ -159,13 +161,13 @@ void ChangeUserType::initUI(){
 
     cutMainVerLayout = new QVBoxLayout;
     cutMainVerLayout->setSpacing(0);
-    cutMainVerLayout->setContentsMargins(25, 28, 22, 25);
+    cutMainVerLayout->setContentsMargins(25, 24, 22, 25);
     cutMainVerLayout->addLayout(cutUserHorLayout);
     cutMainVerLayout->addSpacing(35);
     cutMainVerLayout->addWidget(cutNoteLabel);
-    cutMainVerLayout->addSpacing(8);
+    cutMainVerLayout->addSpacing(16);
     cutMainVerLayout->addWidget(cutAdminFrame);
-    cutMainVerLayout->addSpacing(8);
+    cutMainVerLayout->addSpacing(0);
     cutMainVerLayout->addWidget(cutStandardFrame);
     cutMainVerLayout->addSpacing(8);
     cutMainVerLayout->addLayout(tipHorLayout);
@@ -192,10 +194,8 @@ void ChangeUserType::setConnect(){
 #endif
         if (id != oldid){
             if (status){
-                tipLabel->show();
                 cutConfirmBtn->setEnabled(true);
             } else {
-                tipLabel->hide();
                 cutConfirmBtn->setEnabled(false);
             }
         }

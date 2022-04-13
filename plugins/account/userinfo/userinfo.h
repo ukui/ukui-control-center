@@ -195,7 +195,7 @@ protected:
 private:
     bool isLastAdmin(QString uname);
     bool openAutoLoginMsg(const QString &userName);
-
+    void showMessageBox();
 
 public slots:
     void currentUserPropertyChangedSlot(QString, QMap<QString, QVariant>, QStringList);
