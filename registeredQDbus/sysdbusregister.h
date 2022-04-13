@@ -28,6 +28,8 @@
 #include <QVector>
 #include <ddcutil_c_api.h>
 #include <ddcutil_types.h>
+#include <QDBusContext>
+#include <QDBusConnectionInterface>
 
 struct displayInfo {
     bool   _DDC;           //是否采用DDC处理，当DDC失败时使用I2C
@@ -38,7 +40,7 @@ struct displayInfo {
     int     I2C_brightness;
 };
 
-class SysdbusRegister : public QObject
+class SysdbusRegister : public QObject,QDBusContext
 {
     Q_OBJECT
 
@@ -51,7 +53,9 @@ public:
 public:
     bool checkCreateAuthorization();
     bool checkAuthorization();
-    bool authoriyLogin();
+    bool authoriyLogin(qint64 id);
+    bool authoriyAutoLogin(qint64 id);
+    bool authoriyPasswdAging(qint64 id);
 
 private:
     QString mHibernateFile;
@@ -90,7 +94,7 @@ public slots:
     Q_SCRIPTABLE QString getNoPwdLoginStatus();
 
     // 设置自动登录状态
-    Q_SCRIPTABLE void setAutoLoginStatus(QString username);
+    Q_SCRIPTABLE int setAutoLoginStatus(QString username);
 
     // 获取挂起到休眠时间
     Q_SCRIPTABLE QString getSuspendThenHibernate();
@@ -99,7 +103,7 @@ public slots:
     Q_SCRIPTABLE void setSuspendThenHibernate(QString time);
 
     // 设置密码时效
-    Q_SCRIPTABLE void setPasswdAging(int days, QString username);
+    Q_SCRIPTABLE int setPasswdAging(int days, QString username);
 
     // 提权修改其他用户密码
     Q_SCRIPTABLE int changeOtherUserPasswd(QString username, QString pwd);

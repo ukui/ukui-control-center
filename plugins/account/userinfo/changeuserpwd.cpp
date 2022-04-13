@@ -363,10 +363,11 @@ void ChangeUserPwd::setupConnect(){
                     curPwdTip = tr("Authentication failed, input authtok again!");
                 }
 
-                updateTipLableInfo(tipLabel,curPwdTip);
+                updateTipLableInfo(curTipLabel,curPwdTip);
 
                 //重置当前密码输入框
                 currentPwdLineEdit->setText("");
+                currentPwdLineEdit->setFocus();
 
                 refreshConfirmBtnStatus();
 

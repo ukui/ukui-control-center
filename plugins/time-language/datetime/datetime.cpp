@@ -388,7 +388,7 @@ void DateTime::initNtp()
     QHBoxLayout *ntpLayout = new QHBoxLayout(ui->ntpFrame);
                  ntpCombox = new QComboBox(ui->ntpFrame);
     ntpLabel->setFixedWidth(135);
-    ntpLayout->setContentsMargins(16,8,26,8);
+    ntpLayout->setContentsMargins(16,8,16,8);
     ui->ntpFrame->setLayout(ntpLayout);
     ntpLayout->addWidget(ntpLabel);
     ntpLayout->addWidget(ntpCombox);

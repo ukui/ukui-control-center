@@ -37,6 +37,7 @@ void KeyboardMain::initUI()
 
     mKeyboardSetTitleLabel = new TitleLabel(this);
     mKeyboardSetTitleLabel->setText(tr("Key board settings"));
+    mKeyboardSetTitleLabel->setContentsMargins(14, 0, 0, 0);
 
     setKeyRepeatFrame();
     setDelayFrame();
@@ -88,10 +89,10 @@ void KeyboardMain::setKeyRepeatFrame()
     mKeyRepeatLabel = new QLabel(tr("Key repeat"), this);
     mKeyRepeatLabel->setMinimumWidth(140);
     mKeyRepeatBtn = new SwitchButton(this);
-    KeyRepeatHLayout->addSpacing(7);
     KeyRepeatHLayout->addWidget(mKeyRepeatLabel);
     KeyRepeatHLayout->addStretch();
     KeyRepeatHLayout->addWidget(mKeyRepeatBtn);
+    KeyRepeatHLayout->setContentsMargins(12, 0, 14, 0);
 
     mKeyRepeatFrame->setLayout(KeyRepeatHLayout);
 }
@@ -112,16 +113,17 @@ void KeyboardMain::setDelayFrame()
     mDelayShortLabel =new QLabel(tr("Short"), this);
     mDelayShortLabel->setMinimumWidth(40);
     mDelayLongLabel = new QLabel(tr("Long"), this);
+    mDelayLongLabel->setContentsMargins(8, 0, 13, 0);
     mDelayLongLabel->setMinimumWidth(40);
     mDelaySlider = new QSlider(Qt::Horizontal);
     mDelaySlider->setMinimum(200);
     mDelaySlider->setMaximum(2100);
     mDelaySlider->setPageStep(1);
-    DelayHLayout->addSpacing(7);
     DelayHLayout->addWidget(mDelayLabel);
     DelayHLayout->addWidget(mDelayShortLabel);
     DelayHLayout->addWidget(mDelaySlider);
     DelayHLayout->addWidget(mDelayLongLabel);
+    DelayHLayout->setContentsMargins(12, 0, 0, 0);
 
     mDelayFrame->setLayout(DelayHLayout);
 }
@@ -142,16 +144,17 @@ void KeyboardMain::setSpeedFrame()
     mSpeedSlowLabel = new QLabel(tr("Slow"), this);
     mSpeedSlowLabel->setMinimumWidth(40);
     mSpeedFastLabel = new QLabel(tr("Fast"), this);
+    mSpeedFastLabel->setContentsMargins(8, 0, 13, 0);
     mSpeedFastLabel->setMinimumWidth(40);
     mSpeedSlider = new QSlider(Qt::Horizontal);
     mSpeedSlider->setMinimum(10);
     mSpeedSlider->setMaximum(110);
     mSpeedSlider->setPageStep(1);
-    SpeedHLayout->addSpacing(7);
     SpeedHLayout->addWidget(mSpeedLabel);
     SpeedHLayout->addWidget(mSpeedSlowLabel);
     SpeedHLayout->addWidget(mSpeedSlider);
     SpeedHLayout->addWidget(mSpeedFastLabel);
+    SpeedHLayout->setContentsMargins(12, 0, 0, 0);
 
     mSpeedFrame->setLayout(SpeedHLayout);
 }
@@ -170,9 +173,9 @@ void KeyboardMain::setInputTestFrame()
     mInputTestLabel = new QLabel(tr("Input test"), this);
     mInputTestLabel->setMinimumWidth(140);
     mInputTestLine = new QLineEdit(this);
-    InputTestHLayout->addSpacing(7);
     InputTestHLayout->addWidget(mInputTestLabel);
     InputTestHLayout->addWidget(mInputTestLine);
+    InputTestHLayout->setContentsMargins(12, 0, 14, 0);
 
     mInputTestFrame->setLayout(InputTestHLayout);
 }
@@ -191,10 +194,10 @@ void KeyboardMain::setKeyTipsFrame()
     mKeyTipsLabel = new QLabel(tr("Key tips"), this);
     mKeyTipsLabel->setMinimumWidth(140);
     mKeyTipsBtn = new SwitchButton(this);
-    KeyTipsHLayout->addSpacing(7);
     KeyTipsHLayout->addWidget(mKeyTipsLabel);
     KeyTipsHLayout->addStretch();
     KeyTipsHLayout->addWidget(mKeyTipsBtn);
+    KeyTipsHLayout->setContentsMargins(12, 0, 14, 0);
 
     mKeyTipsFrame->setLayout(KeyTipsHLayout);
 }
