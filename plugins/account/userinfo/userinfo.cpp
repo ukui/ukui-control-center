@@ -157,6 +157,8 @@ void UserInfo::initSearchText() {
                                   "QPushButton:hover:!pressed{background:#2FB3E8;}");
     m_pPictureToWhite = new PictureToWhite();
     ui->editBtn->setIcon(QIcon(m_pPictureToWhite->drawSymbolicColoredPixmap(QPixmap(":/img/plugins/userinfo/settingedit.svg"))));
+    ui->editBtn->setStyleSheet("QPushButton{background:palette(base);}"
+                               "QPushButton:hover:!pressed{background:#2FB3E8;}");
     const QByteArray id(ORG_UKUI_STYLE);
     if (QGSettings::isSchemaInstalled(id)) {
         m_pgsettings = new QGSettings(id);
