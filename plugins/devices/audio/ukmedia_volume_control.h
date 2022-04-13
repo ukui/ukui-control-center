@@ -115,9 +115,9 @@ public:
     void removeInputPortMap(int index); //移除指定索引的input port
     void removeCardMap(int index); //移除指定索引的 card
     void removeCardProfileMap(int index); //移除声卡profile map
-    void removeProfileMap();
+    void removeProfileMap(int index);
     bool isExitOutputPort(QString name);
-    void removeInputProfile();
+    void removeInputProfile(int index);
     bool isExitInputPort(QString name);
 
     std::vector< std::pair<QByteArray,QByteArray> > profiles;
@@ -171,7 +171,7 @@ public:
     QMap<int, QString> sourceMap; //输入设备
     QMap<int,QMap<QString,QString>> outputPortMap; //输出端口
     QMap<int,QMap<QString,QString>> inputPortMap; //输入端口
-    QMap<QString, QString> profileNameMap; //声卡输出配置文件
+    QMap<int,QMap<QString, QString>> profileNameMap; //声卡输出配置文件
     QMap<int, QMap<QString,QString>>inputPortProfileNameMap; //声卡输入配置文件
     QMap<int, QMap<QString,int>> cardProfilePriorityMap; //记录声卡优先级配置文件
     QMap<int, QList<QString>> cardProfileMap;
