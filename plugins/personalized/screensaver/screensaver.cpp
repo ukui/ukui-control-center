@@ -121,6 +121,12 @@ int Screensaver::get_plugin_type()
     return pluginType;
 }
 
+void Screensaver::plugin_leave()
+{
+    closeScreensaver();
+    return;
+}
+
 QWidget *Screensaver::get_plugin_ui()
 {
     if (mFirstLoad) {
@@ -297,6 +303,9 @@ void Screensaver::initComponent()
 
 void Screensaver::initPreviewWidget()
 {
+    previewWind->setVisible(false);
+    ui->previewWidget->update();
+    qApp->processEvents();
     startupScreensaver();
 }
 
@@ -418,10 +427,12 @@ void Screensaver::startupScreensaver()
 void Screensaver::closeScreensaver() {
     //杀死分离启动的屏保预览程序
     if (!runStringList.isEmpty()) {
-        qDebug()<<"kill --  runStringList;"<<runStringList;
-        process->start(QString("killall"), runStringList);
-        process->waitForStarted();
-        process->waitForFinished(4000);
+        QString cmd = "killall";
+        for(int i = 0; i < runStringList.count(); i++) {
+            cmd = cmd + " " + runStringList.at(i);
+        }
+        qDebug()<<"cmd = "<<cmd;
+        system(cmd.toLatin1().data());
         runStringList.clear();
     }
 }
