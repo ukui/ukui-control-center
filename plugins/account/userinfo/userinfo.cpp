@@ -53,7 +53,7 @@ extern "C" {
 
 
 #define DEFAULTFACE "/usr/share/ukui/faces/default.png"
-#define ITEMHEIGH 64
+#define ITEMHEIGH 72
 
 UserInfo::UserInfo() : mFirstLoad(true)
 {
@@ -889,12 +889,16 @@ void UserInfo::_buildWidgetForItem(UserInfomation user){
 //    baseVerLayout->addStretch();
 
     baseWidget->setLayout(baseVerLayout);
+    baseWidget->setObjectName("basewidget");
+    baseWidget->setStyleSheet("HoverWidget#basewidget{border-radius:12px;}");
 
     QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
 //    item->setSizeHint(QSize(ui->listWidget->width() - 4, ITEMHEIGH));
     item->setSizeHint(QSize(QSizePolicy::Expanding, ITEMHEIGH));
     item->setData(Qt::UserRole, QVariant(user.objpath));
     ui->listWidget->setItemWidget(item, baseWidget);
+    ui->listWidget->setStyleSheet("QListWidget{background-color:transparent;border-radius:12px;}");
+
 
     otherUserItemMap.insert(user.objpath, item);
 
