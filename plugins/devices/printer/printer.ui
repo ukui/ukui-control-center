@@ -135,6 +135,10 @@
             <height>16777215</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: palette(base);
+border-radius:12px;</string>
+          </property>
           <property name="lineWidth">
            <number>0</number>
           </property>
