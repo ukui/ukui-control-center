@@ -5739,12 +5739,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1024"/>
+        <location filename="../../mainwindow.cpp" line="1025"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1024"/>
+        <location filename="../../mainwindow.cpp" line="1025"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -8833,8 +8833,8 @@ E-mail: support@kylinos.cn</source>
         <translation>四月</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="228"/>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="228"/>
         <source>May</source>
         <translation>五月</translation>
     </message>
@@ -10504,17 +10504,17 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="252"/>
         <source>Default</source>
-        <translation>系统默认</translation>
+        <translation>默认</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="253"/>
         <source>Light</source>
-        <translation>浅色模式</translation>
+        <translation>浅色</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="254"/>
         <source>Dark</source>
-        <translation>深色模式</translation>
+        <translation>深色</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="778"/>
@@ -10568,7 +10568,7 @@ E-mail: support@kylinos.cn</source>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="819"/>
         <source>ukui</source>
-        <translation>基础</translation>
+        <translation>寻光</translation>
     </message>
     <message>
         <location filename="../../../plugins/personalized/theme/theme.cpp" line="815"/>
@@ -10646,7 +10646,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">高</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.ui" line="927"/>
+        <location filename="../../../plugins/personalized/theme/theme.ui" line="911"/>
         <source>Reset to default</source>
         <translation>恢复默认</translation>
     </message>
@@ -10946,8 +10946,8 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>UkccAbout</name>
     <message>
-        <location filename="../../ukccabout.cpp" line="75"/>
-        <location filename="../../ukccabout.cpp" line="97"/>
+        <location filename="../../ukccabout.cpp" line="33"/>
+        <location filename="../../ukccabout.cpp" line="59"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -10956,12 +10956,12 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../ukccabout.cpp" line="104"/>
+        <location filename="../../ukccabout.cpp" line="64"/>
         <source>Version: </source>
         <translation>版本: </translation>
     </message>
     <message>
-        <location filename="../../ukccabout.cpp" line="128"/>
+        <location filename="../../ukccabout.cpp" line="74"/>
         <source>Service and Support:</source>
         <translation>服务与支持团队:</translation>
     </message>
@@ -10974,9 +10974,8 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">版本</translation>
     </message>
     <message>
-        <location filename="../../ukccabout.cpp" line="111"/>
         <source>The control panel provides a friendly graphical user interface to manage common configuration items of the operating system. System configuration provides system, equipment, personalization, network, account, time and date, account, time and date, update, notification and operation module operations. </source>
-        <translation>“设置”提供了一个友好的用户图形界面，以及易于操作的功能模块划分，比如：系统、设备、主题、时间日期、语言、更新和安全等模块。您可以更改系统设置来自定系统。</translation>
+        <translation type="vanished">“设置”提供了一个友好的用户图形界面，以及易于操作的功能模块划分，比如：系统、设备、主题、时间日期、语言、更新和安全等模块。您可以更改系统设置来自定系统。</translation>
     </message>
 </context>
 <context>
