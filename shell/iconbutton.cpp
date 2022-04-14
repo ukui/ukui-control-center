@@ -3,10 +3,11 @@
 #include <QSvgRenderer>
 #include <QPainter>
 
-IconButton::IconButton(QString iconFileName, QWidget *parent):
+IconButton::IconButton(QString iconFileName, QIcon icon, QWidget *parent):
     QPushButton(parent)
 {
     this->iconName = iconFileName;
+    this->icon = icon;
     QString iconBtnQss = QString("QPushButton:checked{border:  none;}"
                                  "QPushButton:!checked{border: none;}");
     this->setStyleSheet(iconBtnQss);
@@ -19,9 +20,14 @@ IconButton::~IconButton()
 
 void IconButton::reLoadIcon()
 {
-    QString path = QString("://img/secondaryleftmenu/%1.svg").arg(iconName);
-    QPixmap pix = loadSvg(path);
-    this->setIcon(pix);
+    if (icon.isNull()) {
+        QString path = QString("://img/secondaryleftmenu/%1.svg").arg(iconName);
+        QPixmap pix = loadSvg(path);
+        this->setIcon(pix);
+    } else {
+        QPixmap pix = icon.pixmap(iconSize());
+        this->setIcon(drawSymbolicColoredPixmap(pix));
+    }
 }
 
 QPixmap IconButton::loadSvg(const QString &path, int size) {

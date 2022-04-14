@@ -661,8 +661,8 @@ void MainWindow::initLeftsideBar(){
                 }
 
                 //填充左侧菜单
-
-                QPushButton *pluginBtn = buildLeftsideBtn(single.nameString, single.namei18nString);
+                CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
+                QPushButton *pluginBtn = buildLeftsideBtn(single.nameString, single.namei18nString, pluginInstance->icon());
                 leftBtnGroup->addButton(pluginBtn, type);
                 pluginBtn->setProperty("useButtonPalette", true);
 
@@ -672,9 +672,7 @@ void MainWindow::initLeftsideBar(){
 //                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
-                CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(moduleMap.value(single.namei18nString));
                 pluginInstance->pluginBtn = pluginBtn;
-
                 // 初始化插件状态
                 QGSettings *msettings = nullptr;
                 if (homepageWidget->vecGsettins.contains(single.nameString)) {
@@ -711,7 +709,7 @@ void MainWindow::initLeftsideBar(){
     ui->leftBotLayout->addWidget(scrollArea);
 }
 
-QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
+QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName, QIcon icon) {
     int itype = kvConverter->keystringTokeycode(bname);
 
     QPushButton * leftsidebarBtn = new QPushButton();
@@ -719,7 +717,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName) {
     leftsidebarBtn->setCheckable(true);
     leftsidebarBtn->setFixedSize(220,40);  //一级菜单按钮显示的宽度
 
-    IconButton * iconBtn = new IconButton(bname,leftsidebarBtn);
+    IconButton * iconBtn = new IconButton(bname, icon, leftsidebarBtn);
     iconBtn->setCheckable(true);
     iconBtn->setFixedSize(QSize(16, 16));
     iconBtn->setFocusPolicy(Qt::NoFocus);
