@@ -158,11 +158,22 @@ void Screenlock::setupComponent()
 
     ui->delayFrame->layout()->addWidget(uslider);
 
+
+    showMsgBtn = new SwitchButton(pluginWidget);
+    ui->showMsgLayout->addStretch();
+    ui->showMsgLayout->addWidget(showMsgBtn);
+    ui->showMsgLabel->setText(tr("Show message on lock screen"));
+    ui->showMsgLabel->setVisible(false);
+    showMsgBtn->setVisible(false);
+    ui->line_4->setVisible(false);
+
     loginbgSwitchBtn = new SwitchButton(pluginWidget);
+    ui->loginbgHorLayout->addStretch();
     ui->loginbgHorLayout->addWidget(loginbgSwitchBtn);
     loginbgSwitchBtn->setChecked(getLockStatus());
 
     lockSwitchBtn = new SwitchButton(pluginWidget);
+    ui->lockHorLayout->addStretch();
     ui->lockHorLayout->addWidget(lockSwitchBtn);
 
     bool lockKey = false;
@@ -171,6 +182,13 @@ void Screenlock::setupComponent()
         lockKey = true;
         bool status = lSetting->get(SCREENLOCK_LOCK_KEY).toBool();
         lockSwitchBtn->setChecked(status);
+    }
+
+    if (keys.contains("showMessageEnabled")) {
+        showMsgBtn->setChecked(lSetting->get("show-message-enabled").toBool());
+        connect(showMsgBtn, &SwitchButton::checkedChanged, this, [=](bool checked){
+            lSetting->set("show-message-enabled", checked);
+        });
     }
 
     connect(lockSwitchBtn, &SwitchButton::checkedChanged, this, [=](bool checked) {
@@ -200,6 +218,10 @@ void Screenlock::setupComponent()
             uslider->blockSignals(true);
             uslider->setValue(lockConvertToSlider(lSetting->get(SCREENLOCK_DELAY_KEY).toInt()));
             uslider->blockSignals(false);
+        } else if ("showMessageEnabled" == key) {
+            showMsgBtn->blockSignals(true);
+            showMsgBtn->setChecked(lSetting->get("show-message-enabled").toBool());
+            showMsgBtn->blockSignals(false);
         }
     });
 
@@ -571,4 +593,23 @@ void Screenlock::setClickedPic(QString fileName) {
             picUnit->setStyleSheet(picUnit->clickedStyleSheet);
         }
     }
+}
+
+void Screenlock::settingForIntel()
+{
+    ui->loginpicLabel->setVisible(false);
+    ui->activepicLabel->setVisible(false);
+    ui->line->setVisible(false);
+    ui->line_2->setVisible(false);
+    if (loginbgSwitchBtn) {
+        loginbgSwitchBtn->setVisible(false);
+    }
+    if (lockSwitchBtn) {
+        lockSwitchBtn->setVisible(false);
+    }
+
+    ui->showMsgLabel->setVisible(true);
+    showMsgBtn->setVisible(true);
+    ui->line_4->setVisible(true);
+
 }

@@ -66,6 +66,7 @@ public:
     bool isShowOnHomePage() const Q_DECL_OVERRIDE;
     QIcon icon() const Q_DECL_OVERRIDE;
     bool isEnable() const Q_DECL_OVERRIDE;
+    void settingForIntel() Q_DECL_OVERRIDE;
 
     void initSearchText();
     void setupComponent();
@@ -88,8 +89,10 @@ private:
     int pluginType;
     QWidget *pluginWidget;
 
-    SwitchButton *loginbgSwitchBtn; // 显示锁屏壁纸在登录页面
-    SwitchButton *lockSwitchBtn;    // 激活屏保时锁定屏幕
+    SwitchButton *loginbgSwitchBtn = nullptr; // 显示锁屏壁纸在登录页面
+    SwitchButton *lockSwitchBtn = nullptr;    // 激活屏保时锁定屏幕
+    SwitchButton *showMsgBtn = nullptr;     // 锁屏时显示消息
+
 
     Uslider *uslider;
 
