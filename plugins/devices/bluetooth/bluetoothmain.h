@@ -43,7 +43,6 @@
 #include <QLayoutItem>
 #include <QMouseEvent>
 
-
 #include "deviceinfoitem.h"
 #include "bluetoothnamelabel.h"
 
@@ -77,6 +76,7 @@ protected:
 
 signals:
     void adapter_name_changed(const QString &name);
+    void timerStatusChanged(bool on);
 
 private slots:
     void onClick_Open_Bluetooth(bool);
@@ -120,6 +120,7 @@ private:
     QTimer *delayStartDiscover_timer =nullptr;
     QTimer *IntermittentScann_timer =nullptr;
     QTimer *poweronAgain_timer =nullptr;
+    QTimer *restartDiscover_timer =nullptr;
     int IntermittentScann_timer_count = 0 ;
 
     int i = 7;
