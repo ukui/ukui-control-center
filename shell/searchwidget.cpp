@@ -121,7 +121,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     });
 
     connect(m_XrandrSetting, SIGNAL(changed(QString)),this,SLOT(xrandrKeyChange(QString)));
-    connect(m_statusSessionDbus, SIGNAL(objectNameChanged(QString)),this,SLOT(xrandrKeyChange(QString)));
+    connect(m_statusSessionDbus, SIGNAL(rotations_change_signal(QString)),this,SLOT(xrandrKeyChange(QString)));
 
 }
 
