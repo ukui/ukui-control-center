@@ -70,7 +70,7 @@ private:
 private:
     QString mHibernateFile;
     QSettings *mHibernateSet;
-    QSettings  *aptSettings;
+    QSettings *aptSettings;
     QSettings *advanceSettings;
 
     volatile bool exitFlag;

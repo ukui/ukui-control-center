@@ -20,7 +20,6 @@ public:
 private:
     void initUi();
     QWidget *initLeftWidget();
-    void setConnect();
 
 private:
     QStringList modulesList;

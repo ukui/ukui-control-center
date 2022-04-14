@@ -39,7 +39,6 @@ void ModuleSetDialog::initUi()
     setLyt->addWidget(mLeftwidget);
     setLyt->addSpacing(32);
     setLyt->addWidget(mStackedwidget);
-//    setLyt->addStretch();
 
 }
 
@@ -98,9 +97,3 @@ QWidget *ModuleSetDialog::initLeftWidget()
     return widget;
 
 }
-
-void ModuleSetDialog::setConnect()
-{
-
-}
-
