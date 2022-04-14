@@ -83,6 +83,7 @@ private:
     QDir pluginsDir;
     QList<int> moduleIndexList;
     QList<QMap<QString, QObject *>> modulesList;
+    QStringList pluginsList;
 
     KeyValueConverter * kvConverter;
     SearchWidget      * m_searchWidget;
@@ -131,6 +132,8 @@ private:
     QString mIsUpgrade();
 
      void showGuide(QString pluName);
+
+     bool isStart(); //判断是否增加高级设置功能
 
 public slots:
     void functionBtnClicked(QObject * plugin);

@@ -167,8 +167,8 @@ void HomePageWidget::initUI(){
             if (!single.mainShow)
                 continue;
 
-            if (mModuleMap.keys().contains(single.nameString.toLower())) {
-                if (!mModuleMap[single.nameString.toLower()].toBool()) {
+            if (mModuleMap.keys().contains(single.nameString)) {
+                if (!mModuleMap[single.nameString].toBool()) {
                     continue;
                 }
             }
@@ -291,7 +291,7 @@ QPixmap HomePageWidget::drawSymbolicColoredPixmap(const QPixmap &source, COLOR c
                     color.setGreen(highLightColor.green());
                     color.setBlue(highLightColor.blue());
                     img.setPixelColor(x, y, color);
-                } 
+                }
                 else {
                     return source;
                 }

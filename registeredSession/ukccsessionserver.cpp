@@ -4,6 +4,8 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QDebug>
+#include <QTimer>
+#include <QProcess>
 
 ukccSessionServer::ukccSessionServer() {
    mFilePath = QDir::homePath() + "/.config/ukui/ukcc-screenPreCfg.json";
@@ -104,4 +106,13 @@ QString ukccSessionServer::GetSecurityConfigPath() {
     QString filename = QDir::homePath() + "/.config/ukui-control-center-security-config.json";
 
     return filename;
+}
+
+void ukccSessionServer::runUkcc()
+{
+    QString cmd = "ukui-control-center";
+    QTimer::singleShot(1000, this, [=]() {
+         QProcess process(this);
+         process.startDetached(cmd);
+     });
 }

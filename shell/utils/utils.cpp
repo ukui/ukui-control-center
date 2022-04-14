@@ -161,10 +161,10 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 }
 
 QVariantMap Utils::getModuleHideStatus() {
-    QDBusInterface m_interface( "org.ukui.ukcc.session",
+    QDBusInterface m_interface( "com.control.center.qt.systemdbus",
                                 "/",
-                                "org.ukui.ukcc.session.interface",
-                                QDBusConnection::sessionBus());
+                                "com.control.center.interface",
+                                QDBusConnection::systemBus());
 
     QDBusReply<QVariantMap> obj_reply = m_interface.call("getModuleHideStatus");
     if (!obj_reply.isValid()) {

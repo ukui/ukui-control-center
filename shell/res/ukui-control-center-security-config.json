@@ -1,0 +1,188 @@
+{
+    "ukcc": [
+        {
+            "childnode": [
+                {
+                    "name": "Display",
+                    "visible": true
+                },
+                {
+                    "name": "Projection",
+                    "visible": true
+                },
+                {
+                    "name": "Autoboot",
+                    "visible": true
+                },
+                {
+                    "name": "Defaultapp",
+                    "visible": true
+                },
+                {
+                    "name": "Power",
+                    "visible": true
+                }
+            ],
+            "name": "system",
+            "visible": true
+        },
+        {
+            "childnode": [
+                {
+                    "name": "Area",
+                    "visible": true
+                },
+                {
+                    "name": "Date",
+                    "visible": true
+                }
+            ],
+            "name": "datetime",
+            "visible": true
+        },
+        {
+            "childnode": [
+                {
+                    "name": "Cloud Account",
+                    "visible": true
+                },
+                {
+                    "name": "Userinfo",
+                    "visible": true
+                }
+            ],
+            "name": "account",
+            "visible": true
+        },
+        {
+            "childnode": [
+                {
+                    "name": "Audio",
+                    "visible": true
+                },
+                {
+                    "name": "Keyboard",
+                    "visible": true
+                },
+                {
+                    "name": "Bluetooth",
+                    "visible": true
+                },
+                {
+                    "name": "Mouse",
+                    "visible": true
+                },
+                {
+                    "name": "Printer",
+                    "visible": true
+                },
+                {
+                    "name": "Shortcut",
+                    "visible": true
+                },
+                {
+                    "name": "Touchpad",
+                    "visible": true
+                }
+            ],
+            "name": "devices",
+            "visible": true
+        },
+        {
+            "childnode": [
+                {
+                    "name": "NetconnectICBC",
+                    "visible": true
+                },
+                {
+                    "name": "Proxy",
+                    "visible": true
+                },
+                {
+                    "name": "WlanConnect",
+                    "visible": true
+                },
+                {
+                    "name": "Vino",
+                    "visible": true
+                },
+                {
+                    "name": "Vpn",
+                    "visible": true
+                }
+            ],
+            "name": "network",
+            "visible": true
+        },
+        {
+            "childnode": [
+                {
+                    "name": "About",
+                    "visible": true
+                },
+                {
+                    "name": "Notice",
+                    "visible": true
+                },
+                {
+                    "name": "Search",
+                    "visible": true
+                },
+                {
+                    "name": "Experienceplan",
+                    "visible": true
+                }
+            ],
+            "name": "noticeandtasks",
+            "visible": true
+        },
+        {
+            "childnode": [
+                {
+                    "name": "Background",
+                    "visible": true
+                },
+                {
+                    "name": "Fonts",
+                    "visible": true
+                },
+                {
+                    "name": "Screenlock",
+                    "visible": true
+                },
+                {
+                    "name": "Screensaver",
+                    "visible": true
+                },
+                {
+                    "name": "Theme",
+                    "visible": true
+                },
+                {
+                    "name": "Desktop",
+                    "visible": true
+                }
+            ],
+            "name": "personalized",
+            "visible": true
+        },
+        {
+            "childnode": [
+                {
+                    "name": "Backup",
+                    "visible": true
+                },
+                {
+                    "name": "SecurityCenter",
+                    "visible": true
+                },
+                {
+                    "name": "Upgrade",
+                    "visible": true
+                }
+            ],
+            "name": "update",
+            "visible": true
+        }
+    ]
+}
