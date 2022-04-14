@@ -29,21 +29,14 @@
 UkccAbout::UkccAbout(QWidget *parent)
     : QDialog(parent) {
 
-    setFixedSize(420, 560);
-
-    XAtomHelper::getInstance()->setUKUIDecoraiontHint(this->winId(), true);
-    MotifWmHints hints;
-    hints.flags = MWM_HINTS_FUNCTIONS|MWM_HINTS_DECORATIONS;
-    hints.functions = MWM_FUNC_ALL;
-    hints.decorations = MWM_DECOR_BORDER;
-    XAtomHelper::getInstance()->setWindowMotifHint(this->winId(), hints);
+    setFixedSize(420, 344);
+    setWindowTitle(tr("Settings"));
     initUI();
-    initConnection();
 }
 
 bool UkccAbout::eventFilter(QObject *watch, QEvent *event)
 {
-    if ( watch == mUkccDeveloperEmailLabel) {
+    if ( watch == mTipLabel_2) {
         if (event->type() == QEvent::MouseButtonPress){
             QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
             if (mouseEvent->button() == Qt::LeftButton){
@@ -55,107 +48,46 @@ bool UkccAbout::eventFilter(QObject *watch, QEvent *event)
 }
 
 void UkccAbout::initUI() {
+    QVBoxLayout *Lyt = new QVBoxLayout(this);
+    Lyt->setContentsMargins(40, 32, 32, 32);
+    Lyt->setSpacing(16);
 
-    mMainVLayout = new QVBoxLayout();
-    mTitleLayout = new QHBoxLayout();
-    mCenterIconLayout = new QHBoxLayout();
-    mCenterTitleLayout = new QHBoxLayout();
-    mCenterVersionLayout = new QHBoxLayout();
-    mUkccDetailLayout = new QHBoxLayout();
-    mUkccDeveloperLayout = new QHBoxLayout();
+    mIconLabel = new QLabel(this);
+    mIconLabel->setFixedSize(96, 96);
+    mIconLabel->setPixmap(QIcon::fromTheme("ukui-control-center").pixmap(96, 96));
 
-    mMainVLayout->setContentsMargins(8, 4, 4, 4);
-    mTitleLayout->setSpacing(0);
+    mAppLabel = new QLabel(tr("Settings"),this);
+    mAppLabel->setStyleSheet("QLabel{font-size: 18px; font-weight: bold}");
 
-    QIcon titleIcon = QIcon::fromTheme("ukui-control-center");
+    QHBoxLayout *Lyt_1 = new QHBoxLayout();
+    Lyt_1->setSpacing(0);
+    mVersionLabel_1 = new LightLabel(tr("Version: "), this);
+    mVersionLabel_2 = new LightLabel(getUkccVersion(), this);
 
-    mUkccIcon  = new QLabel();
-    mUkccIcon->setPixmap(titleIcon.pixmap(titleIcon.actualSize(QSize(24, 24))));
+    Lyt_1->addStretch();
+    Lyt_1->addWidget(mVersionLabel_1);
+    Lyt_1->addWidget(mVersionLabel_2);
+    Lyt_1->addStretch();
 
-    mUkccTitle = new QLabel(tr("Settings"));
+    QHBoxLayout *Lyt_2 = new QHBoxLayout();
+    Lyt_2->setSpacing(8);
+    mTipLabel_1 = new LightLabel(tr("Service and Support:"), this);
+    mTipLabel_2 = new LightLabel("support@kylinos.cn", this);
+    mTipLabel_2->installEventFilter(this);
 
-    mUkccCloseBtn = new QPushButton();
-    mUkccCloseBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    mUkccCloseBtn->setProperty("isWindowButton", 0x02);
-    mUkccCloseBtn->setProperty("useIconHighlightEffect", 0x08);
-    mUkccCloseBtn->setFlat(true);
-    mUkccCloseBtn->setFixedSize(30, 30);
+    Lyt_2->addStretch();
+    Lyt_2->addWidget(mTipLabel_1);
+    Lyt_2->addWidget(mTipLabel_2);
+    Lyt_2->addStretch();
 
-    mTitleLayout->addWidget(mUkccIcon);
-    mTitleLayout->addSpacing(8);
-    mTitleLayout->addWidget(mUkccTitle);
-    mTitleLayout->addStretch();
-    mTitleLayout->addWidget(mUkccCloseBtn);
 
-    mUkccCenterIcon = new QLabel();
-    mUkccCenterIcon->setPixmap(titleIcon.pixmap(titleIcon.actualSize(QSize(96, 96))));
 
-    mCenterIconLayout->addStretch();
-    mCenterIconLayout->addWidget(mUkccCenterIcon);
-    mCenterIconLayout->addStretch();
-
-    mUkccCenterTitle = new QLabel(tr("Settings"));
-    mUkccCenterTitle->setFixedHeight(28);
-
-    mCenterTitleLayout->addStretch();
-    mCenterTitleLayout->addWidget(mUkccCenterTitle);
-    mCenterTitleLayout->addStretch();
-
-    mUkccVersion = new QLabel(tr("Version: ") + getUkccVersion());
-    mUkccVersion->setFixedHeight(24);
-
-    mCenterVersionLayout->addStretch();
-    mCenterVersionLayout->addWidget(mUkccVersion);
-    mCenterVersionLayout->addStretch();
-
-    mUkccDetail = new QTextEdit(tr("The control panel provides a friendly graphical user interface to manage common configuration items of the operating system. "
-                                "System configuration provides system, equipment, personalization, network, account, time and date, account, time and date, update, notification and operation module operations. "));
-
-    mUkccDetail->setReadOnly(true);
-    mUkccDetailLayout->addSpacing(32);
-    mUkccDetailLayout->addWidget(mUkccDetail);
-    mUkccDetailLayout->addSpacing(32);
-
-    mUkccDeveloperEmailLabel = new QLabel("support@kylinos.cn");
-    mUkccDeveloperEmailLabel->installEventFilter(this);
-    mUkccDeveloperEmailLabel->setCursor( QCursor(Qt::PointingHandCursor));
-    mUkccDeveloperEmailLabel->setStyleSheet("QLabel{text-decoration: underline} ");
-    QFontMetrics fontMetrics(this->font());
-    int fontSize = fontMetrics.width(mUkccDeveloperEmailLabel->text());
-    mUkccDeveloperEmailLabel->setFixedWidth(fontSize + 4);
-
-    mUkccDeveloper = new FixLabel();
-    mUkccDeveloper->setText(tr("Service and Support:"));
-
-    int width_1 = 420 - 68 - mUkccDeveloperEmailLabel->width();
-    int width_2 = fontMetrics.width(mUkccDeveloper->text());
-    mUkccDeveloper->setFixedWidth(width_2 > width_1 ? width_1 : width_2);
-
-    mUkccDeveloperLayout->setContentsMargins(32, 0, 32, 0);
-    mUkccDeveloperLayout->addWidget(mUkccDeveloper);
-    mUkccDeveloperLayout->addWidget(mUkccDeveloperEmailLabel);
-    mUkccDeveloperLayout->addStretch();
-
-    mMainVLayout->addLayout(mTitleLayout);
-    mMainVLayout->addSpacing(42);
-    mMainVLayout->addLayout(mCenterIconLayout);
-    mMainVLayout->addSpacing(16);
-    mMainVLayout->addLayout(mCenterTitleLayout);
-    mMainVLayout->addSpacing(12);
-    mMainVLayout->addLayout(mCenterVersionLayout);
-    mMainVLayout->addSpacing(12);
-    mMainVLayout->addLayout(mUkccDetailLayout);
-    mMainVLayout->addSpacing(24);
-    mMainVLayout->addLayout(mUkccDeveloperLayout);
-    mMainVLayout->addSpacing(40);
-
-    this->setLayout(mMainVLayout);
-}
-
-void UkccAbout::initConnection() {
-    connect(mUkccCloseBtn, &QPushButton::clicked, this, [=]() {
-       this->close();
-    });
+    Lyt->addWidget(mIconLabel, 0, Qt::AlignHCenter);
+    Lyt->addSpacing(8);
+    Lyt->addWidget(mAppLabel, 0, Qt::AlignHCenter);
+    Lyt->addLayout(Lyt_1);
+    Lyt->addLayout(Lyt_2);
+    Lyt->addStretch();
 }
 
 QString UkccAbout::getUkccVersion() {
