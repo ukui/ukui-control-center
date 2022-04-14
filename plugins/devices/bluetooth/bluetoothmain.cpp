@@ -228,7 +228,6 @@ BlueToothMain::BlueToothMain(QWidget *parent)
         Default_Adapter = settings->get("adapter-address").toString();
         qDebug() << "GSetting Value: " << Default_Adapter/* << finally_connect_the_device << paired_device_address*/;
     }
-
     StackedWidget = new QStackedWidget(this);
     this->setCentralWidget(StackedWidget);
 
@@ -322,8 +321,8 @@ void BlueToothMain::InitAllTimer()
     {
         qDebug() << __FUNCTION__ << "delayStartDiscover_timer:timeout" << __LINE__ ;
         delayStartDiscover_timer->stop();
-
         this->startDiscovery();
+        emit timerStatusChanged(false);
 
         //IntermittentScann_timer->start();
         //IntermittentScann_timer_count = 0;
@@ -1290,6 +1289,7 @@ void BlueToothMain::InitMainbottomUI()
         delayStartDiscover_timer->stop();
 
         this->startDiscovery();
+        emit timerStatusChanged(false);
         //IntermittentScann_timer->start();
         //IntermittentScann_timer_count = 0;
 
@@ -1496,6 +1496,7 @@ void BlueToothMain::updateUIWhenAdapterChanged()
 
          if (m_localDevice->isDiscovering())
             m_timer->start();
+         emit timerStatusChanged(true);
          delayStartDiscover_timer->start();
      }
 }
@@ -1549,7 +1550,6 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
 
     if ((m_localDevice != nullptr) && m_localDevice->isPowered() && !frame_middle->isVisible())
         frame_middle->setVisible(true);
-
     connect(device.data(),&BluezQt::Device::typeChanged,this,[=](BluezQt::Device::Type  changeType){
 
         DeviceInfoItem *item = device_list->findChild<DeviceInfoItem *>(device->address());
@@ -1562,11 +1562,16 @@ void BlueToothMain::addMyDeviceItemUI(BluezQt::DevicePtr device)
     if (device && device->isPaired()) {
         DeviceInfoItem *item = new DeviceInfoItem();
         item->setObjectName(device->address());
+        item->waitForDiscover(delayStartDiscover_timer->isActive());
         connect(item,SIGNAL(sendConnectDevice(QString)),this,SLOT(receiveConnectsignal(QString)));
         connect(item,SIGNAL(sendDisconnectDeviceAddress(QString)),this,SLOT(receiveDisConnectSignal(QString)));
         connect(item,SIGNAL(sendDeleteDeviceAddress(QString)),this,SLOT(receiveRemoveSignal(QString)));
         connect(item,SIGNAL(sendPairedAddress(QString)),this,SLOT(change_device_parent(QString)));
 
+        connect(this, &BlueToothMain::timerStatusChanged, item, [=](bool on) {
+            item->waitForDiscover(on);
+            item->update();
+        });
         connect(item,SIGNAL(connectComplete()),this,SLOT(startBluetoothDiscovery()));
         QGSettings *changeTheme;
         const QByteArray id_Theme("org.ukui.style");
@@ -1965,11 +1970,15 @@ void BlueToothMain::addOneBluetoothDeviceItemUi(BluezQt::DevicePtr device)
     {
         DeviceInfoItem *item = new DeviceInfoItem(device_list);
         item->setObjectName(device->address());
+        item->waitForDiscover(delayStartDiscover_timer->isActive());
         connect(item,SIGNAL(sendConnectDevice(QString)),this,SLOT(receiveConnectsignal(QString)));
         connect(item,SIGNAL(sendDisconnectDeviceAddress(QString)),this,SLOT(receiveDisConnectSignal(QString)));
         connect(item,SIGNAL(sendDeleteDeviceAddress(QString)),this,SLOT(receiveRemoveSignal(QString)));
         connect(item,SIGNAL(sendPairedAddress(QString)),this,SLOT(change_device_parent(QString)));
-
+        connect(this, &BlueToothMain::timerStatusChanged, item, [=](bool on) {
+            item->waitForDiscover(on);
+            item->update();
+        });
         connect(item,SIGNAL(connectComplete()),this,SLOT(startBluetoothDiscovery()));
 
         QGSettings *changeTheme;
@@ -2218,6 +2227,7 @@ void BlueToothMain::adapterPoweredChanged(bool value)
         else
             myDevShowFlag = false ;
 
+        emit timerStatusChanged(true);
 
         if(nullptr != m_localDevice && m_localDevice->isDiscovering()){
             m_localDevice->stopDiscovery();

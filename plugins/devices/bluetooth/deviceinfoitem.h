@@ -42,6 +42,7 @@ public:
     void changeDevStatus(bool);
     void setDevConnectedIcon(bool);
     void AnimationInit();
+    void waitForDiscover(bool wait);
 
     void refresh_device_icon(BluezQt::Device::Type changeType);
 protected:
@@ -66,6 +67,7 @@ private slots:
 private:
     QGSettings *item_gsettings = nullptr;
 
+    bool waitfordiscoverFlag = true;
     QWidget *parent_widget = nullptr;
     QLabel *device_icon = nullptr;
     QLabel *device_name = nullptr;

@@ -134,8 +134,14 @@ void DeviceInfoItem::resizeEvent(QResizeEvent *event)
     info_page->resize(event->size());
 }
 
+void DeviceInfoItem::waitForDiscover(bool wait) {
+    waitfordiscoverFlag = wait;
+}
+
 void DeviceInfoItem::enterEvent(QEvent *event)
 {
+    if (waitfordiscoverFlag && device_item->isPaired())
+        return;
     AnimationFlag = true;
 
     if (device_status->isVisible())
