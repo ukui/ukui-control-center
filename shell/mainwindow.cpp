@@ -89,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent) :
     is_ExitBluetooth = isExitBluetooth();
     is_ExitPower = isExitsPower();
     initUI();
+    hideComponent();
 }
 
 MainWindow::~MainWindow()
@@ -344,9 +345,6 @@ void MainWindow::initUI() {
             bootOptionsFilter(QApplication::arguments().at(2));
         });
     }
-
-    //快捷键
-//    new QShortcut(QKeySequence(Qt::Key_F1), this, SLOT(onF1ButtonClicked()));
 }
 
 void MainWindow::initTileBar() {
@@ -938,18 +936,9 @@ bool MainWindow::isExitBluetooth() {
     process.waitForFinished();
     QByteArray output = process.readAllStandardOutput();
     QString str_output = output;
-    //bool isDevice = str_output.contains(QString("hci"), Qt::CaseInsensitive);
     bool isDevice = str_output.contains(QString("hci"), Qt::CaseInsensitive);
     bool isAddress = true;
 
-//    QByteArray bluetoothId("org.ukui.bluetooth");
-//    if (QGSettings::isSchemaInstalled(bluetoothId)) {
-//        QGSettings bluetoothGSetting(bluetoothId);
-//        isAddress = bluetoothGSetting.get("adapter-address").toString().isEmpty() ? false : true;
-//    } else
-//        isAddress = false;
-
-//    qDebug() << Q_FUNC_INFO << "========================================" << isDevice << __LINE__;
     return isDevice && isAddress;
 }
 
@@ -968,6 +957,16 @@ void MainWindow::showGuide(QString pluName)
                                                    QDBusConnection::sessionBus(),
                                                    this);
     QDBusMessage msg = interface->call("showGuide" , pluName);
+}
+
+void MainWindow::hideComponent()
+{
+    QTimer::singleShot(100, this, [=]() {
+        if(Utils::isTablet()) {
+            bootOptionsFilter("userinfointel");
+            backBtn->hide();
+        }
+    });
 }
 
 void MainWindow::setModuleBtnHightLight(int id) {
