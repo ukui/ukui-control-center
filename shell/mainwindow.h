@@ -123,6 +123,7 @@ private:
     void initStyleSheet();
     void changeSearchSlot();
     void showGuide(QString pluName);
+    void hideComponent();
 
 public slots:
     void functionBtnClicked(QObject * plugin);
