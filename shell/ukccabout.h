@@ -29,6 +29,7 @@
 #include <QTextEdit>
 
 #include "ukcc/widgets/fixlabel.h"
+#include <ukcc/widgets/lightlabel.h>
 
 class UkccAbout : public QDialog
 {
@@ -40,29 +41,15 @@ protected:
     bool eventFilter(QObject *watch, QEvent *event);
 
 private:
-    QLabel *mUkccIcon;
-    QLabel *mUkccTitle;
-    QPushButton *mUkccCloseBtn;
-
-    QLabel *mUkccCenterIcon;
-    QLabel *mUkccCenterTitle;
-    QLabel *mUkccVersion;
-    FixLabel *mUkccDeveloper;
-    QLabel *mUkccDeveloperEmailLabel;
-
-    QTextEdit *mUkccDetail;
-
-    QHBoxLayout *mCenterIconLayout;
-    QHBoxLayout *mCenterTitleLayout;
-    QHBoxLayout *mCenterVersionLayout;
-    QHBoxLayout *mUkccDetailLayout;
-    QHBoxLayout *mUkccDeveloperLayout;
-    QHBoxLayout *mTitleLayout;
-    QVBoxLayout *mMainVLayout;
+    QLabel *mIconLabel = nullptr;
+    QLabel *mAppLabel = nullptr;
+    LightLabel *mVersionLabel_1 = nullptr;
+    LightLabel *mVersionLabel_2 = nullptr;
+    LightLabel *mTipLabel_1 = nullptr;
+    LightLabel *mTipLabel_2 = nullptr;
 
 private:
     void initUI();
-    void initConnection();
     QString getUkccVersion();
 
 signals:

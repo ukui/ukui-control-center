@@ -924,7 +924,8 @@ void MainWindow::initStyleSheet() {
     ui->leftsidebarWidget->setFixedWidth(260); //一级菜单宽度
 
     // 设置左上角按钮图标
-    backBtn->setIcon(QIcon("://img/titlebar/index.svg"));
+    backBtn->setIcon(QIcon::fromTheme("go-home-symbolic"));
+    backBtn->setIconSize(QSize(24, 24));
 
     // 设置右上角按钮图标
     mOptionBtn->setIcon(QIcon::fromTheme("open-menu-symbolic"));
