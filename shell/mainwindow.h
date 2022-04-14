@@ -115,7 +115,7 @@ private:
     void setBtnLayout(QPushButton * &pBtn);
     void loadPlugins();
     void initLeftsideBar();
-    QPushButton * buildLeftsideBtn(QString bname, QString tipName);
+    QPushButton * buildLeftsideBtn(QString bname, QString tipName, QIcon icon);
     bool isExitsCloudAccount();
     bool isExitsPower();
     bool isExitWirelessDevice();
