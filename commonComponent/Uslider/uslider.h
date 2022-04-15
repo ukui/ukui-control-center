@@ -20,7 +20,7 @@ private:
     const int TOTAL_DELTA = 1200;
     int paintValue;
     bool isMouseCliked = false;
-    int oldValue;
+    int oldValue = 0;
 protected:
     void mousePressEvent(QMouseEvent *ev);
     void wheelEvent(QWheelEvent *ev);

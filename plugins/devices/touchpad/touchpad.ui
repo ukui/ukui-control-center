@@ -273,7 +273,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QSlider" name="touchpadSpeedSlider">
+            <widget class="Uslider" name="touchpadSpeedSlider">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -660,6 +660,13 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Uslider</class>
+   <extends>QSlider</extends>
+   <header location="global">Uslider/uslider.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

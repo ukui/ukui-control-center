@@ -23,7 +23,6 @@ Uslider::Uslider(Qt::Orientation orientation, QWidget *parent, int paintValue) :
     QSlider(orientation, parent)
 {
     this->paintValue = paintValue;
-//    this->setPageStep(0); //防止qslider的mousePressEvent对坐标造成影响
     if (paintValue != 0) {   //刻度值显示
         this->setTickPosition(QSlider::TicksBelow);
     }
@@ -32,7 +31,6 @@ Uslider::Uslider(Qt::Orientation orientation, QWidget *parent, int paintValue) :
 Uslider::Uslider(QWidget *parent, int paintValue) : QSlider(parent)
 {
     this->paintValue = paintValue;
-//    this->setPageStep(0); //防止qslider的mousePressEvent对坐标造成影响
     if (paintValue != 0) {   //刻度值显示
         this->setTickPosition(QSlider::TicksBelow);
     }
@@ -82,6 +80,7 @@ void Uslider::leaveEvent(QEvent *ev)
 //重写鼠标点击事件
 void Uslider::mousePressEvent(QMouseEvent *ev)
 {
+    qDebug() << "-------------";
     int value = 0;
     int currentX = ev->pos().x();
     double per = currentX * 1.0 / this->width();
@@ -98,7 +97,18 @@ void Uslider::mousePressEvent(QMouseEvent *ev)
         value = qRound(per*(this->maximum() - this->minimum())) + this->minimum();
     }
 
+    if (oldValue == 0) {
+        oldValue = this->value();
+    }
+
+    if (qAbs(oldValue - value) <= 2) {
+        isMouseCliked = true;
+        QSlider::mousePressEvent(ev);
+        return;
+    }
+
     oldValue = value;
+
     this->setValue(value);
     isMouseCliked = true;
     QSlider::mousePressEvent(ev);  //必须放在后面，否则点击拖动无法使用(待优化)
