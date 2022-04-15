@@ -230,7 +230,7 @@ void ChangePwdWidget::newpwdInputSlot(const QString &pwd)
     }
     if (!mVerifyEdit->text().isEmpty()) {
         if (mVerifyEdit->text() != mNewPwdEdit->text()) { //验证密码不为空时，在新密码改变的时候，与其作比较
-            mHintLabel_3->setText("Inconsistent input");
+            mHintLabel_3->setText(tr("Inconsistent input"));
         } else {
             mHintLabel_3->setText("");
         }
