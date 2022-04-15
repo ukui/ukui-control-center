@@ -8,18 +8,24 @@
 
 class Uslider : public QSlider
 {
-
-public:
-    QStringList scaleList;
 public:
 
     Uslider(QStringList list);
-    void paintEvent(QPaintEvent *ev);    
+    Uslider(Qt::Orientation orientation, QWidget *parent = nullptr, int paintValue = 0);
+    Uslider(QWidget *parent = nullptr, int paintValue = 0);
+
+    QStringList scaleList;
     bool laungeBool;
 private:
     const int TOTAL_DELTA = 1200;
+    int paintValue;
+    bool isMouseCliked = false;
+    int oldValue;
 protected:
-     void wheelEvent(QWheelEvent *e);
+    void mousePressEvent(QMouseEvent *ev);
+    void wheelEvent(QWheelEvent *ev);
+    void leaveEvent(QEvent *ev);
+    void paintEvent(QPaintEvent *ev);
 };
 
 #endif // USLIDER_H

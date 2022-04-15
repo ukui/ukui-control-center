@@ -252,7 +252,7 @@ private:
     QComboBox *mCloseTimeMCombox = nullptr;
     QComboBox *mMultiScreenCombox = nullptr;
 
-    QSlider *mTemptSlider = nullptr;
+    Uslider *mTemptSlider = nullptr;
 
     QFrame *mMultiScreenFrame = nullptr;   
     QFrame *mNightModeFrame = nullptr;

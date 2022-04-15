@@ -40,7 +40,7 @@ BrightnessFrame::BrightnessFrame(const QString &name, const bool &isBattery, con
     labelName = new QLabel(this);
     labelName->setFixedWidth(118);
 
-    slider = new QSlider(Qt::Horizontal, this);
+    slider = new Uslider(Qt::Horizontal, this);
     slider->setRange(10, 100);
 
     labelValue = new QLabel(this);

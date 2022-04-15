@@ -360,7 +360,7 @@ void Widget::initNightModeUi()
     mWarmLabel->setFixedWidth(64);
     mWarmLabel->setText(tr("Warmer"));
     mWarmLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    mTemptSlider = new QSlider(mTemptFrame);
+    mTemptSlider = new Uslider(mTemptFrame);
     mTemptSlider->setMinimumSize(16777215, 50);
     mTemptSlider->setOrientation(Qt::Orientation::Horizontal);
     mTemptLyt->addWidget(mTemptLabel);

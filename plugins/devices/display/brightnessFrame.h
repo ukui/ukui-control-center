@@ -37,7 +37,7 @@ Q_SIGNALS:
 private:
     QLabel *labelName = nullptr;
     QLabel *labelValue = nullptr;
-    QSlider *slider = nullptr;
+    Uslider *slider = nullptr;
     QString outputName;          //屏幕名
     bool    outputEnable;     //该屏幕是否打开
     bool    connectFlag;  //该屏幕是否连接
