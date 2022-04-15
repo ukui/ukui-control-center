@@ -124,6 +124,10 @@ void ModulePageWidget::initUI() {
                 if (!mModuleMap[single.nameString].toBool()) {
                     continue;
                 }
+            } else if (mModuleMap.keys().contains(single.nameString.toLower())) {
+                if (!mModuleMap[single.nameString.toLower()].toBool()) {
+                    continue;
+                }
             }
 
             //填充左侧二级菜单

@@ -500,7 +500,7 @@ void MainWindow::showUkccAboutSlot() {
     ukccMain->setObjectName("mainMenu");
 
     // 实达高级配置
-    if (isStart()) {
+    if (Utils::isStart()) {
         QAction* ukccAdvance = new QAction(tr("Advance"),this);
         ukccMain->addAction(ukccAdvance);
         connect(ukccAdvance,  &QAction::triggered, this, [=](){
@@ -677,7 +677,11 @@ void MainWindow::initLeftsideBar(){
         if (moduleIndexList.contains(type)){
             QString mnameString = kvConverter->keycodeTokeystring(type);
             QString mnamei18nString  = kvConverter->keycodeTokeyi18nstring(type); //设置TEXT
-            if (m_ModuleMap.keys().contains(mnameString.toLower())) {
+            if (m_ModuleMap.keys().contains(mnameString)) {
+                if (!m_ModuleMap[mnameString].toBool()) {
+                    continue;
+                }
+            } else if (m_ModuleMap.keys().contains(mnameString.toLower())) {
                 if (!m_ModuleMap[mnameString.toLower()].toBool()) {
                     continue;
                 }
@@ -707,7 +711,7 @@ void MainWindow::initLeftsideBar(){
 
                 for (FuncInfo tmpStruct : tmpList){
                     if (currentFuncMap.keys().contains(tmpStruct.namei18nString)) {
-                        if (m_ModuleMap.isEmpty() || m_ModuleMap[tmpStruct.nameString.toLower()].toBool()) {
+                        if (m_ModuleMap.isEmpty() || m_ModuleMap[tmpStruct.nameString.toLower()].toBool() || m_ModuleMap[tmpStruct.nameString].toBool()) {
                             modulepageWidget->switchPage(currentFuncMap.value(tmpStruct.namei18nString));
                             break;
                         }
@@ -945,21 +949,6 @@ void MainWindow::showGuide(QString pluName)
     QDBusMessage msg = interface->call("showGuide" , pluName);
 }
 
-bool MainWindow::isStart()
-{
-    QFile file("/etc/kylin-os-desc");
-
-    if (file.open(QIODevice::ReadOnly)) {
-        QString buffer = file.readAll();
-        if (buffer.contains("VENDOR=start")) {
-            file.close();
-            return true;
-        }
-        file.close();
-    }
-    return false;
-}
-
 void MainWindow::setModuleBtnHightLight(int id) {
     leftBtnGroup->button(id)->setChecked(true);
 }
@@ -999,7 +988,7 @@ void MainWindow::switchPage(QString moduleName, QString jumpMoudle) {
         auto modules = modulesList.at(i);
         //开始跳转
         if (modules.keys().contains(moduleName)) {
-            if (m_ModuleMap.isEmpty() || m_ModuleMap[jumpMoudle.toLower()].toBool()) {
+            if (m_ModuleMap.isEmpty() || m_ModuleMap[jumpMoudle.toLower()].toBool() || m_ModuleMap[jumpMoudle].toBool()) {
                 ui->stackedWidget->setCurrentIndex(1);
                 modulepageWidget->switchPage(modules.value(moduleName));
                 return ;

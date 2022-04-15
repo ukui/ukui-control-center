@@ -133,8 +133,6 @@ private:
 
      void showGuide(QString pluName);
 
-     bool isStart(); //判断是否增加高级设置功能
-
 public slots:
     void functionBtnClicked(QObject * plugin);
     void sltMessageReceived(const QString &msg);

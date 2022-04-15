@@ -36,7 +36,7 @@
 #include <QProcess>
 
 namespace Utils
-{    
+{
     void centerToScreen(QWidget *widget);
     void setCLIName(QCommandLineParser &parser);
     QVariantMap getModuleHideStatus();
@@ -47,6 +47,8 @@ namespace Utils
     bool isCommunity();
     bool isDell();
     bool isDalian();
+    bool isStart(); //判断是否增加高级设置功能
+
 
 }
 #endif // UTILS_H
