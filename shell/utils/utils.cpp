@@ -161,10 +161,17 @@ void Utils::setCLIName(QCommandLineParser &parser) {
 }
 
 QVariantMap Utils::getModuleHideStatus() {
-    QDBusInterface m_interface( "org.ukui.ukcc.session",
-                                "/",
-                                "org.ukui.ukcc.session.interface",
-                                QDBusConnection::sessionBus());
+    QString service = "org.ukui.ukcc.session";
+    QString path = "/";
+    QString interface = "org.ukui.ukcc.session.interface";
+    QDBusConnection connection = QDBusConnection::sessionBus();
+    if (isStart()) {
+        service = "com.control.center.qt.systemdbus";
+        interface = "com.control.center.interface";
+        connection =  QDBusConnection::systemBus();
+    }
+
+    QDBusInterface m_interface(service, path, interface, connection);
 
     QDBusReply<QVariantMap> obj_reply = m_interface.call("getModuleHideStatus");
     if (!obj_reply.isValid()) {
@@ -311,6 +318,21 @@ bool Utils::isDalian()
         QString buffer = file.readAll();
         if (buffer.contains("大连商品交易所"))
             return true;
+    }
+    return false;
+}
+
+bool Utils::isStart()
+{
+    QFile file("/etc/kylin-os-desc");
+
+    if (file.open(QIODevice::ReadOnly)) {
+        QString buffer = file.readAll();
+        if (buffer.contains("VENDOR=start")) {
+            file.close();
+            return true;
+        }
+        file.close();
     }
     return false;
 }

@@ -83,6 +83,7 @@ private:
     QDir pluginsDir;
     QList<int> moduleIndexList;
     QList<QMap<QString, QObject *>> modulesList;
+    QStringList pluginsList;
 
     KeyValueConverter * kvConverter;
     SearchWidget      * m_searchWidget;

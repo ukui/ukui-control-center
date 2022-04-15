@@ -37,8 +37,12 @@ qm_files.files = shell/res/i18n/*.qm
 search_file.path = $${PREFIX}/share/ukui-control-center/shell/res/
 search_file.files = shell/res/search.xml
 
+advance_file.path = $${PREFIX}/share/ukui-control-center/shell/res/
+advance_file.files = shell/res/ukui-control-center-security-config.json
+
 INSTALLS += qm_files \
-            search_file
+            search_file \
+            advance_file
 
 HEADERS += \
     shell/utils/xatom-helper.h

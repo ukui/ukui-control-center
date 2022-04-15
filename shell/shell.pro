@@ -80,6 +80,10 @@ INCLUDEPATH += qtsingleapplication
 DEPENDPATH += qtsingleapplication
 
 SOURCES += \
+    advance/changepwdwidget.cpp \
+    advance/modulesetdialog.cpp \
+    advance/pluginwidget.cpp \
+    advance/pwddiaog.cpp \
     component/leftmenulist.cpp \
     customstyle.cpp \
     leftsiderbarwidget.cpp \
@@ -106,6 +110,11 @@ SOURCES += \
     utils/xatom-helper.cpp
 
 HEADERS += \
+    advance/ModuleInfo.h \
+    advance/changepwdwidget.h \
+    advance/modulesetdialog.h \
+    advance/pluginwidget.h \
+    advance/pwddiaog.h \
     component/leftmenulist.h \
     customstyle.h \
     devicesmonitor.h \

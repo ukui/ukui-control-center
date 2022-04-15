@@ -46,6 +46,7 @@ public Q_SLOTS:
     void setScreenMode(QString screenMode);
     void setPreScreenCfg(QVariantList preScreenCfg);
     QVariantList getPreScreenCfg();
+    void runUkcc();
 };
 
 #endif // UKCCSESSIONSERVER_H

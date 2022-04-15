@@ -25,6 +25,8 @@
 #include "../commonComponent/ImageUtil/imageutil.h"
 #include "ukccabout.h"
 #include "devicesmonitor.h"
+#include "advance/pwddiaog.h"
+#include "advance/modulesetdialog.h"
 
 #include <libmatemixer/matemixer.h>
 #include <QLabel>
@@ -497,6 +499,20 @@ void MainWindow::showUkccAboutSlot() {
     QMenu* ukccMain = new QMenu(this);
     ukccMain->setObjectName("mainMenu");
 
+    // 实达高级配置
+    if (Utils::isStart()) {
+        QAction* ukccAdvance = new QAction(tr("Advance"),this);
+        ukccMain->addAction(ukccAdvance);
+        connect(ukccAdvance,  &QAction::triggered, this, [=](){
+            PwdDiaog *pwddialog = new PwdDiaog(this);
+            connect(pwddialog, &PwdDiaog::open, this, [=](){
+                ModuleSetDialog *moduledialog = new ModuleSetDialog(pluginsList, this);
+                moduledialog->exec();
+            });
+            pwddialog->exec();
+        });
+    }
+
     QAction* ukccHelp = new QAction(tr("Help"),this);
     ukccMain->addAction(ukccHelp);
     QAction* ukccAbout = new QAction(tr("About"),this);
@@ -606,6 +622,7 @@ void MainWindow::loadPlugins(){
         if (plugin) {
             CommonInterface * pluginInstance = qobject_cast<CommonInterface *>(plugin);
             modulesList[pluginInstance->get_plugin_type()].insert(pluginInstance->get_plugin_name(), plugin);
+            pluginsList.append(pluginInstance->get_plugin_name());
 
             qDebug() << "Load Plugin :" << kvConverter->keycodeTokeyi18nstring(pluginInstance->get_plugin_type()) << "->" << pluginInstance->get_plugin_name() ;
 
@@ -660,7 +677,11 @@ void MainWindow::initLeftsideBar(){
         if (moduleIndexList.contains(type)){
             QString mnameString = kvConverter->keycodeTokeystring(type);
             QString mnamei18nString  = kvConverter->keycodeTokeyi18nstring(type); //设置TEXT
-            if (m_ModuleMap.keys().contains(mnameString.toLower())) {
+            if (m_ModuleMap.keys().contains(mnameString)) {
+                if (!m_ModuleMap[mnameString].toBool()) {
+                    continue;
+                }
+            } else if (m_ModuleMap.keys().contains(mnameString.toLower())) {
                 if (!m_ModuleMap[mnameString.toLower()].toBool()) {
                     continue;
                 }
@@ -690,7 +711,7 @@ void MainWindow::initLeftsideBar(){
 
                 for (FuncInfo tmpStruct : tmpList){
                     if (currentFuncMap.keys().contains(tmpStruct.namei18nString)) {
-                        if (m_ModuleMap.isEmpty() || m_ModuleMap[tmpStruct.nameString.toLower()].toBool()) {
+                        if (m_ModuleMap.isEmpty() || m_ModuleMap[tmpStruct.nameString.toLower()].toBool() || m_ModuleMap[tmpStruct.nameString].toBool()) {
                             modulepageWidget->switchPage(currentFuncMap.value(tmpStruct.namei18nString));
                             break;
                         }
@@ -967,7 +988,7 @@ void MainWindow::switchPage(QString moduleName, QString jumpMoudle) {
         auto modules = modulesList.at(i);
         //开始跳转
         if (modules.keys().contains(moduleName)) {
-            if (m_ModuleMap.isEmpty() || m_ModuleMap[jumpMoudle.toLower()].toBool()) {
+            if (m_ModuleMap.isEmpty() || m_ModuleMap[jumpMoudle.toLower()].toBool() || m_ModuleMap[jumpMoudle].toBool()) {
                 ui->stackedWidget->setCurrentIndex(1);
                 modulepageWidget->switchPage(modules.value(moduleName));
                 return ;

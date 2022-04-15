@@ -26,7 +26,9 @@
 #include <stdlib.h>
 #include <QDir>
 #include <QCryptographicHash>
-
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 #include <QDBusInterface>
 #include <QDBusReply>
 
@@ -47,6 +49,8 @@ extern "C" {
 #include <QtConcurrent/QtConcurrent>
 #include <QDBusMessage>
 
+#define MODULEPATH   "/usr/share/ukui-control-center/shell/res/ukui-control-center-security-config.json"
+
 QStringList ddcProIdList;
 
 SysdbusRegister::SysdbusRegister()
@@ -58,7 +62,9 @@ SysdbusRegister::SysdbusRegister()
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
     mHibernateSet->setIniCodec("UTF-8");
     QString filename = "/usr/share/ukui-control-center/shell/res/apt.ini";
+    QString filename_1 = "/usr/share/ukui-control-center/shell/res/advance.ini";
     aptSettings = new QSettings(filename, QSettings::IniFormat, this);
+    advanceSettings = new QSettings(filename_1, QSettings::IniFormat, this);
     exitFlag = false;
     toGetDisplayInfo = true;
     if (!isBacklight())
@@ -233,6 +239,31 @@ int SysdbusRegister::_changeOtherUserPasswd(QString username, QString pwd){
 
     return 1;
 
+}
+
+QMap<QString, QVariant> SysdbusRegister::getJsonInfo(const QString &confFile)
+{
+    QVariantMap moduleMap;
+
+    QFile file(confFile);
+    if (file.exists()) {
+        file.open(QIODevice::ReadOnly);
+        QByteArray readBy=file.readAll();
+        QJsonParseError error;
+        QJsonDocument readDoc=QJsonDocument::fromJson(readBy,&error);
+        QJsonArray obj=readDoc.object().value("ukcc").toArray();
+
+        for (int i = 0 ; i < obj.size(); i++) {
+            QJsonObject faObj= obj[i].toObject();
+            moduleMap.insert(faObj["name"].toString(), faObj["visible"].toVariant());
+            QJsonArray childNodeAry =  faObj["childnode"].toArray();
+            for (int j = 0; j < childNodeAry.size(); j++) {
+                moduleMap.insert(childNodeAry.at(j).toObject().value("name").toString(),
+                                 childNodeAry.at(j).toObject().value("visible").toVariant());
+            }
+        }
+    }
+    return moduleMap;
 }
 
 int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
@@ -662,7 +693,7 @@ QString SysdbusRegister::showDisplayInfo()
         if (displayInfo_V[j]._getI2C) {
             getI2c = "true";
         }
-        if (true == displayInfo_V[j]._DDC) {   
+        if (true == displayInfo_V[j]._DDC) {
             retString = retString + "<DDC>" + " i2cBus=" + getI2c + " bus=" + displayInfo_V[j].I2C_busType;
         } else {
             retString = retString + "<I2C>" + " i2cBus=" + getI2c + " bus=" + displayInfo_V[j].I2C_busType + "("+QString::number(displayInfo_V[j].I2C_brightness)+")";
@@ -774,6 +805,68 @@ QString SysdbusRegister::getMemory()
     qDebug()<<"memory : "<<memorysize;
     return QString::number(memorysize);
 
+}
+
+QVariantMap SysdbusRegister::getModuleHideStatus()
+{
+    QString filename (MODULEPATH);
+    return getJsonInfo(filename);
+}
+
+bool SysdbusRegister::setModuleStatus(QMap<QString, QVariant> pluginStatus)
+{
+    QFile file(MODULEPATH);
+    if (file.exists()) {
+        file.open(QIODevice::ReadOnly);
+        QByteArray readBy=file.readAll();
+        QJsonParseError error;
+        QJsonDocument readDoc=QJsonDocument::fromJson(readBy,&error);
+        QJsonObject rootObj = readDoc.object();
+        QJsonArray obj=rootObj.value("ukcc").toArray();
+
+        for (int i = 0 ; i < obj.size(); i++) {
+            QJsonObject faObj= obj[i].toObject();
+            QJsonArray childNodeAry =  faObj["childnode"].toArray();
+            for (int j = 0; j < childNodeAry.size(); j++) {
+                QJsonObject childObj= childNodeAry[j].toObject();
+                childObj["visible"] = pluginStatus.value(childObj.value("name").toString()).toJsonValue();
+                childNodeAry.replace(j, childObj);
+            }
+            faObj["childnode"] = childNodeAry;
+            obj.replace(i, faObj);
+        }
+        rootObj["ukcc"] = obj;
+        readDoc.setObject(rootObj);
+        file.close();
+
+        // 将修改后的内容写入文件
+        file.open(QFile::WriteOnly | QFile::Truncate);
+        QTextStream wirteStream(&file);
+        wirteStream.setCodec("UTF-8");
+        wirteStream << readDoc.toJson();
+        file.close();
+        return true;
+    }
+    return false;
+}
+
+QString SysdbusRegister::getAdvancePwd()
+{
+    advanceSettings->beginGroup("Config");
+    QString str = advanceSettings->value("password").toString();
+    if (str.isEmpty()) {
+        advanceSettings->setValue("password", "admin");
+        str = "admin";
+    }
+    advanceSettings->endGroup();
+    return str;
+}
+
+void SysdbusRegister::setAdvancePwd(QString pwd)
+{
+    advanceSettings->beginGroup("Config");
+    advanceSettings->setValue("password", pwd);
+    advanceSettings->endGroup();
 }
 
 struct displayInfo SysdbusRegister::_createDisplayInfo(QString edidHash, QString busType, bool ddc, bool getI2C)

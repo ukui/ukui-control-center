@@ -70,7 +70,8 @@ private:
 private:
     QString mHibernateFile;
     QSettings *mHibernateSet;
-    QSettings  *aptSettings;
+    QSettings *aptSettings;
+    QSettings *advanceSettings;
 
     volatile bool exitFlag;
     volatile bool toGetDisplayInfo;
@@ -82,6 +83,8 @@ private:
 
 private:
     int _changeOtherUserPasswd(QString username, QString pwd);
+    QMap<QString, QVariant> getJsonInfo(const  QString &confFile);
+    bool isBacklight();
 
 signals:
     Q_SCRIPTABLE void nameChanged(QString);
@@ -142,7 +145,17 @@ public slots:
     //获取内存大小
     Q_SCRIPTABLE QString getMemory();
 
-    bool isBacklight();
+    //获取模块信息
+    Q_SCRIPTABLE QVariantMap getModuleHideStatus();
+
+    //设置模块状态
+    Q_SCRIPTABLE bool setModuleStatus(QMap <QString, QVariant> pluginStatus);
+
+    //获取高级配置口令
+    Q_SCRIPTABLE QString getAdvancePwd();
+
+    //修改高级配置口令
+    Q_SCRIPTABLE void setAdvancePwd(QString pwd);
 };
 
 #endif // SYSDBUSREGISTER_H

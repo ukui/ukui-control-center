@@ -121,7 +121,7 @@ void HomePageWidget::initUI(){
             QList<FuncInfo> tmpList = FunctionSelect::funcinfoList[moduleIndex];
             for (FuncInfo tmpStruct : tmpList) {
                 if (moduleMap.keys().contains(tmpStruct.namei18nString)) {
-                    if (mModuleMap.isEmpty() || mModuleMap[tmpStruct.nameString.toLower()].toBool()) {
+                    if (mModuleMap.isEmpty() || mModuleMap[tmpStruct.nameString.toLower()].toBool() || mModuleMap[tmpStruct.nameString].toBool()) {
                         firstFunc = tmpStruct.namei18nString;
                         //跳转
                         pmainWindow->functionBtnClicked(moduleMap.value(firstFunc));
@@ -167,7 +167,11 @@ void HomePageWidget::initUI(){
             if (!single.mainShow)
                 continue;
 
-            if (mModuleMap.keys().contains(single.nameString.toLower())) {
+            if (mModuleMap.keys().contains(single.nameString)) {
+                if (!mModuleMap[single.nameString].toBool()) {
+                    continue;
+                }
+            } else if (mModuleMap.keys().contains(single.nameString.toLower())) {
                 if (!mModuleMap[single.nameString.toLower()].toBool()) {
                     continue;
                 }
@@ -291,7 +295,7 @@ QPixmap HomePageWidget::drawSymbolicColoredPixmap(const QPixmap &source, COLOR c
                     color.setGreen(highLightColor.green());
                     color.setBlue(highLightColor.blue());
                     img.setPixelColor(x, y, color);
-                } 
+                }
                 else {
                     return source;
                 }
