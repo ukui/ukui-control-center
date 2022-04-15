@@ -149,11 +149,11 @@ QWidget *MouseControl::get_plugin_ui(){
         Low=new QLabel;
         High=new QLabel;
 
-        pointerSpeedSlider = new QSlider;
+        pointerSpeedSlider = new Uslider;
         pointerSpeedSlider->setOrientation(Qt::Horizontal);
         pointerSpeedSlider->setRange(10,100);
 
-        cursorSpeedSlider = new QSlider;
+        cursorSpeedSlider = new Uslider;
         cursorSpeedSlider->setOrientation(Qt::Horizontal);
         cursorSpeedSlider->setRange(0,98);
         initSearchText();
