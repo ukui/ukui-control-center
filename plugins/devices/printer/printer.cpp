@@ -22,7 +22,7 @@
 
 #include <QtPrintSupport/QPrinterInfo>
 #include <QProcess>
-
+#include <QProxyStyle>
 #include <QDebug>
 #include <QMouseEvent>
 #define THEME_QT_SCHEMA                  "org.ukui.style"
@@ -66,7 +66,7 @@ QWidget *Printer::get_plugin_ui(){
 
 
         ui->listWidget->setSpacing(0);
-
+        ui->listWidget->setStyle(new QProxyStyle("ukui"));
         refreshPrinterDev();
 
         pTimer = new QTimer(this);
