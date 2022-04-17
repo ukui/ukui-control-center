@@ -174,6 +174,7 @@ private:
     void initGSettings();
     void setcomBoxScale();
     void initNightUI();
+    void initAutoBrihgtUI();
     QFrame *setLine(QFrame *frame);
     void initAdvanceScreen();
 
@@ -206,9 +207,9 @@ private:
     KScreen::ConfigPtr mPrevConfig;
     KScreen::OutputPtr res;                       // 这是outPutptr结果
 #else
-    KScreen::ConfigPtr mConfig = nullptr;
+    KScreen::ConfigPtr mConfig     = nullptr;
     KScreen::ConfigPtr mPrevConfig = nullptr;
-    KScreen::OutputPtr res = nullptr;
+    KScreen::OutputPtr res         = nullptr;
 #endif
 
     ControlPanel *mControlPanel = nullptr;
@@ -222,47 +223,51 @@ private:
     QString     mDir;
     QStringList mPowerKeys;
 
-    SwitchButton *mNightButton = nullptr;
+    SwitchButton *mNightButton       = nullptr;
     SwitchButton *mCloseScreenButton = nullptr;
-    SwitchButton *mUnifyButton = nullptr;
-    SwitchButton *mThemeButton = nullptr;
-    SwitchButton *mNightModeBtn = nullptr;
+    SwitchButton *mUnifyButton       = nullptr;
+    SwitchButton *mThemeButton       = nullptr;
+    SwitchButton *mNightModeBtn      = nullptr;
+    SwitchButton *mAutoBrightBtn     = nullptr;
 
     TitleLabel *mNightModeLabel = nullptr;
-    QLabel *mOpenLabel = nullptr;
-    QLabel *mTimeModeLabel = nullptr;
-    QLabel *mCustomTimeLabel = nullptr;
-    FixLabel *mTemptLabel = nullptr;
-    FixLabel *mWarmLabel = nullptr;
-    FixLabel *mColdLabel = nullptr;
-    QLabel *mLabel_1 = nullptr;
+    QLabel *mOpenLabel          = nullptr;
+    QLabel *mTimeModeLabel      = nullptr;
+    QLabel *mCustomTimeLabel    = nullptr;
+    FixLabel *mTemptLabel       = nullptr;
+    FixLabel *mWarmLabel        = nullptr;
+    FixLabel *mColdLabel        = nullptr;
+    QLabel *mLabel_1            = nullptr;
 
-    QLabel *nightLabel = nullptr;
-    QLabel *mMultiScreenLabel = nullptr;
+    QLabel *nightLabel          = nullptr;
+    QLabel *mMultiScreenLabel   = nullptr;
+    QLabel *mAutoBrightLabel    = nullptr;
+    QLabel *mBrightHintLabel    = nullptr;
 
-    QComboBox *mTimeModeCombox = nullptr;
-    QComboBox *mOpenTimeHCombox = nullptr;
-    QComboBox *mQpenTimeMCombox = nullptr;
-    QComboBox *mCloseTimeHCombox = nullptr;
-    QComboBox *mCloseTimeMCombox = nullptr;
+    QComboBox *mTimeModeCombox    = nullptr;
+    QComboBox *mOpenTimeHCombox   = nullptr;
+    QComboBox *mQpenTimeMCombox   = nullptr;
+    QComboBox *mCloseTimeHCombox  = nullptr;
+    QComboBox *mCloseTimeMCombox  = nullptr;
     QComboBox *mMultiScreenCombox = nullptr;
 
-    Uslider *mTemptSlider = nullptr;
+    Uslider *mTemptSlider         = nullptr;
 
     QFrame *mMultiScreenFrame = nullptr;   
-    QFrame *mNightModeFrame = nullptr;
-    QFrame *mOpenFrame = nullptr;
-    QFrame *mTimeModeFrame = nullptr;
-    QFrame *mCustomTimeFrame = nullptr;
-    QFrame *mTemptFrame = nullptr;
-    QFrame *line_1 = nullptr;
-    QFrame *line_2 = nullptr;
-    QFrame *line_3 = nullptr;
+    QFrame *mNightModeFrame   = nullptr;
+    QFrame *mOpenFrame        = nullptr;
+    QFrame *mTimeModeFrame    = nullptr;
+    QFrame *mCustomTimeFrame  = nullptr;
+    QFrame *mTemptFrame       = nullptr;
+    QFrame *line_1            = nullptr;
+    QFrame *line_2            = nullptr;
+    QFrame *line_3            = nullptr;
 
-    QGSettings *mGsettings = nullptr;
-    QGSettings *scaleGSettings = nullptr;
-    QGSettings *mPowerGSettings = nullptr;
-    QGSettings *m_colorSettings = nullptr;
+    QGSettings *mGsettings          = nullptr;
+    QGSettings *scaleGSettings      = nullptr;
+    QGSettings *mPowerGSettings     = nullptr;
+    QGSettings *m_colorSettings     = nullptr;
+    QGSettings *mAutoBrightSettings = nullptr;
 
     QSettings *mQsettings = nullptr;
 
@@ -279,34 +284,33 @@ private:
 
     QSize mScaleSizeRes = QSize();
 
-    bool mIsNightMode = false;
+    bool mIsNightMode     = false;
     bool mRedshiftIsValid = false;
-    bool mIsScaleChanged = false;
+    bool mIsScaleChanged  = false;
     bool mOriApply;
-    bool mConfigChanged = false;
-    bool mOnBattery = false;
-    bool mBlockChanges = false;
-    bool mFirstLoad = true;
-    bool mIsWayland = false;
-    bool mIsBattery = false;
-    bool mIsScreenAdd = false;
-    bool mIsRestore = false;
+    bool mConfigChanged   = false;
+    bool mOnBattery       = false;
+    bool mBlockChanges    = false;
+    bool mFirstLoad       = true;
+    bool mIsWayland       = false;
+    bool mIsBattery       = false;
+    bool mIsScreenAdd     = false;
+    bool mIsRestore       = false;
 
-    bool mIsSCaleRes = false;
-    bool mIsChange = false;
+    bool mIsSCaleRes      = false;
+    bool mIsChange        = false;
+    bool exitFlag         = false;
+    bool unifySetconfig   = false;
+    bool mIscloneMode     = false;
 
     QStringList mTimeModeStringList;
 
     QString firstAddOutputName;
     QShortcut *mApplyShortcut;
     QVector<BrightnessFrame*> BrightnessFrameV;
-    //BrightnessFrame *currentBrightnessFrame;
-    bool exitFlag = false;
-    bool unifySetconfig = false;
     QString mOutputClickedName;
     QDBusInterface *dbusEdid = nullptr;
     QString cpuArchitecture = "";
-    bool mIscloneMode = false;
 
     int mKdsStatus = INT_MIN;
 };

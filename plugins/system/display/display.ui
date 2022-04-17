@@ -435,6 +435,16 @@
        </widget>
       </item>
       <item>
+       <layout class="QHBoxLayout" name="autoBrightnessLayt">
+        <property name="leftMargin">
+         <number>15</number>
+        </property>
+        <property name="rightMargin">
+         <number>6</number>
+        </property>
+       </layout>
+      </item>
+      <item>
        <widget class="QFrame" name="frame_5">
         <property name="minimumSize">
          <size>
