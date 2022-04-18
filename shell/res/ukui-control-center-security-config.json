@@ -95,6 +95,10 @@
                     "visible": true
                 },
                 {
+                    "name": "Connect",
+                    "visible": true
+                },
+                {
                     "name": "Proxy",
                     "visible": true
                 },
