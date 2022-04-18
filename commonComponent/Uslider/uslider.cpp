@@ -80,7 +80,6 @@ void Uslider::leaveEvent(QEvent *ev)
 //重写鼠标点击事件
 void Uslider::mousePressEvent(QMouseEvent *ev)
 {
-    qDebug() << "-------------";
     int value = 0;
     int currentX = ev->pos().x();
     double per = currentX * 1.0 / this->width();
