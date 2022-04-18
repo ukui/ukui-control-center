@@ -171,7 +171,6 @@ QWidget *Touchpad::get_plugin_ui(){
         ui->touchpadSpeedSlider->setMinimum(0);
         ui->touchpadSpeedSlider->setMaximum(35);
         ui->touchpadSpeedSlider->setPageStep(1);
-        ui->touchpadSpeedSlider->installEventFilter(this);
 
         const QByteArray id(TOUCHPAD_SCHEMA);
 

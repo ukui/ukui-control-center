@@ -35,6 +35,7 @@
 
 #include "shell/interface.h"
 #include "SwitchButton/switchbutton.h"
+#include "Uslider/uslider.h"
 
 namespace Ui {
 class MouseControl;
@@ -95,8 +96,8 @@ private:
     QGSettings * styleSettings;
     QGSettings * gsettings;
 
-    QSlider *pointerSpeedSlider;
-    QSlider *cursorSpeedSlider;
+    Uslider *pointerSpeedSlider;
+    Uslider *cursorSpeedSlider;
 
     QLabel *Slow1;
     QLabel *Fast1;
