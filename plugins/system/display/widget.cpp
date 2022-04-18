@@ -56,6 +56,9 @@
 #define FONT_RENDERING_DPI               "org.ukui.SettingsDaemon.plugins.xsettings"
 #define SCALE_KEY                        "scaling-factor"
 
+#define USD_BRIGHT_SCHEMAS               "org.ukui.SettingsDaemon.plugins.auto-brighness"
+#define BRIGHT_KEY                       "auto-brightness"
+
 #define SETTINGS_DAEMON_COLOR_SCHEMAS    "org.ukui.SettingsDaemon.plugins.color"
 #define AUTO_KEY                         "night-light-schedule-automatic"
 #define AllDAY_KEY                       "night-light-allday"
@@ -105,6 +108,7 @@ Widget::Widget(QWidget *parent) :
 
     ui->setupUi(this);
     initNightModeUi();
+    initAutoBrihgtUI();
     initDbusComponent();
     ui->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     ui->quickWidget->setContentsMargins(0, 0, 0, 9);
@@ -788,6 +792,37 @@ void Widget::initNightUI()
     themeLayout->addWidget(new QLabel(tr("Theme follow night mode")));
     themeLayout->addStretch();
     themeLayout->addWidget(mThemeButton);
+}
+
+void Widget::initAutoBrihgtUI()
+{
+    if (Utils::isTablet()) {
+        mAutoBrightLabel = new QLabel(tr("Auto Brightness"), this);
+        mAutoBrightLabel->setFixedSize(125, 50);
+        mBrightHintLabel = new QLabel(tr("Adjust screen brightness by ambient"), this);
+        mAutoBrightBtn   = new SwitchButton(this);
+
+        ui->autoBrightnessLayt->addWidget(mAutoBrightLabel);
+        ui->autoBrightnessLayt->addWidget(mBrightHintLabel);
+        ui->autoBrightnessLayt->addWidget(mAutoBrightBtn);
+
+        if (QGSettings::isSchemaInstalled(QByteArray(USD_BRIGHT_SCHEMAS))) {
+            mAutoBrightSettings = new QGSettings(QByteArray(USD_BRIGHT_SCHEMAS), QByteArray(), this);
+            if (mAutoBrightSettings->keys().contains("auotBrighness")) {
+                mAutoBrightBtn->setChecked(mAutoBrightSettings->get(BRIGHT_KEY).toBool());
+            }
+
+            connect(mAutoBrightSettings, &QGSettings::changed, this, [=](const QString &key) {
+                mAutoBrightBtn->blockSignals(true);
+                mAutoBrightBtn->setChecked(mAutoBrightSettings->get(key).toBool());
+                mAutoBrightBtn->blockSignals(false);
+            });
+
+            connect(mAutoBrightBtn, &SwitchButton::checkedChanged, this, [=](bool status) {
+                mAutoBrightSettings->set(BRIGHT_KEY, status);
+            });
+        }
+    }
 }
 
 QFrame *Widget::setLine(QFrame *frame)
