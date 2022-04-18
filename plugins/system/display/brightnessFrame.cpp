@@ -96,7 +96,9 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
                 threadRunFlag = false;
                 return;
             }
+            slider->blockSignals(true);
             slider->setValue(brightnessValue);
+            slider->blockSignals(false);
             setTextLabelValue(QString::number(brightnessValue));
             setSliderEnable(true);
             labelMsg->hide();
@@ -117,7 +119,9 @@ void BrightnessFrame::runConnectThread(const bool &openFlag)
             } else {
                 int brightnessValue = mPowerGSettings->get(POWER_KEY).toInt();
                 setTextLabelValue(QString::number(brightnessValue));
+                slider->blockSignals(true);
                 slider->setValue(brightnessValue);
+                slider->blockSignals(false);
                 setSliderEnable(true);
                 labelMsg->hide();
                 disconnect(slider,&QSlider::valueChanged,this,0);
@@ -161,7 +165,9 @@ void BrightnessFrame::setSliderEnable(const bool &enable)
     }
     if (false == enable) {
         labelMsg->show();
+        slider->blockSignals(true);
         slider->setValue(0);
+        slider->blockSignals(false);
         setTextLabelValue("0");
     }
     return;
