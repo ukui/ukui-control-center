@@ -120,8 +120,8 @@ void ModulePageWidget::initUI() {
             if (!moduleMap.contains(single.namei18nString))
                 continue;
 
-            if (mModuleMap.keys().contains(single.nameString)) {
-                if (!mModuleMap[single.nameString].toBool()) {
+            if (mModuleMap.keys().contains(Utils::replaceName(single.nameString))) {
+                if (!mModuleMap[Utils::replaceName(single.nameString)].toBool()) {
                     continue;
                 }
             } else if (mModuleMap.keys().contains(single.nameString.toLower())) {

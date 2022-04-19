@@ -48,6 +48,7 @@ namespace Utils
     bool isDell();
     bool isDalian();
     bool isStart(); //判断是否增加高级设置功能
+    QString replaceName(QString name);
 
 
 }

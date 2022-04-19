@@ -336,3 +336,20 @@ bool Utils::isStart()
     }
     return false;
 }
+
+QString Utils::replaceName(QString name)
+{
+    if (name == "Defaultapp") {
+        return "Default App";
+    } else if (name == "Autoboot") {
+        return "Auto Boot";
+    } else if (name == "Netconnect") {
+        return "Connect";
+    } else if (name == "Userinfo") {
+        return "User Info";
+    } else if (name == "SecurityCenter") {
+        return "Security Center";
+    } else {
+        return name;
+    }
+}

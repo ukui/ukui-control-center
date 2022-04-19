@@ -11,6 +11,7 @@
 #include <QApplication>
 #include "../utils/functionselect.h"
 #include "ModuleInfo.h"
+#include "../utils/utils.h"
 
 PluginWidget::PluginWidget(QStringList List, QWidget *parent) :
     QWidget(parent),
@@ -47,6 +48,7 @@ void PluginWidget::initUi()
          QList<FuncInfo> functionStructList = FunctionSelect::funcinfoList[moduleIndex];
          for (int funcIndex = 0; funcIndex < functionStructList.size(); funcIndex++){
              FuncInfo single = functionStructList.at(funcIndex);
+             single.nameString = Utils::replaceName(single.nameString);
              if (modulesList.contains(single.nameString) || modulesList.contains(single.namei18nString)) {
                  QListWidgetItem * item = new QListWidgetItem(mListwidget);
                  item->setSizeHint(QSize(mListwidget->width() - 5, 36));
@@ -55,7 +57,7 @@ void PluginWidget::initUi()
                  QFrame *frame = new QFrame(mListwidget);
                  QHBoxLayout *Lyt_2 = new QHBoxLayout(frame);
                  Lyt_2->setContentsMargins(8, 0, 8, 0);
-                 QCheckBox *box = new QCheckBox(modulesList.contains(single.nameString) ? single.nameString : single.namei18nString );
+                 QCheckBox *box = new QCheckBox(modulesList.contains(single.namei18nString) ? single.namei18nString : single.nameString );
                  Lyt_2->addWidget(box);
                  Lyt_2->addStretch();
 
@@ -165,7 +167,7 @@ void PluginWidget::writerFile()
 void PluginWidget::tipsDiaolg()
 {
     QDialog *dialog = new QDialog(this);
-    dialog->setFixedSize(440, 140);
+    dialog->setFixedSize(440, 160);
     QVBoxLayout *Lyt = new QVBoxLayout(dialog);
     Lyt->setContentsMargins(32, 16, 16, 24);
 

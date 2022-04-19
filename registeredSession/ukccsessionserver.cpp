@@ -110,6 +110,7 @@ QString ukccSessionServer::GetSecurityConfigPath() {
 
 void ukccSessionServer::runUkcc()
 {
+//    qputenv("QT_QPA_PLATFORMTHEME", "ukui");
     QString cmd = "ukui-control-center";
     QTimer::singleShot(1000, this, [=]() {
          QProcess process(this);
