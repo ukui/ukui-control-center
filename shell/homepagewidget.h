@@ -38,11 +38,11 @@ enum COLOR{
 class MainWindow;
 class QListWidgetItem;
 
-#define PLUGIN_STATUS_SCHEMA                     "org.ukui.control-center.pluginstatus"
-#define PLUGINS_SCHEMA                           "org.ukui.control-center.plugins"
-#define PLUGINS_PATH                             "/org/ukui/control-center/plugins/"
-#define PLUGIN_NAME                              "plugin-name"
-#define SHOW_KEY                                 "show"
+#define PLUGIN_STATUS_SCHEMA "org.ukui.control-center.pluginstatus"
+#define PLUGINS_SCHEMA       "org.ukui.control-center.plugins"
+#define PLUGINS_PATH         "/org/ukui/control-center/plugins/"
+#define PLUGIN_NAME          "plugin-name"
+#define SHOW_KEY             "show"
 
 namespace Ui {
 class HomePageWidget;
@@ -61,9 +61,7 @@ public:
     QGSettings * setGsettingsPath(QList<char *> list , QString name);
 
 private:
-    // load svg picture
     const QPixmap loadSvg(const QString &fileName, COLOR color);
-    // chang svg picture's color
     QPixmap drawSymbolicColoredPixmap(const QPixmap &source, COLOR color);
     bool eventFilter(QObject *watched, QEvent *event);
 public:
