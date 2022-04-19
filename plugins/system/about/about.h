@@ -162,9 +162,9 @@ private:
     FixLabel *mTrialLabel;
     FixLabel *mAndLabel;
     FixLabel *mAgreeLabel;
-    FixLabel *mHpLabel;
+    QLabel *mHpLabel;
     FixLabel *mEducateIconLabel;
-    FixLabel *mEducateLabel;
+    QLabel *mEducateLabel;
     FixLabel *mTipLabel;
 
 

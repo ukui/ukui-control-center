@@ -587,6 +587,8 @@ void AutoBoot::initStatus()
     for( QString file_name : whitelist) {
         AutoApp app;
         app = setInformation(SYSTEM_CONFIG_DIR+file_name);
+        if (app.name.isEmpty())
+            continue;
         app.xdg_position = SYSTEMPOS;
         appMaps.insert(app.bname, app);
     }

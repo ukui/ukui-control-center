@@ -73,6 +73,7 @@ void UkccAbout::initUI() {
     Lyt_2->setSpacing(8);
     mTipLabel_1 = new LightLabel(tr("Service and Support:"), this);
     mTipLabel_2 = new LightLabel("support@kylinos.cn", this);
+    mTipLabel_2->setStyleSheet("LightLabel{text-decoration: underline}");
     mTipLabel_2->installEventFilter(this);
 
     Lyt_2->addStretch();
