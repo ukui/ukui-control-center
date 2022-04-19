@@ -21,6 +21,7 @@
 #include "aptproxydialog.h"
 #include <QDebug>
 #include "aptinfo.h"
+#include "../../../shell/utils/utils.h"
 
 #define PROXY_SCHEMA              "org.gnome.system.proxy"
 #define PROXY_MODE_KEY            "mode"
@@ -95,7 +96,6 @@ QWidget *Proxy::pluginUi() {
             securesettings = new QGSettings(iddd,QByteArray(),this);
             ftpsettings = new QGSettings(iid,QByteArray(),this);
             sockssettings = new QGSettings(iiid,QByteArray(),this);
-            aptsettings = new QGSettings(iVd,QByteArray(),this);
 
             setupConnect();
             initProxyModeStatus();
@@ -585,15 +585,21 @@ void Proxy::initProxyModeStatus(){
         mManualBtn->setChecked(false);
     }
 
-    if (mAptinfo["open"].toBool()) {
-        mAptBtn->setChecked(true);
-        mAPTHostLabel_2->setText(mAptinfo["ip"].toString());
-        mAPTPortLabel_2->setText(mAptinfo["port"].toString());
+    if (Utils::isTablet()) {
+        mAPTFrame->hide();
+        mAptProxyLabel->hide();
     } else {
-        mAptBtn->setChecked(false);
-        line_7->setVisible(false);
-        mAPTFrame_2->setVisible(false);
+        if (mAptinfo["open"].toBool()) {
+            mAptBtn->setChecked(true);
+            mAPTHostLabel_2->setText(mAptinfo["ip"].toString());
+            mAPTPortLabel_2->setText(mAptinfo["port"].toString());
+        } else {
+            mAptBtn->setChecked(false);
+            line_7->setVisible(false);
+            mAPTFrame_2->setVisible(false);
+        }
     }
+
 
     mAutoBtn->blockSignals(false);
     mManualBtn->blockSignals(false);

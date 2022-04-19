@@ -479,27 +479,47 @@ void About::initUI(QWidget *widget)
     mHoldWidget->setMaximumSize(QSize(16777215, 112));
     mHoldWidget->setFrameShape(QFrame::Box);
 
-    QGridLayout *mHoldLayout = new QGridLayout(mHoldWidget);
-    mHoldLayout->setVerticalSpacing(0);
-    mHoldLayout->setHorizontalSpacing(8);
+    QHBoxLayout *mHoldLayout = new QHBoxLayout(mHoldWidget);
+    mHoldLayout->setSpacing(8);
+    mHoldLayout->setContentsMargins(16, 0, 8, 0);
 
     mQrCodeWidget = new QWidget(mHoldWidget);
-    mQrCodeWidget->setFixedSize(64,64);
+    mQrCodeWidget->setFixedSize(96,96);
 
-    mHpLabel = new FixLabel(mHoldWidget);
+    mHpLabel = new QLabel(mHoldWidget);
     mEducateIconLabel = new FixLabel(mHoldWidget);
-    mEducateIconLabel->setFixedSize(64,64);
-    mEducateLabel = new FixLabel(mHoldWidget);
+    mEducateIconLabel->setFixedSize(96,96);
+    mEducateLabel = new QLabel(mHoldWidget);
+
+    mHpLabel->setWordWrap(true);
+    mEducateLabel->setWordWrap(true);
 
     mHpBtn = new QPushButton(mHoldWidget);
     mEducateBtn = new QPushButton(mHoldWidget);
 
-    mHoldLayout->addWidget(mQrCodeWidget,0,0,2,1);
-    mHoldLayout->addWidget(mHpLabel,0,1,1,3);
-    mHoldLayout->addWidget(mHpBtn,1,1,1,2,Qt::AlignLeft);
-    mHoldLayout->addWidget(mEducateIconLabel,0,4,2,1);
-    mHoldLayout->addWidget(mEducateLabel,0,5,1,3);
-    mHoldLayout->addWidget(mEducateBtn,1,5,1,2,Qt::AlignLeft);
+    QVBoxLayout *Lyt_1 = new QVBoxLayout();
+    Lyt_1->setContentsMargins(0, 8, 0, 8);
+    Lyt_1->setSpacing(4);
+    Lyt_1->addStretch();
+    Lyt_1->addWidget(mHpLabel);
+    Lyt_1->addWidget(mHpBtn);
+    Lyt_1->addStretch();
+
+    QVBoxLayout *Lyt_2 = new QVBoxLayout();
+    Lyt_2->setContentsMargins(0, 8, 0, 8);
+    Lyt_2->setSpacing(4);
+    Lyt_2->addStretch();
+    Lyt_2->addWidget(mEducateLabel);
+    Lyt_2->addWidget(mEducateBtn);
+    Lyt_2->addStretch();
+
+    mHoldLayout->addWidget(mQrCodeWidget);
+    mHoldLayout->addLayout(Lyt_1);
+    mHoldLayout->addSpacing(16);
+    mHoldLayout->addStretch(1);
+    mHoldLayout->addWidget(mEducateIconLabel);
+    mHoldLayout->addLayout(Lyt_2);
+    mHoldLayout->addStretch(1);
 
     AboutLayout->addWidget(mInformationFrame);
     AboutLayout->addWidget(mActivationFrame);
@@ -551,8 +571,8 @@ void About::retranslateUi()
     }
 
     mHpBtn->setText(tr("Learn more HP user manual>>"));
-    mHpBtn->setStyleSheet("background: transparent;color:#2FB3E8;font-size:16px;font-family:Microsoft YaHei;"
-                  "border-width:1px;text-decoration:underline;border-style:none none none;border-color:#2FB3E8;");
+    mHpBtn->setStyleSheet("background: transparent;color:#2FB3E8;font-family:Microsoft YaHei;"
+                  "border-width:1px;text-decoration:underline;border-style:none none none;border-color:#2FB3E8;text-align: left");
     connect(mHpBtn,&QPushButton::clicked,this,[=](){
         QString cmd = "/usr/share/hp-document/hp-document";
         QProcess process(this);
@@ -561,8 +581,8 @@ void About::retranslateUi()
 
     mEducateIconLabel->setPixmap(QPixmap(":/help-app.png").scaled(mEducateIconLabel->size(), Qt::KeepAspectRatio));
     mEducateBtn->setText(tr("See user manual>>"));
-    mEducateBtn->setStyleSheet("background: transparent;color:#2FB3E8;font-size:16px;font-family:Microsoft YaHei;"
-                  "border-width:1px;text-decoration:underline;border-style:none none none;border-color:#2FB3E8;");
+    mEducateBtn->setStyleSheet("background: transparent;color:#2FB3E8;font-size;font-family:Microsoft YaHei;"
+                  "border-width:1px;text-decoration:underline;border-style:none none none;border-color:#2FB3E8;text-align: left");
     connect(mEducateBtn,&QPushButton::clicked,this,[=](){
         QString cmd = "/usr/bin/kylin-user-guide";
         QProcess process(this);
@@ -663,6 +683,7 @@ void About::setupSerialComponent()
         mActivationBtn->hide();
         mTrialLabel->hide();
         mAndLabel->hide();
+        mStatusLabel_2->setStyleSheet("");
         mStatusLabel_2->setText(tr("Activated"));
         mTimeLabel_2->setText(dateRes);
         QTimer::singleShot( 1, this, [=](){
@@ -963,6 +984,9 @@ void About::setupSystemVersion()
         mPriTitleLabel->hide();
         mAndLabel->hide();
         mAgreeLabel->hide();
+        mActivationFrame->hide();
+        mTipLabel->hide();
+        mTrialLabel->hide();
     }
 
     file.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -1026,11 +1050,11 @@ void About::showExtend(QString dateres)
 
 char *About::ntpdate()
 {
-    char *hostname=(char *)"200.20.186.76";
+    char *hostname=(char *)"162.159.200.123";
     int portno = 123;     //NTP is port 123
     int maxlen = 1024;        //check our buffers
     int i;          // misc var i
-    unsigned char msg[48]={010,0,0,0,0,0,0,0,0};    // the packet we send
+    unsigned char msg[48]={(0 << 6) | (3 << 3) | (3 << 0), 0, 4, ((-6) & 0xFF), 0, 0, 0, 0, 0};    // the packet we send
     unsigned long  buf[maxlen]; // the buffer we get back
     struct protoent *proto;
     struct sockaddr_in server_addr;
@@ -1038,7 +1062,7 @@ char *About::ntpdate()
     long tmit;   // the time -- This is a time_t sort of
 
     proto = getprotobyname("udp");
-    s = socket(PF_INET, SOCK_DGRAM, proto->p_proto);
+    s = socket(AF_INET, SOCK_DGRAM, 0);
     if (-1 == s) {
         perror("socket");
         return NULL;
@@ -1050,6 +1074,8 @@ char *About::ntpdate()
 
     server_addr.sin_port=htons(portno);
 
+    int on = 1;
+    setsockopt(s, SOL_SOCKET, SO_REUSEADDR | SO_BROADCAST, &on, sizeof(on));
     i=sendto(s,msg,sizeof(msg),0,(struct sockaddr *)&server_addr,sizeof(server_addr));
     if (-1 == i) {
         perror("sendto");
@@ -1365,4 +1391,3 @@ QPixmap About::loadSvg(const QString &path, int width, int height) {
     pixmap.setDevicePixelRatio(ratio);
     return pixmap;
 }
-
