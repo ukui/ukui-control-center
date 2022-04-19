@@ -168,7 +168,7 @@ void ControlPanel::setUnifiedOutput(const KScreen::OutputPtr &output)
         }
 
         // 隐藏下面控制
-        config->setVisible(output == nullptr);
+        config->setVisible(false);
     }
 
     if (output.isNull()) {
