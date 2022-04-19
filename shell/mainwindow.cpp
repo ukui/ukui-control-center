@@ -677,8 +677,8 @@ void MainWindow::initLeftsideBar(){
         if (moduleIndexList.contains(type)){
             QString mnameString = kvConverter->keycodeTokeystring(type);
             QString mnamei18nString  = kvConverter->keycodeTokeyi18nstring(type); //设置TEXT
-            if (m_ModuleMap.keys().contains(mnameString)) {
-                if (!m_ModuleMap[mnameString].toBool()) {
+            if (m_ModuleMap.keys().contains(Utils::replaceName(mnameString))) {
+                if (!m_ModuleMap[Utils::replaceName(mnameString)].toBool()) {
                     continue;
                 }
             } else if (m_ModuleMap.keys().contains(mnameString.toLower())) {
@@ -711,7 +711,7 @@ void MainWindow::initLeftsideBar(){
 
                 for (FuncInfo tmpStruct : tmpList){
                     if (currentFuncMap.keys().contains(tmpStruct.namei18nString)) {
-                        if (m_ModuleMap.isEmpty() || m_ModuleMap[tmpStruct.nameString.toLower()].toBool() || m_ModuleMap[tmpStruct.nameString].toBool()) {
+                        if (m_ModuleMap.isEmpty() || m_ModuleMap[tmpStruct.nameString.toLower()].toBool() || m_ModuleMap[Utils::replaceName(tmpStruct.nameString)].toBool()) {
                             modulepageWidget->switchPage(currentFuncMap.value(tmpStruct.namei18nString));
                             break;
                         }
@@ -988,7 +988,7 @@ void MainWindow::switchPage(QString moduleName, QString jumpMoudle) {
         auto modules = modulesList.at(i);
         //开始跳转
         if (modules.keys().contains(moduleName)) {
-            if (m_ModuleMap.isEmpty() || m_ModuleMap[jumpMoudle.toLower()].toBool() || m_ModuleMap[jumpMoudle].toBool()) {
+            if (m_ModuleMap.isEmpty() || m_ModuleMap[jumpMoudle.toLower()].toBool() || m_ModuleMap[Utils::replaceName(jumpMoudle)].toBool()) {
                 ui->stackedWidget->setCurrentIndex(1);
                 modulepageWidget->switchPage(modules.value(moduleName));
                 return ;

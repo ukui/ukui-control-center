@@ -11,11 +11,11 @@
                     "visible": true
                 },
                 {
-                    "name": "Autoboot",
+                    "name": "Auto Boot",
                     "visible": true
                 },
                 {
-                    "name": "Defaultapp",
+                    "name": "Default App",
                     "visible": true
                 },
                 {
@@ -47,7 +47,7 @@
                     "visible": true
                 },
                 {
-                    "name": "Userinfo",
+                    "name": "User Info",
                     "visible": true
                 }
             ],
@@ -177,7 +177,7 @@
                     "visible": true
                 },
                 {
-                    "name": "SecurityCenter",
+                    "name": "Security Center",
                     "visible": true
                 },
                 {
