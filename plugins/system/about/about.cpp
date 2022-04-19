@@ -1074,8 +1074,8 @@ char *About::ntpdate()
 
     server_addr.sin_port=htons(portno);
 
-    int on=1;
-    setsockopt(s,SOL_SOCKET,SO_REUSEADDR | SO_BROADCAST,&on,sizeof(on));
+    int on = 1;
+    setsockopt(s, SOL_SOCKET, SO_REUSEADDR | SO_BROADCAST, &on, sizeof(on));
     i=sendto(s,msg,sizeof(msg),0,(struct sockaddr *)&server_addr,sizeof(server_addr));
     if (-1 == i) {
         perror("sendto");
