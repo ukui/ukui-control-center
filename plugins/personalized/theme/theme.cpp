@@ -232,8 +232,9 @@ void Theme::setupSettings() {
 
 void Theme::setupComponent() {
 
-    ui->frame_2->setVisible(getSystemVersion());
-    if (!getSystemVersion()) {
+    ui->frame1->setVisible(!Utils::isCommunity());
+    ui->frame_2->setVisible(Utils::isCommunity());
+    if (!Utils::isCommunity()) {
         ui->horizontalSpacer_10->changeSize(0,0);
     }
 
@@ -699,25 +700,6 @@ QFrame *Theme::setLine(QFrame *frame)
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
     return line;
-}
-
-bool Theme::getSystemVersion() {
-    QString versionPath = "/etc/os-release";
-    QStringList osRes = readFile(versionPath);
-    QString version;
-
-    for (QString str : osRes) {
-        if (str.contains("VERSION_ID=")) {
-            int index = str.indexOf("VERSION_ID=");
-            int startIndex = index + 12;
-            int length = str.length() - startIndex - 1;
-            version = str.mid(startIndex, length);
-        }
-    }
-    if (UbuntuVesionEnhance == version || Utils::isTablet()) {
-        return true;
-    }
-    return false;
 }
 
 QStringList Theme::readFile(QString filepath) {

@@ -111,7 +111,6 @@ private:
     void setCheckStatus(QLayout* mlayout, QString checkName, ThemeType type);
     double convertToTran(const int value);
     int tranConvertToSlider(const double value);
-    bool getSystemVersion();
     QStringList readFile(QString filepath);
     void setupGSettings();
     void kwinCursorSlot(QString value);
