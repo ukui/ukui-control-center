@@ -6086,7 +6086,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../utils/functionselect.cpp" line="195"/>
         <source>Update</source>
-        <translation>更新</translation>
+        <translation>更新与备份</translation>
     </message>
     <message>
         <location filename="../../utils/functionselect.cpp" line="193"/>
