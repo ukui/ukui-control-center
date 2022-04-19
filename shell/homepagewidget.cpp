@@ -97,9 +97,9 @@ void HomePageWidget::initUI() {
             continue;
         }
 
-        // pangw 无安全模块 不显示
-        if ((modulenameString == "security" || modulenameString == "update")
-                   && (Utils::isWayland() || Utils::isCommunity())) {
+        // pangw无安全模块-不显示 社区无更新和安全-不显示
+        if (((modulenameString == "security" || modulenameString == "update") && Utils::isCommunity()) ||
+             (modulenameString == "security" && Utils::isWayland())) {
                      continue;
         }
 
