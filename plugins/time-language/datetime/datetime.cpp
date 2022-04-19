@@ -970,7 +970,7 @@ void CGetSyncRes::run()
         struct timex txc = {};
         if (adjtimex(&txc) < 0 || txc.maxerror >= 16000000) {  //未能同步时间
             int picNum = i - qFloor(i/8)*8; //限制在0~7
-            QString pixName = QString(":/img/plugins/upgrade/loading%1.svg").arg(picNum+10);
+            QString pixName = QString(":/images/loading%1.svg").arg(picNum+10);
             QPixmap pix(pixName);
             qApp->processEvents();
             this->dataTimeUI->syncNetworkRetLabel->setPixmap(pix);

@@ -6,5 +6,13 @@
         <file>list.css</file>
         <file>images/map.png</file>
         <file>images/map.svg</file>
+        <file>images/loading11.svg</file>
+        <file>images/loading10.svg</file>
+        <file>images/loading13.svg</file>
+        <file>images/loading12.svg</file>
+        <file>images/loading14.svg</file>
+        <file>images/loading15.svg</file>
+        <file>images/loading16.svg</file>
+        <file>images/loading17.svg</file>
     </qresource>
 </RCC>
