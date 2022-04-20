@@ -4,94 +4,94 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="526"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="539"/>
         <source>System Summary</source>
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="527"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="540"/>
         <source>Support</source>
         <translation>支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="191"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="528"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="181"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="541"/>
         <source>Version Number</source>
         <translation>版本号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="589"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="602"/>
         <source>Status</source>
         <translation>系统状态</translation>
         <extra-contents_path>/About/Status</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="591"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="604"/>
         <source>DateRes</source>
         <translation>服务到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="531"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="544"/>
         <source>Wechat code scanning obtains HP professional technical support</source>
         <translation>微信扫码获得HP专业技术支持</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="253"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="243"/>
         <source>HostName</source>
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="532"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="545"/>
         <source>See more about Kylin Tianqi edu platform</source>
         <translation>查看麒麟天启教育平台更多信息</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="461"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="454"/>
         <source>&lt;&lt;Protocol&gt;&gt;</source>
         <translation>《试用免责协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="211"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="201"/>
         <source>InterVersion</source>
         <translation>内部版本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="394"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="384"/>
         <source>Privacy and agreement</source>
         <translation>隐私和协议</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="404"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="394"/>
         <source>Send optional diagnostic data</source>
         <translation>发送可选诊断数据</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="406"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="396"/>
         <source>By sending us diagnostic data, improve the system experience and solve your problems faster</source>
         <translation>通过向我们发送诊断数据，提升系统体验以及更快的解决你的问题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="451"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="444"/>
         <source>Copyright © 2009-%1 KylinSoft. All rights reserved.</source>
         <translation>版权所有 © 2009-%1 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="462"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="455"/>
         <source>and</source>
         <translation>和</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="463"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="456"/>
         <source>&lt;&lt;Privacy&gt;&gt;</source>
         <translation>《用户隐私协议》</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="553"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="566"/>
         <source>Learn more HP user manual&gt;&gt;</source>
         <translation>了解更多 Hp用户手册&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="563"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="576"/>
         <source>See user manual&gt;&gt;</source>
         <translation>查看用户手册</translation>
     </message>
@@ -100,32 +100,33 @@
         <translation type="vanished">未激活(试用期)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="652"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="667"/>
         <source>Trial expiration time</source>
         <translation>试用到期时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1019"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1044"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1024"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="685"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1049"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1161"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1182"/>
         <source>The system needs to be restarted to set the HostName, whether to reboot</source>
         <translation>计算机名已被修改，需要重启系统才可正常使用。建议立即重启系统！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1162"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1183"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="1163"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1184"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -138,9 +139,9 @@
         <translation type="vanished">延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="929"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="938"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="1296"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="951"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="960"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="1343"/>
         <source>avaliable</source>
         <translation>可用</translation>
     </message>
@@ -157,7 +158,7 @@
         <translation type="vanished">版权所有2009-2021@kylinos保留所有权利</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="577"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="590"/>
         <source>Version</source>
         <translation>版本名称</translation>
         <extra-contents_path>/About/version</extra-contents_path>
@@ -175,37 +176,37 @@
         <translation type="vanished">版权所有 © 2009-2021 麒麟软件 保留所有权利。</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="579"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="592"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/About/Kernel</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="581"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="594"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/About/CPU</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="583"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="596"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/About/Memory</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="529"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="936"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="542"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="958"/>
         <source>Disk</source>
         <translation>硬盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="585"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="598"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/About/Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="587"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="600"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/About/User</extra-contents_path>
@@ -219,7 +220,7 @@
         <translation type="vanished">有效期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="590"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="603"/>
         <source>Serial</source>
         <translation>序列号</translation>
     </message>
@@ -232,8 +233,8 @@
         <translation type="vanished">序列号</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="654"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="660"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="669"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="676"/>
         <source>Active</source>
         <translation>激活</translation>
     </message>
@@ -250,7 +251,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="65"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="55"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -267,13 +268,13 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="650"/>
-        <location filename="../../../plugins/system/about/about.cpp" line="658"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="665"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="674"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/about/about.cpp" line="666"/>
+        <location filename="../../../plugins/system/about/about.cpp" line="683"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
@@ -8213,9 +8214,8 @@ E-mail: support@kylinos.cn</source>
 <context>
     <name>Proxy</name>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="424"/>
         <source>Auto Proxy</source>
-        <translation>自动代理</translation>
+        <translation type="vanished">自动代理</translation>
         <extra-contents_path>/Proxy/Auto Proxy</extra-contents_path>
     </message>
     <message>
@@ -8223,15 +8223,14 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">开启自动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="426"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="392"/>
         <source>Auto url</source>
         <translation>配置URL</translation>
         <extra-contents_path>/Proxy/Auto url</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="428"/>
         <source>Manual Proxy</source>
-        <translation>手动代理</translation>
+        <translation type="vanished">手动代理</translation>
         <extra-contents_path>/Proxy/Manual Proxy</extra-contents_path>
     </message>
     <message>
@@ -8239,16 +8238,16 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">开启手动代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="430"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="394"/>
         <source>Http Proxy</source>
         <translation>HTTP代理</translation>
         <extra-contents_path>/Proxy/Http Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="437"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="438"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="439"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="440"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="401"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="402"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="403"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="404"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
@@ -8257,30 +8256,30 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">认证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="422"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="390"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="432"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="396"/>
         <source>Https Proxy</source>
         <translation>HTTPS代理</translation>
         <extra-contents_path>/Proxy/Https Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="434"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="398"/>
         <source>Ftp Proxy</source>
         <translation>FTP代理</translation>
         <extra-contents_path>/Proxy/Ftp Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="436"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="400"/>
         <source>Socks Proxy</source>
         <translation>SOCKS代理</translation>
         <extra-contents_path>/Proxy/Socks Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="441"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="405"/>
         <source>List of ignored hosts. more than one entry, please separate with english semicolon(;)</source>
         <translation>忽略的主机列表，请使用英文分号（;）</translation>
     </message>
@@ -8297,50 +8296,70 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="444"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="408"/>
         <source>Apt Proxy</source>
         <translation>APT代理</translation>
         <extra-contents_path>/Proxy/Apt Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="445"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="409"/>
         <source>Open</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="446"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="410"/>
         <source>Server Address : </source>
         <translation>服务器地址：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="447"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="411"/>
         <source>Port : </source>
         <translation>端口：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="448"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="412"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="551"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="510"/>
         <source>The apt proxy  has been turned off and needs to be restarted to take effect</source>
         <translation>apt代理功能已关闭 需重启后生效</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="745"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="722"/>
         <source>The system needs to be restarted to set the Apt proxy, whether to reboot</source>
         <translation>设置APT代理需要重启系统后生效，是否重启系统</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="553"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="747"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="512"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="724"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="552"/>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="746"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="156"/>
+        <source>Start using</source>
+        <translation>启用</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="168"/>
+        <source>Proxy mode</source>
+        <translation>代理类型</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="172"/>
+        <source>Auto</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="175"/>
+        <source>Manual</source>
+        <translation>手动</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="511"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="723"/>
         <source>Reboot Later</source>
         <translation>稍后重启</translation>
     </message>
@@ -8349,7 +8368,7 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">代理</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/proxy/proxy.cpp" line="46"/>
+        <location filename="../../../plugins/network/proxy/proxy.cpp" line="47"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
@@ -8833,8 +8852,8 @@ E-mail: support@kylinos.cn</source>
         <translation>四月</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="228"/>
         <location filename="../../../plugins/time-language/datetime/changtime.cpp" line="33"/>
+        <location filename="../../../plugins/account/userinfo_intel/changevalidinteldialog.cpp" line="228"/>
         <source>May</source>
         <translation>五月</translation>
     </message>
@@ -10082,6 +10101,14 @@ E-mail: support@kylinos.cn</source>
     <message>
         <source>Desktop</source>
         <translation type="vanished">桌面</translation>
+    </message>
+</context>
+<context>
+    <name>StatusDialog</name>
+    <message>
+        <location filename="../../../plugins/system/about/statusdialog.cpp" line="8"/>
+        <source>About</source>
+        <translation>关于本机</translation>
     </message>
 </context>
 <context>

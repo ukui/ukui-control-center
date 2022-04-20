@@ -50,16 +50,6 @@
 #include <QStorageInfo>
 #include <QtMath>
 
-#define THEME_STYLE_SCHEMA "org.ukui.style"
-#define STYLE_NAME_KEY "style-name"
-#define CONTAIN_STYLE_NAME_KEY "styleName"
-#define UKUI_DEFAULT "ukui-default"
-#define UKUI_DARK "ukui-dark"
-
-const QString vTen        = "v10";
-const QString vTenEnhance = "v10.1";
-const QString vFour = "v4";
-
 About::About() : mFirstLoad(true)
 {
     pluginName = tr("About");
@@ -171,7 +161,7 @@ void About::initUI(QWidget *widget)
     mVersionLabel_1 = new FixLabel(mVersionFrame);
     mVersionLabel_1->setFixedSize(80,30);
 
-    mVersionLabel_2 = new QLabel(mVersionFrame);
+    mVersionLabel_2 = new LightLabel(mVersionFrame);
     mVersionLabel_2->setFixedHeight(30);
 
     mVersionLayout->addWidget(mVersionLabel_1);
@@ -191,7 +181,7 @@ void About::initUI(QWidget *widget)
     mVersionNumberLabel_1 = new FixLabel(tr("Version Number") , mVersionNumberFrame);
     mVersionNumberLabel_1->setFixedSize(80,30);
 
-    mVersionNumberLabel_2 = new FixLabel(mVersionNumberFrame);
+    mVersionNumberLabel_2 = new LightLabel(mVersionNumberFrame);
     mVersionNumberLabel_2->setFixedHeight(30);
 
     mVersionNumberLayout->addWidget(mVersionNumberLabel_1);
@@ -211,7 +201,7 @@ void About::initUI(QWidget *widget)
     mInterVersionLabel_1 = new FixLabel(tr("InterVersion") , mInterVersionFrame);
     mInterVersionLabel_1->setFixedSize(80,30);
 
-    mInterVersionLabel_2 = new FixLabel(mInterVersionFrame);
+    mInterVersionLabel_2 = new LightLabel(mInterVersionFrame);
     mInterVersionLabel_2->setFixedHeight(30);
 
     mInterVersionLayout->addWidget(mInterVersionLabel_1);
@@ -231,7 +221,7 @@ void About::initUI(QWidget *widget)
     mVersionNumLabel_1 = new FixLabel(mVersionNumFrame);
     mVersionNumLabel_1->setFixedSize(80,30);
 
-    mVersionNumLabel_2 = new FixLabel(mVersionNumFrame);
+    mVersionNumLabel_2 = new LightLabel(mVersionNumFrame);
     mVersionNumLabel_2->setFixedHeight(30);
 
     mVersionNumLayout->addWidget(mVersionNumLabel_1);
@@ -253,10 +243,10 @@ void About::initUI(QWidget *widget)
     mHostNameLabel_1 = new FixLabel(tr("HostName") , mHostNameFrame);
     mHostNameLabel_1->setFixedSize(80,30);
 
-    mHostNameLabel_2 = new FixLabel(mHostNameFrame );
+    mHostNameLabel_2 = new LightLabel(mHostNameFrame );
     mHostNameLabel_2->setFixedHeight(30);
 
-    mHostNameLabel_3 = new FixLabel(mHostNameFrame);
+    mHostNameLabel_3 = new LightLabel(mHostNameFrame);
     mHostNameLabel_3->setFixedSize(16, 16);
     mHostNameLabel_3->setProperty("useIconHighlightEffect", 0x8);
     mHostNameLabel_3->setPixmap(QIcon::fromTheme("document-edit-symbolic").pixmap(mHostNameLabel_3->size()));
@@ -285,7 +275,7 @@ void About::initUI(QWidget *widget)
     mKernelLabel_1 = new FixLabel(mKernelFrame);
     mKernelLabel_1->setFixedSize(80,30);
 
-    mKernelLabel_2 = new FixLabel(mKernelFrame);
+    mKernelLabel_2 = new LightLabel(mKernelFrame);
     mKernelLabel_2->setFixedHeight(30);
 
     mKernerLayout->addWidget(mKernelLabel_1);
@@ -304,7 +294,7 @@ void About::initUI(QWidget *widget)
     mCpuLabel_1 = new FixLabel(mCpuFrame);
     mCpuLabel_1->setFixedSize(80,30);
 
-    mCpuLabel_2 = new FixLabel(mCpuFrame);
+    mCpuLabel_2 = new LightLabel(mCpuFrame);
     mCpuLabel_2->setFixedHeight(30);
 
     mCpuLayout->addWidget(mCpuLabel_1);
@@ -323,7 +313,7 @@ void About::initUI(QWidget *widget)
     mMemoryLabel_1 = new FixLabel(mMemoryFrame);
     mMemoryLabel_1->setFixedSize(80,30);
 
-    mMemoryLabel_2 = new FixLabel(mMemoryFrame);
+    mMemoryLabel_2 = new LightLabel(mMemoryFrame);
     mMemoryLabel_2->setFixedHeight(30);
 
     mMemoryLayout->addWidget(mMemoryLabel_1);
@@ -342,7 +332,7 @@ void About::initUI(QWidget *widget)
     mDiskLabel_1 = new FixLabel(mDiskFrame);
     mDiskLabel_1->setFixedSize(80,30);
 
-    mDiskLabel_2 = new FixLabel(mDiskFrame);
+    mDiskLabel_2 = new LightLabel(mDiskFrame);
     mDiskLabel_2->setFixedHeight(30);
 
     mDiskLayout->addWidget(mDiskLabel_1);
@@ -361,7 +351,7 @@ void About::initUI(QWidget *widget)
     mDesktopLabel_1 = new FixLabel(mDesktopFrame);
     mDesktopLabel_1->setFixedSize(80,30);
 
-    mDesktopLabel_2 = new FixLabel(mDesktopFrame);
+    mDesktopLabel_2 = new LightLabel(mDesktopFrame);
     mDesktopLabel_2->setFixedHeight(30);
 
     mDesktopLayout->addWidget(mDesktopLabel_1);
@@ -380,7 +370,7 @@ void About::initUI(QWidget *widget)
     mUsernameLabel_1 = new FixLabel(mUsernameFrame);
     mUsernameLabel_1->setFixedSize(80,30);
 
-    mUsernameLabel_2 = new FixLabel(mUsernameFrame);
+    mUsernameLabel_2 = new LightLabel(mUsernameFrame);
     mUsernameLabel_2->setFixedHeight(30);
 
     mUsernameLayout->addWidget(mUsernameLabel_1);
@@ -426,10 +416,11 @@ void About::initUI(QWidget *widget)
 
     mStatusLabel_1 = new FixLabel(mActivationFrame);
     mStatusLabel_1->setFixedSize(160,30);
-    mStatusLabel_2 = new FixLabel(mActivationFrame);
+    mStatusLabel_2 = new LightLabel(mActivationFrame);
     mSequenceLabel_1 = new FixLabel(mActivationFrame);
     mSequenceLabel_1->setFixedSize(160,30);
     mSequenceLabel_2 = new FixLabel(mActivationFrame);
+    mSequenceLabel_2->installEventFilter(this);
     mTimeLabel_1 = new FixLabel(mActivationFrame);
     mTimeLabel_1->setFixedSize(160,30);
     mTimeLabel_2 = new FixLabel(mActivationFrame);
@@ -444,6 +435,8 @@ void About::initUI(QWidget *widget)
     mActivationLayout->addWidget(mTimeLabel_1, 2, 0, 1, 1);
     mActivationLayout->addWidget(mTimeLabel_2, 2, 1, 1, 3,Qt::AlignLeft);
 
+    mTimeLabel_1->hide();
+    mTimeLabel_2->hide();
     mActivationLayout_1->addLayout(mActivationLayout);
     mActivationLayout_1->addWidget(mActivationBtn);
 
@@ -664,7 +657,9 @@ void About::setupSerialComponent()
         trial_dateRes = trial_dateReply.arguments().at(0).toString();
     }
     mSequenceLabel_2->setText(serial);
-
+    mSequenceLabel_2->setStyleSheet("color : #2FB3E8");
+    if (!serial.isEmpty())
+        mActivationBtn->hide();
     if (dateRes.isEmpty()) {  //未激活
          if (!trial_dateRes.isEmpty()) {  //试用期
             mStatusLabel_2->setText(tr("Inactivated"));
@@ -672,6 +667,7 @@ void About::setupSerialComponent()
             mTimeLabel_1->setText(tr("Trial expiration time"));
             mTimeLabel_2->setText(trial_dateRes);
             mActivationBtn->setText(tr("Active"));
+            activestatus = false;
         } else {
              mTimeLabel_1->hide();
              mTimeLabel_2->hide();
@@ -686,6 +682,7 @@ void About::setupSerialComponent()
         mStatusLabel_2->setStyleSheet("");
         mStatusLabel_2->setText(tr("Activated"));
         mTimeLabel_2->setText(dateRes);
+         mActivationBtn->setText(tr("Extend"));
         QTimer::singleShot( 1, this, [=](){
             QString s1(ntpdate());
             s1.remove(QChar('\n'), Qt::CaseInsensitive);
@@ -806,26 +803,29 @@ void About::setupVersionCompenent()
     }
 
     if (!version.isEmpty()) {
-        setLabelText(mVersionLabel_2,version);
-        connect(this,&About::resize,[=](){
-           setLabelText(mVersionLabel_2,version);
-        });
+        mVersionLabel_2->setText(version);
     }
 
     if (!versionID.compare(vTen, Qt::CaseInsensitive) ||
             !versionID.compare(vTenEnhance, Qt::CaseInsensitive) ||
             !versionID.compare(vFour, Qt::CaseInsensitive)) {
         mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-light.svg", 130, 50)); //默认设置为light
+        mThemePixmap = loadSvg("://img/plugins/about/logo-light.svg", 130, 50);
         if (themeStyleQgsettings != nullptr && themeStyleQgsettings->keys().contains(CONTAIN_STYLE_NAME_KEY)) {
             if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) { //深色模式改为dark
                 mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-dark.svg", 130, 50));
+                mThemePixmap = loadSvg("://img/plugins/about/logo-dark.svg", 130, 50);
             }
             connect(themeStyleQgsettings,&QGSettings::changed,this,[=](QString changedKey) {  //监听主题变化
                 if (changedKey == CONTAIN_STYLE_NAME_KEY) {
                     if (themeStyleQgsettings->get(STYLE_NAME_KEY).toString() == UKUI_DARK) {
                         mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-dark.svg", 130, 50));
+                        mThemePixmap = loadSvg("://img/plugins/about/logo-dark.svg", 130, 50);
+                         emit changeTheme();
                     } else {
                         mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logo-light.svg", 130, 50));
+                        mThemePixmap = loadSvg("://img/plugins/about/logo-light.svg", 130, 50);
+                        emit changeTheme();
                     }
                 }
             });
@@ -835,6 +835,7 @@ void About::setupVersionCompenent()
         mTrialLabel->setVisible(false);
         mAndLabel->setVisible(false);
         mLogoLabel->setPixmap(loadSvg("://img/plugins/about/logoukui.svg", 130, 50));
+        mThemePixmap = loadSvg("://img/plugins/about/logoukui.svg", 130, 50);
     }
 
 }
@@ -1074,8 +1075,6 @@ char *About::ntpdate()
 
     server_addr.sin_port=htons(portno);
 
-    int on = 1;
-    setsockopt(s, SOL_SOCKET, SO_REUSEADDR | SO_BROADCAST, &on, sizeof(on));
     i=sendto(s,msg,sizeof(msg),0,(struct sockaddr *)&server_addr,sizeof(server_addr));
     if (-1 == i) {
         perror("sendto");
@@ -1167,13 +1166,7 @@ void About::setLabelText(QLabel *label, QString text)
 /* 处理窗口缩放时的文本显示 */
 bool About::eventFilter(QObject *obj, QEvent *event)
 {
-    if (obj == mVersionFrame ) {
-        if (event->type() == QEvent::Resize) {
-            mVersionLabel_2->setFixedWidth(mVersionFrame->width()-176);
-            emit resize();
-        }
-        return false;
-    } else if (obj == mHostNameLabel_2 || obj == mHostNameLabel_3) {
+    if (obj == mHostNameLabel_2 || obj == mHostNameLabel_3) {
         if (event->type() == QEvent::MouseButtonPress){
             QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
             if (mouseEvent->button() == Qt::LeftButton ){
@@ -1208,8 +1201,34 @@ bool About::eventFilter(QObject *obj, QEvent *event)
             PrivacyDialog *mDialog = new PrivacyDialog(pluginWidget);
             mDialog->exec();
         }
+    } else if ( obj == mSequenceLabel_2) {
+        if (event->type() == QEvent::MouseButtonPress){
+            QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::LeftButton  && !mSequenceLabel_2->text().isEmpty()){
+                StatusDialog *mDialog = new StatusDialog(pluginWidget);
+                mDialog->mLogoLabel->setPixmap(mThemePixmap);
+                connect(this,&About::changeTheme,[=](){
+                    mDialog->mLogoLabel->setPixmap(mThemePixmap);
+                });
+                mDialog->mVersionLabel_1->setText(mVersionLabel_1->text());
+                mDialog->mVersionLabel_2->setText(mVersionLabel_2->text());
+                mDialog->mStatusLabel_1->setText(mStatusLabel_1->text());
+                mDialog->mStatusLabel_2->setText(mStatusLabel_2->text());
+                mDialog->mSerialLabel_1->setText(mSequenceLabel_1->text());
+                mDialog->mSerialLabel_2->setText(mSequenceLabel_2->text());
+                mDialog->mTimeLabel_1->setText(mTimeLabel_1->text());
+                mDialog->mTimeLabel_2->setText(mTimeLabel_2->text());
+                if (!activestatus) {
+                    mDialog->mTimeLabel_1->parentWidget()->hide();
+                }
+                mDialog->mExtentBtn->setText(mActivationBtn->text());
+                connect(mDialog->mExtentBtn, &QPushButton::clicked, this, &About::runActiveWindow);
+                mDialog->exec();
+                return true;
+            }
+        }
     }
-    return false;
+    return QObject::eventFilter(obj, event);
 }
 
 QStringList About::getUserDefaultLanguage()
