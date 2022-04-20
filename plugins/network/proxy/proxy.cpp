@@ -19,9 +19,11 @@
  */
 #include "proxy.h"
 #include "aptproxydialog.h"
-#include <QDebug>
 #include "aptinfo.h"
 #include "../../../shell/utils/utils.h"
+
+#include <QDebug>
+#include <QRegExpValidator>
 
 #define PROXY_SCHEMA              "org.gnome.system.proxy"
 #define PROXY_MODE_KEY            "mode"
@@ -91,6 +93,7 @@ QWidget *Proxy::pluginUi() {
                 QGSettings::isSchemaInstalled(iddd) && QGSettings::isSchemaInstalled(iid) &&
                 QGSettings::isSchemaInstalled(iiid) && QGSettings::isSchemaInstalled(iVd)){
 
+            isExistSettings = true;
             proxysettings = new QGSettings(id,QByteArray(),this);
             httpsettings = new QGSettings(idd,QByteArray(),this);
             securesettings = new QGSettings(iddd,QByteArray(),this);
@@ -104,6 +107,19 @@ QWidget *Proxy::pluginUi() {
             initIgnoreHostStatus();
         } else {
             qCritical() << "Xml needed by Proxy is not installed";
+        }
+    }
+    if (isExistSettings) {
+        if (proxysettings->get(PROXY_MODE_KEY) == "manual") {
+            if ((httpsettings->get(PROXY_HOST_KEY).toString().isEmpty() || httpsettings->get(PROXY_PORT_KEY).toInt() == 0)
+                && (securesettings->get(PROXY_HOST_KEY).toString().isEmpty() || securesettings->get(PROXY_PORT_KEY).toInt() == 0)
+                && (ftpsettings->get(PROXY_HOST_KEY).toString().isEmpty() || ftpsettings->get(PROXY_PORT_KEY).toInt() == 0)
+                && (sockssettings->get(PROXY_HOST_KEY).toString().isEmpty() || sockssettings->get(PROXY_PORT_KEY).toInt() == 0)) {
+                proxysettings->set(PROXY_MODE_KEY,"auto");
+                mManualBtn->setChecked(false);
+                mAutoBtn->setChecked(true);
+                _setSensitivity();
+            }
         }
     }
     return pluginWidget;
@@ -136,43 +152,54 @@ void Proxy::initUi(QWidget *widget)
     mverticalLayout->setContentsMargins(0, 0, 0, 0);
 
     mProxyBtnGroup = new QButtonGroup(this);
+    mProxyBtnGroup->setExclusive (false); // 防止互斥
 
     mTitleLabel = new TitleLabel(widget);
 
-    // 自动代理模块
-    mAutoFrame = new QFrame(widget);
-    mAutoFrame->setMinimumSize(QSize(550, 0));
-    mAutoFrame->setMaximumSize(QSize(16777215, 16777215));
-    mAutoFrame->setFrameShape(QFrame::Box);
+    mProxyFrame = new QFrame(widget);
+    mProxyFrame->setMinimumSize(QSize(550, 0));
+    mProxyFrame->setMaximumSize(QSize(16777215, 16777215));
+    mProxyFrame->setFrameShape(QFrame::Box);
+    QVBoxLayout *Lyt = new QVBoxLayout(mProxyFrame);
+    Lyt->setContentsMargins(0, 0, 0, 0);
+    Lyt->setSpacing(0);
 
-    QVBoxLayout *AutobootLayout = new QVBoxLayout(mAutoFrame);
-    AutobootLayout->setContentsMargins(0, 0, 0, 0);
-    AutobootLayout->setSpacing(0);
+    mEnableFrame = new QFrame(mProxyFrame);
+    setFrame_Noframe(mEnableFrame);
 
-    mAutoProxyWidget = new HoverWidget("",widget);
-    mAutoProxyWidget->setObjectName("mAutoProxyWidget");
-    mAutoProxyWidget->setMinimumSize(QSize(550, 60));
-    mAutoProxyWidget->setMaximumSize(QSize(16777215, 60));
-    mAutoProxyWidget->setStyleSheet(QString("HoverWidget#mAutoProxyWidget{background: palette(base);\
-                                   border-radius: 4px;}"));
+    QHBoxLayout *enableLyt = new QHBoxLayout(mEnableFrame);
+    enableLyt->setContentsMargins(16, 0, 16, 0);
+    QLabel *enableLabel = new QLabel(tr("Start using"), mEnableFrame);
+    mEnableBtn = new SwitchButton(mEnableFrame);
+    enableLyt->addWidget(enableLabel);
+    enableLyt->addWidget(mEnableBtn);
 
-    QHBoxLayout *mAutoProxyLayout = new QHBoxLayout(mAutoProxyWidget);
-    mAutoProxyLayout->setContentsMargins(16, 0, 24, 0);
-    mAutoProxyLayout->setSpacing(0);
+    line_8 = setLine(mProxyFrame);
 
-    mAutoProxyLabel = new QLabel(mAutoProxyWidget);
-    mAutoProxyLabel->setFixedWidth(400);
-
-    mAutoBtn = new QRadioButton(mAutoProxyWidget);
+    mSelectFrame = new QFrame(mProxyFrame);
+    setFrame_Noframe(mSelectFrame);
+    QHBoxLayout *selectLyt = new QHBoxLayout(mSelectFrame);
+    selectLyt->setContentsMargins(16, 0, 16, 0);
+    selectLyt->setSpacing(4);
+    QLabel *selectLabel = new QLabel(tr("Proxy mode"), mSelectFrame);
+    selectLabel->setFixedWidth(148);
+    mAutoBtn = new QRadioButton(mSelectFrame);
     mProxyBtnGroup->addButton(mAutoBtn);
+    QLabel *autoLabel = new QLabel(tr("Auto"), mSelectFrame);
+    mManualBtn = new QRadioButton(mSelectFrame);
+    mProxyBtnGroup->addButton(mManualBtn);
+    QLabel *manualLabel = new QLabel(tr("Manual"), mSelectFrame);
+    selectLyt->addWidget(selectLabel);
+    selectLyt->addWidget(mAutoBtn);
+    selectLyt->addWidget(autoLabel);
+    selectLyt->addSpacing(100);
+    selectLyt->addWidget(mManualBtn);
+    selectLyt->addWidget(manualLabel);
+    selectLyt->addStretch();
 
-    mAutoProxyLayout->addWidget(mAutoProxyLabel);
-    mAutoProxyLayout->addStretch();
-    mAutoProxyLayout->addWidget(mAutoBtn);
+    line_1 = setLine(mProxyFrame);
 
-    line_1 = setLine(mAutoFrame);
-
-    mUrlFrame = new QFrame(mAutoFrame);
+    mUrlFrame = new QFrame(mProxyFrame);
     setFrame_Noframe(mUrlFrame);
 
     QHBoxLayout *mUrlLayout = new QHBoxLayout(mUrlFrame);
@@ -188,56 +215,11 @@ void Proxy::initUi(QWidget *widget)
     mUrlLayout->addWidget(mUrlLabel);
     mUrlLayout->addWidget(mUrlLineEdit);
 
-    AutobootLayout->addWidget(mAutoProxyWidget);
-    AutobootLayout->addWidget(line_1);
-    AutobootLayout->addWidget(mUrlFrame);
-
-    // 手动代理模块
-    mManualFrame = new QFrame(widget);
-    mManualFrame->setMinimumSize(QSize(550, 0));
-    mManualFrame->setMaximumSize(QSize(16777215, 16777215));
-    mManualFrame->setFrameShape(QFrame::Box);
-
-    QVBoxLayout *mManualLayout = new QVBoxLayout(mManualFrame);
-    mManualLayout->setContentsMargins(0, 0, 0, 0);
-    mManualLayout->setSpacing(0);
-
-    mManualProxyWidget = new HoverWidget("",widget);
-    mManualProxyWidget->setObjectName("mManualProxyWidget");
-    mManualProxyWidget->setMinimumSize(QSize(550, 60));
-    mManualProxyWidget->setMaximumSize(QSize(16777215, 60));
-    mManualProxyWidget->setStyleSheet(QString("HoverWidget#mManualProxyWidget{background: palette(base);\
-                                   border-radius: 4px;}"));
-
-    QHBoxLayout *mManualProxyLayout = new QHBoxLayout(mManualProxyWidget);
-    mManualProxyLayout->setContentsMargins(16, 0, 24, 0);
-    mManualProxyLayout->setSpacing(0);
-
-    mManualProxyLabel = new QLabel(mManualProxyWidget);
-    mManualProxyLabel->setFixedWidth(400);
-
-    mManualBtn = new QRadioButton(mManualProxyWidget);
-    mProxyBtnGroup->addButton(mManualBtn);
-
-    mManualProxyLayout->addWidget(mManualProxyLabel);
-    mManualProxyLayout->addStretch();
-    mManualProxyLayout->addWidget(mManualBtn);
-
-    line_2 = setLine(mManualFrame);
+    line_2 = setLine(mProxyFrame);
 
 
-    mHTTPFrame = new QFrame(mManualFrame);
+    mHTTPFrame = new QFrame(mProxyFrame);
     setFrame_Noframe(mHTTPFrame);
-
-
-//    QVBoxLayout *mHTTPLayout = new QVBoxLayout(mHTTPFrame);
-//    mHTTPLayout->setSpacing(0);
-//    mHTTPLayout->setContentsMargins(16, 0, 16, 0);
-
-//    QFrame *mHTTPFrame_1 = new QFrame(mHTTPFrame);
-//    mHTTPFrame_1->setMinimumSize(QSize(550, 60));
-//    mHTTPFrame_1->setMaximumSize(QSize(16777215, 60));
-//    mHTTPFrame_1->setFrameShape(QFrame::NoFrame);
 
     QHBoxLayout *mHTTPLayout_1 = new QHBoxLayout(mHTTPFrame);
     mHTTPLayout_1->setSpacing(8);
@@ -251,14 +233,15 @@ void Proxy::initUi(QWidget *widget)
     mHTTPLineEdit_1->resize(300, 36);
     mHTTPLineEdit_2 = new QLineEdit(mHTTPFrame);
     mHTTPLineEdit_2->setFixedHeight(36);
+    mHTTPLineEdit_2->setValidator(new QRegExpValidator(QRegExp("[0-9]*") , this));
     mHTTPLayout_1->addWidget(mHTTPLabel);
     mHTTPLayout_1->addWidget(mHTTPLineEdit_1);
     mHTTPLayout_1->addWidget(mHTTPPortLabel);
     mHTTPLayout_1->addWidget(mHTTPLineEdit_2);
 
-    line_3 = setLine(mManualFrame);
+    line_3 = setLine(mProxyFrame);
 
-    mHTTPSFrame = new QFrame(mManualFrame);
+    mHTTPSFrame = new QFrame(mProxyFrame);
    setFrame_Noframe(mHTTPSFrame);
 
     QHBoxLayout *mHTTPSLayout = new QHBoxLayout(mHTTPSFrame);
@@ -273,14 +256,15 @@ void Proxy::initUi(QWidget *widget)
     mHTTPSLineEdit_1->resize(300, 36);
     mHTTPSLineEdit_2 = new QLineEdit(mHTTPSFrame);
     mHTTPSLineEdit_2->setFixedHeight(36);
+    mHTTPSLineEdit_2->setValidator(new QRegExpValidator(QRegExp("[0-9]*") , this));
     mHTTPSLayout->addWidget(mHTTPSLabel);
     mHTTPSLayout->addWidget(mHTTPSLineEdit_1);
     mHTTPSLayout->addWidget(mHTTPSPortLabel);
     mHTTPSLayout->addWidget(mHTTPSLineEdit_2);
 
-    line_4 = setLine(mManualFrame);
+    line_4 = setLine(mProxyFrame);
 
-    mFTPFrame = new QFrame(mManualFrame);
+    mFTPFrame = new QFrame(mProxyFrame);
     setFrame_Noframe(mFTPFrame);
 
     QHBoxLayout *mFTPLayout = new QHBoxLayout(mFTPFrame);
@@ -295,14 +279,15 @@ void Proxy::initUi(QWidget *widget)
     mFTPLineEdit_1->resize(300, 36);
     mFTPLineEdit_2 = new QLineEdit(mFTPFrame);
     mFTPLineEdit_2->setFixedHeight(36);
+    mFTPLineEdit_2->setValidator(new QRegExpValidator(QRegExp("[0-9]*") , this));
     mFTPLayout->addWidget(mFTPLabel);
     mFTPLayout->addWidget(mFTPLineEdit_1);
     mFTPLayout->addWidget(mFTPPortLabel);
     mFTPLayout->addWidget(mFTPLineEdit_2);
 
-    line_5 = setLine(mManualFrame);
+    line_5 = setLine(mProxyFrame);
 
-    mSOCKSFrame = new QFrame(mManualFrame);
+    mSOCKSFrame = new QFrame(mProxyFrame);
     setFrame_Noframe(mSOCKSFrame);
 
     QHBoxLayout *mSOCKSLayout = new QHBoxLayout(mSOCKSFrame);
@@ -317,14 +302,15 @@ void Proxy::initUi(QWidget *widget)
     mSOCKSLineEdit_1->resize(300, 36);
     mSOCKSLineEdit_2 = new QLineEdit(mSOCKSFrame);
     mSOCKSLineEdit_2->setFixedHeight(36);
+    mSOCKSLineEdit_2->setValidator(new QRegExpValidator(QRegExp("[0-9]*") , this));
     mSOCKSLayout->addWidget(mSOCKSLabel);
     mSOCKSLayout->addWidget(mSOCKSLineEdit_1);
     mSOCKSLayout->addWidget(mSOCKSPortLabel);
     mSOCKSLayout->addWidget(mSOCKSLineEdit_2);
 
-    line_6 = setLine(mManualFrame);
+    line_6 = setLine(mProxyFrame);
 
-    mIgnoreFrame = new QFrame(mManualFrame);
+    mIgnoreFrame = new QFrame(mProxyFrame);
     mIgnoreFrame->setMinimumSize(QSize(550, 0));
     mIgnoreFrame->setMaximumSize(QSize(16777215, 16777215));
     mIgnoreFrame->setFrameShape(QFrame::NoFrame);
@@ -339,17 +325,21 @@ void Proxy::initUi(QWidget *widget)
     mIgnoreLayout->addWidget(mIgnoreLabel);
     mIgnoreLayout->addWidget(mIgnoreLineEdit);
 
-    mManualLayout->addWidget(mManualProxyWidget);
-    mManualLayout->addWidget(line_2);
-    mManualLayout->addWidget(mHTTPFrame);
-    mManualLayout->addWidget(line_3);
-    mManualLayout->addWidget(mHTTPSFrame);
-    mManualLayout->addWidget(line_4);
-    mManualLayout->addWidget(mFTPFrame);
-    mManualLayout->addWidget(line_5);
-    mManualLayout->addWidget(mSOCKSFrame);
-    mManualLayout->addWidget(line_6);
-    mManualLayout->addWidget(mIgnoreFrame);
+    Lyt->addWidget(mEnableFrame);
+    Lyt->addWidget(line_8);
+    Lyt->addWidget(mSelectFrame);
+    Lyt->addWidget(line_1);
+    Lyt->addWidget(mUrlFrame);
+    Lyt->addWidget(line_2);
+    Lyt->addWidget(mHTTPFrame);
+    Lyt->addWidget(line_3);
+    Lyt->addWidget(mHTTPSFrame);
+    Lyt->addWidget(line_4);
+    Lyt->addWidget(mFTPFrame);
+    Lyt->addWidget(line_5);
+    Lyt->addWidget(mSOCKSFrame);
+    Lyt->addWidget(line_6);
+    Lyt->addWidget(mIgnoreFrame);
 
     //APT代理模块
     mAptProxyLabel = new TitleLabel(widget);
@@ -404,13 +394,11 @@ void Proxy::initUi(QWidget *widget)
     AptLayout->addWidget(mAPTFrame_2);
 
     mverticalLayout->addWidget(mTitleLabel);
-    mverticalLayout->addWidget(mAutoFrame);
-    mverticalLayout->addWidget(mManualFrame);
+    mverticalLayout->addWidget(mProxyFrame);
     mverticalLayout->addSpacing(24);
     mverticalLayout->addWidget(mAptProxyLabel);
     mverticalLayout->addWidget(mAPTFrame);
     mverticalLayout->addStretch();
-
 }
 
 void Proxy::initSearchText() {
@@ -420,12 +408,8 @@ void Proxy::initSearchText() {
 void Proxy::retranslateUi()
 {
     mTitleLabel->setText(tr("System Proxy"));
-    //~ contents_path /Proxy/Auto Proxy
-    mAutoProxyLabel->setText(tr("Auto Proxy"));
     //~ contents_path /Proxy/Auto url
     mUrlLabel->setText(tr("Auto url"));
-    //~ contents_path /Proxy/Manual Proxy
-    mManualProxyLabel->setText(tr("Manual Proxy"));
     //~ contents_path /Proxy/Http Proxy
     mHTTPLabel->setText(tr("Http Proxy"));
     //~ contents_path /Proxy/Https Proxy
@@ -492,30 +476,25 @@ void Proxy::setupComponent(){
 }
 
 void Proxy::setupConnect(){
-    connect(mAutoProxyWidget,&HoverWidget::widgetClicked,[=](){
-        emit mAutoBtn->click();
-    });
-
-    connect(mManualProxyWidget,&HoverWidget::widgetClicked,[=](){
-        emit mManualBtn->click();
+    connect(mEnableBtn, &SwitchButton::checkedChanged, this ,[=](bool checked) {
+        mSelectFrame->setVisible(checked);
+        line_8->setVisible(checked);
+        mAutoBtn->setChecked(checked);
+        mManualBtn->setChecked(false);
+        qDebug()<<mManualBtn->isChecked();
+        proxysettings->set(PROXY_MODE_KEY, checked ? "auto" : "none");
+         _setSensitivity();
     });
 
     connect(mEditBtn ,&QPushButton::clicked, this, &Proxy::setAptProxySlot);
 
     connect(mProxyBtnGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), [=](QAbstractButton * eBtn){
         if (eBtn == mAutoBtn) {
-            mAutoBtn->setChecked(true);
             mManualBtn->setChecked(false);
             proxysettings->set(PROXY_MODE_KEY,"auto");
-        }
-        else if (eBtn == mManualBtn){
+        } else if (eBtn == mManualBtn){
             mAutoBtn->setChecked(false);
-            mManualBtn->setChecked(true);
             proxysettings->set(PROXY_MODE_KEY,"manual");
-        } else {
-            mAutoBtn->setChecked(false);
-            mManualBtn->setChecked(false);
-            proxysettings->set(PROXY_MODE_KEY,"none");
         }
         _setSensitivity();
     });
@@ -575,14 +554,20 @@ void Proxy::initProxyModeStatus(){
     mAutoBtn->blockSignals(true);
     mManualBtn->blockSignals(true);
     mAptBtn->blockSignals(true);
+    mEnableBtn->blockSignals(true);
 
     if (mode == AUTO){
+        mEnableBtn->setChecked(true);
         mAutoBtn->setChecked(true);
     } else if (mode == MANUAL){
+        mEnableBtn->setChecked(true);
         mManualBtn->setChecked(true);
     } else{
+        mEnableBtn->setChecked(false);
         mAutoBtn->setChecked(false);
         mManualBtn->setChecked(false);
+        mSelectFrame->setVisible(false);
+        line_8->setVisible(false);
     }
 
     if (Utils::isTablet()) {
@@ -604,6 +589,7 @@ void Proxy::initProxyModeStatus(){
     mAutoBtn->blockSignals(false);
     mManualBtn->blockSignals(false);
     mAptBtn->blockSignals(false);
+    mEnableBtn->blockSignals(false);
 
     _setSensitivity();
 }
@@ -688,17 +674,22 @@ int Proxy::_getCurrentProxyMode(){
 void Proxy::_setSensitivity(){
     //自动配置代理界面敏感性
     bool autoChecked = mAutoBtn->isChecked();
-    mUrlFrame->setEnabled(autoChecked);
+    mUrlFrame->setVisible(autoChecked);
+    line_1->setVisible(autoChecked);
 
 
     //手动配置代理界面敏感性
     bool manualChecked = mManualBtn->isChecked();
-    mHTTPFrame->setEnabled(manualChecked);
-    mHTTPSFrame->setEnabled(manualChecked);
-    mFTPFrame->setEnabled(manualChecked);
-    mSOCKSFrame->setEnabled(manualChecked);
-    mIgnoreFrame->setEnabled(manualChecked);
-
+    mHTTPFrame->setVisible(manualChecked);
+    mHTTPSFrame->setVisible(manualChecked);
+    mFTPFrame->setVisible(manualChecked);
+    mSOCKSFrame->setVisible(manualChecked);
+    mIgnoreFrame->setVisible(manualChecked);
+    line_2->setVisible(manualChecked);
+    line_3->setVisible(manualChecked);
+    line_4->setVisible(manualChecked);
+    line_5->setVisible(manualChecked);
+    line_6->setVisible(manualChecked);
 }
 
 void Proxy::setAptProxy(QString host, QString port, bool status)

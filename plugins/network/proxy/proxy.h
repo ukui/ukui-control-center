@@ -124,9 +124,7 @@ private:
 
     TitleLabel *mTitleLabel;
     TitleLabel *mAptProxyLabel;
-    QLabel *mAutoProxyLabel;
     QLabel *mUrlLabel;
-    QLabel *mManualProxyLabel;
     QLabel *mHTTPLabel;
     QLabel *mHTTPPortLabel;
     QLabel *mHTTPSLabel;
@@ -147,12 +145,11 @@ private:
     QLabel *mPwdLabel;
 
 
-    QFrame *mAutoFrame;
-    HoverWidget *mAutoProxyWidget;
+    QFrame *mProxyFrame;
+    QFrame *mEnableFrame;
+    QFrame *mSelectFrame;
     QFrame *mUrlFrame;
 
-    QFrame *mManualFrame;
-    HoverWidget *mManualProxyWidget;
     QFrame *mHTTPFrame;
     QFrame *mHTTPSFrame;
     QFrame *mFTPFrame;
@@ -171,9 +168,11 @@ private:
     QFrame *line_5;
     QFrame *line_6;
     QFrame *line_7;
+    QFrame *line_8;
 
     QRadioButton *mAutoBtn;
     QRadioButton *mManualBtn;
+    SwitchButton *mEnableBtn;
     SwitchButton *mAptBtn;
     QPushButton *mEditBtn;
     QCheckBox *mCertificationBtn;
@@ -206,6 +205,7 @@ private:
 
     QDBusInterface *mAptproxyDbus;
 
+    bool isExistSettings = false;
     bool settingsCreate;
     bool mFirstLoad;
 

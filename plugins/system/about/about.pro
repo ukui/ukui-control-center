@@ -22,12 +22,14 @@ HEADERS += \
     about.h \
     hostnamedialog.h \
     privacydialog.h \
+    statusdialog.h \
     trialdialog.h
 
 SOURCES += \
     about.cpp \
     hostnamedialog.cpp \
     privacydialog.cpp \
+    statusdialog.cpp \
     trialdialog.cpp
 
 FORMS +=

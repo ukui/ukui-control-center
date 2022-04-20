@@ -42,6 +42,7 @@
 #include "shell/utils/utils.h"
 #include "hostnamedialog.h"
 #include "privacydialog.h"
+#include "statusdialog.h"
 
 #include "shell/interface.h"
 #include <ukcc/widgets/titlelabel.h>
@@ -141,20 +142,20 @@ private:
     FixLabel *mDiskLabel_1;
     FixLabel *mDesktopLabel_1;
     FixLabel *mUsernameLabel_1;
-    QLabel *mVersionLabel_2;
-    FixLabel *mVersionNumLabel_2;
-    FixLabel *mVersionNumberLabel_2;
-    FixLabel *mInterVersionLabel_2;
-    FixLabel *mHostNameLabel_2;
-    FixLabel *mHostNameLabel_3;
-    FixLabel *mKernelLabel_2;
-    FixLabel *mCpuLabel_2;
-    FixLabel *mMemoryLabel_2;
-    FixLabel *mDiskLabel_2;
-    FixLabel *mDesktopLabel_2;
-    FixLabel *mUsernameLabel_2;
+    LightLabel *mVersionLabel_2;
+    LightLabel *mVersionNumLabel_2;
+    LightLabel *mVersionNumberLabel_2;
+    LightLabel *mInterVersionLabel_2;
+    LightLabel *mHostNameLabel_2;
+    LightLabel *mHostNameLabel_3;
+    LightLabel *mKernelLabel_2;
+    LightLabel *mCpuLabel_2;
+    LightLabel *mMemoryLabel_2;
+    LightLabel *mDiskLabel_2;
+    LightLabel *mDesktopLabel_2;
+    LightLabel *mUsernameLabel_2;
     FixLabel *mStatusLabel_1;
-    FixLabel *mStatusLabel_2;
+    LightLabel *mStatusLabel_2;
     FixLabel *mTimeLabel_1;
     FixLabel *mTimeLabel_2;
     FixLabel *mSequenceLabel_1;
@@ -190,8 +191,12 @@ private:
     QString mMemtotal;
     QString mMemAvaliable;
 
+    QPixmap mThemePixmap;
+    bool activestatus = true;
+
 Q_SIGNALS:
     void resize();
+    void changeTheme();
 
 private slots:
     void activeSlot(int activeSignal);
