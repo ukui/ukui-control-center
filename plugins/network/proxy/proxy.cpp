@@ -65,7 +65,7 @@ int Proxy::pluginTypes() {
 
 QWidget *Proxy::pluginUi() {
     if (mFirstLoad) {
-        mFirstLoad = true;
+        mFirstLoad = false;
         pluginWidget = new QWidget;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         initUi(pluginWidget);
