@@ -577,7 +577,7 @@ bool UkmediaVolumeControl::updateSink(UkmediaVolumeControl *w,const pa_sink_info
         }
         sinkPortMap.insert(info.card,temp);
 
-        qDebug() << "updateSink" << info.volume.channels << info.active_port->description << info.active_port->name << sinkVolume <<"balance：" <<balance << "defauleSinkName:" <<defaultSinkName.data() << "sinkport" << sinkPortName;
+        qDebug() << "updateSink" << "defauleSinkName:" << defaultSinkName.data() << "sinkport" << sinkPortName << "sinkVolume" << sinkVolume ;
 
         const char *icon;
     //    std::map<uint32_t, UkmediaCard*>::iterator cw;
