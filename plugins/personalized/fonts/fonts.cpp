@@ -26,11 +26,10 @@
 #include <QDebug>
 #include <QStandardItemModel>
 
-#define N 3
-#define SMALL 1.00
+#define N      3
+#define SMALL  1.00
 #define MEDIUM 1.25
-#define LARGE 1.50
-
+#define LARGE  1.50
 
 #define INTERFACE_SCHEMA   "org.mate.interface"
 #define DOC_FONT_KEY       "document-font-name"  // 用于阅读文档的默认字体的名称
@@ -148,7 +147,6 @@ void Fonts::setupStylesheet(){
 }
 
 void Fonts::setupComponent(){
-    ui->resetBtn->setVisible(false);
     QStringList fontScale;
     fontScale<< "10" << "11" << "12" << "13" << "14"
               <<"15";
