@@ -22,6 +22,8 @@
 #include <QFile>
 #include <QDebug>
 
+#include "../../../shell/utils/utils.h"
+
 #define PAM_CONF_FILE "/etc/pam.d/common-password"
 
 PasswdCheckUtil::PasswdCheckUtil(QObject *parent) : QObject(parent)
@@ -30,6 +32,10 @@ PasswdCheckUtil::PasswdCheckUtil(QObject *parent) : QObject(parent)
 }
 
 bool PasswdCheckUtil::getCurrentPamState(){
+    // pam_pwquality.so为安全中心密码强度是否开启判断，社区版不做判断
+    if (Utils::isCommunity()) {
+        return true;
+    }
     QFile * readFile = new QFile(PAM_CONF_FILE);
     if (!readFile->open(QIODevice::ReadOnly | QIODevice::Text)){
         readFile->close();
