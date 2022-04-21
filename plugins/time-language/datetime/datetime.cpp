@@ -1017,7 +1017,7 @@ void CSyncTime::run()
         }
         r_datetimeiface->call("SetNTP", true, true);
         struct timex txc = {};
-        if (adjtimex(&txc) > 0 && txc.maxerror < 16000000) { //同步时间成功
+        if (adjtimex(&txc) >= 0 && txc.maxerror < 16000000) { //同步时间成功
             DateTime::syncRTC();
             this->dataTimeUI->syncNetworkRetLabel->setText(successMSG);
             syncThreadFlag = false;
