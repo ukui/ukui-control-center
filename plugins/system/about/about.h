@@ -87,7 +87,7 @@ private:
     void setHostNameCompenet();
     void setPrivacyCompent();
     void showExtend(QString dateres);
-    int ntp_gethostbyname(char *dname, int family, QStringList & host);
+    int ntp_gethostbyname(char *dname, int family, QStringList & host); //获取 IP 地址列表
     char *ntpdate(char *hostname);
     char *getntpdate();
     char *ntpdate();

@@ -236,6 +236,8 @@ void Theme::setupComponent() {
     ui->frame_2->setVisible(Utils::isCommunity());
     if (!Utils::isCommunity()) {
         ui->horizontalSpacer_10->changeSize(0,0);
+    } else {
+        ui->horizontalSpacer_9->changeSize(0,0);
     }
 
     //隐藏现阶段不支持功能
