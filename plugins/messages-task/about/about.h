@@ -68,7 +68,10 @@ private:
     void setupSerialComponent();
     bool QLabelSetText(QLabel *label, QString string);
     void showExtend(QString dateres);
-    char *ntpdate();
+    void compareTime(QString date);
+    int ntp_gethostbyname(char *dname, int family, QStringList & host); //获取 IP 地址列表
+    char *ntpdate(char *hostname);
+    char *getntpdate();
     int getMonth(QString month);
     bool eventFilter(QObject *obj, QEvent *event);
 
@@ -102,6 +105,9 @@ private:
 
     QPixmap mPixmap;
     bool activestatus = true;
+
+    QString dateRes = "";
+    QStringList mNtphostName;
 private slots:
     void runActiveWindow();
     void showPdf();
