@@ -87,7 +87,9 @@ private:
     void setHostNameCompenet();
     void setPrivacyCompent();
     void showExtend(QString dateres);
-    char *ntpdate();
+    int ntp_gethostbyname(char *dname, int family, QStringList & host); //获取 IP 地址列表
+    char *ntpdate(char *hostname);
+    char *getntpdate();
     int getMonth(QString month);
     void reboot();
     void setLabelText(QLabel *label,QString text);
@@ -96,6 +98,7 @@ private:
     QStringList getUserDefaultLanguage();
     QStringList  readFile(QString filepath);
     void getTotalMemory();
+    void compareTime(QString date);
 
     QPixmap loadSvg(const QString &path, int width, int height);
 
@@ -190,6 +193,10 @@ private:
 
     QString mMemtotal;
     QString mMemAvaliable;
+
+    QString dateRes = "";
+
+    QStringList mNtphostName;
 
     QPixmap mThemePixmap;
     bool activestatus = true;

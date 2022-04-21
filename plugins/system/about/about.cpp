@@ -97,6 +97,31 @@ QWidget *About::pluginUi()
 
         if (!mDiskFrame->isHidden())
             setupDiskCompenet();
+
+        mNtphostName.append(QString("0.cn.pool.ntp.org"));
+        mNtphostName.append(QString("1.cn.pool.ntp.org"));
+        mNtphostName.append(QString("2.cn.pool.ntp.org"));
+        mNtphostName.append(QString("3.cn.pool.ntp.org"));
+        mNtphostName.append(QString("cn.pool.ntp.org"));
+        mNtphostName.append(QString("0.tw.pool.ntp.org"));
+        mNtphostName.append(QString("1.tw.pool.ntp.org"));
+        mNtphostName.append(QString("2.tw.pool.ntp.org"));
+        mNtphostName.append(QString("3.tw.pool.ntp.org"));
+        mNtphostName.append(QString("tw.pool.ntp.org"));
+        mNtphostName.append(QString("pool.ntp.org"));
+        mNtphostName.append(QString("time.windows.com"));
+        mNtphostName.append(QString("time.nist.gov"));
+        mNtphostName.append(QString("time-nw.nist.gov"));
+        mNtphostName.append(QString("asia.pool.ntp.org"));
+        mNtphostName.append(QString("europe.pool.ntp.org"));
+        mNtphostName.append(QString("oceania.pool.ntp.org"));
+        mNtphostName.append(QString("north-america.pool.ntp.org"));
+        mNtphostName.append(QString("south-america.pool.ntp.org"));
+        mNtphostName.append(QString("africa.pool.ntp.org"));
+        mNtphostName.append(QString("ca.pool.ntp.org"));
+        mNtphostName.append(QString("uk.pool.ntp.org"));
+        mNtphostName.append(QString("us.pool.ntp.org"));
+        mNtphostName.append(QString("au.pool.ntp.org"));
     }
     return pluginWidget;
 }
@@ -645,8 +670,8 @@ void About::setupSerialComponent()
     } else {
         serial = serialReply.value();
     }
+
     QDBusMessage dateReply = activeInterface.get()->call("date");
-    QString dateRes;
     if (dateReply.type() == QDBusMessage::ReplyMessage) {
         dateRes = dateReply.arguments().at(0).toString();
     }
@@ -683,35 +708,6 @@ void About::setupSerialComponent()
         mStatusLabel_2->setText(tr("Activated"));
         mTimeLabel_2->setText(dateRes);
          mActivationBtn->setText(tr("Extend"));
-        QTimer::singleShot( 1, this, [=](){
-            QString s1(ntpdate());
-            s1.remove(QChar('\n'), Qt::CaseInsensitive);
-            s1.replace(QRegExp("[\\s]+"), " ");   //把所有的多余的空格转为一个空格
-            if (s1.isNull()) {    //未连接上网络
-                mTimeLabel_2->setText(dateRes);
-            } else {    //获取到网络时间
-                qDebug()<<"网络时间 : "<<s1;
-                QStringList list_1 = s1.split(" ");
-                QStringList list_2 = dateRes.split("-");
-                if (QString(list_2.at(0)).toInt() > QString(list_1.at(list_1.count() -1)).toInt() ) { //未到服务到期时间
-                    mTimeLabel_2->setText(dateRes);
-                } else if (QString(list_2.at(0)).toInt() == QString(list_1.at(list_1.count() -1)).toInt()) {
-                    if (QString(list_2.at(1)).toInt() > getMonth(list_1.at(1))) {
-                        mTimeLabel_2->setText(dateRes);
-                    } else if (QString(list_2.at(1)).toInt() == getMonth(list_1.at(1))) {
-                        if (QString(list_2.at(2)).toInt() > QString(list_1.at(2)).toInt()) {
-                            mTimeLabel_2->setText(dateRes);
-                        } else {   // 已过服务到期时间
-                            showExtend(dateRes);
-                        }
-                    } else {
-                        showExtend(dateRes);
-                    }
-                } else {
-                    showExtend(dateRes);
-                }
-            }
-        });
     }
     connect(mActivationBtn, &QPushButton::clicked, this, &About::runActiveWindow);
 }
@@ -1043,15 +1039,56 @@ void About::showExtend(QString dateres)
 {
     mTimeLabel_2->setText(dateres+QString("(%1)").arg(tr("expired")));
     mTimeLabel_2->setStyleSheet("color : red ");
-    mActivationBtn->setVisible(true);
     mTrialLabel->setVisible(true);
     mAndLabel->setVisible(true);
     mActivationBtn->setText(tr("Extend"));
 }
 
-char *About::ntpdate()
+int About::ntp_gethostbyname(char *dname, int family, QStringList &host)
 {
-    char *hostname=(char *)"162.159.200.123";
+    int err = -1;
+    struct addrinfo hint;
+    struct addrinfo *rptr = NULL;
+    struct addrinfo *iptr = NULL;
+
+    char iphost[256] = { 0 };
+
+    do {
+        if (NULL == dname)
+            break;
+
+        memset(&hint, 0, sizeof(hint));
+        hint.ai_family = family;
+        hint.ai_socktype = SOCK_DGRAM;
+
+        err = getaddrinfo(dname, NULL, &hint, &rptr);
+        if (0 != err)
+            break;
+
+        for (iptr = rptr; NULL != iptr; iptr = iptr->ai_next) {
+            if (family != iptr->ai_family)
+                continue;
+            memset(iphost, 0, 256);
+            if (NULL == inet_ntop(family, &(((struct sockaddr_in *)(iptr->ai_addr))->sin_addr), iphost, 256)) {
+                continue;
+            }
+
+            host.append(iphost);
+        }
+
+        err = (host.size() > 0) ? 0 : -3;
+    } while (0);
+
+    if (NULL != rptr) {
+        freeaddrinfo(rptr);
+        rptr = NULL;
+    }
+
+    return err;
+}
+
+char *About::ntpdate(char *hostname)
+{
     int portno = 123;     //NTP is port 123
     int maxlen = 1024;        //check our buffers
     int i;          // misc var i
@@ -1083,8 +1120,8 @@ char *About::ntpdate()
 
     // 设置超时
     struct timeval timeout;
-    timeout.tv_sec = 1;
-    timeout.tv_usec = 0;//微秒
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 300000;//微秒
     if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) == -1) {
         perror("setsockopt failed:");
         return NULL;
@@ -1104,6 +1141,25 @@ char *About::ntpdate()
     tmit -= 2208988800U;
 
     return ctime(&tmit);
+}
+
+char *About::getntpdate()
+{
+    QStringList list;
+    for (QString host : mNtphostName) {
+        list.clear();
+        if (ntp_gethostbyname(host.toLatin1().data(), AF_INET, list) == 0) {
+            for (QString ip : list) {
+                qDebug()<<host<<"----->"<<ip<<"  :";
+                char *IP = ip.toLatin1().data();
+                char *result = ntpdate(IP);
+                if (NULL != result) {
+                    return result;
+                }
+            }
+        }
+    }
+    return NULL;
 }
 
 int About::getMonth(QString month)
@@ -1205,6 +1261,8 @@ bool About::eventFilter(QObject *obj, QEvent *event)
         if (event->type() == QEvent::MouseButtonPress){
             QMouseEvent * mouseEvent = static_cast<QMouseEvent *>(event);
             if (mouseEvent->button() == Qt::LeftButton  && !mSequenceLabel_2->text().isEmpty()){
+                if (!dateRes.isEmpty())
+                    compareTime(dateRes);
                 StatusDialog *mDialog = new StatusDialog(pluginWidget);
                 mDialog->mLogoLabel->setPixmap(mThemePixmap);
                 connect(this,&About::changeTheme,[=](){
@@ -1218,6 +1276,12 @@ bool About::eventFilter(QObject *obj, QEvent *event)
                 mDialog->mSerialLabel_2->setText(mSequenceLabel_2->text());
                 mDialog->mTimeLabel_1->setText(mTimeLabel_1->text());
                 mDialog->mTimeLabel_2->setText(mTimeLabel_2->text());
+                if (mDialog->mTimeLabel_2->text().contains(tr("expired"))) {
+                    mDialog->mTimeLabel_2->setStyleSheet("color : red ");
+                } else {
+                    mDialog->mTimeLabel_2->setStyleSheet("");
+                }
+
                 if (!activestatus) {
                     mDialog->mTimeLabel_1->parentWidget()->hide();
                 }
@@ -1339,6 +1403,49 @@ void About::getTotalMemory()
 
     mMemtotal = QString("%1%2").arg(QString::number(memtotal)).arg("GB");
     mMemAvaliable = QString("%1%2%3%4%5").arg("(").arg(QString::number(memAvaliable, 'f', 1)).arg("GB").arg(tr("avaliable")).arg(")");
+}
+
+void About::compareTime(QString date)
+{
+    QString s1(getntpdate());
+    QStringList list_1;
+    QStringList list_2 = date.split("-");
+    int year;
+    int mouth;
+    int day;
+    if (s1.isNull()) {    //未连接上网络, 和系统时间作对比
+        QString currenttime =  QDateTime::currentDateTime().toString("yyyy-MM-dd");
+        qDebug()<<currenttime;
+         list_1 = currenttime.split("-");
+         year = QString(list_1.at(0)).toInt();
+         mouth = QString(list_1.at(1)).toInt();
+         day = QString(list_1.at(2)).toInt();
+    } else {    //获取到网络时间
+        s1.remove(QChar('\n'), Qt::CaseInsensitive);
+        s1.replace(QRegExp("[\\s]+"), " ");   //把所有的多余的空格转为一个空格
+        qDebug()<<"网络时间 : "<<s1;
+        list_1 = s1.split(" ");
+        year = QString(list_1.at(list_1.count() -1)).toInt();
+        mouth = getMonth(list_1.at(1));
+        day = QString(list_1.at(2)).toInt();
+    }
+    if (QString(list_2.at(0)).toInt() > year) { //未到服务到期时间
+        mTimeLabel_2->setText(date);
+    } else if (QString(list_2.at(0)).toInt() == year) {
+        if (QString(list_2.at(1)).toInt() > mouth) {
+            mTimeLabel_2->setText(date);
+        } else if (QString(list_2.at(1)).toInt() == mouth) {
+            if (QString(list_2.at(2)).toInt() > day) {
+                mTimeLabel_2->setText(date);
+            } else {   // 已过服务到期时间
+                showExtend(date);
+            }
+        } else {
+            showExtend(date);
+        }
+    } else {
+        showExtend(date);
+    }
 }
 
 void About::setFrame_Box(QFrame *frame)
