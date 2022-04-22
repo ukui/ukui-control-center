@@ -52,7 +52,7 @@ void PopList::keyPressEvent(QKeyEvent *event) {
     if(event->key() == Qt::Key_Escape) {
         this->hide();
     }
-    QWidget::keyPressEvent(event);    
+    QWidget::keyPressEvent(event);
 
 }
 
@@ -85,7 +85,7 @@ void PopList::showPopLists(QPoint pos) {
     QSize size = m_listView->size();
 
     //弹出列表移动到鼠标上方
-    this->move(pos.x() - size.width() / 2 -5, pos.y() - size.height() - 8);
+    this->move(pos.x() - size.width() / 2 -5, pos.y() - size.height() - 4);
     this->show();
 
     //全局键盘事件？
