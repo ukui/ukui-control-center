@@ -10,11 +10,10 @@ void PopListDelegate::paint(QPainter *painter, const QStyleOptionViewItem& optio
     painter->save();
 
     painter->setRenderHint(QPainter::Antialiasing);  // 反锯齿;
-   painter->setPen(Qt::transparent);
-   QRect rect(option.rect);
-   rect.setWidth(rect.width() - 1);
-   rect.setHeight(rect.height() - 1);
-
+    painter->setPen(Qt::transparent);
+    QRect rect(option.rect);
+    rect.setWidth(rect.width() - 1);
+    rect.setHeight(rect.height() - 1);
 
     if(option.state.testFlag(QStyle::State_MouseOver)) {
         QColor hoverColor(44, 167, 248);
