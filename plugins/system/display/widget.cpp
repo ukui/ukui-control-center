@@ -714,6 +714,10 @@ void Widget::writeScale(double scale)
     }
 
     if (mIsScaleChanged) {
+        QStringList keys = scaleGSettings->keys();
+        if (keys.contains("scalingFactor")) {
+            scaleGSettings->set(SCALE_KEY, scale);
+        }
         if (!mIsChange) {  //主动切换缩放率，直接提示注销
             showZoomtips();
         } else {
