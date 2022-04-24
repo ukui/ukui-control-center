@@ -99,17 +99,16 @@ void AddAutoBoot::paintEvent(QPaintEvent *event)
 
 void AddAutoBoot::initStyle()
 {
-    ui->titleLabel->setStyleSheet("QLabel{font-size: 18px; color: palette(windowText);}");
+    ui->titleLabel->setStyleSheet("QLabel{color: palette(windowText);}");
 
     selectFile = "";
 
     ui->nameLineEdit->setPlaceholderText(tr("Program name"));
     ui->execLineEdit->setPlaceholderText(tr("Program exec"));
     ui->commentLineEdit->setPlaceholderText(tr("Program comment"));
-
-    ui->hintLabel->setAlignment(Qt::AlignCenter);
-    ui->hintLabel->setStyleSheet("color:red;");
+    ui->hintLabel->setStyleSheet("color: red; text-align: left");
     ui->certainBtn->setEnabled(false);
+
 }
 
 void AddAutoBoot::initConnection()
@@ -162,7 +161,7 @@ AddAutoBoot::~AddAutoBoot()
 void AddAutoBoot::open_desktop_dir_slots()
 {
     QString filters = tr("Desktop files(*.desktop)");
-    QFileDialog fd;
+    QFileDialog fd(this);
     fd.setDirectory(DESKTOPPATH);
     fd.setAcceptMode(QFileDialog::AcceptOpen);
     fd.setViewMode(QFileDialog::List);
@@ -171,7 +170,6 @@ void AddAutoBoot::open_desktop_dir_slots()
     fd.setWindowTitle(tr("select autoboot desktop"));
     fd.setLabelText(QFileDialog::Accept, tr("Select"));
     fd.setLabelText(QFileDialog::Reject, tr("Cancel"));
-
     if (fd.exec() != QDialog::Accepted)
         return;
 
@@ -184,7 +182,7 @@ void AddAutoBoot::open_desktop_dir_slots()
 
     // 解析desktop文件
     GKeyFile *keyfile;
-    char *name, *comment;
+    char *name, *comment,*mname;
     bool no_display;
 
     keyfile = g_key_file_new();
@@ -194,7 +192,9 @@ void AddAutoBoot::open_desktop_dir_slots()
     }
     no_display = g_key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                         G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY, FALSE);
-    name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+    name = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                        G_KEY_FILE_DESKTOP_KEY_NAME, NULL);
+    mname = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                         G_KEY_FILE_DESKTOP_KEY_NAME, NULL, NULL);
     comment = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                            G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
@@ -204,7 +204,7 @@ void AddAutoBoot::open_desktop_dir_slots()
                                          G_KEY_FILE_DESKTOP_KEY_ICON, NULL);
 
     if (userEditNameFlag == false) {   // 用户输入了程序名，以用户输入为准，否则以自带的为准
-        ui->nameLineEdit->setText(QString(name));
+        ui->nameLineEdit->setText(QString(mname));
     }
 
     ui->execLineEdit->setText(QString(selectedfile));
@@ -213,12 +213,13 @@ void AddAutoBoot::open_desktop_dir_slots()
     }
 
     emit ui->execLineEdit->textEdited(QString(selectedfile));
+
     if (no_display) {
         ui->hintLabel->setText(tr("desktop file not allowed add"));
-        ui->hintLabel->setAlignment(Qt::AlignCenter);
         ui->hintLabel->setStyleSheet("color:red;");
         ui->certainBtn->setEnabled(false);
     }
+
     g_key_file_free(keyfile);
 }
 

@@ -27,7 +27,7 @@
 #include "datadefined.h"
 #include "addautoboot.h"
 #include "HoverWidget/hoverwidget.h"
-#include "fixlabel.h"
+#include "fixbtn.h"
 
 #include <QtDBus>
 #include <QGSettings>
