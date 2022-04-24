@@ -31,6 +31,8 @@
 #include <QMouseEvent>
 #include <QPushButton>
 #include <QGSettings>
+#include <QFuture>
+#include <QtConcurrent>
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
@@ -92,12 +94,11 @@ QWidget *AutoBoot::get_plugin_ui()
         ui->setupUi(pluginWidget);
 
         connectToServer();
-        initTitleLabel();
         initStyle();
         localconfigdir = g_build_filename(g_get_user_config_dir(), "autostart", NULL);
 
         // 初始化添加界面
-        dialog = new AddAutoBoot();
+        dialog = new AddAutoBoot(pluginWidget);
 
         initConfig();
         initAddBtn();
@@ -129,12 +130,22 @@ void AutoBoot::initAddBtn()
     addWgt->setObjectName("addwgt");
     addWgt->setMinimumSize(QSize(580, 50));
     addWgt->setMaximumSize(QSize(960, 50));
-    addWgt->setStyleSheet(
-        "HoverWidget#addwgt{background: palette(button); border-radius: 4px;}HoverWidget:hover:!pressed#addwgt{background: #3D6BE5; border-radius: 4px;}");
+    QPalette pal;
+    QBrush brush = pal.highlight();  //获取window的色值
+    QColor highLightColor = brush.color();
+    QString stringColor = QString("rgba(%1,%2,%3)") //叠加20%白色
+           .arg(highLightColor.red()*0.8 + 255*0.2)
+           .arg(highLightColor.green()*0.8 + 255*0.2)
+           .arg(highLightColor.blue()*0.8 + 255*0.2);
 
+    addWgt->setStyleSheet(QString("HoverWidget#addwgt{background: palette(button);\
+                                   border-radius: 4px;}\
+                                   HoverWidget:hover:!pressed#addwgt{background: %1;  \
+                                   border-radius: 4px;}").arg(stringColor));
     QHBoxLayout *addLyt = new QHBoxLayout;
 
     QLabel *iconLabel = new QLabel(pluginWidget);
+    //~ contents_path /autoboot/Add autoboot app
     QLabel *textLabel = new QLabel(tr("Add autoboot app "), pluginWidget);
     QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
     iconLabel->setPixmap(pixgray);
@@ -146,15 +157,20 @@ void AutoBoot::initAddBtn()
     addWgt->setLayout(addLyt);
 
     // 悬浮改变Widget状态
-    connect(addWgt, &HoverWidget::enterWidget, this, [=](QString mname) {
-        Q_UNUSED(mname);
+    connect(addWgt, &HoverWidget::enterWidget, this, [=](){
+
+        iconLabel->setProperty("useIconHighlightEffect", false);
+        iconLabel->setProperty("iconHighlightEffectMode", 0);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "white", 12);
         iconLabel->setPixmap(pixgray);
-        textLabel->setStyleSheet("color: palette(base);");
+        textLabel->setStyleSheet("color: white;");
     });
+
     // 还原状态
-    connect(addWgt, &HoverWidget::leaveWidget, this, [=](QString mname) {
-        Q_UNUSED(mname);
+    connect(addWgt, &HoverWidget::leaveWidget, this, [=](){
+
+        iconLabel->setProperty("useIconHighlightEffect", true);
+        iconLabel->setProperty("iconHighlightEffectMode", 1);
         QPixmap pixgray = ImageUtil::loadSvg(":/img/titlebar/add.svg", "black", 12);
         iconLabel->setPixmap(pixgray);
         textLabel->setStyleSheet("color: palette(windowText);");
@@ -166,13 +182,6 @@ void AutoBoot::initAddBtn()
     });
 
     ui->addLyt->addWidget(addWgt);
-}
-
-void AutoBoot::initTitleLabel()
-{
-    QFont font;
-    font.setPixelSize(18);
-    ui->titleLabel->setFont(font);
 }
 
 void AutoBoot::initStyle()
@@ -618,60 +627,61 @@ gboolean AutoBoot::_key_file_get_boolean(GKeyFile *keyfile, const gchar *key, gb
 AutoApp AutoBoot::_app_new(const char *path)
 {
     AutoApp app;
-    GKeyFile *keyfile;
-    char *bname, *obpath, *name, *comment, *exec, *icon;
-    bool hidden, no_display, enable, shown;
+    QSettings* desktopFile = new QSettings(path, QSettings::IniFormat);
+    QString icon, only_showin, not_show_in;
+    if (desktopFile) {
+       desktopFile->setIniCodec("utf-8");
 
-    app.bname = "";
-    keyfile = g_key_file_new();
+       QFileInfo file = QFileInfo(path);
+       app.bname = file.fileName();
+       app.path = path;
+       app.exec = desktopFile->value(QString("Desktop Entry/Exec")).toString();
+       icon = desktopFile->value(QString("Desktop Entry/Icon")).toString();
+       app.hidden = desktopFile->value(QString("Desktop Entry/Hidden")).toBool();
+       app.no_display = desktopFile->value(QString("Desktop Entry/NoDisplay")).toBool();
+       only_showin = desktopFile->value(QString("Desktop Entry/OnlyShowIn")).toString();
+       not_show_in = desktopFile->value(QString("Desktop Entry/NotShowIn")).toString();
+       bool mshow = true;
+       if (app.bname == "sogouImeService.desktop") {
+           icon = "/opt/sogouimebs/files/share/resources/skin/logo/logo.png";
+       }
+       if (only_showin != nullptr) {
+           if (!only_showin.contains("UKUI")) {
+               mshow = false;
+           }
+       }
+       if (not_show_in != nullptr) {
+           if (not_show_in.contains("UKUI")) {
+               mshow = false;
+           }
+       }
+       app.shown = mshow;
+
+       QFileInfo iconfile(icon);
+
+       if (!QString(icon).isEmpty()) {
+           QIcon currenticon
+               = QIcon::fromTheme(icon,
+                                  QIcon(QString("/usr/share/pixmaps/"+icon
+                                                +".png")));
+           app.pixmap = currenticon.pixmap(QSize(32, 32));
+       } else if (iconfile.exists()) {
+           app.pixmap = QPixmap(iconfile.filePath()).scaled(32, 32);
+       } else {
+           app.pixmap = QPixmap(QString(":/img/plugins/autoboot/desktop.png"));
+       }
+
+       delete desktopFile;
+       desktopFile = nullptr;
+    }
+    //通过glib库函数获取Name字段，防止特殊情况（含有字段X-Ubuntu-Gettext-Domain）
+    GKeyFile *keyfile = g_key_file_new();
     if (!g_key_file_load_from_file(keyfile, path, G_KEY_FILE_NONE, NULL)) {
         g_key_file_free(keyfile);
         return app;
     }
-
-    bname = g_path_get_basename(path);
-    obpath = g_strdup(path);
-    hidden = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_HIDDEN, FALSE);
-    no_display = _key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY, FALSE);
-// enable = _key_file_get_boolean(keyfile, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, TRUE);
-    shown = _key_file_get_shown(keyfile, g_getenv("XDG_CURRENT_DESKTOP"));
-    name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+    app.name = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
                                         G_KEY_FILE_DESKTOP_KEY_NAME, NULL, NULL);
-    comment = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                           G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
-    exec = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC,
-                                 NULL);
-    icon = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
-                                        G_KEY_FILE_DESKTOP_KEY_ICON, NULL, NULL);
-
-    app.bname = QString::fromUtf8(bname);
-    app.path = QString::fromUtf8(obpath);
-
-    app.hidden = hidden;
-    app.no_display = no_display;
-    app.shown = shown;
-// app.enable = enable;
-
-    app.name = QString::fromUtf8(name);
-    app.comment = QString::fromUtf8(comment);
-    app.exec = QString::fromUtf8(exec);
-
-    QFileInfo iconfile(static_cast<QString>(icon));
-
-    if (!QString(icon).isEmpty() /*&& QIcon::hasThemeIcon(QString(icon))*/) {
-        QIcon currenticon
-            = QIcon::fromTheme(QString(icon),
-                               QIcon(QString("/usr/share/pixmaps/"+QString(QLatin1String(icon))
-                                             +".png")));
-        app.pixmap = currenticon.pixmap(QSize(32, 32));
-    } else if (iconfile.exists()) {
-        app.pixmap = QPixmap(iconfile.filePath()).scaled(32, 32);
-    } else {
-        app.pixmap = QPixmap(QString(":/img/plugins/autoboot/desktop.png"));
-    }
-
-    g_free(bname);
-    g_free(obpath);
     g_key_file_free(keyfile);
 
     return app;
@@ -794,37 +804,8 @@ void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exe
     qDebug() << "desktop: "<< path.section("/", -1, -1).toUtf8().data();
 
     filepath = g_build_filename(localconfigdir, filename, NULL);
-
-    GKeyFile *keyfile;
-    keyfile = g_key_file_new();
-
-    const char *locale = const_cast<const char *>(QLocale::system().name().toUtf8().data());
-    char *type = QString("Application").toUtf8().data();
-
-    g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_TYPE, type);
-// g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, APP_KEY_FILE_DESKTOP_KEY_AUTOSTART_ENABLE, true);
-    g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_EXEC,
-                          exec.toUtf8().data());
-    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_HIDDEN, false);
-    g_key_file_set_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY,
-                           false);
-    g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NAME,
-                          name.toUtf8().data());
-    g_key_file_set_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_NAME,
-                                 locale, name.toUtf8().data());
-    g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_COMMENT,
-                          comment.toUtf8().data());
-    g_key_file_set_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_ICON,
-                          icon.toUtf8().data());
-// g_key_file_set_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP, G_KEY_FILE_DESKTOP_KEY_COMMENT, locale, comment.toUtf8().data());
-
-    if (!_key_file_to_file(keyfile, filepath))
-        qDebug() << "Could not save desktop file";
-
-    g_key_file_free(keyfile);
-    g_free(filepath);
-
-    // refresh
+    if(!QFile::copy(path,filepath))
+        return;
     clearAutoItem();
     initUI();
 }
@@ -890,21 +871,26 @@ void AutoBoot::checkbox_changed_cb(QString bname)
 
 void AutoBoot::connectToServer()
 {
-    m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
-                                          "/org/kylinssoclient/path",
-                                          "org.freedesktop.kylinssoclient.interface",
-                                          QDBusConnection::sessionBus());
-    if (!m_cloudInterface->isValid()) {
-        qDebug() << "fail to connect to service";
-        qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
-        return;
-    }
-    QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"),
-                                          QString(
-                                              "org.freedesktop.kylinssoclient.interface"), "keyChanged", this,
-                                          SLOT(keyChangedSlot(QString)));
-    // 将以后所有DBus调用的超时设置为 milliseconds
-    m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+    QtConcurrent::run([=]() {
+        QTime timedebuge;//声明一个时钟对象
+        timedebuge.start();//开始计时
+        m_cloudInterface = new QDBusInterface("org.kylinssoclient.dbus",
+                                              "/org/kylinssoclient/path",
+                                              "org.freedesktop.kylinssoclient.interface",
+                                              QDBusConnection::sessionBus());
+        if (!m_cloudInterface->isValid())
+        {
+            qDebug() << "fail to connect to service";
+            qDebug() << qPrintable(QDBusConnection::systemBus().lastError().message());
+            return;
+        }
+        QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), QString("org.freedesktop.kylinssoclient.interface"), "keyChanged", this, SLOT(keyChangedSlot(QString)));
+        // 将以后所有DBus调用的超时设置为 milliseconds
+        m_cloudInterface->setTimeout(2147483647); // -1 为默认的25s超时
+        qDebug()<<"NetWorkAcount"<<"  线程耗时: "<<timedebuge.elapsed()<<"ms";
+
+    });
+
 }
 
 void AutoBoot::initConfig()
