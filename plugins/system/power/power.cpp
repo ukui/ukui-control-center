@@ -117,6 +117,7 @@ QWidget * Power::get_plugin_ui() {
 
             mPowerKeys = settings->keys();
 
+            initCustomPlanStatus();
             initGeneralSet();
             initModeStatus();
             setupConnect();
@@ -142,8 +143,6 @@ void Power::initSearText() {
     ui->balanceLabel->setText(tr("Balance (suggest)"));
     //~ contents_path /power/Saving
     ui->saveLabel->setText(tr("Saving"));
-    //~ contents_path /power/Custom
-    ui->customLabel->setText(tr("Custom"));
 }
 
 void Power::isPowerSupply() {
@@ -259,7 +258,7 @@ void Power::setupComponent() {
     ui->powerModeBtnGroup->setId(ui->balanceRadioBtn, BALANCE);
     ui->powerModeBtnGroup->setId(ui->savingRadioBtn, SAVING);
      ui->powerModeBtnGroup->setId(ui->performanceRadioBtn,PERFORMANCE );
-    ui->powerModeBtnGroup->setId(ui->custdomRadioBtn, CUSTDOM);
+//    ui->powerModeBtnGroup->setId(ui->custdomRadioBtn, CUSTDOM);
 
     // 电脑睡眠延迟
     sleepStringList  << tr("never") << tr("10 min") << tr("15 min") << tr("20 min") << tr("30 min") << tr("60 min") << tr("120 min") << tr("300 min");
@@ -313,7 +312,6 @@ void Power::setupComponent() {
     ui->iconComboBox->insertItem(0, iconShowList.at(0), "always");
     ui->iconComboBox->insertItem(1, iconShowList.at(1), "present");
     ui->iconComboBox->insertItem(2, iconShowList.at(2), "charge");
-    refreshUI();
 }
 
 void Power::initDeviceStatus(){
@@ -358,8 +356,6 @@ void Power::setupConnect() {
 #else
     connect(ui->powerModeBtnGroup, QOverload<int>::of(&QButtonGroup::buttonClicked), [=](int id) {
 #endif
-        refreshUI();
-
         // 平衡模式
         if (id == BALANCE) {
             mUkccpersonpersonalize->set("custompower", false);
@@ -394,10 +390,6 @@ void Power::setupConnect() {
                     settings->set(POWER_POLICY_AC, 0);
                 }
             }
-        }else {
-            //自定义模式下的POWER_POLICY_KEY的值与切换前的模式有关，这里不做设置
-            mUkccpersonpersonalize->set("custompower", true);
-            initCustomPlanStatus();
         }
     });
 
@@ -499,25 +491,20 @@ void Power::initModeStatus() {
           power_policy = settings->get(POWER_POLICY_AC).toInt();
         }
     }
-    bool powerStatus = mUkccpersonpersonalize->get("custompower").toBool();
-    if (power_policy == 1 && !powerStatus) {
+
+    if (power_policy == 1) {
         ui->balanceRadioBtn->blockSignals(true);
         ui->balanceRadioBtn->setChecked(true);
         ui->balanceRadioBtn->blockSignals(false);
-    } else if (power_policy == 2 && !powerStatus) {
+    } else if (power_policy == 2) {
         ui->savingRadioBtn->blockSignals(true);
         ui->savingRadioBtn->setChecked(true);
         ui->savingRadioBtn->blockSignals(false);
-    } else if (power_policy == 0 && !powerStatus) {
+    } else if (power_policy == 0) {
         ui->performanceRadioBtn->blockSignals(true);
         ui->performanceRadioBtn->setChecked(true);
         ui->performanceRadioBtn->blockSignals(false);
-    }else {
-        ui->custdomRadioBtn->setChecked(true);
-        ui->acBtn->setChecked(true);
-        initCustomPlanStatus();
     }
-    refreshUI();
 }
 
 void Power::initPowerOtherStatus() {
@@ -525,22 +512,6 @@ void Power::initPowerOtherStatus() {
     ui->iconComboBox->blockSignals(true);
     ui->iconComboBox->setCurrentIndex(ui->iconComboBox->findData(value));
     ui->iconComboBox->blockSignals(false);
-}
-
-void Power::resetCustomPlanStatus() {
-    // 当其他电源计划切换至自定义时，默认状态为从不
-    // 设置显示器关闭
-    settings->set(SLEEP_DISPLAY_AC_KEY, 0);
-    settings->set(SLEEP_DISPLAY_BATT_KEY, 0);
-    // 设置计算机睡眠
-    settings->set(SLEEP_COMPUTER_AC_KEY, 0);
-    settings->set(SLEEP_COMPUTER_BATT_KEY, 0);
-
-    settings->set(BUTTON_LID_AC_KEY, "nothing");
-    settings->set(BUTTON_LID_BATT_KET, "nothing");
-
-    ui->acBtn->setChecked(true);
-    initCustomPlanStatus();
 }
 
 void Power::initCustomPlanStatus() {
@@ -563,7 +534,7 @@ void Power::initCustomPlanStatus() {
         ui->closeLidCombo->setCurrentIndex(ui->closeLidCombo->findData(aclid));
 
         // 变暗
-        ui->darkenFrame->hide();
+        ui->darkenFrame->setVisible(false);
     }
 
     if (ui->batteryBtn->isChecked()) {
@@ -582,7 +553,7 @@ void Power::initCustomPlanStatus() {
         // 变暗
         int darkentime = settings->get(IDLE_DIM_TIME_KEY).toInt() / FIXES;
         ui->darkenCombo->setCurrentIndex(ui->darkenCombo->findData(darkentime));
-        ui->darkenFrame->show();
+        ui->darkenFrame->setVisible(true);
     }
 
     ui->sleepLabel->setText(tr("Change PC sleep time:"));
@@ -592,21 +563,6 @@ void Power::initCustomPlanStatus() {
     ui->sleepComboBox->blockSignals(false);
     ui->closeComboBox->blockSignals(false);
     ui->darkenCombo->blockSignals(false);
-}
-
-void Power::refreshUI() {
-    if (ui->powerModeBtnGroup->checkedId() != CUSTDOM) {
-        ui->custom1Frame->hide();
-        ui->custom2Frame->hide();
-        ui->closeLidFrame->hide();
-        if (ui->batteryBtn->isChecked()) {
-            ui->darkenFrame->hide();
-        }
-    } else {
-        ui->custom1Frame->show();
-        ui->custom2Frame->show();
-        ui->closeLidFrame->setVisible(isExitsLid);
-    }
 }
 
 // 空闲时间
@@ -652,11 +608,9 @@ void Power::initGeneralSet() {
         // 电源按钮操作
         mPowerBtn = new ComboxFrame(tr("When the power button is pressed:"), pluginWidget);
 
-        mPowerBtn->mHLayout->setSpacing(48);
+        mPowerBtn->mHLayout->setSpacing(32);
         mPowerBtn->mHLayout->setContentsMargins(16, 0, 16, 0);
-
-        mPowerBtn->mTitleLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        mPowerBtn->mTitleLabel->setMinimumWidth(300);
+        mPowerBtn->mTitleLabel->setFixedWidth(300);
         ui->powerLayout->addWidget(mPowerBtn);
 
         for(int i = 0; i < kLid.length(); i++) {
@@ -676,11 +630,11 @@ void Power::initGeneralSet() {
 
 
     if (isExitsPower) {
-
         // 低电量操作
         mBatteryAct = new ComboxFrame(true, tr("Perform operations when battery is low:"), pluginWidget);
-        mBatteryAct->mTitleLabel->setMinimumWidth(300);
+        mBatteryAct->mTitleLabel->setFixedWidth(300);
         mBatteryAct->mHLayout->setContentsMargins(16, 0, 16, 0);
+        mBatteryAct->mHLayout->setSpacing(32);
 
         mBatteryAct->mNumCombox->setMaximumWidth(230);
 
@@ -713,7 +667,11 @@ void Power::initGeneralSet() {
             settings->set(ACTION_CRI_BTY, mBatteryAct->mCombox->itemData(index));
         });
 
+         ui->powerLayout->addStretch();
+
     }
+
+
 
     /* 休眠接口后续开放
     if (getHibernateStatus() && mPowerKeys.contains("afterIdleAction")) {

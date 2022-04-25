@@ -58,12 +58,10 @@ public:
     void setupConnect();
     void initModeStatus();
     void initCustomPlanStatus();
-    void resetCustomPlanStatus();
     void initPowerOtherStatus();
     void isPowerSupply();
     void isLidPresent();
     void isHibernateSupply();
-    void refreshUI();
     int  getIdleTime();
     bool isPerforSupply();
 
