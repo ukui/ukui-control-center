@@ -847,7 +847,6 @@ void Theme::writeKwinSettings(bool change, QString theme, bool effect) {
         kwinSettings->setValue("blurEnabled", false);
         kwinSettings->setValue("kwin4_effect_maximizeEnabled", false);
         kwinSettings->setValue("kwin4_effect_translucencyEnabled", false);
-        kwinSettings->setValue("zoomEnabled", false);
         kwinSettings->endGroup();
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
 
@@ -866,7 +865,6 @@ void Theme::writeKwinSettings(bool change, QString theme, bool effect) {
         kwinSettings->setValue("blurEnabled", true);
         kwinSettings->setValue("kwin4_effect_maximizeEnabled", true);
         kwinSettings->setValue("kwin4_effect_translucencyEnabled", true);
-        kwinSettings->setValue("zoomEnabled", true);
         kwinSettings->endGroup();
 #if QT_VERSION <= QT_VERSION_CHECK(5, 12, 0)
 
