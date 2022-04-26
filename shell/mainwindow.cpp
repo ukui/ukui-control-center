@@ -589,6 +589,7 @@ void MainWindow::initLeftsideBar(){
 
     QWidget *menuWidget = new QWidget(this);
     QVBoxLayout *menuLayout = new QVBoxLayout(menuWidget);
+    menuLayout->setContentsMargins(8,0,0,8);
     menuLayout->setSpacing(4);
 
     scrollArea->viewport()->setAttribute(Qt::WA_TranslucentBackground);
@@ -616,7 +617,7 @@ void MainWindow::initLeftsideBar(){
             if (type != 0) {
                 typeLayout->setContentsMargins(18,20,0,0);
             } else {
-                typeLayout->setContentsMargins(18,0,0,0);
+                typeLayout->setContentsMargins(18,10,0,0);
             }
             typeLayout->addWidget(typeLabel);
             typeLabel->setText(mnamei18nString);
@@ -654,7 +655,7 @@ void MainWindow::initLeftsideBar(){
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(4, 0, 0, 0);
+                pluginLayout->setContentsMargins(0, 0, 0, 0);
 //                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
@@ -701,7 +702,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName, QIcon 
     QPushButton * leftsidebarBtn = new QPushButton();
     leftsidebarBtn->setAttribute(Qt::WA_DeleteOnClose);
     leftsidebarBtn->setCheckable(true);
-    leftsidebarBtn->setFixedSize(220,40);  //一级菜单按钮显示的宽度
+    leftsidebarBtn->setFixedSize(230,40);  //一级菜单按钮显示的宽度
 
     IconButton * iconBtn = new IconButton(bname, icon, leftsidebarBtn);
     iconBtn->setCheckable(true);
