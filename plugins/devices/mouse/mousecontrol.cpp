@@ -216,7 +216,7 @@ void MouseControl::setupComponent() {
     //设置指针大小
     ui->pointerSizeComBox->setMaxVisibleItems(5);
     ui->pointerSizeComBox->addItem(tr("Default(Recommended)"), 24); //100%
-    ui->pointerSizeComBox->addItem(tr("Medium"), 32); //125%
+    ui->pointerSizeComBox->addItem(tr("Medium"), 36); //125%
     ui->pointerSizeComBox->addItem(tr("Large"), 48); //150%
 
     //设置鼠标滚轮是否显示
