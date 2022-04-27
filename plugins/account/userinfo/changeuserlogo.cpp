@@ -232,9 +232,10 @@ void ChangeUserLogo::setupConnect(){
     connect(culConfirmBtn, &QPushButton::clicked, this, [=]{
         if (selected != "") {
             qDebug() << "selected:" << selected << ";" << __LINE__;
-            culiface->call("SetIconFile", selected);
-
-            emit face_file_send(selected);
+            QDBusReply<bool> reply = culiface->call("SetIconFile", selected);
+            if (reply.isValid()) {
+                emit face_file_send(selected);
+            }
         }
         close();
     });
