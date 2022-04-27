@@ -497,7 +497,7 @@ void MouseUI::gsettingConnection()
             int PointerSize = mMouseGsetting->get(kPointerSizeKey).toInt();
             if (PointerSize == 24) {
                 mPointerSizeSmallRadio->setChecked(true);
-            } else if (PointerSize == 32) {
+            } else if (PointerSize == 36) {
                 mPointerSizeMediumRadio->setChecked(true);
             } else if (PointerSize == 48) {
                 mPointerSizeLargeRadio->setChecked(true);
@@ -562,7 +562,7 @@ void MouseUI::initEnableStatus()
     int currentPointerSize = mMouseGsetting->get(kPointerSizeKey).toInt();
     if (currentPointerSize == 24) {
         mPointerSizeSmallRadio->setChecked(true);
-    } else if (currentPointerSize == 32) {
+    } else if (currentPointerSize == 36) {
         mPointerSizeMediumRadio->setChecked(true);
     } else if (currentPointerSize == 48) {
         mPointerSizeLargeRadio->setChecked(true);
@@ -633,7 +633,7 @@ void MouseUI::pointerSizeSlot(QAbstractButton *button)
     if (QString::compare(pointerSize, "Small") == 0) {
         tmpPointerSize = 24;
     } else if (QString::compare(pointerSize, "Medium") == 0) {
-        tmpPointerSize = 32;
+        tmpPointerSize = 36;
     } else if (QString::compare(pointerSize, "Large") == 0) {
         tmpPointerSize = 48;
     }
