@@ -13,7 +13,7 @@
         <translation type="vanished">已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="549"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="658"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -51,21 +51,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="551"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="660"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="553"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="662"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="555"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="664"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -77,21 +77,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="557"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="666"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="559"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="668"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="561"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="670"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Active Status</extra-contents_path>
@@ -108,7 +108,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="672"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="565"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="674"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -119,8 +119,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="642"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="280"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="563"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="308"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="672"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -138,7 +138,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="52"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="53"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -155,22 +155,23 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="277"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="304"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="285"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="314"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="326"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="325"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="539"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="287"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="316"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
@@ -1271,51 +1272,51 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="435"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1040"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="434"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1039"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1313"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
         <extra-contents_path>/bluetooth/Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="460"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1066"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="459"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1065"/>
         <source>Turn on :</source>
         <translation>开启</translation>
         <extra-contents_path>/bluetooth/Turn on Bluetooth</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="493"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1100"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="492"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1099"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1413"/>
         <source>Bluetooth adapter</source>
         <translation>蓝牙适配器</translation>
         <extra-contents_path>/bluetooth/Bluetooth adapter</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="521"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1133"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="520"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1132"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1451"/>
         <source>Show icon on taskbar</source>
         <translation>在任务栏显示蓝牙图标</translation>
         <extra-contents_path>/bluetooth/Show icon on taskbar</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="554"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1165"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="553"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1164"/>
         <source>Discoverable by nearby Bluetooth devices</source>
         <translation>可被附近的蓝牙设备发现</translation>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="861"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1684"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="860"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1689"/>
         <source>Bluetooth adapter is abnormal !</source>
         <translation>蓝牙适配器异常！</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1685"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1690"/>
         <source>You can refer to the rfkill command for details.</source>
         <translation>可使用rfkill命令进行查看</translation>
     </message>
@@ -1330,8 +1331,8 @@ Please authenticate yourself to continue</source>
         <extra-contents_path>/bluetooth/Discoverable</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="733"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1205"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="732"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1204"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1518"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
@@ -1341,8 +1342,8 @@ Please authenticate yourself to continue</source>
         <translation type="vanished">现在可被发现为 </translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="752"/>
-        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1222"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="751"/>
+        <location filename="../../../plugins/devices/bluetooth/bluetoothmain.cpp" line="1221"/>
         <location filename="../../../plugins/devices/ukcc-bluetooth/bluetoothmain.cpp" line="1550"/>
         <source>Other Devices</source>
         <translation>蓝牙设备</translation>
@@ -1714,7 +1715,7 @@ Please authenticate yourself to continue</source>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="271"/>
         <source>Authentication failed, input authtok again!</source>
-        <translation type="unfinished"></translation>
+        <translation>密码输入错误，请重新输入！</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changepwddialog.cpp" line="414"/>
@@ -1821,6 +1822,7 @@ Please authenticate yourself to continue</source>
         <translation>长度必须为8-16个字符</translation>
     </message>
     <message>
+        <location filename="../../advance/changepwdwidget.cpp" line="233"/>
         <location filename="../../advance/changepwdwidget.cpp" line="245"/>
         <source>Inconsistent input</source>
         <translation>与新密码不同</translation>
@@ -2922,12 +2924,12 @@ folder will be deleted!</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="145"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="151"/>
         <source>Device connected</source>
         <translation>设备连接</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="149"/>
+        <location filename="../../../plugins/devices/bluetooth/deviceinfoitem.cpp" line="155"/>
         <source>Device not connected</source>
         <translation>设备未连接</translation>
     </message>
@@ -4867,7 +4869,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="419"/>
+        <location filename="../../mainwindow.cpp" line="424"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -4876,49 +4878,49 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="439"/>
-        <location filename="../../mainwindow.cpp" line="656"/>
-        <location filename="../../mainwindow.cpp" line="820"/>
+        <location filename="../../mainwindow.cpp" line="444"/>
+        <location filename="../../mainwindow.cpp" line="662"/>
+        <location filename="../../mainwindow.cpp" line="830"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="448"/>
+        <location filename="../../mainwindow.cpp" line="453"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="449"/>
+        <location filename="../../mainwindow.cpp" line="454"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="450"/>
+        <location filename="../../mainwindow.cpp" line="455"/>
         <source>Maximize/Normal</source>
         <translation>最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="451"/>
+        <location filename="../../mainwindow.cpp" line="456"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="499"/>
+        <location filename="../../mainwindow.cpp" line="504"/>
         <source>Advance</source>
         <translation>高级配置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="511"/>
+        <location filename="../../mainwindow.cpp" line="516"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="513"/>
+        <location filename="../../mainwindow.cpp" line="518"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="515"/>
+        <location filename="../../mainwindow.cpp" line="520"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -4927,17 +4929,17 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1003"/>
+        <location filename="../../mainwindow.cpp" line="998"/>
         <source>Warnning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1003"/>
+        <location filename="../../mainwindow.cpp" line="998"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="661"/>
+        <location filename="../../mainwindow.cpp" line="667"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
@@ -4945,17 +4947,17 @@ Please retry or relogin!</source>
 <context>
     <name>ModuleSetDialog</name>
     <message>
-        <location filename="../../advance/modulesetdialog.cpp" line="16"/>
+        <location filename="../../advance/modulesetdialog.cpp" line="18"/>
         <source>Set</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../advance/modulesetdialog.cpp" line="55"/>
+        <location filename="../../advance/modulesetdialog.cpp" line="56"/>
         <source>Module settings</source>
         <translation>模块设置</translation>
     </message>
     <message>
-        <location filename="../../advance/modulesetdialog.cpp" line="68"/>
+        <location filename="../../advance/modulesetdialog.cpp" line="69"/>
         <source>Module pwd</source>
         <translation>修改口令</translation>
     </message>
@@ -5622,23 +5624,23 @@ Please retry or relogin!</source>
 <context>
     <name>PluginWidget</name>
     <message>
-        <location filename="../../advance/pluginwidget.cpp" line="41"/>
+        <location filename="../../advance/pluginwidget.cpp" line="42"/>
         <source>Checked modules will be displayed in the left navigation of &apos;&apos;Settings&apos;&apos;, and unchecked modules will be hidden.</source>
         <translation>勾选的模块将在&quot;设置&quot;左侧导航中显示,未勾选的模块将会隐藏。</translation>
     </message>
     <message>
-        <location filename="../../advance/pluginwidget.cpp" line="86"/>
+        <location filename="../../advance/pluginwidget.cpp" line="83"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../advance/pluginwidget.cpp" line="88"/>
-        <location filename="../../advance/pluginwidget.cpp" line="186"/>
+        <location filename="../../advance/pluginwidget.cpp" line="85"/>
+        <location filename="../../advance/pluginwidget.cpp" line="183"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../advance/pluginwidget.cpp" line="181"/>
+        <location filename="../../advance/pluginwidget.cpp" line="178"/>
         <source>The module configuration has been modified, the application will restart with the new configuration</source>
         <translation>模块配置已修改，应用将重启使用新的配置</translation>
     </message>
@@ -5652,14 +5654,14 @@ Please retry or relogin!</source>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="151"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="142"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="143"/>
         <source>Balance (suggest)</source>
         <translation>平衡(推荐)</translation>
         <extra-contents_path>/power/Balance (suggest)</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/system/power/power.ui" line="261"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="144"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="145"/>
         <source>Saving</source>
         <translation>节能</translation>
         <extra-contents_path>/power/Saving</extra-contents_path>
@@ -5690,38 +5692,35 @@ Please retry or relogin!</source>
         <translation>以最大性能运行</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="449"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="146"/>
         <source>Custom</source>
-        <translation>自定义</translation>
+        <translation type="vanished">自定义</translation>
         <extra-contents_path>/power/Custom</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="465"/>
         <source>Users develop personalized power plans</source>
-        <translation>用户制定个性化电源计划</translation>
+        <translation type="vanished">用户制定个性化电源计划</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="571"/>
+        <location filename="../../../plugins/system/power/power.ui" line="461"/>
         <source>Power supply</source>
         <translation>电源供给</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="605"/>
+        <location filename="../../../plugins/system/power/power.ui" line="495"/>
         <source>Battery powered</source>
         <translation>电池供给</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="665"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="433"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="588"/>
+        <location filename="../../../plugins/system/power/power.ui" line="555"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="425"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="559"/>
         <source>Change PC sleep time:</source>
         <translation>系统进入空闲状态并于此时间后睡眠：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="767"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="450"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="589"/>
+        <location filename="../../../plugins/system/power/power.ui" line="657"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="442"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="560"/>
         <source>Change DP close time:</source>
         <translation>系统进入空闲状态并于此时间后关闭显示器：</translation>
     </message>
@@ -5734,12 +5733,12 @@ Please retry or relogin!</source>
         <translation type="vanished">系统进入空闲状态并于此时间后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="872"/>
+        <location filename="../../../plugins/system/power/power.ui" line="762"/>
         <source>When close lid:</source>
         <translation>关闭笔记本电脑上盖时：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="952"/>
+        <location filename="../../../plugins/system/power/power.ui" line="842"/>
         <source>Screen darkens use battery:</source>
         <translation>无操作状态下于此时间后减小屏幕亮度：</translation>
     </message>
@@ -5756,7 +5755,7 @@ Please retry or relogin!</source>
         <translation type="vanished">电源图标设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="1073"/>
+        <location filename="../../../plugins/system/power/power.ui" line="963"/>
         <source>Power icon:</source>
         <translation>电源图标：</translation>
     </message>
@@ -5778,128 +5777,128 @@ Please retry or relogin!</source>
         <translation type="vanished">系统%1分钟后进入空闲状态并于此时间后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="223"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="222"/>
         <source>Enter idle state %1 min and sleep after %2 min :</source>
         <translation>系统%1分钟后进入空闲状态并于%2分钟后挂起：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="227"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="226"/>
         <source>Enter idle state %1 min and close after %2 min :</source>
         <translation>系统%1分钟后进入空闲状态并于%2分钟后关闭显示器：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="299"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="298"/>
         <source>never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="299"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="298"/>
         <source>10 min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
         <source>30 min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
         <source>60 min</source>
         <translation>60分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
         <source>120 min</source>
         <translation>120分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
         <source>300 min</source>
         <translation>300分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="299"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="298"/>
         <source>20 min</source>
         <translation>20分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="265"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="264"/>
         <source>15 min</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="299"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="298"/>
         <source>1 min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="276"/>
-        <location filename="../../../plugins/system/power/power.cpp" line="299"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="275"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="298"/>
         <source>5 min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="287"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="286"/>
         <source>nothing</source>
         <translation>无操作</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="287"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="286"/>
         <source>blank</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="287"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="286"/>
         <source>suspend</source>
         <translation>睡眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="295"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="294"/>
         <source>hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="287"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="286"/>
         <source>shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="312"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="311"/>
         <source>always</source>
         <translation>显示电源图标在托盘栏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="312"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="311"/>
         <source>present</source>
         <translation>仅当存在电池时显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="312"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="311"/>
         <source>charge</source>
         <translation>仅当使用电池时显示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="681"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="634"/>
         <source>Perform operations when battery is low:</source>
         <translation>低电量执行操作:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.ui" line="1004"/>
+        <location filename="../../../plugins/system/power/power.ui" line="894"/>
         <source>General Settings</source>
         <translation>通用设置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/power/power.cpp" line="653"/>
+        <location filename="../../../plugins/system/power/power.cpp" line="609"/>
         <source>When the power button is pressed:</source>
         <translation>按电源键时执行:</translation>
     </message>
@@ -6397,12 +6396,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">开机启动</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="53"/>
+        <location filename="../../utils/functionselect.cpp" line="54"/>
         <source>TouchScreen</source>
         <translation>触摸屏</translation>
     </message>
     <message>
-        <location filename="../../utils/functionselect.cpp" line="55"/>
+        <location filename="../../utils/functionselect.cpp" line="56"/>
         <source>Default App</source>
         <translation>默认应用</translation>
     </message>
@@ -6943,27 +6942,27 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>自动启动的应用程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1560"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1561"/>
         <source>pa_context_subscribe() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1576"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1577"/>
         <source>pa_context_client_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1583"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1584"/>
         <source>pa_context_get_card_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1590"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1591"/>
         <source>pa_context_get_sink_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1597"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1598"/>
         <source>pa_context_get_source_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6973,17 +6972,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1604"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1605"/>
         <source>pa_context_get_sink_input_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1611"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1612"/>
         <source>pa_context_get_source_output_info_list() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1627"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1628"/>
         <source>Connection failed, attempting reconnect</source>
         <translation>连接失败，尝试重新连接</translation>
     </message>
@@ -6995,13 +6994,13 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="212"/>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1494"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1569"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1570"/>
         <source>pa_context_get_server_info() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1258"/>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1723"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1724"/>
         <source>Sink input callback failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7052,12 +7051,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1520"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1521"/>
         <source>pa_context_get_card_info_by_index() failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1647"/>
+        <location filename="../../../plugins/devices/audio/ukmedia_volume_control.cpp" line="1648"/>
         <source>Ukui Media Volume Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7362,7 +7361,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="476"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="179"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="185"/>
         <source>Idle time</source>
         <translation>此时间段后开启屏保</translation>
         <extra-contents_path>/screensaver/Idle time</extra-contents_path>
@@ -7379,7 +7378,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
     </message>
     <message>
         <location filename="../../../plugins/personalized/screensaver/screensaver.ui" line="233"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="177"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="183"/>
         <source>Screensaver program</source>
         <translation>屏幕保护程序</translation>
         <extra-contents_path>/screensaver/Screensaver program</extra-contents_path>
@@ -7406,137 +7405,137 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">默认屏保</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="169"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="175"/>
         <source>View</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="175"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="181"/>
         <source>Show rest time</source>
         <translation>显示休息时间</translation>
         <extra-contents_path>/screensaver/Show rest time</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="216"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="222"/>
         <source>UKUI</source>
         <translation>UKUI</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="217"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="223"/>
         <source>Blank_Only</source>
         <translation>黑屏</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="228"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="234"/>
         <source>Customize</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="243"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="759"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="249"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="770"/>
         <source>5min</source>
         <translation>5分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="243"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="760"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="249"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="771"/>
         <source>10min</source>
         <translation>10分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="243"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="249"/>
         <source>15min</source>
         <translation>15分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="243"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="761"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="249"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="772"/>
         <source>30min</source>
         <translation>30分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="243"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="249"/>
         <source>1hour</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="661"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="672"/>
         <source>Screensaver source</source>
         <translation>屏保来源</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="667"/>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="717"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="678"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="728"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="675"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="686"/>
         <source>Wallpaper files(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</source>
         <translation>壁纸文件(*.jpg *.jpeg *.bmp *.dib *.png *.jfif *.jpe *.gif *.tif *.tiff *.wdp *.svg)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="716"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="727"/>
         <source>select custom screensaver dir</source>
         <translation>选择自定义屏保路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="718"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="729"/>
         <source>Position: </source>
         <translation>位置:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="719"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="730"/>
         <source>FileName: </source>
         <translation>文件名:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="720"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="731"/>
         <source>FileType: </source>
         <translation>文件类型:</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="721"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="732"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="754"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="765"/>
         <source>Switching time</source>
         <translation>更换时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="758"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="769"/>
         <source>1min</source>
         <translation>1分钟</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="801"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="812"/>
         <source>Random switching</source>
         <translation>随机切换</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="837"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="848"/>
         <source>Display text</source>
         <translation>显示文本</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="847"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="858"/>
         <source>Enter text, up to 30 characters</source>
         <translation>输入文本，最多30个字符</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="898"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="909"/>
         <source>Text position</source>
         <translation>文本位置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="903"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="914"/>
         <source>Centered</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="904"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="915"/>
         <source>Randow(Bubble text)</source>
         <translation>随机(气泡文本)</translation>
     </message>
@@ -7577,7 +7576,7 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="vanished">随机</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="244"/>
+        <location filename="../../../plugins/personalized/screensaver/screensaver.cpp" line="250"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
@@ -9623,42 +9622,42 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1370"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1372"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1371"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1373"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1374"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1376"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1375"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1377"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1445"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1447"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1920"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1922"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1934"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1936"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1954"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1956"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -9673,17 +9672,17 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="874"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="876"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1015"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1017"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1015"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1017"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -9693,12 +9692,12 @@ Wireless will be temporarily disconnected when the screen projection on</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="856"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="858"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="843"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="845"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
