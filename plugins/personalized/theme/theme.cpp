@@ -218,6 +218,7 @@ void Theme::setupSettings() {
         if (xder == kXder || kwinOG || !kwinEN) {
             ui->frame_4->setVisible(false);
             ui->effectLabel->setVisible(false);
+            ui->verticalSpacer_4->changeSize(0, 0);
             personliseGsettings->set(PERSONALSIE_EFFECT_KEY, false);
         } else {
             ui->lowLabel->setPixmap(QPixmap("://img/plugins/theme/opacitylow.svg"));
