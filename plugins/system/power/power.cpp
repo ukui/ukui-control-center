@@ -143,6 +143,8 @@ void Power::initSearText() {
     ui->balanceLabel->setText(tr("Balance (suggest)"));
     //~ contents_path /power/Saving
     ui->saveLabel->setText(tr("Saving"));
+    //~ contents_path /power/Performance
+    ui->label_2->setText(tr("Performance"));
 }
 
 void Power::isPowerSupply() {
