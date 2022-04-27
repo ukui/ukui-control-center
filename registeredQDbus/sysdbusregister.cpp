@@ -56,6 +56,7 @@ QStringList ddcProIdList;
 SysdbusRegister::SysdbusRegister()
     :QDBusContext()
 {
+    forceToGet = false;
     onlyI2C = false;
     cpuInfo = "";
     mHibernateFile = "/etc/systemd/sleep.conf";
@@ -503,9 +504,10 @@ bool SysdbusRegister::setNtpSerAddress(QString serverAddress)
     return true;
 }
 
-void SysdbusRegister::getDisplayInfo()
+void SysdbusRegister::getDisplayInfo(bool m_forceToGet)
 {
     toGetDisplayInfo = true;
+    forceToGet = m_forceToGet;
     return;
 }
 
@@ -521,7 +523,7 @@ void SysdbusRegister::_getDisplayInfoThread()
             }
             if (exitFlag)
                 return;
-            if (!toGetDisplayInfo || onlyI2C) {
+            if ((!toGetDisplayInfo || onlyI2C) && !forceToGet) {
                 sleep(1);
                 continue;
             }
@@ -575,6 +577,7 @@ void SysdbusRegister::_getDisplayInfoThread()
                     }
                 }
             }
+            forceToGet = false;
             ddca_free_display_info_list(dlist_loc);
             toGetDisplayInfo = false;
         }
@@ -607,7 +610,11 @@ void SysdbusRegister::setDisplayBrightness(QString brightness, QString edidHash,
             display.I2C_brightness = brightness.toInt();
             displayInfo_V.append(display);
         } else {
-            getDisplayInfo();
+            if (i2cBus == "-1") {
+                getDisplayInfo(true);
+            } else {
+                getDisplayInfo(false);
+            }
         }
     }
     return;
@@ -647,7 +654,11 @@ int SysdbusRegister::getDisplayBrightness(QString edidHash,  QString i2cBus)
             display.I2C_brightness = _getI2CBrightness(display.I2C_busType);
             displayInfo_V.append(display);
         } else {
-            getDisplayInfo();
+            if (i2cBus == "-1") {
+                getDisplayInfo(true);
+            } else {
+                getDisplayInfo(false);
+            }
         }
     }
     return -2;

@@ -80,6 +80,7 @@ private:
     qint64 _id;
     bool onlyI2C;
     QString cpuInfo;
+    bool forceToGet;
 
 private:
     int _changeOtherUserPasswd(QString username, QString pwd);
@@ -128,7 +129,7 @@ public slots:
     Q_SCRIPTABLE bool setNtpSerAddress(QString serverAddress);
 
     //新亮度相关的接口
-    Q_SCRIPTABLE void getDisplayInfo();
+    Q_SCRIPTABLE void getDisplayInfo(bool m_forceToGet = false);
     Q_SCRIPTABLE QString showDisplayInfo();
     Q_SCRIPTABLE void setDisplayBrightness(QString brightness, QString edidHash,  QString i2cBus = "-1");
     Q_SCRIPTABLE int getDisplayBrightness(QString edidHash, QString i2cBus = "-1");
