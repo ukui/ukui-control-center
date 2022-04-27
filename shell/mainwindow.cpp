@@ -285,7 +285,7 @@ void MainWindow::initUI() {
         if (index){ //次页部分组件样式
             titleLabel->setHidden(true);
             mTitleIcon->setHidden(true);
-              ui->leftsidebarWidget->setVisible(true);
+            ui->leftsidebarWidget->setVisible(true);
             //左上角显示字符/返回按钮
             backBtn->setVisible(true);
             ui->stackedWidget->status = false;
@@ -348,18 +348,10 @@ void MainWindow::initUI() {
 }
 
 void MainWindow::initTileBar() {
-
-    QHBoxLayout *setLayout = new QHBoxLayout();
     QLabel  *logoSetLabel  = new QLabel(this);
     QLabel  *textSetLable  = new QLabel(this);
-    QWidget *setWidget     = new QWidget(this);
-    ui->leftTopLayout->setContentsMargins(8,8,8,0);
-    setLayout->setContentsMargins(0,0,0,0);
-    ui->leftTopLayout->addWidget(setWidget);
-    ui->leftTopLayout->addStretch();
-    setWidget->setLayout(setLayout);
-    setLayout->addWidget(logoSetLabel);
-    setLayout->addWidget(textSetLable);
+    ui->leftTopWidget->layout()->addWidget(logoSetLabel);
+    ui->leftTopWidget->layout()->addWidget(textSetLable);
     logoSetLabel->setFixedSize(24,24);
     logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
     const QByteArray id(THEME_QT_SCHEMA);
@@ -369,10 +361,8 @@ void MainWindow::initTileBar() {
             logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
     });
 
-
     textSetLable->setText(tr("Settings"));
-    textSetLable->setAlignment(Qt::AlignLeft);
-
+    textSetLable->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     titleLayout = new QHBoxLayout(ui->titleWidget);
     ui->titleWidget->setLayout(titleLayout);
     ui->titleWidget->setObjectName("titleWidget");
@@ -438,8 +428,6 @@ void MainWindow::initTileBar() {
 
     QIcon titleIcon = QIcon::fromTheme("ukui-control-center");
     mTitleIcon->setPixmap(titleIcon.pixmap(titleIcon.actualSize(QSize(24, 24))));
-
-    titleLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     changeSearchSlot();
     m_searchWidget->setFixedWidth(350);
@@ -601,6 +589,7 @@ void MainWindow::initLeftsideBar(){
 
     QWidget *menuWidget = new QWidget(this);
     QVBoxLayout *menuLayout = new QVBoxLayout(menuWidget);
+    menuLayout->setContentsMargins(8,0,0,8);
     menuLayout->setSpacing(4);
 
     scrollArea->viewport()->setAttribute(Qt::WA_TranslucentBackground);
@@ -628,7 +617,7 @@ void MainWindow::initLeftsideBar(){
             if (type != 0) {
                 typeLayout->setContentsMargins(18,20,0,0);
             } else {
-                typeLayout->setContentsMargins(18,0,0,0);
+                typeLayout->setContentsMargins(18,10,0,0);
             }
             typeLayout->addWidget(typeLabel);
             typeLabel->setText(mnamei18nString);
@@ -666,7 +655,7 @@ void MainWindow::initLeftsideBar(){
 
                 QHBoxLayout *pluginLayout = new QHBoxLayout();
                 menuLayout->addLayout(pluginLayout);
-                pluginLayout->setContentsMargins(4, 0, 0, 0);
+                pluginLayout->setContentsMargins(0, 0, 0, 0);
 //                pluginBtn->setStyleSheet("QPushButton:checked{background-color: palette(highlight);border-radius: 6px;}");
 
                 pluginLayout->addWidget(pluginBtn);
@@ -713,7 +702,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName, QIcon 
     QPushButton * leftsidebarBtn = new QPushButton();
     leftsidebarBtn->setAttribute(Qt::WA_DeleteOnClose);
     leftsidebarBtn->setCheckable(true);
-    leftsidebarBtn->setFixedSize(220,40);  //一级菜单按钮显示的宽度
+    leftsidebarBtn->setFixedSize(230,40);  //一级菜单按钮显示的宽度
 
     IconButton * iconBtn = new IconButton(bname, icon, leftsidebarBtn);
     iconBtn->setCheckable(true);
@@ -943,8 +932,8 @@ bool MainWindow::isExitBluetooth() {
 }
 
 void MainWindow::changeSearchSlot() {
-    int fontSize = m_fontSetting->get("system-font-size").toInt();
-    m_searchWidget->setFixedHeight((fontSize - 11) * 2 + 32);
+//    int fontSize = m_fontSetting->get("system-font-size").toInt();
+//    m_searchWidget->setFixedHeight((fontSize - 11) * 2 + 32);
 }
 
 void MainWindow::showGuide(QString pluName)

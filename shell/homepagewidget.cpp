@@ -132,7 +132,7 @@ void HomePageWidget::initUI() {
             picModuleName = "time-language";
         }
         widget->setObjectName("itemWidget");
-         widget->setStyleSheet("QPushButton#itemWidget{background-color: transparent;}");
+        widget->setStyleSheet("QPushButton#itemWidget{background-color: transparent;}");
         QHBoxLayout * mainHorLayout = new QHBoxLayout(widget);
         mainHorLayout->setMargin(16);
         mainHorLayout->setSpacing(16);
