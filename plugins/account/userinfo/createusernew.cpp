@@ -461,6 +461,30 @@ bool CreateUserNew::isHomeUserExists(QString username)
     return false;
 }
 
+bool CreateUserNew::isGroupNameEixsts(QString username)
+{
+    QString cmd = QString("getent group %1").arg(username);
+    QString output;
+
+    FILE   *stream;
+    char buf[256];
+
+    if ((stream = popen(cmd.toLatin1().data(), "r" )) == NULL){
+        return false;
+    }
+
+    while(fgets(buf, 256, stream) != NULL){
+        output = QString(buf).simplified();
+    }
+
+    pclose(stream);
+    if (!output.isEmpty()) {
+        return true;
+    }
+
+    return false;
+}
+
 bool CreateUserNew::nameTraverse(QString username){
     QString::const_iterator cit = NULL;
     for (cit = username.cbegin(); cit < username.cend(); cit++){
@@ -507,6 +531,10 @@ void CreateUserNew::nameLegalityCheck(QString username){
 
     if (isHomeUserExists(username) && userNameTip.isEmpty()) {
         userNameTip = tr("Username's folder exists, change another one");
+    }
+
+    if (isGroupNameEixsts(username) && userNameTip.isEmpty()) {
+        userNameTip = tr("Name corresponds to group already exists.");
     }
 
     if (!newPwdLineEdit->text().isEmpty()) {

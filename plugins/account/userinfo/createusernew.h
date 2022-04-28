@@ -118,6 +118,7 @@ protected:
 private:
     bool nameTraverse(QString username);
     bool isHomeUserExists(QString username);
+    bool isGroupNameEixsts(QString username);
     bool checkCharLegitimacy(QString password);
 
 #ifdef ENABLEPQ
