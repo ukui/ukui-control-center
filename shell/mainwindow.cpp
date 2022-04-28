@@ -86,7 +86,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     mate_mixer_init();
     qApp->installEventFilter(this);
-    is_ExitBluetooth = isExitBluetooth();
     is_ExitPower = isExitsPower();
     initUI();
     hideComponent();
@@ -541,7 +540,7 @@ void MainWindow::loadPlugins(){
 #endif
         qDebug() << "Scan Plugin: " << fileName;
         if (!fileName.endsWith(".so")
-                || ("libukcc-bluetooth.so" == fileName && !is_ExitBluetooth) || ("libpower.so" == fileName && !is_ExitPower)
+                || ("libpower.so" == fileName && !is_ExitPower)
                 ) {
             continue;
         }
@@ -917,18 +916,6 @@ void MainWindow::initStyleSheet() {
     minBtn->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
     maxBtn->setIcon(QIcon::fromTheme("window-maximize-symbolic"));
     closeBtn->setIcon(QIcon::fromTheme("window-close-symbolic"));
-}
-
-bool MainWindow::isExitBluetooth() {
-    QProcess process;
-    process.start("rfkill list");
-    process.waitForFinished();
-    QByteArray output = process.readAllStandardOutput();
-    QString str_output = output;
-    bool isDevice = str_output.contains(QString("hci"), Qt::CaseInsensitive);
-    bool isAddress = true;
-
-    return isDevice && isAddress;
 }
 
 void MainWindow::changeSearchSlot() {
