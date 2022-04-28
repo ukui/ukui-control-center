@@ -1248,7 +1248,7 @@ void Widget::kdsScreenchangeSlot(QString status)
     if (mConfig->connectedOutputs().count() >= 2) {
         mUnifyButton->setChecked(isCheck);
     }
-    QTimer::singleShot(1500, this, [=]{ //需要延时
+    QTimer::singleShot(1500, this, [=, status]{ //需要延时
         Q_FOREACH(KScreen::OutputPtr output, mConfig->connectedOutputs()) {
             if (output.isNull())
                 continue;
@@ -1263,7 +1263,7 @@ void Widget::kdsScreenchangeSlot(QString status)
         } else {
             showBrightnessFrame(2);
         }
-        updatePreview();
+        updatePreview(status);
     });
 }
 
@@ -2188,11 +2188,12 @@ void Widget::updateScaleComStatus()
     }
 }
 
-void Widget::updatePreview()
+void Widget::updatePreview(QString status)
 {
-    if (mConfig->connectedOutputs().size() < 1 || isCloneMode()) {
+    if (mConfig->connectedOutputs().size() < 1 || !status.compare("copy")) {
         return;
     }
+    qDebug() << Q_FUNC_INFO << "update preview";
     auto *preOp = new KScreen::GetConfigOperation();
     preOp->exec();
     mConfig = preOp->config()->clone();

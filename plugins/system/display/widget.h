@@ -173,7 +173,7 @@ private:
 
     void changescale();
     void updateScaleComStatus();
-    void updatePreview();
+    void updatePreview(QString status);
 
 private:
     Ui::DisplayWindow *ui;
