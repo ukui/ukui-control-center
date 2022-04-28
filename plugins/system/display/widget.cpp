@@ -696,10 +696,10 @@ void Widget::initDbusComponent()
 void Widget::setHideModuleInfo()
 {
     mCPU = getCpuInfo();
-    if (!mCPU.startsWith(kCpu, Qt::CaseInsensitive)) {
+//    if (!mCPU.startsWith(kCpu, Qt::CaseInsensitive)) {  fix #113124,#78013
         ui->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop);
         ui->quickWidget->setClearColor(Qt::transparent);
-    }
+//    }
 }
 
 void Widget::setTitleLabel()
