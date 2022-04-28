@@ -293,7 +293,7 @@
              <x>0</x>
              <y>0</y>
              <width>450</width>
-             <height>202</height>
+             <height>187</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -408,7 +408,7 @@
                       </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Standard users can use most software, but cannot change system settings</string>
+                      <string>Standard users can use most software, you can change system configuration doesn't affect other users</string>
                      </property>
                      <property name="wordWrap">
                       <bool>true</bool>

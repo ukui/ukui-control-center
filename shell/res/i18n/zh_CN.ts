@@ -9,7 +9,7 @@
         <translation>系统概述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="537"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="646"/>
         <source>version</source>
         <translation>版本</translation>
         <extra-contents_path>/about/version</extra-contents_path>
@@ -43,21 +43,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="269"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="539"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="648"/>
         <source>Kernel</source>
         <translation>内核</translation>
         <extra-contents_path>/about/Kernel</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="308"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="541"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="650"/>
         <source>CPU</source>
         <translation>CPU</translation>
         <extra-contents_path>/about/CPU</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="356"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="543"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="652"/>
         <source>Memory</source>
         <translation>内存</translation>
         <extra-contents_path>/about/Memory</extra-contents_path>
@@ -69,21 +69,21 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="458"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="545"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="654"/>
         <source>Desktop</source>
         <translation>桌面</translation>
         <extra-contents_path>/about/Desktop</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="488"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="547"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="656"/>
         <source>User</source>
         <translation>用户名</translation>
         <extra-contents_path>/about/User</extra-contents_path>
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="534"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="549"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="658"/>
         <source>Active Status</source>
         <translation>激活状态</translation>
         <extra-contents_path>/about/Active Status</extra-contents_path>
@@ -100,7 +100,7 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="672"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="553"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="662"/>
         <source>Protocol</source>
         <translation>免责协议</translation>
         <extra-contents_path>/about/Protocol</extra-contents_path>
@@ -111,8 +111,8 @@
     </message>
     <message>
         <location filename="../../../plugins/messages-task/about/about.ui" line="642"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="268"/>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="551"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="296"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="660"/>
         <source>Active</source>
         <translation>激活</translation>
         <extra-contents_path>/about/Active</extra-contents_path>
@@ -130,7 +130,7 @@
         <translation type="vanished">关于</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="52"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="53"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -151,22 +151,23 @@
         <translation type="vanished">可用</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="265"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="292"/>
         <source>Inactivated</source>
         <translation>未激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="273"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="302"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="275"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="304"/>
         <source>Extend</source>
         <translation>延长服务</translation>
     </message>
     <message>
-        <location filename="../../../plugins/messages-task/about/about.cpp" line="314"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="313"/>
+        <location filename="../../../plugins/messages-task/about/about.cpp" line="527"/>
         <source>expired</source>
         <translation>已过期</translation>
     </message>
@@ -228,66 +229,66 @@
         <translation>添加自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="117"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="442"/>
         <source>Add autoboot program</source>
         <translation>添加自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="206"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="177"/>
         <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="106"/>
         <source>Program name</source>
         <translation>程序名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="234"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="205"/>
         <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="107"/>
         <source>Program exec</source>
         <translation>程序路径</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="349"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="320"/>
         <source>Open</source>
         <translation>浏览</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="262"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="233"/>
         <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="108"/>
         <source>Program comment</source>
         <translation>程序描述</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="436"/>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="173"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="388"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="172"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="461"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.ui" line="413"/>
         <source>Certain</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="164"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="163"/>
         <source>Desktop files(*.desktop)</source>
         <translation>桌面文件(*.desktop)</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="171"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="170"/>
         <source>select autoboot desktop</source>
         <translation>选择自启动程序</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="172"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="171"/>
         <source>Select</source>
         <translation>选择</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="217"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="218"/>
         <source>desktop file not allowed add</source>
         <translation>此应用不允许添加</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="266"/>
+        <location filename="../../../plugins/system/autoboot/addautoboot.cpp" line="267"/>
         <source>desktop file not exist</source>
         <translation>desktop文件不存在</translation>
     </message>
@@ -725,16 +726,17 @@
 <context>
     <name>AutoBoot</name>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="93"/>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="181"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.ui" line="88"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="190"/>
         <source>Autoboot Settings</source>
         <translation>开机启动设置</translation>
         <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="138"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="149"/>
         <source>Add autoboot app </source>
         <translation>添加自启动程序 </translation>
+        <extra-contents_path>/autoboot/Add autoboot app</extra-contents_path>
     </message>
     <message>
         <source>autoboot</source>
@@ -745,22 +747,22 @@
         <translation type="vanished">开机启动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="61"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="63"/>
         <source>Auto Boot</source>
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="219"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="228"/>
         <source>Name</source>
         <translation>程序名称</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="223"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="232"/>
         <source>Status</source>
         <translation>当前状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="284"/>
+        <location filename="../../../plugins/system/autoboot/autoboot.cpp" line="293"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -1610,9 +1612,13 @@ Please authenticate yourself to continue</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="411"/>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation>标准账户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation type="vanished">标准账户可以使用大多数软件，但是不能修改系统配置</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="411"/>
+        <source>Standard users can use most software, you can change system configuration doesn&apos;t affect other users</source>
+        <translation>标准账户可以使用大多数软件，并可以更改不影响其他用户的系统配置</translation>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/changetypedialog.ui" line="521"/>
@@ -1882,8 +1888,12 @@ Please authenticate yourself to continue</source>
     </message>
     <message>
         <location filename="../../../plugins/account/userinfo/createuserdialog.ui" line="526"/>
+        <source>Standard users can use most software, you can change system configuration doesn&apos;t affect other users</source>
+        <translation>标准账户可以使用大多数软件，并可以更改不影响其他用户的系统配置</translation>
+    </message>
+    <message>
         <source>Standard users can use most software, but cannot change system settings</source>
-        <translation>标准账户可以使用大多数软件，但是不能修改系统配置</translation>
+        <translation type="vanished">标准账户可以使用大多数软件，但是不能修改系统配置</translation>
     </message>
     <message>
         <source>Standard users can use most software, but cannot install the software and
@@ -2122,8 +2132,8 @@ change system settings</source>
         <extra-contents_path>/date/Sync from network successful</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="443"/>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="448"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="444"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="449"/>
         <source>Sync from network failed</source>
         <translation>时间同步失败</translation>
     </message>
@@ -2174,7 +2184,7 @@ change system settings</source>
         <translation>同步网络时间</translation>
     </message>
     <message>
-        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="442"/>
+        <location filename="../../../plugins/time-language/datetime/datetime.cpp" line="443"/>
         <source>  </source>
         <translation></translation>
     </message>
@@ -6321,7 +6331,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation>系统升级增量备份</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="709"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="714"/>
         <source>xxx客户端</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6915,12 +6925,12 @@ run start-pulseaudio-x11 manually.</source>
 <context>
     <name>ShareMain</name>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="422"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="427"/>
         <source>Share</source>
         <translation>共享</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="439"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="444"/>
         <source>Allow others to view your desktop</source>
         <translation>允许其他人查看您的桌面</translation>
     </message>
@@ -6929,7 +6939,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">允许连接控制屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="450"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="455"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
@@ -6938,104 +6948,104 @@ run start-pulseaudio-x11 manually.</source>
         <translation type="vanished">您必须为本机机器确认每次访问</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="460"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="465"/>
         <source>Require user to enter this password: </source>
         <translation>要求用户输入此密码: </translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="402"/>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="462"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="406"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="467"/>
         <source>Password can not be blank</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="243"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
         <source>Warning</source>
         <translatorcomment>警告</translatorcomment>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="243"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="247"/>
         <source>please select an output</source>
         <translation>请选择一个输出屏幕</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="308"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="312"/>
         <source>Input Password</source>
         <translation>输入密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="309"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="313"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="414"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="419"/>
         <source>Password length must be less than or equal to 8</source>
         <translation>密码长度需小于等于8</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="478"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="483"/>
         <source>Protocol</source>
         <translation>协议</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="514"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="519"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="527"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="532"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="538"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="543"/>
         <source>Point</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="540"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="545"/>
         <source>Keyboard</source>
         <translation>键盘</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="542"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="547"/>
         <source>Clipboard</source>
         <translation>剪切板</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="569"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="574"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="571"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="576"/>
         <source>ViewOnly</source>
         <translation>仅查看</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="579"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="584"/>
         <source>Client Setting</source>
         <translation>客户端配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="591"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="596"/>
         <source>Client Number</source>
         <translation>客户端最大可连接数</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="606"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="611"/>
         <source>Client IP：</source>
         <translation>客户端IP地址：</translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="741"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="746"/>
         <source>退出程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../plugins/network/vino/sharemain.cpp" line="741"/>
+        <location filename="../../../plugins/network/vino/sharemain.cpp" line="746"/>
         <source>确认退出程序！</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7987,7 +7997,7 @@ run start-pulseaudio-x11 manually.</source>
         <translation>版本: </translation>
     </message>
     <message>
-        <location filename="../../ukccabout.cpp" line="120"/>
+        <location filename="../../ukccabout.cpp" line="129"/>
         <source>Service and Support:</source>
         <translation>服务与支持团队:</translation>
     </message>
@@ -8472,42 +8482,42 @@ run start-pulseaudio-x11 manually.</source>
         <translation>密码修改成功</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1385"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1396"/>
         <source>Hint</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1386"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1397"/>
         <source>The system only allows one user to log in automatically.After it is turned on, the automatic login of other users will be turned off.Is it turned on?</source>
         <translation>系统只允许一个用户自动登录，开启后将关闭其他用户的自动登录，是否开启？</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1389"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1400"/>
         <source>Trun on</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1390"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1401"/>
         <source>Close on</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1450"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1461"/>
         <source>Add biometric feature</source>
         <translation>添加生物密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1919"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1930"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1933"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1944"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1953"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1964"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -8522,17 +8532,17 @@ run start-pulseaudio-x11 manually.</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="877"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="888"/>
         <source>Del</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1008"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1019"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1008"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="1019"/>
         <source>The user is logged in, please delete the user after logging out</source>
         <translation>用户已经登录，请注销后删除用户</translation>
     </message>
@@ -8542,12 +8552,12 @@ run start-pulseaudio-x11 manually.</source>
         <translation>当前用户</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="859"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="870"/>
         <source>Change pwd</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="846"/>
+        <location filename="../../../plugins/account/userinfo/userinfo.cpp" line="857"/>
         <source>Change type</source>
         <translation>更改类型</translation>
     </message>
@@ -8911,8 +8921,8 @@ the settings will be saved after %1 seconds</source>
         <translation type="vanished">修改系统显示配置后，由于显示设备与 显卡兼容性问题，有可能显示不正常或者无法显示。系统将在%1秒后保存配置</translation>
     </message>
     <message>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2239"/>
-        <location filename="../../../plugins/system/display/widget.cpp" line="2246"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2252"/>
+        <location filename="../../../plugins/system/display/widget.cpp" line="2259"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
