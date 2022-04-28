@@ -941,14 +941,6 @@ int DateTime::getRegionFormat()
     return formatIndex;
 }
 
-void DateTime::settingForIntel()
-{
-    ui->chgzonebtn->setVisible(false);
-    ui->frame_3->setVisible(false);
-    ui->TilleFrame->setVisible(false);
-    ui->frame_7->setVisible(false);
-}
-
 CGetSyncRes::CGetSyncRes(DateTime *dataTimeUI,QString successMSG,QString failMSG)
 {
     this -> dataTimeUI = dataTimeUI;

@@ -66,7 +66,6 @@ public:
     bool isShowOnHomePage() const Q_DECL_OVERRIDE;
     QIcon icon() const Q_DECL_OVERRIDE;
     bool isEnable() const Q_DECL_OVERRIDE;
-    void settingForIntel() Q_DECL_OVERRIDE;
 
     void initSearchText();
     void setupComponent();
