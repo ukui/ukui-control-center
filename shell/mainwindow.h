@@ -60,7 +60,6 @@ public:
 public:
     QMap<QString, QObject *> exportModule(int);
     void setModuleBtnHightLight(int id);
-    static bool isExitBluetooth();
     void bootOptionsFilter(QString opt);        // 模块跳转
     void moveEvent(QMoveEvent *event);
     void resizeEvent(QResizeEvent *event);
@@ -102,7 +101,6 @@ private:
     QString           m_searchKeyWords;
     QVariantMap       m_ModuleMap;
     QGSettings       *m_fontSetting;
-    bool is_ExitBluetooth = false;
     bool is_ExitPower = false;
 
     QHBoxLayout     *titleLayout;
