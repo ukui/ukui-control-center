@@ -90,7 +90,7 @@ private:
     bool settingsCreate;
     bool isExitsPower;
     bool mFirstLoad;
-    bool isExitsLid;
+    bool isExitsLid = false;
     bool isExitHibernate;
     bool isBattery;
 

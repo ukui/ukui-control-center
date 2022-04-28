@@ -191,6 +191,7 @@ void Power::isLidPresent() {
     } else {
         isExitsLid = true ;
     }
+    ui->closeLidFrame->setVisible(isExitsLid);
     delete LidInterface;
 }
 
