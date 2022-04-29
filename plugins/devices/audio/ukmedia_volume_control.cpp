@@ -335,7 +335,8 @@ bool UkmediaVolumeControl::setDefaultSource(const gchar *name)
             showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
             return false;
         }
-        sourceOutputVector.removeAt(0);
+        if (sourceOutputVector.count())
+            sourceOutputVector.removeAt(0);
         QTimer::singleShot( 100, this,[=](){
             sourceOutputVector.append(sourceIndex);
             peak = createMonitorStreamForSource(sourceIndex, -1, !!(sourceFlags & PA_SOURCE_NETWORK));
@@ -476,16 +477,19 @@ void UkmediaVolumeControl::updateCard(UkmediaVolumeControl *c, const pa_card_inf
                 outputPortNameLabelMap.insertMulti(p.description.data(),p_profile.data());
                 qDebug() << "ctf profilename map insert -----------" << p.description.data() << p_profile.data();
             }
-            profileNameMap.insertMulti(info.index,outputPortNameLabelMap);
-            cardProfileMap.insertMulti(info.index,portProfileName);
+            profileNameMap.insert(info.index,outputPortNameLabelMap);
+            cardProfileMap.insert(info.index,portProfileName);
         }
         else if (p.direction == 2 && p.available != PA_PORT_AVAILABLE_NO){
 
             qDebug() << " add source port name "<< info.index << p.name << p.description.data();
             tempInput.insertMulti(p.name,p.description.data());
+            QList<QString> portProfileName;
             for (auto p_profile : p.profiles) {
+                portProfileName.append(p_profile.data());
                 inputPortNameLabelMap.insertMulti(p.description.data(),p_profile.data());
             }
+            cardProfileMap.insert(info.index,portProfileName);
             inputPortProfileNameMap.insert(info.index,inputPortNameLabelMap);
         }
         c->ports[p.name] = p;
@@ -720,11 +724,17 @@ void UkmediaVolumeControl::updateSource(const pa_source_info &info) {
     }
 
     if (info.index == sourceIndex && !strstr(info.name,".monitor") && !sourceOutputVector.contains(info.index) && pa_context_get_server_protocol_version(getContext()) >= 13) {
-        sourceOutputVector.append(info.index);
         sourceFlags = info.flags;
         qDebug() << "createMonitorStreamForSource" <<info.index <<info.name <<defaultSourceName.data();
-        if(info.name ==defaultSourceName)
+        if(info.name ==defaultSourceName) {
+            pa_operation* o;
+            qDebug() <<"killall source output index from updateSource" <<peakDetectIndex << info.index;
+            if (!(o = pa_context_kill_source_output(getContext(), peakDetectIndex, nullptr, nullptr))) {
+                showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+            }
+            sourceOutputVector.append(info.index);
             peak = createMonitorStreamForSource(info.index, -1, !!(info.flags & PA_SOURCE_NETWORK));
+        }
     }
 
     QMap<QString,QString>temp;
@@ -832,7 +842,8 @@ void UkmediaVolumeControl::updateSourceOutput(const pa_source_output_info &info)
             showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
 //            return;
         }
-        sourceOutputVector.removeAt(0);
+        if (sourceOutputVector.count())
+            sourceOutputVector.removeAt(0);
     }
 
     if ((app = pa_proplist_gets(info.proplist, PA_PROP_APPLICATION_ID)))
@@ -1160,6 +1171,7 @@ void UkmediaVolumeControl::sinkIndexCb(pa_context *c, const pa_sink_info *i, int
         volume = i->volume.values[0];
     w->defaultOutputCard = i->card;
     w->sinkIndex= i->index;
+    w->balance = pa_cvolume_get_balance(&i->volume,&i->channel_map);
 
     if(i->active_port)
         w->sinkPortName = i->active_port->name;
@@ -1207,6 +1219,23 @@ void UkmediaVolumeControl::sourceIndexCb(pa_context *c, const pa_source_info *i,
         w->sourceMuted  = i->mute;
         Q_EMIT w->updateSourceVolume(w->sourceVolume,w->sourceMuted);
     }
+
+    if (!w->sourceOutputVector.contains(w->sourceIndex) && !strstr(i->name,".monitor") && pa_context_get_server_protocol_version(w->getContext()) >= 13) {
+        pa_operation* o;
+        qDebug() <<"killall source output index form sourceIndexCb" <<w->peakDetectIndex;
+        if (!(o = pa_context_kill_source_output(w->getContext(), w->peakDetectIndex, nullptr, nullptr))) {
+            w->showError(tr("pa_context_set_default_source() failed").toUtf8().constData());
+        }
+        if (w->sourceOutputVector.count())
+            w->sourceOutputVector.removeAt(0);
+        w->sourceOutputVector.append(w->sourceIndex);
+        w->peak = w->createMonitorStreamForSource(w->sourceIndex, -1, !!(w->sourceFlags & PA_SOURCE_NETWORK));
+    }
+
+    if(!strstr(i->name,".monitor"))
+        w->Q_EMIT peakChangedSignal(0);
+
+    qDebug() << "sourceIndexCb ";
 }
 
 void UkmediaVolumeControl::sinkCb(pa_context *c, const pa_sink_info *i, int eol, void *userdata) {

@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+﻿/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
  *
@@ -111,7 +111,7 @@ void UkmediaMainWidget::initWidget()
     m_pOutputWidget->m_pOpBalanceSlider->setMaximum(100);
     m_pOutputWidget->m_pOpBalanceSlider->setMinimum(-100);
     m_pOutputWidget->m_pOpBalanceSlider->setSingleStep(100);
-    m_pInputWidget->m_pInputLevelProgressBar->setMaximum(100);
+    m_pInputWidget->m_pInputLevelProgressBar->setMaximum(101);
 }
 
 QList<char *> UkmediaMainWidget::listExistsPath()
@@ -303,10 +303,10 @@ void UkmediaMainWidget::dealSlot()
             m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(value));
             m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
             m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
-            themeChangeIcons();
         }
         //fixed bug:110751 宝新创PF215T
-        initListWidgetItem();
+        initOutputListWidgetItem();
+        themeChangeIcons();
     });
     connect(m_pVolumeControl,&UkmediaVolumeControl::updateSourceVolume,this,[=](int value,bool state){
         QString percent = QString::number(paVolumeToValue(value));
@@ -316,6 +316,12 @@ void UkmediaMainWidget::dealSlot()
         m_pInputWidget->m_pIpVolumeSlider->blockSignals(true);
         m_pInputWidget->m_pIpVolumeSlider->setValue(paVolumeToValue(value));
         m_pInputWidget->m_pIpVolumeSlider->blockSignals(false);
+
+        //当所有可用的输入设备全部移除，台式机才会出现该情况
+        if(strstr(m_pVolumeControl->defaultSourceName,"monitor"))
+            m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
+
+        initInputListWidgetItem();
         themeChangeIcons();
     });
 
@@ -355,8 +361,10 @@ void UkmediaMainWidget::initVoulmeSlider()
     m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
     m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
     m_pInputWidget->m_pIpVolumeSlider->blockSignals(false);
+    initOutputListWidgetItem();
+    initInputListWidgetItem();
     themeChangeIcons();
-    initListWidgetItem();
+    this->update();
 }
 
 /*
@@ -397,6 +405,52 @@ void UkmediaMainWidget::initListWidgetItem()
         }
     }
     findInputListWidgetItem(inputCardName,inputPortLabel);
+}
+
+void UkmediaMainWidget::initOutputListWidgetItem(){
+    QString outputCardName = findCardName(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->cardMap);
+    QString outputPortLabel = findOutputPortLabel(m_pVolumeControl->defaultOutputCard,m_pVolumeControl->sinkPortName);
+
+    findOutputListWidgetItem(outputCardName,outputPortLabel);
+
+    int vol = m_pVolumeControl->getSinkVolume();
+    float balanceVolume = m_pVolumeControl->getBalanceVolume();
+    m_pOutputWidget->m_pOpVolumeSlider->blockSignals(true);
+    m_pOutputWidget->m_pOpBalanceSlider->blockSignals(true);
+    m_pOutputWidget->m_pOpVolumeSlider->setValue(paVolumeToValue(vol));
+    m_pOutputWidget->m_pOpBalanceSlider->setValue(balanceVolume*100);
+    m_pOutputWidget->m_pOpBalanceSlider->blockSignals(false);
+    m_pOutputWidget->m_pOpVolumeSlider->blockSignals(false);
+    m_pOutputWidget->m_pOpVolumePercentLabel->setText(QString::number(paVolumeToValue(vol))+"%");
+
+    qDebug() <<"initOutputListWidgetItem" << m_pVolumeControl->defaultOutputCard << outputCardName
+            <<m_pVolumeControl->sinkPortName << outputPortLabel;
+}
+
+
+void UkmediaMainWidget::initInputListWidgetItem(){
+    QString inputCardName = findCardName(m_pVolumeControl->defaultInputCard,m_pVolumeControl->cardMap);
+    QString inputPortLabel = findInputPortLabel(m_pVolumeControl->defaultInputCard,m_pVolumeControl->sourcePortName);
+    if (m_pVolumeControl->defaultSourceName.data() && strstr(m_pVolumeControl->defaultSourceName,"noiseReduceSource")) {
+        for (int row=0;row<m_pInputWidget->m_pInputListWidget->count();row++) {
+            QListWidgetItem *item = m_pInputWidget->m_pInputListWidget->item(row);
+            UkuiListWidgetItem *wid = (UkuiListWidgetItem *)m_pInputWidget->m_pInputListWidget->itemWidget(item);
+
+            if (inputCardName == "" && inputPortLabel == "" && wid->deviceLabel->text().contains("alsa_card") && !wid->deviceLabel->text().contains(".usb")) {
+                inputCardName = wid->deviceLabel->text();
+                inputPortLabel = wid->portLabel->text();
+                break;
+            }
+        }
+    }
+    findInputListWidgetItem(inputCardName,inputPortLabel);
+
+    //当所有可用的输入设备全部移除，台式机才会出现该情况
+    if(strstr(m_pVolumeControl->defaultSourceName,"monitor"))
+        m_pInputWidget->m_pInputLevelProgressBar->setValue(0);
+
+    qDebug() <<"initInputListWidgetItem" << m_pVolumeControl->defaultInputCard << inputCardName
+            <<m_pVolumeControl->sourcePortName << inputPortLabel;
 }
 
 void UkmediaMainWidget::themeChangeIcons()
@@ -1753,9 +1807,11 @@ void UkmediaMainWidget::updateListWidgetItemSlot()
 {
     qDebug() << "updateListWidgetItemSlot---------";
     if (!pressOutputListWidget)
-        initListWidgetItem();
+        initOutputListWidgetItem();
     else
         pressOutputListWidget = false;
+    initInputListWidgetItem();
+    themeChangeIcons();
 }
 
 /*

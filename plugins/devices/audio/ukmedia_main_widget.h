@@ -1,4 +1,4 @@
-
+﻿
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
  *
  * Copyright (C) 2019 Tianjin KYLIN Information Technology Co., Ltd.
@@ -119,6 +119,8 @@ public:
     void initGsettings(); //初始化gsetting值
     void dealSlot(); //处理槽函数
     void initListWidgetItem(); //初始化output/input list widget的选项
+    void initOutputListWidgetItem();//初始化输出的Combobox选项框
+    void initInputListWidgetItem();//初始化输入的Combobox选项框
     int valueToPaVolume(int value); //滑动条值转换成音量
     int paVolumeToValue(int value); //音量值转换成滑动条值
     void themeChangeIcons();
