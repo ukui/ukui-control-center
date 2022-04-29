@@ -207,7 +207,7 @@ bool Utils::isTablet()
     return QFile::exists("/etc/apt/ota_version");
 }
 
-bool Utils::isExitBattery()
+bool Utils::isExistBattery()
 {
     /* 默认机器没有电池 */
     bool hasBat = false;

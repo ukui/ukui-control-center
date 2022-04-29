@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     mate_mixer_init();
     qApp->installEventFilter(this);
-    is_ExitPower = isExitsPower();
+    is_ExitPower = isExistsPower();
     initUI();
     hideComponent();
 }
@@ -99,7 +99,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::bootOptionsFilter(QString opt) {
     int moduleNum;
-    bool isExitsModule = false;
+    bool isExistsModule = false;
     QString funcStr;
     QList<FuncInfo> pFuncStructList;
     for (int i = 0; i < FunctionSelect::funcinfoList.size(); i++) {
@@ -108,12 +108,12 @@ void MainWindow::bootOptionsFilter(QString opt) {
                 moduleNum = FunctionSelect::funcinfoList[i][j].type;
                 funcStr = FunctionSelect::funcinfoList[i][j].namei18nString;
                 pFuncStructList = FunctionSelect::funcinfoList[i];
-                isExitsModule = true;
+                isExistsModule = true;
                 break;
             }
         }
     }
-    if (!isExitsModule) {
+    if (!isExistsModule) {
         return ;
     }
 
@@ -805,7 +805,7 @@ QPushButton * MainWindow::buildLeftsideBtn(QString bname,QString tipName, QIcon 
     return leftsidebarBtn;
 }
 
-bool MainWindow::isExitsCloudAccount() {
+bool MainWindow::isExistsCloudAccount() {
     QProcess *wifiPro = new QProcess();
     QString shellOutput = "";
     wifiPro->start("dpkg -l  | grep kylin-sso-client");
@@ -822,7 +822,7 @@ bool MainWindow::isExitsCloudAccount() {
     return false;
 }
 
-bool MainWindow::isExitsPower()
+bool MainWindow::isExistsPower()
 {
     QProcess *process = new QProcess;
     process->start("dpkg -l ukui-power-manager");
@@ -835,7 +835,7 @@ bool MainWindow::isExitsPower()
     return mOutput.contains("ii", Qt::CaseSensitive) ? true : false;
 }
 
-bool MainWindow::isExitWirelessDevice()
+bool MainWindow::isExistWirelessDevice()
 {
     QDBusInterface *interface = new QDBusInterface("com.kylin.network", "/com/kylin/network",
                                      "com.kylin.network",

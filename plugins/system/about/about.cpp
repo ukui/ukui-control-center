@@ -1009,7 +1009,7 @@ void About::setHostNameCompenet()
 
 void About::setPrivacyCompent()
 {
-    if (Utils::isWayland()) {
+    if (Utils::isWayland() || Utils::isCommunity()) {
         mPrivacyFrame->setVisible(false);
         mPriTitleLabel->setVisible(false);
         mAgreeLabel->setVisible(false);
