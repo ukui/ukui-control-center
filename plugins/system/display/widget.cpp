@@ -658,7 +658,7 @@ bool Widget::isRestoreConfig()
             } else {
                 msg.setText(QString(tr("After modifying the resolution or refresh rate, "
                                        "due to compatibility issues between the display device and the graphics card, "
-                                       "the display may be abnormal or unable to display \n"
+                                       "the display may be abnormal or unable to display\n"
                                        "the settings will be saved after %1 seconds")).arg(cnt));
             }
         });
