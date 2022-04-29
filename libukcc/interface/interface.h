@@ -66,9 +66,6 @@ public:
     virtual void plugin_leave() {
         return ;
     }
-    virtual void settingForIntel() {
-        return;
-    }
 };
 
 #define CommonInterface_iid "org.ukcc.CommonInterface"

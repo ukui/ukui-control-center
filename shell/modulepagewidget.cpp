@@ -107,9 +107,6 @@ void ModulePageWidget::refreshPluginWidget(CommonInterface *plu){
 
     //恢复标志位
     flagBit = true;
-    if (plu->isIntel()) {
-        plu->settingForIntel();
-    }
 }
 
 void ModulePageWidget::pluginLeave()

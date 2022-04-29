@@ -594,22 +594,3 @@ void Screenlock::setClickedPic(QString fileName) {
         }
     }
 }
-
-void Screenlock::settingForIntel()
-{
-    ui->loginpicLabel->setVisible(false);
-    ui->activepicLabel->setVisible(false);
-    ui->line->setVisible(false);
-    ui->line_2->setVisible(false);
-    if (loginbgSwitchBtn) {
-        loginbgSwitchBtn->setVisible(false);
-    }
-    if (lockSwitchBtn) {
-        lockSwitchBtn->setVisible(false);
-    }
-
-    ui->showMsgLabel->setVisible(true);
-    showMsgBtn->setVisible(true);
-    ui->line_4->setVisible(true);
-
-}

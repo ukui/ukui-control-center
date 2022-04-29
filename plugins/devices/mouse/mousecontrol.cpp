@@ -68,10 +68,3 @@ bool MouseControl::isEnable() const
 {
     return true;
 }
-
-void MouseControl::settingForIntel()
-{
-    if (pluginWidget) {
-        pluginWidget->hideOnIntel();
-    }
-}
