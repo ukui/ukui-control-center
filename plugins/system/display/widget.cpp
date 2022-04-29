@@ -554,7 +554,7 @@ void Widget::slotUnifyOutputs()
         setConfig(mPrevConfig);
 
         ui->primaryCombo->setEnabled(isExtendMode);
-        ui->showMonitorframe->setVisible(isExtendMode);
+        ui->showMonitorframe->setVisible(mPrevConfig->connectedOutputs().count() > 1);
         ui->zoomFrame->setVisible(isExtendMode);
     } else if (mIscloneMode) {
         // Clone the current config, so that we can restore it in case user
