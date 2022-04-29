@@ -168,8 +168,11 @@ void ChangePwdDialog::setupComponent(){
     cpMaskWidget->setGeometry(0, 0, ui->faceLabel->width(), ui->faceLabel->height());
 
     ui->curPwdLineEdit->setEchoMode(QLineEdit::Password);
+    ui->curPwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
     ui->pwdLineEdit->setEchoMode(QLineEdit::Password);
+    ui->pwdLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
     ui->pwdsureLineEdit->setEchoMode(QLineEdit::Password);
+    ui->pwdsureLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 
     ui->curPwdLineEdit->setPlaceholderText(tr("Current Password"));
     ui->pwdLineEdit->setPlaceholderText(tr("New Password"));
