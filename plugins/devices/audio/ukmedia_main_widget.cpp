@@ -2511,6 +2511,7 @@ void UkmediaMainWidget::addAvailableInputPort()
         for (it=tempMap.begin();it!=tempMap.end();) {
             //需添加到list widget
             if (inputPortIsNeedAdd(at.key(),it.value())) {
+                qDebug() << "add input list widget" << at.key()<< it.value();
                 UkuiListWidgetItem *itemW = new UkuiListWidgetItem(this);
                 QListWidgetItem * item = new QListWidgetItem(m_pInputWidget->m_pInputListWidget);
                 item->setSizeHint(QSize(200,64)); //QSize(120, 40) spacing: 12px;
@@ -2834,6 +2835,11 @@ void UkmediaMainWidget::findInputListWidgetItem(QString cardName,QString portLab
                 isCheckBluetoothInput = true;
             qDebug() << "set input list widget" << row;
             break;
+        }
+        else{
+            m_pInputWidget->m_pInputListWidget->blockSignals(true);
+            m_pInputWidget->m_pInputListWidget->setCurrentRow(SET_NULL_ITEM);
+            m_pInputWidget->m_pInputListWidget->blockSignals(false);
         }
     }
 }
