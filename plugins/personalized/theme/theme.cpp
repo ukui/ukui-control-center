@@ -186,18 +186,15 @@ void Theme::setupSettings() {
     kwinSettings->beginGroup("Plugins");
     bool kwin = kwinSettings->value("blurEnabled", kwin).toBool();
 
-    if (!kwinSettings->childKeys().contains("blurEnabled")) {
+    if (!kwinSettings->childKeys().contains("blurEnabled") || isBlurEffect()) {
         kwin = true;
+    } else {
+        kwin = false;
     }
 
     kwinSettings->endGroup();
 
     effectSwitchBtn->setChecked(kwin);
-
-    QFileInfo dir(filename);
-    if (!dir.isFile()) {
-        effectSwitchBtn->setChecked(true);
-    }
 
     if (effectSwitchBtn->isChecked()) {
         ui->transFrame->setVisible(true);
@@ -787,6 +784,16 @@ void Theme::hideIntelComponent()
         ui->line->setVisible(false);
         ui->resetBtn->setVisible(false);
     }
+}
+
+bool Theme::isBlurEffect()
+{
+    QDBusInterface ifc("org.ukui.KWin",
+                        "/Effects",
+                        "org.ukui.kwin.Effects",
+                        QDBusConnection::sessionBus());
+    QStringList effects = ifc.property("activeEffects").toStringList();
+    return effects.contains("blur");
 }
 
 QString Theme::dullTranslation(QString str) {

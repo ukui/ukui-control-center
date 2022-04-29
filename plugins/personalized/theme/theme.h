@@ -120,6 +120,8 @@ private:
 
     void hideIntelComponent();  // 隐藏非intel功能
 
+    bool isBlurEffect();
+
 private slots:
     void resetBtnClickSlot();
     void writeKwinSettings(bool change, QString theme, bool effect = false);
