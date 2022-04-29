@@ -113,7 +113,7 @@ QWidget * Power::pluginUi() {
             initSearText();
             isLidPresent();
             isHibernateSupply();
-            isExitBattery();
+            isExistBattery();
             setupComponent();
             initCustomPlanStatus();
             setupConnect();
@@ -631,7 +631,7 @@ void Power::resetui()
     mBatterySaveFrame->hide();
     line_12->hide();
     //不存在盖子隐藏该项
-    if (!isExitsLid) {
+    if (!isExistsLid) {
         mCloseLidFrame->hide();
         line_5->hide();
     }
@@ -684,7 +684,7 @@ void Power::setupComponent()
     mCloseLidComboBox->insertItem(1, closeLidStringList.at(1), "blank");
     mCloseLidComboBox->insertItem(2, closeLidStringList.at(2), "suspend");
     mCloseLidComboBox->insertItem(3, closeLidStringList.at(3), "shutdown");
-    if (!Utils::isWayland() && isExitHibernate){
+    if (!Utils::isWayland() && isExistHibernate){
         closeLidStringList << tr("hibernate");
         mCloseLidComboBox->insertItem(4, closeLidStringList.at(4), "hibernate");
      }
@@ -694,7 +694,7 @@ void Power::setupComponent()
     mPowerKeyComboBox->insertItem(0, buttonStringList.at(0), "interactive");
     mPowerKeyComboBox->insertItem(1, buttonStringList.at(1), "suspend");
     mPowerKeyComboBox->insertItem(2, buttonStringList.at(2), "shutdown");
-    if (isExitHibernate) {
+    if (isExistHibernate) {
         mPowerKeyComboBox->insertItem(3, buttonStringList.at(3), "hibernate");
     }
 
@@ -743,7 +743,7 @@ void Power::setupComponent()
     mLowpowerComboBox2->insertItem(1, LowpowerStringList.at(1), "blank");
     mLowpowerComboBox2->insertItem(2, LowpowerStringList.at(2), "suspend");
     mLowpowerComboBox2->insertItem(3, LowpowerStringList.at(3), "shutdown");
-    if (isExitHibernate){
+    if (isExistHibernate){
         LowpowerStringList << tr("hibernate");
         mLowpowerComboBox2->insertItem(4, LowpowerStringList.at(4), "hibernate");
      }
@@ -1064,7 +1064,7 @@ void Power::isLidPresent()
     }
     QDBusReply<QVariant> LidInfo;
     LidInfo = LidInterface->call("Get", "org.freedesktop.UPower", "LidIsPresent");
-    isExitsLid = LidInfo.value().toBool();
+    isExistsLid = LidInfo.value().toBool();
 }
 
 void Power::isHibernateSupply()
@@ -1080,10 +1080,10 @@ void Power::isHibernateSupply()
     }
     QDBusReply<QString> HibernateInfo;
     HibernateInfo = HibernateInterface->call("CanHibernate");
-    isExitHibernate = HibernateInfo == "yes"?true:false;
+    isExistHibernate = HibernateInfo == "yes"?true:false;
 }
 
-bool Power::isExitBattery()
+bool Power::isExistBattery()
 {
     /* 默认机器没有电池 */
     hasBat = false;

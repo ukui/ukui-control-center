@@ -42,7 +42,7 @@ namespace Utils
     QString getCpuInfo();
     QString getCpuArchitecture();
     bool isExistEffect();
-    bool isExitBattery();
+    bool isExistBattery();
     void setKwinMouseSize(int size);
     bool isWayland();
     bool isCommunity();

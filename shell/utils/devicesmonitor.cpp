@@ -8,7 +8,7 @@ extern "C" {
 #include <X11/extensions/XInput.h>
 #include <X11/Xatom.h>
 }
-bool isExitTouchScreen(){
+bool isExistTouchScreen(){
 
     int  ndevices = 0;
     bool retval=false;

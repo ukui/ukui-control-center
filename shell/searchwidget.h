@@ -82,7 +82,6 @@ private:
 
     QStringList mCnExclude;
     QStringList mEnExclude;
-    bool is_ExitBluetooth = false;
     int count;
 };
 #endif // SEARCHWIDGET_H

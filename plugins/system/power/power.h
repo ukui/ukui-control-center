@@ -69,7 +69,7 @@ public:
     void initCustomPlanStatus();
     void isLidPresent();
     void isHibernateSupply();
-    bool isExitBattery();
+    bool isExistBattery();
     double getBattery();
     bool QLabelSetText(QLabel *label, QString string);
     void clearAutoItem(QVBoxLayout *mLyt);
@@ -191,8 +191,8 @@ private:
     QVBoxLayout *PowerLayout;
 
     bool mFirstLoad;
-    bool isExitsLid;
-    bool isExitHibernate;
+    bool isExistsLid;
+    bool isExistHibernate;
 
     bool hasBat;
 };

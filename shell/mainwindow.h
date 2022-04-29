@@ -114,9 +114,9 @@ private:
     void loadPlugins();
     void initLeftsideBar();
     QPushButton * buildLeftsideBtn(QString bname, QString tipName, QIcon icon);
-    bool isExitsCloudAccount();
-    bool isExitsPower();
-    bool isExitWirelessDevice();
+    bool isExistsCloudAccount();
+    bool isExistsPower();
+    bool isExistWirelessDevice();
     bool dblOnEdge(QMouseEvent *event);
     void initStyleSheet();
     void changeSearchSlot();
