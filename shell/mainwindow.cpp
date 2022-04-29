@@ -613,8 +613,12 @@ void MainWindow::loadPlugins(){
 #endif
 
         const char * securityCmd = "/usr/sbin/ksc-defender";
+        const char * searchCmd = "/usr/bin/ukui-search";
 
         if ((!g_file_test(securityCmd, G_FILE_TEST_EXISTS)) && (fileName == "libsecuritycenter.so"))
+            continue;
+
+        if ((!g_file_test(searchCmd, G_FILE_TEST_EXISTS)) && (fileName == "libsearch.so"))
             continue;
 
         QPluginLoader loader(pluginsDir.absoluteFilePath(fileName));
