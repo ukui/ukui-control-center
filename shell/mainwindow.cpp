@@ -541,6 +541,7 @@ void MainWindow::loadPlugins(){
         qDebug() << "Scan Plugin: " << fileName;
         if (!fileName.endsWith(".so")
                 || ("libpower.so" == fileName && !is_ExitPower)
+                || ("libtouchpad.so" == fileName && Utils::isWayland())
                 ) {
             continue;
         }
