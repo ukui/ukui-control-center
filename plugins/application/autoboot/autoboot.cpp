@@ -278,7 +278,7 @@ void AutoBoot::initAutoUI()
 
         mAutoBootLayout->addWidget(baseWidget);
     }
-    connect(checkSignalMapper, SIGNAL(mapped(QString)), this, SLOT(checkbox_changed_cb(QString)));
+    connect(checkSignalMapper, SIGNAL(mapped(QString)), this, SLOT(checkboxChangedSlot(QString)));
 }
 
 void AutoBoot::setupGSettings()
@@ -459,7 +459,7 @@ void AutoBoot::clearAutoItem()
     }
 }
 
-void AutoBoot::open_desktop_dir_slots()
+void AutoBoot::openDesktopDirSlot()
 {
     QString filters = tr("Desktop files(*.desktop)");
     ukFileDialog *fd = new ukFileDialog(pluginWidget);
@@ -501,7 +501,7 @@ void AutoBoot::open_desktop_dir_slots()
                                          G_KEY_FILE_DESKTOP_KEY_ICON, NULL);
 
     g_key_file_free(keyfile);
-    emit autoboot_adding_signals(selectedfile, QString(mname), QString(exec),
+    emit autobootAddingSignal(selectedfile, QString(mname), QString(exec),
                                  QString(comment), QString(icon));
 }
 
@@ -527,7 +527,7 @@ gboolean AutoBoot::_key_file_to_file(GKeyFile *keyfile, const gchar *path)
     return res;
 }
 
-void AutoBoot::checkbox_changed_cb(QString bname)
+void AutoBoot::checkboxChangedSlot(QString bname)
 {
     foreach (QString key, appgroupMultiMaps.keys()) {
         if (key == bname) {
@@ -583,7 +583,7 @@ void AutoBoot::keyChangedSlot(const QString &key)
     }
 }
 
-void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exec, QString comment, QString icon)
+void AutoBoot::addAutobootRealizeSlot(QString path, QString name, QString exec, QString comment, QString icon)
 {
     if (exec.contains("kylin-screenshot")) {
         QStringList screenshotExec = exec.split(" ");
@@ -614,7 +614,7 @@ void AutoBoot::initAddBtn()
     addWgt = new AddBtn(pluginWidget);
     //~ contents_path /autoboot/Add
     tr("Add");       // 用于添加搜索索引
-    connect(addWgt, &AddBtn::clicked, this, &AutoBoot::open_desktop_dir_slots);
+    connect(addWgt, &AddBtn::clicked, this, &AutoBoot::openDesktopDirSlot);
 }
 
 void AutoBoot::initStyle()
@@ -719,7 +719,7 @@ void AutoBoot::initConnection()
         }
     });
 
-    connect(this, &AutoBoot::autoboot_adding_signals, this, &AutoBoot::add_autoboot_realize_slot);
+    connect(this, &AutoBoot::autobootAddingSignal, this, &AutoBoot::addAutobootRealizeSlot);
 }
 
 void AutoBoot::connectToServer()

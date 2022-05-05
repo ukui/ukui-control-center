@@ -113,14 +113,14 @@ private:
     QStringList whitelist;
 
 public slots:
-    void checkbox_changed_cb(QString bname);
+    void checkboxChangedSlot(QString bname);
     void keyChangedSlot(const QString &key);
-    void add_autoboot_realize_slot(QString path, QString name, QString exec, QString comment,
+    void addAutobootRealizeSlot(QString path, QString name, QString exec, QString comment,
                                    QString icon);
-    void open_desktop_dir_slots();
+    void openDesktopDirSlot();
 
 Q_SIGNALS:
-    void autoboot_adding_signals(QString path, QString name, QString exec, QString comment, QString icon);
+    void autobootAddingSignal(QString path, QString name, QString exec, QString comment, QString icon);
 };
 
 #endif // AUTOBOOT_H
