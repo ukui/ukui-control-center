@@ -355,10 +355,6 @@ void MainWindow::initTileBar() {
     logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
     const QByteArray id(THEME_QT_SCHEMA);
     QGSettings *mQtSettings = new QGSettings(id, QByteArray(), this);
-    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
-        if (key == "iconThemeName")
-            logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
-    });
 
     textSetLable->setText(tr("Settings"));
     textSetLable->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
@@ -427,6 +423,12 @@ void MainWindow::initTileBar() {
 
     QIcon titleIcon = QIcon::fromTheme("ukui-control-center");
     mTitleIcon->setPixmap(titleIcon.pixmap(titleIcon.actualSize(QSize(24, 24))));
+    connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
+        if (key == "iconThemeName") {
+            logoSetLabel->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+            mTitleIcon->setPixmap(QPixmap::fromImage(QIcon::fromTheme("ukui-control-center").pixmap(24,24).toImage()));
+        }
+    });
 
     changeSearchSlot();
     m_searchWidget->setFixedWidth(350);
