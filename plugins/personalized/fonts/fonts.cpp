@@ -387,7 +387,7 @@ void Fonts::initModel()
             fontModel->appendRow(standardItem);
         }
 
-        if (fontValue.contains("Mono")) {
+        if (fontValue.contains("Mono") && !fontValue.contains("Ubuntu")) {
             QStandardItem *monoItem = new QStandardItem(fontValue);
             monoItem->setFont(QFont(fontValue));
             monoModel->appendRow(monoItem);
