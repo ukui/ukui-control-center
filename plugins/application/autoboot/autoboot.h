@@ -25,7 +25,6 @@
 
 #include "shell/interface.h"
 #include "datadefined.h"
-#include "addautoboot.h"
 #include <ukcc/widgets/titlelabel.h>
 #include <ukcc/widgets/hoverwidget.h>
 #include <ukcc/widgets/addbtn.h>
@@ -33,6 +32,17 @@
 #include <QtDBus>
 #include <QGSettings>
 #include <QVBoxLayout>
+/* qt会将glib里的signals成员识别为宏，所以取消该宏
+ * 后面如果用到signals时，使用Q_SIGNALS代替即可
+ **/
+#ifdef signals
+#undef signals
+#endif
+
+#include <glib.h>
+#include <glib/gstdio.h>
+#include <gio/gio.h>
+#include <gio/gdesktopappinfo.h>
 
 namespace Ui {
 class AutoBoot;
@@ -82,7 +92,7 @@ private:
     int pluginType;
     QWidget *pluginWidget;
 
-    AddAutoBoot *dialog;
+//    AddAutoBoot *dialog;
     QDBusInterface *m_cloudInterface;
 
     QMap<QString, AutoApp> appMaps;
@@ -107,6 +117,10 @@ public slots:
     void keyChangedSlot(const QString &key);
     void add_autoboot_realize_slot(QString path, QString name, QString exec, QString comment,
                                    QString icon);
+    void open_desktop_dir_slots();
+
+Q_SIGNALS:
+    void autoboot_adding_signals(QString path, QString name, QString exec, QString comment, QString icon);
 };
 
 #endif // AUTOBOOT_H

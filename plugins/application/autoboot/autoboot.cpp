@@ -32,6 +32,8 @@
 #include <QGSettings>
 #include <QToolButton>
 #include <QMenu>
+#include <QFileDialog>
+#include <QMessageBox>
 #include "rmenu.h"
 
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
@@ -59,6 +61,21 @@
 #define LOCAL_CONFIG_DIR           "/.config/autostart/"
 #define SYSTEM_CONFIG_DIR          "/etc/xdg/autostart/"
 #define USR_CONFIG_DIR             "/usr/share/applications/"
+
+class ukFileDialog : public QFileDialog
+{
+public:
+    explicit ukFileDialog(QWidget *parent = nullptr,
+                         const QString &caption = QString(),
+                         const QString &directory = QString(),
+                         const QString &filter = QString())
+        : QFileDialog(parent, caption, directory, filter)
+    {
+    }
+protected:
+   void accept() override;
+
+};
 
 AutoBoot::AutoBoot() : mFirstLoad(true)
 {
@@ -442,6 +459,52 @@ void AutoBoot::clearAutoItem()
     }
 }
 
+void AutoBoot::open_desktop_dir_slots()
+{
+    QString filters = tr("Desktop files(*.desktop)");
+    ukFileDialog *fd = new ukFileDialog(pluginWidget);
+    fd->setDirectory(USR_CONFIG_DIR);
+    fd->setModal(true);
+    fd->setAcceptMode(QFileDialog::AcceptOpen);
+    fd->setViewMode(QFileDialog::List);
+    fd->setNameFilter(filters);
+    fd->setFileMode(QFileDialog::ExistingFile);
+    fd->setWindowTitle(tr("select autoboot desktop"));
+    fd->setLabelText(QFileDialog::Accept, tr("Select"));
+    fd->setLabelText(QFileDialog::Reject, tr("Cancel"));
+    if (fd->exec() != QDialog::Accepted)
+        return;
+
+    QString selectedfile;
+    selectedfile = fd->selectedFiles().first();
+
+    QByteArray ba;
+    ba = selectedfile.toUtf8();
+    // 解析desktop文件
+    GKeyFile *keyfile;
+    char *name, *comment, *mname, *exec, *icon;
+
+    keyfile = g_key_file_new();
+    if (!g_key_file_load_from_file(keyfile, ba.data(), G_KEY_FILE_NONE, NULL)) {
+        g_key_file_free(keyfile);
+        return;
+    }
+    name = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                        G_KEY_FILE_DESKTOP_KEY_NAME, NULL);
+    mname = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                        G_KEY_FILE_DESKTOP_KEY_NAME, NULL, NULL);
+    comment = g_key_file_get_locale_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                           G_KEY_FILE_DESKTOP_KEY_COMMENT, NULL, NULL);
+    exec = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                         G_KEY_FILE_DESKTOP_KEY_EXEC, NULL);
+    icon = g_key_file_get_string(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                         G_KEY_FILE_DESKTOP_KEY_ICON, NULL);
+
+    g_key_file_free(keyfile);
+    emit autoboot_adding_signals(selectedfile, QString(mname), QString(exec),
+                                 QString(comment), QString(icon));
+}
+
 gboolean AutoBoot::_key_file_to_file(GKeyFile *keyfile, const gchar *path)
 {
     GError *werror;
@@ -549,14 +612,9 @@ void AutoBoot::add_autoboot_realize_slot(QString path, QString name, QString exe
 void AutoBoot::initAddBtn()
 {
     addWgt = new AddBtn(pluginWidget);
-    QLabel *AddLabel = new QLabel;
     //~ contents_path /autoboot/Add
-    AddLabel->setText(tr("Add"));       // 用于添加搜索索引
-    delete AddLabel;
-    dialog = new AddAutoBoot(pluginWidget);
-    connect(addWgt, &AddBtn::clicked, this, [=](){
-        dialog->exec();
-    });
+    tr("Add");       // 用于添加搜索索引
+    connect(addWgt, &AddBtn::clicked, this, &AutoBoot::open_desktop_dir_slots);
 }
 
 void AutoBoot::initStyle()
@@ -661,8 +719,7 @@ void AutoBoot::initConnection()
         }
     });
 
-    connect(dialog, SIGNAL(autoboot_adding_signals(QString,QString,QString,QString,QString)),
-            this, SLOT(add_autoboot_realize_slot(QString,QString,QString,QString,QString)));
+    connect(this, &AutoBoot::autoboot_adding_signals, this, &AutoBoot::add_autoboot_realize_slot);
 }
 
 void AutoBoot::connectToServer()
@@ -686,3 +743,35 @@ bool AutoBoot::initConfig()
     }
 }
 
+
+void ukFileDialog::accept()
+{
+    QString selectedfile;
+    selectedfile = this->selectedFiles().first();
+
+    QByteArray ba;
+    ba = selectedfile.toUtf8();
+
+    // 解析desktop文件
+    GKeyFile *keyfile;
+    bool no_display;
+
+    keyfile = g_key_file_new();
+    if (!g_key_file_load_from_file(keyfile, ba.data(), G_KEY_FILE_NONE, NULL)) {
+        g_key_file_free(keyfile);
+        return;
+    }
+    no_display = g_key_file_get_boolean(keyfile, G_KEY_FILE_DESKTOP_GROUP,
+                                        G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY, FALSE);
+
+    g_key_file_free(keyfile);
+
+    if (no_display) {
+        QMessageBox msg(qApp->activeWindow());
+        msg.setIcon(QMessageBox::Warning);
+        msg.setText(QObject::tr("Programs are not allowed to be added."));
+        msg.exec();
+    } else {
+        QFileDialog::accept();
+    }
+}

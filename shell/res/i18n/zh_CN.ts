@@ -892,13 +892,33 @@
 <context>
     <name>AutoBoot</name>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="554"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="464"/>
+        <source>Desktop files(*.desktop)</source>
+        <translation>桌面文件(*.desktop)</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="472"/>
+        <source>select autoboot desktop</source>
+        <translation>选择自启动程序</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="473"/>
+        <source>Select</source>
+        <translation>选择</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="474"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="616"/>
         <source>Add</source>
         <translation>添加</translation>
         <extra-contents_path>/autoboot/Add</extra-contents_path>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="565"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="623"/>
         <source>Autoboot Settings</source>
         <translation>开机启动设置</translation>
         <extra-contents_path>/autoboot/Autoboot Settings</extra-contents_path>
@@ -916,7 +936,7 @@
         <translation type="vanished">开机启动</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="65"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="82"/>
         <source>Auto Boot</source>
         <translation>开机启动</translation>
     </message>
@@ -929,7 +949,7 @@
         <translation type="vanished">当前状态</translation>
     </message>
     <message>
-        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="225"/>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="242"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -5677,7 +5697,7 @@ Please retry or relogin!</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../mainwindow.cpp" line="395"/>
+        <location filename="../../mainwindow.cpp" line="394"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -5686,19 +5706,19 @@ Please retry or relogin!</source>
         <translation type="vanished">设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="364"/>
-        <location filename="../../mainwindow.cpp" line="415"/>
+        <location filename="../../mainwindow.cpp" line="363"/>
+        <location filename="../../mainwindow.cpp" line="414"/>
         <location filename="../../mainwindow.cpp" line="884"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="424"/>
+        <location filename="../../mainwindow.cpp" line="423"/>
         <source>Main menu</source>
         <translation>主菜单</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="425"/>
+        <location filename="../../mainwindow.cpp" line="424"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
@@ -5707,33 +5727,33 @@ Please retry or relogin!</source>
         <translation type="vanished">最大化/正常</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="158"/>
+        <location filename="../../mainwindow.cpp" line="157"/>
         <source>Normal</source>
         <translation>还原</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="161"/>
-        <location filename="../../mainwindow.cpp" line="426"/>
+        <location filename="../../mainwindow.cpp" line="160"/>
+        <location filename="../../mainwindow.cpp" line="425"/>
         <source>Maximize</source>
         <translation>最大化</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="427"/>
+        <location filename="../../mainwindow.cpp" line="426"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="475"/>
+        <location filename="../../mainwindow.cpp" line="474"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="477"/>
+        <location filename="../../mainwindow.cpp" line="476"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="479"/>
+        <location filename="../../mainwindow.cpp" line="478"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
@@ -5742,12 +5762,12 @@ Please retry or relogin!</source>
         <translation type="vanished">控制面板</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1011"/>
+        <location filename="../../mainwindow.cpp" line="999"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../mainwindow.cpp" line="1011"/>
+        <location filename="../../mainwindow.cpp" line="999"/>
         <source>This function has been controlled</source>
         <translation>该功能已被管控</translation>
     </message>
@@ -9176,6 +9196,11 @@ E-mail: support@kylinos.cn</source>
         <source>xxx客户端</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../../plugins/application/autoboot/autoboot.cpp" line="772"/>
+        <source>Programs are not allowed to be added.</source>
+        <translation>该程序不允许添加。</translation>
+    </message>
 </context>
 <context>
     <name>RegDialog</name>
@@ -10531,53 +10556,53 @@ E-mail: support@kylinos.cn</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="255"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="253"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="256"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="254"/>
         <source>Light</source>
         <translation>浅色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="257"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="255"/>
         <source>Dark</source>
         <translation>深色</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="762"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="760"/>
         <source>Blue-Crystal</source>
         <translation>蓝水晶</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="764"/>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="797"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="762"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="805"/>
         <source>Light-Seeking</source>
         <translation>寻光</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="766"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="764"/>
         <source>DMZ-Black</source>
         <translation>DMZ-黑</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="768"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="766"/>
         <source>DMZ-White</source>
         <translation>DMZ-白</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="770"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="768"/>
         <source>Dark-Sense</source>
         <translation>黑色质感</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="793"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="801"/>
         <source>basic</source>
         <translation>基础</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="795"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="803"/>
         <source>Classic</source>
         <translation>启典</translation>
     </message>
@@ -10590,22 +10615,22 @@ E-mail: support@kylinos.cn</source>
         <translation type="vanished">时尚</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="801"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="809"/>
         <source>hp</source>
         <translation>惠普</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="803"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="811"/>
         <source>ukui</source>
         <translation>寻光</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="799"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="807"/>
         <source>HeYin</source>
         <translation>和印</translation>
     </message>
     <message>
-        <location filename="../../../plugins/personalized/theme/theme.cpp" line="805"/>
+        <location filename="../../../plugins/personalized/theme/theme.cpp" line="813"/>
         <source>default</source>
         <translation>默认</translation>
     </message>
