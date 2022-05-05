@@ -89,6 +89,8 @@ extern "C" {
 #define PA_VOLUME_NORMAL 65536.0
 #define UKMEDIA_VOLUME_NORMAL 100.0
 
+#define SET_NULL_ITEM -1
+
 #ifdef __GNUC__
 #define CA_CLAMP(x, low, high)                                          \
         __extension__ ({ typeof(x) _x = (x);                            \
