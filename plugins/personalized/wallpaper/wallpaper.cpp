@@ -37,7 +37,7 @@ const QString kylinBackgroundName1 = "/usr/share/backgrounds/warty-final-ubuntuk
 const QString kylinBackgroundName2 = "/usr/share/backgrounds/aurora.jpg";
 
 
-const char *LIB_INFO = "libadd version: 0.0.3 (2022-05-06, 15:00)";
+const char *LIB_INFO = "libwallpaper version: 0.0.3 (2022-05-06, 15:00)";
 
 int add(int a, int b)
 {
