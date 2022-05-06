@@ -7,6 +7,7 @@
 #include <QPushButton>
 #include <QFrame>
 #include <QButtonGroup>
+#include <unistd.h>
 
 #include <QDBusInterface>
 
@@ -161,14 +162,29 @@ void DeleteUserExists::setConnect(){
     });
 
     connect(confirmBtn, &QPushButton::clicked, this, [=]{
-        QDBusInterface tmpSysinterface("org.freedesktop.Accounts",
-                                       "/org/freedesktop/Accounts",
-                                       "org.freedesktop.Accounts",
-                                       QDBusConnection::systemBus());
+        QDBusInterface *tmpSysinterface = nullptr;
+        if (Utils::isCommunity()) {
+            tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                           "/",
+                                           "com.control.center.interface",
+                                           QDBusConnection::systemBus());
+        } else {
+            tmpSysinterface = new QDBusInterface("org.freedesktop.Accounts",
+                                           "/org/freedesktop/Accounts",
+                                           "org.freedesktop.Accounts",
+                                           QDBusConnection::systemBus());
+        }
 
-        if (tmpSysinterface.isValid()){
+        //底层删除用户存在延时，先隐藏掉删除用户界面
+        this->hide();
+
+        if (tmpSysinterface->isValid()){
             qDebug() << "call" << "method: deleteuser";
-            tmpSysinterface.call("DeleteUser", _id, removeBtnGroup->checkedId() == 1 ? true : false);
+            QDBusReply<bool> ret = tmpSysinterface->call("DeleteUser", _id, removeBtnGroup->checkedId() == 1 ? true : false);
+
+            if (!ret.isValid()) {
+                qDebug() << "call DeleteUser failed" << ret.error();
+            }
         } else {
             qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         }

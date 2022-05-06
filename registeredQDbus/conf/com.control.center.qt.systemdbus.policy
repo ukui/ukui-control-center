@@ -76,4 +76,15 @@
       <allow_active>auth_admin</allow_active>
     </defaults>
   </action>
+  <action id="org.control.center.qt.systemdbus.action.delete">
+    <description>Delete user</description>
+    <description xml:lang="zh">删除用户</description>
+    <message>To delete the user, you need to authenticate.</message>
+    <message xml:lang="zh">需要通过管理员认证后才可以删除用户</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+  </action>
 </policyconfig>
