@@ -2,6 +2,7 @@
 #define DELETEUSEREXISTS_H
 
 #include <QDialog>
+#include "../../../shell/utils/utils.h"
 
 class QHBoxLayout;
 class QVBoxLayout;

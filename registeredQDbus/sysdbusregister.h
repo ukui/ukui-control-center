@@ -55,6 +55,7 @@ public:
     bool checkAuthorization();
     bool authoriyLogin(qint64 id);
     bool authoriyAutoLogin(qint64 id);
+    bool authoriyDelete(qint64 id);
     bool authoriyPasswdAging(qint64 id);
 
 private:
@@ -95,6 +96,8 @@ public slots:
 
     // 设置自动登录状态
     Q_SCRIPTABLE int setAutoLoginStatus(QString username);
+
+    Q_SCRIPTABLE int DeleteUser(qint64 userId, bool removeWhole);
 
     // 获取挂起到休眠时间
     Q_SCRIPTABLE QString getSuspendThenHibernate();

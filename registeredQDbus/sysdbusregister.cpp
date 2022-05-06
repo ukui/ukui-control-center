@@ -187,6 +187,35 @@ int SysdbusRegister::setAutoLoginStatus(QString username) {
     return 1;
 }
 
+int SysdbusRegister::DeleteUser(qint64 userId, bool removeWhole)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyDelete(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
+    QDBusInterface tmpSysinterface("org.freedesktop.Accounts",
+                                   "/org/freedesktop/Accounts",
+                                   "org.freedesktop.Accounts",
+                                   QDBusConnection::systemBus());
+
+    if (tmpSysinterface.isValid()){
+        qDebug() << "call" << "method: deleteuser";
+        QDBusReply<bool> ret = tmpSysinterface.call("DeleteUser", userId, removeWhole);
+
+        if (!ret.isValid()) {
+            qDebug() << "call freedesktop deleteuser failed" << ret.error();
+        }
+    } else {
+        qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
+    }
+
+    return 1;
+}
+
 QString SysdbusRegister::getSuspendThenHibernate() {
     mHibernateSet->beginGroup("Sleep");
 
@@ -379,6 +408,29 @@ bool SysdbusRegister::authoriyAutoLogin(qint64 id)
 
     result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
                 "org.control.center.qt.systemdbus.action.autologin",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyDelete(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.delete",
                 PolkitQt1::UnixProcessSubject(_id),
                 PolkitQt1::Authority::AllowUserInteraction);
 
