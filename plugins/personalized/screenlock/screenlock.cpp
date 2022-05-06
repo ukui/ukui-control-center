@@ -107,6 +107,11 @@ const QString Screenlock::name() const
     return QStringLiteral("screenlock");
 }
 
+void Screenlock::plugin_leave()
+{
+    return;
+}
+
 void Screenlock::initSearchText() {
     //~ contents_path /screenlock/Show picture of screenlock on screenlogin
     ui->loginpicLabel->setText(tr("Show picture of screenlock on screenlogin"));
