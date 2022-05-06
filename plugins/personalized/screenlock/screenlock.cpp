@@ -576,6 +576,7 @@ void Screenlock::resetDefaultScreenLockSlot(){
     g_object_unref(wpgsettings);
     lSetting->set(SCREENLOCK_BG_KEY, QVariant(QString(dwp)));
     setClickedPic(QString(dwp));
+    setLockBackground(loginbgSwitchBtn->isChecked());
 }
 
 void Screenlock::setClickedPic(QString fileName) {
