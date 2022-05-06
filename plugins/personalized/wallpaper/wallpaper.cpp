@@ -31,9 +31,18 @@
 #include <QFileInfo>
 #include <QFileSystemWatcher>
 
+#define VERSION	"1.0.0"
 const QString kylinUrl = "https://www.ubuntukylin.com/wallpaper.html";
 const QString kylinBackgroundName1 = "/usr/share/backgrounds/warty-final-ubuntukylin.jpg";
 const QString kylinBackgroundName2 = "/usr/share/backgrounds/aurora.jpg";
+
+
+const char *LIB_INFO = "libadd version: 0.0.3 (2022-05-06, 15:00)";
+
+int add(int a, int b)
+{
+	return (a + b);
+}
 
 enum{
     PICTURE,   // 图片背景
@@ -107,6 +116,11 @@ void Wallpaper::plugin_delay_control(){
 const QString Wallpaper::name() const {
 
     return QStringLiteral("wallpaper");
+}
+
+void Wallpaper::plugin_leave()
+{
+    return;
 }
 
 void Wallpaper::initSearchText() {
@@ -620,7 +634,7 @@ void Wallpaper::del_wallpaper(){
 }
 
 void Wallpaper::setClickedPic(QString fileName) {
-    for (int i = picFlowLayout->count() - 1; i >= 0; --i) { 
+    for (int i = picFlowLayout->count() - 1; i >= 0; --i) {
         QLayoutItem *it      = picFlowLayout->itemAt(i);
         PictureUnit *picUnit = static_cast<PictureUnit*>(it->widget());
         if (fileName == picUnit->filenameText()) {
