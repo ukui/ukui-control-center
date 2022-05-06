@@ -4590,7 +4590,7 @@ folder will be deleted!</source>
     <message>
         <location filename="../../../plugins/personalized/fonts/fonts.ui" line="421"/>
         <source>Reset to default</source>
-        <translation>恢复默认设置</translation>
+        <translation>恢复默认</translation>
     </message>
     <message>
         <source>Gtk default font</source>
