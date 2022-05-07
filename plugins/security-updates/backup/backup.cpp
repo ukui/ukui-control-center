@@ -26,6 +26,8 @@
 
 #include "../../../shell/utils/utils.h"
 
+const QString kDesktopfp = "/usr/share/applications/yhkylin-backup-tools.desktop";
+
 #ifdef signals
 #undef signals
 #endif
@@ -86,7 +88,7 @@ QIcon Backup::icon() const
 
 bool Backup::isEnable() const
 {
-    return true;
+    return QFile::exists(kDesktopfp);
 }
 
 void Backup::initUi(QWidget *widget)
