@@ -17,9 +17,18 @@ public:
     AddBtn(QWidget *parent = nullptr);
     ~AddBtn();
 
+    enum Shape {
+        None,
+        Top,
+        Bottom,
+        Box
+    };
+    Q_ENUM(Shape)
+    void setBtnStyle(Shape type);
+
 protected:
-    virtual void leaveEvent(QEvent * event);
-    virtual void enterEvent(QEvent * event);
+    virtual void leaveEvent(QEvent *event);
+    virtual void enterEvent(QEvent *event);
 
 Q_SIGNALS:
     void enterWidget();
