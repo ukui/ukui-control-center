@@ -71,9 +71,13 @@ public:
                          const QString &filter = QString())
         : QFileDialog(parent, caption, directory, filter)
     {
+        blacklist.append(QString("%1%2").arg(USR_CONFIG_DIR).arg( "gparted.desktop")); //需要root权限才能打开，session无法打开
     }
 protected:
    void accept() override;
+
+private:
+   QStringList blacklist;
 
 };
 
@@ -766,7 +770,7 @@ void ukFileDialog::accept()
 
     g_key_file_free(keyfile);
 
-    if (no_display) {
+    if (no_display || blacklist.contains(selectedfile)) {
         QMessageBox msg(qApp->activeWindow());
         msg.setIcon(QMessageBox::Warning);
         msg.setText(QObject::tr("Programs are not allowed to be added."));
