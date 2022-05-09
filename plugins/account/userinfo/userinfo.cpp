@@ -232,37 +232,41 @@ UserInfomation UserInfo::_acquireUserInfo(QString objpath){
     user.current = false;
     user.logined = false;
     user.autologin = false;
+    user.objpath = objpath;
 
     QDBusInterface * iproperty = new QDBusInterface("org.freedesktop.Accounts",
                                             objpath,
                                             "org.freedesktop.DBus.Properties",
                                             QDBusConnection::systemBus());
-    QDBusReply<QMap<QString, QVariant> > reply = iproperty->call("GetAll", "org.freedesktop.Accounts.User");
-    if (reply.isValid()){
-        QMap<QString, QVariant> propertyMap;
-        propertyMap = reply.value();
-        user.username = propertyMap.find("UserName").value().toString();
-        user.realname = propertyMap.find("RealName").value().toString();
+    if (!iproperty->isValid()){
+        qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+    } else {
+        QDBusReply<QMap<QString, QVariant> > reply = iproperty->call("GetAll", "org.freedesktop.Accounts.User");
+        if (reply.isValid()){
+            QMap<QString, QVariant> propertyMap;
+            propertyMap = reply.value();
+            user.username = propertyMap.find("UserName").value().toString();
+            user.realname = propertyMap.find("RealName").value().toString();
 
-        if (user.realname.isEmpty()){
-            user.realname = propertyMap.find("UserName").value().toString();
-        }
+            if (user.realname.isEmpty()){
+                user.realname = propertyMap.find("UserName").value().toString();
+            }
 
-        if (user.username == QString(g_get_user_name())) {
-            user.current = true;
-            user.logined = true;
-            user.noPwdLogin = getNoPwdStatus();
+            if (user.username == QString(g_get_user_name())) {
+                user.current = true;
+                user.logined = true;
+                user.noPwdLogin = getNoPwdStatus();
+            }
+            user.accounttype = propertyMap.find("AccountType").value().toInt();
+            user.iconfile = propertyMap.find("IconFile").value().toString();
+            user.passwdtype = propertyMap.find("PasswordMode").value().toInt();
+            user.uid = propertyMap.find("Uid").value().toInt();
+            user.autologin = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
+            user.objpath = objpath;
+        } else {
+            qDebug() << "reply failed" << reply.error();
         }
-        user.accounttype = propertyMap.find("AccountType").value().toInt();
-        user.iconfile = propertyMap.find("IconFile").value().toString();
-        user.passwdtype = propertyMap.find("PasswordMode").value().toInt();
-        user.uid = propertyMap.find("Uid").value().toInt();
-        user.autologin = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
-        user.objpath = objpath;
     }
-    else
-        qDebug() << "reply failed";
-
     delete iproperty;
     iproperty = nullptr;
 
@@ -1074,6 +1078,7 @@ void UserInfo::propertyChangedSlot(QString property, QMap<QString, QVariant> pro
 }
 
 void UserInfo::deleteUserDone(QString objpath){
+    qDebug() << "delete user:" << objpath;
     QListWidgetItem * item = otherUserItemMap.value(objpath);
 
     //删除Item
