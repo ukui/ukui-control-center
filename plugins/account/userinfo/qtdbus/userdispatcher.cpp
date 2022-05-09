@@ -104,7 +104,7 @@ void UserDispatcher::change_user_name(QString newName){
     useriface->call("SetRealName", QVariant(newName));
 }
 
-void UserDispatcher::change_user_autologin(QString username){
+bool UserDispatcher::change_user_autologin(QString username){
     QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                                           "/",
                                                           "com.control.center.interface",
@@ -112,12 +112,19 @@ void UserDispatcher::change_user_autologin(QString username){
 
     if (!tmpSysinterface->isValid()){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
-        return;
+        return false;
     }
-    tmpSysinterface->call("setAutoLoginStatus", username);
+    QDBusReply<int> reply = tmpSysinterface->call("setAutoLoginStatus", username);
+    if (reply == 0) {
+        qDebug() << "call setAutoLoginStatus failed:" << reply.error();
+        delete tmpSysinterface;
+        tmpSysinterface = nullptr;
+        return false;
+    }
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
+    return true;
 }
 
 bool UserDispatcher::get_autoLogin_status() {

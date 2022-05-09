@@ -563,10 +563,18 @@ void UserInfo::initComponent(){
                                                                   QDBusConnection::systemBus());
 
             if (!tmpSysinterface->isValid()){
+                nopwdSwitchBtn->blockSignals(true);
+                nopwdSwitchBtn->setChecked(!checked);
+                nopwdSwitchBtn->blockSignals(false);
                 qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
                 return;
             }
-            tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
+            QDBusReply<int> reply = tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
+            if (reply == 0) {
+                nopwdSwitchBtn->blockSignals(true);
+                nopwdSwitchBtn->setChecked(!checked);
+                nopwdSwitchBtn->blockSignals(false);
+            }
 
             delete tmpSysinterface;
             tmpSysinterface = nullptr;
@@ -590,12 +598,18 @@ void UserInfo::initComponent(){
                 return ;
             }
 
+            bool isChanged = false;
             if ((checked != status)) {
                 if (checked) {
-                    userdispatcher->change_user_autologin(user.username);
+                    isChanged = userdispatcher->change_user_autologin(user.username);
                 } else {
-                    userdispatcher->change_user_autologin("");
+                    isChanged = userdispatcher->change_user_autologin("");
                 }
+            }
+            if (!isChanged) {
+                autoLoginSwitchBtn->blockSignals(true);
+                autoLoginSwitchBtn->setChecked(!checked);
+                autoLoginSwitchBtn->blockSignals(false);
             }
         });
 
