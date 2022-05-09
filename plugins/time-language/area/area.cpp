@@ -226,7 +226,7 @@ void Area::initComponent() {
 
     if (ui->countrycomboBox->currentIndex() == 1) {
         ui->dayBox->addItem("星期一");
-        ui->dayBox->addItem("星期天");
+        ui->dayBox->addItem("星期日");
     } else {
         ui->dayBox->addItem("monday");
         ui->dayBox->addItem("sunday");
@@ -397,7 +397,7 @@ void Area::initConnect()
         ui->dayBox->clear();
         if (index == 1) {
             ui->dayBox->addItem("星期一");
-            ui->dayBox->addItem("星期天");
+            ui->dayBox->addItem("星期日");
         } else {
             ui->dayBox->addItem("monday");
             ui->dayBox->addItem("sunday");
