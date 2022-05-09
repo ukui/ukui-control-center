@@ -53,7 +53,7 @@ public:
     QString change_user_pwd(QString pwd, QString hint);
     void change_user_type(int atype);
     void change_user_face(QString facefile);
-    void change_user_autologin(QString username);
+    bool change_user_autologin(QString username);
     void change_user_name(QString newName);
     bool get_autoLogin_status();
 
