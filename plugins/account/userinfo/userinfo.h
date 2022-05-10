@@ -272,7 +272,7 @@ private:
     QString getAutomaticLogin();
     bool getNoPwdStatus();
     bool isOpenAutoLogin(const QString &userName);
-    void initUserPropertyConnection(const QStringList &objPath);
+    void initUserPropertyConnection(const QString &objPath);
 
 private slots:
     void delete_user_slot(bool removefile, QString username);
