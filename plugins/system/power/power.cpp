@@ -797,7 +797,7 @@ void Power::setupConnect()
 
     });
 
-    connect(mCloseLidComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) { 
+    connect(mCloseLidComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [=](int index) {
         settings->set(BUTTON_LID_AC_KEY, mCloseLidComboBox->itemData(index));
         settings->set(BUTTON_LID_BATT_KET, mCloseLidComboBox->itemData(index));
     });
@@ -964,13 +964,21 @@ void Power::initCustomPlanStatus()
     if (settings->get(SLEEP_COMPUTER_AC_KEY).toInt() == -1) {
         mSleepComboBox->setCurrentIndex(mSleepComboBox->findData(0));
     } else {
+        if (-1 == mSleepComboBox->findData(settings->get(SLEEP_COMPUTER_AC_KEY).toInt() / FIXES)) {
+            settings->reset(SLEEP_COMPUTER_AC_KEY);
+            settings->reset(SLEEP_COMPUTER_BATT_KEY);
+        }
           mSleepComboBox->setCurrentIndex(mSleepComboBox->findData(settings->get(SLEEP_COMPUTER_AC_KEY).toInt() / FIXES));
     }
 
     if (settings->get(SLEEP_DISPLAY_AC_KEY).toInt() == -1) {
         mCloseComboBox->setCurrentIndex(mCloseComboBox->findData(0));
     } else {
-         mCloseComboBox->setCurrentIndex(mCloseComboBox->findData(settings->get(SLEEP_DISPLAY_AC_KEY).toInt() / FIXES));;
+        if (-1 == mCloseComboBox->findData(settings->get(SLEEP_DISPLAY_AC_KEY).toInt() / FIXES)) {
+            settings->reset(SLEEP_DISPLAY_BATT_KEY);
+            settings->reset(SLEEP_DISPLAY_AC_KEY);
+        }
+         mCloseComboBox->setCurrentIndex(mCloseComboBox->findData(settings->get(SLEEP_DISPLAY_AC_KEY).toInt() / FIXES));
     }
 
     if (settings->get(IDLE_DIM_TIME_KEY).toInt() == -1) {
