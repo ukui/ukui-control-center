@@ -178,6 +178,9 @@ void UserInfo::_acquireAllUsersInfo(){
         UserInfomation user;
         user = _acquireUserInfo(objectpath);
         allUserInfoMap.insert(user.username, user);
+        if (user.username == mUserName) {
+            initUserPropertyConnection(objectpath);
+        }
     }
 
     if (allUserInfoMap.isEmpty()) {
@@ -191,7 +194,7 @@ void UserInfo::_acquireAllUsersInfo(){
         }
         ui->liveFrame->setVisible(false);
     }
-    initUserPropertyConnection(objectpaths);
+
 }
 
 int UserInfo::_userCanDel(QString user){
@@ -587,26 +590,29 @@ void UserInfo::initComponent(){
 
             UserInfomation user = allUserInfoMap.value(g_get_user_name());
 
-            UserDispatcher * userdispatcher  = new UserDispatcher(user.objpath);
+            QString autoUser = getAutomaticLogin();
+            qDebug() << "Current Auto User:" << autoUser;
 
-            bool status = getAutomaticLogin().contains(user.username, Qt::CaseSensitive);
+            //冲突，弹出提示窗口由用户选择
+            if (checked && !autoUser.isEmpty()){
 
-            if (checked && !isOpenAutoLogin(user.username)) {
-                autoLoginSwitchBtn->blockSignals(true);
-                autoLoginSwitchBtn->setChecked(false);
-                autoLoginSwitchBtn->blockSignals(false);
-                return ;
-            }
-
-            bool isChanged = false;
-            if ((checked != status)) {
-                if (checked) {
-                    isChanged = userdispatcher->change_user_autologin(user.username);
-                } else {
-                    isChanged = userdispatcher->change_user_autologin("");
+                if (!isOpenAutoLogin(user.username)){
+                    autoLoginSwitchBtn->blockSignals(true);
+                    autoLoginSwitchBtn->setChecked(false);
+                    autoLoginSwitchBtn->blockSignals(false);
+                    return;
                 }
             }
-            if (!isChanged) {
+
+            QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
+                                                                  user.objpath,
+                                                                  "org.freedesktop.Accounts.User",
+                                                                  "SetAutomaticLogin");
+            message << checked;
+            QDBusMessage response = QDBusConnection::systemBus().call(message);
+
+            if (response.type() == QDBusMessage::ErrorMessage){
+
                 autoLoginSwitchBtn->blockSignals(true);
                 autoLoginSwitchBtn->setChecked(!checked);
                 autoLoginSwitchBtn->blockSignals(false);
@@ -1089,6 +1095,15 @@ void UserInfo::propertyChangedSlot(QString property, QMap<QString, QVariant> pro
             ui->userTypeLabel->setText(_accountTypeIntToString(type));
         }
     }
+
+    if (propertyMap.keys().contains("AutomaticLogin") && getuid()){
+        bool current = propertyMap.value("AutomaticLogin").toBool();
+        if (current != autoLoginSwitchBtn->isChecked()){
+            autoLoginSwitchBtn->blockSignals(true);
+            autoLoginSwitchBtn->setChecked(current);
+            autoLoginSwitchBtn->blockSignals(false);
+        }
+    }
 }
 
 void UserInfo::deleteUserDone(QString objpath){
@@ -1409,17 +1424,15 @@ bool UserInfo::isOpenAutoLogin(const QString &userName) {
     return res;
 }
 
-void UserInfo::initUserPropertyConnection(const QStringList &objPath) {
+void UserInfo::initUserPropertyConnection(const QString &objPath) {
 
-    foreach (QString userPath, objPath) {
-        QDBusInterface iproperty("org.freedesktop.Accounts",
-                                 userPath,
-                                 "org.freedesktop.DBus.Properties",
-                                 QDBusConnection::systemBus());
+    QDBusInterface iproperty("org.freedesktop.Accounts",
+                             objPath,
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::systemBus());
 
-        iproperty.connection().connect("org.freedesktop.Accounts", userPath, "org.freedesktop.DBus.Properties", "PropertiesChanged",
-                                        this, SLOT(propertyChangedSlot(QString, QMap<QString, QVariant>, QStringList)));
-    }
+    iproperty.connection().connect("org.freedesktop.Accounts", objPath, "org.freedesktop.DBus.Properties", "PropertiesChanged",
+                                    this, SLOT(propertyChangedSlot(QString, QMap<QString, QVariant>, QStringList)));
 
     QDBusConnection::sessionBus().connect(QString(), QString("/org/kylinssoclient/path"), "org.freedesktop.kylinssoclient.interface", "keyChanged", this, SLOT(pwdAndAutoChangedSlot(QString)));
 }
