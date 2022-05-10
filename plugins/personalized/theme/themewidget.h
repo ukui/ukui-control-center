@@ -45,6 +45,7 @@ public:
 public:
     void setSelectedStatus(bool status);
     void setValue(QString value);
+    QPixmap pixmapToRound(const QString &filePath, const QSize &scaledSize);
     QString getValue();
 
 public:

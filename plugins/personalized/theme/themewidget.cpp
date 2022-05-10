@@ -79,7 +79,8 @@ ThemeWidget::ThemeWidget(QSize iSize, QString name, QStringList iStringList, QWi
     for (QString icon : iStringList){
         QLabel * label = new QLabel(this);
         label->setFixedSize(iSize);
-        label->setPixmap(QPixmap(icon));
+        label->setPixmap(pixmapToRound(icon, iSize));
+//        label->setPixmap(QPixmap(icon));
         iconHorLayout->addWidget(label);
     }
 
@@ -171,6 +172,43 @@ void ThemeWidget::setSelectedStatus(bool status){
 
 void ThemeWidget::setValue(QString value){
     pValue = value;
+}
+
+//新增函数，规避分数缩放锯齿形
+QPixmap ThemeWidget::pixmapToRound(const QString &filePath, const QSize &scaledSize)
+{
+
+    QPixmap pixmap(filePath);
+
+    qreal dpi = devicePixelRatioF();
+
+    QSize realSize = scaledSize * dpi;
+    QPixmap resultPixmap(realSize);
+
+    resultPixmap.fill(Qt::transparent);
+    QPainter painter(&resultPixmap);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+
+    //画圆
+//    QPainterPath path;
+//    path.addEllipse(0, 0, realSize.width(), realSize.height());
+//    painter.setClipPath(path);
+
+
+    QPoint drawLeftTop(0, 0);
+    QSize drawSize = realSize;
+
+    drawSize.setWidth(realSize.width());
+    drawSize.setHeight(realSize.width() * scaledSize.height() / scaledSize.width());
+    drawLeftTop.setX(0);
+    drawLeftTop.setY((realSize.height() - drawSize.height()) / 2);
+
+    // scaled draw
+    painter.drawPixmap(drawLeftTop.x(), drawLeftTop.y(), drawSize.width(), drawSize.height(), pixmap.scaled(drawSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+
+    resultPixmap.setDevicePixelRatio(dpi);
+    return resultPixmap;
+
 }
 
 QString ThemeWidget::getValue(){
