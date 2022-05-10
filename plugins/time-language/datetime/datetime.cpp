@@ -110,15 +110,13 @@ QWidget *DateTime::pluginUi()
         ui = new Ui::DateTime;
         pluginWidget->setAttribute(Qt::WA_DeleteOnClose);
         ui->setupUi(pluginWidget);
-        QTimer::singleShot(1, this, [=]() {    
-            initUI();
-            initTitleLabel();
-            initStatus();
-            initComponent();
-            initConnect();
-            connectToServer();
-            initTimeShow();
-        });
+        initUI();
+        initTitleLabel();
+        initStatus();
+        initComponent();
+        initConnect();
+        connectToServer();
+        initTimeShow();
     } else {
         fillTimeCombox(m_formTimeBtn->isChecked());
     }
@@ -308,7 +306,6 @@ void DateTime::initStatus()
     localZone = tz.value().toString();
     loadHour();
 }
-
 
 void DateTime::initTimeShow()
 {
