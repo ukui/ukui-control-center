@@ -106,10 +106,7 @@ void ColorDialog::setupInit()
     ui->horizontalLayout_2->addWidget(gradientSlider);
 
     // 颜色预览框
-    colorPreview = new ColorPreview(this);
-    //colorPreview = static_cast<ColorPreview*>(ui->colorPreviewWg);
-    colorPreview->setFixedSize(48,48);
-    colorPreview->setGeometry(45,345,48,48);
+    colorPreview = ui->colorPreviewWg;
 
     // spinbox
     // α:

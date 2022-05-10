@@ -683,7 +683,7 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="201"/>
         <source>Regional format data</source>
-        <translation>区域格式数据</translation>
+        <translation>区域数据格式</translation>
     </message>
     <message>
         <location filename="../../../plugins/time-language/area/area.ui" line="286"/>
@@ -810,7 +810,7 @@
     <message>
         <location filename="../../../plugins/time-language/area/area.cpp" line="161"/>
         <source>regional format</source>
-        <translation>区域格式数据</translation>
+        <translation>区域数据格式</translation>
         <extra-contents_path>/area/regional format</extra-contents_path>
     </message>
     <message>

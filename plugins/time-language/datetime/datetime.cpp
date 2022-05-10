@@ -718,10 +718,10 @@ void DateTime::setCurrentTimeOthers()
                             } else {
                                 currentsecStr = thisZoneTime.toString("AP hh: mm : ss");
                             }
-                            QLabel *label_1 = static_cast<QLabel*>(objLabel);
+                            TitleLabel *label_1 = static_cast<TitleLabel*>(objLabel);
                             label_1->setText(currentsecStr);
                         } else if(objLabel->objectName() == "label_2_week") {
-                            QLabel *label_2 = static_cast<QLabel*>(objLabel);
+                            FixLabel *label_2 = static_cast<FixLabel*>(objLabel);
                             QString timeAndWeek  = getTimeAndWeek(thisZoneTime);
                             label_2->setText(timeAndWeek + "     " + m_zoneinfo->getLocalTimezoneName(addWgt->_name, QLocale::system().name()));
                         }
