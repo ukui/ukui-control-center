@@ -184,13 +184,13 @@ void About::initUI(QWidget *widget)
     mVersionLayout->setContentsMargins(0, 0, 16, 0);
 
     mVersionLabel_1 = new FixLabel(mVersionFrame);
-    mVersionLabel_1->setFixedSize(80,30);
+    mVersionLabel_1->setFixedSize(120,30);
 
     mVersionLabel_2 = new LightLabel(mVersionFrame);
     mVersionLabel_2->setFixedHeight(30);
 
     mVersionLayout->addWidget(mVersionLabel_1);
-    mVersionLayout->addSpacing(80);
+    mVersionLayout->addSpacing(40);
     mVersionLayout->addWidget(mVersionLabel_2);
     mVersionLayout->addStretch();
 
@@ -204,13 +204,13 @@ void About::initUI(QWidget *widget)
     mVersionNumberLayout->setContentsMargins(0, 0, 16, 0);
 
     mVersionNumberLabel_1 = new FixLabel(tr("Version Number") , mVersionNumberFrame);
-    mVersionNumberLabel_1->setFixedSize(80,30);
+    mVersionNumberLabel_1->setFixedSize(120,30);
 
     mVersionNumberLabel_2 = new LightLabel(mVersionNumberFrame);
     mVersionNumberLabel_2->setFixedHeight(30);
 
     mVersionNumberLayout->addWidget(mVersionNumberLabel_1);
-    mVersionNumberLayout->addSpacing(80);
+    mVersionNumberLayout->addSpacing(40);
     mVersionNumberLayout->addWidget(mVersionNumberLabel_2);
     mVersionNumberLayout->addStretch();
 
@@ -224,13 +224,13 @@ void About::initUI(QWidget *widget)
     mInterVersionLayout->setContentsMargins(0, 0, 16, 0);
 
     mInterVersionLabel_1 = new FixLabel(tr("InterVersion") , mInterVersionFrame);
-    mInterVersionLabel_1->setFixedSize(80,30);
+    mInterVersionLabel_1->setFixedSize(120,30);
 
     mInterVersionLabel_2 = new LightLabel(mInterVersionFrame);
     mInterVersionLabel_2->setFixedHeight(30);
 
     mInterVersionLayout->addWidget(mInterVersionLabel_1);
-    mInterVersionLayout->addSpacing(80);
+    mInterVersionLayout->addSpacing(40);
     mInterVersionLayout->addWidget(mInterVersionLabel_2);
     mInterVersionLayout->addStretch();
 
@@ -244,13 +244,13 @@ void About::initUI(QWidget *widget)
     mVersionNumLayout->setContentsMargins(0, 0, 16, 0);
 
     mVersionNumLabel_1 = new FixLabel(mVersionNumFrame);
-    mVersionNumLabel_1->setFixedSize(80,30);
+    mVersionNumLabel_1->setFixedSize(120,30);
 
     mVersionNumLabel_2 = new LightLabel(mVersionNumFrame);
     mVersionNumLabel_2->setFixedHeight(30);
 
     mVersionNumLayout->addWidget(mVersionNumLabel_1);
-    mVersionNumLayout->addSpacing(80);
+    mVersionNumLayout->addSpacing(40);
     mVersionNumLayout->addWidget(mVersionNumLabel_2);
     mVersionNumLayout->addStretch();
 
@@ -266,7 +266,7 @@ void About::initUI(QWidget *widget)
     mHostNameLayout_1->setContentsMargins(0, 0, 0, 0);
 
     mHostNameLabel_1 = new FixLabel(tr("HostName") , mHostNameFrame);
-    mHostNameLabel_1->setFixedSize(80,30);
+    mHostNameLabel_1->setFixedSize(120,30);
 
     mHostNameLabel_2 = new LightLabel(mHostNameFrame );
     mHostNameLabel_2->setFixedHeight(30);
@@ -285,7 +285,7 @@ void About::initUI(QWidget *widget)
     mHostNameLayout_1->addWidget(mHostNameLabel_3);
 
     mHostNameLayout->addWidget(mHostNameLabel_1);
-    mHostNameLayout->addSpacing(80);
+    mHostNameLayout->addSpacing(40);
     mHostNameLayout->addLayout(mHostNameLayout_1);
     mHostNameLayout->addStretch();
 
@@ -298,13 +298,13 @@ void About::initUI(QWidget *widget)
     mKernerLayout->setContentsMargins(0, 0, 16, 0);
 
     mKernelLabel_1 = new FixLabel(mKernelFrame);
-    mKernelLabel_1->setFixedSize(80,30);
+    mKernelLabel_1->setFixedSize(120,30);
 
     mKernelLabel_2 = new LightLabel(mKernelFrame);
     mKernelLabel_2->setFixedHeight(30);
 
     mKernerLayout->addWidget(mKernelLabel_1);
-    mKernerLayout->addSpacing(80);
+    mKernerLayout->addSpacing(40);
     mKernerLayout->addWidget(mKernelLabel_2);
     mKernerLayout->addStretch();
 
@@ -317,13 +317,13 @@ void About::initUI(QWidget *widget)
     mCpuLayout->setContentsMargins(0, 0, 16, 0);
 
     mCpuLabel_1 = new FixLabel(mCpuFrame);
-    mCpuLabel_1->setFixedSize(80,30);
+    mCpuLabel_1->setFixedSize(120,30);
 
     mCpuLabel_2 = new LightLabel(mCpuFrame);
     mCpuLabel_2->setFixedHeight(30);
 
     mCpuLayout->addWidget(mCpuLabel_1);
-    mCpuLayout->addSpacing(80);
+    mCpuLayout->addSpacing(40);
     mCpuLayout->addWidget(mCpuLabel_2);
     mCpuLayout->addStretch();
 
@@ -336,13 +336,13 @@ void About::initUI(QWidget *widget)
     mMemoryLayout->setContentsMargins(0, 0, 16, 0);
 
     mMemoryLabel_1 = new FixLabel(mMemoryFrame);
-    mMemoryLabel_1->setFixedSize(80,30);
+    mMemoryLabel_1->setFixedSize(120,30);
 
     mMemoryLabel_2 = new LightLabel(mMemoryFrame);
     mMemoryLabel_2->setFixedHeight(30);
 
     mMemoryLayout->addWidget(mMemoryLabel_1);
-    mMemoryLayout->addSpacing(80);
+    mMemoryLayout->addSpacing(40);
     mMemoryLayout->addWidget(mMemoryLabel_2);
     mMemoryLayout->addStretch();
 
@@ -355,13 +355,13 @@ void About::initUI(QWidget *widget)
     mDiskLayout->setContentsMargins(0, 0, 16, 0);
 
     mDiskLabel_1 = new FixLabel(mDiskFrame);
-    mDiskLabel_1->setFixedSize(80,30);
+    mDiskLabel_1->setFixedSize(120,30);
 
     mDiskLabel_2 = new LightLabel(mDiskFrame);
     mDiskLabel_2->setFixedHeight(30);
 
     mDiskLayout->addWidget(mDiskLabel_1);
-    mDiskLayout->addSpacing(80);
+    mDiskLayout->addSpacing(40);
     mDiskLayout->addWidget(mDiskLabel_2);
     mDiskLayout->addStretch();
 
@@ -374,13 +374,13 @@ void About::initUI(QWidget *widget)
     mDesktopLayout->setContentsMargins(0, 0, 16, 0);
 
     mDesktopLabel_1 = new FixLabel(mDesktopFrame);
-    mDesktopLabel_1->setFixedSize(80,30);
+    mDesktopLabel_1->setFixedSize(120,30);
 
     mDesktopLabel_2 = new LightLabel(mDesktopFrame);
     mDesktopLabel_2->setFixedHeight(30);
 
     mDesktopLayout->addWidget(mDesktopLabel_1);
-    mDesktopLayout->addSpacing(80);
+    mDesktopLayout->addSpacing(40);
     mDesktopLayout->addWidget(mDesktopLabel_2);
     mDesktopLayout->addStretch();
 
@@ -393,13 +393,13 @@ void About::initUI(QWidget *widget)
     mUsernameLayout->setContentsMargins(0, 0, 16, 0);
 
     mUsernameLabel_1 = new FixLabel(mUsernameFrame);
-    mUsernameLabel_1->setFixedSize(80,30);
+    mUsernameLabel_1->setFixedSize(120,30);
 
     mUsernameLabel_2 = new LightLabel(mUsernameFrame);
     mUsernameLabel_2->setFixedHeight(30);
 
     mUsernameLayout->addWidget(mUsernameLabel_1);
-    mUsernameLayout->addSpacing(80);
+    mUsernameLayout->addSpacing(40);
     mUsernameLayout->addWidget(mUsernameLabel_2);
     mUsernameLayout->addStretch();
 

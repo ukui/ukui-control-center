@@ -616,6 +616,7 @@ void AutoBoot::addAutobootRealizeSlot(QString path, QString name, QString exec, 
 void AutoBoot::initAddBtn()
 {
     addWgt = new AddBtn(pluginWidget);
+    addWgt->setBtnStyle(AddBtn::Bottom);
     //~ contents_path /autoboot/Add
     tr("Add");       // 用于添加搜索索引
     connect(addWgt, &AddBtn::clicked, this, &AutoBoot::openDesktopDirSlot);
