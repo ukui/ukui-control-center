@@ -70,7 +70,7 @@ bool Touchpad::isShowOnHomePage() const
 
 QIcon Touchpad::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("input-touchpad-symbolic");
 }
 
 bool Touchpad::isEnable() const

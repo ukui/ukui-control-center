@@ -121,7 +121,7 @@ const QString Backup::name() const {
 
 QIcon Backup::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-backup-restore-symbolic");
 }
 
 bool Backup::isShowOnHomePage() const

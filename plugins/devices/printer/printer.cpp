@@ -102,7 +102,7 @@ bool Printer::isShowOnHomePage() const
 
 QIcon Printer::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("printer-symbolic");
 }
 
 bool Printer::isEnable() const

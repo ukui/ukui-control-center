@@ -116,7 +116,7 @@ bool Wallpaper::isShowOnHomePage() const
 
 QIcon Wallpaper::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("folder-pictures-symbolic");
 }
 
 bool Wallpaper::isEnable() const

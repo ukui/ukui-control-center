@@ -68,7 +68,7 @@ bool Update::isShowOnHomePage() const
 
 QIcon Update::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-update-symbolic");
 }
 
 bool Update::isEnable() const

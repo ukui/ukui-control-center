@@ -157,7 +157,7 @@ bool Theme::isShowOnHomePage() const
 
 QIcon Theme::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-note-color-symbolic");
 }
 
 bool Theme::isEnable() const

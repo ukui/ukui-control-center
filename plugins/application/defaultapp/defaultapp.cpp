@@ -81,7 +81,7 @@ bool DefaultApp::isShowOnHomePage() const
 
 QIcon DefaultApp::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-defaultapp-symbolic");
 }
 
 bool DefaultApp::isEnable() const

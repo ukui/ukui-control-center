@@ -106,7 +106,7 @@ bool Screenlock::isShowOnHomePage() const
 
 QIcon Screenlock::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-lock-screen-symbolic");
 }
 
 bool Screenlock::isEnable() const
