@@ -137,7 +137,7 @@ bool Proxy::isShowOnHomePage() const
 
 QIcon Proxy::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-network-agent-symbolic");
 }
 
 bool Proxy::isEnable() const

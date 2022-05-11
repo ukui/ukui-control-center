@@ -128,8 +128,6 @@ void HomePageWidget::initUI() {
 
         if (picModuleName == "search_f") {
             picModuleName = "search";
-        } else if (picModuleName == "datetime") {
-            picModuleName = "time-language";
         }
         widget->setObjectName("itemWidget");
         widget->setStyleSheet("QPushButton#itemWidget{background-color: transparent;}");
@@ -142,10 +140,20 @@ void HomePageWidget::initUI() {
         logoLabel->setObjectName("logoLabel");
         logoLabel->setScaledContents(true);
 
-        QString path = (QString(":/img/homepage/kylin-settings-%1.png").arg(picModuleName));
-        QPixmap pix;
-        pix.load(path);
-        logoLabel->setPixmap(pix);
+        QString themeIconName = QString("kylin-settings-%1").arg(picModuleName);
+        QString localIconName = QString(":/img/homepage/%1.png").arg(themeIconName);
+        logoLabel->setPixmap(QIcon::fromTheme(themeIconName,QIcon(localIconName))
+                             .pixmap(logoLabel->size()));
+        const QByteArray settingId(STYLE_FONT_SCHEMA);
+        if (QGSettings::isSchemaInstalled(settingId)) {
+            QGSettings *mQtSettings = new QGSettings(settingId, QByteArray(), this);
+            connect(mQtSettings, &QGSettings::changed, this, [=](QString key) {
+                if (key == "iconThemeName") {
+                    logoLabel->setPixmap(QIcon::fromTheme(themeIconName,QIcon(localIconName))
+                                         .pixmap(logoLabel->size()));
+                }
+            });
+        }
 
         QVBoxLayout * rightVerLayout = new QVBoxLayout();
         rightVerLayout->setContentsMargins(0, 2, 0, 0);

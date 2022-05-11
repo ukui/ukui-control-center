@@ -138,7 +138,7 @@ bool About::isShowOnHomePage() const
 
 QIcon About::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-about-symbolic");
 }
 
 bool About::isEnable() const

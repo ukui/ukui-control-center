@@ -64,7 +64,7 @@ bool Vino::isShowOnHomePage() const
 
 QIcon Vino::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("folder-remote-symbolic");
 }
 
 bool Vino::isEnable() const

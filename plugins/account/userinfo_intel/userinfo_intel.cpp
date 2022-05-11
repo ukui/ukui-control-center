@@ -132,7 +132,7 @@ bool UserInfoIntel::isShowOnHomePage() const
 
 QIcon UserInfoIntel::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("user-available-symbolic");
 }
 
 bool UserInfoIntel::isEnable() const

@@ -61,7 +61,7 @@ bool MouseControl::isShowOnHomePage() const
 
 QIcon MouseControl::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("input-mouse-symbolic");
 }
 
 bool MouseControl::isEnable() const

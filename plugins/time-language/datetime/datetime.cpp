@@ -137,7 +137,10 @@ bool DateTime::isShowOnHomePage() const
 
 QIcon DateTime::icon() const
 {
-    return QIcon();
+    if (QIcon::hasThemeIcon("ukui-datetime-symbolic")) {
+        return QIcon::fromTheme("ukui-datetime-symbolic");
+    }
+    return QIcon::fromTheme("ukui-datetine-symbolic");  //主题命名错误，兼容
 }
 
 bool DateTime::isEnable() const

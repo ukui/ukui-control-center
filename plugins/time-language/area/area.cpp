@@ -140,7 +140,7 @@ bool Area::isShowOnHomePage() const
 
 QIcon Area::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-area-symbolic");
 }
 
 bool Area::isEnable() const

@@ -135,7 +135,7 @@ bool AutoBoot::isShowOnHomePage() const
 
 QIcon AutoBoot::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-poweron-symbolic");
 }
 
 bool AutoBoot::isEnable() const

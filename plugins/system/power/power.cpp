@@ -136,7 +136,7 @@ bool Power::isShowOnHomePage() const
 
 QIcon Power::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("system-shutdown-symbolic");
 }
 
 bool Power::isEnable() const

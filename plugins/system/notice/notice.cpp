@@ -123,7 +123,7 @@ bool Notice::isShowOnHomePage() const
 
 QIcon Notice::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-tool-symbolic");
 }
 
 bool Notice::isEnable() const

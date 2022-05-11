@@ -70,7 +70,7 @@ bool Vpn::isShowOnHomePage() const
 
 QIcon Vpn::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-vpn-symbolic");
 }
 
 bool Vpn::isEnable() const

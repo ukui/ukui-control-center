@@ -75,7 +75,7 @@ bool DisplaySet::isShowOnHomePage() const
 
 QIcon DisplaySet::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-display-symbolic");
 }
 
 bool DisplaySet::isEnable() const

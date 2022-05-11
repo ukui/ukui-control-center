@@ -132,7 +132,7 @@ bool Shortcut::isShowOnHomePage() const
 
 QIcon Shortcut::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-shortcut-key-symbolic");
 }
 
 bool Shortcut::isEnable() const

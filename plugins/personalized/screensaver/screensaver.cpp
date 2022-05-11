@@ -166,7 +166,7 @@ bool Screensaver::isShowOnHomePage() const
 
 QIcon Screensaver::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-screensaver-symbolic");
 }
 
 bool Screensaver::isEnable() const

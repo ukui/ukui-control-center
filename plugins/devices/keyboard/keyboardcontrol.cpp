@@ -60,7 +60,7 @@ bool KeyboardControl::isShowOnHomePage() const
 
 QIcon KeyboardControl::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("input-keyboard-symbolic");
 }
 
 bool KeyboardControl::isEnable() const

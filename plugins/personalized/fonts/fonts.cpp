@@ -126,7 +126,7 @@ bool Fonts::isShowOnHomePage() const
 
 QIcon Fonts::icon() const
 {
-    return QIcon();
+    return QIcon::fromTheme("ukui-font-symbolic");
 }
 
 bool Fonts::isEnable() const
