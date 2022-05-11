@@ -215,9 +215,11 @@ int FlowLayout::fillSpaceX(QWidget *wid) const{
 
     int maxY = numH * (height + x) + 32 - x;
     if (m_home) {
-        maxY = numH * (height + 24) + 32;
+        maxY = numH * (height + 24);
+        this->parentWidget()->parentWidget()->setFixedHeight(maxY);
     }
     this->parentWidget()->setFixedHeight(maxY);
+
     return x;
 }
 
