@@ -33,7 +33,6 @@
 #include <KWindowEffects>
 #include <signal.h>
 #include <stdlib.h>
-#include <ukuistylehelper/ukuistylehelper.h>
 
 #ifdef KYDEBUG
 #include <ukui-log4qt.h>
@@ -108,16 +107,13 @@ int main(int argc, char *argv[])
 
         w.setAttribute(Qt::WA_TranslucentBackground);
         KWindowEffects::enableBlurBehind(w.winId(),true);
-        bool isWayland = QGuiApplication::platformName().startsWith(QLatin1String("wayland"));
-        if (isWayland) {
-            kdk::UkuiStyleHelper::self()->removeHeader(&w);
-        } else {
-            MotifWmHints hints;
-            hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
-            hints.functions = MWM_FUNC_ALL;
-            hints.decorations = MWM_DECOR_BORDER;
-            XAtomHelper::getInstance()->setWindowMotifHint(w.winId(), hints);
-        }
+
+        MotifWmHints hints;
+        hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+        hints.functions = MWM_FUNC_ALL;
+        hints.decorations = MWM_DECOR_BORDER;
+        XAtomHelper::getInstance()->setWindowMotifHint(w.winId(), hints);
+
 
         a.setActivationWindow(&w);
         QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(sltMessageReceived(const QString&)));
