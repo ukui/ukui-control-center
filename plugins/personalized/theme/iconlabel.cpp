@@ -8,13 +8,11 @@ IconLabel::IconLabel(QWidget *parent):
 }
 
 void IconLabel::enterEvent(QEvent *event){
-    Q_EMIT enterWidget();
-
+    emit enterWidget();
     QLabel::enterEvent(event);
 }
 
 void IconLabel::leaveEvent(QEvent *event){
-    Q_EMIT leaveWidget();
-
+    emit leaveWidget();
     QLabel::leaveEvent(event);
 }

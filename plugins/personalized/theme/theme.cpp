@@ -19,6 +19,7 @@
  */
 #include "theme.h"
 #include "ui_theme.h"
+#include "iconlabel.h"
 
 #include <QGSettings>
 #include <QDebug>
@@ -27,7 +28,6 @@
 #include <QRadioButton>
 
 #include "SwitchButton/switchbutton.h"
-#include "Label/iconlabel.h"
 #include "myqradiobutton.h"
 #include "cursor/xcursortheme.h"
 #include "../../../shell/customstyle.h"
@@ -293,7 +293,7 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
     //触发父对象的鼠标点击信号
     connect(statusbtn,&MyQRadioButton::clicked,[=](){
         ui->themeModeBtnGroup->buttonClicked(button);
-        emit button->clicked();
+        button->setChecked(true);
     });
 
     //触发父对象的悬浮信号
@@ -314,22 +314,15 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
 #endif
         if (eBtn == button) {
             statusbtn->setChecked(true);
-            button->setChecked(true);
-        }
-        else {
+            iconLabel->setStyleSheet("border: 2px");
+            iconLabel->setStyleSheet(QString("QLabel#iconlabel{border-radius: 6px;\
+                                                border-width: 2px;border-style: solid;border-color: %1;}").arg(stringColor));
+        } else {
             statusbtn->setChecked(false);
             button->setChecked(false);
             emit iconLabel->leaveWidget();
         }
     });
-
-    connect(button,&QPushButton::clicked,[=](){
-        iconLabel->setStyleSheet("border: 2px");
-        iconLabel->setStyleSheet(QString("QLabel#iconlabel{border-radius: 6px;\
-                                            border-width: 2px;border-style: solid;border-color: %1;}").arg(stringColor));
-    });
-
-
 
     connect(iconLabel,&IconLabel::enterWidget,[=](){
         if (!button->isChecked()) {
@@ -340,11 +333,9 @@ void Theme::buildThemeModeBtn(QPushButton *button, QString name, QString icon){
 
     });
     connect(iconLabel,&IconLabel::leaveWidget,[=](){
-        if (!button->isChecked()) {
+        if (!button->isChecked())
             iconLabel->setStyleSheet("border: 0px");
-        }
-
-     });
+    });
 
     bottomHorLayout->addStretch();
     bottomHorLayout->setContentsMargins(0,16,0,0);
@@ -363,13 +354,13 @@ void Theme::initThemeMode() {
     QString currentThemeMode = qtSettings->get(MODE_QT_KEY).toString();
     if ("ukui-white" == currentThemeMode || "ukui-default" == currentThemeMode) {
         ui->themeModeBtnGroup->buttonClicked(ui->defaultButton);
-        emit ui->defaultButton->clicked();
+        ui->defaultButton->setChecked(true);
     } else if ("ukui-dark" == currentThemeMode || "ukui-black" == currentThemeMode){
         ui->themeModeBtnGroup->buttonClicked(ui->darkButton);
-        emit ui->darkButton->clicked();
+        ui->darkButton->setChecked(true);
     } else {
         ui->themeModeBtnGroup->buttonClicked(ui->lightButton);
-        emit ui->lightButton->clicked();
+        ui->lightButton->setChecked(true);
     }
 
     qApp->setStyle(new InternalStyle("ukui"));
@@ -386,10 +377,8 @@ void Theme::initThemeMode() {
                 } else if("ukui-white" == currentThemeMode) {
                     currentThemeMode = "ukui-default";
                 }
-                if (valueVariant.isValid() && valueVariant.toString() == currentThemeMode) {
-                    disconnect(ui->themeModeBtnGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(themeBtnClickSlot(QAbstractButton*)));
+                if (valueVariant.isValid() && valueVariant.toString() == currentThemeMode && !button->isChecked()) {
                     button->click();
-                    connect(ui->themeModeBtnGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(themeBtnClickSlot(QAbstractButton*)));
                 }
             }
             qApp->setStyle(new InternalStyle("ukui"));
