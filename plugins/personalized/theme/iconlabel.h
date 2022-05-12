@@ -13,10 +13,10 @@ public:
 
 
 protected:
-    virtual void leaveEvent(QEvent * event);
-    virtual void enterEvent(QEvent * event);
+    void leaveEvent(QEvent * event);
+    void enterEvent(QEvent * event);
 
-Q_SIGNALS:
+signals:
     void enterWidget();
     void leaveWidget();
 };
