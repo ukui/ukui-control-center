@@ -590,7 +590,8 @@ void MainWindow::loadPlugins(){
                 || ("libnetconnect.so" == fileName && mIsNmIcbc)
                 || ("libupgrade.so" == fileName && !mIsUpgradesp1)
                 || ("libupgrade-icbc.so" == fileName && !mIsUpgradeIcbc)
-                || ("libbackup.so" == fileName && !QFile::exists(kDesktopfp))) {
+                || ("libbackup.so" == fileName && !QFile::exists(kDesktopfp))
+                || ("libtouchpad.so" == fileName && !isfindSynaptics())) {
             continue;
         }
 
