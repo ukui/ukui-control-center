@@ -89,20 +89,21 @@ QWidget *About::get_plugin_ui()
             qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
         }
 
-#ifdef BUILD_FOR_NR
-        ui->label_2->hide();
-        ui->logoLabel->hide();
-        ui->verticalLayout_3->removeItem(ui->horizontalLayout_2);
-        ui->horizontalLayout_2->addStretch();
-#else
-#endif
-
         initSearchText();
         initActiveDbus();
         setupDesktopComponent();
         setupVersionCompenent();
         setupSerialComponent();
         setupKernelCompenent();
+
+#ifdef BUILD_FOR_NR
+        ui->versionContent->setText(tr("NR Desktop V10 (SP1)"));
+        ui->label_2->hide();
+        ui->logoLabel->hide();
+        ui->verticalLayout_3->removeItem(ui->horizontalLayout_2);
+        ui->horizontalLayout_2->addStretch();
+#else
+#endif
 
         mNtphostName.append(QString("0.cn.pool.ntp.org"));
         mNtphostName.append(QString("1.cn.pool.ntp.org"));
