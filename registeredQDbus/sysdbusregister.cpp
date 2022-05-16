@@ -167,7 +167,7 @@ int SysdbusRegister::setNoPwdLoginStatus(bool status,QString username)
 }
 
 // 设置自动登录状态
-int SysdbusRegister::setAutoLoginStatus(QString username) {
+int SysdbusRegister::setAutoLoginStatus(QString userPath, bool autoLogin) {
     //密码校验
     QDBusConnection conn = connection();
     QDBusMessage msg = message();
@@ -175,14 +175,19 @@ int SysdbusRegister::setAutoLoginStatus(QString username) {
     if (!authoriyAutoLogin(conn.interface()->servicePid(msg.service()).value())){
         return 0;
     }
-    QString filename = "/etc/lightdm/lightdm.conf";
-    QSharedPointer<QSettings>  autoSettings = QSharedPointer<QSettings>(new QSettings(filename, QSettings::IniFormat));
-    autoSettings->beginGroup("SeatDefaults");
 
-    autoSettings->setValue("autologin-user", username);
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
+                                              userPath,
+                                              "org.freedesktop.Accounts.User",
+                                              "SetAutomaticLogin");
 
-    autoSettings->endGroup();
-    autoSettings->sync();
+    message << autoLogin;
+    QDBusMessage response = QDBusConnection::systemBus().call(message);
+    if (response.type() == QDBusMessage::ErrorMessage){
+        qDebug() << "call freedesktop SetAutomaticLogin failed" << response.errorMessage();
+        return 0;
+    }
+
 
     return 1;
 }
