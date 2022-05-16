@@ -89,6 +89,14 @@ QWidget *About::get_plugin_ui()
             qDebug()<<THEME_STYLE_SCHEMA<<" not installed";
         }
 
+#ifdef BUILD_FOR_NR
+        ui->label_2->hide();
+        ui->logoLabel->hide();
+        ui->verticalLayout_3->removeItem(ui->horizontalLayout_2);
+        ui->horizontalLayout_2->addStretch();
+#else
+#endif
+
         initSearchText();
         initActiveDbus();
         setupDesktopComponent();

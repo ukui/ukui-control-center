@@ -22,6 +22,7 @@
 #include "bgfileparse.h"
 #include "pictureunit.h"
 #include "MaskWidget/maskwidget.h"
+#include "../shell/utils/utils.h"
 
 #include <QDebug>
 #include <QDir>
@@ -185,6 +186,12 @@ void Screenlock::setupComponent()
     flowLayout = new FlowLayout;
     flowLayout->setContentsMargins(0, 0, 0, 0);
     ui->backgroundsWidget->setLayout(flowLayout);
+
+    // 实达项目隐藏浏览壁纸
+    if (Utils::isStart()) {
+        ui->browserOnlinewpBtn->hide();
+        ui->browserLocalwpBtn->hide();
+    }
 }
 
 void Screenlock::setupConnect()
