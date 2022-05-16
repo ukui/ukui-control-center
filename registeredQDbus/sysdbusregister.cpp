@@ -177,9 +177,9 @@ int SysdbusRegister::setAutoLoginStatus(QString userPath, bool autoLogin) {
     }
 
     QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
-                                              userPath,
-                                              "org.freedesktop.Accounts.User",
-                                              "SetAutomaticLogin");
+                                                          userPath,
+                                                          "org.freedesktop.Accounts.User",
+                                                          "SetAutomaticLogin");
 
     message << autoLogin;
     QDBusMessage response = QDBusConnection::systemBus().call(message);
@@ -189,6 +189,36 @@ int SysdbusRegister::setAutoLoginStatus(QString userPath, bool autoLogin) {
     }
 
 
+    return 1;
+}
+
+int SysdbusRegister::SetAccountType(QString userPath, int accountType)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyAccountType(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
+     QDBusInterface tmpSysinterface("org.freedesktop.Accounts",
+                                     userPath,
+                                    "org.freedesktop.Accounts.User",
+                                    QDBusConnection::systemBus());
+
+    if (tmpSysinterface.isValid()) {
+        qDebug() << "call" << "method: SetAccountType";
+        QDBusReply<bool> ret = tmpSysinterface.call("SetAccountType", accountType);
+
+        if (!ret.isValid()) {
+            qDebug() << "call freedesktop SetAccountType failed" << ret.error();
+            return 0;
+        }else {
+            qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
+            return 0;
+        }
+    }
     return 1;
 }
 
@@ -424,6 +454,30 @@ bool SysdbusRegister::authoriyAutoLogin(qint64 id)
         return true;
     }
 }
+
+bool SysdbusRegister::authoriyAccountType(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.type",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
 
 bool SysdbusRegister::authoriyDelete(qint64 id)
 {

@@ -14,6 +14,7 @@
 #include <QMouseEvent>
 
 #include "elipsemaskwidget.h"
+#include "../../../shell/utils/utils.h"
 
 #include <QDebug>
 
@@ -24,10 +25,17 @@ ChangeUserType::ChangeUserType(QString objpath, QWidget *parent) :
     setMinimumSize(QSize(520, 390));
     setWindowTitle(tr("UserType"));
 
-    cutiface = new QDBusInterface("org.freedesktop.Accounts",
-                                  _objpath,
-                                  "org.freedesktop.Accounts.User",
-                                  QDBusConnection::systemBus());
+    if (Utils::isCommunity()) {
+        cutiface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                      "/",
+                                      "com.control.center.interface",
+                                      QDBusConnection::systemBus());
+    } else {
+        cutiface = new QDBusInterface("org.freedesktop.Accounts",
+                                      _objpath,
+                                      "org.freedesktop.Accounts.User",
+                                      QDBusConnection::systemBus());
+    }
 
     initUI();
     setConnect();
@@ -182,7 +190,11 @@ void ChangeUserType::setConnect(){
         close();
     });
     connect(cutConfirmBtn, &QPushButton::clicked, this, [=]{
-        cutiface->call("SetAccountType", cutTypesBtnGroup->checkedId());
+        if (Utils::isCommunity()) {
+            cutiface->call("SetAccountType", _objpath, cutTypesBtnGroup->checkedId());
+        } else {
+            cutiface->call("SetAccountType", cutTypesBtnGroup->checkedId());
+        }
 
         accept();
     });

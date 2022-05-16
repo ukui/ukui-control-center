@@ -55,6 +55,7 @@ public:
     bool checkAuthorization();
     bool authoriyLogin(qint64 id);
     bool authoriyAutoLogin(qint64 id);
+    bool authoriyAccountType(qint64 id);
     bool authoriyDelete(qint64 id);
     bool authoriyPasswdAging(qint64 id);
 
@@ -96,6 +97,7 @@ public slots:
 
     // 设置自动登录状态
     Q_SCRIPTABLE int setAutoLoginStatus(QString userPath, bool autoLogin);
+    Q_SCRIPTABLE int SetAccountType(QString userPath, int accountType);
 
     Q_SCRIPTABLE int DeleteUser(qint64 userId, bool removeWhole);
 

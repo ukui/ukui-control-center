@@ -786,9 +786,9 @@ void UserInfo::setUserConnect(){
 
         if (Utils::isCommunity()) {
             QDBusInterface *tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
-                                           "/",
-                                           "com.control.center.interface",
-                                           QDBusConnection::systemBus());
+                                                               "/",
+                                                               "com.control.center.interface",
+                                                               QDBusConnection::systemBus());
 
             qDebug() << "call" << "method: deleteuser";
             QDBusReply<int> ret = tmpSysinterface->call("setAutoLoginStatus", user.objpath, checked);
