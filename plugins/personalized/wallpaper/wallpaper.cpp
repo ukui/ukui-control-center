@@ -31,18 +31,9 @@
 #include <QFileInfo>
 #include <QFileSystemWatcher>
 
-#define VERSION	"1.0.0"
 const QString kylinUrl = "https://www.ubuntukylin.com/wallpaper.html";
 const QString kylinBackgroundName1 = "/usr/share/backgrounds/warty-final-ubuntukylin.jpg";
 const QString kylinBackgroundName2 = "/usr/share/backgrounds/aurora.jpg";
-
-
-const char *LIB_INFO = "libwallpaper version: 0.0.3 (2022-05-06, 15:00)";
-
-int add(int a, int b)
-{
-    return (a + b);
-}
 
 enum{
     PICTURE,   // 图片背景
@@ -225,6 +216,13 @@ void Wallpaper::setupComponent(){
         colordialog->exec();
 
     });
+
+    // 实达项目隐藏浏览壁纸
+    if (Utils::isStart()) {
+        ui->browserOnlinewpBtn->hide();
+        ui->browserLocalwpBtn->hide();
+        ui->horizontalLayout_4->addStretch();
+    }
 }
 
 void Wallpaper::setupConnect(){

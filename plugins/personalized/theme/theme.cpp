@@ -440,6 +440,12 @@ void Theme::initIconTheme() {
             if ("ukui-icon-theme-basic" == themedir) {
                 continue;
             }
+
+#ifdef BUILD_FOR_NR
+            if ("ukui-icon-theme-default" != themedir)
+                continue;
+#else
+#endif
             appsDir.setFilter(QDir::Files | QDir::NoSymLinks);
             devicesDir.setFilter(QDir::Files | QDir::NoSymLinks);
             placesDir.setFilter(QDir::Files | QDir::NoSymLinks);
