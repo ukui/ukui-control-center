@@ -562,7 +562,8 @@ void MainWindow::loadPlugins(){
                 || ("libupdate.so" == fileName && !Utils::isCommunity())
                 || ("libnetconnect-icbc.so" == fileName && !mIsNmIcbc)
                 || ("libwlanconnect-icbc.so" == fileName && !mIsNmIcbc)
-                || ("libnetconnect.so" == fileName && mIsNmIcbc)) {
+                || ("libnetconnect.so" == fileName && mIsNmIcbc)
+                || ("libtouchpad.so" == fileName && !isfindSynaptics())) {
             continue;
         }
 
