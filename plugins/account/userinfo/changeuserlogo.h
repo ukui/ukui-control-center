@@ -57,6 +57,7 @@ public:
 private:
     QString name;
     QString selected;
+    QString _objpath;
 
     QDBusInterface * culiface;
 

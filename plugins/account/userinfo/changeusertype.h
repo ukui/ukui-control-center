@@ -6,7 +6,6 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <ukcc/widgets/lightlabel.h>
-#include <polkit-qt5-1/polkitqt1-authority.h>
 
 class QHBoxLayout;
 class QVBoxLayout;
