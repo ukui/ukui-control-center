@@ -103,7 +103,7 @@ public slots:
     Q_SCRIPTABLE int SetAccountType(QString userPath, int accountType);
 
     // 修改用户头像
-    Q_SCRIPTABLE int SetIconFile(QString userPath, QString iconFile);
+    Q_SCRIPTABLE int SetIconFile(int isCurrentUser, QString userPath, QString iconFile);
 
     Q_SCRIPTABLE int DeleteUser(qint64 userId, bool removeWhole);
 

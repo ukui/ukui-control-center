@@ -242,7 +242,8 @@ void ChangeUserLogo::setupConnect(){
             qDebug() << "selected:" << selected << ";" << __LINE__;
 
             if (Utils::isCommunity()) {
-                QDBusReply<int> reply = culiface->call("SetIconFile", _objpath, selected);
+                int isCurrentUser = QString::compare(name, QString(g_get_user_name()));
+                QDBusReply<int> reply = culiface->call("SetIconFile", isCurrentUser, _objpath, selected);
                 if (reply != 0) {
                     emit face_file_send(selected);
                 }

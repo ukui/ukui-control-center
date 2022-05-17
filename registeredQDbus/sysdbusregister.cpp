@@ -224,17 +224,19 @@ int SysdbusRegister::SetAccountType(QString userPath, int accountType)
 
 
 
-int SysdbusRegister::SetIconFile(QString userPath, QString iconFile)
+int SysdbusRegister::SetIconFile(int isCurrentUser, QString userPath, QString iconFile)
 {
     //密码校验
     QDBusConnection conn = connection();
     QDBusMessage msg = message();
 
-    if (!authoriyIconFile(conn.interface()->servicePid(msg.service()).value())){
-        return 0;
+    if (isCurrentUser != 0) {
+        if (!authoriyIconFile(conn.interface()->servicePid(msg.service()).value())){
+            return 0;
+        }
     }
 
-     QDBusInterface tmpSysinterface("org.freedesktop.Accounts",
+    QDBusInterface tmpSysinterface("org.freedesktop.Accounts",
                                      userPath,
                                     "org.freedesktop.Accounts.User",
                                     QDBusConnection::systemBus());
