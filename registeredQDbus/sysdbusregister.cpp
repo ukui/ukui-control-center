@@ -88,7 +88,16 @@ void SysdbusRegister::exitService() {
     qApp->exit(0);
 }
 
-int SysdbusRegister::setPid(qint64 id){
+int SysdbusRegister::setPid(qint64 id)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriySetPid(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
     _id = id;
 
     return 1;
@@ -267,47 +276,27 @@ QMap<QString, QVariant> SysdbusRegister::getJsonInfo(const QString &confFile)
     return moduleMap;
 }
 
-int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
+int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd)
+{
 
-    if (_id == 0){
-        return -1;
-    }
-
-    PolkitQt1::Authority::Result result;
-
-    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                "org.control.center.qt.systemdbus.action",
-                PolkitQt1::UnixProcessSubject(_id),
-                PolkitQt1::Authority::AllowUserInteraction);
-
-    if (result == PolkitQt1::Authority::No){
-        _id = 0;
-        return -1;
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+    if (!checkAuthorization(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
     }
 
     _changeOtherUserPasswd(username, pwd);
 
-    // reset
-    _id = 0;
     return 1;
-
 }
 
-int SysdbusRegister::createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd){
-    if (_id == 0){
-        return -1;
-    }
-
-    PolkitQt1::Authority::Result result;
-
-    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                "org.control.center.qt.systemdbus.action",
-                PolkitQt1::UnixProcessSubject(_id),
-                PolkitQt1::Authority::AllowUserInteraction);
-
-    if (result == PolkitQt1::Authority::No){
-        _id = 0;
-        return -1;
+int SysdbusRegister::createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+    if (!checkCreateAuthorization(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
     }
 
     QDBusInterface iface("org.freedesktop.Accounts",
@@ -342,10 +331,76 @@ int SysdbusRegister::createUser(QString name, QString fullname, int accounttype,
         }
     }
 
-
-    _id = 0;
     return 1;
+}
 
+bool SysdbusRegister::checkAuthorization(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::checkCreateAuthorization(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.create",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No) {
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriySetPid(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.pid",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
 }
 
 bool SysdbusRegister::authoriyLogin(qint64 id)
