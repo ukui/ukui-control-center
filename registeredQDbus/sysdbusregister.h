@@ -55,6 +55,8 @@ public:
     bool checkAuthorization();
     bool authoriyLogin(qint64 id);
     bool authoriyAutoLogin(qint64 id);
+    bool authoriyAccountType(qint64 id);
+    bool authoriyIconFile(qint64 id);
     bool authoriyDelete(qint64 id);
     bool authoriyPasswdAging(qint64 id);
 
@@ -95,7 +97,13 @@ public slots:
     Q_SCRIPTABLE QString getNoPwdLoginStatus();
 
     // 设置自动登录状态
-    Q_SCRIPTABLE int setAutoLoginStatus(QString username);
+    Q_SCRIPTABLE int setAutoLoginStatus(QString userPath, bool autoLogin);
+
+    // 修改账户类型
+    Q_SCRIPTABLE int SetAccountType(QString userPath, int accountType);
+
+    // 修改用户头像
+    Q_SCRIPTABLE int SetIconFile(int isCurrentUser, QString userPath, QString iconFile);
 
     Q_SCRIPTABLE int DeleteUser(qint64 userId, bool removeWhole);
 

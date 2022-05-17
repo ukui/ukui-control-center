@@ -31,14 +31,22 @@
 
 ChangeUserLogo::ChangeUserLogo(QString n, QString op, QWidget *parent) :
     QDialog(parent),
-    name(n)
+    name(n),
+    _objpath(op)
 {
     setFixedSize(QSize(400, 430));
 
-    culiface = new QDBusInterface("org.freedesktop.Accounts",
-                                  op,
-                                  "org.freedesktop.Accounts.User",
-                                  QDBusConnection::systemBus());
+    if (Utils::isCommunity()) {
+        culiface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                      "/",
+                                      "com.control.center.interface",
+                                      QDBusConnection::systemBus());
+    } else {
+        culiface = new QDBusInterface("org.freedesktop.Accounts",
+                                       op,
+                                       "org.freedesktop.Accounts.User",
+                                       QDBusConnection::systemBus());
+    }
 
     logosBtnGroup = new QButtonGroup;
 
@@ -232,11 +240,21 @@ void ChangeUserLogo::setupConnect(){
     connect(culConfirmBtn, &QPushButton::clicked, this, [=]{
         if (selected != "") {
             qDebug() << "selected:" << selected << ";" << __LINE__;
-            QDBusReply<bool> reply = culiface->call("SetIconFile", selected);
-            if (reply.isValid()) {
-                emit face_file_send(selected);
+
+            if (Utils::isCommunity()) {
+                int isCurrentUser = QString::compare(name, QString(g_get_user_name()));
+                QDBusReply<int> reply = culiface->call("SetIconFile", isCurrentUser, _objpath, selected);
+                if (reply != 0) {
+                    emit face_file_send(selected);
+                }
+            } else {
+                QDBusReply<bool> reply = culiface->call("SetIconFile", selected);
+                if (reply.isValid()) {
+                    emit face_file_send(selected);
+                }
             }
         }
+
         close();
     });
 

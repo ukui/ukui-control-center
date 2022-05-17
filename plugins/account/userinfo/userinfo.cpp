@@ -784,18 +784,35 @@ void UserInfo::setUserConnect(){
             }
         }
 
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
-                                                              user.objpath,
-                                                              "org.freedesktop.Accounts.User",
-                                                              "SetAutomaticLogin");
-        message << checked;
-        QDBusMessage response = QDBusConnection::systemBus().call(message);
+        if (Utils::isCommunity()) {
+            QDBusInterface *tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                               "/",
+                                                               "com.control.center.interface",
+                                                               QDBusConnection::systemBus());
 
-        if (response.type() == QDBusMessage::ErrorMessage){
+            qDebug() << "call" << "method: deleteuser";
+            QDBusReply<int> ret = tmpSysinterface->call("setAutoLoginStatus", user.objpath, checked);
 
-            autoLoginSBtn->blockSignals(true);
-            autoLoginSBtn->setChecked(!checked);
-            autoLoginSBtn->blockSignals(false);
+            if (ret == 0) {
+                autoLoginSBtn->blockSignals(true);
+                autoLoginSBtn->setChecked(!checked);
+                autoLoginSBtn->blockSignals(false);
+                qDebug() << "call setAutoLoginStatus failed" << ret.error();
+            }
+        } else {
+            QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.Accounts",
+                                                      user.objpath,
+                                                      "org.freedesktop.Accounts.User",
+                                                      "SetAutomaticLogin");
+
+            message << checked;
+            QDBusMessage response = QDBusConnection::systemBus().call(message);
+            if (response.type() == QDBusMessage::ErrorMessage){
+
+                autoLoginSBtn->blockSignals(true);
+                autoLoginSBtn->setChecked(!checked);
+                autoLoginSBtn->blockSignals(false);
+            }
         }
     });
 
