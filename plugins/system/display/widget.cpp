@@ -1143,15 +1143,6 @@ void Widget::isWayland()
 
 void Widget::applyNightModeSlot()
 {
-    if (((ui->opHourCom->currentIndex() < ui->clHourCom->currentIndex())
-         || (ui->opHourCom->currentIndex() == ui->clHourCom->currentIndex()
-             && ui->opMinCom->currentIndex() <= ui->clMinCom->currentIndex()))
-            && CUSTOM == singleButton->checkedId() && mNightButton->isChecked()) {
-        QMessageBox::warning(this, tr("Warning"),
-                             tr("Open time should be earlier than close time!"));
-        return;
-    }
-
     setNightMode(mNightButton->isChecked());
 }
 
@@ -1834,13 +1825,13 @@ void Widget::setNightMode(const bool nightMode)
     } else {
         mNightConfig["Active"] = true;
         if (ui->sunradioBtn->isChecked()) {
-            mNightConfig["EveningBeginFixed"] = "17:55:01";
-            mNightConfig["MorningBeginFixed"] = "05:55:00";
+            mNightConfig["MorningBeginFixed"] = "17:55:01";
+            mNightConfig["EveningBeginFixed"] = "05:55:00";
             mNightConfig["Mode"] = 2;
         } else if (ui->customradioBtn->isChecked()) {
-            mNightConfig["EveningBeginFixed"] = ui->opHourCom->currentText() + ":"
+            mNightConfig["MorningBeginFixed"] = ui->opHourCom->currentText() + ":"
                                                 + ui->opMinCom->currentText() + ":00";
-            mNightConfig["MorningBeginFixed"] = ui->clHourCom->currentText() + ":"
+            mNightConfig["EveningBeginFixed"] = ui->clHourCom->currentText() + ":"
                                                 + ui->clMinCom->currentText() + ":00";
             mNightConfig["Mode"] = 2;
         }
@@ -1950,21 +1941,21 @@ void Widget::initNightStatus()
     this->mIsNightMode = mNightConfig["Active"].toBool();
     ui->temptSlider->setValue(mNightConfig["CurrentColorTemperature"].toInt());
 
-    // 由于kwin设置日落日出模式不生效，但用户选择该模式时，通过将模式改为自定义，再规定时间(17:55:01)来判断处理
+    // 由于kwin设置日落日出模式不生效，但用户选择该模式时，通过将模式改为自定义，再规定开启时间(17:55:01)来判断处理
     //处理默认值(为跟随日落日出)的方式同上
-    if (mNightConfig["EveningBeginFixed"].toString() == "17:55:01" ||  mNightConfig["Mode"] != 2) {
+    if (mNightConfig["MorningBeginFixed"].toString() == "17:55:01" ||  mNightConfig["Mode"] != 2) {
         ui->sunradioBtn->setChecked(true);
         if ( mNightConfig["Mode"] != 2) setNightMode(mNightButton->isChecked());
     } else {
         ui->customradioBtn->setChecked(true);
-        QString openTime = mNightConfig["EveningBeginFixed"].toString();
+        QString openTime = mNightConfig["MorningBeginFixed"].toString();
         QString ophour = openTime.split(":").at(0);
         QString opmin = openTime.split(":").at(1);
 
         ui->opHourCom->setCurrentIndex(ophour.toInt());
         ui->opMinCom->setCurrentIndex(opmin.toInt());
 
-        QString cltime = mNightConfig["MorningBeginFixed"].toString();
+        QString cltime = mNightConfig["EveningBeginFixed"].toString();
         QString clhour = cltime.split(":").at(0);
         QString clmin = cltime.split(":").at(1);
 
