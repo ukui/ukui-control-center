@@ -375,8 +375,6 @@ void CreateUserNew::setConnect(){
         this->hide();
 
         if (tmpSysinterface.isValid()){
-
-            tmpSysinterface.call("setPid", QCoreApplication::applicationPid());
             tmpSysinterface.call("createUser", usernameLineEdit->text(), nicknameLineEdit->text(), typeBtnGroup->checkedId(), DEFAULTFACE, newPwdLineEdit->text());
 
         } else {

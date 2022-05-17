@@ -421,10 +421,7 @@ void ChangeUserPwd::setupConnect(){
                 return;
             }
 
-            QDBusReply<int> reply = tmpiface.call("setPid", QCoreApplication::applicationPid());
-            if (reply.isValid()){
-                tmpiface.call("changeOtherUserPasswd", name, newPwdLineEdit->text());
-            }
+            tmpiface.call("changeOtherUserPasswd", name, newPwdLineEdit->text());
 
             this->accept();
         });
