@@ -27,6 +27,7 @@
 #include <QFontDatabase>
 #include <QGSettings>
 #include <QStyledItemDelegate>
+#include <QStandardItemModel>
 #include <QtDBus>
 
 #include "shell/interface.h"
@@ -69,7 +70,6 @@ public:
 
 public:
     void initSearchText();
-    void setupStylesheet();
     void setupComponent();
     void setupConnect();
     void initFontStatus();
@@ -93,21 +93,23 @@ private:
     QString pluginName;
     int pluginType;
 
-    QGSettings * ifsettings;
-    QGSettings * marcosettings;
-    QGSettings * peonysettings;
-    QGSettings * rendersettings;
+    QGSettings *ifsettings;
+    QGSettings *stylesettings;
+    QGSettings *mUkccSettings;
 
     QStringList gtkfontStrList;
     QStringList docfontStrList;
     QStringList monospacefontStrList;
-    QStringList peonyfontStrList;
-    QStringList titlebarfontStrList;
+    QStringList mFontsList;
+
+    QStandardItemModel *mFontModel;
+    QStandardItemModel *mMonoModel;
 
     QDBusInterface *m_cloudInterface;
-    QFontDatabase fontdb;
+    QFontDatabase   fontdb;
 public Q_SLOTS:
     void keyChangedSlot(const QString &key);
+    void updateFontListSlot(const QStringList &fontList);
 
 private:
     void fontKwinSlot();
@@ -115,7 +117,6 @@ private:
 
 private:
     bool mFirstLoad;
-    QGSettings * stylesettings;
     Uslider * uslider;
 };
 
