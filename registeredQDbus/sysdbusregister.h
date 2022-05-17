@@ -51,9 +51,10 @@ public:
     ~SysdbusRegister();
 
 public:
-    bool checkCreateAuthorization();
-    bool checkAuthorization();
+    bool checkCreateAuthorization(qint64 id);
+    bool checkAuthorization(qint64 id);
     bool authoriyLogin(qint64 id);
+    bool authoriySetPid(qint64 id);
     bool authoriyAutoLogin(qint64 id);
     bool authoriyAccountType(qint64 id);
     bool authoriyIconFile(qint64 id);
