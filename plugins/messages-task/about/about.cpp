@@ -306,14 +306,10 @@ void About::setupSerialComponent()
     ui->serviceContent->setStyleSheet("color : #2FB3E8");
     ui->label_8->hide();
     ui->timeContent->hide();
-    if (!serial.isEmpty())
-        ui->activeButton->hide();
 
     if (dateRes.isEmpty()) {  //未激活
         ui->activeContent->setText(tr("Inactivated"));
         ui->activeContent->setStyleSheet("color : red ");
-        if (!ui->serviceContent->text().isEmpty())
-            ui->activeButton->hide();
         ui->activeButton->setText(tr("Active"));
         activestatus = false;
     } else {    //已激活
