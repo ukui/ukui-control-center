@@ -25,8 +25,10 @@
 #include <QProcess>
 #include <QFile>
 #include <QSettings>
+#include <QDBusContext>
+#include <QDBusConnectionInterface>
 
-class SysdbusRegister : public QObject
+class SysdbusRegister : public QObject,QDBusContext
 {
     Q_OBJECT
 
@@ -36,10 +38,17 @@ public:
     explicit SysdbusRegister();
     ~SysdbusRegister();
 
+public:
+    bool authoriyLogin(qint64 id);
+    bool authoriyAutoLogin(qint64 id);
+    bool authoriyPasswdAging(qint64 id);
+    bool checkAuthorization(qint64 id);
+
 private:
     QString mHibernateFile;
 
     QSettings *mHibernateSet;
+    qint64 _id;
 
 signals:
     Q_SCRIPTABLE void nameChanged(QString);
@@ -51,13 +60,13 @@ public slots:
     Q_SCRIPTABLE QString GetComputerInfo();
 
     // 设置免密登录状态
-    Q_SCRIPTABLE void setNoPwdLoginStatus(bool status,QString username);
+    Q_SCRIPTABLE int setNoPwdLoginStatus(bool status,QString username);
 
     // 获取免密登录状态
     Q_SCRIPTABLE QString getNoPwdLoginStatus();
 
     // 设置自动登录状态
-    Q_SCRIPTABLE void setAutoLoginStatus(QString username);
+    Q_SCRIPTABLE int setAutoLoginStatus(QString username);
 
     // 获取挂起到休眠时间
     Q_SCRIPTABLE QString getSuspendThenHibernate();
@@ -66,7 +75,7 @@ public slots:
     Q_SCRIPTABLE void setSuspendThenHibernate(QString time);
 
     // 设置密码时效
-    Q_SCRIPTABLE void setPasswdAging(int days, QString username);
+    Q_SCRIPTABLE int setPasswdAging(int days, QString username);
 
     // 提权修改其他用户密码
     Q_SCRIPTABLE int changeOtherUserPasswd(QString username, QString pwd);
