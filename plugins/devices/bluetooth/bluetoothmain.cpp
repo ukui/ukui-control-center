@@ -326,8 +326,24 @@ void BlueToothMain::InitAllTimer()
 
         //IntermittentScann_timer->start();
         //IntermittentScann_timer_count = 0;
-
     });
+
+    powerOnScanTimer = new QTimer(this);
+    powerOnScanTimer->setInterval(1000);
+    connect(powerOnScanTimer, &QTimer::timeout, this, [=] {
+        bool jud = false;
+        QDBusMessage m = QDBusMessage::createMethodCall("org.ukui.bluetooth","/org/ukui/bluetooth","org.ukui.bluetooth","getDiscovering");
+        QDBusMessage response = QDBusConnection::sessionBus().call(m);
+        if (response.type() == QDBusMessage::ReplyMessage) {
+            jud = response.arguments().takeFirst().toBool();
+        }
+        if (jud) {
+            powerOnScanTimer->stop();
+            this->startDiscovery();
+            emit timerStatusChanged(false);
+        }
+    });
+
 
     poweronAgain_timer = new QTimer();
     poweronAgain_timer->setInterval(3000);
@@ -1280,21 +1296,6 @@ void BlueToothMain::InitMainbottomUI()
 
 //    });
 
-    //开启时延迟1.8s后开启扫描，留点设备回连时间
-    delayStartDiscover_timer = new QTimer(this);
-    delayStartDiscover_timer->setInterval(2000);
-    connect(delayStartDiscover_timer,&QTimer::timeout,this,[=]
-    {
-        qDebug() << __FUNCTION__ << "delayStartDiscover_timer:timeout" << __LINE__ ;
-        delayStartDiscover_timer->stop();
-
-        this->startDiscovery();
-        emit timerStatusChanged(false);
-        //IntermittentScann_timer->start();
-        //IntermittentScann_timer_count = 0;
-
-    });
-
     title_layout->addWidget(label_1);
     title_layout->addStretch();
     title_layout->addWidget(loadLabel);
@@ -2204,7 +2205,7 @@ void BlueToothMain::adapterPoweredChanged(bool value)
             open_bluetooth->setChecked(true);
 
         //延时2S开启扫描，给用户回连缓冲
-        delayStartDiscover_timer->start();
+        powerOnScanTimer->start();
 
         //this->startDiscovery();
     }

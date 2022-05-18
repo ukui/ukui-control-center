@@ -121,6 +121,7 @@ private:
     QTimer *IntermittentScann_timer =nullptr;
     QTimer *poweronAgain_timer =nullptr;
     QTimer *restartDiscover_timer =nullptr;
+    QTimer *powerOnScanTimer = nullptr;
     int IntermittentScann_timer_count = 0 ;
 
     int i = 7;
