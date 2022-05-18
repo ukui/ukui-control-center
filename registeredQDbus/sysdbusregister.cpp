@@ -24,7 +24,10 @@
 #include <QRegExp>
 #include <QProcess>
 #include <stdlib.h>
+#include <polkit-qt5-1/polkitqt1-authority.h>
 #include <QtConcurrent/QtConcurrent>
+#include <QDBusMessage>
+
 /* qt会将glib里的signals成员识别为宏，所以取消该宏
  * 后面如果用到signals时，使用Q_SIGNALS代替即可
  **/
@@ -40,6 +43,7 @@ extern "C" {
 
 
 SysdbusRegister::SysdbusRegister()
+    : QDBusContext()
 {
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
@@ -95,7 +99,15 @@ QString SysdbusRegister::getNoPwdLoginStatus(){
 }
 
 //设置免密登录状态
-void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username) {
+int SysdbusRegister::setNoPwdLoginStatus(bool status,QString username)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyLogin(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
 
     QString cmd;
     if(true == status){
@@ -104,10 +116,21 @@ void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username) {
         cmd = QString("gpasswd  -d %1 nopasswdlogin").arg(username);
     }
     QProcess::execute(cmd);
+
+    return 1;
 }
 
 // 设置自动登录状态
-void SysdbusRegister::setAutoLoginStatus(QString username) {
+int SysdbusRegister::setAutoLoginStatus(QString username)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyAutoLogin(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
     QString filename = "/etc/lightdm/lightdm.conf";
     QSharedPointer<QSettings>  autoSettings = QSharedPointer<QSettings>(new QSettings(filename, QSettings::IniFormat));
     autoSettings->beginGroup("SeatDefaults");
@@ -116,6 +139,8 @@ void SysdbusRegister::setAutoLoginStatus(QString username) {
 
     autoSettings->endGroup();
     autoSettings->sync();
+
+    return 1;
 }
 
 QString SysdbusRegister::getSuspendThenHibernate() {
@@ -138,14 +163,32 @@ void SysdbusRegister::setSuspendThenHibernate(QString time) {
     mHibernateSet->sync();
 }
 
-void SysdbusRegister::setPasswdAging(int days, QString username) {
+int SysdbusRegister::setPasswdAging(int days, QString username)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyPasswdAging(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
     QString cmd;
 
     cmd = QString("chage -M %1 %2").arg(days).arg(username);
     QProcess::execute(cmd);
+
+    return 1;
 }
 
-int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
+int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+    if (!checkAuthorization(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
 
     std::string str1 = username.toStdString();
     const char * user_name = str1.c_str();
@@ -172,6 +215,98 @@ int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
 
     return 1;
 
+}
+
+bool SysdbusRegister::authoriyLogin(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.login",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyAutoLogin(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.autologin",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyPasswdAging(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.passwdaging",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::checkAuthorization(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
 }
 
 void SysdbusRegister::setDDCBrightness(QString brightness, QString type) {

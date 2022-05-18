@@ -778,7 +778,9 @@ void UserInfo::_refreshUserInfoUI(){
             autoLoginSwitchBtn->setChecked(user.autologin);
             autoLoginSwitchBtn->blockSignals(false);
             //设置免密登录状态
+            nopwdSwitchBtn->blockSignals(true);
             nopwdSwitchBtn->setChecked(user.noPwdLogin);
+            nopwdSwitchBtn->blockSignals(false);
 
         } else { //其他用户
             QListWidgetItem * item = otherUserItemMap.value(user.objpath); //是否需要判断？？
