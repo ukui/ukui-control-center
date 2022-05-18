@@ -28,6 +28,8 @@
 #include <QVector>
 #include <ddcutil_c_api.h>
 #include <ddcutil_types.h>
+#include <QDBusContext>
+#include <QDBusConnectionInterface>
 
 struct brightInfo {
     QString serialNum;
@@ -40,7 +42,7 @@ struct displayInfo {
     QString             edidHash;      //edid信息的hash值(md5)
 };
 
-class SysdbusRegister : public QObject
+class SysdbusRegister : public QObject,QDBusContext
 {
     Q_OBJECT
 
@@ -49,6 +51,14 @@ class SysdbusRegister : public QObject
 public:
     explicit SysdbusRegister();
     ~SysdbusRegister();
+
+public:
+    bool checkCreateAuthorization(qint64 id);
+    bool checkAuthorization(qint64 id);
+    bool authoriyLogin(qint64 id);
+    bool authoriySetPid(qint64 id);
+    bool authoriyAutoLogin(qint64 id);
+    bool authoriyPasswdAging(qint64 id);
 
 private:
     QString mHibernateFile;
@@ -75,13 +85,13 @@ public slots:
     Q_SCRIPTABLE int setPid(qint64 id);
 
     // 设置免密登录状态
-    Q_SCRIPTABLE void setNoPwdLoginStatus(bool status,QString username);
+    Q_SCRIPTABLE int setNoPwdLoginStatus(bool status,QString username);
 
     // 获取免密登录状态
     Q_SCRIPTABLE QString getNoPwdLoginStatus();
 
     // 设置自动登录状态
-    Q_SCRIPTABLE void setAutoLoginStatus(QString username);
+    Q_SCRIPTABLE int setAutoLoginStatus(QString username);
 
     // 获取挂起到休眠时间
     Q_SCRIPTABLE QString getSuspendThenHibernate();
@@ -90,7 +100,7 @@ public slots:
     Q_SCRIPTABLE void setSuspendThenHibernate(QString time);
 
     // 设置密码时效
-    Q_SCRIPTABLE void setPasswdAging(int days, QString username);
+    Q_SCRIPTABLE int setPasswdAging(int days, QString username);
 
     // 提权修改其他用户密码
     Q_SCRIPTABLE int changeOtherUserPasswd(QString username, QString pwd);

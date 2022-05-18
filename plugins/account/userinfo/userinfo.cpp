@@ -564,28 +564,28 @@ void UserInfo::initComponent(){
             }
 
             //免密登录状态改变
-            bool result = authorityLogin();
-            if (result == true) { //认证通过
-                qDebug() << QString("operation authorized");
-                QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
-                                                                      "/",
-                                                                      "com.control.center.interface",
-                                                                      QDBusConnection::systemBus());
 
-                if (!tmpSysinterface->isValid()){
-                    qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
-                    return;
-                }
-                tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
+            qDebug() << QString("operation authorized");
+            QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
+                                                                  "/",
+                                                                  "com.control.center.interface",
+                                                                  QDBusConnection::systemBus());
 
-                delete tmpSysinterface;
-                tmpSysinterface = nullptr;
-            } else {
+            if (!tmpSysinterface->isValid()){
+                qCritical() << "Create Client Interface Failed When execute gpasswd: " << QDBusConnection::systemBus().lastError();
+                return;
+            }
+            QDBusReply<int> reply = tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
+            if (reply == 0) {
                 qDebug() << QString("not authorized") << checked;
                 nopwdSwitchBtn->blockSignals(true);
                 nopwdSwitchBtn->setChecked(!checked);
                 nopwdSwitchBtn->blockSignals(false);
             }
+
+            delete tmpSysinterface;
+            tmpSysinterface = nullptr;
+
         });
 
     //修改当前用户自动登录
@@ -965,7 +965,6 @@ void UserInfo::createUser(QString username, QString pwd, QString pin, int atype)
         return;
     }
 
-    tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
     tmpSysinterface->call("createUser", username, username, atype, DEFAULTFACE, pwd);
 
     delete tmpSysinterface;
@@ -1282,10 +1281,8 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    QDBusReply<int> reply = tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
-    if (reply.isValid()){
-        tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
-    }
+
+    tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
