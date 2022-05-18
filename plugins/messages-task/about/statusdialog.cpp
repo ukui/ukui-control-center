@@ -23,6 +23,11 @@ void StatusDialog::initUI()
 
     mLogoLabel = new QLabel(this);
 
+#ifdef BUILD_FOR_NR
+    mLogoLabel->hide();
+#else
+#endif
+
     // 版本号
     mVersionFrame = new QFrame(this);
     QHBoxLayout *mVersionLyt = new QHBoxLayout(mVersionFrame);
