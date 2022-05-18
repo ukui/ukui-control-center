@@ -683,8 +683,6 @@ void About::setupSerialComponent()
     }
     mSequenceLabel_2->setText(serial);
     mSequenceLabel_2->setStyleSheet("color : #2FB3E8");
-    if (!serial.isEmpty())
-        mActivationBtn->hide();
     if (dateRes.isEmpty()) {  //未激活
          if (!trial_dateRes.isEmpty()) {  //试用期
             mStatusLabel_2->setText(tr("Inactivated"));
@@ -692,7 +690,6 @@ void About::setupSerialComponent()
             mTimeLabel_1->setText(tr("Trial expiration time"));
             mTimeLabel_2->setText(trial_dateRes);
             mActivationBtn->setText(tr("Active"));
-            activestatus = false;
         } else {
              mTimeLabel_1->hide();
              mTimeLabel_2->hide();
@@ -700,6 +697,7 @@ void About::setupSerialComponent()
              mStatusLabel_2->setStyleSheet("color : red ");
              mActivationBtn->setText(tr("Active"));
          }
+         activestatus = false;
     }  else {    //已激活
         mActivationBtn->hide();
         mTrialLabel->hide();
