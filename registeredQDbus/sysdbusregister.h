@@ -55,6 +55,9 @@ public:
 
 public:
     bool authoriyLogin(qint64 id);
+    bool checkAuthorization(qint64 id);
+    bool checkCreateAuthorization(qint64 id);
+    bool authoriySetPid(qint64 id);
     bool authoriyAutoLogin(qint64 id);
     bool authoriyPasswdAging(qint64 id);
 

@@ -1007,7 +1007,6 @@ void UserInfo::createUser(QString username, QString pwd, QString pin, int atype)
         return;
     }
 
-    tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
     tmpSysinterface->call("createUser", username, username, atype, DEFAULTFACE, pwd);
 
     delete tmpSysinterface;
@@ -1333,10 +1332,7 @@ void UserInfo::changeUserPwd(QString pwd, QString username){
         qCritical() << "Create Client Interface Failed When : " << QDBusConnection::systemBus().lastError();
         return;
     }
-    QDBusReply<int> reply = tmpSysinterface->call("setPid", QCoreApplication::applicationPid());
-    if (reply.isValid()){
-        tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
-    }
+    tmpSysinterface->call("changeOtherUserPasswd", username, pwd);
 
     delete tmpSysinterface;
     tmpSysinterface = nullptr;
