@@ -45,9 +45,12 @@ extern "C" {
 }
 #include <QtConcurrent/QtConcurrent>
 
+#include <QDBusMessage>
+
 QStringList ddcProIdList;
 
 SysdbusRegister::SysdbusRegister()
+    : QDBusContext()
 {
     mHibernateFile = "/etc/systemd/sleep.conf";
     mHibernateSet = new QSettings(mHibernateFile, QSettings::IniFormat, this);
@@ -68,7 +71,16 @@ void SysdbusRegister::exitService() {
     qApp->exit(0);
 }
 
-int SysdbusRegister::setPid(qint64 id){
+int SysdbusRegister::setPid(qint64 id)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriySetPid(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
     _id = id;
 
     return 1;
@@ -113,7 +125,15 @@ QString SysdbusRegister::getNoPwdLoginStatus(){
 }
 
 //设置免密登录状态
-void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username) {
+int SysdbusRegister::setNoPwdLoginStatus(bool status,QString username)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyLogin(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
 
     QString cmd;
     if(true == status){
@@ -122,10 +142,21 @@ void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username) {
         cmd = QString("gpasswd  -d %1 nopasswdlogin").arg(username);
     }
     QProcess::execute(cmd);
+
+    return 1;
 }
 
 // 设置自动登录状态
-void SysdbusRegister::setAutoLoginStatus(QString username) {
+int SysdbusRegister::setAutoLoginStatus(QString username)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyAutoLogin(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
     QString filename = "/etc/lightdm/lightdm.conf";
     QSharedPointer<QSettings>  autoSettings = QSharedPointer<QSettings>(new QSettings(filename, QSettings::IniFormat));
     autoSettings->beginGroup("SeatDefaults");
@@ -134,6 +165,8 @@ void SysdbusRegister::setAutoLoginStatus(QString username) {
 
     autoSettings->endGroup();
     autoSettings->sync();
+
+    return 1;
 }
 
 QString SysdbusRegister::getSuspendThenHibernate() {
@@ -156,11 +189,22 @@ void SysdbusRegister::setSuspendThenHibernate(QString time) {
     mHibernateSet->sync();
 }
 
-void SysdbusRegister::setPasswdAging(int days, QString username) {
+int SysdbusRegister::setPasswdAging(int days, QString username)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+
+    if (!authoriyPasswdAging(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
+    }
+
     QString cmd;
 
     cmd = QString("chage -M %1 %2").arg(days).arg(username);
     QProcess::execute(cmd);
+
+    return 1;
 }
 
 int SysdbusRegister::_changeOtherUserPasswd(QString username, QString pwd){
@@ -191,47 +235,26 @@ int SysdbusRegister::_changeOtherUserPasswd(QString username, QString pwd){
     return 1;
 }
 
-int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd){
-
-    if (_id == 0){
-        return -1;
-    }
-
-    PolkitQt1::Authority::Result result;
-
-    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                "org.control.center.qt.systemdbus.action",
-                PolkitQt1::UnixProcessSubject(_id),
-                PolkitQt1::Authority::AllowUserInteraction);
-
-    if (result == PolkitQt1::Authority::No){
-        _id = 0;
-        return -1;
+int SysdbusRegister::changeOtherUserPasswd(QString username, QString pwd)
+{
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+    if (!checkAuthorization(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
     }
 
     _changeOtherUserPasswd(username, pwd);
 
-    // reset
-    _id = 0;
     return 1;
-
 }
 
 int SysdbusRegister::createUser(QString name, QString fullname, int accounttype, QString faceicon, QString pwd){
-    if (_id == 0){
-        return -1;
-    }
-
-    PolkitQt1::Authority::Result result;
-
-    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
-                "org.control.center.qt.systemdbus.action",
-                PolkitQt1::UnixProcessSubject(_id),
-                PolkitQt1::Authority::AllowUserInteraction);
-
-    if (result == PolkitQt1::Authority::No){
-        _id = 0;
-        return -1;
+    //密码校验
+    QDBusConnection conn = connection();
+    QDBusMessage msg = message();
+    if (!checkCreateAuthorization(conn.interface()->servicePid(msg.service()).value())){
+        return 0;
     }
 
     QDBusInterface iface("org.freedesktop.Accounts",
@@ -255,15 +278,150 @@ int SysdbusRegister::createUser(QString name, QString fullname, int accounttype,
             // 设置密码
             _changeOtherUserPasswd(name, pwd);
 
-
         }
     }
 
-
-    _id = 0;
     return 1;
-
 }
+
+bool SysdbusRegister::checkCreateAuthorization(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.create",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No) {
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::checkAuthorization(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyLogin(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.login",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyAutoLogin(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.autologin",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriySetPid(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.pid",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
+bool SysdbusRegister::authoriyPasswdAging(qint64 id)
+{
+    _id = id;
+
+    if (_id == 0)
+        return false;
+
+    PolkitQt1::Authority::Result result;
+
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+                "org.control.center.qt.systemdbus.action.passwdaging",
+                PolkitQt1::UnixProcessSubject(_id),
+                PolkitQt1::Authority::AllowUserInteraction);
+
+    if (result == PolkitQt1::Authority::No){
+        _id = 0;
+        return false;
+    } else {
+        _id = 0;
+        return true;
+    }
+}
+
 
 int SysdbusRegister::changeRTC() {
     QString cmd = "hwclock -w";
