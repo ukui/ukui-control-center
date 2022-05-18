@@ -1,0 +1,9 @@
+<schemalist gettext-domain="ukui-control-center">
+  <schema id="org.ukui.control-center" path="/org/ukui/control-center/">
+    <key name="fonts-list" type="as">
+      <default>['CESI仿宋-GB13000', 'CESI仿宋-GB18030', 'CESI仿宋-GB2312', 'CESI宋体-GB13000', 'CESI宋体-GB18030', 'CESI宋体-GB2312', 'CESI小标宋-GB13000', 'CESI小标宋-GB18030', 'CESI小标宋-GB2312', 'CESI楷体-GB13000', 'CESI楷体-GB18030', 'CESI楷体-GB2312', 'CESI黑体-GB13000', 'CESI黑体-GB18030', 'CESI黑体-GB2312', '仿宋', '黑体', '楷体', '宋体', '华文彩云', '华文仿宋', '华文琥珀', '华文楷体', '华文隶书', '华文宋体', '华文细黑', '华文行楷', '华文新魏', 'Noto Sans CJK SC', 'Noto Sans CJK SC Black', 'Noto Sans Mono CJK SC', 'Noto Sans CJK SC DemiLight', 'Noto Sans CJK SC Light', 'Noto Sans CJK SC Medium', 'Noto Sans CJK SC', 'Noto Sans CJK SC Thin']</default>
+      <summary>Control panel default font list</summary>
+      <description>Control panel default font list</description>
+    </key>
+  </schema>
+</schemalist>
