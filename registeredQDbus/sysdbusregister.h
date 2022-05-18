@@ -51,14 +51,8 @@ public slots:
     Q_SCRIPTABLE QString GetComputerInfo();
     Q_SCRIPTABLE void systemRun(QString cmd);
 
-    //设置免密登录状态
-    Q_SCRIPTABLE void setNoPwdLoginStatus(bool status,QString username);
-
     //获取免密登录状态
     Q_SCRIPTABLE QString getNoPwdLoginStatus();
-
-    //设置自动登录状态
-    Q_SCRIPTABLE void setAutoLoginStatus(QString username);
 
     //设置是否省电模式
     Q_SCRIPTABLE void setPowerStatus(int is_saving);
