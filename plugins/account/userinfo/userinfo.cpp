@@ -564,8 +564,6 @@ void UserInfo::initComponent(){
             }
 
             //免密登录状态改变
-
-            qDebug() << QString("operation authorized");
             QDBusInterface * tmpSysinterface = new QDBusInterface("com.control.center.qt.systemdbus",
                                                                   "/",
                                                                   "com.control.center.interface",
@@ -577,7 +575,7 @@ void UserInfo::initComponent(){
             }
             QDBusReply<int> reply = tmpSysinterface->call("setNoPwdLoginStatus", checked, user.username);
             if (reply == 0) {
-                qDebug() << QString("not authorized") << checked;
+                qDebug() << "call setNoPwdLoginStatus failed" << checked;
                 nopwdSwitchBtn->blockSignals(true);
                 nopwdSwitchBtn->setChecked(!checked);
                 nopwdSwitchBtn->blockSignals(false);
