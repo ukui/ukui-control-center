@@ -53,7 +53,6 @@ public:
     QString change_user_pwd(QString pwd, QString hint);
     void change_user_type(int atype);
     void change_user_face(QString facefile);
-    void change_user_autologin(QString username);
     bool get_autoLogin_status();
     /***加密,来自gtk控制面板***/
     QString make_crypted(const gchar * plain);

@@ -85,31 +85,6 @@ QString SysdbusRegister::getNoPwdLoginStatus(){
     return QString(ba);
 }
 
-//设置免密登录状态
-void SysdbusRegister::setNoPwdLoginStatus(bool status,QString username){
-
-    QString cmd;
-    if(true == status){
-         cmd = QString("gpasswd  -a %1 nopasswdlogin").arg(username);
-    } else{
-        cmd = QString("gpasswd  -d %1 nopasswdlogin").arg(username);
-    }
-    systemRun(cmd);
-}
-
-// 设置自动登录状态
-void SysdbusRegister::setAutoLoginStatus(QString username)
-{
-    QString filename = "/etc/lightdm/lightdm.conf";
-    QSharedPointer<QSettings>  autoSettings = QSharedPointer<QSettings>(new QSettings(filename, QSettings::IniFormat));
-    autoSettings->beginGroup("SeatDefaults");
-    autoSettings->clear();
-
-    autoSettings->setValue("autologin-user", username);
-    autoSettings->endGroup();
-    autoSettings->sync();
-}
-
 //设置电源模式
 void SysdbusRegister::setPowerStatus(int is_saving)
 {
