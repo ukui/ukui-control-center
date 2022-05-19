@@ -19,5 +19,38 @@
       <allow_active>auth_admin</allow_active>
     </defaults>
   </action>
+  <action id="org.control.center.qt.systemdbus.action.login">
+    <description>login without password</description>
+    <description xml:lang="zh">免密登录</description>
+    <message>Change login without password, you need to authenticate.</message>
+    <message xml:lang="zh">修改免密登录需要认证</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+  </action>
+  <action id="org.control.center.qt.systemdbus.action.autologin">
+    <description>auto login</description>
+    <description xml:lang="zh">自动登录</description>
+    <message>Change auto login, you need to authenticate.</message>
+    <message xml:lang="zh">修改自动登录需要认证</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+  </action>
+  <action id="org.control.center.qt.systemdbus.action.passwdaging">
+    <description>passwd aging</description>
+    <description xml:lang="zh">密码老化时间</description>
+    <message>Change passwd aging, you need to authenticate.</message>
+    <message xml:lang="zh">修改密码老化时间需要认证</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+  </action>
 
 </policyconfig>
