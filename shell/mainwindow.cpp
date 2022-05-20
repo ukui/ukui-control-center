@@ -141,15 +141,13 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
             }
         }
     }
-
-    if (event->type() == QEvent::MouseMove) {
-        if (scrollArea->geometry().contains(this->mapFromGlobal(QCursor::pos()))) {
-            scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-        } else {
-            scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    if (scrollArea == watched) {
+        if (event->type() == QEvent::Enter) {
+            scrollArea->verticalScrollBar()->setVisible(true);
+        } else if (event->type() == QEvent::Leave) {
+            scrollArea->verticalScrollBar()->setVisible(false);
         }
     }
-
     if (this == watched) {
         if (event->type() == QEvent::WindowStateChange) {
             if (this->windowState() == Qt::WindowMaximized) {
@@ -598,7 +596,7 @@ void MainWindow::initLeftsideBar(){
     scrollArea->setStyleSheet("QScrollArea{background-color: transparent;}");
     scrollArea->viewport()->setStyleSheet("background-color: transparent;");
     scrollArea->verticalScrollBar()->setProperty("drawScrollBarGroove", false);
-
+    scrollArea->verticalScrollBar()->setVisible(false);
 
 
     for(int type = 0; type < TOTALMODULES; type++) {
