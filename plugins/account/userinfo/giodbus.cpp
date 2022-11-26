@@ -18,7 +18,13 @@
 
 #include "giodbus.h"
 #include <gio/gio.h>
+
+#ifdef __riscv
+#include <glib-2.0/gio/gunixfdlist.h>
+#else
 #include <gio-unix-2.0/gio/gunixfdlist.h>
+#endif
+
 #include <glib.h>
 
 int get_server_gvariant_stdout (int drvid)
