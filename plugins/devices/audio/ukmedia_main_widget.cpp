@@ -1217,11 +1217,7 @@ xmlChar *UkmediaMainWidget::xmlGetAndTrimNames (xmlNodePtr node)
 
             if (cur_lang) {
                 for (j = 0; langs[j]; j++) {
-#ifdef __riscv
                     if (g_str_equal ((const char *) cur_lang, langs[j])) {
-#else
-                    if (g_str_equal (cur_lang, langs[j])) {
-#endif
                         cur_pri = j;
                         break;
                     }
